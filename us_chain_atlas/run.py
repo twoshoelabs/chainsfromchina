@@ -1,0 +1,144 @@
+"""
+The daily pass: for each enabled chain, capture, record, diff.
+
+Idempotent per (chain, day). A chain already `ok` for the date is skipped unless --force, so a
+retry costs the sites nothing for work already done.
+"""
+import json
+from datetime import datetime
+
+from . import capture, db
+from .adapters import REGISTRY, by_id
+from .config import TZ
+from .events import diff
+from .identity import store_key, norm_addr
+
+# A day's count that moves by more than this fraction is not trusted without a second look:
+# the usual cause is a partial page, and a partial page looks exactly like a wave of closures.
+SUSPICIOUS_DELTA = 0.30
+
+
+def today() -> str:
+    return datetime.now(TZ).date().isoformat()
+
+
+def run(chain_id: str | None = None, obs_date: str | None = None, force: bool = False) -> int:
+    """
+    name:      run
+    purpose:   Collect every enabled chain (or one) for a date and derive its events.
+    arguments: chain_id — restrict to one chain; obs_date — defaults to today in US/Eastern;
+               force — re-run chains already recorded ok for the date
+    returns:   process exit code (0 all ok, 1 if any chain failed)
+    effects:   Network I/O, raw files, database writes.
+    other:     Each chain is independent: one chain's failure never aborts the pass, because a
+               day with three chains collected and one missing is far more useful than no day.
+    """
+    obs_date = obs_date or today()
+    con = db.connect()
+    failed = 0
+
+    targets = [by_id(chain_id)] if chain_id else list(REGISTRY)
+    if chain_id and targets[0] is None:
+        print(f"no such chain: {chain_id}")
+        return 2
+
+    for a in targets:
+        if not a.ENABLED:
+            print(f"{a.chain_id:9} skipped — {a.BLOCKED_REASON or 'not enabled'}")
+            continue
+        prev_ok = con.execute(
+            "SELECT 1 FROM runs WHERE chain_id=? AND obs_date=? AND status='ok'",
+            (a.chain_id, obs_date)).fetchone()
+        if prev_ok and not force:
+            print(f"{a.chain_id:9} already ok for {obs_date}; skipping")
+            continue
+
+        db.upsert_chain(con, a)
+        started = datetime.now(TZ).isoformat()
+        cur = con.execute("INSERT INTO runs (obs_date,chain_id,started,status) VALUES (?,?,?,?)",
+                          (obs_date, a.chain_id, started, "failed"))
+        run_id = cur.lastrowid
+        con.commit()
+
+        try:
+            raw = a.fetch_raw()
+            raw_path, raw_sha = capture.save_raw(a.chain_id, obs_date, raw, a.raw_ext)
+            recs = a.parse(raw)
+
+            prev_n = con.execute(
+                "SELECT n_records FROM runs WHERE chain_id=? AND status='ok' AND obs_date<?"
+                " ORDER BY obs_date DESC LIMIT 1", (a.chain_id, obs_date)).fetchone()
+            prev_n = prev_n["n_records"] if prev_n else None
+            delta = (len(recs) - prev_n) if prev_n is not None else None
+
+            if prev_n and abs(delta) / max(prev_n, 1) > SUSPICIOUS_DELTA:
+                con.execute("UPDATE runs SET finished=?,status='suppressed',n_records=?,delta=?,"
+                            "raw_path=?,raw_sha256=?,error=? WHERE run_id=?",
+                            (datetime.now(TZ).isoformat(), len(recs), delta, raw_path, raw_sha,
+                             f"delta {delta} on {prev_n} exceeds {SUSPICIOUS_DELTA:.0%}", run_id))
+                con.commit()
+                print(f"{a.chain_id:9} SUPPRESSED {len(recs)} records (was {prev_n}); raw kept,"
+                      " nothing derived — inspect before forcing")
+                failed += 1
+                continue
+
+            baseline = con.execute(
+                "SELECT 1 FROM runs WHERE chain_id=? AND status='ok' AND obs_date<? LIMIT 1",
+                (a.chain_id, obs_date)).fetchone() is None
+
+            con.execute("DELETE FROM observations WHERE chain_id=? AND obs_date=?",
+                        (a.chain_id, obs_date))
+            for r in recs:
+                con.execute(
+                    "INSERT OR IGNORE INTO observations (obs_date,chain_id,store_key,store_code,"
+                    "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed,run_id)"
+                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    (obs_date, a.chain_id, store_key(r), r.store_code, r.name, r.addr_raw,
+                     norm_addr(r.addr_raw), r.city, r.state, r.zip, r.lat, r.lon,
+                     int(r.trading), int(r.temp_closed), run_id))
+
+            counts = diff(con, a.chain_id, obs_date, a.closure_n_days, baseline)
+            con.execute("UPDATE runs SET finished=?,status='ok',n_records=?,delta=?,raw_path=?,"
+                        "raw_sha256=? WHERE run_id=?",
+                        (datetime.now(TZ).isoformat(), len(recs), delta, raw_path, raw_sha, run_id))
+            con.commit()
+            tail = " ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "no changes"
+            print(f"{a.chain_id:9} ok  {len(recs):4} records  {'(baseline) ' if baseline else ''}{tail}")
+        except Exception as e:                                  # noqa: BLE001 — recorded, not raised
+            con.execute("UPDATE runs SET finished=?,status='failed',error=? WHERE run_id=?",
+                        (datetime.now(TZ).isoformat(), f"{type(e).__name__}: {e}", run_id))
+            con.commit()
+            print(f"{a.chain_id:9} FAILED  {type(e).__name__}: {e}")
+            failed += 1
+
+    return 1 if failed else 0
+
+
+def status():
+    """
+    name:      status
+    purpose:   Print stock, pipeline and last run per chain, including why a chain is missing.
+    arguments: none
+    returns:   None
+    effects:   Reads the database.
+    other:     Blocked chains are listed with their reason. A tracker must show its own holes.
+    """
+    con = db.connect()
+    print(f"{'chain':10} {'open':>5} {'soon':>5} {'closed':>6} {'located':>8}  last run")
+    for a in REGISTRY:
+        row = con.execute(
+            "SELECT SUM(status='active') o, SUM(status='pre_opening') p, SUM(status='closed') c,"
+            " SUM(lat IS NOT NULL AND status='active') loc FROM stores WHERE chain_id=?",
+            (a.chain_id,)).fetchone()
+        last = con.execute(
+            "SELECT obs_date,status,n_records FROM runs WHERE chain_id=? ORDER BY run_id DESC LIMIT 1",
+            (a.chain_id,)).fetchone()
+        if not a.ENABLED and not last:
+            print(f"{a.chain_id:10} {'—':>5} {'—':>5} {'—':>6} {'—':>8}  BLOCKED: {a.BLOCKED_REASON}")
+            continue
+        o, p, c, loc = (row["o"] or 0, row["p"] or 0, row["c"] or 0, row["loc"] or 0)
+        lastdesc = f"{last['obs_date']} {last['status']} ({last['n_records']})" if last else "never"
+        print(f"{a.chain_id:10} {o:5} {p:5} {c:6} {loc:8}  {lastdesc}")
+    ev = con.execute("SELECT event_type, COUNT(*) n FROM events GROUP BY 1 ORDER BY 2 DESC").fetchall()
+    if ev:
+        print("\nevents: " + ", ".join(f"{r['event_type']}={r['n']}" for r in ev))

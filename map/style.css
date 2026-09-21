@@ -1,0 +1,69 @@
+:root{
+  color-scheme: light dark;
+  --paper:#F7F7F5; --surface:#FFFFFF; --ink:#16181C; --ink-2:#4A4F57; --muted:#767C86;
+  --rule:#DFE1DE; --land:#E8EAE6; --land-line:#C9CDC7;
+  --open:#0F7B6C; --soon:#B07500; --closed:#A33A33;
+  --mixue:#C8102E; --chagee:#0F5C4A; --luckin:#2B4FA8; --other:#6B4E9B;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#14161A; --surface:#1C1F24; --ink:#EDEEF0; --ink-2:#B6BBC3; --muted:#868D97;
+    --rule:#2C3037; --land:#242830; --land-line:#39404A;
+    --open:#3FBFA8; --soon:#E0A83C; --closed:#E0736A;
+    --mixue:#F0576E; --chagee:#43B79A; --luckin:#7595E8; --other:#A98BD8;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:15px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+header{padding:28px 24px 8px; max-width:1240px; margin:0 auto}
+h1{margin:0; font-size:26px; letter-spacing:-.01em}
+.sub{margin:6px 0 0; color:var(--ink-2); font-size:14px}
+.wrap{display:flex; gap:24px; padding:16px 24px 48px; max-width:1240px; margin:0 auto; align-items:flex-start}
+main{flex:1 1 auto; min-width:0}
+aside{flex:0 0 300px}
+@media (max-width:900px){ .wrap{flex-direction:column} aside{flex:1 1 auto; width:100%} }
+
+.tally{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
+.chip{
+  display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+  background:var(--surface); border:1px solid var(--rule); border-radius:999px;
+  padding:6px 13px 6px 9px; font-size:13px; color:var(--ink);
+}
+.chip[aria-pressed="false"]{opacity:.38}
+.chip .dot{width:10px; height:10px; border-radius:50%}
+.chip .n{color:var(--muted); font-variant-numeric:tabular-nums}
+
+figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:8px}
+figcaption{color:var(--muted); font-size:12.5px; padding:6px 6px 2px}
+svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cursor:grab}
+svg#map.drag{cursor:grabbing}
+.state{fill:var(--land); stroke:var(--land-line); stroke-width:.6}
+/* No stroke-width here on purpose: a CSS declaration would override the per-dot
+   stroke-width ATTRIBUTE that app.js scales with the view, and the announced-store rings
+   would be drawn 1.6 metres wide, i.e. invisible. */
+.store{cursor:pointer}
+
+aside section{
+  background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:12px 14px; margin-bottom:14px;
+}
+aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+table{width:100%; border-collapse:collapse; font-size:13.5px}
+td{padding:4px 0; border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+td.n{text-align:right; font-variant-numeric:tabular-nums; color:var(--ink-2)}
+td .zh{color:var(--muted); font-size:12px; margin-left:5px}
+.note{margin:0; color:var(--ink-2); font-size:13px}
+ul{margin:0; padding-left:16px; font-size:13px; color:var(--ink-2)}
+li{margin-bottom:7px}
+li b{color:var(--ink); font-weight:600}
+#tip{
+  position:fixed; z-index:9; pointer-events:none; max-width:280px;
+  background:var(--surface); color:var(--ink); border:1px solid var(--rule);
+  border-radius:8px; padding:8px 10px; font-size:13px; box-shadow:0 6px 24px -10px rgba(0,0,0,.4);
+}
+#tip b{display:block}
+#tip .meta{color:var(--muted); font-size:12px; margin-top:3px}

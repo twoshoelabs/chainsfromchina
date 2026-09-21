@@ -1,0 +1,7 @@
+# All collected state lives in US_CHAIN_ATLAS_DATA, never in the repo.
+.venv/
+__pycache__/
+*.pyc
+.env
+us_chain_atlas_data/
+map/data/*.json
