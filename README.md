@@ -201,13 +201,27 @@ Two views, and the difference between them matters:
 
 Drag to pan, scroll to zoom, double-click to reset.
 
+**Alaska and Hawaii are insets**, framed and captioned because their scale is not the mainland's.
+They are not decoration: MINISO has two Hawaii stores — Pearlridge Center in Aiea and Waikele
+Premium Outlets in Waipahu — and before the insets existed they were collected every day,
+projected correctly, and drawn 3,440 km off the left-hand edge of the canvas. Nothing was wrong
+with the data, which is why no test caught it.
+
+Hawaii is also the clearest case of this archive understating a state: Cotti Coffee has a Pearl
+City store that the trade press reported in 2024, and Cotti publishes no first-party US locator,
+so it is not collected. Hawaii's real number is higher than the two shown.
+
+The page now runs `offMapCheck()` on load: any store that falls outside the mapped area and is
+not in an inset is reported in a banner above the map rather than silently vanishing, the same
+way the archive counts stores with no coordinates instead of dropping them.
+
 Dots are drawn **largest chain first**, so the smallest chain ends up on top. This is not
 cosmetic: SVG paints in document order, and the archive's natural order put MINISO's 430 dots
 last, which covered all 11 CHAGEE stores completely — both are mall chains and sit in the same
 malls, so CHAGEE simply could not be found on the map while being collected perfectly. A chain
 with a tenth of the footprint has to win the overlap or it reads as absent.
 
-### Four traps in this page, all of which bit once
+### Five traps in this page, all of which bit once
 
 1. Do not add `stroke-width` to `.store` in CSS. A CSS declaration overrides the presentation
    attribute `app.js` scales with the view, and the announced-store rings get drawn 1.6 metres
@@ -217,7 +231,12 @@ with a tenth of the footprint has to win the overlap or it reads as absent.
    renders three pixels wide. Labels are drawn at 14 units and scaled by a transform instead.
 3. Do not rely on the `hidden` attribute alone for anything given `display` in CSS — an
    element-level `display:flex` beats the UA rule for `[hidden]`.
-4. `scripts/serve_map.py` sends `Cache-Control: no-store` deliberately. Without it the browser
+4. Anything inside an inset `<g>` is already scaled by that group's transform, so dot radii,
+   stroke widths and label scales must be divided back out — otherwise Alaska's dots render a
+   third the size of Ohio's and read as smaller stores rather than as a smaller map. Alaska's
+   Aleutian rings also cross the antimeridian and inflate its bounding box to 2,800 km wide;
+   they are dropped, as printed US maps drop them.
+5. `scripts/serve_map.py` sends `Cache-Control: no-store` deliberately. Without it the browser
    reuses a cached `app.js` after an edit and the page runs the OLD code while the file on disk
    and the file on the wire both look correct — a fix that is present everywhere except in the
    running page.

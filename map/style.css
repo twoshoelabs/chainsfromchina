@@ -134,3 +134,12 @@ li b{color:var(--ink); font-weight:600}
   appearance:none; background:none; border:0; padding:0; font:inherit; color:var(--accent);
   cursor:pointer; text-decoration:underline;
 }
+
+/* Alaska and Hawaii insets: framed and captioned, because their scale is not the mainland's. */
+.insetframe{fill:none; stroke:var(--rule); stroke-dasharray:none}
+.inset .state{stroke-width:0}
+#offmap.warn{
+  margin:8px 6px 0; padding:7px 9px; font-size:12.5px; border-radius:6px;
+  color:var(--ink); background:color-mix(in srgb, var(--soon) 14%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--soon) 45%, var(--rule));
+}

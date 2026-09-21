@@ -34,6 +34,23 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 
 let view, home, mode = 'stores';
 const statePaths = {}, stateLabels = [];
+
+/*
+ * Alaska and Hawaii are drawn as insets, the way every US map does it, because fitting the
+ * view to include them would shrink the lower 48 to a smear. They are NOT optional: MINISO
+ * has two stores in Hawaii, and before these insets existed they were projected to their true
+ * position, drawn correctly, and left permanently outside the viewport — collected every day
+ * and impossible to see. Hawaii matters for this subject in particular.
+ *
+ * Each inset is its own <g> with a transform, so the geometry, the label and the dots inside it
+ * move together and stay honest relative to one another. The scale differs from the mainland's,
+ * which is why each inset is framed and captioned rather than quietly abutted.
+ */
+const INSETS = {
+  AK: { boxW: 0.17, boxH: 0.26, at: [0.012, 0.70] },   // fractions of the CONUS view
+  HI: { boxW: 0.09, boxH: 0.13, at: [0.195, 0.83] },
+};
+const insetGroups = {};
 const hidden = new Set();
 let DATA = null;
 
@@ -46,18 +63,23 @@ async function main() {
   computeBreaks(data.meta.by_state);
 
   const svg = document.getElementById('map');
-  const gLand = el('g'), gLabels = el('g'), gDots = el('g');
-  svg.append(gLand, gLabels, gDots);
+  const gLand = el('g'), gInsets = el('g'), gLabels = el('g'), gDots = el('g');
+  svg.append(gLand, gInsets, gLabels, gDots);
 
   // Outlines. CONUS sets the view; Alaska and Hawaii are drawn but left outside it, because
   // fitting to them would shrink the lower 48 to a smear for the sake of two empty states.
-  const CONUS = f => f.id !== 'AK' && f.id !== 'HI';
+  const CONUS = f => !INSETS[f.id];
   let bb = [Infinity, Infinity, -Infinity, -Infinity];
+  const ownBox = {};
   for (const f of states.features) {
     const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
     let d = '';
     const own = [Infinity, Infinity, -Infinity, -Infinity];
     for (const poly of polys) for (const ring of poly) {
+      // Alaska's Aleutians cross the antimeridian, which inflates its bounding box to 2,800 km
+      // wide and would shrink the inset to nothing. Drop the rings that sit past 180°, as
+      // printed US maps do.
+      if (f.id === 'AK' && ring.reduce((a, p) => a + p[0], 0) / ring.length > 0) continue;
       d += ring.map(([lon, lat], i) => {
         const [x, y] = project(lat, lon);
         own[0] = Math.min(own[0], x); own[1] = Math.min(own[1], y);
@@ -69,6 +91,7 @@ async function main() {
         return (i ? 'L' : 'M') + x.toFixed(0) + ' ' + y.toFixed(0);
       }).join('') + 'Z';
     }
+    ownBox[f.id] = own;
     const p = el('path', { d, class: 'state', 'data-state': f.id });
     const t = el('title');
     t.textContent = f.properties.name;
@@ -92,6 +115,7 @@ async function main() {
       label.dataset.x = ((own[0] + own[2]) / 2).toFixed(0);
       label.dataset.y = ((own[1] + own[3]) / 2).toFixed(0);
       label.textContent = st.open + (st.coming_soon ? '+' + st.coming_soon : '');
+      label.dataset.state = f.id;
       gLabels.append(label);
       stateLabels.push(label);
     }
@@ -100,6 +124,28 @@ async function main() {
   const pad = (bb[2] - bb[0]) * 0.03;
   home = { x: bb[0] - pad, y: bb[1] - pad, w: bb[2] - bb[0] + 2 * pad, h: bb[3] - bb[1] + 2 * pad };
   view = { ...home };
+
+  // Each inset: fit that state's own bounding box into a reserved rectangle of the CONUS view.
+  for (const [id, cfg] of Object.entries(INSETS)) {
+    const own = ownBox[id];
+    if (!own || !isFinite(own[0])) continue;
+    const tw = home.w * cfg.boxW, th = home.h * cfg.boxH;
+    const k = Math.min(tw / (own[2] - own[0]), th / (own[3] - own[1]));
+    const tx = home.x + home.w * cfg.at[0] - own[0] * k;
+    const ty = home.y + home.h * cfg.at[1] - own[1] * k;
+    const g = el('g', { class: 'inset', 'data-state': id, transform: `translate(${tx} ${ty}) scale(${k})` });
+    g.dataset.k = k;
+    insetGroups[id] = g;
+    gInsets.append(g);
+    // The state's own outline and label move into the group so they travel with it.
+    if (statePaths[id]) g.append(statePaths[id]);
+    const frame = el('rect', {
+      class: 'insetframe', x: own[0], y: own[1],
+      width: own[2] - own[0], height: own[3] - own[1],
+    });
+    frame.dataset.k = k;
+    g.insertBefore(frame, g.firstChild);
+  }
 
   // Biggest chain first, so it ends up at the BOTTOM. SVG paints in document order, and the
   // archive's natural order put MINISO's 430 dots last: they covered all 11 CHAGEE stores
@@ -120,8 +166,11 @@ async function main() {
     });
     c.addEventListener('pointerenter', e => showStoreTip(e, s));
     c.addEventListener('pointerleave', hideTip);
-    gDots.append(c);
+    const g = insetGroups[s.state];
+    if (g) { c.dataset.k = g.dataset.k; g.append(c); } else { gDots.append(c); }
   }
+
+  offMapCheck(data);
 
   applyView(svg);
   drawTally(data);
@@ -139,13 +188,43 @@ function applyView(svg) {
   const r = view.w / 170;
   for (const c of svg.querySelectorAll('.store')) {
     const hollow = c.getAttribute('fill') === 'none';
+    // Anything living inside an inset is already scaled by that group's transform, so its own
+    // size is divided back out — otherwise Alaska's dots would be a third the size of Ohio's
+    // and would read as smaller stores rather than as a smaller map.
+    const ik = Number(c.dataset.k) || 1;
     // An announced store reads as an absence of fill, which only works if the ring stays thin.
-    c.setAttribute('r', hollow ? r * 0.92 : r);
-    c.setAttribute('stroke-width', hollow ? r / 3.4 : r / 5);
+    c.setAttribute('r', (hollow ? r * 0.92 : r) / ik);
+    c.setAttribute('stroke-width', (hollow ? r / 3.4 : r / 5) / ik);
   }
   const k = view.w / 42 / 14;          // glyphs are 14 units; scale carries them to map size
   for (const t of stateLabels)
-    t.setAttribute('transform', `translate(${t.dataset.x} ${t.dataset.y}) scale(${k})`);
+    t.setAttribute('transform',
+      `translate(${t.dataset.x} ${t.dataset.y}) scale(${k / (Number(t.dataset.k) || 1)})`);
+  for (const f of svg.querySelectorAll('.insetframe'))
+    f.setAttribute('stroke-width', (view.w / 700) / (Number(f.dataset.k) || 1));
+}
+
+/*
+ * A store the map cannot show must say so. Hawaii spent a day drawn correctly and permanently
+ * outside the viewport, which no test caught because nothing was wrong with the data — so the
+ * page now checks its own coverage and reports anything it failed to place, the same way the
+ * archive counts stores with no coordinates rather than dropping them.
+ */
+function offMapCheck(data) {
+  const off = {};
+  for (const s of data.stores) {
+    if (INSETS[s.state]) continue;
+    const [x, y] = project(s.lat, s.lon);
+    if (x < home.x || x > home.x + home.w || y < home.y || y > home.y + home.h)
+      off[s.state || '(no state)'] = (off[s.state || '(no state)'] || 0) + 1;
+  }
+  const n = Object.values(off).reduce((a, b) => a + b, 0);
+  const box = document.getElementById('offmap');
+  if (!n) { box.hidden = true; return; }
+  box.hidden = false;
+  box.textContent = `${n} store(s) fall outside the mapped area and are not in an inset (` +
+    Object.entries(off).map(([k, v]) => `${k} ${v}`).join(', ') +
+    `). They are counted in every total on this page; the map needs an inset for them.`;
 }
 
 /* ---- the state choropleth ------------------------------------------------------------- */
