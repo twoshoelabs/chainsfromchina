@@ -13,15 +13,25 @@
  * No map library, no tile server, no API key: sixty dots on fifty outlines need none of it, and
  * a page that fetches nothing third-party keeps working when a CDN does not.
  */
-const R = 6370997.0, LAT0 = 45 * Math.PI / 180, LON0 = -100 * Math.PI / 180;
+const R = 6370997.0;
+const MAINLAND = [45, -100];          // the centre the collector keys its cells with (geo.py)
 
-function project(lat, lon) {
+/*
+ * Lambert azimuthal equal-area about a given centre. The mainland uses 45N 100W, matching
+ * geo.py exactly, so a dot on that part of the map and a cell in the database are the same
+ * ground. Each inset uses its OWN centre instead: Guam sits 97 degrees of arc from 45N 100W,
+ * where this projection is still valid but visibly shears anything drawn in it, and an inset
+ * is its own little map anyway — nothing is compared across the frame.
+ */
+function project(lat, lon, centre) {
+  const [c0, l0] = centre || MAINLAND;
+  const lat0 = c0 * Math.PI / 180, lon0 = l0 * Math.PI / 180;
   const phi = lat * Math.PI / 180, lam = lon * Math.PI / 180;
-  const cosc = Math.sin(LAT0) * Math.sin(phi) + Math.cos(LAT0) * Math.cos(phi) * Math.cos(lam - LON0);
+  const cosc = Math.sin(lat0) * Math.sin(phi) + Math.cos(lat0) * Math.cos(phi) * Math.cos(lam - lon0);
   const k = Math.sqrt(Math.max(0, 2 / (1 + cosc)));
   return [
-    R * k * Math.cos(phi) * Math.sin(lam - LON0),
-    -(R * k * (Math.cos(LAT0) * Math.sin(phi) - Math.sin(LAT0) * Math.cos(phi) * Math.cos(lam - LON0))),
+    R * k * Math.cos(phi) * Math.sin(lam - lon0),
+    -(R * k * (Math.cos(lat0) * Math.sin(phi) - Math.sin(lat0) * Math.cos(phi) * Math.cos(lam - lon0))),
   ];
 }
 
@@ -47,9 +57,12 @@ const statePaths = {}, stateLabels = [];
  * which is why each inset is framed and captioned rather than quietly abutted.
  */
 const INSETS = {
-  AK: { boxW: 0.17, boxH: 0.26, at: [0.012, 0.70] },   // fractions of the CONUS view
-  HI: { boxW: 0.09, boxH: 0.13, at: [0.195, 0.83] },
+  AK: { boxW: 0.150, boxH: 0.24, at: [0.010, 0.70], centre: [63, -152] },
+  HI: { boxW: 0.075, boxH: 0.12, at: [0.175, 0.82], centre: [20.6, -157.3] },
+  PR: { boxW: 0.070, boxH: 0.07, at: [0.268, 0.88], centre: [18.2, -66.5] },
+  GU: { boxW: 0.035, boxH: 0.07, at: [0.355, 0.88], centre: [13.45, 144.78] },
 };
+const insetCaptions = [];
 const insetGroups = {};
 const hidden = new Set();
 let DATA = null;
@@ -81,7 +94,7 @@ async function main() {
       // printed US maps do.
       if (f.id === 'AK' && ring.reduce((a, p) => a + p[0], 0) / ring.length > 0) continue;
       d += ring.map(([lon, lat], i) => {
-        const [x, y] = project(lat, lon);
+        const [x, y] = project(lat, lon, INSETS[f.id] && INSETS[f.id].centre);
         own[0] = Math.min(own[0], x); own[1] = Math.min(own[1], y);
         own[2] = Math.max(own[2], x); own[3] = Math.max(own[3], y);
         if (CONUS(f)) {
@@ -145,6 +158,13 @@ async function main() {
     });
     frame.dataset.k = k;
     g.insertBefore(frame, g.firstChild);
+    const cap = el('text', { class: 'icap', x: 0, y: 0, 'font-size': 10 });
+    cap.textContent = id;
+    cap.dataset.x = own[0];
+    cap.dataset.y = own[1];
+    cap.dataset.k = k;
+    g.append(cap);
+    insetCaptions.push(cap);
   }
 
   // Biggest chain first, so it ends up at the BOTTOM. SVG paints in document order, and the
@@ -157,7 +177,8 @@ async function main() {
     (size[b.chain] - size[a.chain]) || a.chain.localeCompare(b.chain));
 
   for (const s of ordered) {
-    const [x, y] = project(s.lat, s.lon);
+    const ins = INSETS[s.state];
+    const [x, y] = project(s.lat, s.lon, ins && ins.centre);
     const open = s.status === 'active';
     const c = el('circle', {
       cx: x.toFixed(0), cy: y.toFixed(0), r: 1, class: 'store', 'data-chain': s.chain,
@@ -202,6 +223,12 @@ function applyView(svg) {
       `translate(${t.dataset.x} ${t.dataset.y}) scale(${k / (Number(t.dataset.k) || 1)})`);
   for (const f of svg.querySelectorAll('.insetframe'))
     f.setAttribute('stroke-width', (view.w / 700) / (Number(f.dataset.k) || 1));
+  const ck = view.w / 78 / 10;
+  for (const c of insetCaptions) {
+    const s2 = ck / (Number(c.dataset.k) || 1);
+    c.setAttribute('transform',
+      `translate(${c.dataset.x} ${c.dataset.y}) scale(${s2}) translate(2 11)`);
+  }
 }
 
 /*

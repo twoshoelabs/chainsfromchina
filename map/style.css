@@ -143,3 +143,4 @@ li b{color:var(--ink); font-weight:600}
   color:var(--ink); background:color-mix(in srgb, var(--soon) 14%, var(--surface));
   border:1px solid color-mix(in srgb, var(--soon) 45%, var(--rule));
 }
+.icap{fill:var(--muted); font-weight:600; letter-spacing:.06em; pointer-events:none}

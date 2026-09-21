@@ -201,7 +201,20 @@ Two views, and the difference between them matters:
 
 Drag to pan, scroll to zoom, double-click to reset.
 
-**Alaska and Hawaii are insets**, framed and captioned because their scale is not the mainland's.
+**Alaska, Hawaii, Puerto Rico and Guam are insets**, framed and captioned because their scale is
+not the mainland's. Each is projected about **its own centre** rather than the mainland's 45N
+100W: Guam sits 97 degrees of arc from that centre, where this projection is still valid but
+visibly shears whatever is drawn in it. An inset is its own small map and nothing is compared
+across the frame, so a local centre costs nothing and keeps the shapes honest. The mainland
+keeps 45N 100W exactly, because that is the centre `geo.py` keys its cells with.
+
+Puerto Rico and Guam hold **no stores yet** — the insets are there so that the first one does not
+have to be discovered the way Hawaii's were. Their geometry comes from Natural Earth 10m,
+vendored into `map/us-states.geojson` alongside the 50 states. The US Virgin Islands, American
+Samoa and the Northern Marianas are *not* covered; `usaddr.py` accepts those codes, so a store in
+one would parse and count correctly and then appear in the off-map banner below, which is the
+signal to add another entry to `INSETS` — a four-line change using the same vendored source.
+
 They are not decoration: MINISO has two Hawaii stores — Pearlridge Center in Aiea and Waikele
 Premium Outlets in Waipahu — and before the insets existed they were collected every day,
 projected correctly, and drawn 3,440 km off the left-hand edge of the canvas. Nothing was wrong
