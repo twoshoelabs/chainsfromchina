@@ -55,11 +55,12 @@ def allowed(url: str) -> bool:
     return rp.can_fetch(USER_AGENT, url)
 
 
-def fetch(url: str, method: str = "GET", **kw) -> requests.Response:
+def fetch(url: str, method: str = "GET", tries: int | None = None, **kw) -> requests.Response:
     """
     name:      fetch
     purpose:   One polite, robots-checked HTTP request with retries.
-    arguments: url, method, plus anything requests accepts (json=, headers=, ...)
+    arguments: url, method, tries (default MAX_RETRIES; probes pass 1 so a dead host costs one
+               attempt), plus anything requests accepts (json=, headers=, ...)
     returns:   requests.Response
     effects:   Sleeps the politeness delay BEFORE the request; network I/O.
     other:     Raises RuntimeError if robots.txt disallows the URL — a refusal is a result,
@@ -68,7 +69,7 @@ def fetch(url: str, method: str = "GET", **kw) -> requests.Response:
     if not allowed(url):
         raise RuntimeError(f"robots.txt disallows {url} for this User-Agent")
     last = None
-    for attempt in range(MAX_RETRIES):
+    for attempt in range(tries or MAX_RETRIES):
         time.sleep(random.uniform(*_delay))
         try:
             r = _session.request(method, url, timeout=REQUEST_TIMEOUT, **kw)

@@ -5,6 +5,7 @@ Idempotent per (chain, day). A chain already `ok` for the date is skipped unless
 retry costs the sites nothing for work already done.
 """
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -164,6 +165,50 @@ def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
         con.commit()
         print(f"{a.chain_id:9} reparsed {len(recs):4} records from {Path(r['raw_path']).name}"
               f"  {' '.join(f'{k}={v}' for k, v in sorted(counts.items())) or 'no changes'}")
+    return 0
+
+
+def recheck(chain_id: str | None = None) -> int:
+    """
+    name:      recheck
+    purpose:   Re-probe the URLs behind each blocked chain and report what they answer now.
+    arguments: chain_id — restrict to one chain
+    returns:   exit code (0 always; this reports, it never decides)
+    effects:   One polite request per URL. Touches nothing in the archive.
+    other:     A BLOCKED_REASON is a fact about a date, not a permanent verdict. ChaPanda has no
+               locator because it has two American shops; Pop Mart's challenge could be relaxed;
+               Tai Er's endpoint could be fixed. Without this, the roster would keep quoting the
+               day somebody gave up. Deliberately dumb: it prints status, size and a guess at
+               whether the response is a bot challenge, and leaves the judgement to a person.
+    """
+    from . import capture
+    # A probe, not a census: short delays, and a dead domain should cost one attempt rather than
+    # three. The nightly pass keeps its own politeness settings; this is a person waiting.
+    capture.set_delay(1, 2)
+    targets = [a for a in REGISTRY
+               if not a.ENABLED and a.RECHECK and (not chain_id or a.chain_id == chain_id)]
+    if not targets:
+        print("nothing to recheck" + (f" for {chain_id}" if chain_id else ""))
+        return 0
+    print(f"re-probing {sum(len(a.RECHECK) for a in targets)} URL(s) for "
+          f"{len(targets)} blocked chain(s)\n")
+    for a in targets:
+        print(f"{a.name} ({a.chain_id})", flush=True)
+        print(f"  was: {a.BLOCKED_REASON}", flush=True)
+        for url in a.RECHECK:
+            try:
+                r = capture.fetch(url, tries=1)
+                body = r.text or ""
+                challenge = bool(re.search(r"challenge-platform|cf-browser-verification|"
+                                           r"just a moment|enable javascript and cookies",
+                                           body, re.I))
+                note = " [bot challenge]" if challenge else ""
+                print(f"  now: {r.status_code} {len(body):>7}B{note}  {url}", flush=True)
+            except Exception as e:                              # noqa: BLE001
+                print(f"  now: FAILED {type(e).__name__}: {str(e)[:70]}  {url}", flush=True)
+        print()
+    print("Nothing here changes the archive. If a page has started publishing stores,"
+          " write the adapter.")
     return 0
 
 

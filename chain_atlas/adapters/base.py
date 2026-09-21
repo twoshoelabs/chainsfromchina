@@ -44,6 +44,10 @@ class Adapter:
     ENABLED: bool = False
     # Why a disabled adapter is disabled, shown by `status` so a gap is never silent.
     BLOCKED_REASON: str | None = None
+    # URLs to re-probe with `recheck`. A blocker is a fact about a date, not a permanent verdict:
+    # ChaPanda has no locator because it has two American shops, and that will change. Without a
+    # periodic re-probe the archive would keep quoting a reason from the day someone gave up.
+    RECHECK: list[str] = []
 
     def fetch_raw(self):
         """

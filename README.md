@@ -280,6 +280,7 @@ collecting for two days in September 2026.
 | `run [--chain X] [--date YYYY-MM-DD] [--force]` | daily pass; idempotent per (chain, day). Chains already `ok` for the date are skipped |
 | `reparse [--chain X] [--date YYYY-MM-DD]` | re-derive a day from the stored raw captures, no network. This is what makes "raw is the primary evidence" a fact: a parser fix is applied to history without re-asking the chains |
 | `status` | stock, pipeline and last run per chain, with the reason for every chain that is not collecting |
+| `recheck [--chain X]` | re-probe the URLs behind each blocked chain and report what they answer now. Touches nothing |
 | `export [--out DIR]` | write `map/data/stores.json` and `events.json` |
 | `probe --chain X` | print one chain's live locator without touching the archive |
 

@@ -20,6 +20,10 @@ def main(argv=None):
         from .run import reparse
         return reparse(chain_id=opt("--chain"), obs_date=opt("--date"))
 
+    if cmd == "recheck":
+        from .run import recheck
+        return recheck(chain_id=opt("--chain"))
+
     if cmd == "status":
         from .run import status
         status()
@@ -72,6 +76,7 @@ def main(argv=None):
     print("  reparse [--chain X] [--date YYYY-MM-DD]                re-derive a day from raw, no network")
     print("  status                                          stock, pipeline, blocked chains")
     print("  export [--out DIR]                              write map/data/*.json")
+    print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
     print("  probe --chain X                                 print one chain's live locator")
     return 0

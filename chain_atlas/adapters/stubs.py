@@ -35,6 +35,7 @@ class PopMartAdapter(Adapter):
     ENABLED = False
     BLOCKED_REASON = ("Cloudflare bot management returns a challenge to non-browser clients in every"
                       " market probed, US and HK (21 Sep 2026)")
+    RECHECK = ["https://www.popmart.com/us/store-list"]
 
 
 class HeyteaAdapter(Adapter):
@@ -75,6 +76,7 @@ class YangsAdapter(Adapter):
     parent, format = "Yang's Braised Chicken Rice", "restaurant"
     ENABLED = False
     BLOCKED_REASON = "trading in the US since 2017; no first-party US locator found yet (21 Sep 2026)"
+    RECHECK = ["https://yangschicken.ca/"]
 
 
 class TaiErAdapter(Adapter):
@@ -125,6 +127,7 @@ class TaiErAdapter(Adapter):
     ENABLED = False
     BLOCKED_REASON = ("in the US; the parent's store endpoint returns plausible counts but repeats"
                       " one Guangzhou record for every row, and is stamped May 2022 (21 Sep 2026)")
+    RECHECK = ["http://en.jiumaojiu.com/store/taier.html"]
 
 
 class HaidilaoAdapter(Adapter):
@@ -142,20 +145,36 @@ class HaidilaoAdapter(Adapter):
     parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "restaurant"
     ENABLED = False
     BLOCKED_REASON = "in the US since 2013; first-party US locator not yet identified (21 Sep 2026)"
+    RECHECK = ["https://www.superhiinternational.com/"]
 
 
 class ChaPandaAdapter(Adapter):
     """
     ChaPanda (茶百道) — entered the US in August 2025, first store in Flushing, Queens.
 
-    The newest arrival on this roster, which makes it the most valuable to start watching early:
-    a chain caught in its first months leaves a complete opening history rather than a partial
-    one. HKEX-listed (2555), 38 overseas stores by end-2025.
+    PROBED 21 SEP 2026: there is nothing to collect yet, and the reason is worth distinguishing
+    from every other blocked chain here. Pop Mart is defended, Tai Er's locator is wrong, Cotti
+    never built one. ChaPanda simply has not grown enough to need one: chapanda.com is a global
+    FRANCHISE-RECRUITMENT site — it sells store formats ("Window stores: 30-45 sqm", "Seating
+    stores: 60-80 sqm") to prospective franchisees and lists no shops at all. No US-facing
+    domain exists (chapandausa.com, chapanda.us, chapandatea.com, chapandaus.com all fail to
+    resolve). chabaidao.com belongs to a Sichuan consulting entity, not the consumer brand.
+
+    THIS IS A TEMPORARY STATE, WHICH IS THE POINT. A chain with one or two American shops has no
+    reason to publish a locator; a chain with thirty does. ChaPanda is the clearest case in the
+    project of a blocker that will expire on its own, which is why `recheck` exists — the
+    interesting moment is the day the locator appears, and nothing but a periodic re-probe will
+    notice it.
+
+    Starting the day it does appear would capture essentially the chain's whole US history,
+    since it has only been here since August 2025.
     """
     chain_id, name, name_zh = "chabaidao", "ChaPanda", "茶百道"
     parent, format = "Sichuan Baicha Baidao (HKEX 2555)", "tea"
     ENABLED = False
-    BLOCKED_REASON = "entered the US Aug 2025; chapanda.com not yet probed for a locator (21 Sep 2026)"
+    BLOCKED_REASON = ("entered the US Aug 2025; too few US stores to publish a locator — the brand"
+                      " site sells franchises, not shops (21 Sep 2026)")
+    RECHECK = ["https://www.chapanda.com/", "https://chapandausa.com/"]
 
 
 class NaixueAdapter(Adapter):
