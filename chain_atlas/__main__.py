@@ -1,5 +1,5 @@
 """
-CLI. `python -m us_chain_atlas <command>`
+CLI. `python -m chain_atlas <command>`
 """
 import sys
 from pathlib import Path

@@ -1,8 +1,18 @@
-# us_chain_atlas — a daily census of Chinese chain locators in the United States
+# chain_atlas — where mainland-China-origin chains are opening
 
-Sibling of `store_atlas` (門市帳), which does the same job for Taiwan. Same shape: one adapter per
-chain, an immutable raw capture per chain per day, observations that are never updated, and
-events derived from the difference between two days.
+Two records of the same subject, kept deliberately apart because they are different kinds of
+claim:
+
+1. **A daily census of US store locators.** One adapter per chain, an immutable raw capture per
+   chain per day, observations that are never updated, and events derived from the difference
+   between two days. Every number has a gzipped capture behind it. Sibling of `store_atlas`
+   (門市帳), which does the same job for Taiwan.
+2. **An international register**, reviewed periodically rather than crawled: which chains have
+   set up in Korea, Japan, Singapore, the UAE, Australia, Canada and Western Europe, how many
+   locations, and when the first one opened. Hand-typed from filings and the trade press, with
+   a source and a confidence on every row.
+
+The project was called `us_chain_atlas` until the register outgrew the name.
 
 **Why it exists.** As of September 2026 nobody publishes a store-level, dated map of
 mainland-China-origin chains in the US. Momentum Works tracks this category well but reports on
@@ -87,11 +97,11 @@ opened. Markets covered: South Korea, Japan, Singapore, the UAE, Australia, Cana
 Europe (UK, France, Germany, Spain, Italy, Netherlands).
 
 ```
-python -m us_chain_atlas register                 # the chain x market matrix, then the detail
-python -m us_chain_atlas register --chain heytea  # one chain
-python -m us_chain_atlas register --market SG     # one market
-python -m us_chain_atlas register --gaps          # pairs nobody has checked
-python -m us_chain_atlas register --stale         # entries not reviewed in 90 days
+python -m chain_atlas register                 # the chain x market matrix, then the detail
+python -m chain_atlas register --chain heytea  # one chain
+python -m chain_atlas register --market SG     # one market
+python -m chain_atlas register --gaps          # pairs nobody has checked
+python -m chain_atlas register --stale         # entries not reviewed in 90 days
 ```
 
 Data lives in hand-edited `register.json`; the page is `map/register.html`.
@@ -132,20 +142,14 @@ typed in by hand. So the schema forces what that implies, and `test_register.py`
 **51 of 96 chain/market pairs have not been checked at all.** They are blank on purpose and
 `--gaps` lists them; an unchecked pair is not an absence.
 
-### A naming problem this creates
-
-The repo is called `us_chain_atlas` and now holds a register covering twelve non-US markets. The
-name is too narrow. Renaming touches the installed LaunchAgent, `.env`, and the data directory,
-so it has not been done unprompted — `chain_atlas` would be the obvious target.
-
 ## Setup
 
 ```
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements.txt
-cp .env.example .env        # set US_CHAIN_ATLAS_DATA and a real mailto in the User-Agent
-.venv/bin/python -m us_chain_atlas run        # first run is the baseline; no openings emitted
-.venv/bin/python -m us_chain_atlas export     # writes map/data/*.json
+cp .env.example .env        # set CHAIN_ATLAS_DATA and a real mailto in the User-Agent
+.venv/bin/python -m chain_atlas run        # first run is the baseline; no openings emitted
+.venv/bin/python -m chain_atlas export     # writes map/data/*.json
 .venv/bin/python scripts/serve_map.py         # http://127.0.0.1:8765/
 ```
 
@@ -155,11 +159,12 @@ collection in September 2026 to a venv whose `python3` symlinked into a Cellar p
 
 ## Scheduling
 
-Installed on this machine (21 Sep 2026) as a user LaunchAgent:
+Installed on this machine (21 Sep 2026) as a user LaunchAgent, relabelled
+`com.dansilver.chain_atlas` when the project was renamed:
 
 ```
-cp scripts/com.dansilver.us_chain_atlas.plist ~/Library/LaunchAgents/
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.us_chain_atlas.plist
+cp scripts/com.dansilver.chain_atlas.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.chain_atlas.plist
 ```
 
 06:00 local, with a **13:30 retry**. The retry is nearly free and is the whole safety net: `run`
@@ -174,17 +179,28 @@ wave of invented closures.
 
 `run_daily.sh` sources `.env` (gitignored — copy `.env.example`), and refuses to start on a
 missing or too-old interpreter with exit 78 rather than silently falling back to system Python.
-Note that `.env` **overrides** the environment, so `US_CHAIN_ATLAS_DATA=... ./scripts/run_daily.sh`
+Note that `.env` **overrides** the environment, so `CHAIN_ATLAS_DATA=... ./scripts/run_daily.sh`
 will not do what it looks like it does; point `.env` at the other archive instead.
 
 Useful afterwards:
 
 ```
-launchctl print gui/$(id -u)/com.dansilver.us_chain_atlas     # state, run count, last exit code
-launchctl kickstart -p gui/$(id -u)/com.dansilver.us_chain_atlas   # run it now
-tail ~/us_chain_atlas_data/logs/daily.log                     # what it did
-launchctl bootout gui/$(id -u)/com.dansilver.us_chain_atlas   # stop it
+launchctl print gui/$(id -u)/com.dansilver.chain_atlas     # state, run count, last exit code
+launchctl kickstart -p gui/$(id -u)/com.dansilver.chain_atlas   # run it now
+tail ~/chain_atlas_data/logs/daily.log                     # what it did
+launchctl bootout gui/$(id -u)/com.dansilver.chain_atlas   # stop it
 ```
+
+### If you rename this project again
+
+It is more than a text substitution, and one step is easy to miss. In order: `launchctl bootout`
+the agent first so nothing fires mid-move; rewrite the code and the `CHAIN_ATLAS_*` environment
+names; move the repo; checkpoint the WAL before moving the archive (`PRAGMA
+wal_checkpoint(TRUNCATE)`) and rename the `.sqlite` with it; **rewrite `runs.raw_path`**, which
+stores absolute paths and silently breaks `reparse` otherwise; rebuild the venv, whose scripts
+carry absolute paths; rewrite `.env`, which is gitignored and so is untouched by any code-wide
+rename; then reinstall the agent under its new label and confirm the old one is gone. Verify with
+a `reparse`, which is the one command that reads the stored paths back.
 
 A note on the interpreter, inherited from the sibling project: build the venv against Homebrew's
 stable `opt` path, never a versioned `Cellar` path. This one resolves through
@@ -221,7 +237,7 @@ collecting for two days in September 2026.
 ## Tests
 
 ```
-US_CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
+CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
 .venv/bin/python tests/test_usaddr.py
 .venv/bin/python tests/test_miniso.py
 .venv/bin/python tests/test_register.py

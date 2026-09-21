@@ -1,5 +1,5 @@
 """
-us_chain_atlas configuration.
+chain_atlas configuration.
 
 Single rule, inherited from the sibling project store_atlas: every byte of collected state
 lives under DATA_DIR. Code lives in git. Moving machines = copy DATA_DIR + clone repo.
@@ -12,18 +12,18 @@ from zoneinfo import ZoneInfo
 # chosen over UTC so that "stores as of the 14th" means what a US reader assumes it means.
 TZ = ZoneInfo("America/New_York")
 
-DATA_DIR = Path(os.environ.get("US_CHAIN_ATLAS_DATA", Path.home() / "us_chain_atlas_data")).expanduser()
-DB_PATH = DATA_DIR / "us_chain_atlas.sqlite"
+DATA_DIR = Path(os.environ.get("CHAIN_ATLAS_DATA", Path.home() / "chain_atlas_data")).expanduser()
+DB_PATH = DATA_DIR / "chain_atlas.sqlite"
 RAW_DIR = DATA_DIR / "raw"          # raw/<chain>/<YYYY-MM-DD>.<ext>.gz — immutable
 LOG_DIR = DATA_DIR / "logs"
 
 USER_AGENT = os.environ.get(
-    "US_CHAIN_ATLAS_UA",
-    "us_chain_atlas/0.1 (+mailto:set-me@example.com; daily first-party locator census)",
+    "CHAIN_ATLAS_UA",
+    "chain_atlas/0.1 (+mailto:set-me@example.com; daily first-party locator census)",
 )
 REQUEST_TIMEOUT = 30
-DELAY_MIN_S = float(os.environ.get("US_CHAIN_ATLAS_DELAY_MIN", 4))
-DELAY_MAX_S = float(os.environ.get("US_CHAIN_ATLAS_DELAY_MAX", 8))
+DELAY_MIN_S = float(os.environ.get("CHAIN_ATLAS_DELAY_MIN", 4))
+DELAY_MAX_S = float(os.environ.get("CHAIN_ATLAS_DELAY_MAX", 8))
 MAX_RETRIES = 3
 
 

@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from us_chain_atlas.usaddr import split_tail  # noqa: E402
+from chain_atlas.usaddr import split_tail  # noqa: E402
 
 CASES = [
     # (address, expected city, state, zip)

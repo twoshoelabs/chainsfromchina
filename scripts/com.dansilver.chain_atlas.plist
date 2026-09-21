@@ -9,21 +9,21 @@
      that failed in the morning are retried. A chain that is down at 06:00 therefore does not
      cost the archive a day, and a day with no collection at all is recorded as a gap rather
      than inferred as a wave of closures.
-     Install: cp scripts/com.dansilver.us_chain_atlas.plist ~/Library/LaunchAgents/
-              launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.us_chain_atlas.plist
-     Remove:  launchctl bootout gui/$(id -u)/com.dansilver.us_chain_atlas -->
+     Install: cp scripts/com.dansilver.chain_atlas.plist ~/Library/LaunchAgents/
+              launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.chain_atlas.plist
+     Remove:  launchctl bootout gui/$(id -u)/com.dansilver.chain_atlas -->
 <plist version="1.0"><dict>
-  <key>Label</key><string>com.dansilver.us_chain_atlas</string>
+  <key>Label</key><string>com.dansilver.chain_atlas</string>
   <key>ProgramArguments</key><array>
     <string>/bin/bash</string>
-    <string>/Users/dansilver/Projects/us_chain_atlas/scripts/run_daily.sh</string>
+    <string>/Users/dansilver/Projects/chain_atlas/scripts/run_daily.sh</string>
   </array>
-  <key>WorkingDirectory</key><string>/Users/dansilver/Projects/us_chain_atlas</string>
+  <key>WorkingDirectory</key><string>/Users/dansilver/Projects/chain_atlas</string>
   <key>StartCalendarInterval</key><array>
     <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>0</integer></dict>
     <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>30</integer></dict>
   </array>
   <key>RunAtLoad</key><false/>
-  <key>StandardOutPath</key><string>/Users/dansilver/us_chain_atlas_data/logs/daily.log</string>
-  <key>StandardErrorPath</key><string>/Users/dansilver/us_chain_atlas_data/logs/daily.log</string>
+  <key>StandardOutPath</key><string>/Users/dansilver/chain_atlas_data/logs/daily.log</string>
+  <key>StandardErrorPath</key><string>/Users/dansilver/chain_atlas_data/logs/daily.log</string>
 </dict></plist>

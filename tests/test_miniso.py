@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from us_chain_atlas.adapters.miniso import MinisoAdapter  # noqa: E402
+from chain_atlas.adapters.miniso import MinisoAdapter  # noqa: E402
 
 RAW = json.loads((Path(__file__).parent / "fixtures" / "miniso_sample.json").read_text())
 

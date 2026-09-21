@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from us_chain_atlas import register  # noqa: E402
+from chain_atlas import register  # noqa: E402
 
 GOOD = {
     "as_of": "2026-09-21",

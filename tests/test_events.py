@@ -4,20 +4,20 @@ project will ever publish is a difference between two days. These tests drive sy
 through it because the interesting cases — a coming_soon flipping to open, a store vanishing
 for exactly N collected days, a cancelled plan — cannot be waited for.
 
-Run: US_CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python -m tests.test_events
+Run: CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python -m tests.test_events
 """
 import os
 import sys
 import tempfile
 from pathlib import Path
 
-os.environ.setdefault("US_CHAIN_ATLAS_DATA", tempfile.mkdtemp(prefix="uca_test_"))
+os.environ.setdefault("CHAIN_ATLAS_DATA", tempfile.mkdtemp(prefix="uca_test_"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from us_chain_atlas import db                       # noqa: E402
-from us_chain_atlas.events import diff              # noqa: E402
-from us_chain_atlas.adapters.base import StoreRecord  # noqa: E402
-from us_chain_atlas.identity import store_key, norm_addr  # noqa: E402
+from chain_atlas import db                       # noqa: E402
+from chain_atlas.events import diff              # noqa: E402
+from chain_atlas.adapters.base import StoreRecord  # noqa: E402
+from chain_atlas.identity import store_key, norm_addr  # noqa: E402
 
 CHAIN = "t"
 N_DAYS = 3

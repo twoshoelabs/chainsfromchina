@@ -9,7 +9,7 @@
     "we did not find a presence, NOT that there is none. Those are different claims and the",
     "register refuses to blur them.",
     "",
-    "Reviewed periodically rather than daily — `python -m us_chain_atlas register --stale` lists",
+    "Reviewed periodically rather than daily — `python -m chain_atlas register --stale` lists",
     "what has not been looked at in 90 days."
   ],
   "as_of": "2026-09-21",

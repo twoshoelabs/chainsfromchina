@@ -9,7 +9,7 @@ if ! "$PY" -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)' 2>/
   echo "$(date -u +%FT%TZ) venv interpreter missing or too old: $PY" >&2
   exit 78
 fi
-"$PY" -m us_chain_atlas run
+"$PY" -m chain_atlas run
 rc=$?
-"$PY" -m us_chain_atlas export
+"$PY" -m chain_atlas export
 exit $rc
