@@ -31,7 +31,7 @@ REGISTRY: list[Adapter] = [
     LuckinAdapter(),    # validated live 21 Sep 2026; 22 stores, no coordinates, 1 request
     MinisoAdapter(),    # validated live 21 Sep 2026; 462 CMS rows -> ~425 stores, 2 requests
     MinisoUAEAdapter(), # validated live 21 Sep 2026; first non-US market, 7 emirate pages
-    HaidilaoUSAdapter(),# SUPPLIED not collected — 15 stores handed over 21 Sep 2026
+    HaidilaoUSAdapter(),# validated live 21 Sep 2026; 15 US restaurants with coordinates
     PopMartAdapter(),   # blocked — see stubs.py
     HeyteaAdapter(),    # blocked — see stubs.py
     CottiAdapter(),     # blocked — see stubs.py

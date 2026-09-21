@@ -1,38 +1,45 @@
 """
-Haidilao US (海底捞) — SUPPLIED, NOT COLLECTED.
+Haidilao US (海底捞) — https://www.haidilao-inc.com/us/serve/storeSearch
 
-Fifteen US restaurants, handed over by the project operator on 21 Sep 2026 from a Haidilao US
-store list whose URL was not recorded. Everything else in this archive can show you a gzipped
-capture of the page it came from. This cannot, and the distinction is carried in the data rather
-than left to a reader's memory: `PROVENANCE = "supplied"`, surfaced by `status`, by the chip on
-the map, and in the chain metadata the pages read.
+The longest-established mainland chain in America: first restaurant Arcadia, Los Angeles, 2013.
 
-WHY IT IS HERE ANYWAY. Haidilao is the longest-established mainland chain in America — Arcadia,
-Los Angeles, 2013 — and the alternative was a greyed-out chip reading "13, no locations
-published". Fifteen dated, attributed, address-level records beat that, provided nobody is
-allowed to mistake them for a daily series.
+ENDPOINT.
 
-WHAT IT ALREADY PROVED. Super Hi International's own country endpoint says 13 US restaurants in
-8 cities. This list has 15, across 15 distinct cities. The company's published summary understates
-its own estate — which is the first hard corroboration result this project has produced, and it
-points the opposite way to the usual worry: the risk was never only that a locator overcounts.
+    GET https://www.haidilao-inc.com/us/eportal/store/listObjByPosition
+        ?longitude=<lon>&latitude=<lat>&mapType=1&country=US&language=en-US
 
-WHAT IT CANNOT DO. It cannot be re-fetched, so it cannot be diffed tomorrow. Re-running writes
-identical rows; the diff engine will report no change, and that silence means "nobody looked",
-not "nothing moved". The moment the source URL is known this file should be replaced by a real
-adapter against it, and this one deleted.
+One request for the whole US estate, with coordinates, a stable per-store id, phone and hours.
+The lat/lon are a SORT ORIGIN, not a filter: the same fifteen stores and the same id set come
+back from Taiwan, Kansas or New York, only the `distance` field changes. Verified from three
+origins before this adapter was written, because an endpoint that silently returned "nearest N"
+would have quietly truncated the estate the day it grew past N.
 
-No coordinates are published in the source, so these restaurants are counted and state-mapped —
-WA 3, CA 7, AZ 1, IL 1, TX 2, NY 1 — but not drawn, exactly like Luckin's New York estate.
+WHY IT TOOK SO LONG TO FIND, recorded so the next hunt is shorter. The obvious hosts are all
+decoys: haidilao.com serves only Greater China whatever country parameter is passed (1,493
+stores, countryId CN/HK/MO/TW); superhiinternational.com, the listed overseas arm, publishes
+country SUMMARIES at /eportal/earth/list and no store list at all; haidilao.us, hdlus.com and
+haidilaousa.com do not resolve. The US estate lives on a third domain, haidilao-inc.com, under a
+market path — and the same shape serves other markets (/sg/ returns 15 Singapore restaurants),
+so this is a template for Haidilao's other countries whenever they are wanted.
+
+WHAT IT CORRECTED. Super Hi's own country endpoint reports 13 US restaurants in 8 cities. This
+locator lists 15, in 15 distinct cities. A company's published summary of itself was the less
+accurate of its two first-party sources, which is worth remembering the next time a round number
+in an annual report looks like corroboration.
+
+LEGAL: robots.txt returns 404 on this host, i.e. no restriction. One request a day.
 """
 import json
-from pathlib import Path
 
 from .base import Adapter, StoreRecord
+from .. import capture
 from ..usaddr import split_tail
 
-DATA = Path(__file__).resolve().parents[2] / "manual" / "haidilao_us.json"
-EXPECTED_MIN = 10
+# A sort origin near the geographic centre of the US. Any origin returns the same set; this one
+# at least makes the `distance` field mean something to a reader of the raw capture.
+ENDPOINT = ("https://www.haidilao-inc.com/us/eportal/store/listObjByPosition"
+            "?longitude=-98.6&latitude=39.8&mapType=1&country=US&language=en-US")
+EXPECTED_MIN = 8
 
 
 class HaidilaoUSAdapter(Adapter):
@@ -42,34 +49,47 @@ class HaidilaoUSAdapter(Adapter):
     register_chain = "haidilao"
     closure_n_days = 7
     ENABLED = True
-    PROVENANCE = "supplied"
-    KNOWN_COUNT = {"stores": 15, "detail": "supplied 2026-09-21, not re-collected",
-                   "as_of": "2026-09-21", "source": "handed over by the project operator"}
 
     def fetch_raw(self):
-        """Reads the supplied file. No network: there is nothing to ask."""
-        raw = json.loads(DATA.read_text(encoding="utf-8"))
+        r = capture.fetch(ENDPOINT)
+        raw = r.text
+        rows = (json.loads(raw) or {}).get("value") or []
+        foreign = {s.get("countryId") for s in rows} - {"US"}
+        if foreign:
+            raise RuntimeError(f"Haidilao US returned non-US rows ({sorted(foreign)}); the market"
+                               " path has changed — refusing rather than filing them as American")
         recs = self.parse(raw)
         if len(recs) < EXPECTED_MIN:
-            raise RuntimeError(f"only {len(recs)} supplied Haidilao US rows"
-                               f" (expected >= {EXPECTED_MIN}); refusing a truncated file")
+            raise RuntimeError(f"only {len(recs)} Haidilao US restaurants"
+                               f" (expected >= {EXPECTED_MIN}); refusing a partial footprint")
         return raw
 
     def parse(self, raw) -> list[StoreRecord]:
         d = json.loads(raw) if isinstance(raw, (str, bytes)) else raw
         out = []
-        for r in d.get("stores", []):
-            addr = (r.get("address") or "").strip()
+        for s in (d.get("value") or []):
+            # isDisplay is the chain's own "show this on the locator" flag. A hidden row is not
+            # evidence of a closure, so it is skipped rather than recorded as absent.
+            if s.get("isDisplay") == 0:
+                continue
+            addr = (s.get("storeAddress") or "").strip()
             city, state, zc = split_tail(addr)
+            lat, lon = s.get("latitude"), s.get("longitude")
             out.append(StoreRecord(
-                store_code=None, name=r.get("name"), addr_raw=addr,
-                city=city, state=state, zip=zc, lat=None, lon=None, trading=True,
-                flags={"phone": r.get("phone"), "hours": r.get("hours"),
-                       "provenance": "supplied"}))
+                store_code=s.get("storeId"), name=s.get("storeName"), addr_raw=addr,
+                city=city, state=state, zip=zc,
+                lat=float(lat) if lat not in (None, "") else None,
+                lon=float(lon) if lon not in (None, "") else None,
+                # openStatus 0 means the chain is not currently trading there.
+                trading=(s.get("openStatus") != 0),
+                flags={"phone": s.get("storeTelephone"), "hours": s.get("openTime"),
+                       "open_status": s.get("openStatus")}))
         return out
 
 
 def probe():
     a = HaidilaoUSAdapter()
-    for r in a.parse(a.fetch_raw()):
-        print(f"  {r.name[:34]:36} {str(r.city):18} {str(r.state)}")
+    recs = a.parse(a.fetch_raw())
+    print(f"  {len(recs)} restaurants")
+    for r in recs:
+        print(f"    {str(r.name)[:32]:34} {str(r.city):18} {str(r.state):3} {r.lat},{r.lon}")
