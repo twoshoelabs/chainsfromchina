@@ -81,19 +81,50 @@ class TaiErAdapter(Adapter):
     """
     Tai Er (太二) — the pickled-cabbage-fish chain of Jiumaojiu (HKEX 9922), trading in the US.
 
-    Unlike most of this roster, its parent is listed and discloses: 31 restaurants outside China
-    at H1 2025, up from 22, across Canada, Indonesia, Malaysia, Singapore, Thailand and the US.
-    That makes it the best corroboration target in the project — a locator count checkable against
-    a filing.
+    INVESTIGATED IN FULL ON 21 SEP 2026, AND THE ANSWER IS NO. Recorded in detail because the
+    failure is instructive and because the next person should not have to re-derive any of it.
 
-    Promising lead, not yet parsed: en.jiumaojiu.com/store/taier.html answered 200 on
-    21 Sep 2026 with store-shaped markup in it. It needs a proper look to see whether the US
-    restaurants are listed there and in what form.
+    The lead was real. The parent's English site has a store finder at
+    en.jiumaojiu.com/store/taier.html, backed by:
+
+        POST http://en.jiumaojiu.com/AjaxAction/store.ashx?action=list
+        nodecode=126005002002   the Tai Er brand node
+        page=1, s=100           `s` is the PAGE SIZE, not a search string — sending it empty
+                                returns zero rows with a success status, which is how this looks
+                                like a dead endpoint when it is really a misuse of it
+        area=100000010754661    United States   (New York 100000010797299,
+                                China 100000010775853, Guangdong 100000010716265,
+                                Beijing 100000010789915)
+
+    It answers, it answers quickly, and its counts look right: 12 stores in total, 5 of them in
+    the United States. Every single record it returns is the same restaurant — "TAI ER Suancai &
+    Fish Guangzhou Grandview Plaza Branch", the same address, the same Google Maps URL, repeated
+    as many times as the count demands. Filter to the United States and it returns five copies of
+    a Guangzhou restaurant.
+
+    So the endpoint carries a plausible COUNT and worthless RECORDS. An adapter written against
+    it without reading the rows would have reported "12 Tai Er stores, 5 in the US" — a
+    well-formed, plausible, entirely wrong answer that would have sat in the archive looking
+    exactly like every correct number beside it. A locator that is blocked costs a chain; a
+    locator that lies costs the archive's credibility.
+
+    The page is also stamped "Updated: May 1, 2022", so even the counts are four years stale —
+    and the company's own filings say 31 restaurants outside China at H1 2025, which this page
+    does not reflect. taier.net, the brand site, has no US content at all.
+
+    NEXT: nothing first-party is available. Tai Er will need either the app's store API, or a
+    corroborated reconstruction from several third-party sources, which is a different kind of
+    product and should be a deliberate decision rather than a quiet fallback. Its parent still
+    discloses overseas counts twice a year, which remains the best check on whatever is built.
+
+    LEGAL: robots.txt returns 404 on both jiumaojiu.com and en.jiumaojiu.com, i.e. no
+    restriction. The endpoint was queried a handful of times at probe rates, not crawled.
     """
     chain_id, name, name_zh = "taier", "Tai Er", "太二"
     parent, format = "Jiumaojiu International (HKEX 9922)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = "trading in the US; parent's store page is a promising unparsed lead (21 Sep 2026)"
+    BLOCKED_REASON = ("in the US; the parent's store endpoint returns plausible counts but repeats"
+                      " one Guangzhou record for every row, and is stamped May 2022 (21 Sep 2026)")
 
 
 class HaidilaoAdapter(Adapter):
