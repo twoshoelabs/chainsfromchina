@@ -30,8 +30,13 @@ class HeyteaAdapter(Adapter):
     chain_id, name, name_zh = "heytea", "HEYTEA", "喜茶"
     parent, format = "Heytea (Shenzhen Meixixi)", "tea"
     ENABLED = False
+    # 22 Sep 2026: POST /api/v1/page {"key":"stores","region":"us","lang":"en","platform":"web"}
+    # returns exactly 13 stores in four tiers (heytea / lab / teabar / craft) across Hong Kong,
+    # Bangkok, New York and Guangzhou — a curated showcase of signature stores, no coordinates,
+    # not a US roster. Passing region=us does not localise it. The verdict is unchanged.
     BLOCKED_REASON = ("site's /api/v1/page key=stores is a 13-store global showcase, not a US"
-                      " locator; no US subdomain resolves (21 Sep 2026)")
+                      " locator; region=us does not localise it; no US subdomain resolves"
+                      " (re-confirmed 22 Sep 2026)")
     RECHECK = ["https://www.heytea.com/en-us/store"]
 
 
@@ -147,8 +152,13 @@ class TaiErAdapter(Adapter):
     name_us = "Tai Er Sichuan Cuisine"
     parent, format = "Jiumaojiu International (HKEX 9922)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("in the US; the parent's store endpoint returns plausible counts but repeats"
-                      " one Guangzhou record for every row, and is stamped May 2022 (21 Sep 2026)")
+    # 22 Sep 2026: the store page posts to /AjaxAction/store.ashx?action=list with a
+    # nodecode=126005001002 filter. It answers {"status":1,"count":1} — a single record,
+    # the Guangzhou Grandview Plaza flagship, for any page/area/keys. The international
+    # site simply does not carry the US estate; there is no US endpoint to read here.
+    BLOCKED_REASON = ("in the US; the parent's international store endpoint"
+                      " (/AjaxAction/store.ashx) returns a single Guangzhou flagship, not the"
+                      " US estate (re-confirmed 22 Sep 2026)")
     RECHECK = ["http://en.jiumaojiu.com/store/taier.html"]
 
 
@@ -296,7 +306,14 @@ class CottiAdapter(Adapter):
     chain_id, name, name_zh = "cotti", "Cotti Coffee", "库迪咖啡"
     parent, format = "Cotti Coffee", "coffee"
     ENABLED = False
-    BLOCKED_REASON = ("a US store finder exists (mobile.us.cotticoffee.global, Flutter) but opens"
-                      " on a Terms and Conditions gate this project will not accept for you"
-                      " (21 Sep 2026)")
+    # 22 Sep 2026: the Flutter bundle names its gateway and its endpoints. The US store list
+    # is POST /cotti-capi/shop/searchShopList on gateway.us.cotticoffee.global, and it
+    # answers 200 with {"code":401,"message":"MD5 signature cannot be verified"}. It is a
+    # SIGNED endpoint, not a terms gate: reading it means forging the app's request
+    # signature, which is defeating an access control. That is a firmer no than before,
+    # not a softer one — the door is not merely inconvenient, it is locked.
+    BLOCKED_REASON = ("US store list is POST /cotti-capi/shop/searchShopList on"
+                      " gateway.us.cotticoffee.global; it requires the app's MD5 request"
+                      " signature (returns 401 \"MD5 signature cannot be verified\"), an"
+                      " access control this project will not forge (22 Sep 2026)")
     RECHECK = ["https://mobile.us.cotticoffee.global/?cnty=US", "https://www.cotticoffee.global/"]
