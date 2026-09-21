@@ -55,6 +55,47 @@ class HeyteaAdapter(Adapter):
     BLOCKED_REASON = "site's /api/v1/page key=stores is a 13-store global showcase, not a US locator (21 Sep 2026)"
 
 
+class YangsAdapter(Adapter):
+    """
+    Yang's Braised Chicken Rice (杨铭宇黄焖鸡) — trading in the US since September 2017.
+
+    In the archive because it is HERE, not because it is easy. It opened in Tustin, California in
+    2017, franchised through Orange County and beyond, and the trade press counts roughly a
+    hundred locations across the US, Australia, Japan and Singapore — making it one of the
+    earliest and least-covered mainland chains in America, operating for eight years while the
+    attention went to the tea shops that arrived in 2023.
+
+    No first-party US locator has been identified. The franchise network appears to run through
+    individual operators, and yangsbraisedchickenrice.com did not resolve when probed on
+    21 Sep 2026. Next step is to find whether a national franchisor page exists; if it does not,
+    this becomes the first chain here that needs a corroborated multi-source count rather than a
+    single locator read.
+    """
+    chain_id, name, name_zh = "yangs", "Yang's Braised Chicken Rice", "杨铭宇黄焖鸡"
+    parent, format = "Yang's Braised Chicken Rice", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = "trading in the US since 2017; no first-party US locator found yet (21 Sep 2026)"
+
+
+class TaiErAdapter(Adapter):
+    """
+    Tai Er (太二) — the pickled-cabbage-fish chain of Jiumaojiu (HKEX 9922), trading in the US.
+
+    Unlike most of this roster, its parent is listed and discloses: 31 restaurants outside China
+    at H1 2025, up from 22, across Canada, Indonesia, Malaysia, Singapore, Thailand and the US.
+    That makes it the best corroboration target in the project — a locator count checkable against
+    a filing.
+
+    Promising lead, not yet parsed: en.jiumaojiu.com/store/taier.html answered 200 on
+    21 Sep 2026 with store-shaped markup in it. It needs a proper look to see whether the US
+    restaurants are listed there and in what form.
+    """
+    chain_id, name, name_zh = "taier", "Tai Er", "太二"
+    parent, format = "Jiumaojiu International (HKEX 9922)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = "trading in the US; parent's store page is a promising unparsed lead (21 Sep 2026)"
+
+
 class CottiAdapter(Adapter):
     """
     Cotti Coffee US — no first-party US locator found.

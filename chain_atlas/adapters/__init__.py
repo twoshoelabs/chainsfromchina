@@ -4,7 +4,13 @@ Adapter registry. Add a module per chain and list it in REGISTRY.
 Scope, and it is a judgement this project makes explicitly: mainland-China-origin chains,
 collected market by market. The archive began with the United States and the map still reads
 only US rows, but one adapter covers one market — MINISO's US and UAE estates are published by
-different sites in different shapes, so they are two adapters and two chain_ids, never one. Taiwanese and Hong Kong brands (Tiger Sugar, The Alley,
+different sites in different shapes, so they are two adapters and two chain_ids, never one.
+
+A chain earns a place on this roster by TRADING in a market the project covers — never by being
+convenient to collect. Chains with no usable locator stay here as disabled adapters carrying the
+reason, so `status` shows the shape of the category rather than the shape of what happened to be
+scrapable. Yang's Braised Chicken has been in America since 2017 and is the clearest case: eight
+years of trading, no locator, and it would have been invisible under any other rule. Taiwanese and Hong Kong brands (Tiger Sugar, The Alley,
 Gong Cha) are a different and earlier wave and are not in scope; Asian grocers such as
 99 Ranch and H Mart sell Chinese products but are not Chinese chains, and including them
 would answer a question nobody asked.
@@ -15,7 +21,7 @@ from .chagee import ChageeAdapter
 from .luckin import LuckinAdapter
 from .miniso import MinisoAdapter
 from .miniso_ae import MinisoUAEAdapter
-from .stubs import PopMartAdapter, HeyteaAdapter, CottiAdapter
+from .stubs import PopMartAdapter, HeyteaAdapter, CottiAdapter, YangsAdapter, TaiErAdapter
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -26,6 +32,8 @@ REGISTRY: list[Adapter] = [
     PopMartAdapter(),   # blocked — see stubs.py
     HeyteaAdapter(),    # blocked — see stubs.py
     CottiAdapter(),     # blocked — see stubs.py
+    YangsAdapter(),     # in the US since 2017, no locator found — see stubs.py
+    TaiErAdapter(),     # in the US, parent discloses counts — see stubs.py
 ]
 
 

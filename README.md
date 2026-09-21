@@ -23,9 +23,18 @@ is a daily series, which cannot be bought later because nobody is keeping it.
 
 ## Scope
 
-Mainland-China-origin chains trading in the United States. Taiwanese and Hong Kong brands
-(Tiger Sugar, The Alley, Gong Cha) are an earlier and different wave and are out of scope.
-Asian grocers such as 99 Ranch and H Mart sell Chinese products but are not Chinese chains.
+Mainland-China-origin chains, in any market this project covers. Taiwanese and Hong Kong brands
+(Tiger Sugar, The Alley, Gong Cha) are an earlier and different wave and are out of scope as
+*origins*. Asian grocers such as 99 Ranch and H Mart sell Chinese products but are not Chinese
+chains. Hong Kong is out of scope as an origin and in scope as a *destination* — the two are
+different axes.
+
+**Collectability is not a test for inclusion.** A chain earns its place by trading in a covered
+market; whether we can read its locator decides the *method*, never the membership. Chains with
+no usable source stay on the roster as disabled adapters or hand-typed register rows, carrying
+the reason, so `status` and the register show the shape of the category rather than the shape of
+what happened to be scrapable. The clearest case is Yang's Braised Chicken Rice: trading in
+America since 2017, no locator anyone has found, and invisible under any other rule.
 
 ## State of the collection — 21 September 2026
 

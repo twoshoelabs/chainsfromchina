@@ -9,6 +9,15 @@
   "we did not find a presence, NOT that there is none. Those are different claims and the",
   "register refuses to blur them.",
   "",
+  "WHAT GETS A ROW. Two tests, and only two: the chain originates in mainland China, and there is",
+  "evidence it trades in a market this project covers. Whether we can COLLECT it is not a test.",
+  "A register that admitted only the chains with a convenient locator would describe the subset",
+  "that is easy to scrape and call it the world — and it would quietly drop Pop Mart, Cotti and",
+  "Yang's Braised Chicken, which are among the most interesting entries in it. Collectability",
+  "decides the METHOD (a daily adapter, or a hand-typed row with its reason recorded), never the",
+  "membership. Size in China is not a test either: a chain with 20,000 domestic stores and no",
+  "foreign shopfront belongs to a different subject.",
+  "",
   "ORIGIN AND DESTINATION ARE DIFFERENT AXES, which is what lets Hong Kong sit in this list.",
   "The project collects chains that ORIGINATE in mainland China; Taiwanese and Hong Kong brands",
   "are out of scope as origins. Hong Kong as a DESTINATION is another matter: it is part of",
@@ -124,6 +133,36 @@
    "name_zh": "海底捞",
    "format": "restaurant",
    "global": "overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs roughly 120-125 restaurants outside Greater China"
+  },
+  "yangs": {
+   "name": "Yang's Braised Chicken Rice",
+   "name_zh": "杨铭宇黄焖鸡",
+   "format": "restaurant",
+   "global": "6,000+ locations, overwhelmingly in China; abroad since 2017"
+  },
+  "taier": {
+   "name": "Tai Er",
+   "name_zh": "太二",
+   "format": "restaurant",
+   "global": "482 Tai Er outlets at March 2026; parent Jiumaojiu (HKEX 9922) ran 31 restaurants outside China at H1 2025, up from 22"
+  },
+  "juewei": {
+   "name": "Juewei",
+   "name_zh": "绝味鸭脖",
+   "format": "snack",
+   "global": "16,000+ outlets; trades as King of Braise in Singapore"
+  },
+  "nayuki": {
+   "name": "Naixue",
+   "name_zh": "奈雪的茶",
+   "format": "tea",
+   "global": "HKEX 2150; rebranded from Nayuki to Naixue"
+  },
+  "chabaidao": {
+   "name": "ChaPanda",
+   "name_zh": "茶百道",
+   "format": "tea",
+   "global": "HKEX 2555; trades as ChaPanda in English"
   }
  },
  "entries": [
@@ -864,6 +903,238 @@
    "note": "See the UK note — combined figure.",
    "sources": [
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
+   ]
+  },
+  {
+   "chain": "yangs",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Named among the markets the chain reached alongside Japan and Singapore. No count or date published per market.",
+   "sources": [
+    "https://www.qsrmagazine.com/news/6000-unit-yang-s-braised-chicken-rice-debuting-us/",
+    "https://www.qsrmagazine.com/news/yang-s-braised-chicken-rice-looks-expand-california/"
+   ]
+  },
+  {
+   "chain": "yangs",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "As above.",
+   "sources": [
+    "https://www.qsrmagazine.com/news/6000-unit-yang-s-braised-chicken-rice-debuting-us/",
+    "https://www.qsrmagazine.com/news/yang-s-braised-chicken-rice-looks-expand-california/"
+   ]
+  },
+  {
+   "chain": "yangs",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "As above.",
+   "sources": [
+    "https://www.qsrmagazine.com/news/6000-unit-yang-s-braised-chicken-rice-debuting-us/",
+    "https://www.qsrmagazine.com/news/yang-s-braised-chicken-rice-looks-expand-california/"
+   ]
+  },
+  {
+   "chain": "yangs",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-21",
+   "note": "A Canadian site (yangschicken.ca) exists and franchise interest from Canada was reported, but the site did not resolve when probed on 21 Sep 2026. A domain is not a shop — recorded as low confidence until a store is confirmed.",
+   "sources": [
+    "https://yangschicken.ca/"
+   ]
+  },
+  {
+   "chain": "taier",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Singapore and Malaysia hold roughly half of the parent's overseas restaurants. The group reported 31 restaurants outside China at H1 2025, up from 22 — a company-wide figure, so no per-market count is recorded here.",
+   "sources": [
+    "https://www.seafoodsource.com/news/business-finance/chinese-restaurant-group-jiumaojiu-counting-on-international-performance-as-domestic-slump-continues"
+   ]
+  },
+  {
+   "chain": "taier",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Canada named among Tai Er's operating markets. No per-market count published.",
+   "sources": [
+    "https://www.seafoodsource.com/news/business-finance/chinese-restaurant-group-jiumaojiu-counting-on-international-performance-as-domestic-slump-continues"
+   ]
+  },
+  {
+   "chain": "juewei",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Entered Singapore in 2017 and trades there as King of Braise, which matters for any future locator work: the Chinese and English brands do not share a name.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
+    "https://www.juewei.com.sg/"
+   ]
+  },
+  {
+   "chain": "juewei",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Presence reported alongside Singapore.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
+    "https://www.juewei.com.sg/"
+   ]
+  },
+  {
+   "chain": "juewei",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-21",
+   "note": "Named in a list of markets entered or targeted; not separately confirmed.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
+    "https://www.juewei.com.sg/"
+   ]
+  },
+  {
+   "chain": "juewei",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-21",
+   "note": "Named in a list of markets entered or targeted; not separately confirmed.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
+    "https://www.juewei.com.sg/"
+   ]
+  },
+  {
+   "chain": "nayuki",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2020-06",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-21",
+   "note": "First Japanese cafe at Zero Gate, Osaka.",
+   "sources": [
+    "https://insideretail.asia/2020/06/25/chinese-tea-chain-nayuki-launches-in-japan/"
+   ]
+  },
+  {
+   "chain": "nayuki",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2018-12",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-21",
+   "note": "The register's THIRD retreat-and-return, after CHAGEE in Singapore and HEYTEA in Hong Kong. Opened at VivoCity in December 2018; those outlets were later taken over by BreadTalk brands; the brand re-entered as Naixue at Jewel Changi Airport in July 2024. Same market, same company, two separate attempts.",
+   "sources": [
+    "https://danielfooddiary.com/2018/12/05/nayuki/",
+    "https://mothership.sg/2024/07/naixue-jewel-singapore-nayuki/"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "KR",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "South Korea was deliberately ChaPanda's FIRST overseas market, chosen over Southeast Asia as the harder test. Reported as 7 of its 13 overseas stores, in a report whose date this register has not established — so the breakdown stays in this note and not in the count field.",
+   "sources": [
+    "https://eu.36kr.com/en/p/3101137890561798"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-21",
+   "note": "Reported as 2 of 13 overseas stores; see the Korea note on why that is not recorded as a count.",
+   "sources": [
+    "https://eu.36kr.com/en/p/3101137890561798"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-21",
+   "note": "Entry into Singapore reported; not confirmed against a first-party source.",
+   "sources": [
+    "https://www.rli.uk.com/chapanda-enters-singapore/"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-21",
+   "note": "Entry into Hong Kong reported in market coverage; not confirmed against a first-party source.",
+   "sources": [
+    "https://news.futunn.com/en/post/48783500/stock-price-soared-by-80-chabaida-enters-hong-kong-market"
    ]
   }
  ]
