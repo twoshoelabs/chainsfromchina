@@ -25,6 +25,14 @@ CASES = [
     ("3390 South State Street, South Salt Lake, UT 84115", "South Salt Lake", "UT", "84115"),
     ("178 Harvard Street, Brookline, MA 02446", "Brookline", "MA", "02446"),
     ("1 Main St, Washington, DC 20001", "Washington", "DC", "20001"),
+    # POP MART writes the state out in full as often as it abbreviates, and hangs the suite
+    # number off the END, after the postcode.
+    ("American Dream Mall, 1 American Dream Way, East Rutherford, NJ 07073, Space D230",
+     "East Rutherford", "NJ", "07073"),
+    ("5220 Fashion Outlets Way space 1089, Rosemont, Illinois 60018", "Rosemont", "IL", "60018"),
+    ("13350 Dallas Parkway, Suite 3475, Dallas, Texas 75240", "Dallas", "TX", "75240"),
+    ("6191 S State Street, Ste C292, Murray, Utah 84107", "Murray", "UT", "84107"),
+    ("5000 S Arizona Mills Circle, Suite 537, Tempe, Arizona 85282", "Tempe", "AZ", "85282"),
     ("500 Ala Moana Blvd, Honolulu, HI 96813-1234", "Honolulu", "HI", "96813"),
     # A ZIP+4 keeps only the five-digit ZIP, above. Below: nothing to read.
     ("no address at all", None, None, None),
@@ -42,11 +50,22 @@ NEGATIVE = [
 
 def main():
     fails = []
+    # A state name inside a street must not be mistaken for the state. "6191 S State Street,
+    # Murray, Utah" has to resolve to UT, and an address in "Washington Ave, Dallas, Texas"
+    # must not resolve to WA.
+    CONFUSABLE = [("100 Washington Ave, Dallas, Texas 75201", "TX"),
+                  ("1 Indiana Ave, Los Angeles, CA 90063", "CA")]
     for addr, city, st, zc in CASES:
         got = split_tail(addr)
         ok = got == (city, st, zc)
         print(f"  {'PASS' if ok else 'FAIL'}  {got}" + ("" if ok else f" want {(city, st, zc)}") +
               f"   <- {addr!r}")
+        if not ok:
+            fails.append(addr)
+    for addr, want_state in CONFUSABLE:
+        got = split_tail(addr)[1]
+        ok = got == want_state
+        print(f"  {'PASS' if ok else 'FAIL'}  street named after a state -> {got}   <- {addr!r}")
         if not ok:
             fails.append(addr)
     for addr in NEGATIVE:

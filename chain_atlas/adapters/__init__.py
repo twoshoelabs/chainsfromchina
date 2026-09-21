@@ -22,7 +22,8 @@ from .luckin import LuckinAdapter
 from .miniso import MinisoAdapter
 from .miniso_ae import MinisoUAEAdapter
 from .haidilao_us import HaidilaoUSAdapter
-from .stubs import (PopMartAdapter, HeyteaAdapter, CottiAdapter, YangsAdapter,
+from .popmart import PopMartUSAdapter
+from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter)
 
 REGISTRY: list[Adapter] = [
@@ -32,7 +33,7 @@ REGISTRY: list[Adapter] = [
     MinisoAdapter(),    # validated live 21 Sep 2026; 462 CMS rows -> ~425 stores, 2 requests
     MinisoUAEAdapter(), # validated live 21 Sep 2026; first non-US market, 7 emirate pages
     HaidilaoUSAdapter(),# validated live 21 Sep 2026; 15 US restaurants with coordinates
-    PopMartAdapter(),   # blocked — see stubs.py
+    PopMartUSAdapter(), # validated live 21 Sep 2026; 182 US stores from the app API
     HeyteaAdapter(),    # blocked — see stubs.py
     CottiAdapter(),     # blocked — see stubs.py
     YangsAdapter(),     # in the US since 2017, no locator found — see stubs.py

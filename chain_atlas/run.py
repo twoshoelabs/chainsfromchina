@@ -20,6 +20,31 @@ from .identity import store_key, norm_addr
 SUSPICIOUS_DELTA = 0.30
 
 
+def normalise(a, recs):
+    """
+    name:      normalise
+    purpose:   Apply the post-parse rules every path must apply identically.
+    arguments: a (Adapter), recs (list[StoreRecord])
+    returns:   (kept, dropped_outside_us)
+    effects:   Mutates rec.state where it was missing and a coordinate allows it.
+    other:     THIS EXISTS BECAUSE run AND reparse MUST AGREE. When the state fallback and the
+               outside-US check lived only in run(), a reparse of the same raw file produced 182
+               POP MART rows where run produced 181, and twenty-one stores silently lost their
+               state. Two code paths over one archive have to be one code path.
+    """
+    if a.country != "US":
+        return recs, []
+    from .geo import state_from_point
+    keep, outside = [], []
+    for rec in recs:
+        if not rec.state and rec.lat is not None:
+            rec.state = state_from_point(rec.lat, rec.lon)
+        # A coordinate in no US state, in a feed calling itself American, is the chain being
+        # wrong about its own store: POP MART labels a Mississauga roboshop "United States".
+        (outside if (rec.lat is not None and not rec.state) else keep).append(rec)
+    return keep, outside
+
+
 def today() -> str:
     return datetime.now(TZ).date().isoformat()
 
@@ -67,6 +92,12 @@ def run(chain_id: str | None = None, obs_date: str | None = None, force: bool = 
             raw_path, raw_sha = capture.save_raw(a.chain_id, obs_date, raw, a.raw_ext)
             recs = a.parse(raw)
 
+            # Last-resort state, from the coordinate, for rows whose address has no state in it
+            # to find — POP MART publishes shops as "One Providence Pl" with no city, state or
+            # postcode. The published address is never altered; only the derived state is filled,
+            # and only when the address yielded nothing.
+            recs, outside = normalise(a, recs)
+
             prev_n = con.execute(
                 "SELECT n_records FROM runs WHERE chain_id=? AND status='ok' AND obs_date<?"
                 " ORDER BY obs_date DESC LIMIT 1", (a.chain_id, obs_date)).fetchone()
@@ -105,7 +136,10 @@ def run(chain_id: str | None = None, obs_date: str | None = None, force: bool = 
                         (datetime.now(TZ).isoformat(), len(recs), delta, raw_path, raw_sha, run_id))
             con.commit()
             tail = " ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "no changes"
-            print(f"{a.chain_id:9} ok  {len(recs):4} records  {'(baseline) ' if baseline else ''}{tail}")
+            note = (f"  [{len(outside)} row(s) dropped: coordinates outside the US]"
+                    if outside else "")
+            print(f"{a.chain_id:9} ok  {len(recs):4} records  "
+                  f"{'(baseline) ' if baseline else ''}{tail}{note}")
         except Exception as e:                                  # noqa: BLE001 — recorded, not raised
             con.execute("UPDATE runs SET finished=?,status='failed',error=? WHERE run_id=?",
                         (datetime.now(TZ).isoformat(), f"{type(e).__name__}: {e}", run_id))
@@ -131,9 +165,13 @@ def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
     """
     obs_date = obs_date or today()
     con = db.connect()
+    # The newest successful capture per chain. A day can hold several — a retry writes .2, and
+    # a source that was replaced mid-day leaves its predecessor behind — and replaying the older
+    # one afterwards would overwrite the newer result with stale data.
     rows = con.execute(
-        "SELECT chain_id, raw_path FROM runs WHERE obs_date=? AND status='ok' AND raw_path IS NOT NULL"
-        + (" AND chain_id=?" if chain_id else "") + " ORDER BY run_id",
+        "SELECT chain_id, raw_path FROM runs WHERE run_id IN ("
+        "  SELECT MAX(run_id) FROM runs WHERE obs_date=? AND status='ok' AND raw_path IS NOT NULL"
+        + (" AND chain_id=?" if chain_id else "") + " GROUP BY chain_id) ORDER BY chain_id",
         (obs_date, chain_id) if chain_id else (obs_date,)).fetchall()
     if not rows:
         print(f"no successful captures stored for {obs_date}")
@@ -142,6 +180,7 @@ def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
         a = by_id(r["chain_id"])
         try:
             recs = a.parse(capture.read_raw(r["raw_path"]))
+            recs, outside = normalise(a, recs)
         except Exception as e:                                  # noqa: BLE001
             print(f"{a.chain_id:9} reparse FAILED  {type(e).__name__}: {e}")
             continue
@@ -163,8 +202,18 @@ def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
                     (a.chain_id, obs_date, obs_date))
         counts = diff(con, a.chain_id, obs_date, a.closure_n_days, baseline)
         con.commit()
+        note = f"  [{len(outside)} outside the US]" if outside else ""
         print(f"{a.chain_id:9} reparsed {len(recs):4} records from {Path(r['raw_path']).name}"
-              f"  {' '.join(f'{k}={v}' for k, v in sorted(counts.items())) or 'no changes'}")
+              f"  {' '.join(f'{k}={v}' for k, v in sorted(counts.items())) or 'no changes'}{note}")
+
+    # Re-derive what a rebuild destroys. Reparse recreates store rows from the raw capture, and
+    # a geocoded coordinate is not in the raw capture — it was derived from the address later.
+    # Without this, reparsing silently unplaces every Luckin store in New York. The cache makes
+    # it free: no address is sent to the geocoder twice.
+    from . import geocode
+    g = geocode.run(con, chain_id=chain_id)
+    if g["placed"]:
+        print(f"{'geocode':9} re-derived {g['placed']} coordinate(s) from the address cache")
     return 0
 
 

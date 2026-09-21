@@ -9,35 +9,6 @@ where this one stopped, and `status` prints the reason beside the chains that do
 from .base import Adapter
 
 
-class PopMartAdapter(Adapter):
-    """
-    POP MART US — https://www.popmart.com/us/store-list
-
-    The page is Next.js with a static data document at
-    /_next/data/<buildId>/us/store-list.json, and the buildId is readable from the page, so
-    the shape of the collector is obvious. The obstacle is Cloudflare bot management: from this
-    host both the page and the data document return an interstitial (HTTP 200, ~25 KB of
-    challenge HTML) to a plain client, while a real browser gets the data. The store list IS
-    rendered server-side and was read successfully through the browser pane on 21 Sep 2026
-    (South Coast Plaza, American Dream, Valley Fair, ... with addresses, phone and hours).
-
-    SITE-WIDE, not US-specific: the Hong Kong store list (popmart.com/hk/store-list) was probed on
-    21 Sep 2026 and returns the same challenge, so there is no friendlier national site to collect
-    instead. Pop Mart is unavailable in every market until either a real browser session is budgeted
-    or they grant access.
-
-    NOT a reason to route around the protection. The next step is to ask Pop Mart for access,
-    or to drive one real browser session a day, which is a different politeness budget and
-    needs a deliberate decision rather than a quiet workaround.
-    """
-    chain_id, name, name_zh = "popmart", "POP MART", "泡泡玛特"
-    parent, format = "Pop Mart International Group", "toys"
-    ENABLED = False
-    BLOCKED_REASON = ("Cloudflare bot management returns a challenge to non-browser clients in every"
-                      " market probed, US and HK (21 Sep 2026)")
-    RECHECK = ["https://www.popmart.com/us/store-list"]
-
-
 class HeyteaAdapter(Adapter):
     """
     HEYTEA US — https://www.heytea.com/en-us/store

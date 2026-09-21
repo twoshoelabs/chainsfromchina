@@ -86,3 +86,48 @@ def haversine_m(lat1, lon1, lat2, lon2) -> float | None:
     dl = math.radians(float(lon2) - float(lon1))
     a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
     return 2 * 6371008.8 * math.asin(math.sqrt(a))
+
+
+_STATE_SHAPES = None
+
+
+def state_from_point(lat, lon) -> str | None:
+    """
+    name:      state_from_point
+    purpose:   Which US state a coordinate falls in, from the vendored boundary file.
+    arguments: lat, lon — degrees, or None
+    returns:   two-letter USPS code, or None
+    effects:   Reads map/us-states.geojson once and caches it.
+    other:     A LAST RESORT, used only when the address itself yields no state. POP MART lists
+               shops as "One Providence Pl" and "500 Southpark Center" with no city, state or
+               postcode at all — an address that cannot be parsed because it is not an address.
+               The coordinate is still good, so the store is placed rather than dropped. The
+               address stays as published; only the derived state comes from geometry.
+    """
+    global _STATE_SHAPES
+    if lat is None or lon is None:
+        return None
+    if _STATE_SHAPES is None:
+        import json
+        from pathlib import Path
+        p = Path(__file__).resolve().parents[1] / "map" / "us-states.geojson"
+        _STATE_SHAPES = []
+        if p.exists():
+            for f in json.loads(p.read_text())["features"]:
+                g = f["geometry"]
+                polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
+                _STATE_SHAPES.append((f["id"], polys))
+    x, y = float(lon), float(lat)
+    for code, polys in _STATE_SHAPES:
+        for poly in polys:
+            ring = poly[0]
+            inside = False
+            j = len(ring) - 1
+            for i in range(len(ring)):
+                xi, yi = ring[i]; xj, yj = ring[j]
+                if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / ((yj - yi) or 1e-12) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                return code
+    return None

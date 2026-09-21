@@ -280,6 +280,48 @@ a chain look absent:
 San Gabriel all along.** Both pages now show every chain as it trades here, with its Chinese name
 beside it and the alternate English brand where they differ.
 
+### POP MART: the defended thing was the website, not the data
+
+Pop Mart was recorded all day as uncollectable. `www.popmart.com/us/store-list` returns a
+Cloudflare challenge to any non-browser client, and so does the Hong Kong equivalent, so the
+block looked site-wide and deliberate. That conclusion was dated, recorded — and wrong.
+
+It broke open by reading **Overture's provenance**. Its eight New York Pop Mart rows cited
+`dataset=AllThePlaces`, an open-source project that scrapes brand store locators exactly as this
+project does. Its Pop Mart spider never touches the website. It calls the app's API host:
+
+    POST https://prod-intl-api.popmart.com/shop/v1/store/mapStoreList
+
+Empty bounds and a single-space query return the whole global estate — 384 stores, **182 of them
+American** — with coordinates, addresses, phone, hours and a stable `uniqCode`. No challenge, no
+token, and robots.txt 404s on that host. One request a day, lighter than the seven the UAE site
+costs.
+
+**A chain can defend its storefront and publish the same records openly through the API its own
+app uses**, and no amount of probing the website would have revealed it. Every remaining "no
+locator exists" verdict deserves the same suspicion: they describe where somebody looked, not
+what exists.
+
+Its country labelling is not reliable either. The feed lists a roboshop at "100 City Centre Dr"
+as country "United States"; the coordinate is Mississauga, Ontario. The pipeline drops rows whose
+coordinates land in no US state and prints the count.
+
+### Three bugs that came with it, all of the quiet kind
+
+Adding 182 stores in unfamiliar address formats exposed three faults worth recording:
+
+1. **A fix that broke more than it fixed.** Spelling out full state names ("Rosemont, Illinois
+   60018") was implemented as a substitution across the whole address — which rewrote *cities*
+   that share a state's name. "New York, NY" became "NY, NY" and "Washington, DC" became "WA,
+   DC", corrupting every New York City store. The existing tests caught it within a minute. The
+   state is now matched in position, never substituted.
+2. **Two code paths over one archive.** The state fallback and the outside-US check lived only in
+   `run()`, so a `reparse` of the same raw file produced 182 POP MART rows where `run` produced
+   181, and twenty-one stores lost their state. Both paths now call one `normalise()`.
+3. **Reparse destroyed derived data.** It rebuilds store rows from the raw capture, and a
+   geocoded coordinate is not in the raw capture — so reparsing silently unplaced all 22 Luckin
+   stores. It now re-derives them from the geocode cache, which costs nothing.
+
 ## Three shapes of partial knowledge
 
 Keeping these apart is most of what makes the archive trustworthy:
