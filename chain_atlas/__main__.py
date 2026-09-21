@@ -48,6 +48,12 @@ def main(argv=None):
         register.report(d, chain=opt("--chain"), market=opt("--market"))
         return 0
 
+    if cmd == "geocode":
+        from . import db, geocode
+        con = db.connect()
+        print(geocode.run(con, chain_id=opt("--chain"), limit=int(opt("--limit", 500))))
+        return 0
+
     if cmd == "export":
         from .mapdata import export
         from . import register
@@ -75,6 +81,7 @@ def main(argv=None):
     print("  run [--chain X] [--date YYYY-MM-DD] [--force]   daily pass")
     print("  reparse [--chain X] [--date YYYY-MM-DD]                re-derive a day from raw, no network")
     print("  status                                          stock, pipeline, blocked chains")
+    print("  geocode [--chain X] [--limit N]                  derive coordinates from US addresses")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")

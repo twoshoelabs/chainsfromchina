@@ -250,3 +250,6 @@ ul.uslist b{color:var(--ink)}
 .chip.supplied{border-style:dashed; cursor:help}
 .chip.supplied .n{color:var(--soon)}
 .warnzh{color:var(--soon) !important}
+
+/* A derived position is drawn hollow-hearted: same colour, visibly less certain. */
+.store.geo{fill-opacity:.55}

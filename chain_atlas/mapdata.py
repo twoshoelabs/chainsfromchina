@@ -21,6 +21,11 @@ America. They are summarised in `meta.other_markets` so the page can say they ex
 where to look, because a collected market that no page mentions is a collected market nobody
 knows about.
 
+COORDINATE PROVENANCE TRAVELS WITH THE POINT. `coord_src` says whether the chain published the
+latitude or this project derived it from the address, and the page draws the two differently. A
+derived point is a good guess about a street number, not a statement by the chain about its own
+shop, and a map that blurs them is claiming precision it has not got.
+
 A store with no coordinate is NOT dropped. It is counted in `unlocated` per chain, so a reader
 can see that Luckin's 22 New York stores are absent from the map for a reason that is about the
 locator and not about Luckin.
@@ -78,7 +83,7 @@ def export(out_dir: Path) -> dict:
 
     stores, unlocated = [], {}
     for r in con.execute(
-            "SELECT chain_id,store_key,name,addr_raw,city,state,zip,lat,lon,status,"
+            "SELECT chain_id,store_key,name,addr_raw,city,state,zip,lat,lon,coord_src,status,"
             "first_seen,last_seen,opened_on FROM stores"
             " WHERE status!='withdrawn' AND country='US'"):
         if r["lat"] is None or r["lon"] is None:
@@ -88,6 +93,7 @@ def export(out_dir: Path) -> dict:
             "chain": r["chain_id"], "name": r["name"], "addr": r["addr_raw"],
             "city": r["city"], "state": r["state"],
             "lat": round(r["lat"], 6), "lon": round(r["lon"], 6),
+            "coord_src": r["coord_src"],
             "status": r["status"], "first_seen": r["first_seen"],
             "opened_on": r["opened_on"],
         })
@@ -114,11 +120,17 @@ def export(out_dir: Path) -> dict:
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
         " FROM runs WHERE status='ok'").fetchone()
+    geocoded = {}
+    for r in con.execute("SELECT chain_id, COUNT(*) n FROM stores WHERE coord_src='geocoded'"
+                         " AND country='US' AND status!='withdrawn' GROUP BY chain_id"):
+        geocoded[r["chain_id"]] = r["n"]
+
     meta = {
         "generated": con.execute("SELECT MAX(finished) f FROM runs").fetchone()["f"],
         "first_collected": cov["a"], "last_collected": cov["b"], "days_collected": cov["n"],
         "chains": chains, "blocked": blocked, "unlocated": unlocated,
         "other_markets": other,
+        "geocoded": geocoded,
         "by_state": by_state, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {

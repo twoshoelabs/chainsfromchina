@@ -181,7 +181,8 @@ async function main() {
     const [x, y] = project(s.lat, s.lon, ins && ins.centre);
     const open = s.status === 'active';
     const c = el('circle', {
-      cx: x.toFixed(0), cy: y.toFixed(0), r: 1, class: 'store', 'data-chain': s.chain,
+      cx: x.toFixed(0), cy: y.toFixed(0), r: 1,
+      class: 'store' + (s.coord_src === 'geocoded' ? ' geo' : ''), 'data-chain': s.chain,
       fill: open ? colorOf(s.chain) : 'none',
       stroke: open ? 'var(--surface)' : colorOf(s.chain),
     });
@@ -327,10 +328,12 @@ function drawTally(data) {
   for (const [id, meta] of Object.entries(data.meta.chains)) {
     const p = per[id] || { open: 0, soon: 0 };
     const un = data.meta.unlocated[id] || 0;
+    const gc = (data.meta.geocoded || {})[id] || 0;
     // A chain whose locator publishes no coordinates would otherwise read as a zero here,
     // which is the one number it definitely is not.
     const n = un && !p.open ? `${un} unplaced`
-      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
+      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}` +
+        (gc ? ` · ${gc} geocoded` : '');
     const b = document.createElement('button');
     b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
     b.setAttribute('aria-pressed', 'true');
@@ -370,7 +373,10 @@ function drawPanels(data) {
     const p = per[id] || { open: 0, soon: 0 }, un = data.meta.unlocated[id] || 0;
     const tr = document.createElement('tr');
     const supplied = meta.provenance && meta.provenance !== 'collected';
+    const gc2 = (data.meta.geocoded || {})[id] || 0;
     tr.innerHTML = `<td>${esc(meta.name)}<span class="zh">${esc(meta.name_zh || '')}</span>` +
+      (gc2 ? `<br><span class="zh">${gc2} placed by geocoding its addresses,` +
+             ` not by published coordinates</span>` : '') +
       (supplied ? `<br><span class="zh warnzh">supplied ${esc(meta.provenance_detail || '')}` +
                   ` — not fetched daily</span>` : '') +
       (un ? `<br><span class="zh">${un} unplaced — locator publishes no coordinates</span>` : '') +
