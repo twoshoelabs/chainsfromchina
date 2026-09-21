@@ -1,0 +1,35 @@
+{
+  "_readme": [
+    "KNOWN LOCATIONS FOR CHAINS WHOSE FULL ROSTER WE DO NOT HAVE.",
+    "",
+    "The archive already holds two shapes of partial knowledge: a census (a complete roster,",
+    "re-read daily, which can produce openings and closures) and a count without a roster",
+    "(Haidilao's parent saying '13 US restaurants' and naming none). This file is the third",
+    "shape — individual locations we know about for a chain whose complete list we cannot get.",
+    "",
+    "These NEVER enter stores, observations or events. That is the whole point. If a partial",
+    "roster went into the census, then the day a complete source is finally read, every store in",
+    "it beyond this list would be recorded as an OPENING that never happened — fabricated growth,",
+    "which is worse than an empty row. Sightings are drawn on the map as open squares, labelled",
+    "as known-but-not-counted, and excluded from every total.",
+    "",
+    "A sighting graduates by being deleted: when a chain's real locator is found, its adapter",
+    "supersedes this file and these entries should go."
+  ],
+  "sightings": [
+    {
+      "chain": "cotti",
+      "supplied_on": "2026-09-21",
+      "source": "Cotti marketing graphic and address supplied by the project operator",
+      "scope": "New York and Queens counties, plus one San Gabriel store. NOT the US estate: Cotti is separately attested in Pearl City HI, Champaign IL, Staten Island NY, Brooklyn NY and Tustin CA.",
+      "locations": [
+        {"name": "345 7th Ave", "address": "345 7th Ave, New York, NY 10001"},
+        {"name": "W. 23rd St", "address": "170 W 23rd St, New York, NY 10011"},
+        {"name": "482 3rd Ave", "address": "482 3rd Ave, New York, NY 10016"},
+        {"name": "Roosevelt Ave Flushing", "address": "135-29 Roosevelt Ave, Flushing, NY 11354"},
+        {"name": "Golden Mall Flushing", "address": "41-28 Main St, Flushing, NY 11354"},
+        {"name": "San Gabriel", "address": "227 W Valley Blvd #198C, San Gabriel, CA 91776"}
+      ]
+    }
+  ]
+}

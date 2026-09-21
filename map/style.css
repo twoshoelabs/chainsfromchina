@@ -253,3 +253,6 @@ ul.uslist b{color:var(--ink)}
 
 /* A derived position is drawn hollow-hearted: same colour, visibly less certain. */
 .store.geo{fill-opacity:.55}
+
+/* Sightings are squares, not dots: a different claim, drawn as a different shape. */
+.sight{fill:none; stroke:var(--muted); cursor:help}

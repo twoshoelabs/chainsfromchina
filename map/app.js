@@ -192,6 +192,22 @@ async function main() {
     if (g) { c.dataset.k = g.dataset.k; g.append(c); } else { gDots.append(c); }
   }
 
+  // Sightings: known locations of chains that are NOT counted. Squares, not dots, because they
+  // are a different kind of claim and must not read as one more store in the census.
+  for (const g of (data.meta.sightings || [])) {
+    if (g.lat == null || g.lon == null) continue;
+    const [sx, sy] = project(g.lat, g.lon, INSETS[g.state] && INSETS[g.state].centre);
+    const q = el('rect', { class: 'sight', 'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0),
+                           width: 1, height: 1 });
+    q.addEventListener('pointerenter', e => tipAt(e,
+      `<b>${esc(g.name || g.address)}</b>${esc(g.address)}` +
+      `<div class="meta">A known ${esc(g.chain)} location — <b>not counted</b>. This chain has no ` +
+      `roster this project can read, so none of its stores are in any total here.<br>` +
+      `${esc(g.source || '')}${g.supplied_on ? ' · ' + esc(g.supplied_on) : ''}</div>`));
+    q.addEventListener('pointerleave', hideTip);
+    gDots.append(q);
+  }
+
   offMapCheck(data);
 
   applyView(svg);
@@ -219,6 +235,12 @@ function applyView(svg) {
     c.setAttribute('stroke-width', (hollow ? r / 3.4 : r / 5) / ik);
   }
   const k = view.w / 42 / 14;          // glyphs are 14 units; scale carries them to map size
+  const sr = (view.w / 170) * 1.5;
+  for (const q of svg.querySelectorAll('.sight')) {
+    q.setAttribute('width', sr); q.setAttribute('height', sr);
+    q.setAttribute('transform', `translate(${-sr / 2} ${-sr / 2})`);
+    q.setAttribute('stroke-width', sr / 6);
+  }
   for (const t of stateLabels)
     t.setAttribute('transform',
       `translate(${t.dataset.x} ${t.dataset.y}) scale(${k / (Number(t.dataset.k) || 1)})`);
@@ -351,6 +373,10 @@ function drawTally(data) {
     box.append(b);
   }
 
+  // Chains with known locations but no roster get a count of what is KNOWN, never of what is.
+  const sightBy = {};
+  for (const g of (data.meta.sightings || [])) sightBy[g.chain] = (sightBy[g.chain] || 0) + 1;
+
   // Then the chains that are HERE and cannot be drawn. A reader looking for Haidilao looks at
   // this row first; finding nothing, they conclude it is not in America. It is — there is simply
   // no store-level data for it, and the chip has to say that rather than not exist.
@@ -358,7 +384,9 @@ function drawTally(data) {
     const el = document.createElement('span');
     el.className = 'chip off';
     const kc = b.known_count;
-    const n = kc ? `${kc.stores} — no locations published` : 'not counted yet';
+    const ns = sightBy[b.chain_id] || 0;
+    const n = kc ? `${kc.stores} — no locations published`
+      : ns ? `${ns} known, roster incomplete` : 'not counted yet';
     el.innerHTML = `<span class="dot"></span>${esc(b.name)}<span class="n">${esc(n)}</span>`;
     el.title = b.reason || '';
     box.append(el);

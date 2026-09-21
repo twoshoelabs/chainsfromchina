@@ -117,6 +117,14 @@ def export(out_dir: Path) -> dict:
             {"chain": r["chain_id"], "name": r["name"], "stores": r["n"],
              "located": r["located"] or 0, "last_seen": r["seen"]})
 
+    # Known locations of chains that are NOT counted. Excluded from every total above by
+    # construction: they never touch stores, observations or events.
+    try:
+        from .sightings import geocoded as _sightings
+        sight = [r for r in _sightings(cache_only=True)]
+    except Exception:                                           # noqa: BLE001
+        sight = []
+
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
         " FROM runs WHERE status='ok'").fetchone()
@@ -131,6 +139,7 @@ def export(out_dir: Path) -> dict:
         "chains": chains, "blocked": blocked, "unlocated": unlocated,
         "other_markets": other,
         "geocoded": geocoded,
+        "sightings": sight,
         "by_state": by_state, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {
@@ -139,6 +148,10 @@ def export(out_dir: Path) -> dict:
             "closed": sum(1 for s in stores if s["status"] == "closed"),
         },
     }
+    meta["sighting_note"] = (
+        "Known locations of chains this project does not count. They are not in any total on "
+        "this page and never enter the archive: a partial roster in the census would turn every "
+        "later discovery into an opening that never happened.")
     (out_dir / "stores.json").write_text(
         json.dumps({"meta": meta, "stores": stores}, ensure_ascii=False, indent=1))
     (out_dir / "events.json").write_text(
