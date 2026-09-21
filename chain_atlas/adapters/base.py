@@ -27,11 +27,18 @@ class StoreRecord:
 
 class Adapter:
     chain_id: str = ""
+    # The market this adapter collects, ISO-3166-1 alpha-2. One adapter covers one market:
+    # MINISO's US and UAE estates are published by different sites, in different shapes, and
+    # pretending they are one source would make a broken UAE page look like US closures.
+    country: str = "US"
     name: str = ""
     name_zh: str | None = None
     origin: str = "CN"
     parent: str | None = None
     format: str = "other"
+    # If this adapter collects a market the international register also lists by hand, name the
+    # register's chain id here. The collected count then supersedes the typed one, visibly.
+    register_chain: str | None = None
     closure_n_days: int = 7
     raw_ext: str = "json"
     ENABLED: bool = False

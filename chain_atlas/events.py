@@ -61,6 +61,8 @@ def diff(con, chain_id: str, obs_date: str, closure_n_days: int, baseline: bool)
                the same roster, and events already written for that day are cleared first.
     """
     con.execute("DELETE FROM events WHERE chain_id=? AND detected_date=?", (chain_id, obs_date))
+    row = con.execute("SELECT country FROM chains WHERE chain_id=?", (chain_id,)).fetchone()
+    country = row["country"] if row else "US"
     counts: dict[str, int] = {}
 
     def bump(k):
@@ -79,13 +81,13 @@ def diff(con, chain_id: str, obs_date: str, closure_n_days: int, baseline: bool)
         if prev is None:
             status = "active" if trading else "pre_opening"
             cur = con.execute(
-                "INSERT INTO stores (chain_id,store_key,store_code,name,addr_raw,addr_norm,city,"
-                "state,zip,lat,lon,coord_src,cell100,first_seen,last_seen,opened_on,status)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                (chain_id, key, o["store_code"], o["name"], o["addr_raw"], o["addr_norm"],
+                "INSERT INTO stores (chain_id,country,store_key,store_code,name,addr_raw,addr_norm,"
+                "city,state,zip,lat,lon,coord_src,cell100,first_seen,last_seen,opened_on,status)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                (chain_id, country, key, o["store_code"], o["name"], o["addr_raw"], o["addr_norm"],
                  o["city"], o["state"], o["zip"], o["lat"], o["lon"],
                  "published" if o["lat"] is not None else None,
-                 _cell(o["lat"], o["lon"]), obs_date, obs_date,
+                 _cell(o["lat"], o["lon"], country), obs_date, obs_date,
                  obs_date if trading else None, status))
             sid = cur.lastrowid
             if baseline:
@@ -106,7 +108,7 @@ def diff(con, chain_id: str, obs_date: str, closure_n_days: int, baseline: bool)
             "UPDATE stores SET store_code=?,name=?,addr_raw=?,addr_norm=?,city=?,state=?,zip=?,"
             "lat=COALESCE(?,lat),lon=COALESCE(?,lon),cell100=COALESCE(?,cell100),last_seen=? WHERE store_id=?",
             (o["store_code"], o["name"], o["addr_raw"], o["addr_norm"], o["city"], o["state"],
-             o["zip"], o["lat"], o["lon"], _cell(o["lat"], o["lon"]), obs_date, sid))
+             o["zip"], o["lat"], o["lon"], _cell(o["lat"], o["lon"], country), obs_date, sid))
 
         if trading and prev["status"] == "pre_opening":
             # The precise case: announced, then seen trading. This is a real opening date.
@@ -189,6 +191,6 @@ def _pair_relocations(con, chain_id, obs_date, opened, closed, bump):
                 break
 
 
-def _cell(lat, lon):
+def _cell(lat, lon, country="US"):
     from .geo import cell100
-    return cell100(lat, lon)
+    return cell100(lat, lon, country)

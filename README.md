@@ -35,6 +35,7 @@ Asian grocers such as 99 Ranch and H Mart sell Chinese products but are not Chin
 | CHAGEE | 霸王茶姬 | store list inside the Next.js flight payload | 11, with coordinates |
 | Luckin Coffee | 瑞幸咖啡 | server-rendered store cards | 22, **no coordinates published** |
 | MINISO | 名创优品 | Wix Data `Locations` collection | **430** across 46 states, with coordinates |
+| MINISO UAE | 名创优品 | seven emirate pages on the UAE site | **46** across all 7 emirates, no coordinates |
 | POP MART | 泡泡玛特 | — | blocked: Cloudflare bot management |
 | HEYTEA | 喜茶 | — | blocked: the site's store page is a global flagship showcase, not a locator |
 | Cotti Coffee | 库迪咖啡 | — | blocked: no first-party US locator exists |
@@ -50,6 +51,38 @@ everything else here combined, and the reason the map looks like a map.
 visible weeks ahead and an opening can be dated to the day the status flips rather than to the
 day a row appeared. Seventeen of its twenty-seven US listings were announced-but-not-trading on
 the baseline day, most of them ringing the San Gabriel Valley.
+
+## The first non-US market
+
+MINISO UAE (`miniso_ae`) is the archive's first market outside America, and adding it forced a
+real change rather than a copy-paste: every row now carries a `country`, `geo.py` keys cells
+against a projection centre per market, and the US map filters to `country='US'` so a Gulf
+estate cannot leak onto a map of America. One adapter covers one market — MINISO's US and UAE
+estates are published by different sites in different shapes, so they are two adapters and two
+chain ids, never one. Pretending otherwise would make a broken UAE page look like US closures.
+
+**The route not taken.** The site runs WP Store Locator, whose usual endpoint is
+`/wp-admin/admin-ajax.php?action=store_search` — one request instead of seven, and almost
+certainly carrying the coordinates this adapter lacks. This site's `robots.txt` disallows
+`/wp-admin/`, so it is not used. The plugin's REST route, `/wp-json/wp/v2/wpsl_stores`, is
+allowed but returns an empty array. The seven emirate pages are first-party, explicitly allowed,
+and are what a visitor sees; seven polite requests a day is the price of not walking through a
+door marked shut.
+
+**What it yields:** 46 stores — Dubai 19, Abu Dhabi 14, Sharjah 6, Ras Al Khaimah 3, Fujairah 2,
+Ajman 1, Umm Al Quwain 1. A mall name and an emirate, nothing more: no address, no coordinates,
+no store code. So they are counted and never mapped, exactly like Luckin's New York estate.
+
+**A register row graduated.** MINISO/UAE was previously a hand-typed register entry reading
+"present, count unknown", annotated as the best candidate for promotion into real collection.
+It now reads **46&#9733;** — measured, high confidence — with the original typed claim preserved
+beneath it in `was_typed`. That promotion from research to evidence is the point of keeping the
+two records in one project, and `register.py` marks it rather than silently overwriting.
+
+**One character worth the test it got.** "AL GHURAIR CENTER" carries a zero-width space in the
+page source. Left in the identity key, it would rewrite that store's key the day an editor
+removes it, and the archive would report a closure and an opening in the same Dubai mall on the
+same day.
 
 ## How MINISO was cracked, and what its data is really like
 
@@ -240,6 +273,7 @@ collecting for two days in September 2026.
 CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
 .venv/bin/python tests/test_usaddr.py
 .venv/bin/python tests/test_miniso.py
+.venv/bin/python tests/test_miniso_ae.py
 .venv/bin/python tests/test_register.py
 ```
 
@@ -357,9 +391,11 @@ invisible here, and corroborating against a second source is not built yet.
    correctly by state, which is why that view exists.
 2. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
    reach for casually.
-3. **Corroborate MINISO.** Its count now dominates every total here, and it rests on one CMS whose
+3. **More non-US markets.** The country dimension exists now, so MINISO's other national sites
+   are cheap additions. Each needs its own adapter and its own look at the locator's honesty.
+4. **Corroborate MINISO.** Its count now dominates every total here, and it rests on one CMS whose
    duplicate rows we clean up ourselves. A second source would turn a careful guess into a fact.
-4. **Small-state labels** on the state view overlap in the northeast; they need leader lines.
-5. **Monitoring.** The job is scheduled but nothing watches it. The sibling project learned the
+5. **Small-state labels** on the state view overlap in the northeast; they need leader lines.
+6. **Monitoring.** The job is scheduled but nothing watches it. The sibling project learned the
    hard way that a collector cannot report its own death: it needs an external dead-man's switch
    that fires on the *absence* of a ping, not a check that runs on the same sleeping machine.

@@ -5,6 +5,10 @@ are derived from them and can be rebuilt.
 Differences from the Taiwan sibling, all deliberate:
   * `name` replaces `name_zh` — these brands trade in English in the US, and their Chinese
     name is metadata about the parent, not about the store.
+  * Every row carries a `country`. The archive began as a US census and the US map still reads
+    only US rows, but a chain is a chain wherever it trades: MINISO UAE publishes a locator of
+    exactly the same kind, and refusing it because the schema said "state" would have been the
+    schema choosing what the project is allowed to see.
   * `status` gains `pre_opening`, because at least one chain (Mixue) publishes its pipeline:
     a store appears as `coming_soon` weeks before it trades. An announcement is not an opening
     and is never counted as one, but the transition between them is the most precise opening
@@ -15,8 +19,9 @@ from .config import DB_PATH, ensure_dirs
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS chains (
-    chain_id        TEXT PRIMARY KEY,      -- 'mixue', 'chagee', ...
-    name            TEXT NOT NULL,         -- as it trades in the US
+    chain_id        TEXT PRIMARY KEY,      -- 'mixue', 'chagee', 'miniso_ae', ...
+    country         TEXT NOT NULL DEFAULT 'US',   -- ISO-3166-1 alpha-2 of the market collected
+    name            TEXT NOT NULL,         -- as it trades in that market
     name_zh         TEXT,                  -- parent's Chinese name, for the record
     origin          TEXT NOT NULL,         -- 'CN' — mainland-China-origin is this project's scope
     parent          TEXT,                  -- listed entity / franchisor
@@ -28,13 +33,14 @@ CREATE TABLE IF NOT EXISTS chains (
 CREATE TABLE IF NOT EXISTS stores (
     store_id    INTEGER PRIMARY KEY AUTOINCREMENT,
     chain_id    TEXT NOT NULL REFERENCES chains(chain_id),
+    country     TEXT NOT NULL DEFAULT 'US',
     store_key   TEXT NOT NULL,
     store_code  TEXT,
     name        TEXT,
     addr_raw    TEXT,
     addr_norm   TEXT,
-    city        TEXT,
-    state       TEXT,                      -- USPS two-letter
+    city        TEXT,                      -- or the emirate / province outside the US
+    state       TEXT,                      -- USPS two-letter; NULL outside the US
     zip         TEXT,
     lat         REAL,
     lon         REAL,
@@ -95,10 +101,31 @@ CREATE TABLE IF NOT EXISTS runs (
 );
 
 CREATE INDEX IF NOT EXISTS ix_obs_chain_date ON observations(chain_id, obs_date);
+CREATE INDEX IF NOT EXISTS ix_stores_country ON stores(country, status);
 CREATE INDEX IF NOT EXISTS ix_stores_chain_status ON stores(chain_id, status);
 CREATE INDEX IF NOT EXISTS ix_events_chain_date ON events(chain_id, event_date);
 CREATE INDEX IF NOT EXISTS ix_runs_date ON runs(obs_date, chain_id);
 """
+
+
+def _migrate(con):
+    """
+    name:      _migrate
+    purpose:   Add columns that CREATE TABLE IF NOT EXISTS cannot add to an existing archive.
+    arguments: con
+    returns:   None
+    effects:   ALTERs chains and stores in place.
+    other:     Runs against an archive that may predate any given column, so every lookup
+               tolerates the table not existing yet (a fresh database has none of them).
+               Deliberately additive only. An archive is the asset; a migration that could drop
+               or rewrite a column has no business running automatically on connect.
+    """
+    for table, col, ddl in (("chains", "country", "TEXT NOT NULL DEFAULT 'US'"),
+                            ("stores", "country", "TEXT NOT NULL DEFAULT 'US'")):
+        have = {r[1] for r in con.execute(f"PRAGMA table_info({table})")}
+        if have and col not in have:
+            con.execute(f"ALTER TABLE {table} ADD COLUMN {col} {ddl}")
+            con.commit()
 
 
 def connect() -> sqlite3.Connection:
@@ -115,6 +142,9 @@ def connect() -> sqlite3.Connection:
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA journal_mode=WAL")
     con.execute("PRAGMA foreign_keys=ON")
+    # Migrate BEFORE the schema script: the script creates an index over stores(country), and
+    # on an archive predating that column the index cannot be built until the column exists.
+    _migrate(con)
     con.executescript(SCHEMA)
     return con
 
@@ -130,10 +160,10 @@ def upsert_chain(con, a):
                overwrites rather than merges.
     """
     con.execute(
-        "INSERT INTO chains (chain_id,name,name_zh,origin,parent,format,closure_n_days)"
-        " VALUES (?,?,?,?,?,?,?)"
-        " ON CONFLICT(chain_id) DO UPDATE SET name=excluded.name, name_zh=excluded.name_zh,"
-        " origin=excluded.origin, parent=excluded.parent, format=excluded.format,"
-        " closure_n_days=excluded.closure_n_days",
-        (a.chain_id, a.name, a.name_zh, a.origin, a.parent, a.format, a.closure_n_days),
+        "INSERT INTO chains (chain_id,country,name,name_zh,origin,parent,format,closure_n_days)"
+        " VALUES (?,?,?,?,?,?,?,?)"
+        " ON CONFLICT(chain_id) DO UPDATE SET country=excluded.country, name=excluded.name,"
+        " name_zh=excluded.name_zh, origin=excluded.origin, parent=excluded.parent,"
+        " format=excluded.format, closure_n_days=excluded.closure_n_days",
+        (a.chain_id, a.country, a.name, a.name_zh, a.origin, a.parent, a.format, a.closure_n_days),
     )

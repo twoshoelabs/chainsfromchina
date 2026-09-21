@@ -399,6 +399,21 @@ function drawPanels(data) {
       `counted as openings — the opening is the day the listing flips.`
     : 'No chain currently publishes a pipeline of announced stores.';
 
+  // Markets the collector covers that this map deliberately does not draw. Saying so is the
+  // point: a collected market that no page mentions is a collected market nobody knows about.
+  const om = data.meta.other_markets || {};
+  const lines = [];
+  for (const [country, rows] of Object.entries(om))
+    for (const r of rows)
+      lines.push(`${esc(r.name)} — ${r.stores} stores in ${esc(country)}` +
+        (r.located ? '' : ', none with published coordinates'));
+  if (lines.length) {
+    document.getElementById('othersec').hidden = false;
+    document.getElementById('other').innerHTML = lines.join('<br>') +
+      `<br><br>This is a map of the United States, so they are counted but not drawn. They appear
+       in the <a href="register.html">international register</a>.`;
+  }
+
   const ul = document.getElementById('blocked');
   for (const b of data.meta.blocked) {
     const li = document.createElement('li');

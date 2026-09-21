@@ -15,6 +15,12 @@ state layer is the more complete of the two views, and the map says so where it 
                 the archive, which begins the day the collector first ran, and never
                 backfilled from press reports or a chain's own history.
 
+THIS FILE IS THE US MAP'S DATA, AND ONLY THAT. The archive now collects other markets — MINISO
+UAE is the first — and they are deliberately excluded here rather than squeezed onto a map of
+America. They are summarised in `meta.other_markets` so the page can say they exist and say
+where to look, because a collected market that no page mentions is a collected market nobody
+knows about.
+
 A store with no coordinate is NOT dropped. It is counted in `unlocated` per chain, so a reader
 can see that Luckin's 22 New York stores are absent from the map for a reason that is about the
 locator and not about Luckin.
@@ -41,6 +47,8 @@ def export(out_dir: Path) -> dict:
 
     chains, blocked = {}, []
     for a in REGISTRY:
+        if a.country != "US":
+            continue
         if a.ENABLED:
             chains[a.chain_id] = {"name": a.name, "name_zh": a.name_zh,
                                   "format": a.format, "parent": a.parent}
@@ -53,7 +61,7 @@ def export(out_dir: Path) -> dict:
     by_state, no_state = {}, 0
     for r in con.execute(
             "SELECT state, chain_id, status, COUNT(*) n FROM stores"
-            " WHERE status!='withdrawn' GROUP BY state, chain_id, status"):
+            " WHERE status!='withdrawn' AND country='US' GROUP BY state, chain_id, status"):
         if not r["state"]:
             no_state += r["n"]
             continue
@@ -67,7 +75,8 @@ def export(out_dir: Path) -> dict:
     stores, unlocated = [], {}
     for r in con.execute(
             "SELECT chain_id,store_key,name,addr_raw,city,state,zip,lat,lon,status,"
-            "first_seen,last_seen,opened_on FROM stores WHERE status!='withdrawn'"):
+            "first_seen,last_seen,opened_on FROM stores"
+            " WHERE status!='withdrawn' AND country='US'"):
         if r["lat"] is None or r["lon"] is None:
             unlocated[r["chain_id"]] = unlocated.get(r["chain_id"], 0) + 1
             continue
@@ -84,7 +93,19 @@ def export(out_dir: Path) -> dict:
               for r in con.execute(
                   "SELECT e.event_date,e.event_type,e.chain_id,s.name,s.lat,s.lon,s.state"
                   " FROM events e JOIN stores s ON s.store_id=e.store_id"
-                  " ORDER BY e.event_date")]
+                  " WHERE s.country='US' ORDER BY e.event_date")]
+
+    # Other markets the collector now covers, so the US page can point at them instead of
+    # implying the archive stops at the border.
+    other = {}
+    for r in con.execute(
+            "SELECT c.country, c.chain_id, c.name, COUNT(*) n,"
+            " SUM(s.lat IS NOT NULL) located, MAX(s.last_seen) seen"
+            " FROM stores s JOIN chains c ON c.chain_id=s.chain_id"
+            " WHERE s.country!='US' AND s.status='active' GROUP BY c.chain_id"):
+        other.setdefault(r["country"], []).append(
+            {"chain": r["chain_id"], "name": r["name"], "stores": r["n"],
+             "located": r["located"] or 0, "last_seen": r["seen"]})
 
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
@@ -93,6 +114,7 @@ def export(out_dir: Path) -> dict:
         "generated": con.execute("SELECT MAX(finished) f FROM runs").fetchone()["f"],
         "first_collected": cov["a"], "last_collected": cov["b"], "days_collected": cov["n"],
         "chains": chains, "blocked": blocked, "unlocated": unlocated,
+        "other_markets": other,
         "by_state": by_state, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {

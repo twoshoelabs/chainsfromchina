@@ -20,12 +20,21 @@ what it could not place is a lie about its own coverage.
 import math
 
 R = 6370997.0                     # sphere radius used by the US National Atlas projection, metres
-LAT0 = math.radians(45.0)         # projection centre
-LON0 = math.radians(-100.0)
 CELL_M = 100
 
+# One projection centre per market. A cell key is only comparable within its own market, which
+# is the only comparison anyone makes: "how many stores per unit of ground in the UAE" is a
+# question about the UAE. Keying the Gulf off a centre in Kansas would be arithmetically valid
+# and cartographically absurd.
+CENTRES = {
+    "US": (45.0, -100.0),         # US National Atlas equal-area — matches map/app.js exactly
+    "AE": (24.0, 54.0),
+}
+LAT0 = math.radians(CENTRES["US"][0])
+LON0 = math.radians(CENTRES["US"][1])
 
-def latlon_to_laea(lat: float, lon: float) -> tuple[float, float]:
+
+def latlon_to_laea(lat: float, lon: float, country: str = "US") -> tuple[float, float]:
     """
     name:      latlon_to_laea
     purpose:   Project WGS84 degrees to Lambert azimuthal equal-area metres about (45N, 100W).
@@ -35,15 +44,17 @@ def latlon_to_laea(lat: float, lon: float) -> tuple[float, float]:
     other:     Spherical formulation — metre-level differences from the ellipsoidal form are far
                finer than a 100 m cell, and the sphere keeps this reproducible in 12 lines.
     """
+    c0, l0 = CENTRES.get(country, CENTRES["US"])
+    lat0, lon0 = math.radians(c0), math.radians(l0)
     phi, lam = math.radians(lat), math.radians(lon)
-    cos_c = math.sin(LAT0) * math.sin(phi) + math.cos(LAT0) * math.cos(phi) * math.cos(lam - LON0)
+    cos_c = math.sin(lat0) * math.sin(phi) + math.cos(lat0) * math.cos(phi) * math.cos(lam - lon0)
     k = math.sqrt(max(0.0, 2.0 / (1.0 + cos_c)))
-    x = R * k * math.cos(phi) * math.sin(lam - LON0)
-    y = R * k * (math.cos(LAT0) * math.sin(phi) - math.sin(LAT0) * math.cos(phi) * math.cos(lam - LON0))
+    x = R * k * math.cos(phi) * math.sin(lam - lon0)
+    y = R * k * (math.cos(lat0) * math.sin(phi) - math.sin(lat0) * math.cos(phi) * math.cos(lam - lon0))
     return x, y
 
 
-def cell100(lat, lon) -> str | None:
+def cell100(lat, lon, country: str = "US") -> str | None:
     """
     name:      cell100
     purpose:   The 100 m cell key a coordinate falls in.
@@ -55,8 +66,8 @@ def cell100(lat, lon) -> str | None:
     """
     if lat is None or lon is None:
         return None
-    x, y = latlon_to_laea(float(lat), float(lon))
-    return f"E{int(math.floor(x / CELL_M))}N{int(math.floor(y / CELL_M))}"
+    x, y = latlon_to_laea(float(lat), float(lon), country)
+    return f"{country}:E{int(math.floor(x / CELL_M))}N{int(math.floor(y / CELL_M))}"
 
 
 def haversine_m(lat1, lon1, lat2, lon2) -> float | None:

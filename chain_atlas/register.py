@@ -15,6 +15,10 @@ Three rules keep it honest:
   * `no_evidence` is not `none`. It means a search did not find a presence, which is a statement
     about the search. A chain that quietly opened in Osaka last month is `no_evidence` here and
     the register says so rather than asserting absence.
+  * A row can be SUPERSEDED. When the collector starts covering a market the register only
+    guessed at, the measured count replaces the typed one and the row is marked `collected` —
+    with the hand-typed claim left underneath it, so the promotion from research to evidence is
+    visible rather than a silent overwrite. MINISO in the UAE was the first to make that move.
   * Nothing is daily. Entries carry a `reviewed` date and go stale; `--stale` lists what has not
     been looked at in ninety days, because the failure mode of a hand-kept register is not being
     wrong on the day it is written, it is being believed a year later.
@@ -118,6 +122,8 @@ def _cell(e) -> str:
     if e["status"] == "exited":
         return "x"
     n = e.get("locations")
+    if e.get("collected"):
+        return f"{n}*"                      # measured, not typed
     mark = {"high": "", "medium": "?", "low": "??"}[e["confidence"]]
     return f"{n}{mark}" if n is not None else f"Y{mark}"
 
@@ -133,6 +139,7 @@ def report(d: dict, chain: str | None = None, market: str | None = None):
                the caveats, because the matrix alone would flatten a retreat-and-re-entry into
                a tick.
     """
+    apply_collected(d)
     chains, markets, cells = matrix(d)
     if chain:
         chains = [c for c in chains if c == chain]
@@ -148,7 +155,8 @@ def report(d: dict, chain: str | None = None, market: str | None = None):
         row = "".join(_cell(cells.get((c, m))).rjust(cw) for m in markets)
         print(d["chains"][c]["name"].ljust(width) + row)
     print(f"\n  number = locations, Y = present but count unpublished, - = no evidence found,"
-          f"\n  x = exited, . = not looked at.  ? = medium confidence, ?? = low.\n")
+          f"\n  x = exited, . = not looked at.  ? = medium confidence, ?? = low,"
+          f"\n  * = collected daily by this project rather than typed in by hand.\n")
 
     for c in chains:
         rows = [(m, cells[(c, m)]) for m in markets if (c, m) in cells]
@@ -216,6 +224,68 @@ def _wrap(text: str, n: int) -> list[str]:
     return lines
 
 
+def collected_counts() -> dict[tuple[str, str], dict]:
+    """
+    name:      collected_counts
+    purpose:   Store counts the collector now measures for markets this register also lists.
+    arguments: none
+    returns:   {(register_chain, country): {"locations", "as_of", "chain_id"}}
+    effects:   Reads the archive read-only.
+    other:     Returns {} rather than raising if the archive is absent — the register is a
+               standalone document and must render on a machine that has never run a pass.
+    """
+    try:
+        from . import db
+        from .adapters import REGISTRY
+    except Exception:                                           # noqa: BLE001
+        return {}
+    links = {a.chain_id: (a.register_chain, a.country)
+             for a in REGISTRY if a.register_chain and a.country != "US"}
+    if not links:
+        return {}
+    out = {}
+    try:
+        con = db.connect()
+        for chain_id, (reg_chain, country) in links.items():
+            r = con.execute(
+                "SELECT COUNT(*) n, MAX(last_seen) seen FROM stores"
+                " WHERE chain_id=? AND status='active'", (chain_id,)).fetchone()
+            if r and r["n"]:
+                out[(reg_chain, country)] = {"locations": r["n"], "as_of": r["seen"],
+                                             "chain_id": chain_id}
+    except Exception:                                           # noqa: BLE001
+        return {}
+    return out
+
+
+def apply_collected(d: dict) -> int:
+    """
+    name:      apply_collected
+    purpose:   Overlay measured counts onto the register's typed rows.
+    arguments: d — the parsed register, modified in place
+    returns:   number of rows superseded
+    effects:   Adds `collected` to matching entries and moves the typed claim to `was_typed`.
+    other:     The typed claim is kept, not deleted. The point of the overlay is to show a row
+               graduating from research to evidence; overwriting it would erase the graduation.
+    """
+    counts = collected_counts()
+    n = 0
+    for e in d["entries"]:
+        c = counts.get((e["chain"], e["market"]))
+        if not c:
+            continue
+        e["was_typed"] = {"locations": e.get("locations"), "confidence": e["confidence"]}
+        e["collected"] = c
+        e["locations"] = c["locations"]
+        e["locations_as_of"] = c["as_of"]
+        e["confidence"] = "high"
+        e["note"] = (f"Collected daily by this project as `{c['chain_id']}` since "
+                     f"{c['as_of']} — this count is measured from the chain's own locator, "
+                     f"not typed in. " + (e.get("note") or "")).strip()
+        n += 1
+    return n
+
+
 def export(out_dir: Path) -> dict:
     """
     name:      export
@@ -227,6 +297,7 @@ def export(out_dir: Path) -> dict:
                disagree with the CLI about what the register says.
     """
     d = load()
+    superseded = apply_collected(d)
     out_dir.mkdir(parents=True, exist_ok=True)
     by_chain = defaultdict(int)
     for e in d["entries"]:
@@ -237,6 +308,7 @@ def export(out_dir: Path) -> dict:
         "entries": len(d["entries"]),
         "gaps": len(gaps(d)),
         "stale": len(stale(d)),
+        "superseded": superseded,
     }
     (out_dir / "register.json").write_text(json.dumps(d, ensure_ascii=False, indent=1))
     return d["derived"]

@@ -58,6 +58,7 @@ async function main() {
 
 function cellClass(e) {
   if (!e) return 'c-none';
+  if (e.collected) return 'c-yes c-high c-collected';
   if (e.status === 'no_evidence') return 'c-noev';
   if (e.status === 'exited') return 'c-exit';
   return 'c-yes c-' + e.confidence;
@@ -67,6 +68,7 @@ function cellText(e) {
   if (!e) return '<span class="dotmark">·</span>';
   if (e.status === 'no_evidence') return '–';
   if (e.status === 'exited') return '×';
+  if (e.collected) return `${e.locations}<span class="conf c-collected">\u2605</span>`;
   const mark = e.confidence === 'high' ? '' :
     `<span class="conf c-${e.confidence}">${e.confidence === 'low' ? '??' : '?'}</span>`;
   return (e.locations != null ? e.locations : 'Y') + mark;
@@ -82,7 +84,7 @@ function tip(ev, e, key) {
     const bits = [];
     if (e.first_opened) bits.push(`first opened ${esc(e.first_opened)} (${esc(e.precision)})`);
     if (e.locations != null) bits.push(`${e.locations} locations as of ${esc(e.locations_as_of)}`);
-    bits.push(`${esc(e.confidence)} confidence`);
+    bits.push(e.collected ? 'collected daily, not typed' : `${esc(e.confidence)} confidence`);
     t.innerHTML = `<b>${esc(D.chains[c].name)} · ${esc(D.markets[m].name)}</b>` +
       `${esc(e.status)} — ${bits.join('; ')}` +
       (e.note ? `<div class="meta">${esc(e.note)}</div>` : '') +
@@ -108,6 +110,7 @@ function detail(chains, markets, cells) {
       if (e.locations != null) bits.push(`${e.locations} locations (${esc(e.locations_as_of)})`);
       h += `<dt>${esc(D.markets[m].name)}</dt><dd>` +
         `<span class="status s-${esc(e.status)}">${esc(e.status.replace('_', ' '))}</span> ` +
+        (e.collected ? '<span class="status s-collected">collected</span> ' : '') +
         bits.join(' · ') +
         (e.note ? `<div class="rnote">${esc(e.note)}</div>` : '') +
         (e.sources || []).map(u =>
