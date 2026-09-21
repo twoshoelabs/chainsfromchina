@@ -144,19 +144,22 @@
    "name": "Tai Er",
    "name_zh": "太二",
    "format": "restaurant",
-   "global": "482 Tai Er outlets at March 2026; parent Jiumaojiu (HKEX 9922) ran 31 restaurants outside China at H1 2025, up from 22"
+   "global": "482 Tai Er outlets at March 2026; parent Jiumaojiu (HKEX 9922) ran 31 restaurants outside China at H1 2025, up from 22",
+   "name_us": "Tai Er Sichuan Cuisine"
   },
   "juewei": {
    "name": "Juewei",
    "name_zh": "绝味鸭脖",
    "format": "snack",
-   "global": "16,000+ outlets; trades as King of Braise in Singapore — the same naming trap as ChaPanda/TeaByDo"
+   "global": "16,000+ outlets; trades as King of Braise in Singapore — the same naming trap as ChaPanda/TeaByDo",
+   "name_us": "Juewei Yabo"
   },
   "nayuki": {
    "name": "Naixue",
    "name_zh": "奈雪的茶",
    "format": "tea",
-   "global": "HKEX 2150; rebranded from Nayuki to Naixue"
+   "global": "HKEX 2150; rebranded from Nayuki to Naixue",
+   "name_us": "NaiSnow"
   },
   "chabaidao": {
    "name": "ChaPanda",

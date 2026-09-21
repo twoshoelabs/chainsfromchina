@@ -23,7 +23,7 @@ from .miniso import MinisoAdapter
 from .miniso_ae import MinisoUAEAdapter
 from .haidilao_us import HaidilaoUSAdapter
 from .stubs import (PopMartAdapter, HeyteaAdapter, CottiAdapter, YangsAdapter,
-                    TaiErAdapter, ChaPandaAdapter, NaixueAdapter)
+                    TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -39,6 +39,7 @@ REGISTRY: list[Adapter] = [
     TaiErAdapter(),     # in the US, parent discloses counts — see stubs.py
     ChaPandaAdapter(),  # entered the US Aug 2025 — see stubs.py
     NaixueAdapter(),    # US entry reported — see stubs.py
+    JueweiAdapter(),    # trades as Juewei Yabo in the US — see stubs.py
 ]
 
 

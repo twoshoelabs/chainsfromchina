@@ -158,6 +158,12 @@ class TaiErAdapter(Adapter):
     and the company's own filings say 31 restaurants outside China at H1 2025, which this page
     does not reflect. taier.net, the brand site, has no US content at all.
 
+    ALIAS CHECKED 21 SEP 2026: it trades in America as "Tai Er Sichuan Cuisine", which is the
+    same brand and not a different one, so the earlier search missed nothing. taierusa.com exists
+    and answers 401 "Private Site" — password-protected, not public. The US estate is meanwhile
+    growing past what the parent's page admits: a first Bay Area restaurant opened in San Mateo,
+    and Flushing and Arcadia are separately attested.
+
     NEXT: nothing first-party is available. Tai Er will need either the app's store API, or a
     corroborated reconstruction from several third-party sources, which is a different kind of
     product and should be a deliberate decision rather than a quiet fallback. Its parent still
@@ -167,6 +173,7 @@ class TaiErAdapter(Adapter):
     restriction. The endpoint was queried a handful of times at probe rates, not crawled.
     """
     chain_id, name, name_zh = "taier", "Tai Er", "太二"
+    name_us = "Tai Er Sichuan Cuisine"
     parent, format = "Jiumaojiu International (HKEX 9922)", "restaurant"
     ENABLED = False
     BLOCKED_REASON = ("in the US; the parent's store endpoint returns plausible counts but repeats"
@@ -222,13 +229,52 @@ class NaixueAdapter(Adapter):
     Announced a US push as early as 2020 and took years to arrive, which is itself the useful
     fact: an announcement is not an opening, and this register has three cases of a chain
     entering a market, leaving and returning. HKEX 2150.
+
+    IT HAS THREE NAMES AND THAT IS THE PROBLEM. 奈雪的茶 at home; Nayuki in its own earlier
+    English branding; **NaiSnow** as its current international trade name; and "Nayuki Tea &
+    Bakery" on the US shopfront and social accounts. A search under any one of them misses the
+    others.
+
+    Checked 21 Sep 2026 under the new name: naisnow.us resolves, answers with 90 KB, allows
+    everything in robots.txt — and is a GoDaddy parking page reading "THIS DOMAIN IS FOR SALE".
+    A squatter, not the chain. naisnow.com is a 501-byte stub. So the alias did not unlock a
+    locator, but it did surface a SECOND US location: press coverage puts a NaiSnow on the Upper
+    West Side, alongside the American Dream store in East Rutherford.
     """
     chain_id, name, name_zh = "nayuki", "Naixue", "奈雪的茶"
+    name_us = "NaiSnow"
     parent, format = "Nayuki Holdings (HKEX 2150)", "tea"
     ENABLED = False
-    BLOCKED_REASON = ("US entry reported at American Dream NJ; naixue.com is a 505-byte shell and"
-                      " no US domain resolves (21 Sep 2026)")
-    RECHECK = ["https://www.naixue.com/"]
+    BLOCKED_REASON = ("trades as NaiSnow in the US; at least two stores (American Dream NJ, Upper"
+                      " West Side NY) and naisnow.us is a parked domain for sale (21 Sep 2026)")
+    RECHECK = ["https://www.naixue.com/", "https://naisnow.us/"]
+
+
+class JueweiAdapter(Adapter):
+    """
+    Juewei (绝味鸭脖) — braised snacks, and until 21 Sep 2026 this project recorded its US
+    presence as "not established". That was wrong, and the reason is instructive.
+
+    IT TRADES IN AMERICA AS "JUEWEI YABO" (鸭脖 = duck neck), with outlets at the USC campus in
+    Los Angeles and in San Gabriel; a San Diego store under "Juewei Food" shows closed. In
+    Singapore it sells as **King of Braise**. Three markets, three names, and this project had
+    already written down the Singapore trap as a lesson before walking into the American one.
+    The register said "no evidence of US presence has been checked", which was true and read as
+    absence.
+
+    No first-party US locator: jueweiyabo.com, yabo-us.com and jueweiusa.com do not resolve, and
+    the corporate site jueweifood.com/eng/ carries no store list. The US presence surfaces through
+    delivery platforms only.
+
+    Shanghai-listed (603517), 16,000+ outlets, so overseas counts may appear in filings.
+    """
+    chain_id, name, name_zh = "juewei", "Juewei", "绝味鸭脖"
+    name_us = "Juewei Yabo"
+    parent, format = "Juewei Food (SSE 603517)", "snack"
+    ENABLED = False
+    BLOCKED_REASON = ("trades as Juewei Yabo in the US (LA, San Gabriel); no first-party locator"
+                      " and no US domain resolves (21 Sep 2026)")
+    RECHECK = ["https://jueweifood.com/eng/"]
 
 
 class CottiAdapter(Adapter):
