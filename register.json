@@ -810,56 +810,63 @@
    "chain": "haidilao",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 17,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "Super Hi's largest single market, more than 18% of its overseas restaurants.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. Super Hi's largest single market, more than 18% of its overseas restaurants.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "haidilao",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 10,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "Reported as 13 restaurants across Japan AND South Korea combined (May 2024). Deliberately not split between the two: an invented split is worse than a blank.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. Reported as 13 restaurants across Japan AND South Korea combined (May 2024). Deliberately not split between the two: an invented split is worse than a blank.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "haidilao",
    "market": "KR",
    "status": "present",
-   "locations": null,
+   "locations": 7,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "See the Japan note — the 13 is a combined figure.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. See the Japan note — the 13 is a combined figure.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "haidilao",
    "market": "CA",
    "status": "present",
-   "locations": 3,
-   "locations_as_of": "2024-05",
+   "locations": 6,
+   "locations_as_of": "2026-09-21",
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "Two years stale; re-check against Super Hi's latest filing.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. Two years stale; re-check against Super Hi's latest filing.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
    ]
   },
@@ -867,43 +874,49 @@
    "chain": "haidilao",
    "market": "GB",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "Reported as 5 restaurants across the UK, Australia AND the UAE combined (May 2024); not split.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. Reported as 5 restaurants across the UK, Australia AND the UAE combined (May 2024); not split.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "haidilao",
    "market": "AU",
    "status": "present",
-   "locations": null,
+   "locations": 6,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "See the UK note — combined figure.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. See the UK note — combined figure.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "haidilao",
    "market": "AE",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-09-21",
-   "note": "See the UK note — combined figure.",
+   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. See the UK note — combined figure.",
    "sources": [
+    "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
     "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-   ]
+   ],
+   "locations_as_of": "2026-09-21"
   },
   {
    "chain": "yangs",

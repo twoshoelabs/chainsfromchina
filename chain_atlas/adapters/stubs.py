@@ -48,12 +48,20 @@ class HeyteaAdapter(Adapter):
     one is American). It is a brand page, not a locator, and using it as one would report
     HEYTEA as a single-store chain when the trade press counts roughly 28 US locations.
 
+    RE-CHECKED 21 SEP 2026: us.heytea.com and order.heytea.com do not resolve. heyteaus.com does
+    and looks promising at 190 KB — it is a third-party SEO menu site ("HEYTEA Menu 2026: Updated
+    Prices, Calories"), not HEYTEA's. Worth naming because it is the exact shape of mistake this
+    project must not make: a plausible domain, a plausible title, and no relationship to the
+    company whose store count it would have supplied.
+
     Next step: the ordering app's shop endpoint, which is where the real US list lives.
     """
     chain_id, name, name_zh = "heytea", "HEYTEA", "喜茶"
     parent, format = "Heytea (Shenzhen Meixixi)", "tea"
     ENABLED = False
-    BLOCKED_REASON = "site's /api/v1/page key=stores is a 13-store global showcase, not a US locator (21 Sep 2026)"
+    BLOCKED_REASON = ("site's /api/v1/page key=stores is a 13-store global showcase, not a US"
+                      " locator; no US subdomain resolves (21 Sep 2026)")
+    RECHECK = ["https://www.heytea.com/en-us/store"]
 
 
 class YangsAdapter(Adapter):
@@ -132,20 +140,46 @@ class TaiErAdapter(Adapter):
 
 class HaidilaoAdapter(Adapter):
     """
-    Haidilao (海底捞) — hotpot, trading in the US since 2013 and the longest-established mainland
-    chain on this roster by a decade.
+    Haidilao (海底捞) — hotpot, in the US since 2013 and the longest-established mainland chain on
+    this roster by a decade. First US restaurant: Arcadia, Los Angeles.
 
-    Its overseas arm Super Hi International is listed twice (HKEX 9658, Nasdaq HDL) and discloses
-    restaurant counts, which makes it the second-best corroboration target here after Tai Er.
-    A dozen-plus US restaurants across California, Washington, Texas, New York, Illinois and
-    Arizona. Several .us domains carry outlet lists but their provenance is unverified — the
-    first-party source to find is Super Hi's own site or the app.
+    INVESTIGATED 21 SEP 2026. No store-level US locator exists on any first-party site, but the
+    search produced something else worth having.
+
+    NOT A LOCATOR, BUT A COUNT. superhiinternational.com — the corporate site of the listed
+    overseas arm — runs a "Global Stores" panel backed by:
+
+        GET https://www.superhiinternational.com/eportal/earth/list
+            ?country=SuperHi&language=en-SuperHi
+
+    It returns one record per operating country: cities, store count, and a paragraph naming the
+    local operating entity. For the US: 8 cities, 13 restaurants, "Hdl Management Usa
+    Corporation". That is a first-party, dated store count for 14 markets in a single request,
+    and it has been written into the international register for the seven markets this project
+    tracks.
+
+    READ THE FIELDS CAREFULLY. They are swapped in their CMS: the store count sits in a field
+    called `ownedCountries`, the city count in `ownedCities`. Taken literally the data says
+    Singapore operates in 17 countries. The reading used here is confirmed by arithmetic — the
+    second field sums to 114 across 14 countries, against the site's own headline of "110+ global
+    stores" in "14 operating countries". The Cambodia row is corrupt (the global total was typed
+    into its city field) and is ignored.
+
+    So Haidilao is collectable at COUNTRY level and not at STORE level. The site's own SPA has
+    thirteen routes and none is a store finder; "Find a store" leads to per-country sites that
+    the endpoint does not link to. haidilao.com and haidilaous.com are shells.
+
+    NEXT: the US consumer site or app, if one exists, would give the 13 restaurants individually.
+    Until then the count belongs in the register, not in the store census, and this adapter stays
+    off — 13 is a number, not a roster, and the archive stores stores.
     """
     chain_id, name, name_zh = "haidilao", "Haidilao", "海底捞"
     parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = "in the US since 2013; first-party US locator not yet identified (21 Sep 2026)"
-    RECHECK = ["https://www.superhiinternational.com/"]
+    BLOCKED_REASON = ("in the US since 2013; no store-level locator, but the parent publishes a"
+                      " country count — 13 US restaurants in 8 cities (21 Sep 2026)")
+    RECHECK = ["https://www.superhiinternational.com/eportal/earth/list"
+               "?country=SuperHi&language=en-SuperHi"]
 
 
 class ChaPandaAdapter(Adapter):
@@ -188,22 +222,33 @@ class NaixueAdapter(Adapter):
     chain_id, name, name_zh = "nayuki", "Naixue", "奈雪的茶"
     parent, format = "Nayuki Holdings (HKEX 2150)", "tea"
     ENABLED = False
-    BLOCKED_REASON = "US entry reported at American Dream NJ; extent and locator unverified (21 Sep 2026)"
+    BLOCKED_REASON = ("US entry reported at American Dream NJ; naixue.com is a 505-byte shell and"
+                      " no US domain resolves (21 Sep 2026)")
+    RECHECK = ["https://www.naixue.com/"]
 
 
 class CottiAdapter(Adapter):
     """
     Cotti Coffee US — no first-party US locator found.
 
-    cotticoffee.com serves a global brand site with no /us path (404), us.cotticoffee.global
-    does not resolve, and the US presence surfaces through third parties instead: individual
-    franchisee sites, a Joe Coffee ordering page per store, and mall directories. Third-party
-    aggregators are explicitly out of scope for a first-party census — they are someone else's
-    refresh cadence and someone else's mistakes.
+    cotticoffee.com serves a global brand site with no /us path (404), us.cotticoffee.com and
+    cotticoffeeusa.com do not resolve, and the US presence surfaces through third parties
+    instead: individual franchisee sites, a Joe Coffee ordering page per store, and mall
+    directories. Third-party aggregators are explicitly out of scope for a first-party census —
+    they are someone else's refresh cadence and someone else's mistakes.
+
+    RE-INVESTIGATED 21 SEP 2026. cotticoffee.global, the international corporate site, does have
+    a STORES entry in its navigation — and it is a photo carousel of thirty selected shops with
+    city captions ("Bay St., Toronto, Canada"), served from a route that 404s on direct request
+    because the SPA has no server-side fallback. A gallery, not a locator. For a chain claiming
+    18,000+ outlets that is a striking absence, and it is the finding: Cotti does not publish
+    where it is.
 
     Next step: the app's store API, or accept Cotti as uncollectable and say so on the map.
     """
     chain_id, name, name_zh = "cotti", "Cotti Coffee", "库迪咖啡"
     parent, format = "Cotti Coffee", "coffee"
     ENABLED = False
-    BLOCKED_REASON = "no first-party US locator exists; only per-franchisee and aggregator pages (21 Sep 2026)"
+    BLOCKED_REASON = ("no locator anywhere: the global site's STORES page is a 30-item photo"
+                      " carousel of selected shops, not a list (21 Sep 2026)")
+    RECHECK = ["https://www.cotticoffee.global/"]
