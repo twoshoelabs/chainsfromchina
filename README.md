@@ -1,4 +1,7 @@
-# chain_atlas — where mainland-China-origin chains are opening
+# chain_atlas — the collector behind *Chains From China*
+
+Published as **Chains From China** (chainsfromchina.com, registered 21 Sep 2026). The repo keeps
+its own name on purpose: the site is the publication, `chain_atlas` is the instrument.
 
 Two records of the same subject, kept deliberately apart because they are different kinds of
 claim:
@@ -13,6 +16,11 @@ claim:
    a source and a confidence on every row.
 
 The project was called `us_chain_atlas` until the register outgrew the name.
+
+Both pages carry a standing disclaimer: this is an independent measurement project, not
+affiliated with or endorsed by any company it names. Brand names identify the businesses being
+measured — which is nominative use, and is why no brand appears in the domain, the logo or the
+page styling.
 
 **Why it exists.** As of September 2026 nobody publishes a store-level, dated map of
 mainland-China-origin chains in the US. Momentum Works tracks this category well but reports on
