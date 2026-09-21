@@ -1,0 +1,295 @@
+{
+  "_readme": [
+    "A REGISTER, NOT A CENSUS. Every other number in this project is something the collector saw",
+    "for itself and can show you a raw capture for. Nothing in this file is. These are facts read",
+    "out of company filings, exchange announcements and the trade press, typed in by hand, each",
+    "carrying the date it was true, how sure we are, and where it came from.",
+    "",
+    "Consequently: a missing count is written as null and never guessed, and 'no_evidence' means",
+    "we did not find a presence, NOT that there is none. Those are different claims and the",
+    "register refuses to blur them.",
+    "",
+    "Reviewed periodically rather than daily — `python -m us_chain_atlas register --stale` lists",
+    "what has not been looked at in 90 days."
+  ],
+  "as_of": "2026-09-21",
+
+  "markets": {
+    "KR": {"name": "South Korea",    "region": "East Asia"},
+    "JP": {"name": "Japan",          "region": "East Asia"},
+    "SG": {"name": "Singapore",      "region": "Southeast Asia"},
+    "AE": {"name": "UAE (Dubai)",    "region": "Gulf"},
+    "AU": {"name": "Australia",      "region": "Oceania"},
+    "CA": {"name": "Canada",         "region": "North America"},
+    "GB": {"name": "United Kingdom", "region": "Western Europe"},
+    "FR": {"name": "France",         "region": "Western Europe"},
+    "DE": {"name": "Germany",        "region": "Western Europe"},
+    "ES": {"name": "Spain",          "region": "Western Europe"},
+    "IT": {"name": "Italy",          "region": "Western Europe"},
+    "NL": {"name": "Netherlands",    "region": "Western Europe"}
+  },
+
+  "chains": {
+    "mixue":    {"name": "MIXUE",         "name_zh": "蜜雪冰城", "format": "tea",
+                 "global": "59,823 stores worldwide at 31 Dec 2025; about 4,700 of them outside China across 13 countries"},
+    "chagee":   {"name": "CHAGEE",        "name_zh": "霸王茶姬", "format": "tea",
+                 "global": "about 7,500 teahouses in 2026"},
+    "luckin":   {"name": "Luckin Coffee", "name_zh": "瑞幸咖啡", "format": "coffee",
+                 "global": "surpassed 35,000 stores globally in 2026"},
+    "cotti":    {"name": "Cotti Coffee",  "name_zh": "库迪咖啡", "format": "coffee",
+                 "global": "18,000+ stores in 28 countries as of April 2026"},
+    "miniso":   {"name": "MINISO",        "name_zh": "名创优品", "format": "lifestyle",
+                 "global": "8,485 stores at 31 Dec 2025, of which 3,583 overseas"},
+    "popmart":  {"name": "POP MART",      "name_zh": "泡泡玛特", "format": "toys",
+                 "global": "630 retail stores and 2,637 roboshops across 20 countries at end-2025"},
+    "heytea":   {"name": "HEYTEA",        "name_zh": "喜茶",     "format": "tea",
+                 "global": "4,000+ stores; over 100 of them overseas across 8 countries and 28 cities"},
+    "haidilao": {"name": "Haidilao",      "name_zh": "海底捞",   "format": "restaurant",
+                 "global": "overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs roughly 120-125 restaurants outside Greater China"}
+  },
+
+  "entries": [
+    {"chain": "mixue", "market": "KR", "status": "present", "locations": null,
+     "first_opened": "2022", "precision": "year", "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Entered South Korea and Japan by the end of 2022. No country-level count published.",
+     "sources": ["https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea"]},
+
+    {"chain": "mixue", "market": "JP", "status": "present", "locations": null,
+     "first_opened": "2022", "precision": "year", "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Entered South Korea and Japan by the end of 2022.",
+     "sources": ["https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea"]},
+
+    {"chain": "mixue", "market": "SG", "status": "present", "locations": null,
+     "first_opened": "2022", "precision": "year", "confidence": "low",
+     "reviewed": "2026-09-21",
+     "note": "Year reported secondhand; not confirmed against a first-party announcement.",
+     "sources": ["https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea"]},
+
+    {"chain": "mixue", "market": "AU", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Australia named among the 13 countries in the overseas estate; no opening date found.",
+     "sources": ["https://www.chinadaily.com.cn/a/202604/14/WS69dd9975a310d6866eb433d1.html"]},
+
+    {"chain": "chagee", "market": "SG", "status": "present", "locations": null,
+     "first_opened": "2019", "precision": "year", "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "The most interesting entry in this register: entered 2019 by franchise, reached 12 outlets by 2021, WITHDREW the franchise operation in early 2024, then re-entered company-owned in August 2024 at Orchard Gateway, Plaza Singapura and Raffles Place. A register that recorded only 'present' would hide a full retreat and re-entry.",
+     "sources": ["https://en.wikipedia.org/wiki/Chagee", "https://www.foodtalks.cn/en/news/54407"]},
+
+    {"chain": "chagee", "market": "AU", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "low",
+     "reviewed": "2026-09-21",
+     "note": "Reported in Sydney, Melbourne and Brisbane. Presence is well attested; no opening date or count from a source worth citing.",
+     "sources": ["http://www.chinadaily.com.cn/a/202505/01/WS6812e50fa310a04af22bd30c_2.html"]},
+
+    {"chain": "luckin", "market": "SG", "status": "present", "locations": 82,
+     "locations_as_of": "2026-03-31",
+     "first_opened": "2023-03-31", "precision": "day", "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "Best-documented entry here: exact opening day, and a count from the company's own quarterly disclosure. 60 stores at the two-year mark in March 2025, 82 a year later.",
+     "sources": ["https://www.prnewswire.com/apac/news-releases/luckin-coffee-marks-two-years-in-singapore-with-60-stores-and-exclusive-promotions-302412975.html",
+                 "https://insideretail.asia/2026/03/02/network-expansion-continues-to-fuel-luckin-coffees-sales-growth/"]},
+
+    {"chain": "luckin", "market": "JP", "status": "no_evidence", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Searched and found nothing. Luckin's overseas footprint is Singapore, Malaysia and the US. Absence of evidence, not evidence of absence.",
+     "sources": []},
+
+    {"chain": "luckin", "market": "KR", "status": "no_evidence", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "As above.", "sources": []},
+
+    {"chain": "cotti", "market": "KR", "status": "present", "locations": null,
+     "first_opened": "2023", "precision": "year", "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "South Korea (Seoul) was Cotti's FIRST overseas market, days ahead of Jakarta.",
+     "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "cotti", "market": "JP", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Tokyo named among Asian locations.",
+     "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "cotti", "market": "CA", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "cotti", "market": "AU", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "cotti", "market": "SG", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "cotti", "market": "AE", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "low",
+     "reviewed": "2026-09-21", "note": "Named in a list of markets; no store-level confirmation found.",
+     "sources": ["https://en.wikipedia.org/wiki/Cotti_Coffee"]},
+
+    {"chain": "miniso", "market": "FR", "status": "present", "locations": null,
+     "first_opened": "2020-10", "precision": "month", "confidence": "high",
+     "reviewed": "2026-09-21", "note": "First Paris store announced by the company in October 2020.",
+     "sources": ["https://www.prnewswire.com/news-releases/miniso-opens-first-store-in-paris-301155835.html"]},
+
+    {"chain": "miniso", "market": "AE", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "Runs a dedicated UAE site with its own store list; a flagship in one of the world's largest malls. A country count could be collected from that locator the way the US one is — the best candidate for promoting an entry here into real collection.",
+     "sources": ["https://www.miniso-uae.com/our-stores/"]},
+
+    {"chain": "miniso", "market": "KR", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Seoul flagship announced by the company.",
+     "sources": ["https://www.miniso.com/brand/news_162.html"]},
+
+    {"chain": "miniso", "market": "AU", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Melbourne flagship cited in quarterly commentary.",
+     "sources": ["https://www.benzinga.com/news/26/09/61862221/miniso-group-holding-reports-q2-2026-results-full-earnings-call-transcript"]},
+
+    {"chain": "miniso", "market": "GB", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Operates a UK storefront site.",
+     "sources": ["https://minisoshop.co.uk/about-miniso"]},
+
+    {"chain": "miniso", "market": "CA", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "sources": ["https://en.wikipedia.org/wiki/MINISO"]},
+
+    {"chain": "miniso", "market": "SG", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "sources": ["https://en.wikipedia.org/wiki/MINISO"]},
+
+    {"chain": "miniso", "market": "JP", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "low",
+     "reviewed": "2026-09-21",
+     "note": "Presence asserted in secondary sources only. Worth care: MINISO was long marketed with Japanese-styled branding despite being founded in Guangzhou, which makes casual claims about its Japan presence unusually easy to get wrong.",
+     "sources": []},
+
+    {"chain": "popmart", "market": "JP", "status": "present", "locations": 32,
+     "locations_as_of": "2026-01",
+     "first_opened": null, "precision": null, "confidence": "low",
+     "reviewed": "2026-09-21",
+     "note": "Count from a commerce aggregator, not from Pop Mart. Company disclosure is regional only — 630 stores across 20 countries at end-2025 — so every per-country figure below is low confidence until an IR breakdown is found.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart",
+                 "https://www.chinadaily.com.cn/a/202604/09/WS69d70204a310d6866eb42647.html"]},
+
+    {"chain": "popmart", "market": "KR", "status": "present", "locations": 18,
+     "locations_as_of": "2026-01", "first_opened": null, "precision": null,
+     "confidence": "low", "reviewed": "2026-09-21", "note": "Aggregator count; see JP note.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "SG", "status": "present", "locations": 12,
+     "locations_as_of": "2026-01", "first_opened": null, "precision": null,
+     "confidence": "low", "reviewed": "2026-09-21", "note": "Aggregator count; see JP note.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "GB", "status": "present", "locations": 7,
+     "locations_as_of": "2026-01", "first_opened": null, "precision": null,
+     "confidence": "low", "reviewed": "2026-09-21", "note": "Aggregator count; see JP note.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "FR", "status": "present", "locations": 5,
+     "locations_as_of": "2026-01", "first_opened": "2023", "precision": "year",
+     "confidence": "low", "reviewed": "2026-09-21",
+     "note": "Paris opening reported as 2023; count from an aggregator.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "CA", "status": "present", "locations": 9,
+     "locations_as_of": "2026-01", "first_opened": null, "precision": null,
+     "confidence": "low", "reviewed": "2026-09-21", "note": "Aggregator count; see JP note.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "AU", "status": "present", "locations": 6,
+     "locations_as_of": "2026-01", "first_opened": null, "precision": null,
+     "confidence": "low", "reviewed": "2026-09-21", "note": "Aggregator count; see JP note.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "popmart", "market": "AE", "status": "present", "locations": 4,
+     "locations_as_of": "2026-01", "first_opened": "2024", "precision": "year",
+     "confidence": "low", "reviewed": "2026-09-21",
+     "note": "First UAE store reported at Dubai Mall in late 2024; count from an aggregator.",
+     "sources": ["https://smartbuy.alibaba.com/popmart/where's-pop-mart"]},
+
+    {"chain": "heytea", "market": "SG", "status": "present", "locations": null,
+     "first_opened": "2018-11", "precision": "month", "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "HEYTEA's first store anywhere outside mainland China, at ION Orchard — the earliest entry in this whole register.",
+     "sources": ["https://www.foodtalks.cn/en/news/58458"]},
+
+    {"chain": "heytea", "market": "GB", "status": "present", "locations": null,
+     "first_opened": "2023-08", "precision": "month", "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "London Chinatown, August 2023 — HEYTEA's first store outside Asia.",
+     "sources": ["https://insideretail.asia/2023/08/08/heytea-opens-first-store-outside-china-in-london/"]},
+
+    {"chain": "heytea", "market": "AU", "status": "present", "locations": null,
+     "first_opened": "2023-10", "precision": "month", "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Opened about two months after London.",
+     "sources": ["https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html"]},
+
+    {"chain": "heytea", "market": "CA", "status": "present", "locations": null,
+     "first_opened": "2023-10", "precision": "month", "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Announced alongside the Australian entry.",
+     "sources": ["https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html"]},
+
+    {"chain": "heytea", "market": "FR", "status": "present", "locations": null,
+     "first_opened": "2024-07", "precision": "month", "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Paris, timed to the eve of the Olympics.",
+     "sources": ["https://www.scmp.com/business/china-business/article/3270301/chinese-new-style-tea-hits-paris-tencent-backed-heytea-opens-shop-eve-olympics"]},
+
+    {"chain": "heytea", "market": "KR", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Named among the eight overseas countries.",
+     "sources": ["https://www.foodtalks.cn/en/news/58458"]},
+
+    {"chain": "heytea", "market": "JP", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "Named among the eight overseas countries.",
+     "sources": ["https://www.foodtalks.cn/en/news/58458"]},
+
+    {"chain": "haidilao", "market": "SG", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "high",
+     "reviewed": "2026-09-21",
+     "note": "Super Hi's largest single market, more than 18% of its overseas restaurants.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "JP", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Reported as 13 restaurants across Japan AND South Korea combined (May 2024). Deliberately not split between the two: an invented split is worse than a blank.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "KR", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "See the Japan note — the 13 is a combined figure.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "CA", "status": "present", "locations": 3,
+     "locations_as_of": "2024-05", "first_opened": null, "precision": null,
+     "confidence": "medium", "reviewed": "2026-09-21",
+     "note": "Two years stale; re-check against Super Hi's latest filing.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "GB", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21",
+     "note": "Reported as 5 restaurants across the UK, Australia AND the UAE combined (May 2024); not split.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "AU", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "See the UK note — combined figure.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]},
+
+    {"chain": "haidilao", "market": "AE", "status": "present", "locations": null,
+     "first_opened": null, "precision": null, "confidence": "medium",
+     "reviewed": "2026-09-21", "note": "See the UK note — combined figure.",
+     "sources": ["https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"]}
+  ]
+}

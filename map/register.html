@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chinese chains abroad — register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Chinese chains abroad</h1>
+  <p class="sub">Which PRC-origin chains have set up in which markets, how many locations, and
+     when the first one opened. <span id="asof"></span>
+     <a class="xlink" href="index.html">&larr; US store map</a></p>
+</header>
+
+<div class="wrap">
+  <main>
+    <p class="note lede">
+      This page is a <strong>register, not a census</strong>. Everything on the US map is
+      something the collector saw for itself and can show a raw capture for. Nothing here is:
+      these are facts from company filings, exchange announcements and the trade press, typed in
+      by hand, each carrying the date it was true and how far it should be trusted. A count that
+      has not been published is left blank rather than estimated, and &ldquo;no evidence&rdquo;
+      means a search found nothing — which is a statement about the search, not about the chain.
+    </p>
+    <div id="matrix"></div>
+    <div id="detail"></div>
+  </main>
+
+  <aside>
+    <section>
+      <h2>Coverage</h2>
+      <table id="coverage"><tbody></tbody></table>
+      <p class="note small" id="covnote"></p>
+    </section>
+    <section>
+      <h2>Not yet looked at</h2>
+      <p class="note" id="gaps"></p>
+    </section>
+    <section>
+      <h2>How to read a cell</h2>
+      <ul class="legendlist">
+        <li><b>82</b> a published location count</li>
+        <li><b>Y</b> present, but no count published</li>
+        <li><b>–</b> searched, no evidence of presence found</li>
+        <li><b>·</b> not looked at yet</li>
+        <li><span class="conf c-medium">?</span> medium confidence,
+            <span class="conf c-low">??</span> low — hover any cell for the reasoning</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Keeping it honest</h2>
+      <p class="note">Entries carry a review date and go stale;
+        <code>register --stale</code> lists anything untouched for 90 days. The failure mode of a
+        hand-kept register is not being wrong the day it is written — it is being believed a year
+        later.</p>
+    </section>
+  </aside>
+</div>
+
+<div id="tip" hidden></div>
+<script src="register.js"></script>
+</body>
+</html>

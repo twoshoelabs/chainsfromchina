@@ -79,6 +79,65 @@ key failing to discriminate should cost an unmerged duplicate, never a disappear
 462 rows − 3 closed − 29 merged = **430 stores**, which squares with Miniso's own announcement of
 its 400th US store in August 2026.
 
+## The international register
+
+A second, different thing, kept deliberately apart from the collector: **which PRC-origin chains
+have set up in which markets**, how many locations they have there, and when the first one
+opened. Markets covered: South Korea, Japan, Singapore, the UAE, Australia, Canada, and Western
+Europe (UK, France, Germany, Spain, Italy, Netherlands).
+
+```
+python -m us_chain_atlas register                 # the chain x market matrix, then the detail
+python -m us_chain_atlas register --chain heytea  # one chain
+python -m us_chain_atlas register --market SG     # one market
+python -m us_chain_atlas register --gaps          # pairs nobody has checked
+python -m us_chain_atlas register --stale         # entries not reviewed in 90 days
+```
+
+Data lives in hand-edited `register.json`; the page is `map/register.html`.
+
+**A register is not a census, and the difference is the whole design.** Every number on the US
+map is something the collector saw for itself and can produce a gzipped raw capture for. Nothing
+in the register is — these are facts from filings, exchange announcements and the trade press,
+typed in by hand. So the schema forces what that implies, and `test_register.py` enforces it:
+
+- **An unpublished count is `null`.** Never inferred, never split out of a regional total. Super
+  Hi reports 13 restaurants across Japan *and* South Korea; that is recorded as a note on both and
+  a count on neither, because an invented split is worse than a blank.
+- **A count with no as-of date is rejected outright.** An undated number is a rumour.
+- **`no_evidence` is not `none`.** It means a search did not find a presence, which is a claim
+  about the search. Luckin is `no_evidence` in Japan and Korea, not absent from them.
+- **Every `present` row must cite a source or explain itself**, and every count below high
+  confidence must carry a note saying why.
+
+### What the first pass found
+
+- **Luckin in Singapore is the best-documented entry anywhere here**: opened 31 March 2023, 60
+  stores at the two-year mark, **82 as of 31 March 2026** — an exact day and a company-disclosed
+  count.
+- **HEYTEA is the earliest mover**, opening at ION Orchard in Singapore in November 2018, five
+  years before London Chinatown (August 2023) made it the first of this wave outside Asia.
+- **CHAGEE in Singapore is the entry that justifies the schema**: it entered by franchise in 2019,
+  reached twelve outlets by 2021, **withdrew entirely in early 2024**, then re-entered
+  company-owned that August. A register that stored only "present" would have flattened a full
+  retreat and re-entry into a tick.
+- **POP MART's per-country numbers are the weakest data here** and are marked low confidence
+  throughout. Pop Mart discloses regionally — 630 stores across 20 countries at end-2025 — so the
+  per-country figures come from a commerce aggregator and should not be quoted until an IR
+  breakdown is found.
+- **MINISO in the UAE is the best candidate for promotion out of the register and into real
+  collection**: it runs a dedicated UAE site with its own store locator, the same shape as the US
+  one already collected daily.
+
+**51 of 96 chain/market pairs have not been checked at all.** They are blank on purpose and
+`--gaps` lists them; an unchecked pair is not an absence.
+
+### A naming problem this creates
+
+The repo is called `us_chain_atlas` and now holds a register covering twelve non-US markets. The
+name is too narrow. Renaming touches the installed LaunchAgent, `.env`, and the data directory,
+so it has not been done unprompted — `chain_atlas` would be the obvious target.
+
 ## Setup
 
 ```
@@ -165,7 +224,12 @@ collecting for two days in September 2026.
 US_CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
 .venv/bin/python tests/test_usaddr.py
 .venv/bin/python tests/test_miniso.py
+.venv/bin/python tests/test_register.py
 ```
+
+`test_register.py` checks that the register's validator actually refuses the mistakes a person
+makes while typing at midnight — an undated count, a presence with no source, a duplicated pair,
+a date with no stated precision — and that the shipped `register.json` passes all of them.
 
 `test_miniso.py` runs the deduplication over a real slice of the 21 Sep 2026 capture, chosen to
 carry every shape that matters: two pairs that must merge, two same-code pairs that must not,

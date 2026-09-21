@@ -25,10 +25,31 @@ def main(argv=None):
         status()
         return 0
 
+    if cmd == "register":
+        from . import register
+        d = register.load()
+        if "--stale" in argv:
+            days = int(opt("--stale-days", register.STALE_DAYS))
+            rows = register.stale(d, days)
+            print(f"{len(rows)} entr(y/ies) not reviewed in {days} days")
+            for c, m, age in rows:
+                print(f"  {c:9} {m}  {age} days")
+            return 0
+        if "--gaps" in argv:
+            g = register.gaps(d)
+            print(f"{len(g)} chain/market pairs never looked at:")
+            for c, m in g:
+                print(f"  {c:9} {m}")
+            return 0
+        register.report(d, chain=opt("--chain"), market=opt("--market"))
+        return 0
+
     if cmd == "export":
         from .mapdata import export
+        from . import register
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
         print(export(out), "->", out)
+        print(register.export(out), "-> register.json")
         return 0
 
     if cmd == "probe":
@@ -51,6 +72,7 @@ def main(argv=None):
     print("  reparse [--chain X] [--date YYYY-MM-DD]                re-derive a day from raw, no network")
     print("  status                                          stock, pipeline, blocked chains")
     print("  export [--out DIR]                              write map/data/*.json")
+    print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
     print("  probe --chain X                                 print one chain's live locator")
     return 0
 
