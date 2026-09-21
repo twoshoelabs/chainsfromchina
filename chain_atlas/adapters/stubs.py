@@ -74,16 +74,28 @@ class YangsAdapter(Adapter):
     earliest and least-covered mainland chains in America, operating for eight years while the
     attention went to the tea shops that arrived in 2023.
 
-    No first-party US locator has been identified. The franchise network appears to run through
-    individual operators, and yangsbraisedchickenrice.com did not resolve when probed on
-    21 Sep 2026. Next step is to find whether a national franchisor page exists; if it does not,
-    this becomes the first chain here that needs a corroborated multi-source count rather than a
-    single locator read.
+    No first-party US locator has been identified, and a second pass on 21 Sep 2026 did not find
+    one. yangschicken.ca — the North American site that search engines still index — RESOLVES
+    (142.93.152.61) and then does not answer: every connection times out. That is worth
+    distinguishing from a domain that has lapsed, because a host that is merely unreachable from
+    here may answer from elsewhere, and is worth one attempt from a different network before the
+    chain is written off. yangsbraisedchicken.com, yangschickenrice.com, yangschicken.us,
+    yangsbraisedchickenrice.us and ymyusa.com do not resolve at all.
+
+    Meanwhile the US estate is visibly churning: Yelp lists the original Tustin store, Culver City
+    and Cupertino as CLOSED, while trade coverage counts roughly eight restaurants in California.
+    A chain opening and closing without any first-party list is precisely the case a census exists
+    to catch and precisely the case it cannot reach.
+
+    Next step: one attempt at yangschicken.ca from another network. Failing that, this is the
+    first chain here that needs a corroborated multi-source count rather than a single locator
+    read — a different product decision, not a fallback to drift into.
     """
     chain_id, name, name_zh = "yangs", "Yang's Braised Chicken Rice", "杨铭宇黄焖鸡"
     parent, format = "Yang's Braised Chicken Rice", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = "trading in the US since 2017; no first-party US locator found yet (21 Sep 2026)"
+    BLOCKED_REASON = ("trading in the US since 2017; yangschicken.ca resolves but never answers,"
+                      " and no other first-party domain exists (21 Sep 2026)")
     RECHECK = ["https://yangschicken.ca/"]
 
 
@@ -200,11 +212,38 @@ class CottiAdapter(Adapter):
     18,000+ outlets that is a striking absence, and it is the finding: Cotti does not publish
     where it is.
 
-    Next step: the app's store API, or accept Cotti as uncollectable and say so on the map.
+    SECOND PASS, 21 SEP 2026 — and the wall is now a consent boundary, not a technical one.
+    Cotti does run a US store finder: mobile.us.cotticoffee.global/?cnty=US, a Flutter web app.
+    It renders to canvas (no DOM to read) and it opens on a **Legal Statement** screen requiring
+    acceptance of Terms and Conditions and a Privacy Policy before anything loads. This project
+    will not click that on the operator's behalf: accepting an agreement is the operator's to
+    give, and no store count is worth having an automated agent enter into one.
+
+    So Cotti is collectable in principle and blocked in practice, pending a decision by a human
+    about those terms. That is a better-defined blocker than "no locator exists", and it is the
+    one to put to the operator.
+
+    KNOWN LOCATIONS, HELD AS EVIDENCE AND NOT AS A ROSTER. A Cotti marketing graphic supplied on
+    21 Sep 2026 lists five New York stores:
+
+        345 7th Ave, New York, NY 10001
+        170 W 23rd St, New York, NY 10011
+        482 3rd Ave, New York, NY 10016
+        135-29 Roosevelt Ave, Flushing, NY 11354      (Roosevelt Ave Flushing)
+        41-28 Main St, Flushing, NY 11354             (Golden Mall Flushing)
+
+    They are NOT in the store census, deliberately. The graphic covers New York County and Queens
+    County only, while Cotti is separately attested in San Gabriel CA, Pearl City HI, Champaign IL,
+    Staten Island and Brooklyn — so five is a floor, not a footprint. Filing a partial roster now
+    would mean that the day the real source is read, every store it contains beyond these five
+    would be recorded as an OPENING that never happened. `fetch_raw` says a partial result is
+    worse than a failed run for exactly this reason, and a partial result supplied by hand is no
+    different. These five belong here, as corroboration for whatever is collected later.
     """
     chain_id, name, name_zh = "cotti", "Cotti Coffee", "库迪咖啡"
     parent, format = "Cotti Coffee", "coffee"
     ENABLED = False
-    BLOCKED_REASON = ("no locator anywhere: the global site's STORES page is a 30-item photo"
-                      " carousel of selected shops, not a list (21 Sep 2026)")
-    RECHECK = ["https://www.cotticoffee.global/"]
+    BLOCKED_REASON = ("a US store finder exists (mobile.us.cotticoffee.global, Flutter) but opens"
+                      " on a Terms and Conditions gate this project will not accept for you"
+                      " (21 Sep 2026)")
+    RECHECK = ["https://mobile.us.cotticoffee.global/?cnty=US", "https://www.cotticoffee.global/"]
