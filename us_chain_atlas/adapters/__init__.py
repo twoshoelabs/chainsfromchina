@@ -11,14 +11,15 @@ from .base import Adapter, StoreRecord
 from .mixue import MixueAdapter
 from .chagee import ChageeAdapter
 from .luckin import LuckinAdapter
-from .stubs import PopMartAdapter, MinisoAdapter, HeyteaAdapter, CottiAdapter
+from .miniso import MinisoAdapter
+from .stubs import PopMartAdapter, HeyteaAdapter, CottiAdapter
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
     ChageeAdapter(),    # validated live 21 Sep 2026; 11 stores with published coordinates, 1 request
     LuckinAdapter(),    # validated live 21 Sep 2026; 22 stores, no coordinates, 1 request
+    MinisoAdapter(),    # validated live 21 Sep 2026; 462 CMS rows -> ~425 stores, 2 requests
     PopMartAdapter(),   # blocked — see stubs.py
-    MinisoAdapter(),    # blocked — see stubs.py
     HeyteaAdapter(),    # blocked — see stubs.py
     CottiAdapter(),     # blocked — see stubs.py
 ]

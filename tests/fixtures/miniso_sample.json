@@ -1,0 +1,949 @@
+{
+ "collection": "Locations",
+ "totalCount": 16,
+ "items": [
+  {
+   "_createdDate": {
+    "$date": "2026-09-08T23:32:01.180Z"
+   },
+   "_id": "f6030e4d-a3a4-4237-a21e-330426ce76aa",
+   "_manualSort_c30eaa22-f43c-463a-911b-0af5f3297800": "g",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-09-08T23:32:31.388Z"
+   },
+   "address": {
+    "city": "Lynnwood",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "3000 184th St SW #986, Lynnwood, WA 98037, USA",
+    "location": {
+     "latitude": 47.8302006,
+     "longitude": -122.2715028
+    },
+    "postalCode": "98037",
+    "streetAddress": {
+     "apt": "986",
+     "name": "184th Street Southwest",
+     "number": "3000"
+    },
+    "subdivision": "WA",
+    "subdivisions": [
+     {
+      "code": "WA",
+      "name": "Washington",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Snohomish County",
+      "name": "Snohomish County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Lynnwood",
+      "name": "Lynnwood",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/alderwood",
+   "phone": "N/A",
+   "plainTextAddress": "3000 184th St SW Ste #986, Lynnwood, WA 98037",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "WA"
+   ],
+   "storeCode": "USNH",
+   "title_fld": "Alderwood"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-07-01T17:19:03.203Z"
+   },
+   "_id": "e29f2d1a-8c6f-4cda-bafe-ed453c9e369f",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-07-01T17:20:28.713Z"
+   },
+   "address": {
+    "city": "Puyallup",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "3500 S Meridian #320, Puyallup, WA 98373, USA",
+    "location": {
+     "latitude": 47.1583264,
+     "longitude": -122.2968345
+    },
+    "postalCode": "98373",
+    "streetAddress": {
+     "apt": "320",
+     "name": "South Meridian",
+     "number": "3500"
+    },
+    "subdivision": "WA",
+    "subdivisions": [
+     {
+      "code": "WA",
+      "name": "Washington",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Pierce County",
+      "name": "Pierce County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Puyallup",
+      "name": "Puyallup",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/south-hill-mall",
+   "phone": "N/A",
+   "plainTextAddress": "3500 S Meridian #320, Puyallup, WA 98373, USA",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "WA"
+   ],
+   "storeCode": "USBS",
+   "title_fld": "South Hill Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-07-01T17:17:46.541Z"
+   },
+   "_id": "63706a44-f37b-47de-bd78-6eea8c8476d7",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-07-01T17:18:15.790Z"
+   },
+   "address": {
+    "city": "Murray",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "6191 S State St d311, Murray, UT 84107, USA",
+    "location": {
+     "latitude": 40.6370043,
+     "longitude": -111.8872273
+    },
+    "postalCode": "84107-7258",
+    "streetAddress": {
+     "apt": "d311",
+     "name": "South State Street",
+     "number": "6191"
+    },
+    "subdivision": "UT",
+    "subdivisions": [
+     {
+      "code": "UT",
+      "name": "Utah",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Salt Lake County",
+      "name": "Salt Lake County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Murray",
+      "name": "Murray",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/fashion-place",
+   "phone": "N/A",
+   "plainTextAddress": "6191 S StateStreet, Ste. D311, Murray, UT 84107",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "UT"
+   ],
+   "storeCode": "USFK",
+   "title_fld": "Fashion Place"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-07-01T00:26:40.194Z"
+   },
+   "_id": "8434740d-c527-470d-ba6c-2aaf7ae2290c",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-07-01T00:29:24.465Z"
+   },
+   "address": {
+    "city": "Merrillville",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "1930 Southlake Mall #536, Merrillville, IN 46410, USA",
+    "location": {
+     "latitude": 41.46848500000001,
+     "longitude": -87.31164129999999
+    },
+    "postalCode": "46410",
+    "streetAddress": {
+     "apt": "536",
+     "name": "Southlake Mall",
+     "number": "1930"
+    },
+    "subdivision": "IN",
+    "subdivisions": [
+     {
+      "code": "IN",
+      "name": "Indiana",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Lake County",
+      "name": "Lake County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Merrillville",
+      "name": "Merrillville",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/southlake-mall",
+   "phone": "N/A",
+   "plainTextAddress": "1930 Southlake Mall #536, Merrillville, IN 46410, USA",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "IN"
+   ],
+   "storeCode": "USL8",
+   "title_fld": "South lake Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-06-09T16:25:04.984Z"
+   },
+   "_id": "fdfcc4d0-b9ca-4b39-b6f7-b28f080536db",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:28:03.770Z"
+   },
+   "address": {
+    "city": "Merrillville",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "2109 Southlake Mall #536, Merrillville, IN 46410, USA",
+    "location": {
+     "latitude": 41.4683839,
+     "longitude": -87.3106213
+    },
+    "postalCode": "46410",
+    "streetAddress": {
+     "apt": "536",
+     "name": "Southlake Mall",
+     "number": "2109"
+    },
+    "subdivision": "IN",
+    "subdivisions": [
+     {
+      "code": "IN",
+      "name": "Indiana",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Lake County",
+      "name": "Lake County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Merrillville",
+      "name": "Merrillville",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/southlake-mall",
+   "phone": "N/A",
+   "plainTextAddress": "2109 Southlake Mall #536, Merrillville, IN 46410, USA",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "IN"
+   ],
+   "storeCode": "USL8",
+   "title_fld": "Southlake Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-06-08T23:44:51.359Z"
+   },
+   "_id": "fbbc7f78-7451-4b57-9e21-b609834772a3",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:27:16.398Z"
+   },
+   "address": {
+    "city": "Murray",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "6191 S State St #1195, Murray, UT 84107, USA",
+    "location": {
+     "latitude": 40.6349442,
+     "longitude": -111.8850603
+    },
+    "postalCode": "84107",
+    "streetAddress": {
+     "apt": "1195",
+     "name": "South State Street",
+     "number": "6191"
+    },
+    "subdivision": "UT",
+    "subdivisions": [
+     {
+      "code": "UT",
+      "name": "Utah",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Salt Lake County",
+      "name": "Salt Lake County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Murray",
+      "name": "Murray",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/fashion-place",
+   "phone": "N/A",
+   "plainTextAddress": "6191 S State St #1195, Murray, UT 84107, USA",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "UT"
+   ],
+   "storeCode": "USFK",
+   "title_fld": "Fashion Place"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-06-08T23:42:08.186Z"
+   },
+   "_id": "ce266a07-4588-4994-a0cc-542f12d0d93f",
+   "_owner": "90afe864-9431-44e6-ba1b-41c213207cc7",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:27:23.265Z"
+   },
+   "address": {
+    "city": "Puyallup",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "3500 S Meridian #320, Puyallup, WA 98373, USA",
+    "location": {
+     "latitude": 47.1631666,
+     "longitude": -122.3020293
+    },
+    "postalCode": "98373",
+    "streetAddress": {
+     "apt": "320",
+     "name": "South Meridian",
+     "number": "3500"
+    },
+    "subdivision": "WA",
+    "subdivisions": [
+     {
+      "code": "WA",
+      "name": "Washington",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Pierce County",
+      "name": "Pierce County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Puyallup",
+      "name": "Puyallup",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/south-hill-mall",
+   "phone": "N/A",
+   "plainTextAddress": "3500 S Meridian #320, Puyallup, WA 98373, USA",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "WA"
+   ],
+   "storeCode": "USBS",
+   "title_fld": "South Hill Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.786Z"
+   },
+   "_id": "c6ad89af-d274-4411-9500-69c094627308",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-30T00:24:42.784Z"
+   },
+   "address": {
+    "city": "Merrillville",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "2109 Southlake Mall, Merrillville, IN 46410, USA",
+    "location": {
+     "latitude": 41.4683839,
+     "longitude": -87.3106213
+    },
+    "postalCode": "46410",
+    "streetAddress": {
+     "apt": "",
+     "name": "Southlake Mall",
+     "number": "2109"
+    },
+    "subdivision": "IN",
+    "subdivisions": [
+     {
+      "code": "IN",
+      "name": "Indiana",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Lake County",
+      "name": "Lake County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Merrillville",
+      "name": "Merrillville",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/southlake-mall",
+   "phone": "N/A",
+   "plainTextAddress": "2109 Southlake Mall, Merrillville, IN 46410",
+   "reference": "Mall",
+   "stateTag": [
+    "GA"
+   ],
+   "storeCode": "USCL",
+   "title_fld": "Southlake Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.739Z"
+   },
+   "_id": "4c925859-802d-40c0-9b9b-4187789fb165",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-29T23:24:22.648Z"
+   },
+   "address": {
+    "city": "Morrow",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "1000 Southlake Cir, Morrow, GA 30260, USA",
+    "location": {
+     "latitude": 33.5749881,
+     "longitude": -84.3513953
+    },
+    "postalCode": "30260-2320",
+    "streetAddress": {
+     "apt": "",
+     "name": "Southlake Circle",
+     "number": "1000"
+    },
+    "subdivision": "GA",
+    "subdivisions": [
+     {
+      "code": "GA",
+      "name": "Georgia",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Clayton County",
+      "name": "Clayton County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Morrow",
+      "name": "Morrow",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/southlake-mall",
+   "phone": "N/A",
+   "plainTextAddress": "1000 Southlake Cir, Morrow, GA 30260",
+   "reference": {
+    "_createdDate": {
+     "$date": "2025-09-11T01:38:27.579Z"
+    },
+    "_draftDate": null,
+    "_id": "a16fe302-31a7-4e9d-be72-7f83f0575f4f",
+    "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+    "_publishDate": {
+     "$date": "2025-10-01T16:59:36.354Z"
+    },
+    "_publishStatus": "PUBLISHED",
+    "_updatedDate": {
+     "$date": "2026-04-30T00:31:56.599Z"
+    },
+    "color": "#FFD37D",
+    "title_fld": "Mall"
+   },
+   "stateTag": [
+    "GA"
+   ],
+   "storeCode": "USCL",
+   "title_fld": "Southlake Mall"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.603Z"
+   },
+   "_id": "60723ccf-a1e5-4ea9-80d6-6d85a4788d13",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-30T00:27:35.206Z"
+   },
+   "address": {
+    "city": "Houston",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "9188 Bellaire Blvd # K, Houston, TX 77036, USA",
+    "location": {
+     "latitude": 29.7054336,
+     "longitude": -95.5445324
+    },
+    "postalCode": "77036-4623",
+    "streetAddress": {
+     "apt": "# K",
+     "name": "Bellaire Boulevard",
+     "number": "9188"
+    },
+    "subdivision": "TX",
+    "subdivisions": [
+     {
+      "code": "TX",
+      "name": "Texas",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Harris County",
+      "name": "Harris County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Houston",
+      "name": "Houston",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "Chinatown",
+      "name": "Chinatown",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_4"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/chinatown-center",
+   "phone": "N/A",
+   "plainTextAddress": "9188 Bellaire Blvd # K, Houston, TX 77036",
+   "reference": "Open Air",
+   "stateTag": [
+    "TX"
+   ],
+   "storeCode": "USFA",
+   "title_fld": "Chinatown Center"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.601Z"
+   },
+   "_id": "b6d954ef-07d9-4a19-835d-22f7693f165b",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-30T00:27:35.207Z"
+   },
+   "address": {
+    "city": "Austin",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "10901 N Lamar Blvd A111, Austin, TX 78753, USA",
+    "location": {
+     "latitude": 30.3776817,
+     "longitude": -97.6872791
+    },
+    "postalCode": "78753",
+    "streetAddress": {
+     "apt": "A111",
+     "name": "North Lamar Boulevard",
+     "number": "10901"
+    },
+    "subdivision": "TX",
+    "subdivisions": [
+     {
+      "code": "TX",
+      "name": "Texas",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Travis County",
+      "name": "Travis County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Austin",
+      "name": "Austin",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "North Lamar",
+      "name": "North Lamar",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_4"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/chinatown-center",
+   "phone": "N/A",
+   "plainTextAddress": "10901 North Lamar Blvd., Suite A111, Austin, Texas 78753",
+   "reference": "Open Air",
+   "stateTag": [
+    "TX"
+   ],
+   "storeCode": "USFA",
+   "title_fld": "Chinatown Center"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.448Z"
+   },
+   "_id": "b7ff15f9-62a7-4bd4-96d5-8ff27c445289",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:20:39.111Z"
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/palms-at-town-and-country",
+   "phone": "N/A",
+   "reference": "#N/A",
+   "stateTag": "#N/A",
+   "storeCode": "Closed",
+   "title_fld": "Palms at Town and Country"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.447Z"
+   },
+   "_id": "12e8c725-d720-4cd3-a8c9-b97c07c34ae4",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:20:39.111Z"
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/algonquin-commons",
+   "phone": "N/A",
+   "reference": "#N/A",
+   "stateTag": "#N/A",
+   "storeCode": "Closed",
+   "title_fld": "Algonquin Commons"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.441Z"
+   },
+   "_id": "e8db8e9c-1c44-4601-b110-6bcaef213284",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-06-09T17:20:39.111Z"
+   },
+   "imagealttext_fld": "Store Photo",
+   "link-locations-title_fld": "/locations/potomac-yard-center",
+   "phone": "N/A",
+   "reference": "#N/A",
+   "stateTag": "#N/A",
+   "storeCode": "Closed",
+   "title_fld": "Potomac Yard Center"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.466Z"
+   },
+   "_id": "33dbe9fd-aa7f-4837-b78a-c0b3c0be4179",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-29T23:42:36.609Z"
+   },
+   "address": {
+    "city": "Bethesda",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "7101 Democracy Blvd #1340, Bethesda, MD 20817, USA",
+    "location": {
+     "latitude": 39.02419829999999,
+     "longitude": -77.1451289
+    },
+    "postalCode": "20817",
+    "streetAddress": {
+     "apt": "#1340",
+     "name": "Democracy Boulevard",
+     "number": "7101"
+    },
+    "subdivision": "MD",
+    "subdivisions": [
+     {
+      "code": "MD",
+      "name": "Maryland",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "Montgomery County",
+      "name": "Montgomery County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "Bethesda",
+      "name": "Bethesda",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/westfield-montgomery",
+   "phone": "N/A",
+   "plainTextAddress": "7101 Democracy Blvd, #1340, Bethesda, MD 20817",
+   "reference": "#N/A",
+   "stateTag": "#N/A",
+   "storeCode": "#N/A",
+   "title_fld": "Westfield Montgomery"
+  },
+  {
+   "_createdDate": {
+    "$date": "2026-04-29T23:07:22.465Z"
+   },
+   "_id": "873e53d5-d4de-4019-88a3-48509965ba5d",
+   "_owner": "db1635b1-a394-41f5-99ba-8ae89de2b06e",
+   "_updatedDate": {
+    "$date": "2026-04-30T00:01:27.485Z"
+   },
+   "address": {
+    "city": "New York",
+    "country": "US",
+    "countryFullname": "United States",
+    "formatted": "1540 Broadway, New York, NY 10036, USA",
+    "location": {
+     "latitude": 40.7578226,
+     "longitude": -73.9848913
+    },
+    "postalCode": "10036-4039",
+    "streetAddress": {
+     "apt": "",
+     "name": "Broadway",
+     "number": "1540"
+    },
+    "subdivision": "NY",
+    "subdivisions": [
+     {
+      "code": "NY",
+      "name": "New York",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_1"
+     },
+     {
+      "code": "New York County",
+      "name": "New York County",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_2"
+     },
+     {
+      "code": "New York",
+      "name": "New York",
+      "type": "ADMINISTRATIVE_AREA_LEVEL_3"
+     },
+     {
+      "code": "US",
+      "name": "United States",
+      "type": "COUNTRY"
+     }
+    ]
+   },
+   "link-locations-title_fld": "/locations/1540-broadway-",
+   "phone": "N/A",
+   "plainTextAddress": "1540 Broadway, New York, NY 10036",
+   "reference": "#N/A",
+   "stateTag": "#N/A",
+   "storeCode": "#N/A",
+   "title_fld": "1540 Broadway "
+  }
+ ]
+}

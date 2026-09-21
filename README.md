@@ -24,8 +24,8 @@ Asian grocers such as 99 Ranch and H Mart sell Chinese products but are not Chin
 | MIXUE | 蜜雪冰城 | tRPC endpoint on the US franchise site | 10 open + 17 announced, with coordinates |
 | CHAGEE | 霸王茶姬 | store list inside the Next.js flight payload | 11, with coordinates |
 | Luckin Coffee | 瑞幸咖啡 | server-rendered store cards | 22, **no coordinates published** |
+| MINISO | 名创优品 | Wix Data `Locations` collection | **430** across 46 states, with coordinates |
 | POP MART | 泡泡玛特 | — | blocked: Cloudflare bot management |
-| MINISO | 名创优品 | — | blocked: Wix Data query not yet identified (~400 US stores) |
 | HEYTEA | 喜茶 | — | blocked: the site's store page is a global flagship showcase, not a locator |
 | Cotti Coffee | 库迪咖啡 | — | blocked: no first-party US locator exists |
 
@@ -33,10 +33,51 @@ The blocked chains are listed on the map with their reasons. A tracker that quie
 chains that were inconvenient will eventually report that Chinese retail in America is all tea
 shops, and `status` prints the reason beside every chain so a hole is never silent.
 
-**MIXUE is the prize.** Its locator publishes `coming_soon` alongside `open`, so the pipeline is
+**MINISO is the footprint.** 430 stores in 46 states, an order of magnitude larger than
+everything else here combined, and the reason the map looks like a map.
+
+**MIXUE is the leading indicator.** Its locator publishes `coming_soon` alongside `open`, so the pipeline is
 visible weeks ahead and an opening can be dated to the day the status flips rather than to the
 day a row appeared. Seventeen of its twenty-seven US listings were announced-but-not-trading on
 the baseline day, most of them ringing the San Gabriel Valley.
+
+## How MINISO was cracked, and what its data is really like
+
+Worth reading before trusting any number from it. The locator is a Wix site and the store list
+appears in neither the HTML nor any XHR the page makes — the fetch happens inside a Wix **web
+worker**, which is why a normal network capture shows nothing at all. What gives it away is the
+page's own router config for its `/locations/<slug>` pages:
+
+    "prefix":"locations" ... "config":{"collection":"Locations", ...}
+
+From there the collector asks Wix Data for that collection the same way the site's worker does:
+`GET /_api/v1/access-tokens` for a session instance, then a `POST` to the CMS query endpoint with
+the site's `gridAppId`. Two requests a day for the whole estate. (An unauthenticated query is a
+400, so the token step is not optional.)
+
+The harder half was the data. Miniso's CMS is a working business system, and **taking its 462
+rows at face value overstates the chain by about 9%**:
+
+- **`storeCode` is not unique.** 33 codes appear on 67 rows, because a bulk re-import on 1 July
+  2026 re-added stores first entered on 8–9 June. Same shop, two rows, address written two ways —
+  `6191 S StateStreet, Ste. D311` and `6191 S State St #1195`.
+- **`storeCode` is not unambiguous either.** Five codes cover genuinely *different* stores
+  hundreds of kilometres apart, because America has more than one Southlake Mall, Columbia Mall,
+  Northpark Mall and SouthPark Mall. `USFA` covers two different Chinatown Centers — Houston and
+  Austin — **both in Texas**, so the state does not separate them. The city does.
+- **Three rows carry `storeCode: "Closed"`** with no address: stores Miniso has shut and kept in
+  the CMS. Dropped from the roster, never counted as trading.
+- **`stateTag` is unreliable** — seven real stores carry the literal string `"#N/A"` — so the
+  state is read from the address with this project's own parser and the CMS field is a last
+  resort.
+
+Identity is therefore **(storeCode, city)**, which merges the re-import duplicates and keeps the
+same-name malls apart, falling back to the Wix item id for rows whose code is not a real code.
+A group whose members turn out to be more than 2 km apart is split back to per-row identity: the
+key failing to discriminate should cost an unmerged duplicate, never a disappeared store.
+
+462 rows − 3 closed − 29 merged = **430 stores**, which squares with Miniso's own announcement of
+its 400th US store in August 2026.
 
 ## Setup
 
@@ -84,7 +125,12 @@ collection in September 2026 to a venv whose `python3` symlinked into a Cellar p
 ```
 US_CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
 .venv/bin/python tests/test_usaddr.py
+.venv/bin/python tests/test_miniso.py
 ```
+
+`test_miniso.py` runs the deduplication over a real slice of the 21 Sep 2026 capture, chosen to
+carry every shape that matters: two pairs that must merge, two same-code pairs that must not,
+the `Closed` rows, and the `#N/A` rows whose state has to come from the address.
 
 `test_usaddr.py` holds every address shape that has actually appeared in a capture, including the
 four that silently dropped stores from the state totals before the parser was rewritten: a missing
@@ -146,12 +192,12 @@ invisible here, and corroborating against a second source is not built yet.
 
 ## Next
 
-1. **MINISO** — drive the Wix locator widget once in a browser, capture the `/_api/cloud-data`
-   query with its collection id, then call it directly. ~400 US stores, the largest footprint in
-   scope and the biggest single gap.
-2. **Geocode Luckin** so New York stops being a hole in the Stores view. It is already counted
+1. **Geocode Luckin** so New York stops being a hole in the Stores view. It is already counted
    correctly by state, which is why that view exists.
-3. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
+2. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
    reach for casually.
-4. **Schedule it.** `scripts/com.dansilver.us_chain_atlas.plist` runs the pass daily; the series
+3. **Corroborate MINISO.** Its count now dominates every total here, and it rests on one CMS whose
+   duplicate rows we clean up ourselves. A second source would turn a careful guess into a fact.
+4. **Small-state labels** on the state view overlap in the northeast; they need leader lines.
+5. **Schedule it.** `scripts/com.dansilver.us_chain_atlas.plist` runs the pass daily; the series
    is worth nothing until it has length.

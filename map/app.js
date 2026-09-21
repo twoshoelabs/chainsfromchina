@@ -25,7 +25,8 @@ function project(lat, lon) {
   ];
 }
 
-const COLOR = { mixue: 'var(--mixue)', chagee: 'var(--chagee)', luckin: 'var(--luckin)' };
+const COLOR = { mixue: 'var(--mixue)', chagee: 'var(--chagee)',
+                luckin: 'var(--luckin)', miniso: 'var(--miniso)' };
 const colorOf = c => COLOR[c] || 'var(--other)';
 const SVG = 'http://www.w3.org/2000/svg';
 const el = (n, a = {}) => { const e = document.createElementNS(SVG, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
@@ -42,6 +43,7 @@ async function main() {
     fetch('data/stores.json').then(r => r.json()),
   ]);
   DATA = data;
+  computeBreaks(data.meta.by_state);
 
   const svg = document.getElementById('map');
   const gLand = el('g'), gLabels = el('g'), gDots = el('g');
@@ -139,10 +141,28 @@ function applyView(svg) {
 
 /* ---- the state choropleth ------------------------------------------------------------- */
 
-// Five steps, not a continuous ramp: with four states carrying anything at all, a continuous
-// scale would imply a precision the data does not have.
-const BREAKS = [1, 3, 8, 20];
-const stepOf = n => n <= 0 ? -1 : n < BREAKS[1] ? 0 : n < BREAKS[2] ? 1 : n < BREAKS[3] ? 2 : 3;
+// Four steps, not a continuous ramp: a smooth scale would imply a precision these counts do
+// not have. The thresholds are quantiles of the states that actually have stores, so the map
+// keeps working as the archive grows — hard-coded breaks were already wrong once, when adding
+// one chain moved the top of the range from 28 to 118.
+let BREAKS = [3, 10, 30];
+
+function computeBreaks(byState) {
+  const v = Object.values(byState).map(s => s.open).filter(n => n > 0).sort((a, b) => a - b);
+  if (v.length < 4) return;
+  const q = f => v[Math.min(v.length - 1, Math.floor(v.length * f))];
+  const raw = [q(0.4), q(0.7), q(0.9)];
+  // Strictly increasing, or two steps of the ramp would mean the same thing.
+  BREAKS = raw.map((n, i) => Math.max(n, (raw[i - 1] || 0) + 1));
+}
+
+const stepOf = n => n <= 0 ? -1 : n < BREAKS[0] ? 0 : n < BREAKS[1] ? 1 : n < BREAKS[2] ? 2 : 3;
+const breakLabels = () => [
+  BREAKS[0] > 2 ? `1\u2013${BREAKS[0] - 1}` : '1',
+  BREAKS[1] - 1 > BREAKS[0] ? `${BREAKS[0]}\u2013${BREAKS[1] - 1}` : `${BREAKS[0]}`,
+  BREAKS[2] - 1 > BREAKS[1] ? `${BREAKS[1]}\u2013${BREAKS[2] - 1}` : `${BREAKS[1]}`,
+  `${BREAKS[2]}+`,
+];
 
 function paintStates(on) {
   const by = DATA.meta.by_state;
@@ -171,7 +191,7 @@ function setMode(m) {
 function wireModes(svg) {
   for (const b of document.querySelectorAll('.modebtn')) b.onclick = () => setMode(b.dataset.mode);
   const lg = document.getElementById('legend');
-  const labels = ['1–2', '3–7', '8–19', '20+'];
+  const labels = breakLabels();
   lg.innerHTML = '<span class="lgl">Stores trading</span>' +
     labels.map((t, i) => `<span class="sw" data-step="${i}"></span><span class="lgt">${t}</span>`).join('') +
     '<span class="sw pend"></span><span class="lgt">announced only</span>' +
@@ -227,6 +247,7 @@ function drawPanels(data) {
   const sb = document.querySelector('#states tbody');
   const rows = Object.entries(data.meta.by_state).sort((a, b) =>
     (b[1].open - a[1].open) || (b[1].coming_soon - a[1].coming_soon));
+  const SHOWN = 12;
   for (const [st, v] of rows) {
     const who = Object.entries(v.chains)
       .sort((a, b) => b[1].open - a[1].open)
@@ -235,6 +256,23 @@ function drawPanels(data) {
     tr.innerHTML = `<td>${esc(st)}<br><span class="zh">${who}</span></td>` +
       `<td class="n">${v.open}${v.coming_soon ? ' +' + v.coming_soon : ''}</td>`;
     sb.append(tr);
+  }
+  // Every state stays in the DOM — the count in the "more" row has to be the real remainder,
+  // not a number that drifts from the table it summarises.
+  const extra = [...sb.rows].slice(SHOWN);
+  if (extra.length) {
+    for (const tr of extra) tr.hidden = true;
+    const more = document.createElement('tr');
+    more.className = 'more';
+    more.innerHTML = `<td colspan="2"><button class="morebtn" type="button">` +
+      `Show ${extra.length} more state${extra.length > 1 ? 's' : ''}</button></td>`;
+    sb.append(more);
+    more.querySelector('button').onclick = e => {
+      const open = extra[0].hidden;
+      for (const tr of extra) tr.hidden = !open;
+      e.target.textContent = open ? 'Show fewer' :
+        `Show ${extra.length} more state${extra.length > 1 ? 's' : ''}`;
+    };
   }
   if (data.meta.no_state)
     document.getElementById('nostate').textContent =

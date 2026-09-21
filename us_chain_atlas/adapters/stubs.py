@@ -31,26 +31,6 @@ class PopMartAdapter(Adapter):
     BLOCKED_REASON = "Cloudflare bot management returns a challenge to non-browser clients (21 Sep 2026)"
 
 
-class MinisoAdapter(Adapter):
-    """
-    MINISO US — https://www.miniso-us.com/store-locator
-
-    A Wix site. robots.txt allows the path. The locator page is 1.5 MB of Wix Thunderbolt and
-    the store list did not appear in the HTML, in an iframe, or in any XHR captured during an
-    8-second browser load on 21 Sep 2026 — no third-party locator vendor (Stockist, StoreRocket,
-    Yext and the usual others) is referenced either, which points at a Wix Data collection
-    queried only after the visitor picks a state or grants location.
-
-    Next step: drive the widget in a browser once, capture the /_api/cloud-data query with its
-    collection id, then call that directly. Roughly 400 US stores are at stake, the largest
-    footprint in scope, so this is the most valuable stub here.
-    """
-    chain_id, name, name_zh = "miniso", "MINISO", "名创优品"
-    parent, format = "MINISO Group Holding", "lifestyle"
-    ENABLED = False
-    BLOCKED_REASON = "Wix Data query not yet identified; list is not in the HTML (21 Sep 2026)"
-
-
 class HeyteaAdapter(Adapter):
     """
     HEYTEA US — https://www.heytea.com/en-us/store

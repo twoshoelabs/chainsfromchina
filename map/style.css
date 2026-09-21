@@ -3,7 +3,7 @@
   --paper:#F7F7F5; --surface:#FFFFFF; --ink:#16181C; --ink-2:#4A4F57; --muted:#767C86;
   --rule:#DFE1DE; --land:#E8EAE6; --land-line:#C9CDC7;
   --accent:#12705C; --open:#0F7B6C; --soon:#B07500; --closed:#A33A33;
-  --mixue:#C8102E; --chagee:#0F5C4A; --luckin:#2B4FA8; --other:#6B4E9B;
+  --mixue:#C8102E; --chagee:#0F5C4A; --luckin:#2B4FA8; --miniso:#6B4E9B; --other:#8A6D3B;
   /* Choropleth ramp: one hue, four steps. Lightness carries the count, so it survives
      greyscale printing and the common forms of colour blindness. */
   --c0:#CFE3DC; --c1:#93C6B6; --c2:#4C9E88; --c3:#12705C;
@@ -13,7 +13,7 @@
     --paper:#14161A; --surface:#1C1F24; --ink:#EDEEF0; --ink-2:#B6BBC3; --muted:#868D97;
     --rule:#2C3037; --land:#242830; --land-line:#39404A;
     --accent:#2E8C76; --open:#3FBFA8; --soon:#E0A83C; --closed:#E0736A;
-    --mixue:#F0576E; --chagee:#43B79A; --luckin:#7595E8; --other:#A98BD8;
+    --mixue:#F0576E; --chagee:#43B79A; --luckin:#7595E8; --miniso:#A98BD8; --other:#C9A227;
     --c0:#2A4A44; --c1:#356E60; --c2:#3F9B84; --c3:#5FCBB0;
   }
 }
@@ -127,3 +127,10 @@ li b{color:var(--ink); font-weight:600}
 #profiles dt{color:var(--muted)}
 #profiles dd{margin:0; color:var(--ink-2)}
 .note.small{font-size:12px; color:var(--muted); margin-top:10px}
+
+/* The state list grows with the archive; cap it and let the reader ask for the rest. */
+#states tbody tr.more td{color:var(--muted); font-size:12.5px; border-bottom:0}
+#states .morebtn{
+  appearance:none; background:none; border:0; padding:0; font:inherit; color:var(--accent);
+  cursor:pointer; text-decoration:underline;
+}
