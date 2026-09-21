@@ -207,6 +207,152 @@ typed in by hand. So the schema forces what that implies, and `test_register.py`
 **51 of 96 chain/market pairs have not been checked at all.** They are blank on purpose and
 `--gaps` lists them; an unchecked pair is not an absence.
 
+## What a day of investigation established
+
+All twelve chains known to trade in the US were investigated on 21 September 2026. Five are
+collected; seven are not, and the reasons are specific rather than "no locator found".
+
+### A locator that lies is worse than one that is blocked
+
+Tai Er's parent publishes a store finder whose endpoint answers instantly, reports 12 stores with
+5 in the United States, and returns **the same Guangzhou restaurant for every row**. An adapter
+written against it without reading the rows would have put "5 US stores" into the archive, where
+it would have looked exactly like every correct number beside it. A blocked chain announces
+itself in `status` every morning; a lying locator says nothing at all.
+
+That is why every adapter here reads its own output before trusting it — MINISO's duplicate CMS
+rows, CHAGEE's flight-payload parse, Tai Er's repeated record. "The endpoint responded" is never
+evidence that an adapter works.
+
+### A blocker is a fact about a date, not a verdict
+
+`recheck` re-probes the URL behind each blocked chain and prints what it answers today beside the
+reason recorded when someone last gave up. ChaPanda has no locator because it has two American
+shops; a chain with thirty will build one. The interesting moment is the day it appears, and
+nothing but a periodic re-probe would notice.
+
+### Two walls that are not technical
+
+**Cotti** has a US store finder — `mobile.us.cotticoffee.global`, a Flutter app that renders to
+canvas and opens on a **Legal Statement** requiring acceptance of Terms and Conditions. This
+project will not accept an agreement on the operator's behalf. Collectable in principle, blocked
+pending a human decision.
+
+**Yang's** serves browsers and hangs on everything else. `yangschicken.ca` resolves, loads in a
+browser, and times out from `curl` run in the operator's own terminal — same machine, same
+network, 25 seconds, no bytes. Both chains now reduce to one question: drive a real browser
+session daily, or do not collect them.
+
+Before paying that price for Yang's, settle this: its own page lists the Tustin restaurant as
+trading while Yelp marks that address closed. **A census detects a closure by a store
+disappearing from the list.** A list that never removes anything cannot produce one — it would
+report a chain growing monotonically forever while the archive faithfully recorded the fiction.
+
+### Haidilao, and the cost of looking on the obvious hosts
+
+Haidilao's 15 US restaurants are collected from
+`haidilao-inc.com/us/eportal/store/listObjByPosition` — one request, with coordinates, a stable
+per-store id, phone and hours. Every obvious host was a decoy: **haidilao.com** serves only
+Greater China whatever country is passed, **superhiinternational.com** publishes country summaries
+and no store list, and **haidilao.us / hdlus.com / haidilaousa.com** do not resolve.
+
+The lat/lon in that URL are a **sort origin, not a filter** — the same fifteen ids return from
+Taiwan, Kansas or New York, verified from three origins before the adapter was written, because an
+endpoint silently returning "nearest N" would truncate the estate the day it outgrew N.
+
+Its parent's country endpoint reports **13 US restaurants in 8 cities** where the locator lists
+**15 in 15 cities**: a company's published summary of itself being the less accurate of its two
+first-party sources.
+
+### The alias sweep
+
+Several chains trade under a different English name in America, and searching the wrong one makes
+a chain look absent:
+
+| Chain | At home | Trades in the US as |
+|---|---|---|
+| ChaPanda | 茶百道 | **TeaByDo** |
+| Naixue | 奈雪的茶 | **NaiSnow** (shopfronts: "Nayuki Tea & Bakery") |
+| Juewei | 绝味鸭脖 | **Juewei Yabo** (King of Braise in Singapore) |
+| Tai Er | 太二 | Tai Er Sichuan Cuisine — same brand, no trap |
+
+**Juewei was recorded as "US presence not established". It has been trading in Los Angeles and
+San Gabriel all along.** Both pages now show every chain as it trades here, with its Chinese name
+beside it and the alternate English brand where they differ.
+
+## Three shapes of partial knowledge
+
+Keeping these apart is most of what makes the archive trustworthy:
+
+| | example |
+|---|---|
+| **a census** — complete roster, re-read daily, so absence means something | MINISO's 430 |
+| **a count without a roster** — a number, no addresses (`Adapter.KNOWN_COUNT`) | Haidilao's parent saying "13 US restaurants" and naming none |
+| **a roster without completeness** (`manual/sightings.json`) | Cotti's 15 known New York shops |
+
+**Sightings never enter stores, observations or events.** Put a partial roster in the census and
+the day a complete source is read, every store beyond the partial list is recorded as an
+**opening that never happened** — growth invented by the act of learning more. They draw as open
+squares, are excluded from every total, and a sighting graduates by being deleted.
+
+Sightings carry their own confidence: confirmed rows draw solid, ones the operator flagged
+"maybe" draw dashed, and the chip separates them.
+
+### Derived coordinates, and keeping them labelled
+
+Luckin publishes 22 New York addresses and no latitudes. `chain_atlas geocode` resolves US
+addresses through the **US Census Bureau** geocoder — free, keyless, authoritative, no terms that
+conflict with republishing a derived point. All 22 matched first pass.
+
+`stores.coord_src` keeps `published` and `geocoded` apart: geocoded points draw at lower opacity
+and say so on hover. Geocoding only ever fills a NULL — the chain is the authority on where its
+own shop is. Results cache by normalised address, because a geocode is a derived fact about a
+string, not an observation. US-only, permanently: MINISO's 46 UAE stores publish a mall name and
+an emirate.
+
+## What third-party place data was worth, measured
+
+Overture Maps was cross-checked against New York (`scripts/overture_review.py`). For chains
+already collected it held about **a third** of what first-party collection holds — Luckin 1
+against 22, MINISO 6 against 15, MIXUE 0 against 11.
+
+Two of its rows claimed a store this project does not hold. The operator verified both. **Both
+were wrong:**
+
+| Overture said | Reality |
+|---|---|
+| Haidilao, 170-16 39th Ave, **open**, confidence 0.972 | Phantom. Flushing is 138-23 39th Ave — which Overture *also* lists, 24 m from ours |
+| MINISO, 579 Broadway, **open**, confidence 0.77 | Permanently closed |
+
+Meanwhile all three of its Cotti candidates — at 0.515, 0.289 and **0.138**, the lowest scores in
+the sample — were confirmed real. Five verified rows is not a study, but it is enough to stop
+using `confidence` as a filter.
+
+### Why it missed so much, and why that is structural
+
+Cotti has **15 confirmed New York shops**. Overture has **3**, and the query was not at fault:
+re-running over the NYC bounding box with no region or country filter returns the same three.
+
+| | Overture had |
+|---|---|
+| Chinese-American neighbourhoods — Flushing ×2, Sunset Park ×2, Bensonhurst, Lower East Side | **0 of 6** |
+| Elsewhere in NYC | 3 of 9 |
+
+Six for six missed, and the mechanism is visible in the data: every Cotti row Overture *does* have
+is sourced from **`meta`** — Facebook's place data. Overture is assembled from Meta, Microsoft,
+Foursquare and AllThePlaces, all of which need a business to maintain a Western-platform listing.
+The shops it missed serve communities that find them through WeChat, Xiaohongshu, Fantuan and
+Chowbus.
+
+**That bias points directly at this project's subject.** Chinese chains open disproportionately in
+the neighbourhoods these datasets cover worst, so third-party place data is least reliable exactly
+where this archive most needs it.
+
+Foursquare OS Places is moot twice over: its public S3 dump now holds only LICENSE.txt and
+NOTICE.txt, the advertised PMTiles archive 404s, and access has moved behind a Places Portal
+account — and Overture already ingests Foursquare, so a separate pull would partly retest what
+was just tested.
+
 ## Setup
 
 ```
