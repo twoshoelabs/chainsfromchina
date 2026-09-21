@@ -54,6 +54,34 @@
      "note": "Store page showed a red 'Closed' badge beside the name on 21 Sep 2026. On store finders that badge almost always means closed RIGHT NOW, outside opening hours, rather than permanently shut — but this project cannot tell the two apart from a screenshot, and the difference is the entire subject of the archive. Recorded as a known location with the ambiguity attached; not treated as a closure."
     }
    ]
+  },
+  {
+   "chain": "yangs",
+   "supplied_on": "2026-09-21",
+   "source": "Yang's own store page (yangschicken.ca), supplied by the project operator",
+   "scope": "One store. Yang's is separately attested across roughly eight California restaurants plus Australia, Japan and Singapore; this is not a roster.",
+   "locations": [
+    {
+     "name": "Tustin (楊銘宇─中國黃燜雞飯)",
+     "address": "13824 Red Hill Ave., Tustin, CA 92780",
+     "phone": "(714) 731-7777",
+     "hours": "MON-SAT 11-9; SUN 11-8",
+     "status_conflict": [
+      "TWO SOURCES DISAGREE ABOUT THIS ADDRESS, and the disagreement is more valuable than",
+      "either claim. Yang's own store page presents it as trading: current hours, a phone",
+      "number, no closure notice. Yelp, updated September 2026 with 354 reviews, marks the same",
+      "address CLOSED — as it also does for the Culver City and Cupertino stores.",
+      "",
+      "This was Yang's FIRST US restaurant, opened Tustin, September 2017. If Yelp is right,",
+      "the chain's own locator is carrying a store that shut — which would make that locator",
+      "nearly worthless for this project's actual purpose. A census detects closures by a store",
+      "DISAPPEARING from the list; a list that never removes anything can never produce one, and",
+      "would report a permanently growing chain no matter what happened on the ground.",
+      "",
+      "Unresolved here, deliberately. Recorded so that whoever collects Yang's checks this first."
+     ]
+    }
+   ]
   }
  ]
 }

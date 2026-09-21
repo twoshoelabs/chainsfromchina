@@ -96,8 +96,23 @@ class YangsAdapter(Adapter):
 
     That rules out the cheap fixes. Collecting it would mean driving a real browser session daily,
     the same decision Pop Mart needs, and it should be made once for both rather than twice.
-    Failing that, Yang's needs a corroborated multi-source count rather than a locator read — a
-    different product, not a fallback to drift into.
+
+    BEFORE PAYING THAT PRICE, SETTLE THIS. A Yang's store page supplied on 21 Sep 2026 presents
+    the Tustin restaurant — 13824 Red Hill Ave, the chain's FIRST US location, opened September
+    2017 — as trading: current hours, a phone number, no closure notice. Yelp, updated September
+    2026 with 354 reviews, marks that same address CLOSED, as it also does Culver City and
+    Cupertino.
+
+    If Yelp is right, Yang's own locator is carrying stores that have shut, and that would make it
+    nearly worthless for this project's purpose whatever it cost to collect. A census detects a
+    closure by a store DISAPPEARING from the list. A list that never removes anything cannot ever
+    produce one: it would report a chain growing monotonically forever, and the archive would
+    faithfully record the fiction. Tai Er's locator lied by repeating one record; this would be a
+    quieter lie with a longer half-life.
+
+    So the order of work is: verify Tustin on the ground (a phone call would do it), THEN decide
+    about the browser session. Collecting a stale list daily produces a beautiful, dated, useless
+    series.
     """
     chain_id, name, name_zh = "yangs", "Yang's Braised Chicken Rice", "杨铭宇黄焖鸡"
     parent, format = "Yang's Braised Chicken Rice", "restaurant"
