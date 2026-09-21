@@ -77,3 +77,45 @@ def geocoded(cache_only: bool = False) -> list[dict]:
             })
     _save_cache(cache)
     return out
+
+
+def rosters(path: Path | None = None) -> list[dict]:
+    """
+    name:      rosters
+    purpose:   The sighting groups that carry an explicit, dated completeness claim, turned into
+               countable hand-assembled rosters.
+    arguments: path
+    returns:   list of {chain, complete_as_of, complete_scope, source, count, unconfirmed,
+               by_state}
+    effects:   None
+    other:     THE COMPLETENESS FLAG IS A CLAIM SOMEONE MAKES, NOT ONE THE CODE INFERS. A group
+               becomes a count only when a human writes `complete_as_of` into it, taking
+               responsibility for the claim that "these are all of them, within this scope, as of
+               this date". A group without that field stays a sighting: known locations, no
+               total. Only `confirmed` locations are counted; anything flagged `uncertain` is
+               reported alongside but never in the number. These counts are HAND-ASSEMBLED and
+               NOT MONITORED — they never touch stores/observations/events, so they can never
+               produce an opening or a closure. That is the whole point: a dated snapshot the
+               reader can see is a snapshot, kept out of the machinery that manufactures change.
+    """
+    from .usaddr import split_tail
+
+    out = []
+    for g in load(path).get("sightings", []):
+        if not g.get("complete_as_of"):
+            continue
+        by_state, count, unconfirmed = {}, 0, 0
+        for loc in g.get("locations", []):
+            if loc.get("confidence") == "uncertain":
+                unconfirmed += 1
+                continue
+            count += 1
+            _, state, _ = split_tail(loc.get("address") or "")
+            if state:
+                by_state[state] = by_state.get(state, 0) + 1
+        out.append({
+            "chain": g["chain"], "complete_as_of": g["complete_as_of"],
+            "complete_scope": g.get("complete_scope"), "source": g.get("source"),
+            "count": count, "unconfirmed": unconfirmed, "by_state": by_state,
+        })
+    return out

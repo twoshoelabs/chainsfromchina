@@ -396,6 +396,10 @@ function drawTally(data) {
   // Chains with known locations but no roster get a count of what is KNOWN, never of what is.
   const sightBy = {};
   for (const g of (data.meta.sightings || [])) sightBy[g.chain] = (sightBy[g.chain] || 0) + 1;
+  // A hand-assembled roster with a dated completeness claim gets a real count — clearly
+  // marked hand-made and unmonitored, so it never reads as a collected total.
+  const rosterBy = {};
+  for (const r of (data.meta.manual_rosters || [])) rosterBy[r.chain] = r;
 
   // Then the chains that are HERE and cannot be drawn. A reader looking for Haidilao looks at
   // this row first; finding nothing, they conclude it is not in America. It is — there is simply
@@ -404,15 +408,22 @@ function drawTally(data) {
     const el = document.createElement('span');
     el.className = 'chip off';
     const kc = b.known_count;
+    const rr = rosterBy[b.chain_id];
     const ns = sightBy[b.chain_id] || 0;
     const nu = ((data.meta.sightings || [])
       .filter(g => g.chain === b.chain_id && g.confidence === 'uncertain')).length;
-    const n = kc ? `${kc.stores} — no locations published`
+    const n = rr
+      ? `${rr.count} — complete for ${rr.complete_scope || 'a defined area'}`
+      : kc ? `${kc.stores} — no locations published`
       : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}, roster incomplete`
            : 'not counted yet';
     el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
       `<span class="n">${esc(n)}</span>`;
-    el.title = b.reason || '';
+    el.title = rr
+      ? `Hand-assembled and operator-verified, as of ${rr.complete_as_of}. Not monitored: `
+        + `this count does not update on its own and is not part of the collected census.`
+        + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
+      : (b.reason || '');
     box.append(el);
   }
 }

@@ -20,8 +20,10 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
+   "complete_as_of": "2026-09-22",
+   "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "New York appears close to complete for Cotti: 13 confirmed and 2 uncertain. Still NOT a US roster — Cotti also trades in San Gabriel CA, Boston MA, Pearl City HI, Champaign IL, Tustin CA and Staten Island, and no complete national list exists. Sightings, not census.",
+   "scope": "Hand-assembled and operator-verified, complete for New York City as of 22 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 13 confirmed; 2 more reported but unconfirmed. Cotti also trades outside New York (recorded separately).",
    "locations": [
     {
      "name": "Smith St",
@@ -112,7 +114,15 @@
      "address": "331 New Dorp Ln, Staten Island, NY 10306",
      "confidence": "uncertain",
      "verified_by": "project operator, 21 Sep 2026 — flagged 'maybe', not confirmed"
-    },
+    }
+   ]
+  },
+  {
+   "chain": "cotti",
+   "supplied_on": "2026-09-21",
+   "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
+   "scope": "Known Cotti locations outside New York. Sightings, not a count — no completeness is claimed for any market outside NYC.",
+   "locations": [
     {
      "name": "San Gabriel",
      "address": "227 W Valley Blvd #198C, San Gabriel, CA 91776"

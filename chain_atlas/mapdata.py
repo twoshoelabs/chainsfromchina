@@ -121,10 +121,14 @@ def export(out_dir: Path) -> dict:
     # Known locations of chains that are NOT counted. Excluded from every total above by
     # construction: they never touch stores, observations or events.
     try:
-        from .sightings import geocoded as _sightings
+        from .sightings import geocoded as _sightings, rosters as _rosters
         sight = [r for r in _sightings(cache_only=True)]
+        # Hand-assembled rosters with an explicit, dated completeness claim. They carry a
+        # count — but a HAND count, kept in its own field and never folded into by_state
+        # or meta.counts, which are the collector's and only the collector's.
+        manual_rosters = _rosters()
     except Exception:                                           # noqa: BLE001
-        sight = []
+        sight, manual_rosters = [], []
 
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
@@ -141,6 +145,7 @@ def export(out_dir: Path) -> dict:
         "other_markets": other,
         "geocoded": geocoded,
         "sightings": sight,
+        "manual_rosters": manual_rosters,
         "by_state": by_state, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {
