@@ -256,3 +256,4 @@ ul.uslist b{color:var(--ink)}
 
 /* Sightings are squares, not dots: a different claim, drawn as a different shape. */
 .sight{fill:none; stroke:var(--muted); cursor:help}
+.sight.unsure{stroke-dasharray:2 2; opacity:.6}

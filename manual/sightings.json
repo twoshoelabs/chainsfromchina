@@ -20,28 +20,98 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
-   "source": "Cotti marketing graphic and address supplied by the project operator",
-   "scope": "New York and Queens counties, plus San Gabriel CA and Boston MA. NOT the US estate: Cotti is separately attested in Pearl City HI, Champaign IL, Staten Island NY, Brooklyn NY and Tustin CA.",
+   "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
+   "scope": "New York appears close to complete for Cotti: 13 confirmed and 2 uncertain. Still NOT a US roster — Cotti also trades in San Gabriel CA, Boston MA, Pearl City HI, Champaign IL, Tustin CA and Staten Island, and no complete national list exists. Sightings, not census.",
    "locations": [
     {
-     "name": "345 7th Ave",
-     "address": "345 7th Ave, New York, NY 10001"
-    },
-    {
-     "name": "W. 23rd St",
-     "address": "170 W 23rd St, New York, NY 10011"
+     "name": "Smith St",
+     "address": "174 Smith St, Brooklyn, NY 11201",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
     },
     {
      "name": "482 3rd Ave",
-     "address": "482 3rd Ave, New York, NY 10016"
+     "address": "482 3rd Ave, New York, NY 10016",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "Columbus Circle",
+     "address": "912 7th Ave, New York, NY 10019",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "345 7th Ave",
+     "address": "345 7th Ave Retail B, New York, NY 10001",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "E 14th St",
+     "address": "223 E 14th St, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "Clinton St",
+     "address": "79 Clinton St, New York, NY 10002",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "W 23rd St",
+     "address": "170 W 23rd St, New York, NY 10011",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
     },
     {
      "name": "Roosevelt Ave Flushing",
-     "address": "135-29 Roosevelt Ave, Flushing, NY 11354"
+     "address": "135-29 Roosevelt Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
     },
     {
      "name": "Golden Mall Flushing",
-     "address": "41-28 Main St, Flushing, NY 11354"
+     "address": "41-28 Main St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "54th St",
+     "address": "806 54th St, Brooklyn, NY 11220",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "8th Ave Brooklyn",
+     "address": "5919 8th Ave, Brooklyn, NY 11220",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "86th St Brooklyn",
+     "address": "2037 86th St, Brooklyn, NY 11214",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "Bedford Ave",
+     "address": "314 Bedford Ave, Brooklyn, NY 11211",
+     "confidence": "confirmed",
+     "verified_by": "project operator, 21 Sep 2026"
+    },
+    {
+     "name": "Nassau St",
+     "address": "65 Nassau St, New York, NY 10038",
+     "confidence": "uncertain",
+     "verified_by": "project operator, 21 Sep 2026 — flagged 'maybe', not confirmed"
+    },
+    {
+     "name": "New Dorp Ln",
+     "address": "331 New Dorp Ln, Staten Island, NY 10306",
+     "confidence": "uncertain",
+     "verified_by": "project operator, 21 Sep 2026 — flagged 'maybe', not confirmed"
     },
     {
      "name": "San Gabriel",

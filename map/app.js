@@ -212,13 +212,17 @@ async function main() {
   for (const g of (data.meta.sightings || [])) {
     if (g.lat == null || g.lon == null) continue;
     const [sx, sy] = project(g.lat, g.lon, INSETS[g.state] && INSETS[g.state].centre);
-    const q = el('rect', { class: 'sight', 'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0),
-                           width: 1, height: 1 });
+    const q = el('rect', {
+      class: 'sight' + (g.confidence === 'uncertain' ? ' unsure' : ''),
+      'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1 });
     q.addEventListener('pointerenter', e => tipAt(e,
       `<b>${esc(g.name || g.address)}</b>${esc(g.address)}` +
       `<div class="meta">A known ${esc(g.chain)} location — <b>not counted</b>. This chain has no ` +
-      `roster this project can read, so none of its stores are in any total here.<br>` +
-      `${esc(g.source || '')}${g.supplied_on ? ' · ' + esc(g.supplied_on) : ''}</div>`));
+      `roster this project can read, so none of its stores are in any total here.` +
+      (g.confidence === 'uncertain'
+        ? '<br><b>Uncertain</b> — reported but not confirmed.'
+        : g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '') +
+      `<br>${esc(g.source || '')}</div>`));
     q.addEventListener('pointerleave', hideTip);
     gDots.append(q);
   }
@@ -401,8 +405,11 @@ function drawTally(data) {
     el.className = 'chip off';
     const kc = b.known_count;
     const ns = sightBy[b.chain_id] || 0;
+    const nu = ((data.meta.sightings || [])
+      .filter(g => g.chain === b.chain_id && g.confidence === 'uncertain')).length;
     const n = kc ? `${kc.stores} — no locations published`
-      : ns ? `${ns} known, roster incomplete` : 'not counted yet';
+      : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}, roster incomplete`
+           : 'not counted yet';
     el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
       `<span class="n">${esc(n)}</span>`;
     el.title = b.reason || '';

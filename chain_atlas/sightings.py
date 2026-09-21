@@ -71,6 +71,9 @@ def geocoded(cache_only: bool = False) -> list[dict]:
                 "lat": (got or {}).get("lat"), "lon": (got or {}).get("lon"),
                 "source": group.get("source"), "scope": group.get("scope"),
                 "supplied_on": group.get("supplied_on"),
+                # A sighting the operator flagged "maybe" is not the same claim as one they
+                # confirmed, and the map should not draw them identically.
+                "confidence": loc.get("confidence"), "verified_by": loc.get("verified_by"),
             })
     _save_cache(cache)
     return out
