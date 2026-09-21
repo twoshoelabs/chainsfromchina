@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Daily collection at 06:00 local. This Mac sleeps, so launchd runs the pass at the next
-     wake; that is acceptable because the archive records WHICH days were collected and the
-     closure rule counts collected days, not calendar days.
+<!-- Daily collection at 06:00 local, with a 13:30 retry. This Mac sleeps, so launchd runs the
+     pass at the next wake; that is acceptable because the archive records WHICH days were
+     collected and the closure rule counts collected days, not calendar days.
+
+     The second pass is nearly free and is the whole safety net: `run` is idempotent per
+     (chain, day), so chains already 'ok' are skipped without re-crawling and only the ones
+     that failed in the morning are retried. A chain that is down at 06:00 therefore does not
+     cost the archive a day, and a day with no collection at all is recorded as a gap rather
+     than inferred as a wave of closures.
      Install: cp scripts/com.dansilver.us_chain_atlas.plist ~/Library/LaunchAgents/
               launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.us_chain_atlas.plist
      Remove:  launchctl bootout gui/$(id -u)/com.dansilver.us_chain_atlas -->
@@ -15,6 +21,7 @@
   <key>WorkingDirectory</key><string>/Users/dansilver/Projects/us_chain_atlas</string>
   <key>StartCalendarInterval</key><array>
     <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>30</integer></dict>
   </array>
   <key>RunAtLoad</key><false/>
   <key>StandardOutPath</key><string>/Users/dansilver/us_chain_atlas_data/logs/daily.log</string>

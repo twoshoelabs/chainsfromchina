@@ -94,6 +94,45 @@ Build the venv with `uv`, not a Homebrew interpreter — the sibling project los
 collection in September 2026 to a venv whose `python3` symlinked into a Cellar path that a
 `brew upgrade` then removed.
 
+## Scheduling
+
+Installed on this machine (21 Sep 2026) as a user LaunchAgent:
+
+```
+cp scripts/com.dansilver.us_chain_atlas.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dansilver.us_chain_atlas.plist
+```
+
+06:00 local, with a **13:30 retry**. The retry is nearly free and is the whole safety net: `run`
+is idempotent per (chain, day), so chains already `ok` are skipped without re-crawling and only
+the ones that failed in the morning are tried again. A site being down at six in the morning
+therefore does not cost the archive a day.
+
+This Mac sleeps, so launchd runs the pass at the next wake rather than at exactly 06:00. That is
+acceptable by design: the archive records *which* days were collected, and the closure rule
+counts collected days rather than calendar days, so a missed day is a recorded gap and never a
+wave of invented closures.
+
+`run_daily.sh` sources `.env` (gitignored — copy `.env.example`), and refuses to start on a
+missing or too-old interpreter with exit 78 rather than silently falling back to system Python.
+Note that `.env` **overrides** the environment, so `US_CHAIN_ATLAS_DATA=... ./scripts/run_daily.sh`
+will not do what it looks like it does; point `.env` at the other archive instead.
+
+Useful afterwards:
+
+```
+launchctl print gui/$(id -u)/com.dansilver.us_chain_atlas     # state, run count, last exit code
+launchctl kickstart -p gui/$(id -u)/com.dansilver.us_chain_atlas   # run it now
+tail ~/us_chain_atlas_data/logs/daily.log                     # what it did
+launchctl bootout gui/$(id -u)/com.dansilver.us_chain_atlas   # stop it
+```
+
+A note on the interpreter, inherited from the sibling project: build the venv against Homebrew's
+stable `opt` path, never a versioned `Cellar` path. This one resolves through
+`/opt/homebrew/opt/python@3.14/bin/python3.14`, so a `brew upgrade` repoints it rather than
+deleting it out from under a scheduled job — which is exactly what stopped `store_atlas`
+collecting for two days in September 2026.
+
 ## Commands
 
 | | |
@@ -199,5 +238,6 @@ invisible here, and corroborating against a second source is not built yet.
 3. **Corroborate MINISO.** Its count now dominates every total here, and it rests on one CMS whose
    duplicate rows we clean up ourselves. A second source would turn a careful guess into a fact.
 4. **Small-state labels** on the state view overlap in the northeast; they need leader lines.
-5. **Schedule it.** `scripts/com.dansilver.us_chain_atlas.plist` runs the pass daily; the series
-   is worth nothing until it has length.
+5. **Monitoring.** The job is scheduled but nothing watches it. The sibling project learned the
+   hard way that a collector cannot report its own death: it needs an external dead-man's switch
+   that fires on the *absence* of a ping, not a check that runs on the same sleeping machine.
