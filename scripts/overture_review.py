@@ -14,6 +14,27 @@ Two things the first New York pass established, both worth keeping:
   * IT IS VALUABLE WHERE WE CANNOT LOOK. Eighteen of its twenty-seven New York candidates were
     for POP MART, HEYTEA, Cotti and Tai Er — four chains with no locator this project can read.
 
+  * AND EVERY CLAIM IT MADE THAT WE COULD CHECK WAS FALSE. Two New York rows asserted a store
+    this project does not hold. The operator verified both, and both were wrong:
+
+        Haidilao, "170-16 39th Ave" 11358, open, confidence 0.972
+            A phantom. The Flushing restaurant is 138-23 39th Ave — which Overture ALSO lists,
+            separately, 24 m from ours. This row invents a second restaurant 2.7 km away that
+            happens to share a street name.
+
+        MINISO, "579 Broadway" 10012, open, confidence 0.77
+            Permanently closed. Overture reports it trading.
+
+    Two for two, both marked `operating_status: open`, one at 0.97 confidence. High confidence
+    did not protect against either. This is the entire argument for keeping Overture out of the
+    census in one result: had these been accepted as stores, the archive would now hold a
+    restaurant that does not exist and a shop that has shut, in the right cities, on the right
+    streets, indistinguishable from the 505 rows that are correct.
+
+    It also sets the standard for the eighteen candidates in bucket C. They are LEADS. Every one
+    needs verification before it becomes even a sighting, and the base rate observed here is not
+    encouraging.
+
 Also: substring matching is unusable. Searching "cotti" returns Biscotti, Scottish Inns and
 Scotti\'s Record Shop; 69 of 96 raw hits were false positives before word-boundary filtering.
 And a bounding box for New York State reaches into Ontario, so the region field must be checked
