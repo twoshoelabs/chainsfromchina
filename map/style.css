@@ -237,3 +237,11 @@ ul.uslist b{color:var(--ink)}
 .coverline b{color:var(--ink)}
 .coverline a{color:var(--accent)}
 #notcounted{scroll-margin-top:16px}
+
+/* A chain that is here but undrawable still belongs in the chain row, visibly set apart. */
+.chip.off{
+  cursor:help; border-style:dashed; color:var(--muted);
+  background:color-mix(in srgb, var(--muted) 5%, var(--surface));
+}
+.chip.off .dot{background:var(--muted); opacity:.45}
+.chip.off .n{color:var(--muted)}

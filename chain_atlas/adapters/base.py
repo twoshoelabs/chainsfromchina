@@ -48,6 +48,11 @@ class Adapter:
     # ChaPanda has no locator because it has two American shops, and that will change. Without a
     # periodic re-probe the archive would keep quoting a reason from the day someone gave up.
     RECHECK: list[str] = []
+    # A count known from a first-party source that publishes NO store list. Haidilao's parent
+    # says "13 US restaurants in 8 cities" and names none of them. That is a real number and an
+    # unmappable one, so it is kept as data rather than buried in prose, and the map can say
+    # "13, location unknown" instead of leaving the chain off entirely.
+    KNOWN_COUNT: dict | None = None
 
     def fetch_raw(self):
         """

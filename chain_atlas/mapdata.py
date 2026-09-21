@@ -54,7 +54,8 @@ def export(out_dir: Path) -> dict:
                                   "format": a.format, "parent": a.parent}
         else:
             blocked.append({"chain_id": a.chain_id, "name": a.name, "name_zh": a.name_zh,
-                            "format": a.format, "reason": a.BLOCKED_REASON})
+                            "format": a.format, "reason": a.BLOCKED_REASON,
+                            "known_count": a.KNOWN_COUNT})
 
     # Per state, from the roster and NOT from the plotted dots, so a chain that publishes no
     # coordinates still counts. `chains` inside each state lets the map answer "who is in Utah".

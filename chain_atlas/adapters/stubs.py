@@ -180,6 +180,8 @@ class HaidilaoAdapter(Adapter):
                       " country count — 13 US restaurants in 8 cities (21 Sep 2026)")
     RECHECK = ["https://www.superhiinternational.com/eportal/earth/list"
                "?country=SuperHi&language=en-SuperHi"]
+    KNOWN_COUNT = {"stores": 13, "detail": "in 8 cities", "as_of": "2026-09-21",
+                   "source": "Super Hi International's own country endpoint"}
 
 
 class ChaPandaAdapter(Adapter):

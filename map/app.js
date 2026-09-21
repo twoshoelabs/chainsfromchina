@@ -344,6 +344,19 @@ function drawTally(data) {
     };
     box.append(b);
   }
+
+  // Then the chains that are HERE and cannot be drawn. A reader looking for Haidilao looks at
+  // this row first; finding nothing, they conclude it is not in America. It is — there is simply
+  // no store-level data for it, and the chip has to say that rather than not exist.
+  for (const b of data.meta.blocked || []) {
+    const el = document.createElement('span');
+    el.className = 'chip off';
+    const kc = b.known_count;
+    const n = kc ? `${kc.stores} — no locations published` : 'not counted yet';
+    el.innerHTML = `<span class="dot"></span>${esc(b.name)}<span class="n">${esc(n)}</span>`;
+    el.title = b.reason || '';
+    box.append(el);
+  }
 }
 
 function drawPanels(data) {
