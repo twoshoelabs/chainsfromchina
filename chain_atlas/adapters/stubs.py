@@ -21,6 +21,11 @@ class PopMartAdapter(Adapter):
     rendered server-side and was read successfully through the browser pane on 21 Sep 2026
     (South Coast Plaza, American Dream, Valley Fair, ... with addresses, phone and hours).
 
+    SITE-WIDE, not US-specific: the Hong Kong store list (popmart.com/hk/store-list) was probed on
+    21 Sep 2026 and returns the same challenge, so there is no friendlier national site to collect
+    instead. Pop Mart is unavailable in every market until either a real browser session is budgeted
+    or they grant access.
+
     NOT a reason to route around the protection. The next step is to ask Pop Mart for access,
     or to drive one real browser session a day, which is a different politeness budget and
     needs a deliberate decision rather than a quiet workaround.
@@ -28,7 +33,8 @@ class PopMartAdapter(Adapter):
     chain_id, name, name_zh = "popmart", "POP MART", "泡泡玛特"
     parent, format = "Pop Mart International Group", "toys"
     ENABLED = False
-    BLOCKED_REASON = "Cloudflare bot management returns a challenge to non-browser clients (21 Sep 2026)"
+    BLOCKED_REASON = ("Cloudflare bot management returns a challenge to non-browser clients in every"
+                      " market probed, US and HK (21 Sep 2026)")
 
 
 class HeyteaAdapter(Adapter):

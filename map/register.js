@@ -4,7 +4,7 @@
  */
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
+const REGION_ORDER = ['Greater China', 'East Asia', 'Southeast Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
 let D = null;
 
 async function main() {

@@ -106,7 +106,8 @@ def matrix(d: dict) -> tuple[list[str], list[str], dict]:
     """
     cells = {(e["chain"], e["market"]): e for e in d["entries"]}
     chains = sorted(d["chains"], key=lambda c: (-sum(1 for k in cells if k[0] == c), c))
-    order = ["East Asia", "Southeast Asia", "Gulf", "Oceania", "North America", "Western Europe"]
+    order = ["Greater China", "East Asia", "Southeast Asia", "Gulf", "Oceania",
+             "North America", "Western Europe"]
     markets = sorted(d["markets"],
                      key=lambda m: (order.index(d["markets"][m]["region"])
                                     if d["markets"][m]["region"] in order else 99, m))
