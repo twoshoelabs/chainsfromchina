@@ -83,7 +83,9 @@ class PopMartUSAdapter(Adapter):
             city, state, zc = split_tail(addr)
             lat, lon = s.get("lat"), s.get("lon")
             out.append(StoreRecord(
-                store_code=str(s.get("uniqCode") or s.get("id")),
+                # One code ships as " R3S-E950" with a leading space. Stripping it here
+                # keeps identity stable on the day they tidy it.
+                store_code=str(s.get("uniqCode") or s.get("id")).strip(),
                 name=s.get("nameLocal") or s.get("nameCN"), addr_raw=addr,
                 city=city, state=state, zip=zc,
                 lat=float(lat) if lat not in (None, "") else None,
