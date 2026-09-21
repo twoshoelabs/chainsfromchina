@@ -40,6 +40,21 @@ const COLOR = { mixue: 'var(--mixue)', chagee: 'var(--chagee)',
 const colorOf = c => COLOR[c] || 'var(--other)';
 const SVG = 'http://www.w3.org/2000/svg';
 const el = (n, a = {}) => { const e = document.createElementNS(SVG, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+/*
+ * How a chain is named, everywhere it is named. These are Chinese companies trading under
+ * English names, and several trade under a DIFFERENT English name in America — ChaPanda sells
+ * as TeaByDo, Juewei as King of Braise elsewhere. Showing the original alongside is not
+ * decoration: it is how a reader connects what is on the shopfront here to the company that
+ * owns it, and how the next person searching avoids the mistake of hunting the wrong name.
+ */
+const chainLabel = (c, opts = {}) => {
+  const trading = c.name_us || c.name;
+  const alias = c.name_us && c.name_us !== c.name ? c.name : null;
+  const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
+  const also = alias && !opts.short ? `<span class="zh">(${esc(alias)})</span>` : '';
+  return `${esc(trading)}${zh}${also}`;
+};
+
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 let view, home, mode = 'stores';
@@ -362,7 +377,8 @@ function drawTally(data) {
     if (meta.provenance && meta.provenance !== 'collected')
       b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
         + 'These rows do not refresh; no change tomorrow means nobody looked.';
-    b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>${esc(meta.name)}<span class="n">${n}</span>`;
+    b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>` +
+      `${chainLabel(meta, { short: true })}<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     b.onclick = () => {
       hidden.has(id) ? hidden.delete(id) : hidden.add(id);
@@ -387,7 +403,8 @@ function drawTally(data) {
     const ns = sightBy[b.chain_id] || 0;
     const n = kc ? `${kc.stores} — no locations published`
       : ns ? `${ns} known, roster incomplete` : 'not counted yet';
-    el.innerHTML = `<span class="dot"></span>${esc(b.name)}<span class="n">${esc(n)}</span>`;
+    el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
+      `<span class="n">${esc(n)}</span>`;
     el.title = b.reason || '';
     box.append(el);
   }
@@ -402,7 +419,7 @@ function drawPanels(data) {
     const tr = document.createElement('tr');
     const supplied = meta.provenance && meta.provenance !== 'collected';
     const gc2 = (data.meta.geocoded || {})[id] || 0;
-    tr.innerHTML = `<td>${esc(meta.name)}<span class="zh">${esc(meta.name_zh || '')}</span>` +
+    tr.innerHTML = `<td>${chainLabel(meta)}` +
       (gc2 ? `<br><span class="zh">${gc2} placed by geocoding its addresses,` +
              ` not by published coordinates</span>` : '') +
       (supplied ? `<br><span class="zh warnzh">supplied ${esc(meta.provenance_detail || '')}` +
@@ -492,7 +509,7 @@ function drawPanels(data) {
   const ul = document.getElementById('blocked');
   for (const b of data.meta.blocked) {
     const li = document.createElement('li');
-    li.innerHTML = `<b>${esc(b.name)}</b> — ${esc(b.reason)}`;
+    li.innerHTML = `<b>${chainLabel(b)}</b> — ${esc(b.reason)}`;
     ul.append(li);
   }
 }

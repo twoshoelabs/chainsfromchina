@@ -178,6 +178,17 @@ class ChaPandaAdapter(Adapter):
     """
     ChaPanda (茶百道) — entered the US in August 2025, first store in Flushing, Queens.
 
+    IT TRADES IN AMERICA AS **TeaByDo**, not as ChaPanda — a transliteration of Cha-bai-dao. That
+    matters more than a footnote: this project searched "ChaPanda" and found nothing, exactly as a
+    search for "Juewei" misses "King of Braise" in Singapore. A chain hunted under the wrong name
+    looks absent, and the archive would have recorded the absence rather than the name error.
+
+    First US store: 38-03 Main Street, Flushing, Queens — opened 18 August 2025, its first in
+    North America. teabydo.us is registered but unconfigured (TLS answers "unrecognized name"),
+    teabydo.com has no A record, and chapanda.com does not resolve; the US presence surfaces only
+    through delivery platforms. So the conclusion below is unchanged, but the next search should
+    run on the right name.
+
     PROBED 21 SEP 2026: there is nothing to collect yet, and the reason is worth distinguishing
     from every other blocked chain here. Pop Mart is defended, Tai Er's locator is wrong, Cotti
     never built one. ChaPanda simply has not grown enough to need one: chapanda.com is a global
@@ -196,11 +207,12 @@ class ChaPandaAdapter(Adapter):
     since it has only been here since August 2025.
     """
     chain_id, name, name_zh = "chabaidao", "ChaPanda", "茶百道"
+    name_us = "TeaByDo"
     parent, format = "Sichuan Baicha Baidao (HKEX 2555)", "tea"
     ENABLED = False
-    BLOCKED_REASON = ("entered the US Aug 2025; too few US stores to publish a locator — the brand"
-                      " site sells franchises, not shops (21 Sep 2026)")
-    RECHECK = ["https://www.chapanda.com/", "https://chapandausa.com/"]
+    BLOCKED_REASON = ("trades as TeaByDo in the US; first store Flushing 18 Aug 2025, too few to"
+                      " publish a locator and teabydo.us is parked (21 Sep 2026)")
+    RECHECK = ["https://teabydo.us/", "https://www.chapanda.com/"]
 
 
 class NaixueAdapter(Adapter):

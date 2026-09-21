@@ -32,6 +32,11 @@ class Adapter:
     # pretending they are one source would make a broken UAE page look like US closures.
     country: str = "US"
     name: str = ""
+    # What it trades as in THIS market, when that differs from the brand's usual English name.
+    # ChaPanda sells as TeaByDo in North America; Juewei sells as King of Braise in Singapore.
+    # A chain hunted under the wrong name is a chain that looks absent — this is why the alias
+    # is data and not a footnote.
+    name_us: str | None = None
     name_zh: str | None = None
     origin: str = "CN"
     parent: str | None = None

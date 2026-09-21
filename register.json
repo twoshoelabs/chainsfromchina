@@ -150,7 +150,7 @@
    "name": "Juewei",
    "name_zh": "绝味鸭脖",
    "format": "snack",
-   "global": "16,000+ outlets; trades as King of Braise in Singapore"
+   "global": "16,000+ outlets; trades as King of Braise in Singapore — the same naming trap as ChaPanda/TeaByDo"
   },
   "nayuki": {
    "name": "Naixue",
@@ -162,7 +162,8 @@
    "name": "ChaPanda",
    "name_zh": "茶百道",
    "format": "tea",
-   "global": "HKEX 2555; trades as ChaPanda in English"
+   "global": "HKEX 2555; 8,700+ stores worldwide. Trades as ChaPanda in English and as TeaByDo in North America",
+   "name_us": "TeaByDo"
   }
  },
  "entries": [

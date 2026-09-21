@@ -4,6 +4,14 @@
  */
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const chainLabel = (c, opts = {}) => {
+  const trading = c.name_us || c.name;
+  const alias = c.name_us && c.name_us !== c.name ? c.name : null;
+  const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
+  const also = alias && !opts.short ? `<span class="zh">(${esc(alias)})</span>` : '';
+  return `${esc(trading)}${zh}${also}`;
+};
+
 const REGION_ORDER = ['Greater China', 'East Asia', 'Southeast Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
 let D = null;
 
@@ -32,8 +40,7 @@ async function main() {
     markets.map(m => `<th title="${esc(D.markets[m].name)}">${esc(m)}</th>`).join('') +
     '</tr></thead><tbody>';
   for (const c of chains) {
-    h += `<tr><th class="chain">${esc(D.chains[c].name)}` +
-      `<span class="zh">${esc(D.chains[c].name_zh)}</span></th>`;
+    h += `<tr><th class="chain">${chainLabel(D.chains[c])}</th>`;
     for (const m of markets) {
       const e = cells[c + '/' + m];
       h += `<td class="${cellClass(e)}" data-key="${esc(c + '/' + m)}">${cellText(e)}</td>`;
@@ -73,7 +80,7 @@ function usView(chains, markets, cells) {
       ? '<span class="status s-collected">counted daily</span>'
       : st.status === 'present_not_collected'
         ? '<span class="status s-present">here, not yet counted</span>' : '';
-    return `<li><b>${esc(D.chains[c].name)}</b><span class="zh">${esc(D.chains[c].name_zh)}</span> ` +
+    return `<li><b>${chainLabel(D.chains[c])}</b> ` +
       `${badge}<span class="abroad">${abroad(c)} market${abroad(c) === 1 ? '' : 's'} abroad</span>` +
       (st.detail ? `<div class="rnote">${esc(st.detail)}</div>` : '') + `</li>`;
   };
@@ -133,8 +140,7 @@ function detail(chains, markets, cells) {
   for (const c of chains) {
     const rows = markets.filter(m => cells[c + '/' + m]).map(m => [m, cells[c + '/' + m]]);
     if (!rows.length) continue;
-    h += `<section class="chainblock"><h3>${esc(D.chains[c].name)}` +
-      `<span class="zh">${esc(D.chains[c].name_zh)}</span></h3>` +
+    h += `<section class="chainblock"><h3>${chainLabel(D.chains[c])}</h3>` +
       `<p class="note small">${esc(D.chains[c].global)}</p><dl class="rows">`;
     for (const [m, e] of rows) {
       const bits = [];
@@ -159,7 +165,7 @@ function coverage(chains) {
   for (const c of chains) {
     const n = D.derived.markets_present[c] || 0;
     tb.insertAdjacentHTML('beforeend',
-      `<tr><td>${esc(D.chains[c].name)}</td><td class="n">${n}</td></tr>`);
+      `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
   }
   document.getElementById('covnote').textContent =
     `Markets in this register where each chain is recorded as present. Not a ranking of size — ` +
