@@ -53,6 +53,11 @@ class Adapter:
     # unmappable one, so it is kept as data rather than buried in prose, and the map can say
     # "13, location unknown" instead of leaving the chain off entirely.
     KNOWN_COUNT: dict | None = None
+    # "collected" — this adapter fetched it from the chain today, and there is a raw capture.
+    # "supplied" — a human handed the data over. It is dated, it is attributed, and it does NOT
+    # refresh: re-running writes the same rows and the diff engine will correctly report no
+    # change, which must never be mistaken for "this estate was verified as stable today".
+    PROVENANCE: str = "collected"
 
     def fetch_raw(self):
         """

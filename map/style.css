@@ -245,3 +245,8 @@ ul.uslist b{color:var(--ink)}
 }
 .chip.off .dot{background:var(--muted); opacity:.45}
 .chip.off .n{color:var(--muted)}
+
+/* Supplied data must never be mistaken for collected data at a glance. */
+.chip.supplied{border-style:dashed; cursor:help}
+.chip.supplied .n{color:var(--soon)}
+.warnzh{color:var(--soon) !important}

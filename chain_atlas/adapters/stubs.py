@@ -138,52 +138,6 @@ class TaiErAdapter(Adapter):
     RECHECK = ["http://en.jiumaojiu.com/store/taier.html"]
 
 
-class HaidilaoAdapter(Adapter):
-    """
-    Haidilao (海底捞) — hotpot, in the US since 2013 and the longest-established mainland chain on
-    this roster by a decade. First US restaurant: Arcadia, Los Angeles.
-
-    INVESTIGATED 21 SEP 2026. No store-level US locator exists on any first-party site, but the
-    search produced something else worth having.
-
-    NOT A LOCATOR, BUT A COUNT. superhiinternational.com — the corporate site of the listed
-    overseas arm — runs a "Global Stores" panel backed by:
-
-        GET https://www.superhiinternational.com/eportal/earth/list
-            ?country=SuperHi&language=en-SuperHi
-
-    It returns one record per operating country: cities, store count, and a paragraph naming the
-    local operating entity. For the US: 8 cities, 13 restaurants, "Hdl Management Usa
-    Corporation". That is a first-party, dated store count for 14 markets in a single request,
-    and it has been written into the international register for the seven markets this project
-    tracks.
-
-    READ THE FIELDS CAREFULLY. They are swapped in their CMS: the store count sits in a field
-    called `ownedCountries`, the city count in `ownedCities`. Taken literally the data says
-    Singapore operates in 17 countries. The reading used here is confirmed by arithmetic — the
-    second field sums to 114 across 14 countries, against the site's own headline of "110+ global
-    stores" in "14 operating countries". The Cambodia row is corrupt (the global total was typed
-    into its city field) and is ignored.
-
-    So Haidilao is collectable at COUNTRY level and not at STORE level. The site's own SPA has
-    thirteen routes and none is a store finder; "Find a store" leads to per-country sites that
-    the endpoint does not link to. haidilao.com and haidilaous.com are shells.
-
-    NEXT: the US consumer site or app, if one exists, would give the 13 restaurants individually.
-    Until then the count belongs in the register, not in the store census, and this adapter stays
-    off — 13 is a number, not a roster, and the archive stores stores.
-    """
-    chain_id, name, name_zh = "haidilao", "Haidilao", "海底捞"
-    parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "restaurant"
-    ENABLED = False
-    BLOCKED_REASON = ("in the US since 2013; no store-level locator, but the parent publishes a"
-                      " country count — 13 US restaurants in 8 cities (21 Sep 2026)")
-    RECHECK = ["https://www.superhiinternational.com/eportal/earth/list"
-               "?country=SuperHi&language=en-SuperHi"]
-    KNOWN_COUNT = {"stores": 13, "detail": "in 8 cities", "as_of": "2026-09-21",
-                   "source": "Super Hi International's own country endpoint"}
-
-
 class ChaPandaAdapter(Adapter):
     """
     ChaPanda (茶百道) — entered the US in August 2025, first store in Flushing, Queens.

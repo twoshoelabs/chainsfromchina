@@ -332,8 +332,11 @@ function drawTally(data) {
     const n = un && !p.open ? `${un} unplaced`
       : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
     const b = document.createElement('button');
-    b.className = 'chip';
+    b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
     b.setAttribute('aria-pressed', 'true');
+    if (meta.provenance && meta.provenance !== 'collected')
+      b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
+        + 'These rows do not refresh; no change tomorrow means nobody looked.';
     b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>${esc(meta.name)}<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     b.onclick = () => {
@@ -366,7 +369,10 @@ function drawPanels(data) {
   for (const [id, meta] of Object.entries(data.meta.chains)) {
     const p = per[id] || { open: 0, soon: 0 }, un = data.meta.unlocated[id] || 0;
     const tr = document.createElement('tr');
+    const supplied = meta.provenance && meta.provenance !== 'collected';
     tr.innerHTML = `<td>${esc(meta.name)}<span class="zh">${esc(meta.name_zh || '')}</span>` +
+      (supplied ? `<br><span class="zh warnzh">supplied ${esc(meta.provenance_detail || '')}` +
+                  ` — not fetched daily</span>` : '') +
       (un ? `<br><span class="zh">${un} unplaced — locator publishes no coordinates</span>` : '') +
       `</td><td class="n">${p.open + un}${p.soon ? ' +' + p.soon : ''}</td>`;
     tb.append(tr);
@@ -432,13 +438,21 @@ function drawPanels(data) {
   // as "this is the category" — so the ratio goes at the top, where the claim is made.
   const nCounted = Object.keys(data.meta.chains).length;
   const nBlocked = (data.meta.blocked || []).length;
+  const supplied = Object.values(data.meta.chains)
+    .filter(c => c.provenance && c.provenance !== 'collected');
+  const names = (data.meta.blocked || []).slice(0, 3).map(b => b.name);
   const cover = document.getElementById('coverline');
   if (cover) {
     cover.innerHTML =
       `Counting <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> mainland-China-origin ` +
-      `chains known to trade in the United States. The other ${nBlocked} — including Haidilao, ` +
-      `POP MART and Yang's Braised Chicken Rice — are here and not yet countable; ` +
-      `<a href="#notcounted">each is listed with the reason</a>.`;
+      `chains known to trade in the United States` +
+      (supplied.length
+        ? ` — though ${supplied.map(c => esc(c.name)).join(', ')} ` +
+          `${supplied.length === 1 ? 'was' : 'were'} <b>supplied by hand, not collected</b>, and ` +
+          `${supplied.length === 1 ? 'does' : 'do'} not refresh`
+        : '') +
+      `. The other ${nBlocked}${names.length ? ' — including ' + names.join(', ') + ' —' : ''} ` +
+      `are here and not yet countable; <a href="#notcounted">each is listed with the reason</a>.`;
   }
 
   const ul = document.getElementById('blocked');

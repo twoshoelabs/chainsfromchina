@@ -236,6 +236,8 @@ def status():
             continue
         o, p, c, loc = (row["o"] or 0, row["p"] or 0, row["c"] or 0, row["loc"] or 0)
         lastdesc = f"{last['obs_date']} {last['status']} ({last['n_records']})" if last else "never"
+        if a.PROVENANCE != "collected":
+            lastdesc += f"  [{a.PROVENANCE.upper()} — not fetched from the chain]"
         print(f"{a.chain_id:10} {o:5} {p:5} {c:6} {loc:8}  {lastdesc}")
     ev = con.execute("SELECT event_type, COUNT(*) n FROM events GROUP BY 1 ORDER BY 2 DESC").fetchall()
     if ev:
