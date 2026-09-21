@@ -29,6 +29,21 @@ make it; the trade press counts them accurately but in prose, as snapshots. All 
 pictures of a moment. The thing none of them has — and the only thing that answers "how fast" —
 is a daily series, which cannot be bought later because nobody is keeping it.
 
+## Who this is for
+
+**A US audience.** The product is the American picture: which mainland-China-origin chains are
+open here, where, and what changes week to week.
+
+The international register exists to serve that, not to compete with it. Its job is to answer
+"which chains are expanding outside China, and therefore might turn up here" — so it is
+deliberately **broad and shallow abroad**. That ChaPanda entered Korea, Australia, Malaysia and
+Thailand and then opened in Flushing in August 2025 is the useful fact; a precise count of its
+Korean stores is not. Breadth and timing are the signal.
+
+One consequence worth stating plainly: the MINISO UAE daily collector is deeper than this
+framing needs. It was built when the scope looked wider, it costs seven requests a day, and it
+stays because it works — but it is not a template for more non-US adapters.
+
 ## Scope
 
 Mainland-China-origin chains, in any market this project covers. Taiwanese and Hong Kong brands
@@ -404,12 +419,19 @@ invisible here, and corroborating against a second source is not built yet.
 
 ## Next
 
-1. **Geocode Luckin** so New York stops being a hole in the Stores view. It is already counted
+**Priorities follow the US framing.** Anything that deepens the American picture beats anything
+that widens the foreign one:
+
+1. **The seven US chains that are here and uncounted** — Pop Mart, HEYTEA, Cotti, Yang's, Tai Er,
+   Haidilao, ChaPanda, Naixue. The US census currently covers four chains out of twelve known to
+   trade here; that gap is the product's biggest hole. Tai Er and Haidilao are the best targets
+   (listed parents that disclose counts, so a locator read can be checked against a filing) and
+   ChaPanda the most time-sensitive (it arrived in Aug 2025, so starting now captures nearly its
+   whole US history).
+2. **Geocode Luckin** so New York stops being a hole in the Stores view. It is already counted
    correctly by state, which is why that view exists.
-2. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
+3. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
    reach for casually.
-3. **More non-US markets.** The country dimension exists now, so MINISO's other national sites
-   are cheap additions. Each needs its own adapter and its own look at the locator's honesty.
 4. **Corroborate MINISO.** Its count now dominates every total here, and it rests on one CMS whose
    duplicate rows we clean up ourselves. A second source would turn a careful guess into a fact.
 5. **Small-state labels** on the state view overlap in the northeast; they need leader lines.

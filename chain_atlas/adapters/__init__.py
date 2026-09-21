@@ -21,7 +21,8 @@ from .chagee import ChageeAdapter
 from .luckin import LuckinAdapter
 from .miniso import MinisoAdapter
 from .miniso_ae import MinisoUAEAdapter
-from .stubs import PopMartAdapter, HeyteaAdapter, CottiAdapter, YangsAdapter, TaiErAdapter
+from .stubs import (PopMartAdapter, HeyteaAdapter, CottiAdapter, YangsAdapter,
+                    TaiErAdapter, HaidilaoAdapter, ChaPandaAdapter, NaixueAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -34,6 +35,9 @@ REGISTRY: list[Adapter] = [
     CottiAdapter(),     # blocked — see stubs.py
     YangsAdapter(),     # in the US since 2017, no locator found — see stubs.py
     TaiErAdapter(),     # in the US, parent discloses counts — see stubs.py
+    HaidilaoAdapter(),  # in the US since 2013 — see stubs.py
+    ChaPandaAdapter(),  # entered the US Aug 2025 — see stubs.py
+    NaixueAdapter(),    # US entry reported — see stubs.py
 ]
 
 

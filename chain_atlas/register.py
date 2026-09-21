@@ -19,6 +19,12 @@ Three rules keep it honest:
     guessed at, the measured count replaces the typed one and the row is marked `collected` —
     with the hand-typed claim left underneath it, so the promotion from research to evidence is
     visible rather than a silent overwrite. MINISO in the UAE was the first to make that move.
+  * IT SERVES A US READER. This is not a world atlas of Chinese retail and does not try to be.
+    Its job is to answer "which chains are expanding outside China, and therefore might turn up
+    here" — so breadth matters (how many markets a chain has entered, and how fast) and depth in
+    any single foreign market does not. A precise count of ChaPanda's Korean stores is a nice
+    fact; that ChaPanda entered Korea, Australia, Malaysia, Thailand and then New York in August
+    2025 is the useful one.
   * Nothing is daily. Entries carry a `reviewed` date and go stale; `--stale` lists what has not
     been looked at in ninety days, because the failure mode of a hand-kept register is not being
     wrong on the day it is written, it is being believed a year later.
@@ -287,6 +293,31 @@ def apply_collected(d: dict) -> int:
     return n
 
 
+def us_status() -> dict[str, dict]:
+    """
+    name:      us_status
+    purpose:   For each chain, where it stands in the market this project actually serves.
+    arguments: none
+    returns:   {chain_id: {"status", "detail"}} — collected | present_not_collected | not_established
+    effects:   None beyond importing the adapter registry.
+    other:     Derived from the US adapters rather than typed, so it cannot drift from the
+               collector. `not_established` means nobody has checked or the evidence was
+               ambiguous — never "this chain is absent from America".
+    """
+    try:
+        from .adapters import REGISTRY
+    except Exception:                                           # noqa: BLE001
+        return {}
+    out = {}
+    for a in REGISTRY:
+        if a.country != "US" or a.chain_id == "fixture":
+            continue
+        out[a.chain_id] = ({"status": "collected", "detail": "counted daily from its own locator"}
+                           if a.ENABLED else
+                           {"status": "present_not_collected", "detail": a.BLOCKED_REASON or ""})
+    return out
+
+
 def export(out_dir: Path) -> dict:
     """
     name:      export
@@ -304,7 +335,11 @@ def export(out_dir: Path) -> dict:
     for e in d["entries"]:
         if e["status"] == "present":
             by_chain[e["chain"]] += 1
+    us = us_status()
     d["derived"] = {
+        "us_status": {c: us.get(c, {"status": "not_established",
+                                    "detail": "no evidence of US presence has been checked"})
+                      for c in d["chains"]},
         "markets_present": dict(by_chain),
         "entries": len(d["entries"]),
         "gaps": len(gaps(d)),

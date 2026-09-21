@@ -48,12 +48,44 @@ async function main() {
     td.addEventListener('pointerleave', () => { document.getElementById('tip').hidden = true; });
   }
 
+  usView(chains, markets, cells);
   detail(chains, markets, cells);
   coverage(chains);
   document.getElementById('asof').textContent = `Compiled ${D.as_of}.`;
   document.getElementById('gaps').textContent =
     `${D.derived.gaps} of ${chains.length * markets.length} chain/market pairs have not been ` +
     `checked at all. They are blank on purpose — an unchecked pair is not an absence.`;
+}
+
+/*
+ * The reader is American, so the first thing the page answers is "is it here yet?".
+ * Chains already trading in the US sit above the ones that have only gone elsewhere — the
+ * second group being the actual watchlist.
+ */
+function usView(chains, markets, cells) {
+  const us = D.derived.us_status || {};
+  const abroad = c => markets.filter(m => (cells[c + '/' + m] || {}).status === 'present').length;
+  const here = chains.filter(c => (us[c] || {}).status !== 'not_established');
+  const notHere = chains.filter(c => (us[c] || {}).status === 'not_established');
+  const row = c => {
+    const st = us[c] || {};
+    const badge = st.status === 'collected'
+      ? '<span class="status s-collected">counted daily</span>'
+      : st.status === 'present_not_collected'
+        ? '<span class="status s-present">here, not yet counted</span>' : '';
+    return `<li><b>${esc(D.chains[c].name)}</b><span class="zh">${esc(D.chains[c].name_zh)}</span> ` +
+      `${badge}<span class="abroad">${abroad(c)} market${abroad(c) === 1 ? '' : 's'} abroad</span>` +
+      (st.detail ? `<div class="rnote">${esc(st.detail)}</div>` : '') + `</li>`;
+  };
+  document.getElementById('usview').innerHTML =
+    `<section class="usbox"><h2>Already in the United States</h2>` +
+    `<p class="note small">Every one of these is on the US roster. "Counted daily" means this ` +
+    `project reads its store locator every morning; the rest are here and not yet countable, ` +
+    `with the reason stated.</p><ul class="uslist">${here.map(row).join('')}</ul></section>` +
+    (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, US presence not established</h2>` +
+      `<p class="note small">The watchlist. These have crossed at least one border; whether they ` +
+      `have reached America has not been checked or the evidence was ambiguous. Not a claim of ` +
+      `absence.</p><ul class="uslist">${notHere.map(row).join('')}</ul></section>` : '');
 }
 
 function cellClass(e) {

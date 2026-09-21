@@ -96,6 +96,51 @@ class TaiErAdapter(Adapter):
     BLOCKED_REASON = "trading in the US; parent's store page is a promising unparsed lead (21 Sep 2026)"
 
 
+class HaidilaoAdapter(Adapter):
+    """
+    Haidilao (海底捞) — hotpot, trading in the US since 2013 and the longest-established mainland
+    chain on this roster by a decade.
+
+    Its overseas arm Super Hi International is listed twice (HKEX 9658, Nasdaq HDL) and discloses
+    restaurant counts, which makes it the second-best corroboration target here after Tai Er.
+    A dozen-plus US restaurants across California, Washington, Texas, New York, Illinois and
+    Arizona. Several .us domains carry outlet lists but their provenance is unverified — the
+    first-party source to find is Super Hi's own site or the app.
+    """
+    chain_id, name, name_zh = "haidilao", "Haidilao", "海底捞"
+    parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = "in the US since 2013; first-party US locator not yet identified (21 Sep 2026)"
+
+
+class ChaPandaAdapter(Adapter):
+    """
+    ChaPanda (茶百道) — entered the US in August 2025, first store in Flushing, Queens.
+
+    The newest arrival on this roster, which makes it the most valuable to start watching early:
+    a chain caught in its first months leaves a complete opening history rather than a partial
+    one. HKEX-listed (2555), 38 overseas stores by end-2025.
+    """
+    chain_id, name, name_zh = "chabaidao", "ChaPanda", "茶百道"
+    parent, format = "Sichuan Baicha Baidao (HKEX 2555)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = "entered the US Aug 2025; chapanda.com not yet probed for a locator (21 Sep 2026)"
+
+
+class NaixueAdapter(Adapter):
+    """
+    Naixue / Nayuki (奈雪的茶) — US entry at American Dream, East Rutherford, New Jersey.
+
+    Announced a US push as early as 2020 and took years to arrive, which is itself the useful
+    fact: an announcement is not an opening, and this register has three cases of a chain
+    entering a market, leaving and returning. HKEX 2150.
+    """
+    chain_id, name, name_zh = "nayuki", "Naixue", "奈雪的茶"
+    parent, format = "Nayuki Holdings (HKEX 2150)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = "US entry reported at American Dream NJ; extent and locator unverified (21 Sep 2026)"
+
+
 class CottiAdapter(Adapter):
     """
     Cotti Coffee US — no first-party US locator found.

@@ -214,3 +214,14 @@ header h1{font-size:24px}
 .sitefoot strong{color:var(--ink-2)}
 .sitefoot a{color:var(--accent)}
 @media (max-width:620px){ .masthead nav{margin-left:0; width:100%} }
+
+/* ---- US-first view on the register ---- */
+.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+       padding:14px 16px; margin-bottom:14px}
+.usbox h2{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+.usbox.watch{border-color:color-mix(in srgb, var(--soon) 45%, var(--rule))}
+ul.uslist{list-style:none; padding:0; margin:10px 0 0; font-size:13.5px}
+ul.uslist li{padding:7px 0; border-bottom:1px solid var(--rule)}
+ul.uslist li:last-child{border-bottom:0}
+ul.uslist b{color:var(--ink)}
+.abroad{float:right; color:var(--muted); font-size:12.5px; font-variant-numeric:tabular-nums}
