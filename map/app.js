@@ -101,7 +101,16 @@ async function main() {
   home = { x: bb[0] - pad, y: bb[1] - pad, w: bb[2] - bb[0] + 2 * pad, h: bb[3] - bb[1] + 2 * pad };
   view = { ...home };
 
-  for (const s of data.stores) {
+  // Biggest chain first, so it ends up at the BOTTOM. SVG paints in document order, and the
+  // archive's natural order put MINISO's 430 dots last: they covered all 11 CHAGEE stores
+  // completely, because both are mall chains and sit in the same malls. A chain with a tenth
+  // of the footprint has to win the overlap or it reads as absent.
+  const size = {};
+  for (const s of data.stores) size[s.chain] = (size[s.chain] || 0) + 1;
+  const ordered = [...data.stores].sort((a, b) =>
+    (size[b.chain] - size[a.chain]) || a.chain.localeCompare(b.chain));
+
+  for (const s of ordered) {
     const [x, y] = project(s.lat, s.lon);
     const open = s.status === 'active';
     const c = el('circle', {

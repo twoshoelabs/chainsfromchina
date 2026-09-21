@@ -201,7 +201,13 @@ Two views, and the difference between them matters:
 
 Drag to pan, scroll to zoom, double-click to reset.
 
-### Three traps in this page, all of which bit once
+Dots are drawn **largest chain first**, so the smallest chain ends up on top. This is not
+cosmetic: SVG paints in document order, and the archive's natural order put MINISO's 430 dots
+last, which covered all 11 CHAGEE stores completely — both are mall chains and sit in the same
+malls, so CHAGEE simply could not be found on the map while being collected perfectly. A chain
+with a tenth of the footprint has to win the overlap or it reads as absent.
+
+### Four traps in this page, all of which bit once
 
 1. Do not add `stroke-width` to `.store` in CSS. A CSS declaration overrides the presentation
    attribute `app.js` scales with the view, and the announced-store rings get drawn 1.6 metres
@@ -211,6 +217,10 @@ Drag to pan, scroll to zoom, double-click to reset.
    renders three pixels wide. Labels are drawn at 14 units and scaled by a transform instead.
 3. Do not rely on the `hidden` attribute alone for anything given `display` in CSS — an
    element-level `display:flex` beats the UA rule for `[hidden]`.
+4. `scripts/serve_map.py` sends `Cache-Control: no-store` deliberately. Without it the browser
+   reuses a cached `app.js` after an edit and the page runs the OLD code while the file on disk
+   and the file on the wire both look correct — a fix that is present everywhere except in the
+   running page.
 
 ## Who these companies are
 
