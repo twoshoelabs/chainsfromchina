@@ -87,15 +87,24 @@ class YangsAdapter(Adapter):
     A chain opening and closing without any first-party list is precisely the case a census exists
     to catch and precisely the case it cannot reach.
 
-    Next step: one attempt at yangschicken.ca from another network. Failing that, this is the
-    first chain here that needs a corroborated multi-source count rather than a single locator
-    read — a different product decision, not a fallback to drift into.
+    THAT ATTEMPT HAS NOW BEEN MADE, 21 SEP 2026, and the answer is stranger than "unreachable".
+    The site loads normally in the operator's browser. It times out from `curl` run in the
+    operator's OWN terminal, on the same machine and the same network, outside any sandbox — 25
+    seconds, no bytes. The browser pane could not reach it either. So this is not a dead host, a
+    lapsed domain or a sandbox restriction: the server serves browsers and refuses programmatic
+    clients, silently, by hanging rather than answering.
+
+    That rules out the cheap fixes. Collecting it would mean driving a real browser session daily,
+    the same decision Pop Mart needs, and it should be made once for both rather than twice.
+    Failing that, Yang's needs a corroborated multi-source count rather than a locator read — a
+    different product, not a fallback to drift into.
     """
     chain_id, name, name_zh = "yangs", "Yang's Braised Chicken Rice", "杨铭宇黄焖鸡"
     parent, format = "Yang's Braised Chicken Rice", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("trading in the US since 2017; yangschicken.ca resolves but never answers,"
-                      " and no other first-party domain exists (21 Sep 2026)")
+    BLOCKED_REASON = ("trading in the US since 2017; yangschicken.ca serves browsers and hangs on"
+                      " programmatic clients — verified from the operator's own terminal"
+                      " (21 Sep 2026)")
     RECHECK = ["https://yangschicken.ca/"]
 
 
