@@ -414,6 +414,20 @@ function drawPanels(data) {
        in the <a href="register.html">international register</a>.`;
   }
 
+  // The headline number for a US reader is not 468 stores, it is how much of the category those
+  // stores represent. Four chains rendered prominently and eight buried two screens down reads
+  // as "this is the category" — so the ratio goes at the top, where the claim is made.
+  const nCounted = Object.keys(data.meta.chains).length;
+  const nBlocked = (data.meta.blocked || []).length;
+  const cover = document.getElementById('coverline');
+  if (cover) {
+    cover.innerHTML =
+      `Counting <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> mainland-China-origin ` +
+      `chains known to trade in the United States. The other ${nBlocked} — including Haidilao, ` +
+      `POP MART and Yang's Braised Chicken Rice — are here and not yet countable; ` +
+      `<a href="#notcounted">each is listed with the reason</a>.`;
+  }
+
   const ul = document.getElementById('blocked');
   for (const b of data.meta.blocked) {
     const li = document.createElement('li');

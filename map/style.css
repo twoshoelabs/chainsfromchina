@@ -225,3 +225,15 @@ ul.uslist li{padding:7px 0; border-bottom:1px solid var(--rule)}
 ul.uslist li:last-child{border-bottom:0}
 ul.uslist b{color:var(--ink)}
 .abroad{float:right; color:var(--muted); font-size:12.5px; font-variant-numeric:tabular-nums}
+
+/* The coverage ratio is a correction to what the map alone implies, so it reads as a caveat. */
+.coverline{
+  margin:10px 0 0; padding:9px 12px; max-width:78ch;
+  font-size:13px; line-height:1.55; color:var(--ink-2);
+  background:color-mix(in srgb, var(--soon) 10%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--soon) 38%, var(--rule));
+  border-radius:8px;
+}
+.coverline b{color:var(--ink)}
+.coverline a{color:var(--accent)}
+#notcounted{scroll-margin-top:16px}
