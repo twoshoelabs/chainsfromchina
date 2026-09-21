@@ -2,15 +2,19 @@
   color-scheme: light dark;
   --paper:#F7F7F5; --surface:#FFFFFF; --ink:#16181C; --ink-2:#4A4F57; --muted:#767C86;
   --rule:#DFE1DE; --land:#E8EAE6; --land-line:#C9CDC7;
-  --open:#0F7B6C; --soon:#B07500; --closed:#A33A33;
+  --accent:#12705C; --open:#0F7B6C; --soon:#B07500; --closed:#A33A33;
   --mixue:#C8102E; --chagee:#0F5C4A; --luckin:#2B4FA8; --other:#6B4E9B;
+  /* Choropleth ramp: one hue, four steps. Lightness carries the count, so it survives
+     greyscale printing and the common forms of colour blindness. */
+  --c0:#CFE3DC; --c1:#93C6B6; --c2:#4C9E88; --c3:#12705C;
 }
 @media (prefers-color-scheme: dark){
   :root{
     --paper:#14161A; --surface:#1C1F24; --ink:#EDEEF0; --ink-2:#B6BBC3; --muted:#868D97;
     --rule:#2C3037; --land:#242830; --land-line:#39404A;
-    --open:#3FBFA8; --soon:#E0A83C; --closed:#E0736A;
+    --accent:#2E8C76; --open:#3FBFA8; --soon:#E0A83C; --closed:#E0736A;
     --mixue:#F0576E; --chagee:#43B79A; --luckin:#7595E8; --other:#A98BD8;
+    --c0:#2A4A44; --c1:#356E60; --c2:#3F9B84; --c3:#5FCBB0;
   }
 }
 *{box-sizing:border-box}
@@ -67,3 +71,59 @@ li b{color:var(--ink); font-weight:600}
 }
 #tip b{display:block}
 #tip .meta{color:var(--muted); font-size:12px; margin-top:3px}
+
+/* ---- view switch, legend, choropleth ---- */
+.modes{display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; margin-bottom:12px}
+.modebtn{
+  appearance:none; border:0; background:var(--surface); color:var(--ink-2);
+  font:inherit; font-size:13px; padding:6px 16px; cursor:pointer;
+}
+.modebtn + .modebtn{border-left:1px solid var(--rule)}
+.modebtn[aria-pressed="true"]{background:var(--accent); color:#fff}
+
+.legend[hidden], .tally[hidden]{display:none}
+.legend{display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:12px; font-size:12.5px; color:var(--ink-2)}
+.legend .lgl{margin-right:4px; color:var(--muted)}
+.legend .sw{width:22px; height:12px; border-radius:2px; border:1px solid var(--rule)}
+.legend .lgt{margin-right:8px; font-variant-numeric:tabular-nums}
+.legend .lgn{flex:1 1 100%; color:var(--muted); font-size:12px; margin-top:2px}
+.sw[data-step="0"]{background:var(--c0)} .sw[data-step="1"]{background:var(--c1)}
+.sw[data-step="2"]{background:var(--c2)} .sw[data-step="3"]{background:var(--c3)}
+.sw.pend{background:var(--c0); opacity:.55; border-color:var(--soon); border-style:dashed}
+
+.state[data-step="0"]{fill:var(--c0)} .state[data-step="1"]{fill:var(--c1)}
+.state[data-step="2"]{fill:var(--c2)} .state[data-step="3"]{fill:var(--c3)}
+#map.statemode .state{cursor:pointer}
+#map.statemode .state.lit{stroke:var(--surface); stroke-width:900}
+.slabel{fill:var(--ink); font-weight:600; pointer-events:none; paint-order:stroke;
+        stroke:var(--surface); stroke-linejoin:round}   /* size + halo set inline by applyView */
+
+/* A state with no trading stores but an announced one is not the same as an empty state. */
+.state.pending{fill:var(--c0); fill-opacity:.55; stroke:var(--soon); stroke-width:800;
+               stroke-dasharray:3000 2200}
+
+/* ---- company profiles ---- */
+#profiles details{border-bottom:1px solid var(--rule); padding:7px 0}
+#profiles details:last-child{border-bottom:0}
+#profiles summary{
+  cursor:pointer; display:flex; align-items:center; gap:8px;
+  font-size:13.5px; font-weight:600; list-style:none;
+}
+#profiles summary::-webkit-details-marker{display:none}
+#profiles summary::after{content:'+'; margin-left:8px; color:var(--muted); font-weight:400}
+#profiles .nm{white-space:nowrap}
+#profiles summary .zh{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
+#profiles details[open] summary::after{content:'\2212'}
+#profiles .dot{width:9px; height:9px; border-radius:50%; flex:0 0 auto}
+#profiles .tagoff{
+  font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.03em;
+  white-space:nowrap; margin-left:auto; flex:0 0 auto;
+  color:var(--muted); border:1px solid var(--rule); border-radius:4px; padding:1px 5px;
+}
+#profiles p{margin:8px 0 0; font-size:13px; color:var(--ink-2); line-height:1.55}
+#profiles p.why{color:var(--ink-2)}
+#profiles p.why b{color:var(--ink); font-weight:600}
+#profiles dl{display:grid; grid-template-columns:auto 1fr; gap:3px 10px; margin:9px 0 2px; font-size:12.5px}
+#profiles dt{color:var(--muted)}
+#profiles dd{margin:0; color:var(--ink-2)}
+.note.small{font-size:12px; color:var(--muted); margin-top:10px}

@@ -1,10 +1,17 @@
 /*
- * The map draws the same projection the collector keys cells with — Lambert azimuthal
- * equal-area about 45N 100W (geo.py). Keeping them identical means a dot on this map and a
- * cell in the database are the same piece of ground, not two approximations of it.
+ * Two views of the same archive.
  *
- * No map library and no tile server: sixty dots on fifty state outlines do not need either,
- * and a page that fetches nothing third-party keeps working when a CDN or an API key does not.
+ *   Stores    every store the collector can place, as a dot. Precise, and incomplete: a chain
+ *             that publishes no coordinates is missing from it entirely.
+ *   By state  counts per state, taken from the roster rather than from the dots, so the stores
+ *             that cannot be drawn are still counted. This view is the more complete one, and
+ *             the legend says so rather than leaving a reader to assume the dots are everything.
+ *
+ * The projection is the same Lambert azimuthal equal-area formula the collector keys cells with
+ * (geo.py), so a dot here and a cell in the database are the same piece of ground.
+ *
+ * No map library, no tile server, no API key: sixty dots on fifty outlines need none of it, and
+ * a page that fetches nothing third-party keeps working when a CDN does not.
  */
 const R = 6370997.0, LAT0 = 45 * Math.PI / 180, LON0 = -100 * Math.PI / 180;
 
@@ -22,20 +29,23 @@ const COLOR = { mixue: 'var(--mixue)', chagee: 'var(--chagee)', luckin: 'var(--l
 const colorOf = c => COLOR[c] || 'var(--other)';
 const SVG = 'http://www.w3.org/2000/svg';
 const el = (n, a = {}) => { const e = document.createElementNS(SVG, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-let view = { x: 0, y: 0, w: 1, h: 1 };     // current viewBox
-let home = null;                            // the fitted CONUS view, for reset
+let view, home, mode = 'stores';
+const statePaths = {}, stateLabels = [];
 const hidden = new Set();
+let DATA = null;
 
 async function main() {
   const [states, data] = await Promise.all([
     fetch('us-states.geojson').then(r => r.json()),
     fetch('data/stores.json').then(r => r.json()),
   ]);
+  DATA = data;
 
   const svg = document.getElementById('map');
-  const gLand = el('g'), gDots = el('g');
-  svg.append(gLand, gDots);
+  const gLand = el('g'), gLabels = el('g'), gDots = el('g');
+  svg.append(gLand, gLabels, gDots);
 
   // Outlines. CONUS sets the view; Alaska and Hawaii are drawn but left outside it, because
   // fitting to them would shrink the lower 48 to a smear for the sake of two empty states.
@@ -44,9 +54,12 @@ async function main() {
   for (const f of states.features) {
     const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
     let d = '';
+    const own = [Infinity, Infinity, -Infinity, -Infinity];
     for (const poly of polys) for (const ring of poly) {
       d += ring.map(([lon, lat], i) => {
         const [x, y] = project(lat, lon);
+        own[0] = Math.min(own[0], x); own[1] = Math.min(own[1], y);
+        own[2] = Math.max(own[2], x); own[3] = Math.max(own[3], y);
         if (CONUS(f)) {
           bb[0] = Math.min(bb[0], x); bb[1] = Math.min(bb[1], y);
           bb[2] = Math.max(bb[2], x); bb[3] = Math.max(bb[3], y);
@@ -54,113 +67,224 @@ async function main() {
         return (i ? 'L' : 'M') + x.toFixed(0) + ' ' + y.toFixed(0);
       }).join('') + 'Z';
     }
-    const p = el('path', { d, class: 'state' });
+    const p = el('path', { d, class: 'state', 'data-state': f.id });
     const t = el('title');
     t.textContent = f.properties.name;
     p.append(t);
+    p.addEventListener('pointerenter', e => { if (mode === 'states') showStateTip(e, f.id, f.properties.name); });
+    p.addEventListener('pointerleave', hideTip);
     gLand.append(p);
+    statePaths[f.id] = p;
+
+    // Label anchored at the outline's own centre. Crude for a hooked state like Florida, and
+    // good enough for a number that only has to sit inside its own shape.
+    const st = data.meta.by_state[f.id];
+    if (st && (st.open || st.coming_soon)) {
+      // Drawn at an ordinary font size and scaled into place. Setting font-size in viewBox
+      // units instead would ask for ~115,000px of type, which browsers silently clamp (to
+      // 5000px in Chrome) and the label comes out three pixels wide.
+      const label = el('text', {
+        x: 0, y: 0, 'font-size': 14, 'stroke-width': 3.1,
+        class: 'slabel', 'text-anchor': 'middle', 'dominant-baseline': 'central',
+      });
+      label.dataset.x = ((own[0] + own[2]) / 2).toFixed(0);
+      label.dataset.y = ((own[1] + own[3]) / 2).toFixed(0);
+      label.textContent = st.open + (st.coming_soon ? '+' + st.coming_soon : '');
+      gLabels.append(label);
+      stateLabels.push(label);
+    }
   }
 
   const pad = (bb[2] - bb[0]) * 0.03;
   home = { x: bb[0] - pad, y: bb[1] - pad, w: bb[2] - bb[0] + 2 * pad, h: bb[3] - bb[1] + 2 * pad };
   view = { ...home };
-  applyView(svg);
 
-  // Dots, largest-first so a dense corner still shows its smaller neighbours on top.
   for (const s of data.stores) {
     const [x, y] = project(s.lat, s.lon);
     const open = s.status === 'active';
     const c = el('circle', {
-      cx: x.toFixed(0), cy: y.toFixed(0), r: 7000, class: 'store', 'data-chain': s.chain,
+      cx: x.toFixed(0), cy: y.toFixed(0), r: 1, class: 'store', 'data-chain': s.chain,
       fill: open ? colorOf(s.chain) : 'none',
       stroke: open ? 'var(--surface)' : colorOf(s.chain),
-      'fill-opacity': 1,
     });
-    c.addEventListener('pointerenter', e => showTip(e, s));
+    c.addEventListener('pointerenter', e => showStoreTip(e, s));
     c.addEventListener('pointerleave', hideTip);
     gDots.append(c);
   }
 
-  applyView(svg);      // again, now that the dots exist: applyView sizes them to the view
+  applyView(svg);
   drawTally(data);
   drawPanels(data);
-  wireZoom(svg, gDots);
+  drawProfiles(data);
+  wireModes(svg);
+  wireZoom(svg);
+  setMode('stores');
   document.getElementById('asof').textContent =
     `Collected ${data.meta.last_collected} · ${data.meta.days_collected} day(s) of archive.`;
 }
 
 function applyView(svg) {
   svg.setAttribute('viewBox', `${view.x} ${view.y} ${view.w} ${view.h}`);
-  // Dots keep a constant screen size as the view scales.
   const r = view.w / 170;
   for (const c of svg.querySelectorAll('.store')) {
     const hollow = c.getAttribute('fill') === 'none';
-    // An announced store is drawn as an outline, not as a thinner dot: the eye should read
-    // "not there yet" as an absence of fill, which only works if the ring stays thin.
+    // An announced store reads as an absence of fill, which only works if the ring stays thin.
     c.setAttribute('r', hollow ? r * 0.92 : r);
     c.setAttribute('stroke-width', hollow ? r / 3.4 : r / 5);
   }
+  const k = view.w / 42 / 14;          // glyphs are 14 units; scale carries them to map size
+  for (const t of stateLabels)
+    t.setAttribute('transform', `translate(${t.dataset.x} ${t.dataset.y}) scale(${k})`);
+}
+
+/* ---- the state choropleth ------------------------------------------------------------- */
+
+// Five steps, not a continuous ramp: with four states carrying anything at all, a continuous
+// scale would imply a precision the data does not have.
+const BREAKS = [1, 3, 8, 20];
+const stepOf = n => n <= 0 ? -1 : n < BREAKS[1] ? 0 : n < BREAKS[2] ? 1 : n < BREAKS[3] ? 2 : 3;
+
+function paintStates(on) {
+  const by = DATA.meta.by_state;
+  for (const [id, p] of Object.entries(statePaths)) {
+    const st = by[id];
+    p.classList.toggle('lit', on && !!st && st.open > 0);
+    p.classList.toggle('pending', on && !!st && st.open === 0 && st.coming_soon > 0);
+    p.setAttribute('data-step', on && st ? stepOf(st.open) : -1);
+  }
+  for (const t of stateLabels) t.style.display = on ? '' : 'none';
+}
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('map').classList.toggle('statemode', m === 'states');
+  for (const b of document.querySelectorAll('.modebtn'))
+    b.setAttribute('aria-pressed', String(b.dataset.mode === m));
+  for (const c of document.querySelectorAll('.store'))
+    c.style.display = m === 'states' || hidden.has(c.dataset.chain) ? 'none' : '';
+  paintStates(m === 'states');
+  document.getElementById('legend').hidden = m !== 'states';
+  document.getElementById('tally').hidden = m === 'states';
+  hideTip();
+}
+
+function wireModes(svg) {
+  for (const b of document.querySelectorAll('.modebtn')) b.onclick = () => setMode(b.dataset.mode);
+  const lg = document.getElementById('legend');
+  const labels = ['1–2', '3–7', '8–19', '20+'];
+  lg.innerHTML = '<span class="lgl">Stores trading</span>' +
+    labels.map((t, i) => `<span class="sw" data-step="${i}"></span><span class="lgt">${t}</span>`).join('') +
+    '<span class="sw pend"></span><span class="lgt">announced only</span>' +
+    `<span class="lgn">Counts include ${DATA.meta.unlocated.luckin || 0} stores with no published
+     coordinates, which the Stores view cannot draw.</span>`;
+}
+
+/* ---- panels --------------------------------------------------------------------------- */
+
+function perChain(data) {
+  const per = {};
+  for (const s of data.stores) (per[s.chain] ||= { open: 0, soon: 0 })[s.status === 'active' ? 'open' : 'soon']++;
+  return per;
 }
 
 function drawTally(data) {
-  const box = document.getElementById('tally');
-  const per = {};
-  for (const s of data.stores) {
-    (per[s.chain] ||= { open: 0, soon: 0 })[s.status === 'active' ? 'open' : 'soon']++;
-  }
+  const box = document.getElementById('tally'), per = perChain(data);
   for (const [id, meta] of Object.entries(data.meta.chains)) {
     const p = per[id] || { open: 0, soon: 0 };
+    const un = data.meta.unlocated[id] || 0;
+    // A chain whose locator publishes no coordinates would otherwise read as a zero here,
+    // which is the one number it definitely is not.
+    const n = un && !p.open ? `${un} unplaced`
+      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
     const b = document.createElement('button');
     b.className = 'chip';
     b.setAttribute('aria-pressed', 'true');
-    // A chain whose locator publishes no coordinates would otherwise read as a zero here,
-    // which is the one number it definitely is not. Say "unplaced" on the chip itself.
-    const un = data.meta.unlocated[id] || 0;
-    const n = un && !p.open ? `${un} unplaced`
-      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
-    b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>${meta.name}` +
-      `<span class="n">${n}</span>`;
+    b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>${esc(meta.name)}<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     b.onclick = () => {
       hidden.has(id) ? hidden.delete(id) : hidden.add(id);
       b.setAttribute('aria-pressed', String(!hidden.has(id)));
       for (const c of document.querySelectorAll(`.store[data-chain="${id}"]`))
-        c.style.display = hidden.has(id) ? 'none' : '';
+        c.style.display = hidden.has(id) || mode === 'states' ? 'none' : '';
     };
     box.append(b);
   }
 }
 
 function drawPanels(data) {
-  const per = {};
-  for (const s of data.stores) (per[s.chain] ||= { open: 0, soon: 0 })[s.status === 'active' ? 'open' : 'soon']++;
+  const per = perChain(data);
 
   const tb = document.querySelector('#chains tbody');
   for (const [id, meta] of Object.entries(data.meta.chains)) {
-    const p = per[id] || { open: 0, soon: 0 };
-    const un = data.meta.unlocated[id] || 0;
+    const p = per[id] || { open: 0, soon: 0 }, un = data.meta.unlocated[id] || 0;
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${meta.name}<span class="zh">${meta.name_zh || ''}</span>` +
+    tr.innerHTML = `<td>${esc(meta.name)}<span class="zh">${esc(meta.name_zh || '')}</span>` +
       (un ? `<br><span class="zh">${un} unplaced — locator publishes no coordinates</span>` : '') +
       `</td><td class="n">${p.open + un}${p.soon ? ' +' + p.soon : ''}</td>`;
     tb.append(tr);
   }
 
-  const soon = data.meta.counts.coming_soon;
-  document.getElementById('pipeline').textContent = soon
-    ? `${soon} store(s) are listed by their chain as announced but not yet trading. They are drawn ` +
-      `as hollow rings and are never counted as openings — the opening is the day the listing flips.`
+  const sb = document.querySelector('#states tbody');
+  const rows = Object.entries(data.meta.by_state).sort((a, b) =>
+    (b[1].open - a[1].open) || (b[1].coming_soon - a[1].coming_soon));
+  for (const [st, v] of rows) {
+    const who = Object.entries(v.chains)
+      .sort((a, b) => b[1].open - a[1].open)
+      .map(([c, n]) => `${esc(data.meta.chains[c]?.name || c)} ${n.open + n.coming_soon}`).join(', ');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${esc(st)}<br><span class="zh">${who}</span></td>` +
+      `<td class="n">${v.open}${v.coming_soon ? ' +' + v.coming_soon : ''}</td>`;
+    sb.append(tr);
+  }
+  if (data.meta.no_state)
+    document.getElementById('nostate').textContent =
+      `${data.meta.no_state} store(s) have an address this project could not read a state from.`;
+
+  document.getElementById('pipeline').textContent = data.meta.counts.coming_soon
+    ? `${data.meta.counts.coming_soon} store(s) are listed by their chain as announced but not yet ` +
+      `trading. They are drawn as hollow rings, shown after a + in state counts, and are never ` +
+      `counted as openings — the opening is the day the listing flips.`
     : 'No chain currently publishes a pipeline of announced stores.';
 
   const ul = document.getElementById('blocked');
   for (const b of data.meta.blocked) {
     const li = document.createElement('li');
-    li.innerHTML = `<b>${b.name}</b> — ${b.reason}`;
+    li.innerHTML = `<b>${esc(b.name)}</b> — ${esc(b.reason)}`;
     ul.append(li);
   }
 }
 
-function wireZoom(svg, gDots) {
+function drawProfiles(data) {
+  const box = document.getElementById('profiles');
+  const collected = new Set(Object.keys(data.meta.chains));
+  const order = [...Object.keys(data.meta.chains), ...data.meta.blocked.map(b => b.chain_id)];
+  for (const id of order) {
+    const p = data.meta.profiles[id];
+    if (!p) continue;
+    const d = document.createElement('details');
+    d.innerHTML =
+      `<summary><span class="dot" style="background:${collected.has(id) ? colorOf(id) : 'var(--muted)'}"></span>` +
+      `<span class="nm">${esc(p.name)}</span><span class="zh">${esc(p.name_zh)}</span>` +
+      `${collected.has(id) ? '' : '<span class="tagoff">not collected</span>'}</summary>` +
+      `<p>${esc(p.blurb)}</p>` +
+      `<p class="why"><b>Why it is in this archive.</b> ${esc(p.why_watch)}</p>` +
+      `<dl>` +
+      `<dt>Founded</dt><dd>${esc(p.founded)}, ${esc(p.hq)}</dd>` +
+      `<dt>Founder</dt><dd>${esc(p.founder)}</dd>` +
+      `<dt>Listing</dt><dd>${esc(p.listing)}</dd>` +
+      `<dt>Worldwide</dt><dd>${esc(p.global_stores)}</dd>` +
+      `<dt>US debut</dt><dd>${esc(p.us_entry)}</dd>` +
+      `</dl>`;
+    box.append(d);
+  }
+  document.getElementById('profnote').textContent =
+    `Background from published sources as of ${data.meta.profiles_as_of}, typed in by hand — not ` +
+    `collected, and it goes stale. The US counts above are the collector's own and are not repeated here.`;
+}
+
+/* ---- interaction ---------------------------------------------------------------------- */
+
+function wireZoom(svg) {
   let drag = null;
   svg.addEventListener('pointerdown', e => {
     drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y };
@@ -190,16 +314,30 @@ function wireZoom(svg, gDots) {
   svg.addEventListener('dblclick', () => { view = { ...home }; applyView(svg); });
 }
 
-function showTip(e, s) {
+function tipAt(e, html) {
   const t = document.getElementById('tip');
-  const when = s.status === 'active'
-    ? (s.opened_on ? `open — first seen trading ${s.opened_on}` : `open — in the locator since ${s.first_seen}`)
-    : `announced ${s.first_seen} — not yet trading`;
-  t.innerHTML = `<b>${s.name || '(unnamed)'}</b>${s.addr || ''}<div class="meta">${when}</div>`;
+  t.innerHTML = html;
   t.hidden = false;
   t.style.left = Math.min(e.clientX + 14, innerWidth - 300) + 'px';
   t.style.top = (e.clientY + 14) + 'px';
 }
+
+function showStoreTip(e, s) {
+  const when = s.status === 'active'
+    ? (s.opened_on ? `open — first seen trading ${s.opened_on}` : `open — in the locator since ${s.first_seen}`)
+    : `announced ${s.first_seen} — not yet trading`;
+  tipAt(e, `<b>${esc(s.name || '(unnamed)')}</b>${esc(s.addr || '')}<div class="meta">${when}</div>`);
+}
+
+function showStateTip(e, id, name) {
+  const st = DATA.meta.by_state[id];
+  if (!st) { tipAt(e, `<b>${esc(name)}</b><div class="meta">no stores in this archive</div>`); return; }
+  const who = Object.entries(st.chains).sort((a, b) => b[1].open - a[1].open).map(([c, n]) =>
+    `${esc(DATA.meta.chains[c]?.name || c)} ${n.open}${n.coming_soon ? ' +' + n.coming_soon : ''}`).join('<br>');
+  tipAt(e, `<b>${esc(name)}</b>${st.open} trading${st.coming_soon ? `, ${st.coming_soon} announced` : ''}` +
+    `<div class="meta">${who}</div>`);
+}
+
 const hideTip = () => { document.getElementById('tip').hidden = true; };
 
 main();

@@ -58,6 +58,7 @@ collection in September 2026 to a venv whose `python3` symlinked into a Cellar p
 | | |
 |---|---|
 | `run [--chain X] [--date YYYY-MM-DD] [--force]` | daily pass; idempotent per (chain, day). Chains already `ok` for the date are skipped |
+| `reparse [--chain X] [--date YYYY-MM-DD]` | re-derive a day from the stored raw captures, no network. This is what makes "raw is the primary evidence" a fact: a parser fix is applied to history without re-asking the chains |
 | `status` | stock, pipeline and last run per chain, with the reason for every chain that is not collecting |
 | `export [--out DIR]` | write `map/data/stores.json` and `events.json` |
 | `probe --chain X` | print one chain's live locator without touching the archive |
@@ -82,9 +83,16 @@ collection in September 2026 to a venv whose `python3` symlinked into a Cellar p
 
 ```
 US_CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python tests/test_events.py
+.venv/bin/python tests/test_usaddr.py
 ```
 
-Thirteen checks drive synthetic days through the diff engine: the baseline emitting nothing, a
+`test_usaddr.py` holds every address shape that has actually appeared in a capture, including the
+four that silently dropped stores from the state totals before the parser was rewritten: a missing
+comma before the state (`Orange CA 92868`), two spaces where a comma belongs, a hyphen before the
+ZIP (`CA-90067`), and a trailing `, USA` or `, United States`. It also checks that a two-letter
+token which is not a USPS state cannot become one.
+
+`test_events.py` drives synthetic days through the diff engine: the baseline emitting nothing, a
 `coming_soon` flipping to open, absence short of N days declaring nothing, a failed collection day
 closing nothing, a withdrawal distinguished from a closure, and address normalisation collapsing
 `133 4th Avenue` / `133 4TH AVE.` / `133 4th Ave` into one store while keeping `#249A` and `#250`
@@ -94,12 +102,40 @@ apart.
 
 `map/` is a static page with no dependencies — no map library, no tile server, no API key. It
 projects with the same Lambert azimuthal equal-area formula the collector keys cells with
-(`geo.py`), so a dot on the map and a cell in the database are the same piece of ground. Filled
-dot = trading; hollow ring = announced. Drag to pan, scroll to zoom, double-click to reset.
+(`geo.py`), so a dot on the map and a cell in the database are the same piece of ground.
 
-Note for anyone editing `map/style.css`: do not add `stroke-width` to `.store`. A CSS declaration
-overrides the presentation attribute that `app.js` scales with the view, and the announced-store
-rings get drawn 1.6 metres wide.
+Two views, and the difference between them matters:
+
+- **Stores** — one dot per store the collector can place. Filled = trading, hollow ring =
+  announced but not yet open. Precise, and incomplete: Luckin publishes no coordinates, so its
+  22 New York stores are missing from this view entirely.
+- **By state** — counts taken from the roster rather than from the dots, so stores with no
+  coordinates are still counted. **This view is the more complete one.** A state with announced
+  stores but nothing trading yet (Massachusetts, Utah) is drawn in a dashed tint rather than left
+  blank, because "two stores coming" is not the same as "no presence".
+
+Drag to pan, scroll to zoom, double-click to reset.
+
+### Three traps in this page, all of which bit once
+
+1. Do not add `stroke-width` to `.store` in CSS. A CSS declaration overrides the presentation
+   attribute `app.js` scales with the view, and the announced-store rings get drawn 1.6 metres
+   wide — i.e. invisible, while the DOM looks perfectly correct.
+2. Do not set a state label's `font-size` in viewBox units. The viewBox is in metres, so that
+   asks for ~115,000px of type, which browsers silently clamp (5,000px in Chrome) and the label
+   renders three pixels wide. Labels are drawn at 14 units and scaled by a transform instead.
+3. Do not rely on the `hidden` attribute alone for anything given `display` in CSS — an
+   element-level `display:flex` beats the UA rule for `[hidden]`.
+
+## Who these companies are
+
+`profiles.py` holds a paragraph on each chain — who founded it, where it is listed, how big it is
+worldwide, when it reached the US — shown in the map sidebar and expandable per company. It is
+kept deliberately separate from the collector: everything else in this project is something the
+collector saw for itself and can produce a raw capture for, while these are hand-typed facts from
+company filings and the trade press, carrying the date they were true. No US store count lives
+there; that is the number this project measures, and keeping a hand-typed copy beside the measured
+one is how a tracker ends up quoting its own stale note back at itself.
 
 ## What this is not
 
@@ -113,7 +149,8 @@ invisible here, and corroborating against a second source is not built yet.
 1. **MINISO** — drive the Wix locator widget once in a browser, capture the `/_api/cloud-data`
    query with its collection id, then call it directly. ~400 US stores, the largest footprint in
    scope and the biggest single gap.
-2. **Geocode Luckin** so New York stops being a hole in the map.
+2. **Geocode Luckin** so New York stops being a hole in the Stores view. It is already counted
+   correctly by state, which is why that view exists.
 3. **POP MART** — ask for access, or budget one real browser session a day. Not a workaround to
    reach for casually.
 4. **Schedule it.** `scripts/com.dansilver.us_chain_atlas.plist` runs the pass daily; the series

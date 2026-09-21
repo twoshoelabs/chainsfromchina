@@ -18,6 +18,7 @@ import re
 
 from .base import Adapter, StoreRecord
 from .. import capture
+from ..usaddr import split_tail
 
 ENDPOINT = "https://www.luckincoffee.us/stores"
 EXPECTED_MIN = 5
@@ -42,9 +43,6 @@ def _stores(page: str) -> list[dict]:
         seen.add(addr)
         out.append({"name": name or None, "addr": addr})
     return out
-
-
-_TAIL = re.compile(r",\s*([A-Za-z .'-]+),\s*([A-Z]{2})\s*(\d{5})(?:-\d{4})?\s*$")
 
 
 class LuckinAdapter(Adapter):
@@ -73,8 +71,7 @@ class LuckinAdapter(Adapter):
         page = raw if isinstance(raw, str) else raw.decode("utf-8")
         out = []
         for s in _stores(page):
-            m = _TAIL.search(s["addr"])
-            city, st, zc = (m.group(1).strip(), m.group(2), m.group(3)) if m else (None, None, None)
+            city, st, zc = split_tail(s["addr"])
             out.append(StoreRecord(store_code=None, name=s["name"], addr_raw=s["addr"],
                                    city=city, state=st, zip=zc, trading=True))
         return out

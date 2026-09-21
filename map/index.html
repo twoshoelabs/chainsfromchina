@@ -15,21 +15,32 @@
 
 <div class="wrap">
   <main>
+    <div class="modes" role="group" aria-label="Map view">
+      <button class="modebtn" data-mode="stores" aria-pressed="true">Stores</button>
+      <button class="modebtn" data-mode="states" aria-pressed="false">By state</button>
+    </div>
     <div class="tally" id="tally"></div>
+    <div class="legend" id="legend" hidden></div>
     <figure>
-      <svg id="map" role="img" aria-label="Map of Chinese chain store locations in the United States"></svg>
+      <svg id="map" role="img" aria-label="Map of Chinese chain stores in the United States"></svg>
       <figcaption>
-        Filled dot = trading. Hollow ring = announced, not yet open. Drag to pan, scroll to zoom.
+        Filled dot = trading. Hollow ring = announced, not yet open. Drag to pan, scroll to zoom,
+        double-click to reset.
       </figcaption>
     </figure>
   </main>
 
   <aside>
     <section>
+      <h2>By state</h2>
+      <table id="states"><tbody></tbody></table>
+      <p class="note" id="nostate"></p>
+    </section>
+    <section>
       <h2>Chains collected</h2>
       <table id="chains"><tbody></tbody></table>
     </section>
-    <section id="pipeline-sec">
+    <section>
       <h2>Pipeline</h2>
       <p class="note" id="pipeline"></p>
     </section>
@@ -38,11 +49,16 @@
       <ul id="blocked"></ul>
     </section>
     <section>
+      <h2>Who these companies are</h2>
+      <div id="profiles"></div>
+      <p class="note small" id="profnote"></p>
+    </section>
+    <section>
       <h2>What this is not</h2>
       <p class="note">Change is only as old as the archive, which begins on the first collected
-      day — nothing here is backfilled from press reports. Stores whose chain publishes no
-      coordinates are counted but cannot be drawn, and are listed as unplaced rather than
-      dropped.</p>
+      day — nothing here is backfilled from press reports. Store counts are what each chain
+      publishes about itself; a store that opens without its locator being updated is invisible
+      here.</p>
     </section>
   </aside>
 </div>

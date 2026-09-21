@@ -3,8 +3,14 @@ The map's data.
 
 Two files, kept apart because they are different kinds of claim:
 
-  stores.json   the current footprint: every store the collector can place, with its status.
-                This is a snapshot and says so — it is true as of the last collected day.
+  stores.json   the current footprint: every store the collector can place, with its status,
+                plus per-state totals. This is a snapshot and says so — it is true as of the
+                last collected day.
+
+THE STATE TOTALS ARE NOT THE DOTS. A state count includes stores that have no coordinates and
+therefore cannot be drawn: Luckin publishes an address but no latitude for any of its New York
+stores, so New York's total is right while New York's dots are missing twenty-two of them. The
+state layer is the more complete of the two views, and the map says so where it matters.
   events.json   dated change: openings, announcements, closures, withdrawals. Only as old as
                 the archive, which begins the day the collector first ran, and never
                 backfilled from press reports or a chain's own history.
@@ -18,6 +24,7 @@ from pathlib import Path
 
 from . import db
 from .adapters import REGISTRY
+from .profiles import PROFILES, AS_OF as PROFILES_AS_OF
 
 
 def export(out_dir: Path) -> dict:
@@ -40,6 +47,22 @@ def export(out_dir: Path) -> dict:
         else:
             blocked.append({"chain_id": a.chain_id, "name": a.name, "name_zh": a.name_zh,
                             "format": a.format, "reason": a.BLOCKED_REASON})
+
+    # Per state, from the roster and NOT from the plotted dots, so a chain that publishes no
+    # coordinates still counts. `chains` inside each state lets the map answer "who is in Utah".
+    by_state, no_state = {}, 0
+    for r in con.execute(
+            "SELECT state, chain_id, status, COUNT(*) n FROM stores"
+            " WHERE status!='withdrawn' GROUP BY state, chain_id, status"):
+        if not r["state"]:
+            no_state += r["n"]
+            continue
+        st = by_state.setdefault(r["state"], {"open": 0, "coming_soon": 0, "closed": 0, "chains": {}})
+        key = {"active": "open", "pre_opening": "coming_soon"}.get(r["status"], "closed")
+        st[key] += r["n"]
+        c = st["chains"].setdefault(r["chain_id"], {"open": 0, "coming_soon": 0})
+        if key in c:
+            c[key] += r["n"]
 
     stores, unlocated = [], {}
     for r in con.execute(
@@ -70,6 +93,8 @@ def export(out_dir: Path) -> dict:
         "generated": con.execute("SELECT MAX(finished) f FROM runs").fetchone()["f"],
         "first_collected": cov["a"], "last_collected": cov["b"], "days_collected": cov["n"],
         "chains": chains, "blocked": blocked, "unlocated": unlocated,
+        "by_state": by_state, "no_state": no_state,
+        "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {
             "open": sum(1 for s in stores if s["status"] == "active"),
             "coming_soon": sum(1 for s in stores if s["status"] == "pre_opening"),
@@ -81,4 +106,5 @@ def export(out_dir: Path) -> dict:
     (out_dir / "events.json").write_text(
         json.dumps({"meta": {"generated": meta["generated"]}, "events": events},
                    ensure_ascii=False, indent=1))
-    return {"stores": len(stores), "events": len(events), "unlocated": unlocated}
+    return {"stores": len(stores), "events": len(events), "unlocated": unlocated,
+            "states": len(by_state), "no_state": no_state}

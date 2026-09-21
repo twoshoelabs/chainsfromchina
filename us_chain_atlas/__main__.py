@@ -16,6 +16,10 @@ def main(argv=None):
         from .run import run
         return run(chain_id=opt("--chain"), obs_date=opt("--date"), force="--force" in argv)
 
+    if cmd == "reparse":
+        from .run import reparse
+        return reparse(chain_id=opt("--chain"), obs_date=opt("--date"))
+
     if cmd == "status":
         from .run import status
         status()
@@ -44,6 +48,7 @@ def main(argv=None):
 
     print(__doc__.strip())
     print("  run [--chain X] [--date YYYY-MM-DD] [--force]   daily pass")
+    print("  reparse [--chain X] [--date YYYY-MM-DD]                re-derive a day from raw, no network")
     print("  status                                          stock, pipeline, blocked chains")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  probe --chain X                                 print one chain's live locator")

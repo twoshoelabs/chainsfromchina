@@ -6,6 +6,7 @@ retry costs the sites nothing for work already done.
 """
 import json
 from datetime import datetime
+from pathlib import Path
 
 from . import capture, db
 from .adapters import REGISTRY, by_id
@@ -112,6 +113,58 @@ def run(chain_id: str | None = None, obs_date: str | None = None, force: bool = 
             failed += 1
 
     return 1 if failed else 0
+
+
+def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
+    """
+    name:      reparse
+    purpose:   Re-derive a day's observations and events from the archived raw capture,
+               without touching the network.
+    arguments: chain_id — restrict to one chain; obs_date — defaults to today
+    returns:   exit code
+    effects:   Rewrites observations and events for that (chain, date). Raw files are untouched.
+    other:     This is what makes "the raw capture is the primary evidence" a fact rather than a
+               claim: a parser fix is applied to history by re-reading the archive, and the
+               numbers move without anyone re-asking the chain for them. It re-derives ONE day;
+               replaying a whole archive after a parser change means walking the dates in order.
+    """
+    obs_date = obs_date or today()
+    con = db.connect()
+    rows = con.execute(
+        "SELECT chain_id, raw_path FROM runs WHERE obs_date=? AND status='ok' AND raw_path IS NOT NULL"
+        + (" AND chain_id=?" if chain_id else "") + " ORDER BY run_id",
+        (obs_date, chain_id) if chain_id else (obs_date,)).fetchall()
+    if not rows:
+        print(f"no successful captures stored for {obs_date}")
+        return 2
+    for r in rows:
+        a = by_id(r["chain_id"])
+        try:
+            recs = a.parse(capture.read_raw(r["raw_path"]))
+        except Exception as e:                                  # noqa: BLE001
+            print(f"{a.chain_id:9} reparse FAILED  {type(e).__name__}: {e}")
+            continue
+        con.execute("DELETE FROM observations WHERE chain_id=? AND obs_date=?", (a.chain_id, obs_date))
+        for rec in recs:
+            con.execute(
+                "INSERT OR IGNORE INTO observations (obs_date,chain_id,store_key,store_code,"
+                "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                (obs_date, a.chain_id, store_key(rec), rec.store_code, rec.name, rec.addr_raw,
+                 norm_addr(rec.addr_raw), rec.city, rec.state, rec.zip, rec.lat, rec.lon,
+                 int(rec.trading), int(rec.temp_closed)))
+        # The roster carries fields derived from the observations, so it is rebuilt too. A
+        # reparse of the baseline day stays a baseline: it must not invent openings.
+        baseline = con.execute(
+            "SELECT 1 FROM runs WHERE chain_id=? AND status='ok' AND obs_date<? LIMIT 1",
+            (a.chain_id, obs_date)).fetchone() is None
+        con.execute("DELETE FROM stores WHERE chain_id=? AND first_seen=? AND last_seen=?",
+                    (a.chain_id, obs_date, obs_date))
+        counts = diff(con, a.chain_id, obs_date, a.closure_n_days, baseline)
+        con.commit()
+        print(f"{a.chain_id:9} reparsed {len(recs):4} records from {Path(r['raw_path']).name}"
+              f"  {' '.join(f'{k}={v}' for k, v in sorted(counts.items())) or 'no changes'}")
+    return 0
 
 
 def status():

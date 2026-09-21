@@ -20,6 +20,7 @@ import re
 
 from .base import Adapter, StoreRecord
 from .. import capture
+from ..usaddr import split_tail
 
 ENDPOINT = "https://www.chagee.us/stores"
 EXPECTED_MIN = 3
@@ -73,30 +74,11 @@ class ChageeAdapter(Adapter):
         page = raw if isinstance(raw, str) else raw.decode("utf-8")
         out = []
         for s in _stores(page):
-            city, st, zc = _split_tail(s["addr"])
+            city, st, zc = split_tail(s["addr"])
             out.append(StoreRecord(store_code=s["id"], name=s["name"], addr_raw=s["addr"],
                                    city=city, state=st, zip=zc, lat=s["lat"], lon=s["lon"],
                                    trading=True))
         return out
-
-
-_TAIL = re.compile(r",\s*([A-Za-z .'-]+),\s*([A-Z]{2})\s*(\d{5})(?:-\d{4})?\s*$")
-
-
-def _split_tail(addr: str):
-    """
-    name:      _split_tail
-    purpose:   Pull city / state / ZIP off the end of a one-line US address.
-    arguments: addr
-    returns:   (city, state, zip) — any may be None
-    effects:   None
-    other:     Deliberately strict: a line it cannot parse yields Nones rather than a guess,
-               and the raw address is kept regardless.
-    """
-    m = _TAIL.search(addr or "")
-    if not m:
-        return None, None, None
-    return m.group(1).strip(), m.group(2), m.group(3)
 
 
 def probe():
