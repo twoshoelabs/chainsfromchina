@@ -35,14 +35,22 @@ def normalise(a, recs):
     """
     if a.country != "US":
         return recs, []
-    from .geo import state_from_point
+    from .geo import state_from_point, US_STATES
     keep, outside = [], []
     for rec in recs:
+        # A state field is not proof of country. MIXUE lists "Richmond, BC" — British Columbia,
+        # Canada — with state "BC"; that is not a US state, so it is cleared and the point (if
+        # any) must vouch for the store instead.
+        foreign = bool(rec.state) and rec.state.upper() not in US_STATES
+        if foreign:
+            rec.state = None
         if not rec.state and rec.lat is not None:
             rec.state = state_from_point(rec.lat, rec.lon)
-        # A coordinate in no US state, in a feed calling itself American, is the chain being
-        # wrong about its own store: POP MART labels a Mississauga roboshop "United States".
-        (outside if (rec.lat is not None and not rec.state) else keep).append(rec)
+        # A coordinate in no US state, or a foreign state that no US point rescues, in a feed
+        # calling itself American, is the chain being wrong about its own store: POP MART labels
+        # a Mississauga roboshop "United States", MIXUE a Richmond BC store.
+        outside_us = (rec.lat is not None and not rec.state) or (foreign and not rec.state)
+        (outside if outside_us else keep).append(rec)
     return keep, outside
 
 

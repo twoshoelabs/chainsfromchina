@@ -612,7 +612,15 @@ function showStoreTip(e, s) {
   const when = s.status === 'active'
     ? (s.opened_on ? `open — first seen trading ${s.opened_on}` : `open — in the locator since ${s.first_seen}`)
     : `announced ${s.first_seen} — not yet trading`;
-  tipAt(e, `<b>${esc(s.name || '(unnamed)')}</b>${esc(s.addr || '')}<div class="meta">${when}</div>`);
+  // A POP MART "ROBO SHOP" is Pop Mart's unmanned vending kiosk, not a chain of its own — the
+  // lead is POP MART, with Robo Shop in parentheses, so the shopfront name reads as the company.
+  const chainName = (DATA.meta.chains[s.chain] && DATA.meta.chains[s.chain].name) || s.chain;
+  const isRobo = /robo\s*shop/i.test(s.name || '');
+  const loc = isRobo ? (s.name.replace(/^\s*robo\s*shop\s*/i, '').trim()) : '';
+  const head = isRobo
+    ? `${esc(chainName)} <span class="zh">(Robo Shop)</span>${loc ? ' — ' + esc(loc) : ''}`
+    : esc(s.name || '(unnamed)');
+  tipAt(e, `<b>${head}</b>${esc(s.addr || '')}<div class="meta">${when}</div>`);
 }
 
 function showStateTip(e, id, name) {

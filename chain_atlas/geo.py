@@ -88,6 +88,14 @@ def haversine_m(lat1, lon1, lat2, lon2) -> float | None:
     return 2 * 6371008.8 * math.asin(math.sqrt(a))
 
 
+# The only state/territory codes this project treats as United States. A feed that puts "BC"
+# (British Columbia) or "ON" (Ontario) in the state field is listing a Canadian store as
+# American — the state field alone is not proof of country, so it is checked against this set.
+US_STATES = frozenset("""
+AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY
+NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC PR GU VI AS MP
+""".split())
+
 _STATE_SHAPES = None
 
 
