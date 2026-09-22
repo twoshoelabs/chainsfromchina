@@ -32,31 +32,16 @@ import re
 from collections import defaultdict
 
 sys.path.insert(0, os.path.expanduser("~/Projects/chain_atlas"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from permit_common import TERMS, classify, street_key, known_locations, match_known  # noqa: E402
 from chain_atlas.identity import norm_addr  # noqa: E402
 
 ENDPOINT = "https://data.cityofnewyork.us/resource/43nn-pn8j.json"
 OUT = os.path.expanduser("~/chain_atlas_data/review_nyc_permits.csv")
 DB = os.path.expanduser("~/chain_atlas_data/chain_atlas.sqlite")
 
-# The DBA (doing-business-as) name as it appears in the city's records, upper-cased, mapped to the
-# chain we would file it under. NYC stores the trading name, so US aliases matter: TeaByDo not
-# ChaPanda, NaiSnow not Nayuki, Yang's various romanisations. Kept deliberately broad on the query
-# and tightened by word-boundary matching afterwards, exactly as the Overture pass learned to.
-DBA_TERMS = {
-    "MIXUE": "mixue",
-    "CHAGEE": "chagee",
-    "LUCKIN": "luckin",
-    "MINISO": "miniso",
-    "HAIDILAO": "haidilao", "HAI DI LAO": "haidilao",
-    "POP MART": "popmart", "POPMART": "popmart",
-    "HEYTEA": "heytea", "HEY TEA": "heytea",
-    "COTTI": "cotti",
-    "YANG'S BRAISED": "yangs", "YANGS BRAISED": "yangs", "YANG'S CHICKEN": "yangs",
-    "TAI ER": "taier",
-    "TEABYDO": "chabaidao", "TEA BY DO": "chabaidao", "CHAPANDA": "chabaidao", "CHA PANDA": "chabaidao",
-    "NAISNOW": "nayuki", "NAIXUE": "nayuki", "NAYUKI": "nayuki",
-    "JUEWEI": "juewei",
-}
+# NYC files the trading name in `dba`; the shared brand map covers the US aliases.
+DBA_TERMS = TERMS
 PREOPEN = "pre-permit (non-operational)"     # the inspection type that precedes an opening
 
 
@@ -74,50 +59,10 @@ def _get(where):
         return json.loads(r.read().decode())
 
 
-def _hav(a, b, c, d):
-    if None in (a, b, c, d):
-        return 9e9
-    R = 6371000
-    p1, p2 = math.radians(a), math.radians(c)
-    x = math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(math.radians(d - b) / 2) ** 2
-    return 2 * R * math.asin(math.sqrt(x))
 
 
-def known_locations():
-    """Everything we already hold or have sighted in NY, to tell a new lead from an old one."""
-    import sqlite3
-    known = []                                   # (chain, kind, norm_addr, lat, lon, label)
-    c = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
-    c.row_factory = sqlite3.Row
-    for r in c.execute("SELECT chain_id,name,addr_raw,lat,lon FROM stores"
-                       " WHERE state='NY' AND status!='withdrawn'"):
-        known.append((r["chain_id"], "census", norm_addr(r["addr_raw"] or ""),
-                      r["lat"], r["lon"], r["name"]))
-    c.close()
-    try:
-        from chain_atlas.sightings import geocoded
-        from chain_atlas.usaddr import split_tail
-        for s in geocoded(cache_only=True):
-            _, st, _ = split_tail(s.get("address") or "")
-            if st == "NY":
-                known.append((s["chain"], "sighting", norm_addr(s.get("address") or ""),
-                              s.get("lat"), s.get("lon"), s.get("name")))
-    except Exception:                            # noqa: BLE001
-        pass
-    return known
 
 
-def match_known(chain, naddr, lat, lon, known):
-    """Same address (normalised) or within 75 m of something we already have for that chain."""
-    for kchain, kind, kaddr, klat, klon, label in known:
-        if kchain != chain:
-            continue
-        if kaddr and kaddr == naddr:
-            return kind, label, 0.0
-        d = _hav(lat, lon, klat, klon)
-        if d < 75:
-            return kind, label, round(d, 1)
-    return None, None, None
 
 
 def main():
@@ -142,17 +87,8 @@ def main():
         if r.get("record_date"):
             e["record_dates"].append(r["record_date"][:10])
 
-    def classify(dba):
-        # Whole-term match, not substring: "COTTI" must not fire on "BISCOTTI", the same
-        # false positive the Overture pass was built to reject.
-        up = (dba or "").upper()
-        hits = set()
-        for term, chain in DBA_TERMS.items():
-            if re.search(rf"(?<![A-Z]){re.escape(term)}(?![A-Z])", up):
-                hits.add(chain)
-        return sorted(hits)
 
-    known = known_locations()
+    known = known_locations(("NY",))
     out = []
     for cam, e in est.items():
         chains = classify(e.get("dba"))
@@ -162,7 +98,7 @@ def main():
         addr = f"{e.get('building','')} {e.get('street','')}, {e.get('boro','')}, NY {e.get('zipcode','')}".strip()
         lat = float(e["latitude"]) if e.get("latitude") else None
         lon = float(e["longitude"]) if e.get("longitude") else None
-        kind, label, dist = match_known(chain, norm_addr(addr), lat, lon, known)
+        kind, label, dist = match_known(chain, norm_addr(addr), street_key(addr), lat, lon, known)
         real = sorted(d for d in e["insp_dates"] if d != "1900-01-01")
         not_yet_inspected = bool(e["insp_dates"]) and not real
         # A pre-permit inspection type, OR an establishment in the register with no

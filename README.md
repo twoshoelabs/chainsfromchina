@@ -340,6 +340,45 @@ squares, are excluded from every total, and a sighting graduates by being delete
 Sightings carry their own confidence: confirmed rows draw solid, ones the operator flagged
 "maybe" draw dashed, and the chip separates them.
 
+### Dated manual rosters: hand data as a count, never a census
+
+A sighting group can carry an explicit `complete_as_of` and `complete_scope`, which turns it into
+a **count** — while staying rigorously outside the collected census. The completeness flag is a
+claim a human writes, never one the code infers; only `confirmed` locations are counted, and the
+number lives in its own `manual_rosters` field that never touches `by_state` or `meta.counts`, so
+it can never manufacture an opening or a closure. The first is Cotti, **complete for New York City
+as of 22 Sep 2026 — 13 confirmed**, shown with a "hand-assembled, not monitored" caveat.
+
+## Watchers: opening and closing candidates for chains we cannot scrape
+
+Four of the chains here publish no US roster this project can read, so the census cannot see them
+open a store. A city or county health department can. A **watcher** reads one jurisdiction's own
+food-establishment records for these chains and produces OPENING and, where the data supports it,
+CLOSING **candidates** for a human to verify. Like the Overture pass, a watcher feeds the review
+queue and never writes to stores, observations or events — a machine-found location is a lead, and
+the base rate of leads in this subject does not earn trust unseen. The shared logic — whole-term
+name matching (so BISCOTTI is never Cotti) and a street fingerprint that lines one source's address
+up with another's — lives in `scripts/permit_common.py`.
+
+**New York** (`scripts/nyc_permits.py`) queries the city's live inspection feed. Its gift is the
+`Pre-permit (Non-operational) / Initial Inspection`, which happens *before* a restaurant opens — the
+closest thing to an authoritative opening signal found for a chain we cannot scrape, with a date.
+The first run matched 52 establishments, 25 already ours, **24 new candidates including 18 HEYTEA
+against the 6–8 any other source had**, 8 carrying a pre-opening signal.
+
+**Los Angeles County** (`scripts/la_permits.py`) covers the San Gabriel Valley, this project's
+densest region after Flushing. It is a different shape of source and the watcher says so: a whole-
+years CSV export (no live query), no pre-permit inspection (the opening proxy is the earliest
+inspection date), and no coordinates (cross-reference is by street fingerprint) — but it publishes
+a `PROGRAM STATUS` of ACTIVE/INACTIVE, a **closing** signal New York does not carry. The first run
+found new HEYTEA across Beverly Hills, Monterey Park and Rowland Heights, a second Cotti in Rowland
+Heights, a NaiSnow in San Gabriel, and two INACTIVE MINISO records to check as closings — one of
+them a store the census still counts.
+
+**Neither watcher reports a closing from absence.** A store missing from an inspection feed is not
+shut any more than one missing from Overture is; only an explicit INACTIVE status is a closing
+candidate, and even that is a lead for a human, never an automatic closure.
+
 ### Derived coordinates, and keeping them labelled
 
 Luckin publishes 22 New York addresses and no latitudes. `chain_atlas geocode` resolves US
