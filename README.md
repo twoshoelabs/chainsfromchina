@@ -384,6 +384,17 @@ absence; San Francisco's feed currently lists none of these chains. The first ru
 (TAIER FISH, San Jose, first inspected 9 Apr 2026)** — the chain this jurisdiction was added for —
 plus two more TeaByDo shops (Palo Alto, San Jose), five HEYTEA and a NaiSnow across the South Bay.
 
+**Honolulu is blocked, and it is worth saying why.** Hawaii runs food inspections at the state
+level, so one source would have covered every island — but the Department of Health publishes them
+only through a vendor portal (`inspections.myhealthdepartment.com/soh`) whose robots.txt ends
+`User-agent: * / Disallow: /`, allowing only a few search engines the homepage and naming
+`anthropic-ai` and `ClaudeBot` among the agents it blocks outright. There is no Socrata, CKAN or
+ArcGIS open-data feed for Hawaii food inspections behind it (checked 22 Sep 2026). This project
+honours robots.txt absolutely, so there is no Honolulu watcher — not a technical failure but the
+operator's stated choice, the same kind of no as a terms gate or a signed API. Hawaii stays covered
+the way any no-data region is: by hand, in `manual/sightings.json`, where Cotti's Pearl City shop
+already sits.
+
 **Neither watcher reports a closing from absence.** A store missing from an inspection feed is not
 shut any more than one missing from Overture is; only an explicit INACTIVE status is a closing
 candidate, and even that is a lead for a human, never an automatic closure.
