@@ -146,5 +146,20 @@ PROFILES = {
             "The first chain this project found through a franchise filing rather than a storefront: its "
             "FDD lists every US outlet, which is how a chain with no online locator became countable. A "
             "test of whether malatang travels the way bubble tea and coffee have."),
+    },    "fishwithyou": {
+        "name": "Fish With You", "name_zh": "鱼你在一起",
+        "founded": 2016, "founder": None, "hq": "Beijing",
+        "listing": "private",
+        "global_stores": "several thousand sauerkraut-fish outlets in China (2025 est.)",
+        "us_entry": "2024-25, via franchisees; registered US franchisor",
+        "blurb": (
+            "A mainland fast-casual chain built on a single Sichuan dish — 酸菜鱼, sauerkraut (pickled "
+            "mustard green) fish over rice. Founded in Beijing around 2016, it scaled to thousands of "
+            "outlets across China on a low-price, single-format model and has begun franchising in the "
+            "US, trading under its English name and the transliteration YONNY."),
+        "why_watch": (
+            "Found in the franchise-registry sweep, not on a storefront. A test of whether a single-dish "
+            "Sichuan format travels the way bubble tea and coffee have — and, like Yangguofu, countable "
+            "only through its filing, since its US web presence is one page per store."),
     },
 }

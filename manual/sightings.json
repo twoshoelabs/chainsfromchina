@@ -324,6 +324,21 @@
      "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
     }
    ]
+  },
+  {
+   "chain": "fishwithyou",
+   "supplied_on": "2026-09-22",
+   "source": "First-party storefront page fishwithyouny.com and its Google listing, which identify it as 鱼你在一起（法拉盛）Fish With You | Sauerkraut Fish 酸菜鱼. Confirms mainland origin and one US location; not a complete roster.",
+   "scope": "One confirmed US location. Fish With You is a registered US franchisor (Wisconsin file 639995) with more outlets; the complete roster awaits its FDD, so this is a sighting, not a count.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "135-25A 40th Rd, Flushing, NY 11354",
+     "phone": "+1 (718) 799-0818",
+     "confidence": "confirmed",
+     "verified_by": "first-party site fishwithyouny.com, 22 Sep 2026"
+    }
+   ]
   }
  ]
 }

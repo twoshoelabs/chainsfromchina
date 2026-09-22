@@ -299,6 +299,34 @@ class YangguofuAdapter(Adapter):
     RECHECK = ["https://www.ygfus.com/"]
 
 
+class FishWithYouAdapter(Adapter):
+    """
+    Fish With You (鱼你在一起) — added 22 Sep 2026, found by the same franchise-registry sweep that
+    surfaced Yangguofu. A mainland fast-casual chain built on one dish: 酸菜鱼, Sichuan sauerkraut
+    (pickled-mustard-green) fish over rice. Founded in Beijing around 2016, it grew to thousands of
+    outlets across China and registered a US franchise offering (Wisconsin file 639995, "Fish With
+    You (US) Brand Management Inc.", trade names Fish With You / YONNY).
+
+    IN SCOPE, and confirmed first-party: the Flushing storefront's own page, fishwithyouny.com,
+    identifies it as 鱼你在一起（法拉盛）Fish With You | Sauerkraut Fish 酸菜鱼 at 135-25A 40th Rd,
+    Flushing, NY 11354. Mainland origin, not Taiwan or Hong Kong.
+
+    NO NATIONAL LOCATOR. The web presence is per-store (fishwithyouny.com is the Flushing shop
+    alone), so there is nothing to collect daily. Its complete US roster is where Yangguofu's was —
+    inside its FDD (Item 20 / Exhibit C). Until that filing is pulled, only the one confirmed
+    Flushing location is held, as a single sighting, and the chain is marked present-not-collected.
+    RECHECK the site, and pull WI file 639995 to lift the roster the way Yangguofu's was lifted.
+    """
+    chain_id, name, name_zh = "fishwithyou", "Fish With You", "鱼你在一起"
+    name_us = "Fish With You"
+    parent, format = "Fish With You (US) Brand Management / Yu You (Beijing)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland sauerkraut-fish chain (鱼你在一起), registered US franchisor"
+                      " (WI 639995), but the web presence is per-store with no national locator."
+                      " One confirmed sighting (Flushing); full roster awaits its FDD (22 Sep 2026)")
+    RECHECK = ["https://www.fishwithyouny.com/"]
+
+
 class CottiAdapter(Adapter):
     """
     Cotti Coffee US — no first-party US locator found.
