@@ -36,7 +36,7 @@ DB = os.path.expanduser("~/chain_atlas_data/chain_atlas.sqlite")
 # ChaPanda, NaiSnow not Nayuki. Matched on whole terms, never as substrings.
 TERMS = {
     "MIXUE": "mixue",
-    "CHAGEE": "chagee",
+    "CHAGEE": "chagee", "BAWANG CHAJI": "chagee", "BA WANG CHA JI": "chagee",
     "LUCKIN": "luckin",
     "MINISO": "miniso",
     "HAIDILAO": "haidilao", "HAI DI LAO": "haidilao",

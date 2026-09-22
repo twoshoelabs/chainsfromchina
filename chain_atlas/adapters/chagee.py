@@ -52,6 +52,7 @@ def _stores(page: str) -> list[dict]:
 
 class ChageeAdapter(Adapter):
     chain_id, name, name_zh = "chagee", "CHAGEE", "霸王茶姬"
+    aliases = ("Bawang Chaji",)  # its literal name (霸王茶姬); appears in US listings alongside CHAGEE
     parent, format = "CHAGEE Holding Ltd", "tea"
     closure_n_days = 5
     raw_ext = "html"

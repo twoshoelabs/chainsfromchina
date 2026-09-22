@@ -30,6 +30,7 @@ EXPECTED_MIN = 5
 
 class MixueAdapter(Adapter):
     chain_id, name, name_zh = "mixue", "MIXUE", "蜜雪冰城"
+    aliases = ("Mixue Ice Cream & Tea", "Mixue Bingcheng")
     parent, format = "Mixue Group", "tea"
     closure_n_days = 5
     ENABLED = True
