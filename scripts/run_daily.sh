@@ -12,4 +12,8 @@ fi
 "$PY" -m chain_atlas run
 rc=$?
 "$PY" -m chain_atlas export
+# Launch-watch: quiet until a blocked chain's page changes state (e.g. Tai Er's staged US
+# site going live). Never affects the run's exit code; a signal is logged to
+# $CHAIN_ATLAS_DATA/launch_alerts.log and printed to this daily log.
+"$PY" -m chain_atlas watch || true
 exit $rc

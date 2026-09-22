@@ -5,6 +5,7 @@ Idempotent per (chain, day). A chain already `ok` for the date is skipped unless
 retry costs the sites nothing for work already done.
 """
 import json
+import random
 import re
 from datetime import datetime
 from pathlib import Path
@@ -259,6 +260,127 @@ def recheck(chain_id: str | None = None) -> int:
     print("Nothing here changes the archive. If a page has started publishing stores,"
           " write the adapter.")
     return 0
+
+
+def watch_launches(chain_id: str | None = None) -> int:
+    """
+    name:      watch_launches
+    purpose:   Notice when a blocked chain's page CHANGES state — the day a private or parked site
+               goes live, or starts listing stores — so a launch is caught rather than waited for.
+    arguments: chain_id — restrict to one chain
+    returns:   the number of launch signals fired this run (0 when nothing changed)
+    effects:   One polite request per watched URL. Records a per-URL baseline signature in
+               DATA_DIR/launch_watch.json and appends fired signals to DATA_DIR/launch_alerts.log.
+               Touches nothing in the archive.
+    other:     Built for the daily pass, so it is QUIET until something changes. Tai Er is the case
+               it was written for: taierusa.com is a password-protected Squarespace today, and the
+               signal is its transition to a live page that lists stores. Generalised to every
+               blocked chain with a RECHECK URL, because any of them could launch. It never decides
+               anything — a fired signal means "a human should look", exactly like recheck.
+    """
+    import json
+    from . import capture, config
+    capture.set_delay(1, 2)
+
+    def signature(url):
+        # capture.fetch RAISES on any 4xx, which would turn a 401 "private site" into a status of 0
+        # and make it indistinguishable from a dead host — so probe directly, recording the real
+        # HTTP code for any response, and retry a few times so one flaky request never becomes the
+        # baseline (the false-signal trap). robots.txt is still honoured absolutely.
+        import time as _t
+        if not capture.allowed(url):
+            return {"status": -1, "challenge": False, "store_signal": False, "size": 0, "robots": True}
+        resp = None
+        for _ in range(3):
+            _t.sleep(random.uniform(1, 2))
+            try:
+                resp = capture._session.get(url, timeout=capture.REQUEST_TIMEOUT)
+                break
+            except Exception:                                  # noqa: BLE001 — retried
+                resp = None
+        if resp is None:
+            return {"status": 0, "challenge": False, "store_signal": False, "size": 0, "error": True}
+        body = resp.text or ""
+        challenge = bool(re.search(r"challenge-platform|cf-browser-verification|"
+                                   r"just a moment|enable javascript and cookies", body, re.I))
+        # Does the page now look like it lists stores? Two US addresses, or a locator phrase.
+        addrs = len(re.findall(r"\b[A-Z]{2}\s+\d{5}\b", body))
+        locator = bool(re.search(r"store locator|find (a )?(store|location)|our (stores|locations)|"
+                                 r"all locations|view (all )?(stores|locations)", body, re.I))
+        return {"status": resp.status_code, "challenge": challenge,
+                "store_signal": addrs >= 2 or locator, "size": len(body)}
+
+    def launched(old, new):
+        """A transition worth shouting about: blocked/private -> live, or stores appear."""
+        if not old:
+            return False
+        was_live = 200 <= old["status"] < 300 and not old["challenge"]
+        now_live = 200 <= new["status"] < 300 and not new["challenge"]
+        if not now_live:
+            return False
+        if was_live:
+            # An already-live page that starts listing stores, or balloons from a parked stub.
+            if new["store_signal"] and not old["store_signal"]:
+                return True
+            if old["size"] and new["size"] > max(3000, old["size"] * 2):
+                return True
+            return False
+        # Was NOT live and now is. A real HTTP "not-live" code (401 private, 403, 404, parked) going
+        # live is the Tai Er case and fires. A status of 0 is a network error or a dead host, not a
+        # known state, so it fires only with actual store content — never on a lucky bare 200.
+        if old["status"] >= 400:
+            return True
+        if old["status"] == -1:
+            # Was fully robots-disallowed (a private Squarespace's "User-agent: * / Disallow: /").
+            # A site going public flips its robots to permissive, so reaching it live at all means it
+            # launched — and we only fetched the page once robots.txt itself allowed it. This is the
+            # Tai Er signal: taierusa.com is that private site today.
+            return True
+        if old["status"] == 0 and new["store_signal"]:
+            return True
+        return False
+
+    path = config.DATA_DIR / "launch_watch.json"
+    state = {}
+    if path.exists():
+        try:
+            state = json.loads(path.read_text())
+        except Exception:                                       # noqa: BLE001
+            state = {}
+
+    targets = [a for a in REGISTRY
+               if not a.ENABLED and a.RECHECK and (not chain_id or a.chain_id == chain_id)]
+    fired, baselined = 0, 0
+    for a in targets:
+        for url in a.RECHECK:
+            new = signature(url)
+            old = state.get(url)
+            if old is None:
+                baselined += 1
+            elif launched(old, new):
+                fired += 1
+                msg = (f"⚑ LAUNCH SIGNAL  {a.name} ({a.chain_id})  {url}\n"
+                       f"    was: {old.get('status')} challenge={old.get('challenge')} "
+                       f"stores={old.get('store_signal')} {old.get('size')}B\n"
+                       f"    now: {new.get('status')} challenge={new.get('challenge')} "
+                       f"stores={new.get('store_signal')} {new.get('size')}B")
+                print(msg, flush=True)
+                stamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+                with open(config.DATA_DIR / "launch_alerts.log", "a") as f:
+                    f.write(f"{stamp}  {a.chain_id}  {url}  {old.get('status')}->{new.get('status')}"
+                            f"  stores {old.get('store_signal')}->{new.get('store_signal')}\n")
+            new["checked"] = datetime.utcnow().strftime("%Y-%m-%d")
+            state[url] = new
+
+    path.write_text(json.dumps(state, indent=1))
+    if baselined:
+        print(f"launch-watch: baselined {baselined} URL(s); watching {len(state)} total.", flush=True)
+    if fired:
+        print(f"launch-watch: {fired} LAUNCH SIGNAL(S) — a blocked chain's page changed; look and "
+              f"write its adapter. Logged to {config.DATA_DIR / 'launch_alerts.log'}.", flush=True)
+    elif not baselined:
+        print(f"launch-watch: no change across {len(state)} watched URL(s).", flush=True)
+    return fired
 
 
 def status():

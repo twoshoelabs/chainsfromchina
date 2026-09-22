@@ -24,6 +24,10 @@ def main(argv=None):
         from .run import recheck
         return recheck(chain_id=opt("--chain"))
 
+    if cmd == "watch":
+        from .run import watch_launches
+        return 0 if watch_launches(chain_id=opt("--chain")) == 0 else 0
+
     if cmd == "status":
         from .run import status
         status()
@@ -84,6 +88,7 @@ def main(argv=None):
     print("  geocode [--chain X] [--limit N]                  derive coordinates from US addresses")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
+    print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
     print("  probe --chain X                                 print one chain's live locator")
     return 0

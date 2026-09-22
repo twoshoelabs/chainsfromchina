@@ -166,7 +166,7 @@ class TaiErAdapter(Adapter):
     BLOCKED_REASON = ("in the US; the parent's international store endpoint"
                       " (/AjaxAction/store.ashx) returns a single Guangzhou flagship; taierusa.com"
                       " is an unlaunched private Squarespace (re-confirmed 22 Sep 2026)")
-    RECHECK = ["http://en.jiumaojiu.com/store/taier.html"]
+    RECHECK = ["https://www.taierusa.com/", "http://en.jiumaojiu.com/store/taier.html"]
 
 
 class ChaPandaAdapter(Adapter):
