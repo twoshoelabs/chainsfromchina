@@ -328,9 +328,15 @@ class FishWithYouAdapter(Adapter):
     name_us = "Fish With You"
     parent, format = "Fish With You (US) Brand Management / Yu You (Beijing)", "restaurant"
     ENABLED = False
+    # 22 Sep 2026: pulled its FDD (WI 639995, effective 23 Nov 2025). Item 20 is EMPTY for the
+    # US — 0 franchised and 0 company-owned outlets for 2022-2024, no franchisee-list exhibit,
+    # only its 2,500 China outlets shown "for reference". Same as Cotti: a just-registered
+    # franchisor whose existing US stores are not franchised, so the FDD does not enumerate
+    # them. The web-search-verified sightings are the US data, not the filing.
     BLOCKED_REASON = ("mainland sauerkraut-fish chain (鱼你在一起), registered US franchisor"
-                      " (WI 639995), but the web presence is per-store with no national locator."
-                      " One confirmed sighting (Flushing); full roster awaits its FDD (22 Sep 2026)")
+                      " (WI 639995) but its FDD Item 20 is empty of US outlets; web presence is"
+                      " per-store with no national locator. Tracked via verified sightings"
+                      " (Flushing, LA, Ellicott City MD, Irvine + leads) (22 Sep 2026)")
     RECHECK = ["https://www.fishwithyouny.com/"]
 
 
