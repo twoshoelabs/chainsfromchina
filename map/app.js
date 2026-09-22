@@ -387,6 +387,8 @@ function drawTally(data) {
     b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>` +
       `${chainLabel(meta, { short: true })}<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
+    if (meta.aliases && meta.aliases.length)
+      b.title = `Also trades in the US as: ${meta.aliases.join(', ')}. ` + (b.title || '');
     b.onclick = () => {
       hidden.has(id) ? hidden.delete(id) : hidden.add(id);
       b.setAttribute('aria-pressed', String(!hidden.has(id)));
@@ -422,11 +424,14 @@ function drawTally(data) {
            : 'not counted yet';
     el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
       `<span class="n">${esc(n)}</span>`;
-    el.title = rr
+    // Alias line first, so hovering any chip shows every US name the chain trades under.
+    const akaTitle = (b.aliases && b.aliases.length)
+      ? `Also trades in the US as: ${b.aliases.join(', ')}. ` : '';
+    el.title = akaTitle + (rr
       ? `Hand-assembled and operator-verified, as of ${rr.complete_as_of}. Not monitored: `
         + `this count does not update on its own and is not part of the collected census.`
         + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
-      : (b.reason || '');
+      : (b.reason || ''));
     box.append(el);
   }
 }
