@@ -48,6 +48,9 @@ TERMS = {
     "TEABYDO": "chabaidao", "TEA BY DO": "chabaidao", "CHAPANDA": "chabaidao", "CHA PANDA": "chabaidao",
     "NAISNOW": "nayuki", "NAIXUE": "nayuki", "NAYUKI": "nayuki",
     "JUEWEI": "juewei",
+    "YANGGUOFU": "yangguofu", "YGF": "yangguofu",
+    "FISH WITH YOU": "fishwithyou", "YONNY": "fishwithyou",
+    "WEI'S FISH": "fishwithyou", "WEIS FISH": "fishwithyou",
 }
 
 

@@ -37,6 +37,10 @@ class Adapter:
     # A chain hunted under the wrong name is a chain that looks absent — this is why the alias
     # is data and not a footnote.
     name_us: str | None = None
+    # Other US trading names for the SAME shops, when one chain runs under several. Fish With
+    # You trades as YONNY and, in Cupertino, as "Wei's Fish" — one brand, several signs. Every
+    # alias is a name a watcher or a search must recognise, so aliases are data, not a footnote.
+    aliases: tuple[str, ...] = ()
     name_zh: str | None = None
     origin: str = "CN"
     parent: str | None = None

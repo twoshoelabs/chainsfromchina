@@ -326,6 +326,7 @@ class FishWithYouAdapter(Adapter):
     """
     chain_id, name, name_zh = "fishwithyou", "Fish With You", "鱼你在一起"
     name_us = "Fish With You"
+    aliases = ("Wei's Fish", "YONNY", "YONNY Mini Hot Pot")
     parent, format = "Fish With You (US) Brand Management / Yu You (Beijing)", "restaurant"
     ENABLED = False
     # 22 Sep 2026: pulled its FDD (WI 639995, effective 23 Nov 2025). Item 20 is EMPTY for the

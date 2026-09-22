@@ -52,7 +52,10 @@ const chainLabel = (c, opts = {}) => {
   const alias = c.name_us && c.name_us !== c.name ? c.name : null;
   const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
   const also = alias && !opts.short ? `<span class="zh">(${esc(alias)})</span>` : '';
-  return `${esc(trading)}${zh}${also}`;
+  // Extra US trading names for the same shops (Fish With You also trades as Wei's Fish, YONNY).
+  const aka = (c.aliases && c.aliases.length && !opts.short)
+    ? `<span class="zh">also: ${c.aliases.map(esc).join(', ')}</span>` : '';
+  return `${esc(trading)}${zh}${also}${aka}`;
 };
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));

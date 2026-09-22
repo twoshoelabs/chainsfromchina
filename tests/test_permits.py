@@ -28,6 +28,8 @@ def main():
     check("COTTI COFFEE is Cotti", classify("COTTI COFFEE"), ["cotti"])
     check("HEY TEA matches heytea", classify("HEY TEA @ NYU"), ["heytea"])
     check("a US alias resolves", classify("NAISNOW TEA & BAKERY"), ["nayuki"])
+    check("a local alias resolves to its chain", classify("WEI'S FISH CUPERTINO"), ["fishwithyou"])
+    check("the brand name resolves too", classify("FISH WITH YOU SAN MATEO"), ["fishwithyou"])
     check("Tai Er without a space still resolves", classify("TAIER FISH"), ["taier"])
     check("a tea shop that merely contains YANG is not Yang's",
           classify("CHUN YANG TEA"), [])

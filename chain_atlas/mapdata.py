@@ -56,13 +56,14 @@ def export(out_dir: Path) -> dict:
             continue
         if a.ENABLED:
             chains[a.chain_id] = {"name": a.name, "name_zh": a.name_zh, "name_us": a.name_us,
+                                  "aliases": list(a.aliases),
                                   "format": a.format, "parent": a.parent,
                                   "provenance": a.PROVENANCE,
                                   "provenance_detail": (a.KNOWN_COUNT or {}).get("detail")
                                   if a.PROVENANCE != "collected" else None}
         else:
             blocked.append({"chain_id": a.chain_id, "name": a.name, "name_zh": a.name_zh,
-                            "name_us": a.name_us,
+                            "name_us": a.name_us, "aliases": list(a.aliases),
                             "format": a.format, "reason": a.BLOCKED_REASON,
                             "known_count": a.KNOWN_COUNT})
 
