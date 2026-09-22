@@ -1,0 +1,50 @@
+{
+  "_readme": [
+    "The national registry of permit sources. Adding a metro is a ROW here, not a new script —",
+    "that is the whole point. Each Socrata entry names the domain, the dataset, and which of its",
+    "columns hold the name, address, date, inspection type and (where present) a closing signal;",
+    "scripts/watch.py reads this and runs every one. Discover new candidates with",
+    "scripts/discover_jurisdictions.py, confirm the dataset is fresh and its fields, then add it.",
+    "",
+    "Fields: id, name, platform ('socrata'), domain, resource, name_field, addr_fields (joined),",
+    "city_field, zip_field, state, date_field (ISO or YYYYMMDD), type_field?, lat_field?/lon_field?,",
+    "id_field (per-establishment dedup key), closed_field?+closed_re?, closed_bool_field?, states[].",
+    "",
+    "NOT here: Santa Clara (two-table join) and LA County (bulk CSV) keep bespoke scripts because",
+    "their shape does not fit a single Socrata query; Honolulu is robots-excluded. See the README."
+  ],
+  "jurisdictions": [
+    {
+      "id": "nyc", "name": "New York City", "platform": "socrata",
+      "domain": "data.cityofnewyork.us", "resource": "43nn-pn8j",
+      "name_field": "dba", "addr_fields": ["building", "street"],
+      "city_field": "boro", "zip_field": "zipcode", "state": "NY",
+      "date_field": "inspection_date", "type_field": "inspection_type",
+      "lat_field": "latitude", "lon_field": "longitude", "id_field": "camis",
+      "states": ["NY"],
+      "notes": "Live feed. Pre-permit (Non-operational) inspection precedes opening."
+    },
+    {
+      "id": "chicago", "name": "Chicago", "platform": "socrata",
+      "domain": "data.cityofchicago.org", "resource": "4ijn-s7e5",
+      "name_field": "dba_name", "addr_fields": ["address"],
+      "city_field": "city", "zip_field": "zip", "state": "IL",
+      "date_field": "inspection_date", "type_field": "inspection_type",
+      "lat_field": "latitude", "lon_field": "longitude", "id_field": "license_",
+      "closed_field": "results", "closed_re": "out of business|not located",
+      "states": ["IL"],
+      "notes": "Live. 'results' of 'Out of Business' is a closing candidate."
+    },
+    {
+      "id": "seattle", "name": "Seattle / King County", "platform": "socrata",
+      "domain": "data.kingcounty.gov", "resource": "r878-4sxa",
+      "name_field": "name", "addr_fields": ["address"],
+      "city_field": "city", "zip_field": "zip_code", "state": "WA",
+      "date_field": "inspection_date", "type_field": "inspection_type",
+      "id_field": "business_id",
+      "closed_bool_field": "inspection_closed_business",
+      "states": ["WA"],
+      "notes": "Live. No coordinates. inspection_closed_business flags a closure."
+    }
+  ]
+}

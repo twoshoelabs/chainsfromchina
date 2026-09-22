@@ -351,20 +351,41 @@ as of 22 Sep 2026 — 13 confirmed**, shown with a "hand-assembled, not monitore
 
 ## Watchers: opening and closing candidates for chains we cannot scrape
 
-Four of the chains here publish no US roster this project can read, so the census cannot see them
-open a store. A city or county health department can. A **watcher** reads one jurisdiction's own
-food-establishment records for these chains and produces OPENING and, where the data supports it,
-CLOSING **candidates** for a human to verify. Like the Overture pass, a watcher feeds the review
-queue and never writes to stores, observations or events — a machine-found location is a lead, and
-the base rate of leads in this subject does not earn trust unseen. The shared logic — whole-term
-name matching (so BISCOTTI is never Cotti) and a street fingerprint that lines one source's address
-up with another's — lives in `scripts/permit_common.py`.
+First, the reframe that keeps this from sprawling: **the six chains this project collects are
+already national.** Their own locators give every US store — Seattle, Chicago, Texas, all 46
+states — with no per-city work. Watchers exist only for the handful with NO readable locator
+(HEYTEA, Cotti, Tai Er, Yang's, and the tiny ones), and every first-party locator that falls next
+(POP MART was one) removes a chain from this list entirely. So the "chase every metro" problem is
+smaller than it looks, and the answer is not more hand-written scripts.
 
-**New York** (`scripts/nyc_permits.py`) queries the city's live inspection feed. Its gift is the
+A **watcher** reads a health department's own food-establishment records for these chains and
+produces OPENING and, where the data supports it, CLOSING **candidates** for a human to verify. It
+feeds the review queue and never writes to stores, observations or events — a machine-found
+location is a lead, and the base rate of leads in this subject does not earn trust unseen. Shared
+logic — whole-term matching (so BISCOTTI is never Cotti) and a street fingerprint that lines one
+source's address up with another's — lives in `scripts/permit_common.py`.
+
+### The national design: a registry, one driver, and discovery
+
+Most US city and county open data is Socrata, and its columns differ only in name. So a metro is a
+**row in `scripts/jurisdictions.json`**, not a program: it maps that source's columns to the same
+roles (name, address, date, inspection type, a closing signal where one exists), and
+`scripts/watch.py` runs every Socrata source in the registry — New York, Chicago and Seattle
+today. `scripts/discover_jurisdictions.py` asks Socrata's **national** catalog for
+food-inspection datasets everywhere at once and prints a worklist — which metros have a feed, how
+fresh, and whether it is already registered — so new cities are *found*, not guessed (the first
+run surfaced Cincinnati, Austin, Boulder County and a statewide New York feed). Confirm a
+candidate's columns, add the row, done.
+
+Two shapes do not fit one Socrata query and keep bespoke scripts: **Santa Clara** (a two-table
+join, `scripts/bayarea_permits.py`) and **LA County** (a bulk CSV, `scripts/la_permits.py`).
+
+**New York** (a registry entry) queries the city's live inspection feed. Its gift is the
 `Pre-permit (Non-operational) / Initial Inspection`, which happens *before* a restaurant opens — the
 closest thing to an authoritative opening signal found for a chain we cannot scrape, with a date.
-The first run matched 52 establishments, 25 already ours, **24 new candidates including 18 HEYTEA
-against the 6–8 any other source had**, 8 carrying a pre-opening signal.
+It matched 50 establishments, 25 already ours, **25 new candidates including 18 HEYTEA against the
+6–8 any other source had**, 14 still pre-opening (no operating inspection yet). Chicago and Seattle,
+added as rows, immediately found HEYTEA in Chinatown and more.
 
 **Los Angeles County** (`scripts/la_permits.py`) covers the San Gabriel Valley, this project's
 densest region after Flushing. It is a different shape of source and the watcher says so: a whole-
