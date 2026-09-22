@@ -74,9 +74,15 @@ def street_key(addr):
     on, so a keyless address never matches another keyless one by accident.
     """
     n = norm_addr((addr or "").split(",")[0]).strip()
-    # Cut at the street-type suffix: everything after it is a unit, however it is written
-    # ("WAY E-16", "BLVD #2020", "AVE 118B"). This is what makes a mall address from one
-    # source line up with the same address from another.
+    # Canonicalise street types so a permit's "BL"/"AV"/"ROAD" meets a site's "Blvd"/"Ave"/"Rd",
+    # and strip the ordinal so "40 ROAD" meets "40TH RD". Cross-source dedup lives or dies here.
+    TYPE = {"ROAD": "RD", "STREET": "ST", "AVENUE": "AVE", "AV": "AVE", "BOULEVARD": "BLVD",
+            "BL": "BLVD", "BLV": "BLVD", "DRIVE": "DR", "LANE": "LN", "PARKWAY": "PKWY",
+            "PKY": "PKWY", "PY": "PKWY", "COURT": "CT", "PLACE": "PL", "CIRCLE": "CIR",
+            "HIGHWAY": "HWY", "PLAZA": "PLZ", "TERRACE": "TER", "SQUARE": "SQ", "CENTER": "CTR",
+            "CENTRE": "CTR", "WY": "WAY"}
+    n = re.sub(r"\b(\d+)(?:ST|ND|RD|TH)\b", r"\1", n)          # 40TH -> 40, 3RD -> 3
+    n = " ".join(TYPE.get(t, t) for t in n.split())
     m = re.search(r"^(.*?\b(?:ST|AVE|BLVD|RD|DR|WAY|LN|PKWY|CT|PL|CIR|HWY|TER|SQ|PLZ|ALY|LOOP|WALK|ROW|PATH|RUN|TRL|XING|CTR)\b)", n)
     if m:
         n = m.group(1)
@@ -84,7 +90,10 @@ def street_key(addr):
         # No recognisable suffix (mall names, plazas): drop a keyword unit or a trailing code.
         n = re.split(r"\b(?:STE|SUITE|UNIT|APT|#|SPC|FL|FLOOR|RM|BLDG)\b", n)[0]
         n = re.sub(r"\s+#?[A-Z]?-?\d+[A-Z]?$", "", n.strip())
-    return n.strip() if re.match(r"^\d+[A-Z]?(?:-\d+)?\s+\S", n) else ""
+    # New York's hyphenated house numbers are the same address written two ways: "135-05" and
+    # "13505" are one shop, so collapse the hyphen before anchoring on the number.
+    n = re.sub(r"^(\d+)-(\d+)", r"\1\2", n.strip())
+    return n.strip() if re.match(r"^\d+[A-Z]?\s+\S", n) else ""
 
 
 def hav(a, b, c, d):
