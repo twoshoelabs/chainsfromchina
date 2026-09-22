@@ -34,9 +34,13 @@ class HeyteaAdapter(Adapter):
     # returns exactly 13 stores in four tiers (heytea / lab / teabar / craft) across Hong Kong,
     # Bangkok, New York and Guangzhou — a curated showcase of signature stores, no coordinates,
     # not a US roster. Passing region=us does not localise it. The verdict is unchanged.
+    # 22 Sep 2026, app-API hunt (the method that unblocked POP MART): app.heytea.com is the
+    # 喜茶GO ordering app, but it is native-only — it redirects a browser to the App Store and
+    # an Android UA to an APK download, so the store list lives inside the native app behind
+    # its own (likely signed) API, not a readable web endpoint. No app-API path found.
     BLOCKED_REASON = ("site's /api/v1/page key=stores is a 13-store global showcase, not a US"
-                      " locator; region=us does not localise it; no US subdomain resolves"
-                      " (re-confirmed 22 Sep 2026)")
+                      " locator; the 喜茶GO ordering app is native-only (no readable web store"
+                      " API); no US subdomain resolves (re-confirmed 22 Sep 2026)")
     RECHECK = ["https://www.heytea.com/en-us/store"]
 
 
@@ -156,9 +160,12 @@ class TaiErAdapter(Adapter):
     # nodecode=126005001002 filter. It answers {"status":1,"count":1} — a single record,
     # the Guangzhou Grandview Plaza flagship, for any page/area/keys. The international
     # site simply does not carry the US estate; there is no US endpoint to read here.
+    # 22 Sep 2026, app-API hunt: taierusa.com exists but is a password-protected Squarespace
+    # "Private Site" — an unlaunched US page — and no jiumaojiu/taier app host resolved. When
+    # that site launches it may expose a store list; until then there is nothing to read.
     BLOCKED_REASON = ("in the US; the parent's international store endpoint"
-                      " (/AjaxAction/store.ashx) returns a single Guangzhou flagship, not the"
-                      " US estate (re-confirmed 22 Sep 2026)")
+                      " (/AjaxAction/store.ashx) returns a single Guangzhou flagship; taierusa.com"
+                      " is an unlaunched private Squarespace (re-confirmed 22 Sep 2026)")
     RECHECK = ["http://en.jiumaojiu.com/store/taier.html"]
 
 
