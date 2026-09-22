@@ -132,5 +132,19 @@ PROFILES = {
         "why_watch": (
             "The purest example of the price war that is pushing these chains abroad. It publishes no "
             "first-party US locator at all, which is itself the finding."),
+    },    "yangguofu": {
+        "name": "Yangguofu", "name_zh": "杨国福麻辣烫",
+        "founded": 2003, "founder": "Yang Guofu", "hq": "Harbin, Heilongjiang / Shanghai",
+        "listing": "private",
+        "global_stores": "6,000+ malatang outlets, overwhelmingly in China, as of 2025",
+        "us_entry": "2024, via franchisees (US franchisor entity established 8 April 2024)",
+        "blurb": (
+            "One of China's two dominant malatang chains — build-your-own skewered hotpot soup, priced "
+            "by weight. Founded in Harbin in 2003, it scaled to thousands of franchised outlets across "
+            "China and began a registered US franchise programme in 2024, trading as YGF."),
+        "why_watch": (
+            "The first chain this project found through a franchise filing rather than a storefront: its "
+            "FDD lists every US outlet, which is how a chain with no online locator became countable. A "
+            "test of whether malatang travels the way bubble tea and coffee have."),
     },
 }

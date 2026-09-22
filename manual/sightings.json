@@ -176,6 +176,154 @@
      "note": "ChaPanda's first North American store, trading as TeaByDo. Recorded because a chain this young leaves a complete opening history if it is watched from the start — and because the alias is what makes it findable at all."
     }
    ]
+  },
+  {
+   "chain": "yangguofu",
+   "supplied_on": "2026-09-22",
+   "complete_as_of": "2025-12-31",
+   "complete_scope": "United States (franchise disclosure Item 20)",
+   "source": "Franchise Disclosure Document of Captain Business Management Co., Limited (YGF / Yangguofu), Minnesota registration #11645 submission 35686-202603, Item 20 and Exhibit C. Item 20 states 23 franchised US outlets in 9 states as of 31 Dec 2025; Exhibit C lists their addresses, which reconcile exactly with the per-state counts.",
+   "scope": "A COMPLETE national roster as of 31 Dec 2025, taken from a legally-required filing — not collected daily and already low: the same FDD projects 37+ new US outlets for 2026. Nevada had one outlet open and close within 2025 and is not listed. Some addresses are recorded with a ZIP inferred from the city where the filing omitted it. Superseded the day ygfus.com publishes a locator this project can read.",
+   "locations": [
+    {
+     "name": "San Diego",
+     "address": "7317 Clairemont Mesa Blvd, San Diego, CA 92111",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Dublin",
+     "address": "4288 Dublin Blvd #110, Dublin, CA 94568",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Artesia",
+     "address": "11688 South St #101, Artesia, CA 90701",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Chino Hills",
+     "address": "3626-M Grand Ave, Chino Hills, CA 91709",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Irvine",
+     "address": "2626 Dupont Drive Suite A090, Irvine, CA 92612",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Los Angeles (USC)",
+     "address": "2526 S Figueroa St, Los Angeles, CA 90007",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Rowland Heights",
+     "address": "1745 Fullerton Rd, Rowland Heights, CA 91748",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Milpitas",
+     "address": "540 Barber Ln, Milpitas, CA 95035",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Daly City",
+     "address": "72B Serramonte Center, Daly City, CA 94015",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Cupertino",
+     "address": "19672 Stevens Creek Blvd, Cupertino, CA 95014",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Orlando",
+     "address": "5600 W Colonial Dr #316, Orlando, FL 32808",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Doraville",
+     "address": "6035 Peachtree Rd Suite C-113 & 114, Doraville, GA 30360",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Champaign",
+     "address": "611 E Green St, Champaign, IL 61820",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "West Lafayette",
+     "address": "110 S Chauncey Ave, West Lafayette, IN 47906",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Boston",
+     "address": "137 Massachusetts Ave, Boston, MA 02115",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Flushing",
+     "address": "13505 40th Rd, Flushing, NY 11354",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Manhattan (3rd Ave)",
+     "address": "92 3rd Ave, New York, NY 10003",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Manhattan (W 35th St)",
+     "address": "213 W 35th St, New York, NY 10001",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Katy",
+     "address": "23015 Colonial Parkway STE #107, Katy, TX 77449",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Tukwila",
+     "address": "16860 Southcenter Pkwy, Tukwila, WA 98188",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Seattle (U District)",
+     "address": "4730 University Way NE Suite #103, Seattle, WA 98105",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Bellevue",
+     "address": "683 156th Ave SE, Bellevue, WA 98007",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    },
+    {
+     "name": "Kirkland",
+     "address": "116 Central Way, Kirkland, WA 98033",
+     "confidence": "filed",
+     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+    }
+   ]
   }
  ]
 }

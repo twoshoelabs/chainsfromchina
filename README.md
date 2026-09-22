@@ -349,6 +349,28 @@ number lives in its own `manual_rosters` field that never touches `by_state` or 
 it can never manufacture an opening or a closure. The first is Cotti, **complete for New York City
 as of 22 Sep 2026 — 13 confirmed**, shown with a "hand-assembled, not monitored" caveat.
 
+### Franchise disclosure documents, and the chain they found
+
+A franchisor that sells franchises in the US must file a disclosure document (FDD) with the
+registration states, and its Item 20 is a legally-required, complete roster of outlets with a
+three-year opening/closure history — a national roster in one annual document, not 3,000
+municipalities. It sounded like the shortcut past the metros, and it was tested honestly:
+
+  * **Cotti** — its FDD exists but is empty: the US franchisor entity registered only in May 2026
+    with zero outlets. Cotti's US stores are company-owned, and an FDD lists only franchised ones.
+  * **Yang's Braised Chicken** — not a registered US franchisor at all; no FDD.
+
+So FDDs do not help the current blocked cohort — these chains are too new to US franchising. But
+the search for Yang's in the Wisconsin registry surfaced a **different** chain that does fit, and
+that this project was not tracking: **Yangguofu Malatang (杨国福麻辣烫)**, a registered US
+franchisor since 2024. Its FDD's Item 20 is populated — **23 franchised US outlets across nine
+states as of 31 Dec 2025** (CA 10, WA 4, NY 3; FL, GA, IL, IN, MA, TX one each), and Exhibit C's
+addresses reconcile exactly with the per-state counts. Its own site (ygfus.com) publishes no
+locator — the LOCATIONS nav is commented out — so it is not collected daily; the FDD roster lives
+as a dated manual roster, complete as of 31 Dec 2025 and already low (the filing projects 37+ more
+for 2026). The lesson: the FDD pays off only for a chain that franchises **with history**, and the
+franchise registry is most useful as a **discovery tool** — this chain was found in it, not sought.
+
 ## Watchers: opening and closing candidates for chains we cannot scrape
 
 First, the reframe that keeps this from sprawling: **the six chains this project collects are

@@ -258,6 +258,47 @@ class JueweiAdapter(Adapter):
     RECHECK = ["https://jueweifood.com/eng/"]
 
 
+class YangguofuAdapter(Adapter):
+    """
+    Yangguofu Mala Tang (杨国福麻辣烫) — added 22 Sep 2026, and it arrived by a route none of the
+    others did: a franchise disclosure document.
+
+    NOT to be confused with Yang's Braised Chicken (杨铭宇黄焖鸡). Two different "Yang" chains; the
+    search for Yang's FDD in Wisconsin turned up this one instead. Yangguofu is one of China's
+    largest malatang (spicy-soup) chains — malatang is a build-your-own skewered hotpot-soup — and
+    unlike the rest of the blocked cohort it is a REGISTERED US FRANCHISOR, filing through Captain
+    Business Management Co., Limited (US arm established 8 Apr 2024, franchisor entity behind YGF /
+    ygfus.com).
+
+    WHY IT IS HERE AND WHY IT IS NOT COLLECTED. Its own US site, ygfus.com, publishes no store
+    locator — the "LOCATIONS" item is commented out of the site's own navigation, so there is
+    nothing to read daily. What exists instead is its FDD, whose Item 20 is a legally-required,
+    complete roster: 23 US franchised outlets across nine states as of 31 Dec 2025 (CA 10, WA 4,
+    NY 3, and one each in FL, GA, IL, IN, MA, TX), reconciled exactly against Exhibit C's
+    addresses. That roster lives in manual/sightings.json as a DATED roster — complete as of a day,
+    not monitored — because it is a snapshot from a filing, not something the collector re-reads.
+    The same filing projects 37+ new outlets for 2026, so the number is already low.
+
+    THE FDD LESSON, stated plainly: this document is the national roster the Cotti FDD could not
+    give (Cotti had just registered, zero outlets) and Yang's Braised Chicken had none of (not a
+    registered franchisor). It works only for a chain that genuinely franchises WITH history — and
+    the franchise registry doubles as a discovery tool, since this chain was found in it, not
+    sought.
+
+    RECHECK ygfus.com: the day it publishes a locations page, this becomes a collected chain and
+    the FDD roster is superseded by a daily census.
+    """
+    chain_id, name, name_zh = "yangguofu", "Yangguofu", "杨国福麻辣烫"
+    name_us = "YGF"
+    parent, format = "Captain Business Management Co. (Yang Guo Fu Malatang)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("registered US franchisor with a complete FDD roster (23 outlets in 9 states"
+                      " as of 31 Dec 2025), but ygfus.com publishes no live locator — its"
+                      " LOCATIONS nav is commented out. Roster held as a dated manual roster,"
+                      " not a daily census (22 Sep 2026)")
+    RECHECK = ["https://www.ygfus.com/"]
+
+
 class CottiAdapter(Adapter):
     """
     Cotti Coffee US — no first-party US locator found.
