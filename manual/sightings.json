@@ -329,7 +329,7 @@
    "chain": "fishwithyou",
    "supplied_on": "2026-09-22",
    "source": "Chain's own per-store sites (fishwithyouny.com, fishwithyouca.com, fishwithyoumd.com, fishwithyouyonny.com) for the confirmed rows; press and delivery-platform listings for the uncertain rows. Web search on 22 Sep 2026.",
-   "scope": "Known US locations, assembled by targeted web search and verified against the chain's own per-store sites where possible. NOT a complete roster: Fish With You is a registered US franchisor (WI 639995) with more outlets than listed here, and its full US roster lives in its FDD Item 20. Confirmed = read off a first-party fishwithyou* site; uncertain = seen only on aggregators/press and not yet first-party verified.",
+   "scope": "Known US locations, assembled by targeted web search and verified against the chain's own per-store sites and brand-named platform listings. All eight rows below are now first-party or strongly confirmed. Still NOT a complete roster: Fish With You is a registered US franchisor (WI 639995) whose own FDD Item 20 is empty of US outlets (a just-registered franchisor), and it has no national locator, so this is the best available US data, not a census. Note the fragmented US naming — Fish With You, YONNY, YONNY Mini Hot Pot (San Diego), Wei's Fish (Cupertino) — all trading as 鱼你在一起.",
    "locations": [
     {
      "name": "Flushing",
@@ -359,26 +359,26 @@
     {
      "name": "Rowland Heights",
      "address": "1330 Fullerton Rd #108, Rowland Heights, CA 91748",
-     "confidence": "uncertain",
-     "verified_by": "aggregator listing only, 22 Sep 2026 — not first-party verified"
+     "confidence": "confirmed",
+     "verified_by": "first-party site fishwithyou.shop, 22 Sep 2026"
     },
     {
      "name": "San Mateo",
      "address": "150 S B St, San Mateo, CA 94401",
-     "confidence": "uncertain",
-     "verified_by": "aggregator listing only, 22 Sep 2026 — not first-party verified"
+     "confidence": "confirmed",
+     "verified_by": "brand-named on DoorDash/order.online as 鱼你在一起 Fish With You + 211 Yelp reviews, operating, 22 Sep 2026"
     },
     {
      "name": "San Diego (Kearny Mesa)",
      "address": "3904 Convoy St #101, San Diego, CA 92111",
-     "confidence": "uncertain",
-     "verified_by": "press announcement (whatnow.com, 2024) — not confirmed open"
+     "confidence": "confirmed",
+     "verified_by": "first-party site fishwithyousd.com (also trades as YONNY Mini Hot Pot), 22 Sep 2026"
     },
     {
-     "name": "Cupertino",
+     "name": "Cupertino (as Wei's Fish)",
      "address": "10520 S De Anza Blvd, Cupertino, CA 95014",
-     "confidence": "uncertain",
-     "verified_by": "delivery-platform listing only — name ambiguous, not verified"
+     "confidence": "confirmed",
+     "verified_by": "Fish With You trading locally as 'Wei's Fish' — 鱼你在一起 SF Bay Area first store; DoorDash/Fantuan/Yelp, 22 Sep 2026"
     }
    ]
   }
