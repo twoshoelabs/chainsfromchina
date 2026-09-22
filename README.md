@@ -375,6 +375,15 @@ found new HEYTEA across Beverly Hills, Monterey Park and Rowland Heights, a seco
 Heights, a NaiSnow in San Gabriel, and two INACTIVE MINISO records to check as closings — one of
 them a store the census still counts.
 
+**The Bay Area** (`scripts/bayarea_permits.py`) is the fragmented case: no single county covers
+it, and the counties' open data is uneven. Santa Clara County (data.sccgov.org) is live to within
+days and geocoded, and covers San Jose, Milpitas, Cupertino, Sunnyvale and Santa Clara — nearly all
+of the region's mainland-chain density — so that is what the watcher reads. San Mateo County's food
+feed is frozen at January 2022 and useless for this wave, so the Peninsula is a named gap, not an
+absence; San Francisco's feed currently lists none of these chains. The first run found **Tai Er
+(TAIER FISH, San Jose, first inspected 9 Apr 2026)** — the chain this jurisdiction was added for —
+plus two more TeaByDo shops (Palo Alto, San Jose), five HEYTEA and a NaiSnow across the South Bay.
+
 **Neither watcher reports a closing from absence.** A store missing from an inspection feed is not
 shut any more than one missing from Overture is; only an explicit INACTIVE status is a closing
 candidate, and even that is a lead for a human, never an automatic closure.

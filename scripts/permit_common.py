@@ -44,7 +44,7 @@ TERMS = {
     "HEYTEA": "heytea", "HEY TEA": "heytea",
     "COTTI": "cotti",
     "YANG'S BRAISED": "yangs", "YANGS BRAISED": "yangs", "YANG'S CHICKEN": "yangs",
-    "TAI ER": "taier",
+    "TAI ER": "taier", "TAIER": "taier",
     "TEABYDO": "chabaidao", "TEA BY DO": "chabaidao", "CHAPANDA": "chabaidao", "CHA PANDA": "chabaidao",
     "NAISNOW": "nayuki", "NAIXUE": "nayuki", "NAYUKI": "nayuki",
     "JUEWEI": "juewei",

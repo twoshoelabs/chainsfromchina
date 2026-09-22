@@ -28,6 +28,9 @@ def main():
     check("COTTI COFFEE is Cotti", classify("COTTI COFFEE"), ["cotti"])
     check("HEY TEA matches heytea", classify("HEY TEA @ NYU"), ["heytea"])
     check("a US alias resolves", classify("NAISNOW TEA & BAKERY"), ["nayuki"])
+    check("Tai Er without a space still resolves", classify("TAIER FISH"), ["taier"])
+    check("a tea shop that merely contains YANG is not Yang's",
+          classify("CHUN YANG TEA"), [])
     check("plain word does not match", classify("YANG'S KITCHEN"), [])  # not the braised-chicken brand
 
     # Street fingerprints must survive unit codes, mall suites and city/state tails so the same
