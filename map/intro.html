@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — Who they are</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink current" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+    </nav>
+  </div>
+  <h1>Who these companies are</h1>
+  <p class="sub">A short introduction, for US readers, to each mainland-China chain this project
+     follows — with a link to the company's own site in China and its US site where one exists.
+     <span id="asof"></span></p>
+</header>
+
+<div class="introwrap">
+  <p class="note warn" id="linkwarn">
+    <strong>A note on the links.</strong> Links to a company's <strong>own site in China</strong>
+    are provided for reference and are <strong>untested by this project</strong> — they may be in
+    Chinese, may behave differently outside China, and are followed <strong>at your own
+    discretion</strong>. US sites are the ones to use for ordering or store hours.
+  </p>
+  <div id="companies" class="cardgrid"></div>
+  <p class="note small" id="photonote"></p>
+</div>
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project. It is
+  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
+  site; brand names identify the businesses being measured and nothing more.</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const host = u => { try { return new URL(u).host.replace(/^www\./, ''); } catch { return u; } };
+
+fetch('data/stores.json').then(r => r.json()).then(data => {
+  const meta = data.meta || {};
+  const C = (meta.companies && meta.companies.companies) || {};
+  if (meta.companies && meta.companies.as_of)
+    document.getElementById('asof').textContent = 'Compiled ' + meta.companies.as_of + '.';
+
+  // Order: follow the map's collected chains first, then the rest, so the biggest names lead.
+  const order = [...Object.keys(meta.chains || {}), ...(meta.blocked || []).map(b => b.chain_id)];
+  const ids = [...new Set([...order.filter(id => C[id]), ...Object.keys(C)])];
+
+  const grid = document.getElementById('companies');
+  let anyPhoto = false;
+  for (const id of ids) {
+    const c = C[id]; if (!c) continue;
+    const card = document.createElement('article');
+    card.className = 'ccard';
+
+    const cnLink = c.site_cn
+      ? `<a href="${esc(c.site_cn)}" target="_blank" rel="noopener nofollow">China site ↗ <span class="cnwarn" title="Outside the USA — untested, follow at your own discretion">⚠︎ ${esc(host(c.site_cn))}</span></a>`
+      : `<span class="dim">no China site listed</span>`;
+    const usLink = c.site_us
+      ? `<a href="${esc(c.site_us)}" target="_blank" rel="noopener">US site ↗ <span class="dim">${esc(host(c.site_us))}</span></a>`
+      : `<span class="dim">no US site</span>`;
+
+    // Photo: only shown when the project ships a licensed image; otherwise a labelled placeholder.
+    const photo = c.photo
+      ? `<img class="cphoto" src="${esc(c.photo)}" alt="A ${esc(c.name)} outlet in China" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'cphoto placeholder',textContent:'photo to come'}))">`
+      : `<div class="cphoto placeholder">photo to come</div>`;
+    if (c.photo) anyPhoto = true;
+
+    card.innerHTML =
+      `${photo}` +
+      `<div class="cbody">` +
+        `<h2>${esc(c.name)} <span class="zh">${esc(c.name_zh || '')}</span></h2>` +
+        (c.category ? `<p class="ccat">${esc(c.category)}</p>` : '') +
+        `<p class="cblurb">${esc(c.blurb || '')}</p>` +
+        (c.photo_credit ? `<p class="ccredit">Photo: ${esc(c.photo_credit)}</p>` : '') +
+        `<p class="clinks">${cnLink} &nbsp;·&nbsp; ${usLink}</p>` +
+      `</div>`;
+    grid.append(card);
+  }
+
+  document.getElementById('photonote').textContent = anyPhoto
+    ? 'Outlet photos are used with permission or under licence; credit appears beneath each.'
+    : 'Representative outlet photos will appear here once licensed images are added — the project does not reproduce photos it has no right to use.';
+}).catch(() => {
+  document.getElementById('companies').innerHTML = '<p class="note">Could not load company data.</p>';
+});
+</script>
+</body>
+</html>
