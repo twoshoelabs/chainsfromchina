@@ -9,7 +9,7 @@
 <body>
 <header>
   <div class="masthead">
-    <a class="brand" href="index.html">Chains From China</a>
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
     <nav>
       <a class="navlink" href="index.html">US store map</a>
       <a class="navlink" href="register.html">International register</a>
@@ -79,7 +79,7 @@
 // Where submissions go. On deploy, set FORM_ENDPOINT to a form service (Formspree/Netlify/etc.)
 // that accepts a POST; until then, submissions fall back to opening the reader's email client.
 const FORM_ENDPOINT = null;                 // e.g. "https://formspree.io/f/xxxxxxx"
-const CONTACT_EMAIL = "hello@chainsfromchina.com";   // role mailbox to create on the domain
+const CONTACT_EMAIL = "hello@twoshoelabs.com";   // role mailbox to create on the domain
 
 function handle(form, kind) {
   form.addEventListener('submit', async e => {
