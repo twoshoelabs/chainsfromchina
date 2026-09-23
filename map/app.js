@@ -509,7 +509,7 @@ function drawPanels(data) {
   const cover = document.getElementById('coverline');
   if (cover) {
     cover.innerHTML =
-      `Counting <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> mainland-China-origin ` +
+      `Counting <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> China-origin ` +
       `chains known to trade in the United States` +
       (supplied.length
         ? ` — though ${supplied.map(c => esc(c.name)).join(', ')} ` +

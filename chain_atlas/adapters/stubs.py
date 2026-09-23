@@ -51,7 +51,7 @@ class YangsAdapter(Adapter):
     In the archive because it is HERE, not because it is easy. It opened in Tustin, California in
     2017, franchised through Orange County and beyond, and the trade press counts roughly a
     hundred locations across the US, Australia, Japan and Singapore — making it one of the
-    earliest and least-covered mainland chains in America, operating for eight years while the
+    earliest and least-covered Chinese chains in America, operating for eight years while the
     attention went to the tea shops that arrived in 2023.
 
     No first-party US locator has been identified, and a second pass on 21 Sep 2026 did not find
@@ -310,7 +310,7 @@ class YangguofuAdapter(Adapter):
 class FishWithYouAdapter(Adapter):
     """
     Fish With You (鱼你在一起) — added 22 Sep 2026, found by the same franchise-registry sweep that
-    surfaced Yangguofu. A mainland fast-casual chain built on one dish: 酸菜鱼, Sichuan sauerkraut
+    surfaced Yangguofu. A Chinese fast-casual chain built on one dish: 酸菜鱼, Sichuan sauerkraut
     (pickled-mustard-green) fish over rice. Founded in Beijing around 2016, it grew to thousands of
     outlets across China and registered a US franchise offering (Wisconsin file 639995, "Fish With
     You (US) Brand Management Inc.", trade names Fish With You / YONNY).
@@ -335,7 +335,7 @@ class FishWithYouAdapter(Adapter):
     # only its 2,500 China outlets shown "for reference". Same as Cotti: a just-registered
     # franchisor whose existing US stores are not franchised, so the FDD does not enumerate
     # them. The web-search-verified sightings are the US data, not the filing.
-    BLOCKED_REASON = ("mainland sauerkraut-fish chain (鱼你在一起), registered US franchisor"
+    BLOCKED_REASON = ("sauerkraut-fish chain (鱼你在一起), registered US franchisor"
                       " (WI 639995) but its FDD Item 20 is empty of US outlets; web presence is"
                       " per-store with no national locator. Tracked via verified sightings"
                       " (Flushing, LA, Ellicott City MD, Irvine + leads) (22 Sep 2026)")

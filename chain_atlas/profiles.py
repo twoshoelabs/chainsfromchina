@@ -90,7 +90,7 @@ PROFILES = {
         "name": "MINISO", "name_zh": "名创优品",
         "founded": 2013, "founder": "Ye Guofu", "hq": "Guangzhou, Guangdong",
         "listing": "NYSE: MNSO (2020) and HKEX: 9896 (dual primary, July 2022)",
-        "global_stores": "8,485 worldwide at 31 Dec 2025 — 4,568 in mainland China, 3,583 overseas",
+        "global_stores": "8,485 worldwide at 31 Dec 2025 — 4,568 in China, 3,583 overseas",
         "us_entry": "Pasadena, California, 2017",
         "blurb": (
             "A cheap-and-cheerful variety chain — homeware, stationery, cosmetics, plush toys — that "
@@ -112,7 +112,7 @@ PROFILES = {
             "The chain credited with inventing cheese-foam tea, which Nie Yunchen began selling from "
             "a small shop in Jiangmen in 2012 under the name Royal Tea. It built its reputation on "
             "design-led flagship stores and fruit teas at premium prices, and was the first of this "
-            "mainland wave to open in the United States, in New York at the end of 2023."),
+            "wave to open in the United States, in New York at the end of 2023."),
         "why_watch": (
             "The earliest mover of the current wave, which makes it the closest thing to a control "
             "case for how these US expansions mature."),
@@ -153,7 +153,7 @@ PROFILES = {
         "global_stores": "several thousand sauerkraut-fish outlets in China (2025 est.)",
         "us_entry": "2024-25, via franchisees; registered US franchisor",
         "blurb": (
-            "A mainland fast-casual chain built on a single Sichuan dish — 酸菜鱼, sauerkraut (pickled "
+            "A Chinese fast-casual chain built on a single Sichuan dish — 酸菜鱼, sauerkraut (pickled "
             "mustard green) fish over rice. Founded in Beijing around 2016, it scaled to thousands of "
             "outlets across China on a low-price, single-format model and has begun franchising in the "
             "US, trading under its English name and the transliteration YONNY."),

@@ -91,13 +91,13 @@
     },
     "fishwithyou": {
       "name": "Fish With You", "name_zh": "鱼你在一起", "category": "Sichuan restaurant",
-      "blurb": "A mainland fast-casual chain built on one dish — Sichuan sauerkraut fish (suancai yu) over rice — founded in Beijing around 2016 with thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish) with per-store sites rather than one locator.",
+      "blurb": "A Chinese fast-casual chain built on one dish — Sichuan sauerkraut fish (suancai yu) over rice — founded in Beijing around 2016 with thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish) with per-store sites rather than one locator.",
       "site_cn": "https://en.yunizaiyiqi.com/", "site_us": "https://www.fishwithyouny.com/",
       "photo": "img/fishwithyou.jpg", "photo_credit": null
     },
     "yangs": {
       "name": "Yang's Braised Chicken Rice", "name_zh": "杨铭宇黄焖鸡", "category": "Chinese restaurant",
-      "blurb": "A braised-chicken-over-rice brand that was one of the earliest mainland chains in America (trading since 2017) but is now in retreat — most of its US restaurants have closed. Included because it is here, and because a chain opening and closing without a first-party list is exactly what a census exists to catch.",
+      "blurb": "A braised-chicken-over-rice brand that was one of the earliest Chinese chains in America (trading since 2017) but is now in retreat — most of its US restaurants have closed. Included because it is here, and because a chain opening and closing without a first-party list is exactly what a census exists to catch.",
       "site_cn": null, "site_us": "https://yangsbraisedtogo.com/",
       "photo": "img/yangs.jpg", "photo_credit": null
     }
