@@ -59,6 +59,13 @@ const chainLabel = (c, opts = {}) => {
   return `${esc(trading)}${zh}${also}${aka}`;
 };
 
+// Resolve a chain id to its record, whether it is collected (meta.chains) or blocked
+// (meta.blocked). Used so every tooltip can lead with the chain, not just the shopfront name.
+const chainObj = id =>
+  (DATA.meta.chains && DATA.meta.chains[id]) ||
+  ((DATA.meta.blocked || []).find(b => b.chain_id === id)) ||
+  { name: id };
+
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 let view, home, mode = 'stores';
@@ -219,14 +226,19 @@ async function main() {
     const q = el('rect', {
       class: 'sight' + (g.confidence === 'uncertain' ? ' unsure' : ''),
       'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1 });
-    q.addEventListener('pointerenter', e => tipAt(e,
-      `<b>${esc(g.name || g.address)}</b>${esc(g.address)}` +
-      `<div class="meta">A known ${esc(g.chain)} location — <b>not counted</b>. This chain has no ` +
-      `roster this project can read, so none of its stores are in any total here.` +
-      (g.confidence === 'uncertain'
-        ? '<br><b>Uncertain</b> — reported but not confirmed.'
-        : g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '') +
-      `<br>${esc(g.source || '')}</div>`));
+    q.addEventListener('pointerenter', e => {
+      const c = chainObj(g.chain);
+      tipAt(e,
+        `<b>${chainLabel(c, { short: true })}</b>` +
+        (g.name && g.name !== g.address ? `<div class="loc">${esc(g.name)}</div>` : '') +
+        (g.address ? `<div class="addr">${esc(g.address)}</div>` : '') +
+        `<div class="meta">A known location, <b>not counted</b>. This chain has no roster this ` +
+        `project can read, so none of its stores are in any total here.` +
+        (g.confidence === 'uncertain'
+          ? '<br><b>Uncertain</b>, reported but not confirmed.'
+          : g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '') +
+        `<br>${esc(g.source || '')}</div>`);
+    });
     q.addEventListener('pointerleave', hideTip);
     gDots.append(q);
   }
@@ -657,17 +669,30 @@ function tipAt(e, html) {
 
 function showStoreTip(e, s) {
   const when = s.status === 'active'
-    ? (s.opened_on ? `open — first seen trading ${s.opened_on}` : `open — in the locator since ${s.first_seen}`)
-    : `announced ${s.first_seen} — not yet trading`;
-  // A POP MART "ROBO SHOP" is Pop Mart's unmanned vending kiosk, not a chain of its own — the
-  // lead is POP MART, with Robo Shop in parentheses, so the shopfront name reads as the company.
-  const chainName = (DATA.meta.chains[s.chain] && DATA.meta.chains[s.chain].name) || s.chain;
+    ? (s.opened_on ? `open, first seen trading ${s.opened_on}` : `open, in the locator since ${s.first_seen}`)
+    : `announced ${s.first_seen}, not yet trading`;
+  const c = chainObj(s.chain);
+  const chainName = c.name_us || c.name || s.chain;
+  // A POP MART "ROBO SHOP" is Pop Mart's unmanned vending kiosk, not a chain of its own, so the
+  // lead stays POP MART with "Robo Shop" in parentheses. Every other store leads with its chain
+  // too, then the shopfront/mall name, so the tooltip always says who is trading there.
   const isRobo = /robo\s*shop/i.test(s.name || '');
-  const loc = isRobo ? (s.name.replace(/^\s*robo\s*shop\s*/i, '').trim()) : '';
-  const head = isRobo
-    ? `${esc(chainName)} <span class="zh">(Robo Shop)</span>${loc ? ' — ' + esc(loc) : ''}`
-    : esc(s.name || '(unnamed)');
-  tipAt(e, `<b>${head}</b>${esc(s.addr || '')}<div class="meta">${when}</div>`);
+  let head, locLine;
+  if (isRobo) {
+    head = `${esc(chainName)} <span class="zh">(Robo Shop)</span>`;
+    locLine = (s.name || '').replace(/^\s*robo\s*shop\s*/i, '').trim();
+  } else {
+    head = chainLabel(c, { short: true });
+    const raw = (s.name || '').trim();
+    const rx = new RegExp('^' + chainName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*[-\u2013\u2014:]?\\s*', 'i');
+    locLine = raw.replace(rx, '').trim();
+    if (locLine.toLowerCase() === chainName.toLowerCase()) locLine = '';
+  }
+  tipAt(e,
+    `<b>${head}</b>` +
+    (locLine ? `<div class="loc">${esc(locLine)}</div>` : '') +
+    (s.addr ? `<div class="addr">${esc(s.addr)}</div>` : '') +
+    `<div class="meta">${when}</div>`);
 }
 
 function showStateTip(e, id, name) {
