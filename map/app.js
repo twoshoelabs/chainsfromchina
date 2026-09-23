@@ -496,20 +496,6 @@ function drawPanels(data) {
       `counted as openings — the opening is the day the listing flips.`
     : 'No chain currently publishes a pipeline of announced stores.';
 
-  // Markets the collector covers that this map deliberately does not draw. Saying so is the
-  // point: a collected market that no page mentions is a collected market nobody knows about.
-  const om = data.meta.other_markets || {};
-  const lines = [];
-  for (const [country, rows] of Object.entries(om))
-    for (const r of rows)
-      lines.push(`${esc(r.name)} — ${r.stores} stores in ${esc(country)}` +
-        (r.located ? '' : ', none with published coordinates'));
-  if (lines.length) {
-    document.getElementById('othersec').hidden = false;
-    document.getElementById('other').innerHTML = lines.join('<br>') +
-      `<br><br>This is a map of the United States, so they are counted but not drawn. They appear
-       in the <a href="register.html">international register</a>.`;
-  }
 
   // The headline number for a US reader is not 468 stores, it is how much of the category those
   // stores represent. Four chains rendered prominently and eight buried two screens down reads
@@ -531,6 +517,15 @@ function drawPanels(data) {
         : '') +
       `. The other ${nBlocked}${names.length ? ' — including ' + names.join(', ') + ' —' : ''} ` +
       `are here and not yet countable; <a href="#notcounted">each is listed with the reason</a>.`;
+  }
+
+  const totalEl = document.getElementById('ustotal');
+  if (totalEl && data.meta.coverage && data.meta.coverage.totals) {
+    const tt = data.meta.coverage.totals;
+    const located = (tt.collected_stores || 0) + (tt.sighted_confirmed || 0);
+    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> China-origin chain outlets located in the US` +
+      ` <span class="dim">\u00b7 ${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
+      ` ${tt.sighted_confirmed} more confirmed by hand \u00b7 still counting</span>`;
   }
 
   const ul = document.getElementById('blocked');
