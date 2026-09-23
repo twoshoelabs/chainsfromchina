@@ -85,7 +85,9 @@ def run_socrata(j):
         r = e["row"]
         chain = classify(r.get(nf))[0]
         street = " ".join(str(r.get(f, "")).strip() for f in j["addr_fields"]).strip()
-        addr = f"{street}, {r.get(j.get('city_field'), '')}, {j['state']} {r.get(j.get('zip_field'), '')}".strip()
+        # Some feeds (Austin) put the whole address — city, state, ZIP — in one field.
+        addr = street if j.get("addr_full") else \
+            f"{street}, {r.get(j.get('city_field'), '')}, {j['state']} {r.get(j.get('zip_field'), '')}".strip()
         lat = float(r[j["lat_field"]]) if j.get("lat_field") and r.get(j["lat_field"]) else None
         lon = float(r[j["lon_field"]]) if j.get("lon_field") and r.get(j["lon_field"]) else None
         kind, label, dist = match_known(chain, norm_addr(addr), street_key(street), lat, lon, known)
