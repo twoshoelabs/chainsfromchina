@@ -21,8 +21,8 @@
     </nav>
   </div>
   <h1>Where China&rsquo;s chains are open in America</h1>
-  <p class="sub">A daily census of China-origin chain store locators, counted from each
-     chain's own published list. <span id="asof"></span></p>
+  <p class="sub">A daily count of Chinese chains open across the US, taken from each company's own
+     store list. <span id="asof"></span></p>
   <p class="ustotal" id="ustotal"></p>
   <p class="coverline" id="coverline"></p>
 </header>
@@ -40,10 +40,10 @@
       <p class="note warn" id="offmap" hidden></p>
       <figcaption>
         Filled dot = trading. Hollow ring = announced, not yet open. Drag to pan, scroll to zoom,
-        double-click to reset. Chains sharing a mall sit on top of each other at this zoom — the
-        smallest chain is drawn on top so it cannot be hidden by a larger one; zoom in, or use the
-        chain buttons above, to separate them. Alaska, Hawaii, Puerto Rico and Guam are insets,
-        each drawn at its own scale and its own projection, not to position.
+        double-click to reset. Where chains share a mall they overlap at this zoom; the smallest
+        one is drawn on top so it stays visible. Zoom in, or use the chain buttons above, to
+        separate them. Alaska, Hawaii, Puerto Rico and Guam are shown as insets, each at its own
+        scale, so their size and position are not comparable to the mainland map.
       </figcaption>
     </figure>
   </main>
@@ -71,9 +71,9 @@
     </section>
     <section id="notcounted">
       <h2>In the US, not counted here</h2>
-      <p class="note small">These chains trade in America and this project does not count them
-        yet. Each carries the reason, re-probed with <code>recheck</code> rather than left to
-        stand — several of these blockers expire on their own.</p>
+      <p class="note small">These chains trade in America but we don't count them yet. Each one lists why. We re-check
+        them regularly with <code>recheck</code>, and some of these reasons go away on their own
+        once a chain publishes a store locator.</p>
       <ul id="blocked"></ul>
     </section>
     <section>
@@ -82,11 +82,11 @@
       <p class="note small" id="profnote"></p>
     </section>
     <section>
-      <h2>What this is not</h2>
-      <p class="note">Change is only as old as the archive, which begins on the first collected
-      day — nothing here is backfilled from press reports. Store counts are what each chain
-      publishes about itself; a store that opens without its locator being updated is invisible
-      here.</p>
+      <h2>About these numbers</h2>
+      <p class="note">The record starts on the first day we collected it; we don't backfill from old press reports,
+      so any change we show is only as old as that. The counts are whatever each chain publishes
+      about itself. If a store opens and the chain hasn't updated its locator, we can't see it
+      yet.</p>
     </section>
   </aside>
 </div>
@@ -98,7 +98,7 @@
   site; brand names identify the businesses being measured and nothing more.</p>
   <p>Store counts on the US map are collected daily from each chain's own public store locator.
   The international register is compiled by hand from company filings, exchange announcements and
-  the trade press, and every row carries its source, its date and how far it should be trusted —
+  the trade press. Every row carries its source, its date and how far it should be trusted, and
   the two are never added together. Coastlines and boundaries from
   <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
   <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>

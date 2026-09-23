@@ -493,8 +493,8 @@ function drawPanels(data) {
 
   document.getElementById('pipeline').textContent = data.meta.counts.coming_soon
     ? `${data.meta.counts.coming_soon} store(s) are listed by their chain as announced but not yet ` +
-      `trading. They are drawn as hollow rings, shown after a + in state counts, and are never ` +
-      `counted as openings — the opening is the day the listing flips.`
+      `trading. They show as hollow rings on the map and after a + in the state counts. We don't ` +
+      `count one as an opening until its listing changes to trading.`
     : 'No chain currently publishes a pipeline of announced stores.';
 
 
@@ -509,24 +509,24 @@ function drawPanels(data) {
   const cover = document.getElementById('coverline');
   if (cover) {
     cover.innerHTML =
-      `Counting <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> China-origin ` +
-      `chains known to trade in the United States` +
+      `We count <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> Chinese ` +
+      `chains known to trade in the US` +
       (supplied.length
-        ? ` — though ${supplied.map(c => esc(c.name)).join(', ')} ` +
-          `${supplied.length === 1 ? 'was' : 'were'} <b>supplied by hand, not collected</b>, and ` +
-          `${supplied.length === 1 ? 'does' : 'do'} not refresh`
+        ? `. ${supplied.map(c => esc(c.name)).join(', ')} ` +
+          `${supplied.length === 1 ? 'was' : 'were'} <b>added by hand, not collected</b>, and ` +
+          `${supplied.length === 1 ? 'does' : 'do'} not refresh automatically`
         : '') +
-      `. The other ${nBlocked}${names.length ? ' — including ' + names.join(', ') + ' —' : ''} ` +
-      `are here and not yet countable; <a href="#notcounted">each is listed with the reason</a>.`;
+      `. The other ${nBlocked}${names.length ? ', among them ' + names.join(', ') + ',' : ''} ` +
+      `are here but not yet countable; <a href="#notcounted">each one is listed with the reason</a>.`;
   }
 
   const totalEl = document.getElementById('ustotal');
   if (totalEl && data.meta.coverage && data.meta.coverage.totals) {
     const tt = data.meta.coverage.totals;
     const located = (tt.collected_stores || 0) + (tt.sighted_confirmed || 0);
-    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> China-origin chain outlets located in the US` +
-      ` <span class="dim">\u00b7 ${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
-      ` ${tt.sighted_confirmed} more confirmed by hand \u00b7 still counting</span>`;
+    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> Chinese chain outlets located in the US` +
+      ` <span class="dim">${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
+      ` ${tt.sighted_confirmed} more confirmed by hand.</span>`;
   }
 
   const ul = document.getElementById('blocked');
@@ -548,7 +548,7 @@ function drawCoverage(data) {
     `<b>${t.collected}</b> chains are counted in full from their own locators ` +
     `(<b>${t.collected_stores}</b> stores). The other <b>${t.sighted}</b> publish no roster we can ` +
     `read, so we hold <b>${t.sighted_confirmed}</b> confirmed locations against a trade-press estimate ` +
-    `of about <b>${t.sighted_estimated}</b> — roughly ` +
+    `of about <b>${t.sighted_estimated}</b>. That is roughly ` +
     `<b>${Math.round(100 * t.sighted_confirmed / t.sighted_estimated)}%</b> of what is thought to exist.`;
 
   const tb = document.querySelector('#coverage tbody');
@@ -582,8 +582,8 @@ function drawCoverage(data) {
   }
   document.getElementById('covernote').textContent =
     `Estimates are hand-typed from the trade press, dated, and never added to any count on this ` +
-    `page — a yardstick for the gap, as of ${c.as_of}. Hover a row for its source. "Complete" means ` +
-    `the chain's own locator is the count, not that growth has stopped.`;
+    `page. They only show how big the gap is, as of ${c.as_of}. Hover a row for its source. ` +
+    `"Complete" means the chain's own locator is the count, not that its growth has stopped.`;
 }
 
 function drawProfiles(data) {
@@ -610,8 +610,9 @@ function drawProfiles(data) {
     box.append(d);
   }
   document.getElementById('profnote').textContent =
-    `Background from published sources as of ${data.meta.profiles_as_of}, typed in by hand — not ` +
-    `collected, and it goes stale. The US counts above are the collector's own and are not repeated here.`;
+    `Background from published sources as of ${data.meta.profiles_as_of}, typed in by hand. It is ` +
+    `not collected automatically and will go out of date. The US counts above are the collector's ` +
+    `own and are not repeated here.`;
 }
 
 /* ---- interaction ---------------------------------------------------------------------- */

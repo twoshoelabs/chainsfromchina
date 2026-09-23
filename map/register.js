@@ -168,9 +168,9 @@ function coverage(chains) {
       `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
   }
   document.getElementById('covnote').textContent =
-    `Markets in this register where each chain is recorded as present. Not a ranking of size — ` +
-    `MIXUE has more stores abroad than everyone here combined, in countries this register does ` +
-    `not yet cover.`;
+    `Markets in this register where each chain is recorded as present. This is not a ranking of ` +
+    `size: MIXUE has more stores abroad than everyone here combined, in countries this register ` +
+    `does not yet cover.`;
 }
 
 main();

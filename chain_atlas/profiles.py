@@ -62,13 +62,13 @@ PROFILES = {
             "China's biggest coffee chain, and bigger there than Starbucks. It is also the most "
             "notorious company in this group: after a 2019 Nasdaq IPO it admitted in April 2020 to "
             "fabricating more than $300m of sales, paid a $180m SEC penalty, was delisted, and went "
-            "through Chapter 15. It then rebuilt under new management into a roughly 30,000-store "
-            "app-first operation — order on the phone, collect at a counter, little seating — and is "
+            "through Chapter 15. It then rebuilt under new management into a roughly 30,000-store, "
+            "app-first operation (order on the phone, collect at a counter, little seating), and is "
             "reported to be preparing a return to a US listing."),
         "why_watch": (
-            "The fraud makes its own numbers worth checking against something independent, which is "
-            "exactly what a locator census is. Its US stores publish no coordinates, so they are "
-            "counted here by state but cannot be mapped."),
+            "Because of the fraud, its own figures are worth checking against an independent count, "
+            "which is what this project does. Its US stores publish no coordinates, so they are "
+            "counted here by state but cannot be placed on the map."),
     },
     "popmart": {
         "name": "POP MART", "name_zh": "泡泡玛特",
@@ -124,14 +124,14 @@ PROFILES = {
         "global_stores": "18,000+ in 28 countries as of April 2026",
         "us_entry": "2023-24, via franchisees",
         "blurb": (
-            "Founded in 2022 by the two executives ousted from Luckin over the accounting fraud, and "
-            "aimed squarely at the company they used to run: Cotti undercuts Luckin on price and has "
-            "expanded at extraordinary speed on a franchise model. Its US presence has grown quietly "
-            "through individual franchisees near universities and in Chinese-American suburbs rather "
-            "than through a national rollout."),
+            "Founded in 2022 by the two executives forced out of Luckin over the accounting fraud, and "
+            "set up in direct competition with it. Cotti competes with Luckin on price and has "
+            "expanded very fast on a franchise model. Its US presence has grown quietly "
+            "through individual franchisees near universities and in Chinese-American suburbs, "
+            "rather than through a national rollout."),
         "why_watch": (
-            "The purest example of the price war that is pushing these chains abroad. It publishes no "
-            "first-party US locator at all, which is itself the finding."),
+            "A clear example of the price war that is pushing these chains abroad. It publishes no "
+            "first-party US locator at all, which is part of why it cannot be counted here."),
     },    "yangguofu": {
         "name": "Yangguofu", "name_zh": "杨国福麻辣烫",
         "founded": 2003, "founder": "Yang Guofu", "hq": "Harbin, Heilongjiang / Shanghai",

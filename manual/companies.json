@@ -13,55 +13,55 @@
   "companies": {
     "mixue": {
       "name": "MIXUE", "name_zh": "蜜雪冰城", "category": "Tea & ice cream",
-      "blurb": "The world's largest F&B chain by store count — nearly 60,000 outlets — built on rock-bottom prices (an ice cream cone under a dollar) and a franchise-supply model that sells ingredients to its franchisees. Its crowned Snow King mascot is unmistakable. US entry began in 2025.",
+      "blurb": "The world's largest fast-food chain by store count, with nearly 60,000 outlets. It runs on very low prices, such as an ice cream cone for under a dollar, and a franchise model that makes most of its money selling ingredients to franchisees. Its mascot is a crowned Snow King. US stores began opening in 2025.",
       "site_cn": "https://en.mxbc.com/", "site_us": null,
       "photo": "img/mixue.jpg", "photo_credit": null
     },
     "chagee": {
       "name": "CHAGEE", "name_zh": "霸王茶姬", "category": "Premium tea",
-      "blurb": "A fast-growing premium tea brand (literal name Bawang Chaji) positioned as a China-rooted answer to Starbucks, known for its osmanthus-oolong lattes and minimalist branding. It listed on Nasdaq in 2025 and opened its first US stores the same year.",
+      "blurb": "A fast-growing premium tea brand whose Chinese name is Bawang Chaji. It is often described as China's answer to Starbucks, and is known for its oolong-milk teas and plain branding. It listed on Nasdaq in 2025 and opened its first US stores the same year.",
       "site_cn": "https://www.chagee.com/", "site_us": "https://www.chagee.us/",
       "photo": "img/chagee.jpg", "photo_credit": null
     },
     "luckin": {
       "name": "Luckin Coffee", "name_zh": "瑞幸咖啡", "category": "Coffee",
-      "blurb": "China's largest coffee chain, which overtook Starbucks in China on volume and app-first, low-price convenience — remarkable given it was delisted after a 2020 accounting fraud and rebuilt. It opened its first US stores in New York in mid-2025.",
+      "blurb": "China's largest coffee chain. It passed Starbucks in China by volume, using cheap, app-first ordering, and did so after rebuilding from a 2020 accounting fraud that had it delisted. It opened its first US stores in New York in mid-2025.",
       "site_cn": "https://www.luckincoffee.com/", "site_us": "https://www.luckincoffee.us/",
       "photo": "img/luckin.jpg", "photo_credit": null
     },
     "miniso": {
       "name": "MINISO", "name_zh": "名创优品", "category": "Lifestyle & variety retail",
-      "blurb": "A variety retailer of affordable design-led goods and licensed-character (IP) merchandise, with a Japanese-inspired aesthetic despite its Guangzhou roots. It is this project's largest US presence and the most established here.",
+      "blurb": "A variety retailer selling cheap, design-focused goods and licensed-character merchandise, with a Japanese-styled look despite its Guangzhou roots. It has the largest and most established US presence of any chain tracked here.",
       "site_cn": "https://www.miniso.com/", "site_us": "https://www.miniso-us.com/",
       "photo": "img/miniso.jpg", "photo_credit": null
     },
     "popmart": {
       "name": "POP MART", "name_zh": "泡泡玛特", "category": "Collectible toys",
-      "blurb": "The blind-box designer-toy phenomenon behind Labubu and other collectible figures, sold through staffed stores and unmanned “Robo Shop” vending kiosks. Its US footprint has grown fast across malls nationwide.",
+      "blurb": "The blind-box toy company behind Labubu and other collectible figures, sold through staffed stores and unstaffed “Robo Shop” vending kiosks. Its US presence has grown quickly in malls across the country.",
       "site_cn": "https://www.popmart.com/", "site_us": "https://www.popmart.com/us",
       "photo": "img/popmart.jpg", "photo_credit": null
     },
     "haidilao": {
       "name": "Haidilao", "name_zh": "海底捞", "category": "Hot pot",
-      "blurb": "The hot pot giant famous for over-the-top service — free manicures, noodle-dancing performances, birthday songs. Its overseas arm, Super Hi International, runs its US restaurants; it has been in the US since 2013.",
+      "blurb": "A large hot pot chain known for its elaborate service, which can include free manicures, live noodle-pulling and birthday songs. Its overseas arm, Super Hi International, runs the US restaurants, and it has been in the US since 2013.",
       "site_cn": "https://www.haidilao.com/", "site_us": "https://haidilaohotpot.us/",
       "photo": "img/haidilao.jpg", "photo_credit": null
     },
     "heytea": {
       "name": "HEYTEA", "name_zh": "喜茶", "category": "Premium tea",
-      "blurb": "The brand that popularised the “cheese-foam” and fresh-fruit tea category in China, positioned at the premium end. Its US stores cluster in Chinese-American neighbourhoods; it publishes no US store locator, so its footprint here is assembled from public records.",
+      "blurb": "The brand that made cheese-foam and fresh-fruit tea popular in China, at the premium end of the market. Its US stores cluster in Chinese-American neighbourhoods. It publishes no US store locator, so we put its footprint together from public records.",
       "site_cn": "https://www.heytea.com/", "site_us": "https://www.heytea.com/en-us/store",
       "photo": "img/heytea.jpg", "photo_credit": null
     },
     "cotti": {
       "name": "Cotti Coffee", "name_zh": "库迪咖啡", "category": "Coffee",
-      "blurb": "Founded in 2022 by the two executives ousted from Luckin, and aimed squarely at their old company: Cotti undercuts on price and has expanded worldwide at extraordinary speed on a franchise model. Its US growth is quiet and franchisee-led, with no public US locator.",
+      "blurb": "Founded in 2022 by two executives who had been forced out of Luckin, and set up in direct competition with it. Cotti competes on price and has expanded worldwide very fast on a franchise model. Its US growth is quiet and led by franchisees, with no public US locator.",
       "site_cn": "https://www.cotti.com/", "site_us": null,
       "photo": "img/cotti.jpg", "photo_credit": null
     },
     "taier": {
       "name": "Tai Er", "name_zh": "太二", "category": "Sichuan restaurant",
-      "blurb": "A Sichuan sauerkraut-fish (suancai yu) restaurant brand from the Hong Kong-listed group Jiumaojiu, known for its stylised branding and single signature dish. Its US presence is small and new — San Mateo, San Jose, Flushing, LA.",
+      "blurb": "A Sichuan sauerkraut-fish (suancai yu) restaurant from the Hong Kong-listed group Jiumaojiu, known for its stylised branding and one signature dish. Its US presence is small and new, in San Mateo, San Jose, Flushing and LA.",
       "site_cn": "http://en.jiumaojiu.com/", "site_us": "https://www.taierusa.com/",
       "photo": "img/taier.jpg", "photo_credit": null
     },
@@ -79,7 +79,7 @@
     },
     "juewei": {
       "name": "Juewei", "name_zh": "绝味鸭脖", "category": "Braised snacks",
-      "blurb": "A Shanghai-listed braised-snack chain (“duck neck” and other marinated items) with tens of thousands of outlets in China. Its US presence is delivery-forward and tiny — it trades here as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food.",
+      "blurb": "A Shanghai-listed braised-snack chain (“duck neck” and other marinated items) with tens of thousands of outlets in China. Its US presence is tiny and mostly delivery, trading as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food.",
       "site_cn": "http://www.juewei.com/", "site_us": null,
       "photo": "img/juewei.jpg", "photo_credit": null
     },
@@ -91,13 +91,13 @@
     },
     "fishwithyou": {
       "name": "Fish With You", "name_zh": "鱼你在一起", "category": "Sichuan restaurant",
-      "blurb": "A Chinese fast-casual chain built on one dish — Sichuan sauerkraut fish (suancai yu) over rice — founded in Beijing around 2016 with thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish) with per-store sites rather than one locator.",
+      "blurb": "A Chinese fast-casual chain built on one dish: Sichuan sauerkraut fish (suancai yu) over rice. Founded in Beijing around 2016, it has thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish), using per-store sites rather than one locator.",
       "site_cn": "https://en.yunizaiyiqi.com/", "site_us": "https://www.fishwithyouny.com/",
       "photo": "img/fishwithyou.jpg", "photo_credit": null
     },
     "yangs": {
       "name": "Yang's Braised Chicken Rice", "name_zh": "杨铭宇黄焖鸡", "category": "Chinese restaurant",
-      "blurb": "A braised-chicken-over-rice brand that was one of the earliest Chinese chains in America (trading since 2017) but is now in retreat — most of its US restaurants have closed. Included because it is here, and because a chain opening and closing without a first-party list is exactly what a census exists to catch.",
+      "blurb": "A braised-chicken-over-rice brand that was one of the earliest Chinese chains in America, trading since 2017, but is now in retreat, with most of its US restaurants closed. We include it because it is here, and because tracking a chain that opens and then quietly closes is part of the point of a daily count.",
       "site_cn": null, "site_us": "https://yangsbraisedtogo.com/",
       "photo": "img/yangs.jpg", "photo_credit": null
     }
