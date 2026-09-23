@@ -258,3 +258,21 @@ ul.uslist b{color:var(--ink)}
 /* Sightings are squares, not dots: a different claim, drawn as a different shape. */
 .sight{fill:none; stroke:var(--muted); cursor:help}
 .sight.unsure{stroke-dasharray:2 2; opacity:.6}
+
+/* Coverage scorecard: what we hold vs what is thought to exist */
+#coverage{width:100%; border-collapse:collapse; font-size:13px}
+#coverage td{padding:3px 5px; vertical-align:middle; border-bottom:1px solid var(--rule)}
+#coverage tr:last-child td{border-bottom:0}
+#coverage td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.cov{cursor:default}
+.covcell{width:96px; white-space:nowrap}
+.cbar{display:inline-block; height:7px; width:56px; border-radius:4px;
+  background:var(--rule); position:relative; vertical-align:middle}
+.cbar::after{content:""; position:absolute; left:0; top:0; height:100%;
+  width:var(--w,0); border-radius:4px; background:var(--accent)}
+.cbar.full::after{width:100%; background:var(--accent)}
+.cbar[data-status="strong"]::after{background:var(--open)}
+.cbar[data-status="partial"]::after{background:var(--soon)}
+.cbar[data-status="sparse"]::after{background:var(--closed)}
+.cpct{font-size:11px; margin-left:6px; color:var(--muted)}
+#coverage .dim{color:var(--muted)}

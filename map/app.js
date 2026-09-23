@@ -235,6 +235,7 @@ async function main() {
   applyView(svg);
   drawTally(data);
   drawPanels(data);
+  drawCoverage(data);
   drawProfiles(data);
   wireModes(svg);
   wireZoom(svg);
@@ -538,6 +539,55 @@ function drawPanels(data) {
     li.innerHTML = `<b>${chainLabel(b)}</b> — ${esc(b.reason)}`;
     ul.append(li);
   }
+}
+
+function drawCoverage(data) {
+  // The scorecard: what we hold against what the trade press says exists. Collected chains are
+  // complete; sighted chains show a rough ratio against a dated, hand-typed estimate — a yardstick,
+  // never a measurement. The point is to be honest about the gap, in numbers, on the page itself.
+  const c = data.meta.coverage;
+  if (!c || !c.rows) return;
+  const t = c.totals;
+  document.getElementById('coverintro').innerHTML =
+    `<b>${t.collected}</b> chains are counted in full from their own locators ` +
+    `(<b>${t.collected_stores}</b> stores). The other <b>${t.sighted}</b> publish no roster we can ` +
+    `read, so we hold <b>${t.sighted_confirmed}</b> confirmed locations against a trade-press estimate ` +
+    `of about <b>${t.sighted_estimated}</b> — roughly ` +
+    `<b>${Math.round(100 * t.sighted_confirmed / t.sighted_estimated)}%</b> of what is thought to exist.`;
+
+  const tb = document.querySelector('#coverage tbody');
+  tb.innerHTML = '';
+  const pct = r => r.ratio == null ? '' : `${Math.round(r.ratio * 100)}%`;
+  const bar = r => {
+    if (r.kind === 'collected') return '<span class="cbar full"></span>';
+    const w = r.ratio == null ? 0 : Math.min(100, Math.round(r.ratio * 100));
+    return `<span class="cbar" style="--w:${w}%" data-status="${esc(r.status)}"></span>`;
+  };
+  for (const r of c.rows) {
+    const meta = (data.meta.chains && data.meta.chains[r.chain]) ||
+                 (data.meta.blocked || []).find(b => b.chain_id === r.chain) || { name: r.name };
+    const held = r.kind === 'collected' ? `<b>${r.held}</b>` :
+      `<b>${r.held_confirmed}</b>${r.held > r.held_confirmed ? ` <span class="dim">+${r.held - r.held_confirmed}?</span>` : ''}`;
+    const est = r.kind === 'collected' ? '<span class="dim">— complete —</span>'
+      : esc(String(r.estimate_text || r.estimate || 'no est.'));
+    const title = r.kind === 'collected'
+      ? 'Counted in full from the chain\'s own locator.'
+      : `Estimate: ${esc(String(r.estimate_text || r.estimate || 'none'))}` +
+        (r.source ? ` — ${esc(r.source)}` : '') + (r.as_of ? ` (${esc(r.as_of)})` : '') +
+        (r.confidence ? `, ${esc(r.confidence)} confidence` : '') +
+        (r.note ? `. ${esc(r.note)}` : '');
+    const tr = document.createElement('tr');
+    tr.className = 'cov ' + (r.kind === 'collected' ? 'covfull' : 'cov-' + r.status);
+    tr.title = title;
+    tr.innerHTML = `<td>${chainLabel(meta, { short: true })}</td>` +
+      `<td class="num">${held}</td><td class="num dim">${est}</td>` +
+      `<td class="covcell">${bar(r)}<span class="cpct">${pct(r) || (r.kind==='collected'?'✓':'')}</span></td>`;
+    tb.append(tr);
+  }
+  document.getElementById('covernote').textContent =
+    `Estimates are hand-typed from the trade press, dated, and never added to any count on this ` +
+    `page — a yardstick for the gap, as of ${c.as_of}. Hover a row for its source. "Complete" means ` +
+    `the chain's own locator is the count, not that growth has stopped.`;
 }
 
 function drawProfiles(data) {

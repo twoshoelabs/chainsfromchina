@@ -130,6 +130,11 @@ def export(out_dir: Path) -> dict:
         manual_rosters = _rosters()
     except Exception:                                           # noqa: BLE001
         sight, manual_rosters = [], []
+    try:
+        from .coverage import scorecard
+        _coverage = scorecard()
+    except Exception:                                           # noqa: BLE001
+        _coverage = {}
 
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
@@ -147,6 +152,7 @@ def export(out_dir: Path) -> dict:
         "geocoded": geocoded,
         "sightings": sight,
         "manual_rosters": manual_rosters,
+        "coverage": _coverage,
         "by_state": by_state, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {
