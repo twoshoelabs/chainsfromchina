@@ -213,6 +213,7 @@ header h1{font-size:24px}
 .sitefoot p{margin:0 0 8px; max-width:78ch}
 .sitefoot strong{color:var(--ink-2)}
 .sitefoot a{color:var(--accent)}
+.sitefoot .pub{font-size:.9em; opacity:.75; margin-top:2px}
 @media (max-width:620px){ .masthead nav{margin-left:0; width:100%} }
 
 /* ---- US-first view on the register ---- */
