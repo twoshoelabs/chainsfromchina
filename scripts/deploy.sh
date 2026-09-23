@@ -4,7 +4,7 @@
 # only here, on the deploy branch. Idempotent: re-run any time, and the nightly job can call it.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-REPO="https://github.com/dgsilver-oss/chainsfromchina.git"
+REPO="https://github.com/twoshoelabs/chainsfromchina.git"
 PY=".venv/bin/python"
 
 "$PY" -m chain_atlas export >/dev/null           # fresh data into map/data
@@ -19,7 +19,7 @@ touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as
   git init -q
   git checkout -q -b gh-pages
   git add -A
-  git -c user.name="dgsilver-oss" -c user.email="deploy@chainsfromchina.com" \
+  git -c user.name="Twoshoe Labs" -c user.email="hello@twoshoelabs.com" \
       commit -q -m "Deploy $(date -u +%FT%TZ)"
   git push -qf "$REPO" gh-pages
 )
