@@ -36,7 +36,8 @@ function project(lat, lon, centre) {
 }
 
 const COLOR = { mixue: 'var(--mixue)', chagee: 'var(--chagee)',
-                luckin: 'var(--luckin)', miniso: 'var(--miniso)' };
+                luckin: 'var(--luckin)', miniso: 'var(--miniso)',
+                popmart: 'var(--popmart)', haidilao: 'var(--haidilao)' };
 const colorOf = c => COLOR[c] || 'var(--other)';
 const SVG = 'http://www.w3.org/2000/svg';
 const el = (n, a = {}) => { const e = document.createElementNS(SVG, n); for (const k in a) e.setAttribute(k, a[k]); return e; };

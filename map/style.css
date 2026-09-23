@@ -1,30 +1,40 @@
 :root{
   color-scheme: light dark;
-  --paper:#F7F7F5; --surface:#FFFFFF; --ink:#16181C; --ink-2:#4A4F57; --muted:#767C86;
-  --rule:#DFE1DE; --land:#E8EAE6; --land-line:#C9CDC7;
-  --accent:#12705C; --open:#0F7B6C; --soon:#B07500; --closed:#A33A33;
-  --mixue:#C8102E; --chagee:#0F5C4A; --luckin:#2B4FA8; --miniso:#6B4E9B; --other:#8A6D3B;
-  /* Choropleth ramp: one hue, four steps. Lightness carries the count, so it survives
+  /* Editorial "newsprint" identity: warm paper, near-black ink, one teal accent. */
+  --paper:#F4F1EA; --surface:#FBFAF6; --band:#EBE6DB; --ink:#17181A; --ink-2:#3D3A34; --muted:#5E5A52;
+  --rule:#CFC9BC; --rule-2:#D9D3C6; --land:#E6E1D5; --land-line:#C4BDAD;
+  --accent:#1F5C58; --accent-ink:#123C39; --open:#2C6F66; --soon:#8A5A12; --closed:#9A3B2E;
+  --mixue:#C94A5A; --chagee:#2E6B4F; --luckin:#2B5C9E; --miniso:#5B4B9A;
+  --popmart:#C07A2C; --haidilao:#9A3B2E; --other:#C07A2C;
+  /* Choropleth ramp: one teal hue, four steps. Lightness carries the count, so it survives
      greyscale printing and the common forms of colour blindness. */
-  --c0:#CFE3DC; --c1:#93C6B6; --c2:#4C9E88; --c3:#12705C;
+  --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --hans:"Noto Serif SC","Songti SC",serif;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --paper:#14161A; --surface:#1C1F24; --ink:#EDEEF0; --ink-2:#B6BBC3; --muted:#868D97;
-    --rule:#2C3037; --land:#242830; --land-line:#39404A;
-    --accent:#2E8C76; --open:#3FBFA8; --soon:#E0A83C; --closed:#E0736A;
-    --mixue:#F0576E; --chagee:#43B79A; --luckin:#7595E8; --miniso:#A98BD8; --other:#C9A227;
-    --c0:#2A4A44; --c1:#356E60; --c2:#3F9B84; --c3:#5FCBB0;
+    /* A dark counterpart to the paper theme — warm charcoal, not blue-grey. */
+    --paper:#17181A; --surface:#1F2020; --band:#232421; --ink:#EDEAE0; --ink-2:#C4BEB0; --muted:#918B7C;
+    --rule:#34342F; --rule-2:#3C3B34; --land:#26261F; --land-line:#3A392F;
+    --accent:#5FB0A2; --accent-ink:#8FCFC3; --open:#5FB0A2; --soon:#D6A44A; --closed:#D67662;
+    --mixue:#E07484; --chagee:#5AAE8A; --luckin:#7C9DDD; --miniso:#9B87CE;
+    --popmart:#D8A05C; --haidilao:#D67662; --other:#D8A05C;
+    --c0:#2A3F3B; --c1:#365E56; --c2:#43897C; --c3:#5FB0A2;
   }
 }
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--paper); color:var(--ink);
-  font:15px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font:15px/1.55 var(--sans);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-header{padding:28px 24px 8px; max-width:1240px; margin:0 auto}
-h1{margin:0; font-size:26px; letter-spacing:-.01em}
-.sub{margin:6px 0 0; color:var(--ink-2); font-size:14px}
+header{padding:32px 24px 10px; max-width:1240px; margin:0 auto}
+h1{margin:0; font-family:var(--serif); font-weight:500; font-size:44px; line-height:1.02; letter-spacing:-.02em}
+.sub{margin:12px 0 0; color:var(--ink-2); font-size:17px; line-height:1.5; max-width:64ch}
+@media (max-width:620px){ h1{font-size:32px} }
 .wrap{display:flex; gap:24px; padding:16px 24px 48px; max-width:1240px; margin:0 auto; align-items:flex-start}
 main{flex:1 1 auto; min-width:0}
 aside{flex:0 0 300px}
@@ -40,7 +50,7 @@ aside{flex:0 0 300px}
 .chip .dot{width:10px; height:10px; border-radius:50%}
 .chip .n{color:var(--muted); font-variant-numeric:tabular-nums}
 
-figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:8px}
+figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:5px; padding:8px}
 figcaption{color:var(--muted); font-size:12.5px; padding:6px 6px 2px}
 svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cursor:grab}
 svg#map.drag{cursor:grabbing}
@@ -51,7 +61,7 @@ svg#map.drag{cursor:grabbing}
 .store{cursor:pointer}
 
 aside section{
-  background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
   padding:12px 14px; margin-bottom:14px;
 }
 aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
@@ -73,13 +83,13 @@ li b{color:var(--ink); font-weight:600}
 #tip .meta{color:var(--muted); font-size:12px; margin-top:3px}
 
 /* ---- view switch, legend, choropleth ---- */
-.modes{display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; margin-bottom:12px}
+.modes{display:inline-flex; border:1px solid var(--ink); border-radius:4px; overflow:hidden; margin-bottom:12px}
 .modebtn{
-  appearance:none; border:0; background:var(--surface); color:var(--ink-2);
-  font:inherit; font-size:13px; padding:6px 16px; cursor:pointer;
+  appearance:none; border:0; background:transparent; color:var(--ink);
+  font:inherit; font-size:14px; padding:8px 18px; cursor:pointer;
 }
-.modebtn + .modebtn{border-left:1px solid var(--rule)}
-.modebtn[aria-pressed="true"]{background:var(--accent); color:#fff}
+.modebtn + .modebtn{border-left:1px solid var(--ink)}
+.modebtn[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
 
 .legend[hidden], .tally[hidden]{display:none}
 .legend{display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:12px; font-size:12.5px; color:var(--ink-2)}
@@ -172,7 +182,7 @@ td.c-none{color:var(--rule)}
 .legendlist li{margin-bottom:5px}
 .legendlist b{display:inline-block; min-width:26px; color:var(--ink)}
 .chainblock{
-  background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
   padding:12px 15px; margin-bottom:14px;
 }
 .chainblock h3{margin:0 0 3px; font-size:15px}
@@ -193,31 +203,44 @@ td.c-collected{background:color-mix(in srgb, var(--accent) 22%, var(--surface));
 .s-collected{color:var(--accent); border-color:color-mix(in srgb, var(--accent) 45%, var(--rule))}
 
 /* ---- site identity ---- */
+a{color:var(--accent)} a:hover{color:var(--accent-ink)}
 .masthead{
-  display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;
-  padding-bottom:10px; margin-bottom:14px; border-bottom:1px solid var(--rule);
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+  padding-bottom:14px; margin-bottom:20px; border-bottom:1px solid var(--ink);
 }
 .brand{
-  font-size:15px; font-weight:700; letter-spacing:.02em; color:var(--ink);
-  text-decoration:none; white-space:nowrap;
+  font-family:var(--serif); font-size:26px; font-weight:600; letter-spacing:-.01em;
+  color:var(--ink); text-decoration:none; white-space:nowrap;
 }
-.masthead nav{display:flex; gap:16px; margin-left:auto}
-.navlink{font-size:13px; color:var(--muted); text-decoration:none; padding-bottom:2px}
+.masthead nav{display:flex; gap:4px; margin-left:auto}
+.navlink{
+  font-size:15px; color:var(--ink-2); text-decoration:none;
+  padding:6px 12px; border-bottom:2px solid transparent;
+}
 .navlink:hover{color:var(--ink)}
-.navlink.current{color:var(--accent); border-bottom:2px solid var(--accent); font-weight:600}
-header h1{font-size:24px}
+.navlink.current{color:var(--ink); border-bottom-color:var(--accent); font-weight:600}
+header h1{font-size:44px}
 .sitefoot{
-  max-width:1240px; margin:0 auto; padding:22px 24px 44px;
-  border-top:1px solid var(--rule); color:var(--muted); font-size:12.5px; line-height:1.6;
+  margin:48px 0 0; padding:40px 24px 48px;
+  background:var(--ink); color:var(--rule-2); font-size:13.5px; line-height:1.6;
 }
-.sitefoot p{margin:0 0 8px; max-width:78ch}
-.sitefoot strong{color:var(--ink-2)}
-.sitefoot a{color:var(--accent)}
-.sitefoot .pub{font-size:.9em; opacity:.75; margin-top:2px}
-@media (max-width:620px){ .masthead nav{margin-left:0; width:100%} }
+.sitefoot > *{max-width:1240px; margin-left:auto; margin-right:auto}
+.sitefoot p{margin:0 0 10px; max-width:82ch}
+.sitefoot strong{color:var(--paper)}
+.sitefoot a{color:#8FCFC3}
+.sitefoot .pub{font-size:.92em; opacity:.85; margin-top:4px}
+@media (prefers-color-scheme: dark){ .sitefoot{background:#0F0F10} }
+@media (max-width:620px){ .masthead nav{margin-left:0; width:100%; flex-wrap:wrap} }
+
+/* Serif headlines / mono numerals set the editorial tone throughout */
+aside h2, section h2, .usbox h2{font-family:var(--sans)}
+.lede{font-size:16px}
+td.n, .chip .n, .cpct, .cbar, #coverage td.num, .abroad,
+.legend .lgt, .conf{font-family:var(--mono)}
+.zh, td .zh, .ccard .zh, table.reg th.chain .zh{font-family:var(--hans)}
 
 /* ---- US-first view on the register ---- */
-.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:5px;
        padding:14px 16px; margin-bottom:14px}
 .usbox h2{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
 .usbox.watch{border-color:color-mix(in srgb, var(--soon) 45%, var(--rule))}
@@ -280,7 +303,7 @@ ul.uslist b{color:var(--ink)}
 /* Introduction & Contribute pages */
 .introwrap{max-width:1000px; margin:0 auto; padding:0 16px 40px}
 .cardgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-top:16px}
-.ccard{background:var(--surface); border:1px solid var(--rule); border-radius:12px; overflow:hidden;
+.ccard{background:var(--surface); border:1px solid var(--rule); border-radius:5px; overflow:hidden;
   display:flex; flex-direction:column}
 .cphoto{width:100%; height:150px; object-fit:cover; display:block; background:var(--paper)}
 .cphoto.placeholder{display:flex; align-items:center; justify-content:center; color:var(--muted);
@@ -316,11 +339,13 @@ ul.uslist b{color:var(--ink)}
   border-radius:8px; padding:10px 12px; margin-top:16px}
 
 /* Beta badge in the masthead */
-.beta{display:inline-block; margin-left:8px; padding:1px 7px; font-size:11px; font-weight:700;
-  letter-spacing:.06em; text-transform:uppercase; color:var(--soon);
-  border:1px solid var(--soon); border-radius:999px; vertical-align:middle; cursor:default}
+.beta{display:inline-block; margin-left:10px; padding:3px 8px; font-family:var(--mono); font-size:11px;
+  font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+  border:1px solid var(--muted); border-radius:3px; vertical-align:middle; cursor:default}
 
-/* Landing total-outlets headline */
-.ustotal{margin:10px 0 4px; font-size:17px; color:var(--ink); line-height:1.5}
-.ustotal b{font-size:24px; color:var(--accent); font-variant-numeric:tabular-nums}
-.ustotal .dim{color:var(--muted); font-size:13px}
+/* Landing total-outlets headline: the newsprint hero figure */
+.ustotal{margin:22px 0 4px; font-size:18px; color:var(--ink-2); line-height:1.45}
+.ustotal b{display:block; margin-bottom:6px; font-family:var(--serif); font-weight:500;
+  font-size:84px; line-height:.9; letter-spacing:-.035em; color:var(--ink); font-variant-numeric:lining-nums}
+.ustotal .dim{color:var(--muted); font-size:13.5px; font-family:var(--mono)}
+@media (max-width:620px){ .ustotal b{font-size:60px} }
