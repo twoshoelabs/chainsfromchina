@@ -16,4 +16,7 @@ rc=$?
 # site going live). Never affects the run's exit code; a signal is logged to
 # $CHAIN_ATLAS_DATA/launch_alerts.log and printed to this daily log.
 "$PY" -m chain_atlas watch || true
+# Publish the fresh site to chainsfromchina.com (gh-pages). Non-fatal: a failed deploy must
+# never fail collection.
+"$(dirname "$0")/deploy.sh" || echo "$(date -u +%FT%TZ) deploy failed (collection unaffected)" >&2
 exit $rc
