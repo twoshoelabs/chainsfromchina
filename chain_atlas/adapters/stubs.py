@@ -258,6 +258,7 @@ class JueweiAdapter(Adapter):
     """
     chain_id, name, name_zh = "juewei", "Juewei", "绝味鸭脖"
     name_us = "Juewei Yabo"
+    aliases = ("Jue Wei Kitchen", "Jue Wei Food")
     parent, format = "Juewei Food (SSE 603517)", "snack"
     ENABLED = False
     BLOCKED_REASON = ("trades as Juewei Yabo in the US (LA, San Gabriel); no first-party locator"

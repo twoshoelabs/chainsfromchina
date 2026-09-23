@@ -385,6 +385,58 @@
    ]
   },
   {
+   "chain": "nayuki",
+   "supplied_on": "2026-09-23",
+   "source": "Web verification — Yelp review counts, DoorDash/Fantuan listings, and local press (iLoveTheUpperWestSide, QNS, boozyburbs). No first-party US site; naisnow.us is parked.",
+   "scope": "Web-verified US locations. NaiSnow (奈雪的茶) entered the US in Oct 2025 and is expanding fast (it claims a 500-store US target over 3-5 years). Confirmed = operating per Yelp reviews and press; American Dream NJ is coming-soon. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "39-07 Prince St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (106 reviews) + QNS grand-opening coverage, 23 Sep 2026"
+    },
+    {
+     "name": "Long Island City",
+     "address": "27-53 Jackson Ave, Long Island City, NY 11101",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + DoorDash listing, operating, 23 Sep 2026"
+    },
+    {
+     "name": "Upper West Side",
+     "address": "971 Amsterdam Ave, New York, NY 10025",
+     "confidence": "confirmed",
+     "verified_by": "iLoveTheUpperWestSide opening coverage, 23 Sep 2026"
+    },
+    {
+     "name": "Brooklyn (86th St)",
+     "address": "2141 86th St, Brooklyn, NY 11214",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + operator's 'officially arrived' post, 23 Sep 2026"
+    },
+    {
+     "name": "American Dream (NJ)",
+     "address": "1 American Dream Way, East Rutherford, NJ 07073",
+     "confidence": "uncertain",
+     "verified_by": "boozyburbs 'coming soon' (Apr 2026) — not yet confirmed open"
+    }
+   ]
+  },
+  {
+   "chain": "juewei",
+   "supplied_on": "2026-09-23",
+   "source": "Web verification — Yelp, Fantuan, SanDiegoVille press.",
+   "scope": "Web-verified US locations for Juewei (绝味鸭脖), which trades in the US as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food and is delivery-forward. San Gabriel is an operating storefront; a USC / Los Angeles presence is delivery-only via Fantuan with no public street address; the San Diego store (4698 Convoy St, Kearny Mesa) CLOSED in Mar 2026. Not a complete roster.",
+   "locations": [
+    {
+     "name": "San Gabriel (Jue Wei Kitchen)",
+     "address": "818 E Valley Blvd, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (34 reviews, updated May 2026), operating, 23 Sep 2026"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",
@@ -653,7 +705,7 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "8 permit-sourced location(s) (3 operating, 5 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "4 permit-sourced location(s) (2 operating, 2 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "NAISNOW TEA & BAKERY",
@@ -668,18 +720,6 @@
      "verified_by": "LA County health-department permit, first inspected 2026-04-23 (2026-09-23)"
     },
     {
-     "name": "NAISNOW TEA & BAKERY",
-     "address": "39-07 PRINCE STREET, Queens, NY 11354",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "NAISNOW",
-     "address": "27-53 JACKSON AVENUE, Queens, NY 11101",
-     "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2026-05-19 (2026-09-23)"
-    },
-    {
      "name": "Naisnow Tea & Bakery",
      "address": "233 WEST   42 STREET, Manhattan, NY 10036",
      "confidence": "uncertain",
@@ -688,18 +728,6 @@
     {
      "name": "NAISNOW",
      "address": "303 GRAND STREET, Manhattan, NY 10002",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "NAISNOW",
-     "address": "2141 86 STREET, Brooklyn, NY 11214",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "NAISNOW",
-     "address": "971 AMSTERDAM AVENUE, Manhattan, NY 10025",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     }
