@@ -104,6 +104,27 @@
     "TX"
    ],
    "notes": "Live; address is one self-contained field (addr_full). A frontier metro — holds none of these chains yet, added to catch the first Austin arrival. NOT added: New York State (health.data.ny.gov, statewide ex-NYC) is current but its 1.4M rows time out on a name search and it holds none of our chains (their NY estate is entirely in NYC); Dallas has no current open feed (its Socrata dataset stopped Jan 2024). Both checked 23 Sep 2026."
+  },
+  {
+   "id": "montgomery",
+   "name": "Montgomery County MD (DC suburbs)",
+   "platform": "socrata",
+   "domain": "data.montgomerycountymd.gov",
+   "resource": "dkrp-gr48",
+   "name_field": "business_name",
+   "addr_fields": [
+    "address"
+   ],
+   "city_field": "city",
+   "zip_field": "zip",
+   "state": "MD",
+   "date_field": "inspection_start_date",
+   "type_field": "inspection_type",
+   "id_field": "registration_number",
+   "states": [
+    "MD"
+   ],
+   "notes": "Live (updated daily). PRODUCTIVE, not frontier: on the first run it surfaced a HEYTEA in Rockville (891-F Rockville Pike) plus two MINISO already in our census. Covers the DC suburbs (Rockville/Bethesda/Gaithersburg), high Chinese-American density. Added 23 Sep 2026."
   }
  ]
 }

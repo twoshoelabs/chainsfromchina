@@ -131,7 +131,9 @@
      "name": "Novo Market Place",
      "address": "122 Brighton Avenue Unit 1, Boston, MA 02134",
      "phone": "+1 (617) 847-6262",
-     "note": "Store page showed a red 'Closed' badge beside the name on 21 Sep 2026. On store finders that badge almost always means closed RIGHT NOW, outside opening hours, rather than permanently shut — but this project cannot tell the two apart from a screenshot, and the difference is the entire subject of the archive. Recorded as a known location with the ambiguity attached; not treated as a closure."
+     "note": "Earlier a store-page 'Closed' badge (21 Sep 2026) left this ambiguous; Boston's own inspection record resolves it — the establishment is real and operating.",
+     "confidence": "confirmed",
+     "verified_by": "Boston health-department inspection record (data.boston.gov), an active food-establishment inspection at 122 Brighton Av, Allston — 23 Sep 2026"
     }
    ]
   },
@@ -412,15 +414,15 @@
    "locations": [
     {
      "name": "COTTI COFFEE",
-     "address": "239 8 AVENUE, Manhattan, NY 10011",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "COTTI COFFEE",
      "address": "17418 COLIMA RD, Rowland Heights, CA 91748",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-06-27 (2026-09-23)"
+    },
+    {
+     "name": "COTTI COFFEE",
+     "address": "239 8 AVENUE, Manhattan, NY 10011",
+     "confidence": "uncertain",
+     "verified_by": "NYC health-department permit (2026-09-23)"
     }
    ]
   },
@@ -433,12 +435,6 @@
    "locations": [
     {
      "name": "FISH WITH YOU",
-     "address": "774 60 STREET, Brooklyn, NY 11220",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "FISH WITH YOU",
      "address": "156 CASTRO ST, Mountain View, CA 94041",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-08-13 (2026-09-23)"
@@ -448,6 +444,12 @@
      "address": "1431 S BALDWIN AVE, Arcadia, CA 91007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
+    },
+    {
+     "name": "FISH WITH YOU",
+     "address": "774 60 STREET, Brooklyn, NY 11220",
+     "confidence": "uncertain",
+     "verified_by": "NYC health-department permit (2026-09-23)"
     }
    ]
   },
@@ -456,8 +458,80 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "30 permit-sourced location(s) (22 operating, 8 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "31 permit-sourced location(s) (23 operating, 8 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
+    {
+     "name": "HEYTEA",
+     "address": "2855 STEVENS CREEK BL # 1329, San Jose, CA 95050",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA",
+     "address": "1628 HOSTETTER RD # H, San Jose, CA 95131",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-08 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA SUNNYVALE",
+     "address": "302 W EL CAMINO REAL, Sunnyvale, CA 94087",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-21 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA",
+     "address": "372 BARBER LN, Milpitas, CA 95035",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-04-24 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA",
+     "address": "19469 STEVENS CREEK BL, Cupertino, CA 95014",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-09-09 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA",
+     "address": "2234 S WENTWORTH AVE, CHICAGO, IL 60616",
+     "confidence": "confirmed",
+     "verified_by": "Chicago health-department permit, first inspected 2026-08-24 (2026-09-23)"
+    },
+    {
+     "name": "HEY TEA",
+     "address": "9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2024-08-21 (2026-09-23)"
+    },
+    {
+     "name": "HEY TEA",
+     "address": "18253 COLIMA RD # 103, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2025-02-07 (2026-09-23)"
+    },
+    {
+     "name": "HEY TEA",
+     "address": "500 N ATLANTIC BLVD # 177, Monterey Park, CA 91754",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2025-05-15 (2026-09-23)"
+    },
+    {
+     "name": "HEYTEA",
+     "address": "1190 GALLERIA WAY, Glendale, CA 91210",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2025-10-01 (2026-09-23)"
+    },
+    {
+     "name": "HEY TEA",
+     "address": "3738 S FIGUEROA ST, Los Angeles, CA 90007",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
+    },
+    {
+     "name": "Hey Tea",
+     "address": "891-F Rockville Pike, Rockville, MD 20852",
+     "confidence": "confirmed",
+     "verified_by": "Montgomery County MD health-department permit, first inspected 2025-06-05 (2026-09-23)"
+    },
     {
      "name": "HEYTEA",
      "address": "4505 8 AVENUE, Brooklyn, NY 11220",
@@ -561,12 +635,6 @@
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
-     "address": "2234 S WENTWORTH AVE, CHICAGO, IL 60616",
-     "confidence": "confirmed",
-     "verified_by": "Chicago health-department permit, first inspected 2026-08-24 (2026-09-23)"
-    },
-    {
      "name": "HEY TEA",
      "address": "700 110th AVE NE, 192, BELLEVUE, WA 98004",
      "confidence": "confirmed",
@@ -577,66 +645,6 @@
      "address": "910 John ST, 100, SEATTLE, WA 98109",
      "confidence": "confirmed",
      "verified_by": "Seattle/King County health-department permit, first inspected 2025-05-13 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA",
-     "address": "2855 STEVENS CREEK BL # 1329, San Jose, CA 95050",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA",
-     "address": "1628 HOSTETTER RD # H, San Jose, CA 95131",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-08 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA SUNNYVALE",
-     "address": "302 W EL CAMINO REAL, Sunnyvale, CA 94087",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-21 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA",
-     "address": "372 BARBER LN, Milpitas, CA 95035",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-04-24 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA",
-     "address": "19469 STEVENS CREEK BL, Cupertino, CA 95014",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-09-09 (2026-09-23)"
-    },
-    {
-     "name": "HEY TEA",
-     "address": "9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2024-08-21 (2026-09-23)"
-    },
-    {
-     "name": "HEY TEA",
-     "address": "18253 COLIMA RD # 103, Rowland Heights, CA 91748",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2025-02-07 (2026-09-23)"
-    },
-    {
-     "name": "HEY TEA",
-     "address": "500 N ATLANTIC BLVD # 177, Monterey Park, CA 91754",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2025-05-15 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA",
-     "address": "1190 GALLERIA WAY, Glendale, CA 91210",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2025-10-01 (2026-09-23)"
-    },
-    {
-     "name": "HEY TEA",
-     "address": "3738 S FIGUEROA ST, Los Angeles, CA 90007",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
     }
    ]
   },
@@ -647,6 +655,18 @@
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "8 permit-sourced location(s) (3 operating, 5 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
+    {
+     "name": "NAISNOW TEA & BAKERY",
+     "address": "19600 VALLCO PY # 100, Cupertino, CA 95014",
+     "confidence": "confirmed",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-05 (2026-09-23)"
+    },
+    {
+     "name": "NAISNOW",
+     "address": "227 W VALLEY BLVD 118B, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit, first inspected 2026-04-23 (2026-09-23)"
+    },
     {
      "name": "NAISNOW TEA & BAKERY",
      "address": "39-07 PRINCE STREET, Queens, NY 11354",
@@ -682,18 +702,6 @@
      "address": "971 AMSTERDAM AVENUE, Manhattan, NY 10025",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "NAISNOW TEA & BAKERY",
-     "address": "19600 VALLCO PY # 100, Cupertino, CA 95014",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-05 (2026-09-23)"
-    },
-    {
-     "name": "NAISNOW",
-     "address": "227 W VALLEY BLVD 118B, San Gabriel, CA 91776",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2026-04-23 (2026-09-23)"
     }
    ]
   },
@@ -705,12 +713,6 @@
    "scope": "3 permit-sourced location(s) (3 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "TAIER",
-     "address": "133-36 37 AVENUE, Queens, NY 11354",
-     "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2023-10-10 (2026-09-23)"
-    },
-    {
      "name": "TAIER FISH",
      "address": "2855 STEVENS CREEK BL # 1279, San Jose, CA 95050",
      "confidence": "confirmed",
@@ -721,6 +723,12 @@
      "address": "400 S BALDWIN AVE 2325, Arcadia, CA 91007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2024-01-31 (2026-09-23)"
+    },
+    {
+     "name": "TAIER",
+     "address": "133-36 37 AVENUE, Queens, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "NYC health-department permit, first inspected 2023-10-10 (2026-09-23)"
     }
    ]
   },

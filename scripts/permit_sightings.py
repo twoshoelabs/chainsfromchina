@@ -24,14 +24,18 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from permit_common import street_key  # noqa: E402
+from chain_atlas.identity import norm_addr  # noqa: E402
 sys.path.insert(0, os.path.expanduser("~/Projects/chain_atlas"))
 from chain_atlas.adapters import REGISTRY  # noqa: E402
 
 DATA = os.path.expanduser("~/chain_atlas_data")
 SIGHTINGS = os.path.expanduser("~/Projects/chain_atlas/manual/sightings.json")
-CSVS = {"NYC": "review_nyc_permits.csv", "Chicago": "review_chicago_permits.csv",
-        "Seattle/King County": "review_seattle_permits.csv",
-        "Santa Clara County": "review_bayarea_permits.csv", "LA County": "review_la_permits.csv"}
+# Every review_<id>_permits.csv a watcher has written, so a new metro flows through the moment
+# its watcher runs — no list to keep in sync. Friendly names for the ones worth naming; the rest
+# fall back to the id.
+NAMES = {"nyc": "NYC", "chicago": "Chicago", "seattle": "Seattle/King County",
+         "bayarea": "Santa Clara County", "la": "LA County", "austin": "Austin",
+         "montgomery": "Montgomery County MD"}
 TODAY = "2026-09-23"
 MARKER = "permit"   # provenance flag on the groups this script owns
 
@@ -42,11 +46,11 @@ def blocked_chains():
 
 def read_candidates():
     """Yield (chain, metro, name, address, confidence) for every NEW blocked-chain permit row."""
+    import glob
     blocked = blocked_chains()
-    for metro, fname in CSVS.items():
-        path = os.path.join(DATA, fname)
-        if not os.path.exists(path):
-            continue
+    for path in sorted(glob.glob(os.path.join(DATA, "review_*_permits.csv"))):
+        jid = os.path.basename(path)[len("review_"):-len("_permits.csv")]
+        metro = NAMES.get(jid, jid)
         for r in csv.DictReader(open(path)):
             if r["chain"] not in blocked or r.get("already_known") != "NEW CANDIDATE":
                 continue
@@ -69,9 +73,7 @@ def existing_keys(sightings, chain):
         if g["chain"] != chain or g.get("provenance") == MARKER:
             continue                                       # skip our own permit groups
         for loc in g.get("locations", []):
-            k = street_key(loc.get("address") or "")
-            if k:
-                keys.add(k)
+            keys.add(street_key(loc.get("address") or "") or norm_addr(loc.get("address") or ""))
     return keys
 
 
@@ -84,11 +86,10 @@ def main():
     for chain, metro, name, addr, conf, fi in read_candidates():
         by_chain.setdefault(chain, {"locs": [], "seen": set(), "held": existing_keys(doc, chain)})
         rec = by_chain[chain]
-        k = street_key(addr)
-        if k and (k in rec["held"] or k in rec["seen"]):
+        k = street_key(addr) or norm_addr(addr)
+        if k in rec["held"] or k in rec["seen"]:
             continue                                       # already ours, or a dupe across metros
-        if k:
-            rec["seen"].add(k)
+        rec["seen"].add(k)
         rec["locs"].append({
             "name": name[:60] or "(permit)", "address": addr, "confidence": conf,
             "verified_by": f"{metro} health-department permit"

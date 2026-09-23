@@ -90,9 +90,10 @@ def street_key(addr):
         # No recognisable suffix (mall names, plazas): drop a keyword unit or a trailing code.
         n = re.split(r"\b(?:STE|SUITE|UNIT|APT|#|SPC|FL|FLOOR|RM|BLDG)\b", n)[0]
         n = re.sub(r"\s+#?[A-Z]?-?\d+[A-Z]?$", "", n.strip())
-    # New York's hyphenated house numbers are the same address written two ways: "135-05" and
-    # "13505" are one shop, so collapse the hyphen before anchoring on the number.
-    n = re.sub(r"^(\d+)-(\d+)", r"\1\2", n.strip())
+    # A hyphen in the house number is formatting, not identity: "135-05"=="13505" (Queens),
+    # "891-F"=="891F" (a unit-lettered number). Collapse any leading digits-hyphen-word so the
+    # same shop keys the same however it is written.
+    n = re.sub(r"^(\d+)-(\w+)", r"\1\2", n.strip())
     return n.strip() if re.match(r"^\d+[A-Z]?\s+\S", n) else ""
 
 
