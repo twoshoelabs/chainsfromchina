@@ -439,14 +439,26 @@
   {
    "chain": "taier",
    "supplied_on": "2026-09-24",
-   "source": "Health-department permit, confirmed against the brand's own listings on delivery/deal directories (Dealmoon, Fantuan).",
-   "scope": "The Tai Er (太二) outlet at Westfield Valley Fair, confirmed operating by a Santa Clara County health permit and carried under the brand's full name. Replaces the generic permit facility name 'TAIER FISH' for this location. Not a complete roster.",
+   "source": "Health-department permits, confirmed against the brand's own listings on delivery/deal directories (Dealmoon, Fantuan).",
+   "scope": "Known Tai Er (太二 / Tai Er Sichuan Cuisine) US outlets, each confirmed operating by a municipal health permit and carried under the brand's full name. Given the brand name in place of the raw permit facility name. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "Tai Er Sichuan Cuisine (Valley Fair)",
      "address": "2855 STEVENS CREEK BL # 1279, San Jose, CA 95050",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit (first inspected 2026-04-09); brand-name listing on Dealmoon and Fantuan (24 Sep 2026)"
+    },
+    {
+     "name": "Tai Er Sichuan Cuisine (Arcadia)",
+     "address": "400 S BALDWIN AVE 2325, Arcadia, CA 91007",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit (TAIER SAN GABRIEL INC, first inspected 2024-01-31), active; brand-name listing on Fantuan (24 Sep 2026)"
+    },
+    {
+     "name": "Tai Er Sichuan Cuisine (Flushing)",
+     "address": "133-36 37 AVENUE, Queens, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "NYC health-department permit (TAIER, first inspected 2023-10-10), active; brand-name listing on Dealmoon (24 Sep 2026)"
     }
    ]
   },
@@ -744,27 +756,6 @@
      "address": "303 GRAND STREET, Manhattan, NY 10002",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
-    }
-   ]
-  },
-  {
-   "chain": "taier",
-   "supplied_on": "2026-09-23",
-   "provenance": "permit",
-   "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
-   "locations": [
-    {
-     "name": "TAIER SAN GABRIEL INC",
-     "address": "400 S BALDWIN AVE 2325, Arcadia, CA 91007",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2024-01-31 (2026-09-23)"
-    },
-    {
-     "name": "TAIER",
-     "address": "133-36 37 AVENUE, Queens, NY 11354",
-     "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2023-10-10 (2026-09-23)"
     }
    ]
   },
