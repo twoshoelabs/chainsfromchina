@@ -66,6 +66,19 @@ const chainObj = id =>
   ((DATA.meta.blocked || []).find(b => b.chain_id === id)) ||
   { name: id };
 
+// The location line under the chain heading should be just the branch. A label may repeat the
+// chain ("HEYTEA (Flushing)", "MIXUE-Union Square", "Tai Er Sichuan Cuisine (Valley Fair)"), so
+// strip a leading copy of the chain name and unwrap the "(X)" it leaves behind.
+function branchOf(chainName, name) {
+  let n = (name || '').trim();
+  if (!n) return '';
+  const rx = new RegExp('^' + chainName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\-\u2013\u2014:]*', 'i');
+  n = n.replace(rx, '').trim();
+  const m = n.match(/^\((.*)\)$/);
+  if (m) n = m[1].trim();
+  return n.toLowerCase() === chainName.toLowerCase() ? '' : n;
+}
+
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 let view, home, mode = 'stores';
@@ -228,9 +241,11 @@ async function main() {
       'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1 });
     q.addEventListener('pointerenter', e => {
       const c = chainObj(g.chain);
+      const chainName = c.name_us || c.name || g.chain;
+      const loc = branchOf(chainName, g.name);
       tipAt(e,
         `<b>${chainLabel(c, { short: true })}</b>` +
-        (g.name && g.name !== g.address ? `<div class="loc">${esc(g.name)}</div>` : '') +
+        (loc && loc !== g.address ? `<div class="loc">${esc(loc)}</div>` : '') +
         (g.address ? `<div class="addr">${esc(g.address)}</div>` : '') +
         `<div class="meta">A known location, <b>not counted</b>. This chain has no roster this ` +
         `project can read, so none of its stores are in any total here.` +
@@ -683,10 +698,7 @@ function showStoreTip(e, s) {
     locLine = (s.name || '').replace(/^\s*robo\s*shop\s*/i, '').trim();
   } else {
     head = chainLabel(c, { short: true });
-    const raw = (s.name || '').trim();
-    const rx = new RegExp('^' + chainName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*[-\u2013\u2014:]?\\s*', 'i');
-    locLine = raw.replace(rx, '').trim();
-    if (locLine.toLowerCase() === chainName.toLowerCase()) locLine = '';
+    locLine = branchOf(chainName, s.name);
   }
   tipAt(e,
     `<b>${head}</b>` +
