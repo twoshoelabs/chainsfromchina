@@ -477,6 +477,44 @@
    ]
   },
   {
+   "chain": "zhangliang",
+   "supplied_on": "2026-09-26",
+   "source": "First-party regional site, delivery listing, a city-government notice and county health permits.",
+   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far, clustered in California. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Mountain View",
+     "address": "246 Castro St, Mountain View, CA 94041",
+     "confidence": "confirmed",
+     "verified_by": "first-party site zhangliangmtv.com + Google listing, 405 reviews (26 Sep 2026)"
+    },
+    {
+     "name": "San Mateo",
+     "address": "139 South B Street, San Mateo, CA 94401",
+     "confidence": "confirmed",
+     "verified_by": "Postmates store listing, operating (26 Sep 2026)"
+    },
+    {
+     "name": "Concord",
+     "address": "1845 Willow Pass Rd, Concord, CA 94520",
+     "confidence": "confirmed",
+     "verified_by": "City of Concord government post, opened Dec 2024 (26 Sep 2026)"
+    },
+    {
+     "name": "Rosemead",
+     "address": "8526 Valley Blvd #106, Rosemead, CA 91770",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit + LA franchisee Instagram (26 Sep 2026)"
+    },
+    {
+     "name": "Westwood (LA)",
+     "address": "1834 Westwood Blvd, Los Angeles, CA 90024",
+     "confidence": "confirmed",
+     "verified_by": "LA County health-department permit + LA franchisee Instagram (26 Sep 2026)"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",

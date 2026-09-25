@@ -8,14 +8,83 @@
   ],
   "as_of": "2026-09-23",
   "estimates": {
-    "heytea":     {"us": 28, "confidence": "medium", "as_of": "2026-07-14", "source": "xMap brand-location report", "note": "28 US, 13 in New York"},
-    "cotti":      {"us": 29, "us_text": "29+", "confidence": "low", "as_of": "2026-06", "source": "Daily Coffee News", "note": "\"at least 29\"; current count unconfirmed"},
-    "taier":      {"us": 5,  "confidence": "low", "as_of": "2026-09", "source": "trade press / Yelp", "note": "San Mateo, Santa Clara, Flushing, Arcadia, LA"},
-    "yangs":      {"us": 2,  "us_text": "~1-3, shrinking", "confidence": "low", "as_of": "2026-09", "source": "Yelp (many listed CLOSED)", "note": "chain in retreat; most US stores have closed"},
-    "nayuki":     {"us": 10, "us_text": "~8-15", "confidence": "low", "as_of": "2026-09", "source": "press (QNS, iLoveUWS)", "note": "US entry Oct 2025; no published US total"},
-    "chabaidao":  {"us": 4,  "us_text": "~3-5", "confidence": "low", "as_of": "2026-09", "source": "press", "note": "entered US Aug 2025 as TeaByDo; small"},
-    "juewei":     {"us": 3,  "us_text": "~2-3", "confidence": "low", "as_of": "2026-09", "source": "press", "note": "LA, San Gabriel; delivery-forward"},
-    "yangguofu":  {"us": 45, "us_text": "~40-60", "confidence": "low", "as_of": "2026", "source": "its FDD Item 20 (23 at 31 Dec 2025) + 37 projected for 2026", "note": "fast growth; FDD-based projection"},
-    "fishwithyou":{"us": 20, "us_text": "~15-25", "confidence": "low", "as_of": "2026-09", "source": "per-store sites; no published US total", "note": "2,700 global; US total not disclosed"}
+    "heytea": {
+      "us": 28,
+      "confidence": "medium",
+      "as_of": "2026-07-14",
+      "source": "xMap brand-location report",
+      "note": "28 US, 13 in New York"
+    },
+    "cotti": {
+      "us": 29,
+      "us_text": "29+",
+      "confidence": "low",
+      "as_of": "2026-06",
+      "source": "Daily Coffee News",
+      "note": "\"at least 29\"; current count unconfirmed"
+    },
+    "taier": {
+      "us": 5,
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "trade press / Yelp",
+      "note": "San Mateo, Santa Clara, Flushing, Arcadia, LA"
+    },
+    "yangs": {
+      "us": 2,
+      "us_text": "~1-3, shrinking",
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "Yelp (many listed CLOSED)",
+      "note": "chain in retreat; most US stores have closed"
+    },
+    "nayuki": {
+      "us": 10,
+      "us_text": "~8-15",
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "press (QNS, iLoveUWS)",
+      "note": "US entry Oct 2025; no published US total"
+    },
+    "chabaidao": {
+      "us": 4,
+      "us_text": "~3-5",
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "press",
+      "note": "entered US Aug 2025 as TeaByDo; small"
+    },
+    "juewei": {
+      "us": 3,
+      "us_text": "~2-3",
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "press",
+      "note": "LA, San Gabriel; delivery-forward"
+    },
+    "yangguofu": {
+      "us": 45,
+      "us_text": "~40-60",
+      "confidence": "low",
+      "as_of": "2026",
+      "source": "its FDD Item 20 (23 at 31 Dec 2025) + 37 projected for 2026",
+      "note": "fast growth; FDD-based projection"
+    },
+    "fishwithyou": {
+      "us": 20,
+      "us_text": "~15-25",
+      "confidence": "low",
+      "as_of": "2026-09",
+      "source": "per-store sites; no published US total",
+      "note": "2,700 global; US total not disclosed"
+    },
+    "zhangliang": {
+      "us": 25,
+      "us_text": "~20-30 (42 across North America)",
+      "confidence": "low",
+      "as_of": "2026-09-11",
+      "source": "brand news (zlmlt.com)",
+      "note": "42 North American outlets (US/Canada/Mexico) per its own site; US subset not broken out"
+    }
   }
 }

@@ -401,3 +401,26 @@ class CottiAdapter(Adapter):
                       " signature (returns 401 \"MD5 signature cannot be verified\"), an"
                       " access control this project will not forge (22 Sep 2026)")
     RECHECK = ["https://mobile.us.cotticoffee.global/?cnty=US", "https://www.cotticoffee.global/"]
+
+
+class ZhangliangAdapter(Adapter):
+    """
+    Zhang Liang Malatang (张亮麻辣烫) — added 2026-09-26. With Yangguofu, one of mainland China's two
+    dominant self-serve malatang chains, founded in Harbin in 2008, ~6,000 outlets.
+
+    Its own brand news (zlmlt.com, 11 Sep 2026) claims 42 outlets across North America — the US,
+    Canada and Mexico — from San Francisco and Los Angeles to Toronto and Vancouver. There is no
+    single US locator: US outlets surface through per-region franchisee sites (zhangliangmtv.com),
+    an LA-area Instagram (@zhangliangmalatangla), city-government notices and delivery platforms.
+    Verified US locations so far cluster in California (Bay Area and LA). Tracked via sightings.
+    """
+    chain_id, name, name_zh = "zhangliang", "Zhang Liang", "张亮麻辣烫"
+    name_us = "Zhang Liang Malatang"
+    aliases = ("Zhangliang Malatang", "Zhangliang Spicy Hotpot", "ZhangLiang MalaTang")
+    parent, format = "Zhang Liang (张亮餐饮, Harbin)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland malatang chain (张亮麻辣烫); its brand news claims 42 North American"
+                      " outlets (US/Canada/Mexico, 11 Sep 2026) but there is no single US locator —"
+                      " US shops appear on per-region franchisee sites, an LA Instagram and delivery"
+                      " apps. Tracked via sightings (26 Sep 2026)")
+    RECHECK = ["https://www.zlmlt.com/"]
