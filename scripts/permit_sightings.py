@@ -20,13 +20,16 @@ Run: .venv/bin/python scripts/permit_sightings.py     (after the watchers have w
 import csv
 import json
 import os
+import re
 import sys
+from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from permit_common import street_key  # noqa: E402
 from chain_atlas.identity import norm_addr  # noqa: E402
 sys.path.insert(0, os.path.expanduser("~/Projects/chain_atlas"))
 from chain_atlas.adapters import REGISTRY  # noqa: E402
+from chain_atlas.usaddr import split_tail  # noqa: E402
 
 DATA = os.path.expanduser("~/chain_atlas_data")
 SIGHTINGS = os.path.expanduser("~/Projects/chain_atlas/manual/sightings.json")
@@ -38,6 +41,41 @@ NAMES = {"nyc": "NYC", "chicago": "Chicago", "seattle": "Seattle/King County",
          "montgomery": "Montgomery County MD"}
 TODAY = "2026-09-23"
 MARKER = "permit"   # provenance flag on the groups this script owns
+
+# The chain's US trading name, used to label a permit sighting instead of the raw facility name a
+# health department happens to record ("TAIER FISH", "STARLIGHT BILLIARDS / HEY HEY TEA"). The
+# chain is already identified by the group; the location just needs a clean, human branch label.
+BRAND = {a.chain_id: (getattr(a, "name_us", None) or getattr(a, "name", a.chain_id)) for a in REGISTRY}
+
+# Permit rows that matched a chain's term but are NOT that chain, verified by hand against the
+# source. Keyed by (chain, street fingerprint) so a real store is never dropped by accident.
+#   heytea @ 6019 4th Ave, Brooklyn — "STARLIGHT BILLIARDS / HEY HEY TEA" (DOHMH CAMIS 50174572),
+#   a billiards hall that matched on the words "HEY TEA"; not 喜茶.
+FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220"))}
+
+_ORD = re.compile(r"(\d)(Th|St|Nd|Rd)\b")
+
+
+def _city(addr):
+    return (split_tail(addr)[0] or "").strip().title()
+
+
+def _street(addr):
+    """A clean, house-number-bearing street label for disambiguating two shops in one city."""
+    seg = addr.split(",")[0]
+    # Drop a unit tail — but \b so "STE" does not eat the start of "STEVENS", and "#" separately.
+    seg = re.sub(r"\s+(?:STE|SUITE|UNIT|RM|FL|APT)\b.*$", "", seg, flags=re.I)
+    seg = re.sub(r"\s*#.*$", "", seg)
+    seg = re.sub(r"\s+", " ", seg).strip()
+    return _ORD.sub(lambda m: m.group(1) + m.group(2).lower(), seg.title())
+
+
+def branch_name(chain, addr, city_counts):
+    """Brand (Locality): the city when a chain has one shop there, else the street."""
+    brand = BRAND.get(chain, chain)
+    city = _city(addr)
+    branch = city if (city and city_counts.get(city, 0) == 1) else (_street(addr) or city)
+    return (f"{brand} ({branch})" if branch else brand)[:60]
 
 
 def blocked_chains():
@@ -87,13 +125,21 @@ def main():
         by_chain.setdefault(chain, {"locs": [], "seen": set(), "held": existing_keys(doc, chain)})
         rec = by_chain[chain]
         k = street_key(addr) or norm_addr(addr)
+        if (chain, k) in FALSE_MATCHES:
+            continue                                       # a verified not-this-chain permit row
         if k in rec["held"] or k in rec["seen"]:
             continue                                       # already ours, or a dupe across metros
         rec["seen"].add(k)
         rec["locs"].append({
-            "name": name[:60] or "(permit)", "address": addr, "confidence": conf,
+            "_chain": chain, "name": name[:60] or "(permit)", "address": addr, "confidence": conf,
             "verified_by": f"{metro} health-department permit"
             + (f", first inspected {fi}" if fi and conf == "confirmed" else "") + f" ({TODAY})"})
+
+    # Name every permit location Brand (Locality), disambiguating same-city shops by street.
+    for rec in by_chain.values():
+        counts = Counter(c for c in (_city(l["address"]) for l in rec["locs"]) if c)
+        for l in rec["locs"]:
+            l["name"] = branch_name(l["_chain"], l["address"], counts)
 
     added = 0
     for chain, rec in sorted(by_chain.items()):
@@ -115,6 +161,9 @@ def main():
         added += len(rec["locs"])
         print(f"  {chain:12} +{len(rec['locs']):>2} permit sighting(s)  ({c} confirmed, {u} uncertain)")
 
+    for g in doc["sightings"]:
+        for l in g.get("locations", []):
+            l.pop("_chain", None)
     json.dump(doc, open(SIGHTINGS, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"\n{added} permit-sourced sighting(s) written across {sum(1 for r in by_chain.values() if r['locs'])} chain(s).")
 

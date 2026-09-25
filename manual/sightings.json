@@ -470,13 +470,13 @@
    "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "TEABYDO",
+     "name": "TeaByDo (Palo Alto)",
      "address": "165 UNIVERSITY AV # D, Palo Alto, CA 94301",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2024-12-09 (2026-09-23)"
     },
     {
-     "name": "TEABYDO",
+     "name": "TeaByDo (San Jose)",
      "address": "1147 S DE ANZA BL, San Jose, CA 95129",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-16 (2026-09-23)"
@@ -491,13 +491,13 @@
    "scope": "2 permit-sourced location(s) (1 operating, 1 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "COTTI COFFEE",
+     "name": "Cotti Coffee (Rowland Heights)",
      "address": "17418 COLIMA RD, Rowland Heights, CA 91748",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-06-27 (2026-09-23)"
     },
     {
-     "name": "COTTI COFFEE",
+     "name": "Cotti Coffee (Manhattan)",
      "address": "239 8 AVENUE, Manhattan, NY 10011",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
@@ -512,19 +512,19 @@
    "scope": "3 permit-sourced location(s) (2 operating, 1 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "FISH WITH YOU",
+     "name": "Fish With You (Mountain View)",
      "address": "156 CASTRO ST, Mountain View, CA 94041",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-08-13 (2026-09-23)"
     },
     {
-     "name": "YONNY",
+     "name": "Fish With You (Arcadia)",
      "address": "1431 S BALDWIN AVE, Arcadia, CA 91007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
     },
     {
-     "name": "FISH WITH YOU",
+     "name": "Fish With You (Brooklyn)",
      "address": "774 60 STREET, Brooklyn, NY 11220",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
@@ -536,190 +536,184 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "31 permit-sourced location(s) (23 operating, 8 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "30 permit-sourced location(s) (23 operating, 7 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (2855 Stevens Creek Bl)",
      "address": "2855 STEVENS CREEK BL # 1329, San Jose, CA 95050",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (1628 Hostetter Rd)",
      "address": "1628 HOSTETTER RD # H, San Jose, CA 95131",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-08 (2026-09-23)"
     },
     {
-     "name": "HEYTEA SUNNYVALE",
+     "name": "HEYTEA (Sunnyvale)",
      "address": "302 W EL CAMINO REAL, Sunnyvale, CA 94087",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-21 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (Milpitas)",
      "address": "372 BARBER LN, Milpitas, CA 95035",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-04-24 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (Cupertino)",
      "address": "19469 STEVENS CREEK BL, Cupertino, CA 95014",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-09-09 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (Chicago)",
      "address": "2234 S WENTWORTH AVE, CHICAGO, IL 60616",
      "confidence": "confirmed",
      "verified_by": "Chicago health-department permit, first inspected 2026-08-24 (2026-09-23)"
     },
     {
-     "name": "HEY TEA",
+     "name": "HEYTEA (Beverly Hills)",
      "address": "9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2024-08-21 (2026-09-23)"
     },
     {
-     "name": "HEY TEA",
+     "name": "HEYTEA (Rowland Heights)",
      "address": "18253 COLIMA RD # 103, Rowland Heights, CA 91748",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-02-07 (2026-09-23)"
     },
     {
-     "name": "HEY TEA",
+     "name": "HEYTEA (Monterey Park)",
      "address": "500 N ATLANTIC BLVD # 177, Monterey Park, CA 91754",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-05-15 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (Glendale)",
      "address": "1190 GALLERIA WAY, Glendale, CA 91210",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-10-01 (2026-09-23)"
     },
     {
-     "name": "HEY TEA",
+     "name": "HEYTEA (Los Angeles)",
      "address": "3738 S FIGUEROA ST, Los Angeles, CA 90007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
     },
     {
-     "name": "Hey Tea",
+     "name": "HEYTEA (Rockville)",
      "address": "891-F Rockville Pike, Rockville, MD 20852",
      "confidence": "confirmed",
      "verified_by": "Montgomery County MD health-department permit, first inspected 2025-06-05 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (4505 8 Avenue)",
      "address": "4505 8 AVENUE, Brooklyn, NY 11220",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-01-23 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (1407 Broadway)",
      "address": "1407 BROADWAY, Manhattan, NY 10018",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-04-30 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (36-56 Main Street)",
      "address": "36-56 MAIN STREET, Queens, NY 11354",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-09-12 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (52 Willoughby Street)",
      "address": "52 WILLOUGHBY STREET, Brooklyn, NY 11201",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-09-23 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (2120 86 Street)",
      "address": "2120 86 STREET, Brooklyn, NY 11214",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-10-24 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (240 Grand Street)",
      "address": "240 GRAND STREET, Manhattan, NY 10002",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-12-09 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (705 59 Street)",
      "address": "705 59 STREET, Brooklyn, NY 11220",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2024-12-16 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (2813 Broadway)",
      "address": "2813 BROADWAY, Manhattan, NY 10025",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (1293 Broadway)",
      "address": "1293 BROADWAY, Manhattan, NY 10001",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2025-04-14 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (38-02 Prince Street)",
      "address": "38-02 PRINCE STREET, Queens, NY 11354",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2025-04-17 (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (128 2 Avenue)",
      "address": "128 2 AVENUE, Manhattan, NY 10003",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (42-17 Crescent Street)",
      "address": "42-17 CRESCENT STREET, Queens, NY 11101",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA @ NYU",
+     "name": "HEYTEA (10 Waverly Place)",
      "address": "10 WAVERLY PLACE, Manhattan, NY 10003",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (1565 Broadway)",
      "address": "1565 BROADWAY, Manhattan, NY 10036",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "STARLIGHT BILLIARDS / HEY HEY TEA",
-     "address": "6019 4 AVENUE, Brooklyn, NY 11220",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA USA(NY) LLC",
+     "name": "HEYTEA (126 East 86 Street)",
      "address": "126 EAST   86 STREET, Manhattan, NY 10028",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEYTEA",
+     "name": "HEYTEA (106 Lafayette Street)",
      "address": "106 LAFAYETTE STREET, Manhattan, NY 10013",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "HEY TEA",
+     "name": "HEYTEA (Bellevue)",
      "address": "700 110th AVE NE, 192, BELLEVUE, WA 98004",
      "confidence": "confirmed",
      "verified_by": "Seattle/King County health-department permit, first inspected 2024-09-27 (2026-09-23)"
     },
     {
-     "name": "HEYTEA SOUTH LAKE UNION",
+     "name": "HEYTEA (Seattle)",
      "address": "910 John ST, 100, SEATTLE, WA 98109",
      "confidence": "confirmed",
      "verified_by": "Seattle/King County health-department permit, first inspected 2025-05-13 (2026-09-23)"
@@ -734,25 +728,25 @@
    "scope": "4 permit-sourced location(s) (2 operating, 2 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "NAISNOW TEA & BAKERY",
+     "name": "NaiSnow (Cupertino)",
      "address": "19600 VALLCO PY # 100, Cupertino, CA 95014",
      "confidence": "confirmed",
      "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-05 (2026-09-23)"
     },
     {
-     "name": "NAISNOW",
+     "name": "NaiSnow (San Gabriel)",
      "address": "227 W VALLEY BLVD 118B, San Gabriel, CA 91776",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-04-23 (2026-09-23)"
     },
     {
-     "name": "Naisnow Tea & Bakery",
+     "name": "NaiSnow (233 West 42 Street)",
      "address": "233 WEST   42 STREET, Manhattan, NY 10036",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
-     "name": "NAISNOW",
+     "name": "NaiSnow (303 Grand Street)",
      "address": "303 GRAND STREET, Manhattan, NY 10002",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
@@ -767,7 +761,7 @@
    "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
-     "name": "YGF MALATANG",
+     "name": "YGF (Arcadia)",
      "address": "1311 S BALDWIN AVE A, Arcadia, CA 91007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-03-17 (2026-09-23)"
