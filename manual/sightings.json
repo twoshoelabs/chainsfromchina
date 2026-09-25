@@ -463,6 +463,20 @@
    ]
   },
   {
+   "chain": "yangguofu",
+   "supplied_on": "2026-09-26",
+   "source": "YGF regional franchisee locators (e.g. ygfatlanta.com).",
+   "scope": "YGF (Yangguofu 杨国福麻辣烫) outlets published on the chain's own regional franchisee sites, opened after the 31 Dec 2025 FDD roster. First-party evidence; not a complete roster.",
+   "locations": [
+    {
+     "name": "Duluth",
+     "address": "2045 Pleasant Hill Road, Duluth, GA 30096",
+     "confidence": "confirmed",
+     "verified_by": "YGF Atlanta franchisee site (ygfatlanta.com), listed operating with hours (26 Sep 2026)"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",
