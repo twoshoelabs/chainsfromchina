@@ -31,11 +31,35 @@ can see that Luckin's 22 New York stores are absent from the map for a reason th
 locator and not about Luckin.
 """
 import json
+import re
 from pathlib import Path
 
 from . import db
 from .adapters import REGISTRY
 from .profiles import PROFILES, AS_OF as PROFILES_AS_OF
+
+# Collected store names come verbatim from each chain's own locator, which often repeats the brand
+# and a format descriptor: "MIXUE-Union Square Store", "Haidilao Hot Pot Dallas", "CHAGEE Modern
+# Teahouse- Orange". The map tooltip already leads with the chain, so that prefix is pure
+# redundancy. Strip it for DISPLAY and keep the branch; the database keeps the verbatim name.
+_NAME_LEAD = {
+    "mixue": r"MIXUE",
+    "haidilao": r"Haidilao\s+Hot\s*Pot",
+    "chagee": r"CHAGEE\s+Modern\s+Teahouse",
+    "miniso": r"Miniso",
+}
+
+
+def display_name(chain: str, name: str | None) -> str:
+    """The store's branch label for the map: brand and format descriptor stripped, whitespace tidy."""
+    n = (name or "").strip()
+    lead = _NAME_LEAD.get(chain)
+    if lead:
+        n = re.sub(r"^\s*" + lead + r"\b\s*[-\u2013\u2014:]*\s*", "", n, flags=re.I).strip()
+    if chain == "mixue":                                   # MIXUE names end " ... Store"
+        n = re.sub(r"\s*Store\s*$", "", n, flags=re.I).strip()
+    n = re.sub(r"\s+", " ", n).strip(" -\u2013\u2014:")
+    return n or (name or "").strip()
 
 
 def export(out_dir: Path) -> dict:
@@ -92,7 +116,7 @@ def export(out_dir: Path) -> dict:
             unlocated[r["chain_id"]] = unlocated.get(r["chain_id"], 0) + 1
             continue
         stores.append({
-            "chain": r["chain_id"], "name": r["name"], "addr": r["addr_raw"],
+            "chain": r["chain_id"], "name": display_name(r["chain_id"], r["name"]), "addr": r["addr_raw"],
             "city": r["city"], "state": r["state"],
             "lat": round(r["lat"], 6), "lon": round(r["lon"], 6),
             "coord_src": r["coord_src"],
@@ -101,7 +125,7 @@ def export(out_dir: Path) -> dict:
         })
 
     events = [dict(chain=r["chain_id"], date=r["event_date"], type=r["event_type"],
-                   name=r["name"], lat=r["lat"], lon=r["lon"], state=r["state"])
+                   name=display_name(r["chain_id"], r["name"]), lat=r["lat"], lon=r["lon"], state=r["state"])
               for r in con.execute(
                   "SELECT e.event_date,e.event_type,e.chain_id,s.name,s.lat,s.lon,s.state"
                   " FROM events e JOIN stores s ON s.store_id=e.store_id"
