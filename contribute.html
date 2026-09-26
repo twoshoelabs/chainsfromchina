@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — Contribute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Serif+SC:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink current" href="contribute.html">Contribute</a>
+    </nav>
+  </div>
+  <h1>Help fill the map</h1>
+  <p class="sub">This project can only see what these chains publish, and most of them publish
+     nothing. If you know a store we're missing, or a chain we should be following, tell us. We check every
+     submission before anything reaches the map.</p>
+</header>
+
+<div class="introwrap">
+  <p class="note" id="okmsg" hidden></p>
+
+  <div class="cardgrid contribgrid">
+    <form class="ccard cform" id="locform">
+      <h2>Add a location</h2>
+      <p class="cblurb">A specific store you've seen or visited.</p>
+      <label>Chain <span class="req">*</span>
+        <input name="chain" required placeholder="e.g. HEYTEA, Cotti, Fish With You"></label>
+      <label>Street address <span class="req">*</span>
+        <input name="address" required placeholder="123 Main St"></label>
+      <label>City &amp; state <span class="req">*</span>
+        <input name="citystate" required placeholder="Flushing, NY"></label>
+      <label>How do you know it? <span class="req">*</span>
+        <select name="basis" required>
+          <option value="">Choose…</option>
+          <option>I've visited / seen it in person</option>
+          <option>It's open (saw it online, reviews, delivery apps)</option>
+          <option>Coming soon / under construction</option>
+          <option>It has closed</option>
+        </select></label>
+      <label>Anything else? (link, date, which name it trades under)
+        <textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
+      <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <button type="submit">Send this location</button>
+    </form>
+
+    <form class="ccard cform" id="chainform">
+      <h2>Suggest a chain</h2>
+      <p class="cblurb">A Chinese chain that has entered the US, or that you think we should follow.</p>
+      <label>Chain name <span class="req">*</span>
+        <input name="chain" required placeholder="English and/or Chinese name"></label>
+      <label>Where have you seen it in the US?
+        <input name="where" placeholder="City, or 'not yet — but expanding'"></label>
+      <label>Why follow it?
+        <textarea name="why" rows="2" placeholder="Optional — what it is, links, anything useful"></textarea></label>
+      <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <button type="submit">Suggest this chain</button>
+    </form>
+  </div>
+
+  <p class="note small">Submissions go to the project for review; nothing you send is published
+  automatically. The test is China origin. Chains that only sell Chinese products, or that come
+  from Hong Kong, are outside this project's scope.</p>
+</div>
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project, not affiliated with
+  any company named on it.</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+
+<script>
+// Where submissions go. On deploy, set FORM_ENDPOINT to a form service (Formspree/Netlify/etc.)
+// that accepts a POST; until then, submissions fall back to opening the reader's email client.
+const FORM_ENDPOINT = null;                 // e.g. "https://formspree.io/f/xxxxxxx"
+const CONTACT_EMAIL = "hello@twoshoelabs.com";   // role mailbox to create on the domain
+
+function handle(form, kind) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.website_hp && form.website_hp.value) return;         // honeypot: silently drop bots
+    const data = Object.fromEntries(new FormData(form).entries());
+    delete data.website_hp;
+    data._kind = kind;
+
+    if (FORM_ENDPOINT) {
+      try {
+        const r = await fetch(FORM_ENDPOINT, {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data) });
+        if (r.ok) return done(form, kind);
+      } catch (_) { /* fall through to email */ }
+    }
+    // Fallback: compose an email with the submission prefilled.
+    const subject = encodeURIComponent(`[Chains From China] ${kind}: ${data.chain || ''}`.trim());
+    const body = encodeURIComponent(Object.entries(data)
+      .filter(([k]) => k !== '_kind').map(([k, v]) => `${k}: ${v}`).join('\n'));
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    done(form, kind);
+  });
+}
+function done(form, kind) {
+  form.reset();
+  const ok = document.getElementById('okmsg');
+  ok.hidden = false;
+  ok.textContent = kind === 'location'
+    ? 'Thank you — your location is on its way for review.'
+    : 'Thank you — your chain suggestion is on its way for review.';
+  ok.scrollIntoView({ block: 'center' });
+}
+handle(document.getElementById('locform'), 'location');
+handle(document.getElementById('chainform'), 'chain');
+</script>
+</body>
+</html>

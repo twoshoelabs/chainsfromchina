@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — international register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Serif+SC:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink current" href="register.html">International register</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+    </nav>
+  </div>
+  <h1>Which chains are going global</h1>
+  <p class="sub">This tracks which Chinese chains have expanded outside China, and which of them have
+     reached the United States. <span id="asof"></span></p>
+</header>
+
+<div class="wrap">
+  <main>
+    <div id="usview"></div>
+    <p class="note lede">
+      This page is a <strong>register, not a census</strong>. Everything on the US map is
+      something the collector saw for itself and can show a raw capture for. This page is
+      different. The entries come from company filings, exchange announcements and the trade
+      press, typed in by hand, each with the date it was true and a note on how far to trust it.
+      Where a count has not been published we leave it blank instead of guessing.
+      &ldquo;No evidence&rdquo; means a search turned up nothing; it does not mean the chain is
+      absent.
+    </p>
+    <div id="matrix"></div>
+    <div id="detail"></div>
+  </main>
+
+  <aside>
+    <section>
+      <h2>Coverage</h2>
+      <table id="coverage"><tbody></tbody></table>
+      <p class="note small" id="covnote"></p>
+    </section>
+    <section>
+      <h2>Not yet looked at</h2>
+      <p class="note" id="gaps"></p>
+    </section>
+    <section>
+      <h2>How to read a cell</h2>
+      <ul class="legendlist">
+        <li><b>82</b> a published location count</li>
+        <li><b>46&#9733;</b> measured daily by this project's own collector, not typed in</li>
+        <li><b>Y</b> present, but no count published</li>
+        <li><b>–</b> searched, no evidence of presence found</li>
+        <li><b>·</b> not looked at yet</li>
+        <li><span class="conf c-medium">?</span> medium confidence,
+            <span class="conf c-low">??</span> low — hover any cell for the reasoning</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Keeping it honest</h2>
+      <p class="note">Entries carry a review date and go stale. <code>register --stale</code> lists anything
+        untouched for 90 days, so an old entry can be found and re-checked before anyone relies on
+        it.</p>
+    </section>
+  </aside>
+</div>
+
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project. It is
+  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
+  site; brand names identify the businesses being measured and nothing more.</p>
+  <p>Store counts on the US map are collected daily from each chain's own public store locator.
+  The international register is compiled by hand from company filings, exchange announcements and
+  the trade press, and every row carries its source, its date and how far it should be trusted —
+  the two are never added together. Coastlines and boundaries from
+  <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+<div id="tip" hidden></div>
+<script src="register.js"></script>
+</body>
+</html>

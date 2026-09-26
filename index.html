@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — US store map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Serif+SC:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink current" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+    </nav>
+  </div>
+  <h1>Where China&rsquo;s chains are open in America</h1>
+  <p class="sub">A daily count of Chinese chains open across the US, taken from each company's own
+     store list. <span id="asof"></span></p>
+  <p class="ustotal" id="ustotal"></p>
+  <p class="coverline" id="coverline"></p>
+</header>
+
+<div class="wrap">
+  <main>
+    <div class="modes" role="group" aria-label="Map view">
+      <button class="modebtn" data-mode="stores" aria-pressed="true">Stores</button>
+      <button class="modebtn" data-mode="states" aria-pressed="false">By state</button>
+    </div>
+    <div class="tally" id="tally"></div>
+    <div class="legend" id="legend" hidden></div>
+    <figure>
+      <svg id="map" role="img" aria-label="Map of Chinese chain stores in the United States"></svg>
+      <p class="note warn" id="offmap" hidden></p>
+      <figcaption>
+        Filled dot = trading. Hollow ring = announced, not yet open. Drag to pan, scroll to zoom,
+        double-click to reset. Where chains share a mall they overlap at this zoom; the smallest
+        one is drawn on top so it stays visible. Zoom in, or use the chain buttons above, to
+        separate them. Alaska, Hawaii, Puerto Rico and Guam are shown as insets, each at its own
+        scale, so their size and position are not comparable to the mainland map.
+      </figcaption>
+    </figure>
+  </main>
+
+  <aside>
+    <section>
+      <h2>By state</h2>
+      <table id="states"><tbody></tbody></table>
+      <p class="note" id="nostate"></p>
+    </section>
+    <section>
+      <h2>Chains collected</h2>
+      <table id="chains"><tbody></tbody></table>
+    </section>
+
+    <section id="coveragesec">
+      <h2>How complete is this?</h2>
+      <p class="note" id="coverintro"></p>
+      <table id="coverage"><tbody></tbody></table>
+      <p class="note small" id="covernote"></p>
+    </section>
+    <section>
+      <h2>Pipeline</h2>
+      <p class="note" id="pipeline"></p>
+    </section>
+    <section id="notcounted">
+      <h2>In the US, not counted here</h2>
+      <p class="note small">These chains trade in America but we don't count them yet. Each one lists why. We re-check
+        them regularly with <code>recheck</code>, and some of these reasons go away on their own
+        once a chain publishes a store locator.</p>
+      <ul id="blocked"></ul>
+    </section>
+    <section>
+      <h2>Who these companies are</h2>
+      <div id="profiles"></div>
+      <p class="note small" id="profnote"></p>
+    </section>
+    <section>
+      <h2>About these numbers</h2>
+      <p class="note">The record starts on the first day we collected it; we don't backfill from old press reports,
+      so any change we show is only as old as that. The counts are whatever each chain publishes
+      about itself. If a store opens and the chain hasn't updated its locator, we can't see it
+      yet.</p>
+    </section>
+  </aside>
+</div>
+
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project. It is
+  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
+  site; brand names identify the businesses being measured and nothing more.</p>
+  <p>Store counts on the US map are collected daily from each chain's own public store locator.
+  The international register is compiled by hand from company filings, exchange announcements and
+  the trade press. Every row carries its source, its date and how far it should be trusted, and
+  the two are never added together. Coastlines and boundaries from
+  <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+<div id="tip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

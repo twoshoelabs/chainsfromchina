@@ -1,0 +1,353 @@
+:root{
+  color-scheme: light dark;
+  /* Editorial "newsprint" identity: warm paper, near-black ink, one teal accent. */
+  --paper:#F4F1EA; --surface:#FBFAF6; --band:#EBE6DB; --ink:#17181A; --ink-2:#3D3A34; --muted:#5E5A52;
+  --rule:#CFC9BC; --rule-2:#D9D3C6; --land:#E6E1D5; --land-line:#C4BDAD;
+  --accent:#1F5C58; --accent-ink:#123C39; --open:#2C6F66; --soon:#8A5A12; --closed:#9A3B2E;
+  --mixue:#C94A5A; --chagee:#2E6B4F; --luckin:#2B5C9E; --miniso:#5B4B9A;
+  --popmart:#C07A2C; --haidilao:#9A3B2E; --other:#C07A2C;
+  /* Choropleth ramp: one teal hue, four steps. Lightness carries the count, so it survives
+     greyscale printing and the common forms of colour blindness. */
+  --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --hans:"Noto Serif SC","Songti SC",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    /* A dark counterpart to the paper theme — warm charcoal, not blue-grey. */
+    --paper:#17181A; --surface:#1F2020; --band:#232421; --ink:#EDEAE0; --ink-2:#C4BEB0; --muted:#918B7C;
+    --rule:#34342F; --rule-2:#3C3B34; --land:#26261F; --land-line:#3A392F;
+    --accent:#5FB0A2; --accent-ink:#8FCFC3; --open:#5FB0A2; --soon:#D6A44A; --closed:#D67662;
+    --mixue:#E07484; --chagee:#5AAE8A; --luckin:#7C9DDD; --miniso:#9B87CE;
+    --popmart:#D8A05C; --haidilao:#D67662; --other:#D8A05C;
+    --c0:#2A3F3B; --c1:#365E56; --c2:#43897C; --c3:#5FB0A2;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:15px/1.55 var(--sans);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+header{padding:32px 24px 10px; max-width:1240px; margin:0 auto}
+h1{margin:0; font-family:var(--serif); font-weight:500; font-size:44px; line-height:1.02; letter-spacing:-.02em}
+.sub{margin:12px 0 0; color:var(--ink-2); font-size:17px; line-height:1.5; max-width:64ch}
+@media (max-width:620px){ h1{font-size:32px} }
+.wrap{display:flex; gap:24px; padding:16px 24px 48px; max-width:1240px; margin:0 auto; align-items:flex-start}
+main{flex:1 1 auto; min-width:0}
+aside{flex:0 0 300px}
+@media (max-width:900px){ .wrap{flex-direction:column} aside{flex:1 1 auto; width:100%} }
+
+.tally{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
+.chip{
+  display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+  background:var(--surface); border:1px solid var(--rule); border-radius:999px;
+  padding:6px 13px 6px 9px; font-size:13px; color:var(--ink);
+}
+.chip[aria-pressed="false"]{opacity:.38}
+.chip .dot{width:10px; height:10px; border-radius:50%}
+.chip .n{color:var(--muted); font-variant-numeric:tabular-nums}
+
+figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:5px; padding:8px}
+figcaption{color:var(--muted); font-size:12.5px; padding:6px 6px 2px}
+svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cursor:grab}
+svg#map.drag{cursor:grabbing}
+.state{fill:var(--land); stroke:var(--land-line); stroke-width:.6}
+/* No stroke-width here on purpose: a CSS declaration would override the per-dot
+   stroke-width ATTRIBUTE that app.js scales with the view, and the announced-store rings
+   would be drawn 1.6 metres wide, i.e. invisible. */
+.store{cursor:pointer}
+
+aside section{
+  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+  padding:12px 14px; margin-bottom:14px;
+}
+aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+table{width:100%; border-collapse:collapse; font-size:13.5px}
+td{padding:4px 0; border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+td.n{text-align:right; font-variant-numeric:tabular-nums; color:var(--ink-2)}
+td .zh{color:var(--muted); font-size:12px; margin-left:5px}
+.note{margin:0; color:var(--ink-2); font-size:13px}
+ul{margin:0; padding-left:16px; font-size:13px; color:var(--ink-2)}
+li{margin-bottom:7px}
+li b{color:var(--ink); font-weight:600}
+#tip{
+  position:fixed; z-index:9; pointer-events:none; max-width:280px;
+  background:var(--surface); color:var(--ink); border:1px solid var(--rule);
+  border-radius:8px; padding:8px 10px; font-size:13px; box-shadow:0 6px 24px -10px rgba(0,0,0,.4);
+}
+#tip b{display:block}
+#tip .loc{font-size:13px; margin-top:2px}
+#tip .addr{color:var(--ink-2); font-size:12.5px; margin-top:2px}
+#tip .meta{color:var(--muted); font-size:12px; margin-top:5px}
+
+/* ---- view switch, legend, choropleth ---- */
+.modes{display:inline-flex; border:1px solid var(--ink); border-radius:4px; overflow:hidden; margin-bottom:12px}
+.modebtn{
+  appearance:none; border:0; background:transparent; color:var(--ink);
+  font:inherit; font-size:14px; padding:8px 18px; cursor:pointer;
+}
+.modebtn + .modebtn{border-left:1px solid var(--ink)}
+.modebtn[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+
+.legend[hidden], .tally[hidden]{display:none}
+.legend{display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:12px; font-size:12.5px; color:var(--ink-2)}
+.legend .lgl{margin-right:4px; color:var(--muted)}
+.legend .sw{width:22px; height:12px; border-radius:2px; border:1px solid var(--rule)}
+.legend .lgt{margin-right:8px; font-variant-numeric:tabular-nums}
+.legend .lgn{flex:1 1 100%; color:var(--muted); font-size:12px; margin-top:2px}
+.sw[data-step="0"]{background:var(--c0)} .sw[data-step="1"]{background:var(--c1)}
+.sw[data-step="2"]{background:var(--c2)} .sw[data-step="3"]{background:var(--c3)}
+.sw.pend{background:var(--c0); opacity:.55; border-color:var(--soon); border-style:dashed}
+
+.state[data-step="0"]{fill:var(--c0)} .state[data-step="1"]{fill:var(--c1)}
+.state[data-step="2"]{fill:var(--c2)} .state[data-step="3"]{fill:var(--c3)}
+#map.statemode .state{cursor:pointer}
+#map.statemode .state.lit{stroke:var(--surface); stroke-width:900}
+.slabel{fill:var(--ink); font-weight:600; pointer-events:none; paint-order:stroke;
+        stroke:var(--surface); stroke-linejoin:round}   /* size + halo set inline by applyView */
+
+/* A state with no trading stores but an announced one is not the same as an empty state. */
+.state.pending{fill:var(--c0); fill-opacity:.55; stroke:var(--soon); stroke-width:800;
+               stroke-dasharray:3000 2200}
+
+/* ---- company profiles ---- */
+#profiles details{border-bottom:1px solid var(--rule); padding:7px 0}
+#profiles details:last-child{border-bottom:0}
+#profiles summary{
+  cursor:pointer; display:flex; align-items:center; gap:8px;
+  font-size:13.5px; font-weight:600; list-style:none;
+}
+#profiles summary::-webkit-details-marker{display:none}
+#profiles summary::after{content:'+'; margin-left:8px; color:var(--muted); font-weight:400}
+#profiles .nm{white-space:nowrap}
+#profiles summary .zh{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
+#profiles details[open] summary::after{content:'\2212'}
+#profiles .dot{width:9px; height:9px; border-radius:50%; flex:0 0 auto}
+#profiles .tagoff{
+  font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.03em;
+  white-space:nowrap; margin-left:auto; flex:0 0 auto;
+  color:var(--muted); border:1px solid var(--rule); border-radius:4px; padding:1px 5px;
+}
+#profiles p{margin:8px 0 0; font-size:13px; color:var(--ink-2); line-height:1.55}
+#profiles p.why{color:var(--ink-2)}
+#profiles p.why b{color:var(--ink); font-weight:600}
+#profiles dl{display:grid; grid-template-columns:auto 1fr; gap:3px 10px; margin:9px 0 2px; font-size:12.5px}
+#profiles dt{color:var(--muted)}
+#profiles dd{margin:0; color:var(--ink-2)}
+.note.small{font-size:12px; color:var(--muted); margin-top:10px}
+
+/* The state list grows with the archive; cap it and let the reader ask for the rest. */
+#states tbody tr.more td{color:var(--muted); font-size:12.5px; border-bottom:0}
+#states .morebtn{
+  appearance:none; background:none; border:0; padding:0; font:inherit; color:var(--accent);
+  cursor:pointer; text-decoration:underline;
+}
+
+/* Alaska and Hawaii insets: framed and captioned, because their scale is not the mainland's. */
+.insetframe{fill:none; stroke:var(--rule); stroke-dasharray:none}
+.inset .state{stroke-width:0}
+#offmap.warn{
+  margin:8px 6px 0; padding:7px 9px; font-size:12.5px; border-radius:6px;
+  color:var(--ink); background:color-mix(in srgb, var(--soon) 14%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--soon) 45%, var(--rule));
+}
+.icap{fill:var(--muted); font-weight:600; letter-spacing:.06em; pointer-events:none}
+
+/* ---- register page ---- */
+.xlink{margin-left:10px; color:var(--accent); font-size:13px}
+.lede{margin:0 0 16px; max-width:70ch; line-height:1.6}
+.lede strong{color:var(--ink)}
+table.reg{width:100%; border-collapse:collapse; font-size:13px; margin-bottom:26px}
+table.reg th, table.reg td{border:1px solid var(--rule); padding:5px 6px; text-align:center}
+table.reg th.corner{border:0}
+table.reg th.region{
+  font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--muted); font-weight:600; background:var(--paper);
+}
+table.reg th.chain{text-align:left; white-space:nowrap; font-weight:600; background:var(--surface)}
+table.reg th.chain .zh{margin-left:6px}
+table.reg td{background:var(--surface); font-variant-numeric:tabular-nums; cursor:default}
+td.c-yes{background:color-mix(in srgb, var(--accent) 12%, var(--surface)); font-weight:600}
+td.c-yes.c-medium{background:color-mix(in srgb, var(--accent) 8%, var(--surface))}
+td.c-yes.c-low{background:color-mix(in srgb, var(--accent) 4%, var(--surface))}
+td.c-noev{color:var(--muted)}
+td.c-none{color:var(--rule)}
+.dotmark{color:var(--muted); opacity:.5}
+.conf{font-size:10px; vertical-align:super; margin-left:1px; font-weight:400}
+.conf.c-medium{color:var(--soon)}
+.conf.c-low{color:var(--closed)}
+.legendlist{list-style:none; padding:0; font-size:13px}
+.legendlist li{margin-bottom:5px}
+.legendlist b{display:inline-block; min-width:26px; color:var(--ink)}
+.chainblock{
+  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+  padding:12px 15px; margin-bottom:14px;
+}
+.chainblock h3{margin:0 0 3px; font-size:15px}
+dl.rows{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:10px 0 0; font-size:13px}
+dl.rows dt{color:var(--muted); white-space:nowrap}
+dl.rows dd{margin:0; color:var(--ink-2)}
+.status{
+  display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em;
+  border-radius:4px; padding:1px 5px; margin-right:6px; border:1px solid var(--rule);
+}
+.s-present{color:var(--open); border-color:color-mix(in srgb, var(--open) 40%, var(--rule))}
+.s-no_evidence{color:var(--muted)}
+.s-exited{color:var(--closed); border-color:color-mix(in srgb, var(--closed) 40%, var(--rule))}
+.rnote{margin:3px 0 4px; color:var(--ink-2); line-height:1.5}
+a.src{font-size:11.5px; color:var(--accent); margin-right:8px}
+.conf.c-collected{color:var(--accent); font-size:11px}
+td.c-collected{background:color-mix(in srgb, var(--accent) 22%, var(--surface)); font-weight:700}
+.s-collected{color:var(--accent); border-color:color-mix(in srgb, var(--accent) 45%, var(--rule))}
+
+/* ---- site identity ---- */
+a{color:var(--accent)} a:hover{color:var(--accent-ink)}
+.masthead{
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+  padding-bottom:14px; margin-bottom:20px; border-bottom:1px solid var(--ink);
+}
+.brand{
+  font-family:var(--serif); font-size:26px; font-weight:600; letter-spacing:-.01em;
+  color:var(--ink); text-decoration:none; white-space:nowrap;
+}
+.masthead nav{display:flex; gap:4px; margin-left:auto}
+.navlink{
+  font-size:15px; color:var(--ink-2); text-decoration:none;
+  padding:6px 12px; border-bottom:2px solid transparent;
+}
+.navlink:hover{color:var(--ink)}
+.navlink.current{color:var(--ink); border-bottom-color:var(--accent); font-weight:600}
+header h1{font-size:44px}
+.sitefoot{
+  margin:48px 0 0; padding:40px 24px 48px;
+  background:var(--ink); color:var(--rule-2); font-size:13.5px; line-height:1.6;
+}
+.sitefoot > *{max-width:1240px; margin-left:auto; margin-right:auto}
+.sitefoot p{margin:0 0 10px; max-width:82ch}
+.sitefoot strong{color:var(--paper)}
+.sitefoot a{color:#8FCFC3}
+.sitefoot .pub{font-size:.92em; opacity:.85; margin-top:4px}
+@media (prefers-color-scheme: dark){ .sitefoot{background:#0F0F10} }
+@media (max-width:620px){ .masthead nav{margin-left:0; width:100%; flex-wrap:wrap} }
+
+/* Serif headlines / mono numerals set the editorial tone throughout */
+aside h2, section h2, .usbox h2{font-family:var(--sans)}
+.lede{font-size:16px}
+td.n, .chip .n, .cpct, .cbar, #coverage td.num, .abroad,
+.legend .lgt, .conf{font-family:var(--mono)}
+.zh, td .zh, .ccard .zh, table.reg th.chain .zh{font-family:var(--hans)}
+
+/* ---- US-first view on the register ---- */
+.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+       padding:14px 16px; margin-bottom:14px}
+.usbox h2{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+.usbox.watch{border-color:color-mix(in srgb, var(--soon) 45%, var(--rule))}
+ul.uslist{list-style:none; padding:0; margin:10px 0 0; font-size:13.5px}
+ul.uslist li{padding:7px 0; border-bottom:1px solid var(--rule)}
+ul.uslist li:last-child{border-bottom:0}
+ul.uslist b{color:var(--ink)}
+.abroad{float:right; color:var(--muted); font-size:12.5px; font-variant-numeric:tabular-nums}
+
+/* The coverage ratio is a correction to what the map alone implies, so it reads as a caveat. */
+.coverline{
+  margin:10px 0 0; padding:9px 12px; max-width:78ch;
+  font-size:13px; line-height:1.55; color:var(--ink-2);
+  background:color-mix(in srgb, var(--soon) 10%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--soon) 38%, var(--rule));
+  border-radius:8px;
+}
+.coverline b{color:var(--ink)}
+.coverline a{color:var(--accent)}
+#notcounted{scroll-margin-top:16px}
+
+/* A chain that is here but undrawable still belongs in the chain row, visibly set apart. */
+.chip.off{
+  cursor:help; border-style:dashed; color:var(--muted);
+  background:color-mix(in srgb, var(--muted) 5%, var(--surface));
+}
+.chip.off .dot{background:var(--muted); opacity:.45}
+.chip.off .n{color:var(--muted)}
+
+/* Supplied data must never be mistaken for collected data at a glance. */
+.chip.supplied{border-style:dashed; cursor:help}
+.chip.supplied .n{color:var(--soon)}
+.warnzh{color:var(--soon) !important}
+
+/* A derived position is drawn hollow-hearted: same colour, visibly less certain. */
+.store.geo{fill-opacity:.55}
+
+/* Sightings are squares, not dots: a different claim, drawn as a different shape. */
+.sight{fill:none; stroke:var(--muted); cursor:help}
+.sight.unsure{stroke-dasharray:2 2; opacity:.6}
+
+/* Coverage scorecard: what we hold vs what is thought to exist */
+#coverage{width:100%; border-collapse:collapse; font-size:13px}
+#coverage td{padding:3px 5px; vertical-align:middle; border-bottom:1px solid var(--rule)}
+#coverage tr:last-child td{border-bottom:0}
+#coverage td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.cov{cursor:default}
+.covcell{width:96px; white-space:nowrap}
+.cbar{display:inline-block; height:7px; width:56px; border-radius:4px;
+  background:var(--rule); position:relative; vertical-align:middle}
+.cbar::after{content:""; position:absolute; left:0; top:0; height:100%;
+  width:var(--w,0); border-radius:4px; background:var(--accent)}
+.cbar.full::after{width:100%; background:var(--accent)}
+.cbar[data-status="strong"]::after{background:var(--open)}
+.cbar[data-status="partial"]::after{background:var(--soon)}
+.cbar[data-status="sparse"]::after{background:var(--closed)}
+.cpct{font-size:11px; margin-left:6px; color:var(--muted)}
+#coverage .dim{color:var(--muted)}
+
+/* Introduction & Contribute pages */
+.introwrap{max-width:1000px; margin:0 auto; padding:0 16px 40px}
+.cardgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-top:16px}
+.ccard{background:var(--surface); border:1px solid var(--rule); border-radius:5px; overflow:hidden;
+  display:flex; flex-direction:column}
+.cphoto{width:100%; height:150px; object-fit:cover; display:block; background:var(--paper)}
+.cphoto.placeholder{display:flex; align-items:center; justify-content:center; color:var(--muted);
+  font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+  background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 10px,var(--surface) 10px,var(--surface) 20px)}
+.cbody{padding:12px 14px 14px}
+.ccard h2{font-size:16px; margin:0 0 2px}
+.ccard .zh{color:var(--muted); font-weight:400; font-size:13px}
+.ccat{margin:0 0 8px; font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:.04em}
+.cblurb{margin:0 0 10px; font-size:13px; line-height:1.5; color:var(--ink-2)}
+.ccredit{margin:0 0 8px; font-size:11px; color:var(--muted)}
+.clinks{margin:0; font-size:13px}
+.clinks a{color:var(--accent); text-decoration:none}
+.clinks a:hover{text-decoration:underline}
+.cnwarn{color:var(--soon); font-size:11px; white-space:nowrap}
+.dim{color:var(--muted)}
+.note.warn{background:color-mix(in srgb, var(--soon) 12%, var(--surface)); border:1px solid var(--soon);
+  border-radius:8px; padding:10px 12px}
+
+/* Contribute forms */
+.contribgrid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.cform{padding:16px}
+.cform label{display:block; font-size:13px; color:var(--ink-2); margin:10px 0 0}
+.cform input, .cform select, .cform textarea{width:100%; box-sizing:border-box; margin-top:4px;
+  padding:8px 9px; font:inherit; font-size:14px; color:var(--ink); background:var(--paper);
+  border:1px solid var(--rule); border-radius:7px}
+.cform .req{color:var(--closed)}
+.cform button{margin-top:14px; padding:9px 16px; font:inherit; font-size:14px; font-weight:600;
+  color:#fff; background:var(--accent); border:0; border-radius:8px; cursor:pointer}
+.cform button:hover{filter:brightness(1.06)}
+.cform .hp{position:absolute; left:-9999px; height:0; overflow:hidden}
+#okmsg{background:color-mix(in srgb, var(--open) 14%, var(--surface)); border:1px solid var(--open);
+  border-radius:8px; padding:10px 12px; margin-top:16px}
+
+/* Beta badge in the masthead */
+.beta{display:inline-block; margin-left:10px; padding:3px 8px; font-family:var(--mono); font-size:11px;
+  font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+  border:1px solid var(--muted); border-radius:3px; vertical-align:middle; cursor:default}
+
+/* Landing total-outlets headline: the newsprint hero figure */
+.ustotal{margin:22px 0 4px; font-size:18px; color:var(--ink-2); line-height:1.45}
+.ustotal b{display:block; margin-bottom:6px; font-family:var(--serif); font-weight:500;
+  font-size:84px; line-height:.9; letter-spacing:-.035em; color:var(--ink); font-variant-numeric:lining-nums}
+.ustotal .dim{color:var(--muted); font-size:13.5px; font-family:var(--mono)}
+@media (max-width:620px){ .ustotal b{font-size:60px} }
