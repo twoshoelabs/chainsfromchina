@@ -134,6 +134,12 @@
      "note": "Earlier a store-page 'Closed' badge (21 Sep 2026) left this ambiguous; Boston's own inspection record resolves it — the establishment is real and operating.",
      "confidence": "confirmed",
      "verified_by": "Boston health-department inspection record (data.boston.gov), an active food-establishment inspection at 122 Brighton Av, Allston — 23 Sep 2026"
+    },
+    {
+     "name": "Tustin",
+     "address": "14089 Newport Ave, Tustin, CA 92780",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (46 reviews, updated Jun 2026), operating (26 Sep 2026)"
     }
    ]
   },
@@ -480,7 +486,7 @@
    "chain": "zhangliang",
    "supplied_on": "2026-09-26",
    "source": "First-party regional site, delivery listing, a city-government notice and county health permits.",
-   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far, clustered in California. Not a complete roster.",
+   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — clustered in California (Bay Area, LA/Orange County, San Diego) plus a Seattle-area outlet, harvested from first-party regional sites, delivery listings and review aggregators. Not a complete roster.",
    "locations": [
     {
      "name": "Mountain View",
@@ -511,6 +517,36 @@
      "address": "1834 Westwood Blvd, Los Angeles, CA 90024",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit + LA franchisee Instagram (26 Sep 2026)"
+    },
+    {
+     "name": "Irvine",
+     "address": "15455 Jeffrey Rd Ste 325, Irvine, CA 92618",
+     "confidence": "confirmed",
+     "verified_by": "dedicated site zhangliangmalatangirvine.com + Yelp (401 reviews) + Chowbus (26 Sep 2026)"
+    },
+    {
+     "name": "Rowland Heights",
+     "address": "1380 Fullerton Rd #104, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (304 reviews, updated Sep 2026) + LA franchisee Instagram (26 Sep 2026)"
+    },
+    {
+     "name": "San Diego (Clairemont Mesa)",
+     "address": "8058 Clairemont Mesa Blvd, San Diego, CA 92111",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (207 reviews) + Fantuan + mmm-yoso review (26 Sep 2026)"
+    },
+    {
+     "name": "National City",
+     "address": "1430 E Plaza Blvd E20, National City, CA 91950",
+     "confidence": "confirmed",
+     "verified_by": "dedicated site zhangliangsd.com + Postmates listing (26 Sep 2026)"
+    },
+    {
+     "name": "Bellevue",
+     "address": "2221 140th Ave NE, Bellevue, WA 98005",
+     "confidence": "confirmed",
+     "verified_by": "dedicated site zhangliangmalatang-bellevue.com (26 Sep 2026)"
     }
    ]
   },
