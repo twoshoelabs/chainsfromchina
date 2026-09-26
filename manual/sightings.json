@@ -583,6 +583,18 @@
      "address": "2237 Shattuck Ave, Berkeley, CA 94704",
      "confidence": "confirmed",
      "verified_by": "Yelp (332 reviews, updated Sep 2026) + delivery aggregators (26 Sep 2026)"
+    },
+    {
+     "name": "Dublin",
+     "address": "2700 Dublin Blvd, Dublin, CA 94568",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (612 reviews, updated Sep 2026) + dedicated site zhangliangtrivalleyca.com; no closure banner (27 Sep 2026)"
+    },
+    {
+     "name": "Sacramento",
+     "address": "6914 65th St #301, Sacramento, CA 95823",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (104 reviews, updated Aug 2026) + Corner + Apple Maps; no closure banner (27 Sep 2026)"
     }
    ]
   },
