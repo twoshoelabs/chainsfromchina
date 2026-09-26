@@ -577,6 +577,12 @@
      "address": "493 Main St, Fort Lee, NJ 07024",
      "confidence": "confirmed",
      "verified_by": "dedicated site malatangnj.com (张亮麻辣烫) + boozyburbs opening alert Mar 2025 + Yelp (26 Sep 2026)"
+    },
+    {
+     "name": "Berkeley",
+     "address": "2237 Shattuck Ave, Berkeley, CA 94704",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (332 reviews, updated Sep 2026) + delivery aggregators (26 Sep 2026)"
     }
    ]
   },
