@@ -179,9 +179,29 @@
    "name_zh": "鱼你在一起",
    "format": "restaurant",
    "global": "sauerkraut-fish (酸菜鱼) fast-casual chain, several thousand outlets in China (2025 est.); US franchising began 2024-25"
+  },
+  "zhangliang": {
+   "name": "Zhang Liang Malatang",
+   "name_zh": "张亮麻辣烫",
+   "format": "restaurant",
+   "global": "one of China's two dominant malatang chains, ~6,000 outlets, founded in Harbin in 2008; its own brand news reports 42 North American outlets across the US, Canada and Mexico as of Sept 2026"
   }
  },
  "entries": [
+  {
+   "chain": "zhangliang",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-26",
+   "note": "Its own brand news (11 Sep 2026) places it in Toronto and Vancouver, as part of a claimed 42 outlets across North America (US, Canada, Mexico); no Canadian count or opening date is published.",
+   "sources": [
+    "https://www.zlmlt.com/Brand_News.html"
+   ]
+  },
   {
    "chain": "mixue",
    "market": "HK",
