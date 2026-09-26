@@ -60,6 +60,10 @@
    "name": "Canada",
    "region": "North America"
   },
+  "MX": {
+   "name": "Mexico",
+   "region": "North America"
+  },
   "GB": {
    "name": "United Kingdom",
    "region": "Western Europe"
@@ -198,6 +202,20 @@
    "confidence": "low",
    "reviewed": "2026-09-26",
    "note": "Its own brand news (11 Sep 2026) places it in Toronto and Vancouver, as part of a claimed 42 outlets across North America (US, Canada, Mexico); no Canadian count or opening date is published.",
+   "sources": [
+    "https://www.zlmlt.com/Brand_News.html"
+   ]
+  },
+  {
+   "chain": "zhangliang",
+   "market": "MX",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-26",
+   "note": "Named as one of the three countries in its own brand news claim of 42 North American outlets (US, Canada, Mexico, 11 Sep 2026); no Mexican city, count or opening date is published.",
    "sources": [
     "https://www.zlmlt.com/Brand_News.html"
    ]
