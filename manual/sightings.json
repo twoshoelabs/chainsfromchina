@@ -492,7 +492,7 @@
    "chain": "zhangliang",
    "supplied_on": "2026-09-26",
    "source": "First-party regional site, delivery listing, a city-government notice and county health permits.",
-   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — clustered in California (Bay Area, LA/Orange County, San Diego) plus a Seattle-area outlet, harvested from first-party regional sites, delivery listings and review aggregators. Not a complete roster.",
+   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — California (Bay Area, LA/Orange County, San Diego), the Seattle area, and the New York / New Jersey metro — harvested from first-party regional sites, delivery listings, review aggregators and a NYC health permit. Not a complete roster.",
    "locations": [
     {
      "name": "Mountain View",
@@ -553,6 +553,30 @@
      "address": "2221 140th Ave NE, Bellevue, WA 98005",
      "confidence": "confirmed",
      "verified_by": "dedicated site zhangliangmalatang-bellevue.com (26 Sep 2026)"
+    },
+    {
+     "name": "Flushing",
+     "address": "136-49 Roosevelt Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "NYC health-department permit (ZHANG LIANG HOT POT, CAMIS 50097866) + delivery aggregators (26 Sep 2026)"
+    },
+    {
+     "name": "Manhattan (Chinatown)",
+     "address": "66 Mott St, New York, NY 10013",
+     "confidence": "confirmed",
+     "verified_by": "Uber Eats (张亮麻辣烫) + Yelp (53 reviews) + Grubhub/Corner; no DOHMH permit found at this address (26 Sep 2026)"
+    },
+    {
+     "name": "Jersey City",
+     "address": "185 Newark Ave, Jersey City, NJ 07302",
+     "confidence": "confirmed",
+     "verified_by": "Chowbus (Zhang Liang Malatang NJ) + Yelp (25 reviews) + DoorDash (26 Sep 2026)"
+    },
+    {
+     "name": "Fort Lee",
+     "address": "493 Main St, Fort Lee, NJ 07024",
+     "confidence": "confirmed",
+     "verified_by": "dedicated site malatangnj.com (张亮麻辣烫) + boozyburbs opening alert Mar 2025 + Yelp (26 Sep 2026)"
     }
    ]
   },
