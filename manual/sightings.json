@@ -479,6 +479,12 @@
      "address": "2045 Pleasant Hill Road, Duluth, GA 30096",
      "confidence": "confirmed",
      "verified_by": "YGF Atlanta franchisee site (ygfatlanta.com), listed operating with hours (26 Sep 2026)"
+    },
+    {
+     "name": "Sunrise",
+     "address": "2430 N University Dr, Sunrise, FL 33322",
+     "confidence": "confirmed",
+     "verified_by": "YGF South Florida franchisee site (ygfmiami.com) + whatnow.com; operating (26 Sep 2026)"
     }
    ]
   },
