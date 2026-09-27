@@ -121,7 +121,7 @@
    "chain": "cotti",
    "supplied_on": "2026-09-21",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "Known Cotti locations outside New York. Sightings, not a count — no completeness is claimed for any market outside NYC.",
+   "scope": "Web-verified US Cotti Coffee locations beyond the NYC cluster — a franchisee-led chain that publishes no readable US locator. Sources are regional/dedicated sites, delivery listings and review aggregators; the national footprint reaches HI, IL, DC and TN. Not a complete roster.",
    "locations": [
     {
      "name": "San Gabriel",
@@ -140,6 +140,42 @@
      "address": "14089 Newport Ave, Tustin, CA 92780",
      "confidence": "confirmed",
      "verified_by": "Yelp (46 reviews, updated Jun 2026), operating (26 Sep 2026)"
+    },
+    {
+     "name": "Honolulu (Pearl City)",
+     "address": "1000 Kamehameha Hwy Suite C, Pearl City, HI 96782",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (80 reviews) + Pearl Highlands Center tenant page + Uber Eats (27 Sep 2026)"
+    },
+    {
+     "name": "Chicago (Loop)",
+     "address": "77 E Adams St, Chicago, IL 60603",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + Daily Coffee News (27 Sep 2026)"
+    },
+    {
+     "name": "Champaign (UIUC)",
+     "address": "509 E Green St Ste C, Champaign, IL 61820",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + dedicated site cotticoffeeuiuc.com (27 Sep 2026)"
+    },
+    {
+     "name": "Evanston",
+     "address": "720 Clark St, Evanston, IL 60201",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (Te'Amo/Lao Szechuan/Cotti shared space) (27 Sep 2026)"
+    },
+    {
+     "name": "Washington DC",
+     "address": "900 M St NW, Washington, DC 20001",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + DoorDash (Cotti Coffee & WUU) (27 Sep 2026)"
+    },
+    {
+     "name": "Murfreesboro (MTSU)",
+     "address": "1513 E Main St A, Murfreesboro, TN 37130",
+     "confidence": "confirmed",
+     "verified_by": "Yelp + MTSU Sidelines (opened Sep 2025) + DoorDash (27 Sep 2026)"
     }
    ]
   },
