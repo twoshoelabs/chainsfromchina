@@ -190,6 +190,16 @@
       "site_us": "https://shooloongkan.us/",
       "photo": "img/xiaolongkan.jpg",
       "photo_credit": null
+    },
+    "liuyishou": {
+      "name": "Liuyishou Hot Pot",
+      "name_zh": "刘一手火锅",
+      "category": "Hot pot",
+      "blurb": "A Chongqing hotpot chain founded in 2000, one of mainland China's largest with thousands of outlets, known for its buttery mala broth and beef. It trades across North America as \"Liuyishou Hot Pot\" and publishes its own site with a page per city; its US outlets run from Boston and New York to California, Texas, Illinois and Washington.",
+      "site_cn": null,
+      "site_us": "https://www.liuyishouna.com/",
+      "photo": "img/liuyishou.jpg",
+      "photo_credit": null
     }
   }
 }
