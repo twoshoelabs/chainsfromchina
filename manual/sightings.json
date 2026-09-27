@@ -176,6 +176,12 @@
      "address": "1513 E Main St A, Murfreesboro, TN 37130",
      "confidence": "confirmed",
      "verified_by": "Yelp + MTSU Sidelines (opened Sep 2025) + DoorDash (27 Sep 2026)"
+    },
+    {
+     "name": "Honolulu (Ward Village)",
+     "address": "1000 Auahi St, Honolulu, HI 96814",
+     "confidence": "confirmed",
+     "verified_by": "Ward Village directory (Koʻula Shops) + Google listing (73 reviews), opened ~Mar 2026 (27 Sep 2026)"
     }
    ]
   },
