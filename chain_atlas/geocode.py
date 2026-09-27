@@ -93,9 +93,9 @@ def run(con, chain_id: str | None = None, limit: int = 500) -> dict:
                a derived one, whatever the geocoder thinks — the chain is the authority on where
                its own shop is.
     """
-    from .geo import cell100
+    from .geo import cell100, state_from_point
     cache = _load_cache()
-    q = ("SELECT store_id, chain_id, addr_raw, country FROM stores"
+    q = ("SELECT store_id, chain_id, addr_raw, country, state FROM stores"
          " WHERE lat IS NULL AND addr_raw IS NOT NULL AND addr_raw != ''"
          " AND country='US' AND status != 'withdrawn'")
     args: tuple = ()
@@ -110,9 +110,16 @@ def run(con, chain_id: str | None = None, limit: int = 500) -> dict:
         if not got:
             failed += 1
             continue
+        # A store whose published address carried no state (some locators drop it, e.g. a bare
+        # "Las Vegas, 89102") gets one from the coordinate we just derived — the same last-resort
+        # rule run.normalise applies at parse time. Only ever fills a blank; a chain-stated state
+        # is never overwritten.
+        state = r["state"] or state_from_point(got["lat"], got["lon"])
         con.execute(
-            "UPDATE stores SET lat=?, lon=?, coord_src='geocoded', cell100=? WHERE store_id=?",
-            (got["lat"], got["lon"], cell100(got["lat"], got["lon"], r["country"]), r["store_id"]))
+            "UPDATE stores SET lat=?, lon=?, coord_src='geocoded', cell100=?, state=? "
+            "WHERE store_id=?",
+            (got["lat"], got["lon"], cell100(got["lat"], got["lon"], r["country"]),
+             state, r["store_id"]))
         placed += 1
     con.commit()
     _save_cache(cache)

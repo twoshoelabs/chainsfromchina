@@ -685,62 +685,6 @@
    ]
   },
   {
-   "chain": "xiaolongkan",
-   "supplied_on": "2026-09-28",
-   "source": "The chain's own US store locator (shooloongkan.us/locations).",
-   "scope": "US Shoo Loong Kan Hotpot (Xiaolongkan 小龙坎) outlets taken from the chain's own US locator: 8 open as of 28 Sep 2026 (plus 4 coming soon, not listed here). First-party; a candidate to promote to a daily-collected adapter.",
-   "locations": [
-    {
-     "name": "Flushing",
-     "address": "133-36 37th Ave, Queens, NY 11354",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Manhattan",
-     "address": "22 E 13th St, New York, NY 10003",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Fort Lee",
-     "address": "2024 Hudson St, Fort Lee, NJ 07024",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Jersey City",
-     "address": "253 Washington St, Jersey City, NJ 07302",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Richardson",
-     "address": "400 N Greenville Ave #16, Richardson, TX 75081",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Carrollton",
-     "address": "2540 Old Denton Rd #200, Carrollton, TX 75006",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Chicago",
-     "address": "2201 S Wentworth Ave, Chicago, IL 60616",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    },
-    {
-     "name": "Las Vegas",
-     "address": "4215 Spring Mountain Road B203, Las Vegas, NV 89102",
-     "confidence": "confirmed",
-     "verified_by": "Shoo Loong Kan first-party US locator (shooloongkan.us) (28 Sep 2026)"
-    }
-   ]
-  },
-  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",
