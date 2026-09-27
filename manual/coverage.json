@@ -24,11 +24,12 @@
       "note": "\"at least 29\"; current count unconfirmed"
     },
     "taier": {
-      "us": 5,
-      "confidence": "low",
-      "as_of": "2026-09",
-      "source": "trade press / Yelp",
-      "note": "San Mateo, Santa Clara, Flushing, Arcadia, LA"
+      "us": 4,
+      "us_text": "4 (complete US set)",
+      "confidence": "medium",
+      "as_of": "2026-09-27",
+      "source": "first-party enumeration (Yelp official pages, order.online, taierusa)",
+      "note": "Complete US set as of 27 Sep 2026: San Mateo, Santa Clara (Valley Fair), Arcadia, Flushing. The earlier '5' double-counted Arcadia and 'LA' (the same store)."
     },
     "yangs": {
       "us": 2,

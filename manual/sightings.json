@@ -465,6 +465,12 @@
      "address": "133-36 37 AVENUE, Queens, NY 11354",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit (TAIER, first inspected 2023-10-10), active; brand-name listing on Dealmoon (24 Sep 2026)"
+    },
+    {
+     "name": "San Mateo",
+     "address": "98 E 4th Ave, San Mateo, CA 94401",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (270 reviews, Open) + order.online; Tai Er's official US set (27 Sep 2026)"
     }
    ]
   },
