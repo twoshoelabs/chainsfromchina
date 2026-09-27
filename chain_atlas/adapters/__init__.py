@@ -25,6 +25,7 @@ from .haidilao_us import HaidilaoUSAdapter
 from .popmart import PopMartUSAdapter
 from .xiaolongkan import XiaolongkanAdapter
 from .liuyishou import LiuyishouAdapter
+from .aunteajenny import AunteaJennyAdapter
 from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter,
                     YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter)
@@ -50,6 +51,7 @@ REGISTRY: list[Adapter] = [
     ChahaloAdapter(), # mainland premium tea 茶话弄 (Xi'an); recent US entry — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
+    AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py
 ]
 
 

@@ -47,6 +47,7 @@ _NAME_LEAD = {
     "haidilao": r"Haidilao\s+Hot\s*Pot",
     "chagee": r"CHAGEE\s+Modern\s+Teahouse",
     "miniso": r"Miniso",
+    "aunteajenny": r"Auntea\s+Jenny",
 }
 
 

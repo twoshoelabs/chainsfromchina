@@ -200,6 +200,16 @@
       "site_us": "https://www.liuyishouna.com/",
       "photo": "img/liuyishou.jpg",
       "photo_credit": null
+    },
+    "aunteajenny": {
+      "name": "Auntea Jenny",
+      "name_zh": "沪上阿姨",
+      "category": "Bubble tea",
+      "blurb": "A bubble-tea chain founded in 2013 in Shanghai, one of mainland China's largest with several thousand outlets and a 2025 Hong Kong listing, known for fresh-brewed milk teas and grain-based drinks. It entered the US as \"Auntea Jenny\", with its first outlets in New York and California and many more announced.",
+      "site_cn": null,
+      "site_us": "https://aunteajenny.us/",
+      "photo": "img/aunteajenny.jpg",
+      "photo_credit": null
     }
   }
 }
