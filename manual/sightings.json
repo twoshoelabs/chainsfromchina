@@ -224,6 +224,18 @@
      "address": "38-03 Main St, Flushing, NY 11354",
      "opened": "2025-08-18",
      "note": "ChaPanda's first North American store, trading as TeaByDo. Recorded because a chain this young leaves a complete opening history if it is watched from the start — and because the alias is what makes it findable at all."
+    },
+    {
+     "name": "Irvine",
+     "address": "2626 Dupont Dr Ste 040, Irvine, CA 92612",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (591 reviews, Open) + Apple Maps; operating (27 Sep 2026)"
+    },
+    {
+     "name": "Bellevue",
+     "address": "1075 Bellevue Way NE, Bellevue, WA 98004",
+     "confidence": "confirmed",
+     "verified_by": "425business + Downtown Bellevue Network (opened Jul 2026) + Roadtrippers (27 Sep 2026)"
     }
    ]
   },

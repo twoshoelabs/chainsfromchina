@@ -49,12 +49,12 @@
       "note": "US entry Oct 2025; no published US total"
     },
     "chabaidao": {
-      "us": 4,
-      "us_text": "~3-5",
+      "us": 6,
+      "us_text": "~5-7",
       "confidence": "low",
-      "as_of": "2026-09",
-      "source": "press",
-      "note": "entered US Aug 2025 as TeaByDo; small"
+      "as_of": "2026-09-27",
+      "source": "web enumeration",
+      "note": "US set enumerated ~5 as of Sep 2026 (Flushing, Palo Alto, San Jose, Irvine, Bellevue); still expanding, though Canada (Richmond BC, Toronto) is the bigger current growth."
     },
     "juewei": {
       "us": 3,
