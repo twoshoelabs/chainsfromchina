@@ -26,6 +26,7 @@ from .popmart import PopMartUSAdapter
 from .xiaolongkan import XiaolongkanAdapter
 from .liuyishou import LiuyishouAdapter
 from .aunteajenny import AunteaJennyAdapter
+from .mollytea import MollyTeaAdapter
 from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter,
                     YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter)
@@ -52,6 +53,7 @@ REGISTRY: list[Adapter] = [
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py
+    MollyTeaAdapter(), # collected daily from usa.mollytea.com ASL feed (US rows) — see mollytea.py
 ]
 
 

@@ -210,6 +210,16 @@
       "site_us": "https://aunteajenny.us/",
       "photo": "img/aunteajenny.jpg",
       "photo_credit": null
+    },
+    "mollytea": {
+      "name": "Molly Tea",
+      "name_zh": "茉莉奶白",
+      "category": "Bubble tea",
+      "blurb": "A mainland Chinese premium milk-tea chain founded in 2021, known for its jasmine-tea \"milk white\" drinks and fast overseas growth across Asia, Australia and North America. Its US outlets, trading as \"Molly Tea\", run across California and into Washington, Texas, Illinois, Georgia, Nevada, New Jersey, Pennsylvania and beyond.",
+      "site_cn": null,
+      "site_us": "https://usa.mollytea.com/",
+      "photo": "img/mollytea.jpg",
+      "photo_credit": null
     }
   }
 }
