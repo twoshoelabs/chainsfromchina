@@ -444,3 +444,43 @@ class ChahaloAdapter(Adapter):
                       " entry (City of Industry, Berkeley, NYC) with no single US locator, also"
                       " expanding into Canada. Tracked via sightings (27 Sep 2026)")
     RECHECK = ["https://www.chahalo.com/"]
+
+
+class LelechaAdapter(Adapter):
+    """
+    Lelecha (乐乐茶) — added 2026-09-28. A premium "modern Chinese tea" chain founded in 2016 in
+    Shanghai, known for cheese-foam teas and bread; mainland origin, so in scope.
+
+    Its US site (lelechaus.com) is an unlaunched Squarespace "Private Site" (noindex), so there is
+    no public first-party locator. US presence surfaces through Yelp and delivery apps (Rowland
+    Heights so far). Tracked via sightings.
+    """
+    chain_id, name, name_zh = "lelecha", "Lelecha", "乐乐茶"
+    name_us = "Lelecha"
+    aliases = ("Le Le Cha", "LELECHA")
+    parent, format = "Lelecha (乐乐茶, Shanghai)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland premium-tea chain (乐乐茶, Shanghai); US entry with no public"
+                      " locator — lelechaus.com is an unlaunched private Squarespace, so outlets"
+                      " surface only on Yelp and delivery apps. Tracked via sightings (28 Sep 2026)")
+    RECHECK = ["https://www.lelechaus.com/"]
+
+
+class NonggengjiAdapter(Adapter):
+    """
+    Nong Geng Ji (农耕记 · 湖南菜) — added 2026-09-28. A Hunan-cuisine restaurant chain from
+    Shenzhen known for countryside-style, wok-charred Hunan cooking; mainland origin, so in scope.
+
+    First US location opened Flushing, Queens in January 2026; a second is announced for Rockville,
+    Maryland (1701 Rockville Pike) with no opening date. Too few US outlets to publish a locator,
+    so tracked via sightings; the announced Rockville site is noted but not mapped until it opens.
+    """
+    chain_id, name, name_zh = "nonggengji", "Nong Geng Ji", "农耕记"
+    name_us = "Nong Geng Ji"
+    aliases = ("Nonggengji", "Nong Geng Ji Hunan Cuisine")
+    parent, format = "Nong Geng Ji (农耕记, Shenzhen)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Hunan-cuisine chain (农耕记, Shenzhen); first US restaurant opened"
+                      " Flushing NY Jan 2026, a second announced for Rockville MD. Too few US"
+                      " outlets for a locator; tracked via sightings (28 Sep 2026)")
+    RECHECK = []

@@ -54,7 +54,8 @@ TERMS = {
     "ZHANGLIANG": "zhangliang", "ZHANG LIANG MALATANG": "zhangliang",
     "ZHANG LIANG HOT POT": "zhangliang", "ZHANG LIANG SPICY": "zhangliang",
     "CHAHALO": "chahalo", "CHA HALO": "chahalo", "CHAHUANONG": "chahalo", "CHA HUA NONG": "chahalo",
-    "XIAOLONGKAN": "xiaolongkan", "XIAO LONG KAN": "xiaolongkan", "SHOO LOONG KAN": "xiaolongkan",
+    "LELECHA": "lelecha", "LE LE CHA": "lelecha",
+    "NONGGENGJI": "nonggengji", "NONG GENG JI": "nonggengji",
 }
 
 

@@ -95,6 +95,22 @@
       "as_of": "2026-09-27",
       "source": "web enumeration",
       "note": "Recent US entry; 3 confirmed open (City of Industry, Berkeley, NYC) plus Plano TX announced. Toronto is in Canada."
+    },
+    "lelecha": {
+      "us": 1,
+      "us_text": "1+",
+      "confidence": "low",
+      "as_of": "2026-09-28",
+      "source": "web enumeration",
+      "note": "US site is an unlaunched private Squarespace; 1 confirmed open (Rowland Heights CA). Others may exist but are not yet confirmed."
+    },
+    "nonggengji": {
+      "us": 1,
+      "us_text": "1 (+1 announced)",
+      "confidence": "medium",
+      "as_of": "2026-09-28",
+      "source": "web enumeration",
+      "note": "First US restaurant opened Flushing NY Jan 2026; a second at Rockville MD is announced with no opening date."
     }
   }
 }

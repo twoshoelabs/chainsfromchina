@@ -220,6 +220,26 @@
       "site_us": "https://usa.mollytea.com/",
       "photo": "img/mollytea.jpg",
       "photo_credit": null
+    },
+    "lelecha": {
+      "name": "Lelecha",
+      "name_zh": "乐乐茶",
+      "category": "Bubble tea",
+      "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Shanghai, known for cheese-foam teas, fruit teas and its dirty-bun bakery. It has begun opening in the US, though its US site is not yet public; early outlets are in California.",
+      "site_cn": null,
+      "site_us": "https://www.lelechaus.com/",
+      "photo": "img/lelecha.jpg",
+      "photo_credit": null
+    },
+    "nonggengji": {
+      "name": "Nong Geng Ji",
+      "name_zh": "农耕记",
+      "category": "Restaurant",
+      "blurb": "A Hunan-cuisine restaurant chain from Shenzhen known for countryside-style, wok-charred cooking with fresh peppers and family-style dishes. Its first US restaurant opened in Flushing, Queens in January 2026, with a second announced for Rockville, Maryland.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": "img/nonggengji.jpg",
+      "photo_credit": null
     }
   }
 }

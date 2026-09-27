@@ -685,6 +685,34 @@
    ]
   },
   {
+   "chain": "lelecha",
+   "supplied_on": "2026-09-28",
+   "source": "Operator-supplied Yelp listing.",
+   "scope": "Known US Lelecha (乐乐茶) outlets for a mainland Shanghai tea chain whose US site is an unlaunched private Squarespace; no complete roster.",
+   "locations": [
+    {
+     "name": "Rowland Heights",
+     "address": "18888 Labin Ct Ste 105A, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "Yelp, operator-supplied (28 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "nonggengji",
+   "supplied_on": "2026-09-28",
+   "source": "Yelp listing and local press (MyMCMedia, 22 Sep 2026).",
+   "scope": "Known US Nong Geng Ji (农耕记) outlets for a mainland Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026; a second at 1701 Rockville Pike, Rockville MD is announced with no opening date and is deliberately not listed here until it opens. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "135-15 37th Ave, Queens, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (15 reviews) + local press (MyMCMedia) (28 Sep 2026)"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",
