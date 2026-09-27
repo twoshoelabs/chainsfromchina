@@ -95,6 +95,14 @@
       "as_of": "2026-09-27",
       "source": "web enumeration",
       "note": "Recent US entry; 3 confirmed open (City of Industry, Berkeley, NYC) plus Plano TX announced. Toronto is in Canada."
+    },
+    "xiaolongkan": {
+      "us": 8,
+      "us_text": "8 open (+4 announced)",
+      "confidence": "medium",
+      "as_of": "2026-09-28",
+      "source": "first-party US locator (shooloongkan.us)",
+      "note": "The chain's own US site lists 8 open outlets plus 4 coming soon (Houston, Bellevue, Costa Mesa, San Diego) as of 28 Sep 2026."
     }
   }
 }

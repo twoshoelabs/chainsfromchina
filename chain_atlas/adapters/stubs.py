@@ -444,3 +444,24 @@ class ChahaloAdapter(Adapter):
                       " entry (City of Industry, Berkeley, NYC) with no single US locator, also"
                       " expanding into Canada. Tracked via sightings (27 Sep 2026)")
     RECHECK = ["https://www.chahalo.com/"]
+
+
+class XiaolongkanAdapter(Adapter):
+    """
+    Xiaolongkan (小龙坎火锅) — added 2026-09-28. A Sichuan hotpot chain from Chengdu, one of
+    mainland China's largest, trading in the US as "Shoo Loong Kan Hotpot".
+
+    UNUSUALLY, IT PUBLISHES A US LOCATOR: shooloongkan.us/locations lists 8 open US outlets (NY,
+    NJ, TX, IL, NV) plus 4 coming soon. That makes it a candidate to promote to a daily-collected
+    adapter; for now its 8 open outlets are recorded from that first-party page as sightings.
+    """
+    chain_id, name, name_zh = "xiaolongkan", "Xiaolongkan", "小龙坎"
+    name_us = "Shoo Loong Kan Hotpot"
+    aliases = ("Xiao Long Kan", "Shoo Loong Kan")
+    parent, format = "Xiaolongkan (小龙坎, Chengdu)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Sichuan hotpot chain (小龙坎, Chengdu); trades in the US as Shoo Loong"
+                      " Kan Hotpot and publishes its OWN US locator (shooloongkan.us) listing 8 open"
+                      " outlets + 4 coming soon. Recorded from that first-party page as sightings; a"
+                      " candidate to promote to a daily-collected adapter (28 Sep 2026)")
+    RECHECK = ["https://shooloongkan.us/locations/"]

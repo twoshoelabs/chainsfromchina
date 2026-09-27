@@ -180,6 +180,16 @@
       "site_us": null,
       "photo": "img/chahalo.jpg",
       "photo_credit": null
+    },
+    "xiaolongkan": {
+      "name": "Shoo Loong Kan Hotpot",
+      "name_zh": "小龙坎",
+      "category": "Hot pot",
+      "blurb": "A Sichuan (mala) hotpot chain founded in Chengdu in 2014, one of mainland China's largest with thousands of outlets, known for its numbing-spicy broth and old-Chengdu styling. It trades in the US as \"Shoo Loong Kan Hotpot\" and — unusually for the chains here — publishes its own US store locator.",
+      "site_cn": null,
+      "site_us": "https://shooloongkan.us/",
+      "photo": "img/xiaolongkan.jpg",
+      "photo_credit": null
     }
   }
 }

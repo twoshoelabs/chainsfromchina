@@ -25,7 +25,8 @@ from .haidilao_us import HaidilaoUSAdapter
 from .popmart import PopMartUSAdapter
 from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter,
-                    YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter)
+                    YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter,
+                    XiaolongkanAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -46,6 +47,7 @@ REGISTRY: list[Adapter] = [
     FishWithYouAdapter(), # mainland 鱼你在一起; found in the registry sweep — see stubs.py
     ZhangliangAdapter(), # mainland malatang 张亮麻辣烫; 42 NA outlets claimed — see stubs.py
     ChahaloAdapter(), # mainland premium tea 茶话弄 (Xi'an); recent US entry — see stubs.py
+    XiaolongkanAdapter(), # mainland hotpot 小龙坎; has a US locator (shooloongkan.us) — see stubs.py
 ]
 
 

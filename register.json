@@ -195,6 +195,12 @@
    "name_zh": "茶话弄",
    "format": "tea",
    "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US and Canada"
+  },
+  "xiaolongkan": {
+   "name": "Shoo Loong Kan Hotpot",
+   "name_zh": "小龙坎",
+   "format": "restaurant",
+   "global": "Sichuan hotpot chain from Chengdu (2014), thousands of outlets in China; trades in the US as Shoo Loong Kan Hotpot and publishes its own US locator (8 open + 4 coming soon, Sept 2026)"
   }
  },
  "entries": [
