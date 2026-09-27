@@ -9,11 +9,12 @@
   "as_of": "2026-09-23",
   "estimates": {
     "heytea": {
-      "us": 28,
+      "us": 32,
+      "us_text": "~30-35",
       "confidence": "medium",
-      "as_of": "2026-07-14",
-      "source": "xMap brand-location report",
-      "note": "28 US, 13 in New York"
+      "as_of": "2026-09-27",
+      "source": "permit + web enumeration",
+      "note": "Revised up from a stale trade-press 28: this project's permit-sourced count already reaches 30. App-only nationally, so a few outlets in un-permit-watched metros may remain."
     },
     "cotti": {
       "us": 29,
@@ -64,28 +65,28 @@
       "note": "LA, San Gabriel; delivery-forward"
     },
     "yangguofu": {
-      "us": 45,
-      "us_text": "~40-60",
+      "us": 30,
+      "us_text": "~28-32",
       "confidence": "low",
-      "as_of": "2026",
-      "source": "its FDD Item 20 (23 at 31 Dec 2025) + 37 projected for 2026",
-      "note": "fast growth; FDD-based projection"
+      "as_of": "2026-09-27",
+      "source": "FDD Item 20 (23 at 31 Dec 2025) + web enumeration",
+      "note": "Revised down from ~45: that figure was the FDD's forward projection of ~37 new 2026 outlets, most of which have not opened or are not findable. 26 held (the 23-outlet FDD roster plus Arcadia, Duluth, Sunrise); still expanding, so a few 2026 openings are likely unfound."
     },
     "fishwithyou": {
-      "us": 20,
-      "us_text": "~15-25",
+      "us": 13,
+      "us_text": "~11-15",
       "confidence": "low",
-      "as_of": "2026-09",
-      "source": "per-store sites; no published US total",
-      "note": "2,700 global; US total not disclosed"
+      "as_of": "2026-09-27",
+      "source": "web enumeration",
+      "note": "Revised down from ~15-25, which extrapolated from the ~2,700-store global scale. Exhaustive harvesting (regional sites, delivery apps, Yelp) finds 11, and the chain's own US site lists only a few; the US footprint is small."
     },
     "zhangliang": {
-      "us": 25,
-      "us_text": "~20-30 (42 across North America)",
+      "us": 18,
+      "us_text": "~17-20",
       "confidence": "low",
-      "as_of": "2026-09-11",
-      "source": "brand news (zlmlt.com)",
-      "note": "42 North American outlets (US/Canada/Mexico) per its own site; US subset not broken out"
+      "as_of": "2026-09-27",
+      "source": "web enumeration",
+      "note": "Revised down from ~25: the brand's own '42 across North America' figure includes Canada and Mexico. Exhaustive US harvesting finds 17 (16 mapped + Sacramento); a few more US outlets may exist."
     }
   }
 }
