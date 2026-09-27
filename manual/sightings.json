@@ -659,6 +659,32 @@
    ]
   },
   {
+   "chain": "chahalo",
+   "supplied_on": "2026-09-27",
+   "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
+   "scope": "Known US ChaHalo (茶话弄) outlets for a mainland Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
+   "locations": [
+    {
+     "name": "City of Industry",
+     "address": "17823 Colima Rd, City of Industry, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (292 reviews) + DoorDash (27 Sep 2026)"
+    },
+    {
+     "name": "Berkeley",
+     "address": "2041 University Ave, Berkeley, CA 94704",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (192 reviews) + DoorDash (27 Sep 2026)"
+    },
+    {
+     "name": "Manhattan (Chinatown)",
+     "address": "79 Mott St, New York, NY 10013",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (37 reviews) (27 Sep 2026)"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",

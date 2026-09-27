@@ -170,6 +170,16 @@
       "site_us": null,
       "photo": "img/zhangliang.jpg",
       "photo_credit": null
+    },
+    "chahalo": {
+      "name": "ChaHalo",
+      "name_zh": "茶话弄",
+      "category": "Premium tea",
+      "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Xi'an, known for tea-forward drinks made with whole tea leaves and fresh milk and a signature \"tri-aroma\" style. It has grown to around 1,000 stores across China and began expanding overseas in 2024; its early US outlets are in California and New York, with Canada (Toronto) also underway.",
+      "site_cn": "https://www.chahalo.com/",
+      "site_us": null,
+      "photo": "img/chahalo.jpg",
+      "photo_credit": null
     }
   }
 }

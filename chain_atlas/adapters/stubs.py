@@ -424,3 +424,23 @@ class ZhangliangAdapter(Adapter):
                       " US shops appear on per-region franchisee sites, an LA Instagram and delivery"
                       " apps. Tracked via sightings (26 Sep 2026)")
     RECHECK = ["https://www.zlmlt.com/"]
+
+
+class ChahaloAdapter(Adapter):
+    """
+    ChaHalo (茶话弄) — added 2026-09-27. A premium "modern Chinese tea" chain founded in 2016 in
+    Xi'an (Shaanxi), parent Xi'an Baamu Tian Catering (西安八亩田餐饮管理), ~1,000 stores across
+    170+ Chinese cities. Mainland origin, so in scope.
+
+    Recent US entry with no single US locator: outlets surface through per-store sites, delivery
+    apps and review aggregators (City of Industry, Berkeley, NYC so far), and it is expanding into
+    Canada (Toronto). Tracked via sightings.
+    """
+    chain_id, name, name_zh = "chahalo", "ChaHalo", "茶话弄"
+    aliases = ("Cha Hua Nong", "Cha Halo")
+    parent, format = "Xi'an Baamu Tian Catering (西安八亩田餐饮)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland premium-tea chain (茶话弄, Xi'an; ~1,000 stores in China); recent US"
+                      " entry (City of Industry, Berkeley, NYC) with no single US locator, also"
+                      " expanding into Canada. Tracked via sightings (27 Sep 2026)")
+    RECHECK = ["https://www.chahalo.com/"]

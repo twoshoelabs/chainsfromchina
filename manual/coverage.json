@@ -87,6 +87,14 @@
       "as_of": "2026-09-27",
       "source": "web enumeration",
       "note": "Revised down from ~25: the brand's own '42 across North America' figure includes Canada and Mexico. Exhaustive US harvesting finds 17 (16 mapped + Sacramento); a few more US outlets may exist."
+    },
+    "chahalo": {
+      "us": 4,
+      "us_text": "~3-5",
+      "confidence": "low",
+      "as_of": "2026-09-27",
+      "source": "web enumeration",
+      "note": "Recent US entry; 3 confirmed open (City of Industry, Berkeley, NYC) plus Plano TX announced. Toronto is in Canada."
     }
   }
 }

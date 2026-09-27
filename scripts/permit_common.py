@@ -53,6 +53,7 @@ TERMS = {
     "WEI'S FISH": "fishwithyou", "WEIS FISH": "fishwithyou",
     "ZHANGLIANG": "zhangliang", "ZHANG LIANG MALATANG": "zhangliang",
     "ZHANG LIANG HOT POT": "zhangliang", "ZHANG LIANG SPICY": "zhangliang",
+    "CHAHALO": "chahalo", "CHA HALO": "chahalo", "CHAHUANONG": "chahalo", "CHA HUA NONG": "chahalo",
 }
 
 

@@ -189,9 +189,29 @@
    "name_zh": "张亮麻辣烫",
    "format": "restaurant",
    "global": "one of China's two dominant malatang chains, ~6,000 outlets, founded in Harbin in 2008; its own brand news reports 42 North American outlets across the US, Canada and Mexico as of Sept 2026"
+  },
+  "chahalo": {
+   "name": "ChaHalo",
+   "name_zh": "茶话弄",
+   "format": "tea",
+   "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US and Canada"
   }
  },
  "entries": [
+  {
+   "chain": "chahalo",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-27",
+   "note": "Reported in the Toronto area as part of ChaHalo's overseas expansion; the brand's own site lists Canada, but no Canadian count or firm opening date is published.",
+   "sources": [
+    "https://www.chahalo.com/"
+   ]
+  },
   {
    "chain": "zhangliang",
    "market": "CA",
