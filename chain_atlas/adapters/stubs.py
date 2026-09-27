@@ -484,3 +484,65 @@ class NonggengjiAdapter(Adapter):
                       " Flushing NY Jan 2026, a second announced for Rockville MD. Too few US"
                       " outlets for a locator; tracked via sightings (28 Sep 2026)")
     RECHECK = []
+
+
+class BaosPastryAdapter(Adapter):
+    """
+    Bao's Pastry (鲍师傅糕点) — added 2026-09-28. A Beijing-headquartered bakery chain (founder Bao
+    Caisheng; 100+ outlets in China) known for pork-floss cakes and cream-filled sponge; mainland
+    origin, so in scope.
+
+    First US store opened Flushing, Queens in late 2025; there is no first-party US site, so it is
+    tracked via sightings.
+    """
+    chain_id, name, name_zh = "baospastry", "Bao's Pastry", "鲍师傅"
+    name_us = "Bao's Pastry"
+    aliases = ("Bao Shifu", "鲍师傅糕点")
+    parent, format = "Bao's Pastry (鲍师傅, Beijing)", "bakery"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland bakery chain (鲍师傅糕点, Beijing; 100+ China stores); first US store"
+                      " opened Flushing NY late 2025, no first-party US site. Tracked via sightings"
+                      " (28 Sep 2026)")
+    RECHECK = []
+
+
+class TopToyAdapter(Adapter):
+    """
+    TOP TOY — added 2026-09-28. A mainland art-toy / blind-box retailer launched in 2020 by MINISO
+    Group (Guangzhou), a direct peer of POP MART and MINISO already tracked here; mainland origin,
+    so in scope.
+
+    Its US site (gotoptoy.com) publishes a "USA Store Locations" page, but it is a JS-rendered
+    Shopify page listing a single US store (Times Square) with no plain-HTTP roster, so it is
+    tracked via sightings until a second store or a machine-readable locator appears.
+    """
+    chain_id, name, name_zh = "toptoy", "TOP TOY", "TOP TOY"
+    name_us = "TOP TOY"
+    aliases = ("TOPTOY",)
+    parent, format = "MINISO Group", "toys"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland art-toy/blind-box retailer (TOP TOY, launched 2020 by MINISO Group);"
+                      " its US locator (gotoptoy.com) is a JS-rendered Shopify page listing one US"
+                      " store (Times Square). Tracked via sightings (28 Sep 2026)")
+    RECHECK = ["https://www.gotoptoy.com/pages/toptoy-usa-store-locations"]
+
+
+class Toys52Adapter(Adapter):
+    """
+    52Toys — added 2026-09-28. A mainland designer-toy / blind-box brand founded 2015 in Beijing
+    (乐自天成), a peer of POP MART and TOP TOY; mainland origin, so in scope.
+
+    Its US site (us.52toys.com) is an online store with no locator; US retail presence surfaces
+    through mall directories and aggregators (Mall of Georgia and Doraville GA so far), so it is
+    tracked via sightings.
+    """
+    chain_id, name, name_zh = "toys52", "52Toys", "52TOYS"
+    name_us = "52Toys"
+    aliases = ("52TOYS",)
+    parent, format = "52TOYS (乐自天成, Beijing)", "toys"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland designer-toy/blind-box brand (52TOYS, founded 2015 in Beijing);"
+                      " us.52toys.com is an online store with no locator, so US outlets (Mall of"
+                      " Georgia, Doraville GA) surface via mall directories. Tracked via sightings"
+                      " (28 Sep 2026)")
+    RECHECK = []

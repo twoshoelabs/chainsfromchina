@@ -56,6 +56,7 @@ TERMS = {
     "CHAHALO": "chahalo", "CHA HALO": "chahalo", "CHAHUANONG": "chahalo", "CHA HUA NONG": "chahalo",
     "LELECHA": "lelecha", "LE LE CHA": "lelecha",
     "NONGGENGJI": "nonggengji", "NONG GENG JI": "nonggengji",
+    "BAOS PASTRY": "baospastry", "BAO'S PASTRY": "baospastry", "BAO SHIFU": "baospastry",
 }
 
 

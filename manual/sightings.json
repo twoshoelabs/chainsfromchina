@@ -713,6 +713,54 @@
    ]
   },
   {
+   "chain": "baospastry",
+   "supplied_on": "2026-09-28",
+   "source": "Operator-supplied Yelp listing; origin confirmed via press.",
+   "scope": "Known US Bao's Pastry (鲍师傅糕点) outlets for a mainland Beijing bakery chain with no first-party US site. First US store opened Flushing late 2025. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "135-25 Roosevelt Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (159 reviews), operator-supplied (28 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "toptoy",
+   "supplied_on": "2026-09-28",
+   "source": "The chain's own US store-locations page (gotoptoy.com), which lists a single US store.",
+   "scope": "US TOP TOY outlets for a mainland MINISO Group art-toy brand. Its first-party US locator lists one store (Times Square) as of 28 Sep 2026; JS-rendered, so recorded here rather than collected. Effectively complete at one store.",
+   "locations": [
+    {
+     "name": "Times Square",
+     "address": "1515 Broadway, New York, NY 10036",
+     "confidence": "confirmed",
+     "verified_by": "TOP TOY first-party US locator (gotoptoy.com) (28 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "toys52",
+   "supplied_on": "2026-09-28",
+   "source": "Mall directory (simon.com) and a place aggregator (corner.inc).",
+   "scope": "Known US 52Toys (52TOYS) outlets for a mainland Beijing blind-box brand with no US locator. Two Georgia stores so far. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Mall of Georgia",
+     "address": "3333 Buford Dr, Buford, GA 30519",
+     "confidence": "confirmed",
+     "verified_by": "Mall of Georgia store directory (simon.com) (28 Sep 2026)"
+    },
+    {
+     "name": "Doraville",
+     "address": "6035 Peachtree Rd Ste A-218, Doraville, GA 30341",
+     "confidence": "confirmed",
+     "verified_by": "corner.inc place listing (28 Sep 2026)"
+    }
+   ]
+  },
+  {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
    "provenance": "permit",

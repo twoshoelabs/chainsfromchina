@@ -111,6 +111,30 @@
       "as_of": "2026-09-28",
       "source": "web enumeration",
       "note": "First US restaurant opened Flushing NY Jan 2026; a second at Rockville MD is announced with no opening date."
+    },
+    "baospastry": {
+      "us": 1,
+      "us_text": "1",
+      "confidence": "medium",
+      "as_of": "2026-09-28",
+      "source": "web enumeration",
+      "note": "First US store opened Flushing NY late 2025; no first-party US site. Others may follow."
+    },
+    "toptoy": {
+      "us": 1,
+      "us_text": "1",
+      "confidence": "high",
+      "as_of": "2026-09-28",
+      "source": "first-party US locator (gotoptoy.com)",
+      "note": "The chain's own US store-locations page lists a single store (Times Square, NYC)."
+    },
+    "toys52": {
+      "us": 2,
+      "us_text": "2+",
+      "confidence": "low",
+      "as_of": "2026-09-28",
+      "source": "web enumeration",
+      "note": "No US locator; 2 Georgia stores found via mall directories (Mall of Georgia, Doraville). More may exist."
     }
   }
 }

@@ -240,6 +240,36 @@
       "site_us": null,
       "photo": "img/nonggengji.jpg",
       "photo_credit": null
+    },
+    "baospastry": {
+      "name": "Bao's Pastry",
+      "name_zh": "鲍师傅",
+      "category": "Bakery",
+      "blurb": "A Beijing-headquartered bakery chain founded by Bao Caisheng about two decades ago, famous in China for its pork-floss cakes and cream-filled sponge, with more than 100 outlets. Its first US store opened in Flushing, Queens in late 2025.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": "img/baospastry.jpg",
+      "photo_credit": null
+    },
+    "toptoy": {
+      "name": "TOP TOY",
+      "name_zh": "TOP TOY",
+      "category": "Art toys",
+      "blurb": "A mainland Chinese art-toy and blind-box retailer launched in 2020 by MINISO Group, carrying its own IPs alongside licensed lines from Sanrio, Disney and others. It opened its first US store in Times Square, New York.",
+      "site_cn": null,
+      "site_us": "https://www.gotoptoy.com/",
+      "photo": "img/toptoy.jpg",
+      "photo_credit": null
+    },
+    "toys52": {
+      "name": "52Toys",
+      "name_zh": "52TOYS",
+      "category": "Art toys",
+      "blurb": "A mainland Chinese designer-toy and blind-box brand founded in 2015 in Beijing, known for its Panda Roll and BEASTBOX lines and mecha model kits. Its US retail presence has begun in Georgia, alongside an online store.",
+      "site_cn": null,
+      "site_us": "https://us.52toys.com/",
+      "photo": "img/toys52.jpg",
+      "photo_credit": null
     }
   }
 }
