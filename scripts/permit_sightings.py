@@ -92,8 +92,18 @@ def blocked_chains():
     return {a.chain_id for a in REGISTRY if a.country == "US" and not a.ENABLED}
 
 
+def _flt(v):
+    try:
+        return round(float(v), 6)
+    except (TypeError, ValueError):
+        return None
+
+
 def read_candidates():
-    """Yield (chain, metro, name, address, confidence) for every NEW blocked-chain permit row."""
+    """Yield (chain, metro, name, address, confidence, first_inspection, lat, lon) for every NEW
+    blocked-chain permit row. lat/lon are the health department's OWN coordinates when the source
+    carries them (many do), used only as a fallback where the Census geocoder can't place the
+    address."""
     import glob
     blocked = blocked_chains()
     for path in sorted(glob.glob(os.path.join(DATA, "review_*_permits.csv"))):
@@ -111,7 +121,8 @@ def read_candidates():
             fi = r.get("first_inspection") or ""
             not_inspected = fi in ("", "not yet inspected")
             conf = "uncertain" if (pre or not_inspected) else "confirmed"
-            yield r["chain"], metro, name.strip(), r["address"].strip(), conf, fi
+            yield (r["chain"], metro, name.strip(), r["address"].strip(), conf, fi,
+                   _flt(r.get("lat")), _flt(r.get("lon")))
 
 
 def existing_keys(sightings, chain):
@@ -131,7 +142,7 @@ def main():
     doc["sightings"] = [g for g in doc["sightings"] if g.get("provenance") != MARKER]
 
     by_chain = {}
-    for chain, metro, name, addr, conf, fi in read_candidates():
+    for chain, metro, name, addr, conf, fi, lat, lon in read_candidates():
         by_chain.setdefault(chain, {"locs": [], "seen": set(), "held": existing_keys(doc, chain)})
         rec = by_chain[chain]
         k = street_key(addr) or norm_addr(addr)
@@ -142,10 +153,15 @@ def main():
         if k in rec["held"] or k in rec["seen"]:
             continue                                       # already ours, or a dupe across metros
         rec["seen"].add(k)
-        rec["locs"].append({
+        loc = {
             "_chain": chain, "name": name[:60] or "(permit)", "address": addr, "confidence": conf,
             "verified_by": f"{metro} health-department permit"
-            + (f", first inspected {fi}" if fi and conf == "confirmed" else "") + f" ({TODAY})"})
+            + (f", first inspected {fi}" if fi and conf == "confirmed" else "") + f" ({TODAY})"}
+        # Carry the permit's own coordinates: used only where the Census geocoder can't place the
+        # address (a redeveloped block, a mall unit), so a real, inspected shop is still drawn.
+        if lat is not None and lon is not None:
+            loc["lat"], loc["lon"] = lat, lon
+        rec["locs"].append(loc)
 
     # Name every permit location Brand (Locality), disambiguating same-city shops by street.
     for rec in by_chain.values():

@@ -65,10 +65,18 @@ def geocoded(cache_only: bool = False) -> list[dict]:
             # cache_only means "do not call the geocoder", NOT "pretend nothing is known":
             # export runs in this mode and must still read what was already resolved.
             got = cache.get(norm_addr(addr)) if cache_only else geocode_one(addr, cache)
+            lat, lon = (got or {}).get("lat"), (got or {}).get("lon")
+            # Narrow public-records exception to Census-only: when the Census geocoder cannot place
+            # a permit-sourced address (a redeveloped block, a mall unit), fall back to the
+            # coordinates the health-department permit itself carries. Census is still preferred
+            # whenever it succeeds; the permit's own lat/lon is government data, not a commercial
+            # geocoder, and is the actual inspected location.
+            if lat is None and loc.get("lat") is not None and loc.get("lon") is not None:
+                lat, lon = loc["lat"], loc["lon"]
             out.append({
                 "chain": group["chain"], "name": loc.get("name"), "address": addr,
                 "city": city, "state": state,
-                "lat": (got or {}).get("lat"), "lon": (got or {}).get("lon"),
+                "lat": lat, "lon": lon,
                 "source": group.get("source"), "scope": group.get("scope"),
                 "supplied_on": group.get("supplied_on"),
                 # A sighting the operator flagged "maybe" is not the same claim as one they

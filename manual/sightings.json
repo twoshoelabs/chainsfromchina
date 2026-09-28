@@ -777,13 +777,17 @@
      "name": "TeaByDo (Palo Alto)",
      "address": "165 UNIVERSITY AV # D, Palo Alto, CA 94301",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2024-12-09 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2024-12-09 (2026-09-23)",
+     "lat": 37.444544,
+     "lon": -122.163329
     },
     {
      "name": "TeaByDo (San Jose)",
      "address": "1147 S DE ANZA BL, San Jose, CA 95129",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-16 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-16 (2026-09-23)",
+     "lat": 37.30476,
+     "lon": -122.033388
     }
    ]
   },
@@ -804,7 +808,9 @@
      "name": "Cotti Coffee (Manhattan)",
      "address": "239 8 AVENUE, Manhattan, NY 10011",
      "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
+     "verified_by": "NYC health-department permit (2026-09-23)",
+     "lat": 40.744768,
+     "lon": -73.998878
     }
    ]
   },
@@ -819,7 +825,9 @@
      "name": "Fish With You (Mountain View)",
      "address": "156 CASTRO ST, Mountain View, CA 94041",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-08-13 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-08-13 (2026-09-23)",
+     "lat": 37.394633,
+     "lon": -122.078828
     },
     {
      "name": "Fish With You (Arcadia)",
@@ -890,37 +898,49 @@
      "name": "HEYTEA (2855 Stevens Creek Bl)",
      "address": "2855 STEVENS CREEK BL # 1329, San Jose, CA 95050",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)",
+     "lat": 37.323596,
+     "lon": -121.945882
     },
     {
      "name": "HEYTEA (1628 Hostetter Rd)",
      "address": "1628 HOSTETTER RD # H, San Jose, CA 95131",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-08 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-08 (2026-09-23)",
+     "lat": 37.387175,
+     "lon": -121.885235
     },
     {
      "name": "HEYTEA (Sunnyvale)",
      "address": "302 W EL CAMINO REAL, Sunnyvale, CA 94087",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-21 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-21 (2026-09-23)",
+     "lat": 37.374462,
+     "lon": -122.058102
     },
     {
      "name": "HEYTEA (Milpitas)",
      "address": "372 BARBER LN, Milpitas, CA 95035",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-04-24 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-04-24 (2026-09-23)",
+     "lat": 37.422315,
+     "lon": -121.918264
     },
     {
      "name": "HEYTEA (Cupertino)",
      "address": "19469 STEVENS CREEK BL, Cupertino, CA 95014",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-09-09 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-09-09 (2026-09-23)",
+     "lat": 37.323816,
+     "lon": -122.010474
     },
     {
      "name": "HEYTEA (Chicago)",
      "address": "2234 S WENTWORTH AVE, CHICAGO, IL 60616",
      "confidence": "confirmed",
-     "verified_by": "Chicago health-department permit, first inspected 2026-08-24 (2026-09-23)"
+     "verified_by": "Chicago health-department permit, first inspected 2026-08-24 (2026-09-23)",
+     "lat": 41.851893,
+     "lon": -87.632139
     },
     {
      "name": "HEYTEA (Beverly Hills)",
@@ -962,55 +982,73 @@
      "name": "HEYTEA (4505 8 Avenue)",
      "address": "4505 8 AVENUE, Brooklyn, NY 11220",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-01-23 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-01-23 (2026-09-23)",
+     "lat": 40.643807,
+     "lon": -74.000894
     },
     {
      "name": "HEYTEA (1407 Broadway)",
      "address": "1407 BROADWAY, Manhattan, NY 10018",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-04-30 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-04-30 (2026-09-23)",
+     "lat": 40.753432,
+     "lon": -73.987151
     },
     {
      "name": "HEYTEA (36-56 Main Street)",
      "address": "36-56 MAIN STREET, Queens, NY 11354",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-09-12 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-09-12 (2026-09-23)",
+     "lat": 40.762114,
+     "lon": -73.831471
     },
     {
      "name": "HEYTEA (52 Willoughby Street)",
      "address": "52 WILLOUGHBY STREET, Brooklyn, NY 11201",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-09-23 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-09-23 (2026-09-23)",
+     "lat": 40.692199,
+     "lon": -73.986787
     },
     {
      "name": "HEYTEA (2120 86 Street)",
      "address": "2120 86 STREET, Brooklyn, NY 11214",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-10-24 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-10-24 (2026-09-23)",
+     "lat": 40.602986,
+     "lon": -73.99561
     },
     {
      "name": "HEYTEA (240 Grand Street)",
      "address": "240 GRAND STREET, Manhattan, NY 10002",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-12-09 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-12-09 (2026-09-23)",
+     "lat": 40.718363,
+     "lon": -73.994506
     },
     {
      "name": "HEYTEA (705 59 Street)",
      "address": "705 59 STREET, Brooklyn, NY 11220",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-12-16 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2024-12-16 (2026-09-23)",
+     "lat": 40.637167,
+     "lon": -74.010755
     },
     {
      "name": "HEYTEA (1293 Broadway)",
      "address": "1293 BROADWAY, Manhattan, NY 10001",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2025-04-14 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2025-04-14 (2026-09-23)",
+     "lat": 40.74954,
+     "lon": -73.987978
     },
     {
      "name": "HEYTEA (38-02 Prince Street)",
      "address": "38-02 PRINCE STREET, Queens, NY 11354",
      "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2025-04-17 (2026-09-23)"
+     "verified_by": "NYC health-department permit, first inspected 2025-04-17 (2026-09-23)",
+     "lat": 40.760079,
+     "lon": -73.832577
     },
     {
      "name": "HEYTEA (Bellevue)",
@@ -1037,7 +1075,9 @@
      "name": "NaiSnow (Cupertino)",
      "address": "19600 VALLCO PY # 100, Cupertino, CA 95014",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-05 (2026-09-23)"
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-02-05 (2026-09-23)",
+     "lat": 37.325352,
+     "lon": -122.011923
     },
     {
      "name": "NaiSnow (San Gabriel)",
@@ -1049,7 +1089,9 @@
      "name": "NaiSnow (233 West 42 Street)",
      "address": "233 WEST   42 STREET, Manhattan, NY 10036",
      "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
+     "verified_by": "NYC health-department permit (2026-09-23)",
+     "lat": 40.756753,
+     "lon": -73.988648
     }
    ]
   },
