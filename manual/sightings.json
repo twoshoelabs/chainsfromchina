@@ -1249,6 +1249,66 @@
      "verified_by": "web-verified, official CA site + active delivery, but older Yelp listing marked closed — rebrand vs shutdown unresolved (29 Sep 2026)"
     }
    ]
+  },
+  {
+   "chain": "feidachu",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026, corroborated by the operator: San Diego press (Axios, Fox5, SanDiegoVille) and the chain's Yelp page confirm the first US restaurant open.",
+   "scope": "One US restaurant, the chain's first and only US outlet, opened 5 Sep 2026. Not a complete roster.",
+   "locations": [
+    {
+     "name": "San Diego (Westfield UTC)",
+     "address": "4301 La Jolla Village Dr Ste 2040, San Diego, CA 92122",
+     "confidence": "confirmed",
+     "verified_by": "web-verified + operator, open per Yelp (264 reviews, live waitlist) and press; opened 5 Sep 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "dalongyi",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: the outlets' own franchise sites (dalongyinyc.com, dlyhotpot.com), press, and recent review activity; addresses of currently-open shops.",
+   "scope": "Two US outlets identified as open (Long Island City NY, Allston/Boston MA); the first US store (San Gabriel 2019) and Seattle are closed, and Manhattan Canal St appears closed. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Long Island City",
+     "address": "42-22 Crescent St, Long Island City, NY 11101",
+     "confidence": "confirmed",
+     "verified_by": "franchise site + Resy/Toast ordering + Yelp active Aug 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Allston (Boston)",
+     "address": "137 Brighton Ave, Boston, MA 02134",
+     "confidence": "confirmed",
+     "verified_by": "franchise site dlyhotpot.com + Yelp active Aug 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "shuyi",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: live first-party ordering pages (Chowbus/Snackpass), local press and recent review activity; addresses of currently-open franchise shops.",
+   "scope": "Three US outlets identified as open (Falls Church VA, Cupertino CA, Fremont CA); the first US store (San Mateo, ~late 2023) is closed. Franchise-operated, not a unified US rollout. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Falls Church (Seven Corners)",
+     "address": "6122-B Arlington Blvd, Falls Church, VA 22044",
+     "confidence": "confirmed",
+     "verified_by": "live Chowbus ordering + FFXnow grand-opening (May 2025) (29 Sep 2026)"
+    },
+    {
+     "name": "Cupertino",
+     "address": "10963 N Wolfe Rd, Cupertino, CA 95014",
+     "confidence": "confirmed",
+     "verified_by": "live Chowbus ordering (Sep 2026) + Yelp active Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Fremont",
+     "address": "46551 Mission Blvd Unit 102, Fremont, CA 94539",
+     "confidence": "confirmed",
+     "verified_by": "Yelp active Sep 2026 + DoorDash/Snackpass ordering (29 Sep 2026)"
+    }
+   ]
   }
  ]
 }

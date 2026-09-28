@@ -32,7 +32,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter,
                     LelechaAdapter, NonggengjiAdapter, BaosPastryAdapter, TopToyAdapter,
                     Toys52Adapter, DezhuangAdapter, MeizhouDongpoAdapter, ShudaxiaAdapter,
-                    XibeiAdapter, GrandmasHomeAdapter, XijiadeAdapter, MalubianbianAdapter)
+                    XibeiAdapter, GrandmasHomeAdapter, XijiadeAdapter, MalubianbianAdapter,
+                    FeidachuAdapter, DalongyiAdapter, ShuyiAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -65,6 +66,9 @@ REGISTRY: list[Adapter] = [
     GrandmasHomeAdapter(), # mainland Hangzhou 外婆家; Manhattan — see stubs.py
     XijiadeAdapter(), # mainland dumplings 喜家德 / Dumpling Xi; NYC — see stubs.py
     MalubianbianAdapter(), # mainland skewer hotpot 马路边边; Orlando (churned) — see stubs.py
+    FeidachuAdapter(), # mainland Hunan 费大厨 / Chef Fei; San Diego (opened Sep 2026) — see stubs.py
+    DalongyiAdapter(), # mainland Chengdu hot pot 大龙燚; LIC + Boston — see stubs.py
+    ShuyiAdapter(), # mainland Chengdu tea 书亦烧仙草; VA + Bay Area — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py

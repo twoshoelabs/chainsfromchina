@@ -406,6 +406,42 @@
    "photo_credit": null,
    "us_since": "November 2019",
    "first_outlet": "San Gabriel, CA — 301 W Valley Blvd (now closed)"
+  },
+  "feidachu": {
+   "name": "Chef Fei",
+   "name_zh": "费大厨",
+   "category": "Hunan restaurant",
+   "blurb": "A Hunan-cuisine chain built on one signature dish — stir-fried pork with chili peppers (辣椒炒肉) — founded by Fei Lianghui in Hengyang, Hunan and unified under the 费大厨 name in 2016, with roughly 200 directly-managed restaurants across China. Marketed in America as 'China's King of Stir-Fry', it opened its first US restaurant at Westfield UTC in San Diego in September 2026.",
+   "site_cn": "https://www.feidachu.com.cn/",
+   "site_us": "https://cheffei.com/",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "September 2026",
+   "first_outlet": "San Diego — 4301 La Jolla Village Dr (Westfield UTC)"
+  },
+  "dalongyi": {
+   "name": "Da Long Yi Hot Pot",
+   "name_zh": "大龙燚",
+   "category": "Hot pot",
+   "blurb": "A Chengdu hot-pot chain founded in 2013 in the city's Yulin district, grown through franchising to a claimed 2,000-plus stores with outlets abroad. Known for numbing-spicy Sichuan broth. Its US outlets run as independent franchises; two — in Long Island City and Boston — are currently open after earlier California and Seattle stores closed.",
+   "site_cn": "https://www.dalongyi.com/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "June 2019",
+   "first_outlet": "San Gabriel, CA — 250 W Valley Blvd (now closed)"
+  },
+  "shuyi": {
+   "name": "Shuyi Grass Jelly & Tea",
+   "name_zh": "书亦烧仙草",
+   "category": "Tea",
+   "blurb": "A grass-jelly milk-tea chain founded in 2007 in Chengdu by Wang Bin, whose signature drinks pile a cup half-full with grass jelly and other toppings; one of China's largest tea chains, with several thousand stores. Its US shops, trading as 'Shuyi Grass Jelly & Tea', are franchise-run — three are open in Virginia and the Bay Area after the original San Mateo store closed.",
+   "site_cn": "https://shuyisxc.com/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "Late 2023",
+   "first_outlet": "San Mateo, CA — 165 E 4th Ave (now closed)"
   }
  }
 }

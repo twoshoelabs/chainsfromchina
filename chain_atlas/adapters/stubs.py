@@ -714,3 +714,70 @@ class MalubianbianAdapter(Adapter):
                       " closed; Orlando FL open, Tustin CA (rebranded MLBB AYCE) uncertain. Per-outlet"
                       " sites, no national locator. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://www.malubianbianfl.com/", "https://www.malubianbianca.com/"]
+
+
+class FeidachuAdapter(Adapter):
+    """
+    Fei Da Chu (费大厨辣椒炒肉) — added 2026-09-29. A Hunan-cuisine chain built on one signature dish,
+    辣椒炒肉 (stir-fried pork with chili peppers); founded by Fei Lianghui in Hunan, hundreds of
+    restaurants across China, billed in its US marketing as "China's King of Stir-Fry". Mainland
+    origin, so in scope.
+
+    It trades in the US as "Chef Fei". Its first US location opened 5 Sep 2026 at Westfield UTC in
+    San Diego and is confirmed operating; no national US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "feidachu", "Fei Da Chu", "费大厨"
+    name_us = "Chef Fei"
+    aliases = ("Fei Da Chu La Jiao Chao Rou", "费大厨辣椒炒肉")
+    parent, format = "Fei Da Chu (费大厨, Hunan)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Hunan-cuisine chain (费大厨辣椒炒肉, 'stir-fried pork with chili"
+                      " peppers'); trades in the US as Chef Fei, first US store opened 5 Sep 2026 at"
+                      " Westfield UTC, San Diego, with no national locator. Tracked via sightings"
+                      " (29 Sep 2026)")
+    RECHECK = []
+
+
+class DalongyiAdapter(Adapter):
+    """
+    Dalongyi / Da Long Yi (大龙燚) — added 2026-09-29. A Chengdu, Sichuan hot-pot chain founded 2013
+    in the Yulin district; parent 成都大龙燚餐饮管理有限公司, a large franchised chain (2,000+ stores
+    claimed) with overseas outlets. Mainland origin, so in scope.
+
+    Two US outlets confirmed open (Long Island City NY and Allston/Boston MA), run as independent
+    franchise sites. The first US store (San Gabriel CA, Jun 2019) is closed, as is Seattle; a
+    Manhattan Canal St outlet appears closed. No authoritative all-US locator, so tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "dalongyi", "Dalongyi", "大龙燚"
+    name_us = "Da Long Yi Hot Pot"
+    aliases = ("Da Long Yi", "Dalongyi Hot Pot")
+    parent, format = "Chengdu Dalongyi Catering Management (成都大龙燚餐饮)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Chengdu hot-pot chain (大龙燚, founded 2013); two open US outlets (Long"
+                      " Island City NY, Allston/Boston MA) on separate franchise sites, after the"
+                      " first US store (San Gabriel 2019) and Seattle closed. No all-US locator."
+                      " Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.dalongyinyc.com/", "https://www.dlyhotpot.com/"]
+
+
+class ShuyiAdapter(Adapter):
+    """
+    Shuyi Tealicious (书亦烧仙草) — added 2026-09-29. A grass-jelly (烧仙草) milk-tea chain founded
+    2007 in Chengdu by Wang Bin; parent 四川书亦餐饮管理有限公司; one of China's largest tea chains
+    (~5,000+ stores). Mainland origin, so in scope.
+
+    US shops trade as "Shuyi Grass Jelly & Tea", franchise-operated rather than a unified US
+    rollout. Three outlets confirmed open (Falls Church VA, Cupertino CA, Fremont CA); the first US
+    store (San Mateo CA, ~late 2023) is closed. No first-party US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "shuyi", "Shuyi Tealicious", "书亦烧仙草"
+    name_us = "Shuyi Grass Jelly & Tea"
+    aliases = ("Shuyi Shaixiancao", "Shuyi Grass Jelly and Tea")
+    parent, format = "Sichuan Shuyi Catering (四川书亦餐饮, Chengdu)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Chengdu grass-jelly tea chain (书亦烧仙草, founded 2007; ~5,000+ China"
+                      " stores); US shops trade as Shuyi Grass Jelly & Tea, three open (Falls Church"
+                      " VA, Cupertino + Fremont CA) after the first US store (San Mateo) closed, no"
+                      " first-party US locator. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://shuyisxc.com/"]
