@@ -14,6 +14,13 @@ cp -R map/. "$TMP"/
 rm -f "$TMP"/img/README.md                        # a dev note, not part of the site
 echo "chainsfromchina.com" > "$TMP"/CNAME         # custom domain
 touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as-is
+
+# Cache-bust local CSS/JS: append a per-deploy version query to every style.css/app.js
+# reference. Without this the CDN and browsers keep serving a stale stylesheet, so a redesign
+# sits invisible until a manual hard refresh. perl -pi is used (not sed -i) to stay portable.
+STAMP="$(date -u +%Y%m%d%H%M%S)"
+find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
+  "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g"
 (
   cd "$TMP"
   git init -q
