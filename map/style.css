@@ -10,7 +10,7 @@
      greyscale printing and the common forms of colour blindness. */
   --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
   --hans:"Noto Serif SC","Songti SC",serif;
 }
@@ -237,8 +237,10 @@ header h1{font-size:44px}
 /* Serif headlines / mono numerals set the editorial tone throughout */
 aside h2, section h2, .usbox h2{font-family:var(--sans)}
 .lede{font-size:16px}
+/* Figures ride the running face with tabular lining numerals — a real publication's
+   way, not a typewriter monospace bolted on to look "data-y". */
 td.n, .chip .n, .cpct, .cbar, #coverage td.num, .abroad,
-.legend .lgt, .conf{font-family:var(--mono)}
+.legend .lgt, .conf{font-variant-numeric:tabular-nums lining-nums}
 .zh, td .zh, .ccard .zh, table.reg th.chain .zh{font-family:var(--hans)}
 
 /* ---- US-first view on the register ---- */
@@ -341,9 +343,9 @@ ul.uslist b{color:var(--ink)}
   border-radius:8px; padding:10px 12px; margin-top:16px}
 
 /* Beta badge in the masthead */
-.beta{display:inline-block; margin-left:10px; padding:3px 8px; font-family:var(--mono); font-size:11px;
-  font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
-  border:1px solid var(--muted); border-radius:3px; vertical-align:middle; cursor:default}
+.beta{display:inline-block; margin-left:10px; padding:3px 8px; font-size:10.5px;
+  font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  border:1px solid var(--muted); border-radius:2px; vertical-align:middle; cursor:default}
 
 /* Landing total-outlets headline: the newsprint hero figure */
 .ustotal{margin:22px 0 4px; font-size:18px; color:var(--ink-2); line-height:1.45}
@@ -353,86 +355,75 @@ ul.uslist b{color:var(--ink)}
 @media (max-width:620px){ .ustotal b{font-size:60px} }
 
 /* ============================================================================
-   Dark-hero overhaul (2026-09-28). A structural redesign, not a retouch: the
-   masthead and the headline count now live together on a full-bleed charcoal
-   nameplate — high contrast, one teal accent, a giant serif figure — and the
-   data sits on paper below it. The hero is dark in BOTH themes, so its colours
-   are fixed, not themed. Motivated by hoverstat.com's confidence, kept in this
-   project's own serif voice.
+   Editorial pass (2026-09-28). Deliberately away from the generic-template look:
+   a FLAT warm-ink nameplate (no gradient), a newspaper gothic (Libre Franklin) for
+   the running text, tabular figures instead of a typewriter mono, hairline rules
+   instead of floating drop-shadow cards, and near-square corners. hoverstat.com's
+   confidence, but the grammar of a printed page rather than a dashboard.
    ============================================================================ */
 header{
-  --h-ink:#F5F2EA; --h-dim:#A8A194; --h-accent:#63B9AB; --h-line:rgba(245,242,234,.14);
-  background:radial-gradient(135% 150% at 14% -10%, #1D2A28 0%, #151619 55%, #0E0F11 100%);
+  --h-ink:#F4F0E6; --h-dim:#A29A88; --h-accent:#5FB4A4; --h-line:rgba(244,240,230,.16);
+  background:#181510;                        /* flat warm ink — no gradient */
   color:var(--h-ink);
-  max-width:none; margin:0; padding:34px 24px 48px;
-  border-bottom:3px solid var(--h-accent);
+  max-width:none; margin:0; padding:38px 24px 46px;
+  border-bottom:2px solid var(--h-accent);
 }
 header > *{max-width:1240px; margin-left:auto; margin-right:auto}
 
-/* Masthead sits inside the dark nameplate. */
+/* Masthead sits inside the flat nameplate. */
 .masthead{border-bottom:1px solid var(--h-line); padding-bottom:16px; margin-bottom:30px}
 .brand{color:var(--h-ink)}
 .beta{color:var(--h-dim); border-color:var(--h-line)}
 .masthead .navlink{color:var(--h-dim)}
 .masthead .navlink:hover{color:var(--h-ink)}
 .masthead .navlink.current{color:var(--h-ink); border-bottom-color:var(--h-accent);
-  border-bottom-width:3px}
+  border-bottom-width:2px}
 
-/* Headline: large, composed, light on charcoal. */
+/* Headline: large, composed serif, light on warm ink. */
 header h1{
   font-family:var(--serif); color:var(--h-ink); font-weight:500;
-  font-size:clamp(38px, 5.6vw, 68px); line-height:1.0; letter-spacing:-.03em;
+  font-size:clamp(38px, 5.6vw, 68px); line-height:1.02; letter-spacing:-.025em;
 }
-header .sub, header .lede{color:var(--h-dim); max-width:66ch}
+header .sub, header .lede{color:var(--h-dim); max-width:64ch}
 header .sub strong, header .lede strong{color:var(--h-ink)}
 
-/* The count is the star of the page: a giant serif figure over a bold teal kicker. */
-.ustotal{position:relative; color:var(--h-dim); margin:30px 0 0}
-.ustotal::before{content:""; display:block; width:76px; height:5px; margin:0 0 20px;
-  background:var(--h-accent); border-radius:3px}
+/* The count leads the page: a giant serif figure over a thin accent rule. */
+.ustotal{position:relative; color:var(--h-dim); margin:30px 0 0; font-family:var(--serif); font-size:19px}
+.ustotal::before{content:""; display:block; width:60px; height:3px; margin:0 0 20px;
+  background:var(--h-accent)}
 .ustotal b{display:block; color:var(--h-ink); font-family:var(--serif); font-weight:500;
-  font-size:clamp(76px, 12.5vw, 152px); line-height:.84; letter-spacing:-.04em; margin-bottom:12px;
+  font-size:clamp(76px, 12.5vw, 150px); line-height:.84; letter-spacing:-.035em; margin-bottom:12px;
   font-variant-numeric:lining-nums}
-.ustotal .dim{color:var(--h-dim)}
+.ustotal .dim{color:var(--h-dim); font-family:var(--sans); font-size:12.5px;
+  font-variant-numeric:tabular-nums}
 
-/* Links and the caveat callout, restyled for the dark ground. */
+/* Links and the caveat note on the dark ground — squared, hairline, no fill glow. */
 header a, header .sub a, header .coverline a{color:var(--h-accent)}
 header .coverline{
-  background:rgba(245,242,234,.055); border-color:var(--h-line); color:var(--h-dim); max-width:82ch;
+  background:rgba(244,240,230,.05); border:1px solid var(--h-line); border-radius:0;
+  color:var(--h-dim); max-width:82ch;
 }
 header .coverline b{color:var(--h-ink)}
 
-/* ---- body, on paper ---- */
-/* Section headers: assertive ink-dark labels on a hairline, tagged with an accent bar —
-   a repeated structural beat down the sidebar and the register. */
+/* ---- body, on paper: flat and rule-based, a printed page not a dashboard ---- */
+figure, aside section, .usbox, .chainblock, .ccard{border-radius:2px; box-shadow:none}
+.chip{border-radius:4px}
+.modes{border-radius:2px}
+
+/* Section headers: a bold ink label on a full hairline — no coloured tick. */
 aside h2, .usbox h2{
-  position:relative; color:var(--ink); font-weight:700; font-size:13px; letter-spacing:.09em;
-  padding-bottom:8px; margin-bottom:12px; border-bottom:1px solid var(--rule-2);
-}
-aside h2::after, .usbox h2::after{
-  content:""; position:absolute; left:0; bottom:-1px; width:42px; height:2.5px;
-  background:var(--accent); border-radius:2px;
+  color:var(--ink); font-weight:700; font-size:12px; letter-spacing:.11em;
+  padding-bottom:8px; margin-bottom:12px; border-bottom:1px solid var(--rule);
 }
 
-/* Cards and the map frame lift off the paper. */
-aside section, figure, .usbox, .chainblock, .ccard{
-  box-shadow:0 1px 2px -1px rgba(23,24,26,.06), 0 16px 34px -24px rgba(23,24,26,.30);
-}
-
-/* Controls answer the pointer, so the map feels alive to the touch. */
-.chip{transition:border-color .15s ease, background .15s ease, opacity .15s ease}
+/* Controls answer the pointer. */
+.chip{transition:border-color .15s ease, opacity .15s ease}
 .chip:hover{border-color:var(--ink-2)}
 .chip.off:hover, .chip.supplied:hover{border-color:var(--muted)}
 .modebtn{transition:background .15s ease, color .15s ease}
 .navlink{transition:color .15s ease, border-color .15s ease}
-.morebtn, #profiles summary{transition:color .15s ease}
 
-@media (prefers-color-scheme: dark){
-  aside section, figure, .usbox, .chainblock, .ccard{
-    box-shadow:0 1px 2px -1px rgba(0,0,0,.5), 0 16px 34px -22px rgba(0,0,0,.6);
-  }
-}
 @media (max-width:620px){
-  header{padding:24px 16px 34px}
+  header{padding:24px 16px 32px}
   .ustotal b{line-height:.9}
 }
