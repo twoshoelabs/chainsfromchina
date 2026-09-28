@@ -462,8 +462,11 @@ function drawTally(data) {
     // No "roster incomplete" claim: the dashed, dimmed chip and the "not counted here" section
     // already say these are known locations rather than a census, and we do not actually know
     // whether the list is complete — for some (a single-store first-party locator, say) it is.
+    // This page counts the US only, so a roster complete for the whole country is simply
+    // "complete"; a sub-national scope (Cotti's New York City) keeps its qualifier.
+    const usWide = /^\s*(united states|u\.?s\.?a?\.?)\b/i.test((rr && rr.complete_scope) || '');
     const n = rr
-      ? `${rr.count} — complete for ${rr.complete_scope || 'a defined area'}`
+      ? `${rr.count} — ${usWide ? 'complete' : `complete for ${rr.complete_scope || 'a defined area'}`}`
       : kc ? `${kc.stores} — no locations published`
       : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}`
            : 'not counted yet';
