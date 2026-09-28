@@ -29,7 +29,7 @@
   "Reviewed periodically rather than daily — `python -m chain_atlas register --stale` lists",
   "what has not been looked at in 90 days."
  ],
- "as_of": "2026-09-21",
+ "as_of": "2026-09-29",
  "markets": {
   "HK": {
    "name": "Hong Kong",
@@ -87,6 +87,42 @@
   "NL": {
    "name": "Netherlands",
    "region": "Western Europe"
+  },
+  "VN": {
+   "name": "Vietnam",
+   "region": "Southeast Asia"
+  },
+  "TH": {
+   "name": "Thailand",
+   "region": "Southeast Asia"
+  },
+  "MY": {
+   "name": "Malaysia",
+   "region": "Southeast Asia"
+  },
+  "ID": {
+   "name": "Indonesia",
+   "region": "Southeast Asia"
+  },
+  "PH": {
+   "name": "Philippines",
+   "region": "Southeast Asia"
+  },
+  "KH": {
+   "name": "Cambodia",
+   "region": "Southeast Asia"
+  },
+  "UZ": {
+   "name": "Uzbekistan",
+   "region": "Central Asia"
+  },
+  "TW": {
+   "name": "Taiwan",
+   "region": "Greater China"
+  },
+  "MO": {
+   "name": "Macau",
+   "region": "Greater China"
   }
  },
  "chains": {
@@ -201,6 +237,126 @@
    "name_zh": "小龙坎",
    "format": "restaurant",
    "global": "Sichuan hotpot chain from Chengdu (2014), thousands of outlets in China; trades in the US as Shoo Loong Kan Hotpot and publishes its own US locator (8 open + 4 coming soon, Sept 2026)"
+  },
+  "yihetang": {
+   "name": "Yihetang",
+   "name_zh": "益禾堂",
+   "format": "tea",
+   "global": "8,000+ contracted stores (Dec 2024), overwhelmingly China; ~60 international stores in a Vietnam-Thailand-Malaysia-Indonesia SE-Asia cluster (early 2026)"
+  },
+  "tianlala": {
+   "name": "Tianlala",
+   "name_zh": "甜啦啦",
+   "format": "tea",
+   "global": "~8,000 China stores + 200+ overseas (Feb 2025); trademarks in 52 countries; overseas ops HQ Singapore (2023), SE Asia + Central Asia focus"
+  },
+  "luckycup": {
+   "name": "Lucky Cup",
+   "name_zh": "幸运咖",
+   "format": "coffee",
+   "global": "Mixue's budget coffee arm; hit 10,000 stores (Nov 2025), almost all mainland China; overseas brand-new"
+  },
+  "yujianxiaomian": {
+   "name": "Yu Jian Xiao Mian",
+   "name_zh": "遇见小面",
+   "format": "restaurant",
+   "global": "~500+ stores worldwide (Chongqing noodles, HKEX-listed Dec 2025); overseas new and small — Singapore and Hong Kong since Dec 2025"
+  },
+  "hefu": {
+   "name": "Hefu Noodle",
+   "name_zh": "和府捞面",
+   "format": "restaurant",
+   "global": "632 stores (2025) across 80+ mainland cities; overseas began in Hong Kong Feb 2024"
+  },
+  "xiabu": {
+   "name": "Xiabu Xiabu",
+   "name_zh": "呷哺呷哺",
+   "format": "hotpot",
+   "global": "~1,000+ outlets across the Xiabu + Coucou brands, overwhelmingly mainland; the Xiabu brand's non-mainland footprint is ~21 across HK/Taiwan/Macau/Singapore (Jun 2024)"
+  },
+  "coucou": {
+   "name": "Coucou",
+   "name_zh": "湊湊",
+   "format": "hotpot",
+   "global": "Xiabu Xiabu's premium sub-brand (2016); ~200 branches mostly mainland + Hong Kong; non-mainland in Hong Kong and Singapore"
+  },
+  "laowang": {
+   "name": "Laowang",
+   "name_zh": "捞王",
+   "format": "hotpot",
+   "global": "China's largest pork-tripe-chicken (猪肚鸡) hotpot chain, ~135-150 mainland restaurants; its only confirmed non-mainland store is one in Taipei"
+  },
+  "peijie": {
+   "name": "Peijie",
+   "name_zh": "珮姐",
+   "format": "hotpot",
+   "global": "Chongqing hotpot, ~30 mostly directly-operated mainland stores; first overseas store Amsterdam (Oct 2025)"
+  },
+  "zhouheiya": {
+   "name": "Zhou Hei Ya",
+   "name_zh": "周黑鸭",
+   "format": "snack",
+   "global": "~1,000+ braised-duck snack stores, almost all mainland (HK-listed 1458.HK — a stock listing only); a single overseas store"
+  },
+  "kkv": {
+   "name": "KKV",
+   "name_zh": "KKV",
+   "format": "lifestyle",
+   "global": "KK Group's lead overseas retail brand; the group has >1,000 China stores + 170+ overseas across 6 SE-Asian countries (Jun 2026)"
+  },
+  "x11": {
+   "name": "X11",
+   "name_zh": "X11",
+   "format": "toys",
+   "global": "KK Group art-toy/trend retail brand (~64 stores Jan 2024, mostly China); a later overseas entrant, part of the group's 170+ overseas"
+  },
+  "colorist": {
+   "name": "The Colorist",
+   "name_zh": "调色师",
+   "format": "lifestyle",
+   "global": "KK Group cosmetics retail brand (2019); part of the group's 170+ overseas stores"
+  },
+  "cooltoy": {
+   "name": "Cool Toy",
+   "name_zh": "酷乐潮玩",
+   "format": "toys",
+   "global": "Ningbo art-toy retailer (~300 stores in 60+ mainland cities); overseas nascent, retrenching domestically"
+  },
+  "muwu": {
+   "name": "Muwu BBQ",
+   "name_zh": "木屋烧烤",
+   "format": "restaurant",
+   "global": "~400+ directly-operated skewer/BBQ stores across ~20 mainland cities; overseas early-stage (Hong Kong)"
+  },
+  "steelpipe": {
+   "name": "Steel Pipe No.5",
+   "name_zh": "钢管厂五区小郡肝串串香",
+   "format": "hotpot",
+   "global": "~880 skewer-hotpot (串串香) stores (Nov 2025), overwhelmingly mainland; overseas is franchise-driven and name-fragmented, so attributions are brand-name-level, not corporate-confirmed"
+  },
+  "micun": {
+   "name": "Micun",
+   "name_zh": "米村拌饭",
+   "format": "restaurant",
+   "global": "1,900+ Korean-style bibimbap fast-food stores, nearly all mainland; overseas footprint = Singapore only"
+  },
+  "greentea": {
+   "name": "Green Tea",
+   "name_zh": "绿茶餐厅",
+   "format": "restaurant",
+   "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly mainland, overseas since Aug 2024 across HK + SE Asia"
+  },
+  "tanyu": {
+   "name": "Tan Yu",
+   "name_zh": "探鱼",
+   "format": "restaurant",
+   "global": "400+ grilled-fish stores in 80+ cities; overseas across ~8 markets (parent: Gantang Mingshan 甘棠明善, Shenzhen)"
+  },
+  "nanjingimpressions": {
+   "name": "Nanjing Impressions",
+   "name_zh": "南京大牌档",
+   "format": "restaurant",
+   "global": "~35-40 Nanjing-cuisine stores, all mainland except a single overseas outlet"
   }
  },
  "entries": [
@@ -1228,6 +1384,682 @@
    "note": "Entry into Hong Kong reported in market coverage; not confirmed against a first-party source.",
    "sources": [
     "https://news.futunn.com/en/post/48783500/stock-price-soared-by-80-chabaida-enters-hong-kong-market"
+   ]
+  },
+  {
+   "chain": "yihetang",
+   "market": "VN",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas market; exclusive Vietnam agency formalized early 2024; ~30+ signed stores reported Aug 2024 (a soft/contracted figure).",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Yihetang"
+   ]
+  },
+  {
+   "chain": "yihetang",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-11",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Two Bangkok stores opened simultaneously in Nov 2024."
+  },
+  {
+   "chain": "yihetang",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "First store Dec 2024; a 5th Malaysia store reported by Feb 2026."
+  },
+  {
+   "chain": "yihetang",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Indonesia first store reported in 2024 in Chinese press."
+  },
+  {
+   "chain": "tianlala",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023-10-01",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas market — 6 Jakarta stores opened simultaneously on 1 Oct 2023; 700+ contracted by mid-2026 (signed, not audited-open).",
+   "sources": [
+    "https://equalocean.com/briefing/20250806230148526"
+   ]
+  },
+  {
+   "chain": "tianlala",
+   "market": "PH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "First Philippines store in 2024 (Manila); local entity Tianlala Philippines Corp. (tianlala.ph).",
+   "sources": [
+    "https://www.tianlala.ph/"
+   ]
+  },
+  {
+   "chain": "tianlala",
+   "market": "KH",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Cambodia outlets appear on local merchant/delivery listings; no dated opening published."
+  },
+  {
+   "chain": "tianlala",
+   "market": "UZ",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Uzbekistan named in the brand's overseas-market list (Central Asia focus); no first-party storefront confirmed."
+  },
+  {
+   "chain": "tianlala",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Malaysia listed as an overseas market by the brand; no dated first-party opening found."
+  },
+  {
+   "chain": "luckycup",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-08",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas store in Puchong, Selangor ~Aug 2025 (1 open + 4 announced, franchise), part of Mixue's overseas push. 幸运咖 is Mixue's coffee sub-brand.",
+   "sources": [
+    "https://equalocean.com/news/2025082621640"
+   ]
+  },
+  {
+   "chain": "yujianxiaomian",
+   "market": "SG",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-07",
+   "first_opened": "2025-12-29",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas flagship 313@Somerset (its global 500th store) Dec 2025; 2nd at Tampines ~Jul 2026.",
+   "sources": [
+    "https://insideretail.asia/2026/01/07/xiao-noodles-opens-first-overseas-flagship-in-singapore/"
+   ]
+  },
+  {
+   "chain": "yujianxiaomian",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "~2 stores at high-speed-rail stations (e.g. West Kowloon); count from press, no dated first-party total.",
+   "sources": [
+    "https://www.xiaonoodles.com/"
+   ]
+  },
+  {
+   "chain": "hefu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-02-08",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First-ever overseas store, Causeway Bay, 8 Feb 2024; several HK branches since (count unpublished). A Toronto aggregator listing is unconfirmed and omitted.",
+   "sources": [
+    "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/"
+   ]
+  },
+  {
+   "chain": "xiabu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Among the ~21 non-mainland Xiabu-brand outlets counted Jun 2024.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
+   ]
+  },
+  {
+   "chain": "xiabu",
+   "market": "MO",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Among the ~21 non-mainland Xiabu-brand outlets counted Jun 2024."
+  },
+  {
+   "chain": "xiabu",
+   "market": "TW",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Among the ~21 non-mainland outlets (Jun 2024); Taiwan-style individual hotpot. Founder He Guangqi is Taiwan-born, but Xiabu is a Beijing-founded, HKEX-listed mainland company."
+  },
+  {
+   "chain": "xiabu",
+   "market": "SG",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2023-01-25",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Single Bras Basah outlet opened 25 Jan 2023, closed by ~2024 (strategic adjustment)."
+  },
+  {
+   "chain": "xiabu",
+   "market": "MY",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "2022-23 plan for Singapore + Malaysia stores; no Malaysia outlet confirmed to have opened."
+  },
+  {
+   "chain": "coucou",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Coucou (HK) subsidiary est. 2019; several outlets (Causeway Bay, TST, Mong Kok)."
+  },
+  {
+   "chain": "coucou",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2021-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Suntec City Dec 2021, Jewel Changi 2022; i12 Katong closed 2026; ~2 open (Aug 2025)."
+  },
+  {
+   "chain": "laowang",
+   "market": "TW",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2021-08",
+   "first_opened": "2021",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Sole non-mainland store per the 2021 HKEX IPO prospectus (ATT 4 FUN, Taipei). A Barcelona namesake is unconfirmed and omitted.",
+   "sources": [
+    "https://www.caixinglobal.com/2022-02-25/chinese-hotpot-chain-files-for-hong-kong-ipo-101847160.html"
+   ]
+  },
+  {
+   "chain": "peijie",
+   "market": "NL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2025-10",
+   "first_opened": "2025-10",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "First-ever overseas store, Zeedijk 57 Amsterdam (~Oct 2025); direct-vs-licensed status unstated.",
+   "sources": [
+    "https://peijiehotpot.com/"
+   ]
+  },
+  {
+   "chain": "zhouheiya",
+   "market": "MY",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2025-12",
+   "first_opened": "2025-12-05",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First (and only) overseas store, Port Klang, 5 Dec 2025; preceded by vacuum-pack retail in MiX convenience stores.",
+   "sources": [
+    "https://www.foodtalks.cn/en/news/60506"
+   ]
+  },
+  {
+   "chain": "kkv",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First KKV overseas market (2024).",
+   "sources": [
+    "https://kkgroup.cn/en-US/global"
+   ]
+  },
+  {
+   "chain": "kkv",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First store Oct 2024."
+  },
+  {
+   "chain": "kkv",
+   "market": "VN",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-11",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First store Nov 2024."
+  },
+  {
+   "chain": "kkv",
+   "market": "PH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-12",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First store Dec 2024."
+  },
+  {
+   "chain": "kkv",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-05-17",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Singapore debut 17 May 2025."
+  },
+  {
+   "chain": "kkv",
+   "market": "ID",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2020",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Entered 2020 (~60 stores), KK sold its stake ~2023 and stores rebranded OH!SOME; a KKV relaunch is announced for 2026.",
+   "sources": [
+    "https://insideretail.asia/2025/12/09/kk-group-plans-indonesian-comeback-with-multi-brand-strategy"
+   ]
+  },
+  {
+   "chain": "x11",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Operating at Pavilion Bukit Jalil by Aug 2025."
+  },
+  {
+   "chain": "x11",
+   "market": "PH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "SM City La Union noted Aug 2025."
+  },
+  {
+   "chain": "x11",
+   "market": "ID",
+   "status": "announced",
+   "locations": null,
+   "first_opened": "2025-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Lead brand of KK Group's Dec 2025 Indonesia comeback; stores from Dec 2025."
+  },
+  {
+   "chain": "colorist",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-12-19",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas store Pavilion Bukit Jalil 19 Dec 2024; 2nd at Central i-City, Shah Alam."
+  },
+  {
+   "chain": "colorist",
+   "market": "VN",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "An early Colorist overseas market (before the Philippines)."
+  },
+  {
+   "chain": "colorist",
+   "market": "PH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-09-25",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "Debut 25 Sep 2025 across three malls (Southwoods, Festival, SM Bicutan)."
+  },
+  {
+   "chain": "colorist",
+   "market": "ID",
+   "status": "announced",
+   "locations": null,
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Announced for 2026 as part of KK Group's Indonesia comeback (after X11)."
+  },
+  {
+   "chain": "cooltoy",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Reported first overseas store in Thailand in 2024 (vendor press, weak sourcing); an Apr 2025 EmSphere Bangkok pop-up for its Tun Tun Zai IP was temporary — a permanent store is unconfirmed."
+  },
+  {
+   "chain": "muwu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-04-15",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First HK store, Mong Kok, 15 Apr 2024 ('first step to go global'); 2nd store May 2024. An unverified Johor Bahru buffet is a possible name-reuse and is omitted.",
+   "sources": [
+    "https://www.info.gov.hk/gia/general/202404/09/P2024040900246.htm"
+   ]
+  },
+  {
+   "chain": "steelpipe",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2017-08",
+   "precision": "month",
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Sydney outlet claimed as the first overseas store (Aug 2017); brand attribution is murky due to heavy trademark fragmentation."
+  },
+  {
+   "chain": "steelpipe",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Vancouver (Richmond, ~end 2019) and Toronto outlets reported in local Chinese-language media; name-fragmented, verify per outlet."
+  },
+  {
+   "chain": "micun",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-06-12",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas store 12 Jun 2024 (Bukit Panjang Plaza); several SG outlets since (count unpublished).",
+   "sources": [
+    "https://www.capitaland.com/sg/malls/bugisplus/en/stores/micun-bibimbap.html"
+   ]
+  },
+  {
+   "chain": "greentea",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024-08-31",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas outlet Hysan Place, Causeway Bay, 31 Aug 2024; ~9 HK stores by 2025 (undated).",
+   "sources": [
+    "https://en.china-greentea.com.cn/company-news/10"
+   ]
+  },
+  {
+   "chain": "greentea",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-09",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Suntec City soft-launch ~Sep 2025."
+  },
+  {
+   "chain": "greentea",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Bangkok outlet reported opened ~2025 (per InvestHK client page)."
+  },
+  {
+   "chain": "greentea",
+   "market": "MY",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Kuala Lumpur listed as opening soon (InvestHK)."
+  },
+  {
+   "chain": "greentea",
+   "market": "MO",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Macao listed as opening soon (InvestHK)."
+  },
+  {
+   "chain": "tanyu",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2017-11",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First overseas store Nov 2017; ~5 outlets (undated), locally franchised."
+  },
+  {
+   "chain": "tanyu",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023-01",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First flagship Pavilion KL Jan 2023; now multi-outlet."
+  },
+  {
+   "chain": "tanyu",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-10-31",
+   "precision": "day",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Siam Paragon grand opening 31 Oct 2025."
+  },
+  {
+   "chain": "tanyu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "On the brand's own overseas market list; undated.",
+   "sources": [
+    "https://www.tanyuchina.com/en"
+   ]
+  },
+  {
+   "chain": "tanyu",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "On the brand's own overseas market list; undated.",
+   "sources": [
+    "https://www.tanyuchina.com/en"
+   ]
+  },
+  {
+   "chain": "tanyu",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "On the brand's own overseas market list; undated.",
+   "sources": [
+    "https://www.tanyuchina.com/en"
+   ]
+  },
+  {
+   "chain": "tanyu",
+   "market": "KH",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "On the brand's own overseas market list; undated.",
+   "sources": [
+    "https://www.tanyuchina.com/en"
+   ]
+  },
+  {
+   "chain": "tanyu",
+   "market": "MX",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "On the brand's own overseas market list; undated (Mexico, not the US).",
+   "sources": [
+    "https://www.tanyuchina.com/en"
+   ]
+  },
+  {
+   "chain": "nanjingimpressions",
+   "market": "SG",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-09",
+   "first_opened": "2016-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Its one overseas branch — Plaza Singapura, opened ~Dec 2016, still operating.",
+   "sources": [
+    "https://www.opentable.com/restaurant/profile/122963"
    ]
   }
  ]
