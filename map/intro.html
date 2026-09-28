@@ -79,12 +79,22 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
       : `<div class="cphoto placeholder">photo to come</div>`;
     if (c.photo) anyPhoto = true;
 
+    // "US since" line: when known, when it opened and where its first US outlet was.
+    let usline = '';
+    if (c.us_since || c.first_outlet) {
+      const since = c.us_since ? `In the US since <b>${esc(c.us_since)}</b>` : '';
+      const store = c.first_outlet
+        ? `${c.us_since ? 'first store: ' : 'First US store: '}${esc(c.first_outlet)}` : '';
+      usline = `<p class="cus">${[since, store].filter(Boolean).join(' · ')}</p>`;
+    }
+
     card.innerHTML =
       `${photo}` +
       `<div class="cbody">` +
         `<h2>${esc(c.name)} <span class="zh">${esc(c.name_zh || '')}</span></h2>` +
         (c.category ? `<p class="ccat">${esc(c.category)}</p>` : '') +
         `<p class="cblurb">${esc(c.blurb || '')}</p>` +
+        usline +
         (c.photo_credit ? `<p class="ccredit">Photo: ${esc(c.photo_credit)}</p>` : '') +
         `<p class="clinks">${cnLink} &nbsp;·&nbsp; ${usLink}</p>` +
       `</div>`;

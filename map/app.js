@@ -681,7 +681,7 @@ function drawProfiles(data) {
       `<dt>Founder</dt><dd>${esc(p.founder)}</dd>` +
       `<dt>Listing</dt><dd>${esc(p.listing)}</dd>` +
       `<dt>Worldwide</dt><dd>${esc(p.global_stores)}</dd>` +
-      `<dt>US debut</dt><dd>${esc(p.us_entry)}</dd>` +
+      `<dt>US since</dt><dd>${esc(p.us_entry)}</dd>` +
       `</dl>`;
     box.append(d);
   }

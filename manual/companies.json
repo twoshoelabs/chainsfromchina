@@ -19,7 +19,9 @@
       "site_cn": "https://en.mxbc.com/",
       "site_us": null,
       "photo": "img/mixue.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "December 2025",
+      "first_outlet": "Los Angeles — 6922 Hollywood Blvd"
     },
     "chagee": {
       "name": "CHAGEE",
@@ -29,7 +31,9 @@
       "site_cn": "https://www.chagee.com/",
       "site_us": "https://www.chagee.us/",
       "photo": "img/chagee.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "May 2025",
+      "first_outlet": "Los Angeles — Westfield Century City"
     },
     "luckin": {
       "name": "Luckin Coffee",
@@ -39,7 +43,9 @@
       "site_cn": "https://www.luckincoffee.com/",
       "site_us": "https://www.luckincoffee.us/",
       "photo": "img/luckin.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "June 2025",
+      "first_outlet": "New York City — 755 Broadway"
     },
     "miniso": {
       "name": "MINISO",
@@ -49,7 +55,9 @@
       "site_cn": "https://www.miniso.com/",
       "site_us": "https://www.miniso-us.com/",
       "photo": "img/miniso.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "April 2017",
+      "first_outlet": "Pasadena, CA — 88 W Colorado Blvd"
     },
     "popmart": {
       "name": "POP MART",
@@ -59,7 +67,9 @@
       "site_cn": "https://www.popmart.com/",
       "site_us": "https://www.popmart.com/us",
       "photo": "img/popmart.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "September 2023",
+      "first_outlet": "East Rutherford, NJ — American Dream (first permanent store)"
     },
     "haidilao": {
       "name": "Haidilao",
@@ -69,7 +79,9 @@
       "site_cn": "https://www.haidilao.com/",
       "site_us": "https://haidilaohotpot.us/",
       "photo": "img/haidilao.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "September 2013",
+      "first_outlet": "Arcadia, CA — 400 S Baldwin Ave (Westfield Santa Anita)"
     },
     "heytea": {
       "name": "HEYTEA",
@@ -79,7 +91,9 @@
       "site_cn": "https://www.heytea.com/",
       "site_us": "https://www.heytea.com/en-us/store",
       "photo": "img/heytea.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "December 2023",
+      "first_outlet": "New York City — 1407 Broadway"
     },
     "cotti": {
       "name": "Cotti Coffee",
@@ -89,7 +103,9 @@
       "site_cn": "https://www.cotti.com/",
       "site_us": null,
       "photo": "img/cotti.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "2024",
+      "first_outlet": "Pearl City, HI — Pearl Highlands Center"
     },
     "taier": {
       "name": "Tai Er",
@@ -99,7 +115,9 @@
       "site_cn": "http://en.jiumaojiu.com/",
       "site_us": "https://www.taierusa.com/",
       "photo": "img/taier.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "2018",
+      "first_outlet": "City of Industry, CA — 18518 E Gale Ave"
     },
     "chabaidao": {
       "name": "ChaPanda",
@@ -109,7 +127,9 @@
       "site_cn": "https://www.chabaidao.com/",
       "site_us": null,
       "photo": "img/chabaidao.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Flushing, Queens, NY — 38-03 Main St"
     },
     "nayuki": {
       "name": "NaiSnow",
@@ -119,7 +139,9 @@
       "site_cn": "https://www.naixue.com/",
       "site_us": null,
       "photo": "img/nayuki.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Flushing, Queens, NY — 39-07 Prince St"
     },
     "juewei": {
       "name": "Juewei",
@@ -129,7 +151,9 @@
       "site_cn": "http://www.juewei.com/",
       "site_us": null,
       "photo": "img/juewei.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": ""
     },
     "yangguofu": {
       "name": "Yangguofu",
@@ -139,7 +163,9 @@
       "site_cn": "https://www.yangguofu.com/",
       "site_us": "https://www.ygfus.com/",
       "photo": "img/yangguofu.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": ""
     },
     "fishwithyou": {
       "name": "Fish With You",
@@ -149,7 +175,9 @@
       "site_cn": "https://en.yunizaiyiqi.com/",
       "site_us": "https://www.fishwithyouny.com/",
       "photo": "img/fishwithyou.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": "Flushing, Queens, NY — 135-25A 40th Rd"
     },
     "yangs": {
       "name": "Yang's Braised Chicken Rice",
@@ -159,7 +187,9 @@
       "site_cn": null,
       "site_us": "https://yangsbraisedtogo.com/",
       "photo": "img/yangs.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "September 2017",
+      "first_outlet": "Tustin, CA — 13824 Red Hill Ave"
     },
     "zhangliang": {
       "name": "Zhang Liang Malatang",
@@ -169,7 +199,9 @@
       "site_cn": "https://www.zlmlt.com/",
       "site_us": null,
       "photo": "img/zhangliang.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "2019",
+      "first_outlet": "Flushing, Queens, NY"
     },
     "chahalo": {
       "name": "ChaHalo",
@@ -179,7 +211,9 @@
       "site_cn": "https://www.chahalo.com/",
       "site_us": null,
       "photo": "img/chahalo.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Rowland Heights, CA"
     },
     "xiaolongkan": {
       "name": "Shoo Loong Kan Hotpot",
@@ -189,7 +223,9 @@
       "site_cn": null,
       "site_us": "https://shooloongkan.us/",
       "photo": "img/xiaolongkan.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "June 2022",
+      "first_outlet": "Flushing, Queens, NY — Tangram"
     },
     "liuyishou": {
       "name": "Liuyishou Hot Pot",
@@ -199,7 +235,9 @@
       "site_cn": null,
       "site_us": "https://www.liuyishouna.com/",
       "photo": "img/liuyishou.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "February 2017",
+      "first_outlet": "Princeton, NJ"
     },
     "aunteajenny": {
       "name": "Auntea Jenny",
@@ -209,7 +247,9 @@
       "site_cn": null,
       "site_us": "https://aunteajenny.us/",
       "photo": "img/aunteajenny.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "May 2025",
+      "first_outlet": "Flushing, Queens, NY — 39-07 Prince St"
     },
     "mollytea": {
       "name": "Molly Tea",
@@ -219,7 +259,9 @@
       "site_cn": null,
       "site_us": "https://usa.mollytea.com/",
       "photo": "img/mollytea.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "April 2024",
+      "first_outlet": "Flushing, Queens, NY — 37-11 Prince St (since closed)"
     },
     "lelecha": {
       "name": "Lelecha",
@@ -229,7 +271,9 @@
       "site_cn": null,
       "site_us": "https://www.lelechaus.com/",
       "photo": "img/lelecha.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "July 2025",
+      "first_outlet": "New York City — 1032 Sixth Ave"
     },
     "nonggengji": {
       "name": "Nong Geng Ji",
@@ -239,7 +283,9 @@
       "site_cn": null,
       "site_us": null,
       "photo": "img/nonggengji.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "January 2026",
+      "first_outlet": "Flushing, Queens, NY — 135-15 37th Ave"
     },
     "baospastry": {
       "name": "Bao's Pastry",
@@ -249,7 +295,9 @@
       "site_cn": null,
       "site_us": null,
       "photo": "img/baospastry.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "January 2026",
+      "first_outlet": "Flushing, Queens, NY — 135-25 Roosevelt Ave"
     },
     "toptoy": {
       "name": "TOP TOY",
@@ -259,7 +307,9 @@
       "site_cn": null,
       "site_us": "https://www.gotoptoy.com/",
       "photo": "img/toptoy.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "June 2026",
+      "first_outlet": "New York City — 1515 Broadway (Times Square)"
     },
     "toys52": {
       "name": "52Toys",
@@ -269,7 +319,9 @@
       "site_cn": null,
       "site_us": "https://us.52toys.com/",
       "photo": "img/toys52.jpg",
-      "photo_credit": null
+      "photo_credit": null,
+      "us_since": "July 2024",
+      "first_outlet": "Atlanta, GA — 6035 Peachtree Rd"
     }
   }
 }
