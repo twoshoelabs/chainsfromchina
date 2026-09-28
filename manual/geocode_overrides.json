@@ -1,0 +1,12 @@
+{
+ "_readme": "Manual coordinates for COLLECTED US stores the Census geocoder cannot place (a redeveloped block, a TIGER address-range gap). Each is a last resort, applied only when Census returns no match, and the store is marked coord_src='manual' so the map draws it as a derived point, never as a chain-published one. Prefer a coordinate derived from Census matches of neighbouring addresses on the same street segment over any commercial source; state that derivation in the note. Keyed by the store's address; matching is on the normalised address.",
+ "overrides": [
+  {
+   "chain": "liuyishou",
+   "address": "1199 S De Anza Blvd Suite 10, San Jose, CA 95129",
+   "lat": 37.303585,
+   "lon": -122.032251,
+   "note": "Census has no TIGER range for the odd side of this S De Anza Blvd block, so 1199 is interpolated between the Census matches for 1180 (37.304869) and 1210 (37.302841) S De Anza Blvd on the same segment. 29 Sep 2026."
+  }
+ ]
+}

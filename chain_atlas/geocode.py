@@ -27,6 +27,7 @@ was placed yesterday.
 import json
 import time
 import urllib.parse
+from pathlib import Path
 
 from . import capture
 from .config import DATA_DIR
@@ -35,6 +36,33 @@ from .identity import norm_addr
 ENDPOINT = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
 BENCHMARK = "Public_AR_Current"
 CACHE_PATH = DATA_DIR / "geocode_cache.json"
+# Hand-entered coordinates for collected US stores the Census geocoder cannot place. Kept in the
+# repo (not the archive) because they are a curated editorial decision, not a fetched observation.
+OVERRIDES_PATH = Path(__file__).resolve().parents[1] / "manual" / "geocode_overrides.json"
+
+
+def _load_overrides() -> dict:
+    """
+    name:      _load_overrides
+    purpose:   Manual coordinates for stores Census cannot place, keyed by normalised address.
+    arguments: none
+    returns:   {norm_addr: {"lat","lon","note"}}
+    effects:   Reads manual/geocode_overrides.json if present.
+    other:     A LAST RESORT, applied only where the Census geocoder returns no match — never to
+               overrule a coordinate the Census (or the chain) did place. The point is marked
+               coord_src='manual' so it is never mistaken for a Census-derived or published one.
+    """
+    if not OVERRIDES_PATH.exists():
+        return {}
+    try:
+        doc = json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))
+    except Exception:                                           # noqa: BLE001
+        return {}
+    out = {}
+    for o in doc.get("overrides", []):
+        if o.get("address") and o.get("lat") is not None and o.get("lon") is not None:
+            out[norm_addr(o["address"])] = {"lat": o["lat"], "lon": o["lon"], "note": o.get("note")}
+    return out
 
 
 def _load_cache() -> dict:
@@ -95,6 +123,7 @@ def run(con, chain_id: str | None = None, limit: int = 500) -> dict:
     """
     from .geo import cell100, state_from_point
     cache = _load_cache()
+    overrides = _load_overrides()
     q = ("SELECT store_id, chain_id, addr_raw, country, state FROM stores"
          " WHERE lat IS NULL AND addr_raw IS NOT NULL AND addr_raw != ''"
          " AND country='US' AND status != 'withdrawn'")
@@ -104,24 +133,32 @@ def run(con, chain_id: str | None = None, limit: int = 500) -> dict:
         args = (chain_id,)
     rows = con.execute(q + " LIMIT ?", (*args, limit)).fetchall()
 
-    placed = failed = 0
+    placed = manual = failed = 0
     for r in rows:
         got = geocode_one(r["addr_raw"], cache)
+        src = "geocoded"
         if not got:
-            failed += 1
-            continue
+            # Census could not place it — fall back to a hand-entered coordinate if one exists,
+            # marked as manual so it is drawn as a derived point, not a published one.
+            ov = overrides.get(norm_addr(r["addr_raw"]))
+            if not ov:
+                failed += 1
+                continue
+            got, src = {"lat": ov["lat"], "lon": ov["lon"]}, "manual"
+            manual += 1
         # A store whose published address carried no state (some locators drop it, e.g. a bare
         # "Las Vegas, 89102") gets one from the coordinate we just derived — the same last-resort
         # rule run.normalise applies at parse time. Only ever fills a blank; a chain-stated state
         # is never overwritten.
         state = r["state"] or state_from_point(got["lat"], got["lon"])
         con.execute(
-            "UPDATE stores SET lat=?, lon=?, coord_src='geocoded', cell100=?, state=? "
+            "UPDATE stores SET lat=?, lon=?, coord_src=?, cell100=?, state=? "
             "WHERE store_id=?",
-            (got["lat"], got["lon"], cell100(got["lat"], got["lon"], r["country"]),
+            (got["lat"], got["lon"], src, cell100(got["lat"], got["lon"], r["country"]),
              state, r["store_id"]))
-        placed += 1
+        if src == "geocoded":
+            placed += 1
     con.commit()
     _save_cache(cache)
-    return {"candidates": len(rows), "placed": placed, "unmatched": failed,
+    return {"candidates": len(rows), "placed": placed, "manual": manual, "unmatched": failed,
             "cache_entries": len(cache)}

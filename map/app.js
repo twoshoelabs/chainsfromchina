@@ -221,7 +221,7 @@ async function main() {
     const open = s.status === 'active';
     const c = el('circle', {
       cx: x.toFixed(0), cy: y.toFixed(0), r: 1,
-      class: 'store' + (s.coord_src === 'geocoded' ? ' geo' : ''), 'data-chain': s.chain,
+      class: 'store' + (s.coord_src === 'geocoded' || s.coord_src === 'manual' ? ' geo' : ''), 'data-chain': s.chain,
       fill: open ? colorOf(s.chain) : 'none',
       stroke: open ? 'var(--surface)' : colorOf(s.chain),
     });

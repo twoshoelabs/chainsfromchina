@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS stores (
     zip         TEXT,
     lat         REAL,
     lon         REAL,
-    coord_src   TEXT,                      -- 'published' | 'geocoded' | NULL
+    coord_src   TEXT,                      -- 'published' | 'geocoded' | 'manual' | NULL
     cell100     TEXT,                      -- 100 m Albers cell, NULL when unlocated
     first_seen  TEXT NOT NULL,             -- YYYY-MM-DD
     last_seen   TEXT NOT NULL,
