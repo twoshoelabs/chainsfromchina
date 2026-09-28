@@ -397,9 +397,11 @@ header .sub strong, header .lede strong{color:var(--h-ink)}
 .ustotal{position:relative; color:var(--h-dim); margin:30px 0 0; font-family:var(--serif); font-size:19px}
 .ustotal::before{content:""; display:block; width:60px; height:3px; margin:0 0 20px;
   background:var(--h-accent)}
-.ustotal b{display:block; color:var(--h-ink); font-family:var(--display); font-weight:800;
-  font-size:clamp(76px, 12.5vw, 148px); line-height:.86; letter-spacing:-.02em; margin-bottom:12px;
-  font-variant-numeric:lining-nums}
+/* Grand total: the text serif with old-style figures, so it belongs with the data below
+   rather than shouting in the display face — and a notch smaller/lighter than before. */
+.ustotal b{display:block; color:var(--h-ink); font-family:var(--serif); font-weight:600;
+  font-size:clamp(60px, 9.5vw, 116px); line-height:.9; letter-spacing:-.015em; margin-bottom:12px;
+  font-variant-numeric:oldstyle-nums}
 .ustotal .dim{color:var(--h-dim); font-family:var(--sans); font-size:12.5px;
   font-variant-numeric:tabular-nums}
 
@@ -455,3 +457,14 @@ aside h2, .usbox h2{
 
 /* Calmer uppercase micro-labels — less "spec sheet". */
 aside h2, .usbox h2{font-weight:600; letter-spacing:.08em}
+
+/* By-state breakdown in the same text serif as the totals (was the Chinese serif), so the whole
+   panel's figures are unified. */
+.statewho{font-family:var(--serif); font-variant-numeric:oldstyle-nums tabular-nums;
+  color:var(--muted); font-size:12.5px}
+
+/* Category labels that group the chain chips on the landing page. Full-width so the chips below
+   wrap under each heading. */
+.tallygroup{flex:0 0 100%; margin:14px 0 0; font-size:11px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted)}
+.tally .tallygroup:first-child{margin-top:0}

@@ -76,6 +76,19 @@ def export(out_dir: Path) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     con = db.connect()
 
+    # A US store whose published address omits the state (some locators write a bare
+    # "Las Vegas, 89102") gets one from its coordinate. This runs every export — after the daily
+    # `run`, which re-parses and would otherwise leave such a store stateless again — so the
+    # by-state tally stays complete. Only ever fills a blank; a chain-stated state is untouched.
+    from .geo import state_from_point
+    for r in con.execute("SELECT store_id, lat, lon FROM stores WHERE country='US'"
+                         " AND (state IS NULL OR state='') AND lat IS NOT NULL"
+                         " AND status!='withdrawn'").fetchall():
+        st = state_from_point(r["lat"], r["lon"])
+        if st:
+            con.execute("UPDATE stores SET state=? WHERE store_id=?", (st, r["store_id"]))
+    con.commit()
+
     chains, blocked = {}, []
     for a in REGISTRY:
         if a.country != "US":

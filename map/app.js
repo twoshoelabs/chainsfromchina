@@ -396,9 +396,22 @@ function perChain(data) {
   return per;
 }
 
+// The roster of chains has grown past the point where one flat row reads well, so the chips are
+// grouped by what the chain actually sells. Category comes from each chain's `format`, with one
+// override: MIXUE is the ice-cream-and-tea chain, filed under its defining product.
+const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Bakery',
+                   'Toys & Pop Culture', 'Other'];
+const CAT_BY_FORMAT = {
+  tea: 'Tea', coffee: 'Coffee', restaurant: 'Restaurants', hotpot: 'Restaurants',
+  snack: 'Restaurants', bakery: 'Bakery', toys: 'Toys & Pop Culture', lifestyle: 'Toys & Pop Culture',
+};
+const CAT_OVERRIDE = { mixue: 'Ice Cream' };
+function categoryOf(id, fmt) { return CAT_OVERRIDE[id] || CAT_BY_FORMAT[fmt] || 'Other'; }
+
 function drawTally(data) {
   const box = document.getElementById('tally'), per = perChain(data);
-  for (const [id, meta] of Object.entries(data.meta.chains)) {
+
+  const collectedChip = (id, meta) => {
     const p = per[id] || { open: 0, soon: 0 };
     const un = data.meta.unlocated[id] || 0;
     const gc = (data.meta.geocoded || {})[id] || 0;
@@ -409,7 +422,7 @@ function drawTally(data) {
         (gc ? ` · ${gc} geocoded` : '');
     const b = document.createElement('button');
     b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
-    b.setAttribute('aria-pressed', 'true');
+    b.setAttribute('aria-pressed', String(!hidden.has(id)));
     if (meta.provenance && meta.provenance !== 'collected')
       b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
         + 'These rows do not refresh; no change tomorrow means nobody looked.';
@@ -424,8 +437,8 @@ function drawTally(data) {
       for (const c of document.querySelectorAll(`.store[data-chain="${id}"]`))
         c.style.display = hidden.has(id) || mode === 'states' ? 'none' : '';
     };
-    box.append(b);
-  }
+    return b;
+  };
 
   // Chains with known locations but no roster get a count of what is KNOWN, never of what is.
   const sightBy = {};
@@ -435,10 +448,10 @@ function drawTally(data) {
   const rosterBy = {};
   for (const r of (data.meta.manual_rosters || [])) rosterBy[r.chain] = r;
 
-  // Then the chains that are HERE and cannot be drawn. A reader looking for Haidilao looks at
-  // this row first; finding nothing, they conclude it is not in America. It is — there is simply
-  // no store-level data for it, and the chip has to say that rather than not exist.
-  for (const b of data.meta.blocked || []) {
+  // Chains that are HERE and cannot be drawn. A reader looking for Haidilao looks here first;
+  // finding nothing, they conclude it is not in America. It is — there is simply no store-level
+  // data for it, and the chip has to say that rather than not exist.
+  const blockedChip = (b) => {
     const el = document.createElement('span');
     el.className = 'chip off';
     const kc = b.known_count;
@@ -446,10 +459,13 @@ function drawTally(data) {
     const ns = sightBy[b.chain_id] || 0;
     const nu = ((data.meta.sightings || [])
       .filter(g => g.chain === b.chain_id && g.confidence === 'uncertain')).length;
+    // No "roster incomplete" claim: the dashed, dimmed chip and the "not counted here" section
+    // already say these are known locations rather than a census, and we do not actually know
+    // whether the list is complete — for some (a single-store first-party locator, say) it is.
     const n = rr
       ? `${rr.count} — complete for ${rr.complete_scope || 'a defined area'}`
       : kc ? `${kc.stores} — no locations published`
-      : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}, roster incomplete`
+      : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}`
            : 'not counted yet';
     el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
       `<span class="n">${esc(n)}</span>`;
@@ -461,7 +477,29 @@ function drawTally(data) {
         + `this count does not update on its own and is not part of the collected census.`
         + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
       : (b.reason || ''));
-    box.append(el);
+    return el;
+  };
+
+  // Bucket every chip by category — collected (drawable) first, then blocked, within each group.
+  const buckets = {};
+  for (const [id, meta] of Object.entries(data.meta.chains)) {
+    const cat = categoryOf(id, meta.format);
+    (buckets[cat] = buckets[cat] || []).push(collectedChip(id, meta));
+  }
+  for (const b of data.meta.blocked || []) {
+    const cat = categoryOf(b.chain_id, b.format);
+    (buckets[cat] = buckets[cat] || []).push(blockedChip(b));
+  }
+
+  // Render in a fixed order, each group under its own full-width label.
+  const cats = [...CAT_ORDER.filter(c => buckets[c]),
+                ...Object.keys(buckets).filter(c => !CAT_ORDER.includes(c))];
+  for (const cat of cats) {
+    const label = document.createElement('div');
+    label.className = 'tallygroup';
+    label.textContent = cat;
+    box.append(label);
+    for (const chip of buckets[cat]) box.append(chip);
   }
 }
 
@@ -493,7 +531,7 @@ function drawPanels(data) {
       .sort((a, b) => b[1].open - a[1].open)
       .map(([c, n]) => `${esc(data.meta.chains[c]?.name || c)} ${n.open + n.coming_soon}`).join(', ');
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${esc(st)}<br><span class="zh">${who}</span></td>` +
+    tr.innerHTML = `<td>${esc(st)}<br><span class="statewho">${who}</span></td>` +
       `<td class="n">${v.open}${v.coming_soon ? ' +' + v.coming_soon : ''}</td>`;
     sb.append(tr);
   }

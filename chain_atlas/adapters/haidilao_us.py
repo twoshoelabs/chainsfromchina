@@ -45,7 +45,7 @@ EXPECTED_MIN = 8
 class HaidilaoUSAdapter(Adapter):
     chain_id, country = "haidilao", "US"
     name, name_zh = "Haidilao", "海底捞"
-    parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "restaurant"
+    parent, format = "Super Hi International (HKEX 9658 / Nasdaq HDL)", "hotpot"
     register_chain = "haidilao"
     closure_n_days = 7
     ENABLED = True
