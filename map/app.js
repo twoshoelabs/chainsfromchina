@@ -523,7 +523,9 @@ function drawPanels(data) {
     const tr = document.createElement('tr');
     const supplied = meta.provenance && meta.provenance !== 'collected';
     const gc2 = (data.meta.geocoded || {})[id] || 0;
+    const co = ((data.meta.companies || {}).companies || {})[id] || {};
     tr.innerHTML = `<td>${chainLabel(meta)}` +
+      (co.us_since ? `<br><span class="csince">US since ${esc(co.us_since)}</span>` : '') +
       (gc2 ? `<br><span class="zh">${gc2} placed by geocoding its addresses,` +
              ` not by published coordinates</span>` : '') +
       (supplied ? `<br><span class="zh warnzh">supplied ${esc(meta.provenance_detail || '')}` +
