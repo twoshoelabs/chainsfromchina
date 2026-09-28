@@ -272,9 +272,14 @@ ul.uslist b{color:var(--ink)}
    border (hand-confirmed, not part of the daily census). "Known" chains are coloured in and
    darkened; a chain with only unconfirmed leads stays faded and pending a manual check. */
 .chip.off{
-  cursor:help; border-style:dashed; color:var(--ink);
+  cursor:default; border-style:dashed; color:var(--ink);
   background:color-mix(in srgb, var(--muted) 4%, var(--surface));
 }
+/* The chain name in every chip links to its profile under "Who they are". */
+.chipnm{color:inherit; text-decoration:none; cursor:pointer}
+.chipnm:hover, .chipnm:focus{text-decoration:underline}
+.ccard{scroll-margin-top:18px}                /* so #id links from the map land clear of the top */
+.ccard.cardjump{outline:2px solid var(--accent); outline-offset:2px}  /* the card a chip linked to */
 .chip.off .dot{opacity:1}                     /* coloured in (colour set inline) */
 .chip.off .n{color:var(--muted)}
 .chip.off.pending{color:var(--muted)}
@@ -282,7 +287,7 @@ ul.uslist b{color:var(--ink)}
 .chip .n .pend{color:var(--soon)}             /* the unconfirmed review flag */
 
 /* Supplied data must never be mistaken for collected data at a glance. */
-.chip.supplied{border-style:dashed; cursor:help}
+.chip.supplied{border-style:dashed}
 .chip.supplied .n{color:var(--soon)}
 .warnzh{color:var(--soon) !important}
 

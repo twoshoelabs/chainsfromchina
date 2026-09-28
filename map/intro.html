@@ -64,6 +64,7 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
     const c = C[id]; if (!c) continue;
     const card = document.createElement('article');
     card.className = 'ccard';
+    card.id = id;                       // anchor target for links from the map's chain chips
 
     const cnLink = c.site_cn
       ? `<a href="${esc(c.site_cn)}" target="_blank" rel="noopener nofollow">China site ↗ <span class="cnwarn" title="Outside the USA — untested, follow at your own discretion">⚠︎ ${esc(host(c.site_cn))}</span></a>`
@@ -104,6 +105,13 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
   document.getElementById('photonote').textContent = anyPhoto
     ? 'Outlet photos are used with permission or under licence; credit appears beneath each.'
     : 'Representative outlet photos will appear here once licensed images are added — the project does not reproduce photos it has no right to use.';
+
+  // Cards are built here, after fetch — so an #id in the URL (a link from the map's chain chips)
+  // could not resolve at load. Scroll to it now, and briefly highlight it.
+  if (location.hash.length > 1) {
+    const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (t) { t.scrollIntoView({ block: 'start' }); t.classList.add('cardjump'); }
+  }
 }).catch(() => {
   document.getElementById('companies').innerHTML = '<p class="note">Could not load company data.</p>';
 });

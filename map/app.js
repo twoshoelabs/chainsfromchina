@@ -426,23 +426,33 @@ function drawTally(data) {
     // fainter geocoded dots — not as a cryptic suffix here.
     const n = un && !p.open ? `${un} unplaced`
       : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
-    const b = document.createElement('button');
+    // A span, not a button, so the chain name inside can be a real link to its profile without
+    // nesting interactive elements. Clicking the name goes to "Who they are"; clicking anywhere
+    // else on the chip still toggles the chain on the map.
+    const b = document.createElement('span');
     b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
+    b.setAttribute('role', 'button');
+    b.tabIndex = 0;
     b.setAttribute('aria-pressed', String(!hidden.has(id)));
     if (meta.provenance && meta.provenance !== 'collected')
       b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
         + 'These rows do not refresh; no change tomorrow means nobody looked.';
     b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>` +
-      `${chainLabel(meta, { short: true })}<span class="n">${n}</span>`;
+      `<a class="chipnm" href="intro.html#${id}">${chainLabel(meta, { short: true })}</a>` +
+      `<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     if (meta.aliases && meta.aliases.length)
       b.title = `Also trades in the US as: ${meta.aliases.join(', ')}. ` + (b.title || '');
-    b.onclick = () => {
+    const toggle = () => {
       hidden.has(id) ? hidden.delete(id) : hidden.add(id);
       b.setAttribute('aria-pressed', String(!hidden.has(id)));
       for (const c of document.querySelectorAll(`.store[data-chain="${id}"]`))
         c.style.display = hidden.has(id) || mode === 'states' ? 'none' : '';
     };
+    b.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggle(); });
+    b.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggle(); }
+    });
     return b;
   };
 
@@ -473,13 +483,24 @@ function drawTally(data) {
     const usWide = /^\s*(united states|u\.?s\.?a?\.?)\b/i.test((rr && rr.complete_scope) || '');
     // No "roster incomplete" claim — we do not know a list is incomplete. Any unconfirmed tail is
     // flagged separately as a manual review queue.
+    // A roster claims completeness only for its scope (Cotti: New York City). But we may also hold
+    // confirmed locations OUTSIDE that scope — tracked down one by one, even to Hawaii — so the
+    // chip shows the full count of what is known and marks the scope as complete, rather than
+    // reporting only the scoped roster and hiding the rest.
+    const knownN = ns - nu;                                   // confirmed locations held
+    const scopeShort = ((rr && rr.complete_scope) || '').split('(')[0].trim();
     let n;
-    if (rr) n = `${rr.count} — ${usWide ? 'complete' : `complete for ${esc(rr.complete_scope || 'a defined area')}`}`;
+    if (rr && usWide) n = `${rr.count} — complete`;
+    else if (rr && knownN > rr.count)
+      n = `${knownN} known <span class="pend">${esc(scopeShort)} complete</span>`
+        + (nu ? ` <span class="pend">+${nu} to confirm</span>` : '');
+    else if (rr) n = `${rr.count} — complete for ${esc(scopeShort || 'a defined area')}`;
     else if (kc) n = `${kc.stores} — no locations published`;
-    else if (ns) n = `${ns - nu} known${nu ? ` <span class="pend">+${nu} to confirm</span>` : ''}`;
+    else if (ns) n = `${knownN} known${nu ? ` <span class="pend">+${nu} to confirm</span>` : ''}`;
     else n = 'not counted yet';
     el.innerHTML = `<span class="dot" style="background:${known ? colorOf(b.chain_id) : 'var(--muted)'}"></span>` +
-      `${chainLabel(b, { short: true })}<span class="n">${n}</span>`;
+      `<a class="chipnm" href="intro.html#${b.chain_id}">${chainLabel(b, { short: true })}</a>` +
+      `<span class="n">${n}</span>`;
     // Alias line first, so hovering any chip shows every US name the chain trades under.
     const akaTitle = (b.aliases && b.aliases.length)
       ? `Also trades in the US as: ${b.aliases.join(', ')}. ` : '';
@@ -586,16 +607,19 @@ function drawPanels(data) {
   const names = (data.meta.blocked || []).slice(0, 3).map(b => b.name);
   const cover = document.getElementById('coverline');
   if (cover) {
+    // Coverage in 50-state terms, computed from the data so it stays true as the map fills in.
+    const STATES = new Set(('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN ' +
+      'MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' '));
+    const covered = Object.keys(data.meta.by_state || {}).filter(s => STATES.has(s)).length;
+    const missing = STATES.size - covered;
+    const stateLine = missing <= 0
+      ? 'Every one of the 50 states now has at least one Chinese-chain outlet.'
+      : `All but <b>${missing}</b> of the 50 states now have at least one Chinese-chain outlet.`;
     cover.innerHTML =
-      `We count <b>${nCounted}</b> of the <b>${nCounted + nBlocked}</b> Chinese ` +
-      `chains known to trade in the US` +
-      (supplied.length
-        ? `. ${supplied.map(c => esc(c.name)).join(', ')} ` +
-          `${supplied.length === 1 ? 'was' : 'were'} <b>added by hand, not collected</b>, and ` +
-          `${supplied.length === 1 ? 'does' : 'do'} not refresh automatically`
-        : '') +
-      `. The other ${nBlocked}${names.length ? ', among them ' + names.join(', ') + ',' : ''} ` +
-      `are here but not yet countable; <a href="#notcounted">each one is listed with the reason</a>.`;
+      `We pair AI with careful manual research and confirmation to build the most complete picture ` +
+      `we can of Chinese chain outlets in the US and where they are &mdash; monitoring both openings ` +
+      `and closings. Today we follow <b>${nCounted + nBlocked}</b> chains across tea, coffee, hot ` +
+      `pot, restaurants, bakeries, toys and more, and the number is growing. ${stateLine}`;
   }
 
   const totalEl = document.getElementById('ustotal');

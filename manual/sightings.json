@@ -119,7 +119,9 @@
    "locations": [
     {
      "name": "San Gabriel",
-     "address": "227 W Valley Blvd #198C, San Gabriel, CA 91776"
+     "address": "227 W Valley Blvd #198C, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "project operator — San Gabriel Square (29 Sep 2026)"
     },
     {
      "name": "Novo Market Place",

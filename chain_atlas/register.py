@@ -312,9 +312,15 @@ def us_status() -> dict[str, dict]:
     for a in REGISTRY:
         if a.country != "US" or a.chain_id == "fixture":
             continue
-        out[a.chain_id] = ({"status": "collected", "detail": "counted daily from its own locator"}
-                           if a.ENABLED else
-                           {"status": "present_not_collected", "detail": a.BLOCKED_REASON or ""})
+        # Carry the chain's names so the register page can list a US chain even when it is not one
+        # of the register's own (international) chains — every chain trading here belongs in the
+        # "Already in the United States" list, not just the ones with foreign-market rows.
+        base = {"name": a.name, "name_zh": getattr(a, "name_zh", None),
+                "name_us": getattr(a, "name_us", None), "format": getattr(a, "format", None)}
+        state = ({"status": "collected", "detail": "counted daily from its own locator"}
+                 if a.ENABLED else
+                 {"status": "present_not_collected", "detail": a.BLOCKED_REASON or ""})
+        out[a.chain_id] = {**base, **state}
     return out
 
 
@@ -336,10 +342,20 @@ def export(out_dir: Path) -> dict:
         if e["status"] == "present":
             by_chain[e["chain"]] += 1
     us = us_status()
+    # us_status covers EVERY chain that trades in the US (from the adapters). The register's own
+    # chains that are not US adapters default to not_established, carrying their names so the page
+    # can render them; then any US chain not already in the register is added on top.
+    us_derived = {}
+    for c in d["chains"]:
+        us_derived[c] = us.get(c, {
+            "status": "not_established",
+            "detail": "no evidence of US presence has been checked",
+            "name": d["chains"][c].get("name"), "name_zh": d["chains"][c].get("name_zh"),
+            "name_us": d["chains"][c].get("name_us"), "format": d["chains"][c].get("format")})
+    for c, info in us.items():
+        us_derived.setdefault(c, info)
     d["derived"] = {
-        "us_status": {c: us.get(c, {"status": "not_established",
-                                    "detail": "no evidence of US presence has been checked"})
-                      for c in d["chains"]},
+        "us_status": us_derived,
         "markets_present": dict(by_chain),
         "entries": len(d["entries"]),
         "gaps": len(gaps(d)),
