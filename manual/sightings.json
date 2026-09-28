@@ -1300,7 +1300,9 @@
      "name": "Cupertino",
      "address": "10963 N Wolfe Rd, Cupertino, CA 95014",
      "confidence": "confirmed",
-     "verified_by": "live Chowbus ordering (Sep 2026) + Yelp active Sep 2026 (29 Sep 2026)"
+     "verified_by": "live Chowbus ordering (Sep 2026) + Yelp active Sep 2026; Census could not place 10963 N Wolfe Rd, so a Cupertino locality fallback coordinate is used (same as other Cupertino Village stores) (29 Sep 2026)",
+     "lat": 37.325352,
+     "lon": -122.011923
     },
     {
      "name": "Fremont",
