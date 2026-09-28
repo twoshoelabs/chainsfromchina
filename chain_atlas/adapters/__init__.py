@@ -31,7 +31,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TaiErAdapter, ChaPandaAdapter, NaixueAdapter, JueweiAdapter,
                     YangguofuAdapter, FishWithYouAdapter, ZhangliangAdapter, ChahaloAdapter,
                     LelechaAdapter, NonggengjiAdapter, BaosPastryAdapter, TopToyAdapter,
-                    Toys52Adapter)
+                    Toys52Adapter, DezhuangAdapter, MeizhouDongpoAdapter, ShudaxiaAdapter,
+                    XibeiAdapter, GrandmasHomeAdapter, XijiadeAdapter, MalubianbianAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -57,6 +58,13 @@ REGISTRY: list[Adapter] = [
     BaosPastryAdapter(), # mainland bakery 鲍师傅 (Beijing); Flushing — see stubs.py
     TopToyAdapter(), # mainland art-toy TOP TOY (MINISO Group); Times Square — see stubs.py
     Toys52Adapter(), # mainland blind-box 52TOYS (Beijing); Georgia — see stubs.py
+    DezhuangAdapter(), # mainland Chongqing hot pot 德庄; NYC + Bellevue — see stubs.py
+    MeizhouDongpoAdapter(), # mainland Sichuan 眉州东坡 (Beijing); LA since 2013 — see stubs.py
+    ShudaxiaAdapter(), # mainland Chengdu hot pot 蜀大侠 (Xiaolongkan group); Boston — see stubs.py
+    XibeiAdapter(), # mainland Northwestern 西贝莜面村; 4 SoCal outlets — see stubs.py
+    GrandmasHomeAdapter(), # mainland Hangzhou 外婆家; Manhattan — see stubs.py
+    XijiadeAdapter(), # mainland dumplings 喜家德 / Dumpling Xi; NYC — see stubs.py
+    MalubianbianAdapter(), # mainland skewer hotpot 马路边边; Orlando (churned) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py

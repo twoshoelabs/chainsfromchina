@@ -1109,6 +1109,146 @@
      "verified_by": "LA County health-department permit, first inspected 2025-03-17 (2026-09-23)"
     }
    ]
+  },
+  {
+   "chain": "dezhuang",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "Two US outlets identified as open (Manhattan full restaurant + Bellevue WA express 'mini' store) for a chain with no first-party US locator; not a complete roster.",
+   "locations": [
+    {
+     "name": "East Village",
+     "address": "37 St Marks Pl, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, official listing + Yelp reviews through Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Bellevue (De Hotpot Mini)",
+     "address": "14505 NE 20th St Ste Q, Bellevue, WA 98007",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, live Chowbus ordering + Yelp reviews through Sep 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "meizhoudongpo",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "Two California restaurants identified as open in 2026 (Century City, Irvine); three former LA-area outlets are closed and excluded. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Century City",
+     "address": "10250 Santa Monica Blvd Ste 200A, Los Angeles, CA 90067",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, Yelp active Sep 2026 + Westfield mall directory tenant (29 Sep 2026)"
+    },
+    {
+     "name": "Irvine",
+     "address": "15363 Culver Dr, Irvine, CA 92604",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, Irvine Company Retail directory tenant + Yelp active Sep 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "shudaxia",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "One US restaurant identified as open (Boston, since May 2022). A Toronto store exists but is in Canada and excluded. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Boston",
+     "address": "580 Commonwealth Ave, Boston, MA 02215",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, official site live + Yelp active Sep 2026; opened May 2022 per Daily Free Press (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "xibei",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "Four Southern California outlets identified as open in 2026 under three US sub-labels run by one operator (Arcadia flagship, Silver Lake dumplings, Santa Ana + Westwood 'Eatery'). Not a complete roster.",
+   "locations": [
+    {
+     "name": "Silver Lake (Xibei Dumplings)",
+     "address": "3300 W Sunset Blvd Ste 105, Los Angeles, CA 90026",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, Infatuation review + Yelp active Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Arcadia",
+     "address": "400 S Baldwin Ave Ste 2045, Arcadia, CA 91007",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, own ordering site + Yelp active Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Santa Ana (Xibei Eatery)",
+     "address": "2775 N Main St, Santa Ana, CA 92705",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, OCalpha feature (opened Mar 2026) + Yelp active Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Westwood (Xibei Eatery)",
+     "address": "10965 Weyburn Ave, Los Angeles, CA 90024",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, Daily Bruin coverage (opened May 2026) + Yelp active Sep 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "grandmashome",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "One US restaurant identified as open (Manhattan Flatiron, the chain's first and only US location, opened ~March 2024). Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flatiron",
+     "address": "56 West 22nd St, New York, NY 10010",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, US site sole location + Yelp/Resy active through Jul 2026 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "xijiade",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "Two New York City outlets identified as open, trading as 'Dumpling Xi' (Flushing, first US Feb 2025; East Village, Jul 2025). Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "37-02 Prince St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, official US site + Yelp active Jul 2026; opened 12 Feb 2025 (29 Sep 2026)"
+    },
+    {
+     "name": "East Village",
+     "address": "71 4th Ave, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, press + Yelp active Sep 2026; opened 1 Jul 2025 (29 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "malubianbian",
+   "supplied_on": "2026-09-29",
+   "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
+   "scope": "US footprint has churned heavily; the first US store (San Gabriel 2019) and several early CA/TX/PA outlets are closed and excluded. Orlando FL is confirmed open; Tustin CA (rebranded 'MLBB AYCE Hot Pot') is held as uncertain pending confirmation. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Orlando",
+     "address": "5062 W Colonial Dr Ste 110, Orlando, FL 32808",
+     "confidence": "confirmed",
+     "verified_by": "web-verified, official site (open daily) + Chowbus ordering + Yelp active Sep 2026 (29 Sep 2026)"
+    },
+    {
+     "name": "Tustin (MLBB AYCE)",
+     "address": "1056 Walnut Ave, Tustin, CA 92780",
+     "confidence": "uncertain",
+     "verified_by": "web-verified, official CA site + active delivery, but older Yelp listing marked closed — rebrand vs shutdown unresolved (29 Sep 2026)"
+    }
+   ]
   }
  ]
 }

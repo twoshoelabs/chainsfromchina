@@ -546,3 +546,171 @@ class Toys52Adapter(Adapter):
                       " Georgia, Doraville GA) surface via mall directories. Tracked via sightings"
                       " (28 Sep 2026)")
     RECHECK = []
+
+
+# The 2026-09-29 batch: mainland sit-down / hot-pot chains already trading in the US, found by
+# building the internal watchlist of top China chains and checking which had already crossed over.
+# Each is present-not-collected — a real US footprint, no first-party national locator to read —
+# so each is tracked via hand-verified sightings, with the addresses confirmed open by web search
+# (press, the store's own site, recent review activity) rather than assembled from an aggregator.
+
+class DezhuangAdapter(Adapter):
+    """
+    Dezhuang / De Zhuang Hot Pot (德庄火锅) — added 2026-09-29. A Chongqing hot-pot restaurant and
+    seasoning group founded 1999 by Li Dejian (李德建); parent 重庆德庄实业（集团）有限公司, ~900+
+    restaurants in China. Mainland origin, so in scope.
+
+    Two US outlets confirmed open: the full "De Zhuang Hot Pot" at 37 St Marks Pl, New York (the
+    brand's US arrival, ~early 2025), and a "De Hotpot Mini" (德庄小火锅) express store in Bellevue,
+    WA. No first-party national US locator — the English site dezhuangofficial.com is a global
+    brand page, not a store list — so tracked via sightings.
+    """
+    chain_id, name, name_zh = "dezhuang", "Dezhuang", "德庄"
+    name_us = "De Zhuang Hot Pot"
+    aliases = ("De Zhuang", "De Hotpot Mini", "德庄火锅")
+    parent, format = "Chongqing Dezhuang Industrial Group (重庆德庄实业集团)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Chongqing hot-pot chain (德庄, founded 1999); US outlets in NYC"
+                      " (37 St Marks Pl) and Bellevue WA, but dezhuangofficial.com is a global brand"
+                      " page with no US locator. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://dezhuangofficial.com/", "https://www.dezhuanghotpotmini.com/"]
+
+
+class MeizhouDongpoAdapter(Adapter):
+    """
+    Meizhou Dongpo (眉州东坡) — added 2026-09-29. A Sichuan-cuisine sit-down chain founded in
+    Beijing in 1996 by Wang Gang (王刚) and Liang Di (梁棣); parent Meizhou Dongpo Group; ~114
+    mainland outlets. One of the earliest mainland chains in the US — its Century City (Los Angeles)
+    flagship opened in 2013. Mainland origin, so in scope.
+
+    Two US outlets confirmed open in 2026 (Century City and Irvine, both CA); three former LA-area
+    locations (Universal CityWalk, Arcadia, Baldwin Park) are closed. The former US site
+    meizhou.us.com no longer resolves, so there is no first-party locator to read; tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "meizhoudongpo", "Meizhou Dongpo", "眉州东坡"
+    name_us = "Meizhou Dongpo"
+    aliases = ("Dongpo Kitchen",)
+    parent, format = "Meizhou Dongpo Group (眉州东坡集团, Beijing)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Sichuan-cuisine chain (眉州东坡, founded Beijing 1996); in the US"
+                      " since 2013 with two open CA outlets (Century City, Irvine) after three LA-area"
+                      " closures, and its US site meizhou.us.com no longer resolves. Tracked via"
+                      " sightings (29 Sep 2026)")
+    RECHECK = ["https://meizhou.us.com/"]
+
+
+class ShudaxiaAdapter(Adapter):
+    """
+    Shu Da Xia (蜀大侠) — added 2026-09-29. A Chengdu, Sichuan hot-pot chain founded 2015; parent
+    Chengdu Shu Daxia Catering Management Co., and since January 2023 owned by the Xiaolongkan /
+    Shoo Loong Kan group (小龙坎) — the same parent as a chain this project already collects, but a
+    distinct mainland brand, so in scope on its own.
+
+    One US outlet confirmed open: Boston (580 Commonwealth Ave), open since May 2022. A Toronto
+    store exists but is Canada, not US. The Boston store runs its own site; there is no national US
+    locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "shudaxia", "Shu Da Xia", "蜀大侠"
+    name_us = "Shu Da Xia Hotpot"
+    aliases = ("Shudaxia", "Shu Daxia")
+    parent, format = "Xiaolongkan group (小龙坎; acquired Shu Daxia 2023)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Chengdu hot-pot chain (蜀大侠, founded 2015; owned by the Xiaolongkan"
+                      " group since 2023); one US outlet, Boston (580 Commonwealth Ave) open since"
+                      " May 2022, with only a per-store site. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.shudaxiaboston.com/", "https://www.shudaxiaus.com/"]
+
+
+class XibeiAdapter(Adapter):
+    """
+    Xibei / Xibei Youmiancun (西贝莜面村) — added 2026-09-29. The flagship brand of Xibei Catering
+    Group, founded by Jia Guolong; the business traces to a 1988 snack shop in Linhe, Inner
+    Mongolia, opened its first Youmiancun in Beijing in 2002, and now runs ~370+ mainland outlets of
+    Northwestern-China oat-noodle-and-mutton cuisine. Mainland origin, so in scope.
+
+    Four US outlets confirmed open in 2026, all in Southern California, trading under three US
+    sub-labels run by one operator (@xibei.us): the flagship "Xibei" (Arcadia), "Xibei Dumplings"
+    (Silver Lake, the Dec 2024 first US store), and "Xibei Eatery" fast-casual (Santa Ana, Westwood).
+    No single national US locator — the Arcadia store uses its own ordering site — so tracked via
+    sightings. (Corporate ownership vs. licensee is not documented in English sources; treated as
+    the mainland Xibei brand's US expansion.)
+    """
+    chain_id, name, name_zh = "xibei", "Xibei", "西贝莜面村"
+    name_us = "Xibei"
+    aliases = ("Xibei Youmiancun", "Xibei Dumplings", "Xibei Eatery")
+    parent, format = "Xibei Catering Group (西贝餐饮集团)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Northwestern-China chain (西贝莜面村, ~370+ China stores); four open"
+                      " SoCal outlets under three US sub-labels (Arcadia flagship, Silver Lake"
+                      " dumplings, Santa Ana + Westwood 'Eatery'), first US Dec 2024, no national US"
+                      " locator. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.xibeiarcadia.com/", "https://www.xibei.com.cn/"]
+
+
+class GrandmasHomeAdapter(Adapter):
+    """
+    Grandma's Home (外婆家 / Waipojia) — added 2026-09-29. A Hangzhou-cuisine chain founded 1998 in
+    Hangzhou by Wu Guoping (吴国平); parent 外婆家餐饮集团, 200+ directly-run restaurants across
+    China. Mainland origin, so in scope.
+
+    One US outlet confirmed open: 56 West 22nd St, Manhattan (Flatiron), the chain's first US
+    restaurant, opened ~March 2024. The US site lists only this location; no national locator, so
+    tracked via sightings. (Care is needed to distinguish the 外婆家 brand from generically-named
+    "Grandma's" restaurants.)
+    """
+    chain_id, name, name_zh = "grandmashome", "Grandma's Home", "外婆家"
+    name_us = "Grandma's Home"
+    aliases = ("Waipojia",)
+    parent, format = "Grandma's Home Catering Group (外婆家餐饮集团, Hangzhou)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Hangzhou-cuisine chain (外婆家, founded 1998; 200+ China outlets);"
+                      " one US restaurant, 56 W 22nd St Manhattan, opened ~March 2024 and its only US"
+                      " location. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.grandmashome.us/"]
+
+
+class XijiadeAdapter(Adapter):
+    """
+    Xijiade / Dumpling Xi (喜家德) — added 2026-09-29. A Northeastern-China shrimp-dumpling chain
+    founded 2002 in Hegang, Heilongjiang by Gao Defu (高德福); parent Xiding Catering (喜鼎餐饮,
+    Dalian); all directly-operated, 800+ China stores. Mainland origin, so in scope.
+
+    It trades in the US as "Dumpling Xi". Two US outlets confirmed open, both in New York City:
+    Flushing (37-02 Prince St, the first US store, opened 12 Feb 2025) and the East Village (71 4th
+    Ave, opened 1 Jul 2025). The Flushing store runs a per-store US site; no national locator, so
+    tracked via sightings.
+    """
+    chain_id, name, name_zh = "xijiade", "Xijiade", "喜家德"
+    name_us = "Dumpling Xi"
+    aliases = ("Xi Jia De", "喜家德水饺")
+    parent, format = "Xiding Catering (喜鼎餐饮, Dalian)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Northeastern dumpling chain (喜家德, founded Hegang 2002); trades in"
+                      " the US as Dumpling Xi with two NYC outlets (Flushing, first US 12 Feb 2025;"
+                      " East Village), only a per-store site. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://dumplingxius.com/", "https://www.xijiade.com.cn/"]
+
+
+class MalubianbianAdapter(Adapter):
+    """
+    Malubianbian / Ma Lu Bian Bian (马路边边) — added 2026-09-29. A Chengdu, Sichuan roadside-style
+    skewer hot-pot (串串香) chain founded 2015; parent 成都马路边边餐饮管理有限公司, 1,000+ outlets
+    claimed globally. Mainland origin, so in scope.
+
+    Heavy US churn: the first US store (San Gabriel CA, Nov 2019) and the early Rowland Heights,
+    Houston and Philadelphia outlets are all closed. As of Sep 2026 the clearly-open US outlet is
+    Orlando FL (5062 W Colonial Dr); Tustin CA (rebranded "MLBB AYCE Hot Pot") appears open but is
+    held as uncertain pending confirmation. Franchised/loosely operated with per-outlet sites and no
+    national locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "malubianbian", "Malubianbian", "马路边边"
+    name_us = "Ma Lu Bian Bian"
+    aliases = ("MLBB", "MLBB AYCE Hot Pot", "Ma Lu Bian Bian Hot Pot")
+    parent, format = "Chengdu Ma Lu Bian Restaurant Management (成都马路边边餐饮)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland Chengdu skewer-hotpot chain (马路边边, founded 2015); heavy US churn —"
+                      " first US store San Gabriel Nov 2019 and several early CA/TX/PA outlets now"
+                      " closed; Orlando FL open, Tustin CA (rebranded MLBB AYCE) uncertain. Per-outlet"
+                      " sites, no national locator. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.malubianbianfl.com/", "https://www.malubianbianca.com/"]
