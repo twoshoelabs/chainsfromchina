@@ -236,9 +236,14 @@ async function main() {
   for (const g of (data.meta.sightings || [])) {
     if (g.lat == null || g.lon == null) continue;
     const [sx, sy] = project(g.lat, g.lon, INSETS[g.state] && INSETS[g.state].centre);
+    // A confirmed ("known") location is coloured in — solid, counted, confident. An unconfirmed
+    // one stays hollow and dashed: a review queue awaiting a manual check, held out of the total.
+    const confirmed = g.confidence !== 'uncertain';
     const q = el('rect', {
-      class: 'sight' + (g.confidence === 'uncertain' ? ' unsure' : ''),
-      'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1 });
+      class: 'sight' + (confirmed ? '' : ' unsure'),
+      'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1,
+      fill: confirmed ? colorOf(g.chain) : 'none',
+      stroke: confirmed ? 'var(--surface)' : colorOf(g.chain) });
     q.addEventListener('pointerenter', e => {
       const c = chainObj(g.chain);
       const chainName = c.name_us || c.name || g.chain;
@@ -247,11 +252,13 @@ async function main() {
         `<b>${chainLabel(c, { short: true })}</b>` +
         (loc && loc !== g.address ? `<div class="loc">${esc(loc)}</div>` : '') +
         (g.address ? `<div class="addr">${esc(g.address)}</div>` : '') +
-        `<div class="meta">A known location, <b>not counted</b>. This chain has no roster this ` +
-        `project can read, so none of its stores are in any total here.` +
-        (g.confidence === 'uncertain'
-          ? '<br><b>Uncertain</b>, reported but not confirmed.'
-          : g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '') +
+        `<div class="meta">` +
+        (confirmed
+          ? `A hand-confirmed location — counted in the total, but not part of the daily census: `
+            + `this chain publishes no roster this project can read.`
+            + (g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '')
+          : `<b>Reported, not yet confirmed</b> — held out of the total until a manual check clears `
+            + `or rejects it.`) +
         `<br>${esc(g.source || '')}</div>`);
     });
     q.addEventListener('pointerleave', hideTip);
@@ -453,25 +460,27 @@ function drawTally(data) {
   // data for it, and the chip has to say that rather than not exist.
   const blockedChip = (b) => {
     const el = document.createElement('span');
-    el.className = 'chip off';
     const kc = b.known_count;
     const rr = rosterBy[b.chain_id];
     const ns = sightBy[b.chain_id] || 0;
     const nu = ((data.meta.sightings || [])
       .filter(g => g.chain === b.chain_id && g.confidence === 'uncertain')).length;
-    // No "roster incomplete" claim: the dashed, dimmed chip and the "not counted here" section
-    // already say these are known locations rather than a census, and we do not actually know
-    // whether the list is complete — for some (a single-store first-party locator, say) it is.
+    // "Known" enough to colour in and darken: a complete-for-the-US roster, a disclosed count, or
+    // at least one confirmed location. A chain with only unconfirmed leads stays faded and pending.
+    const known = !!(rr || kc || (ns - nu) > 0);
+    el.className = 'chip off' + (known ? ' known' : ' pending');
     // This page counts the US only, so a roster complete for the whole country is simply
     // "complete"; a sub-national scope (Cotti's New York City) keeps its qualifier.
     const usWide = /^\s*(united states|u\.?s\.?a?\.?)\b/i.test((rr && rr.complete_scope) || '');
-    const n = rr
-      ? `${rr.count} — ${usWide ? 'complete' : `complete for ${rr.complete_scope || 'a defined area'}`}`
-      : kc ? `${kc.stores} — no locations published`
-      : ns ? `${ns - nu} known${nu ? ` +${nu} unconfirmed` : ''}`
-           : 'not counted yet';
-    el.innerHTML = `<span class="dot"></span>${chainLabel(b, { short: true })}` +
-      `<span class="n">${esc(n)}</span>`;
+    // No "roster incomplete" claim — we do not know a list is incomplete. Any unconfirmed tail is
+    // flagged separately as a manual review queue.
+    let n;
+    if (rr) n = `${rr.count} — ${usWide ? 'complete' : `complete for ${esc(rr.complete_scope || 'a defined area')}`}`;
+    else if (kc) n = `${kc.stores} — no locations published`;
+    else if (ns) n = `${ns - nu} known${nu ? ` <span class="pend">+${nu} to confirm</span>` : ''}`;
+    else n = 'not counted yet';
+    el.innerHTML = `<span class="dot" style="background:${known ? colorOf(b.chain_id) : 'var(--muted)'}"></span>` +
+      `${chainLabel(b, { short: true })}<span class="n">${n}</span>`;
     // Alias line first, so hovering any chip shows every US name the chain trades under.
     const akaTitle = (b.aliases && b.aliases.length)
       ? `Also trades in the US as: ${b.aliases.join(', ')}. ` : '';

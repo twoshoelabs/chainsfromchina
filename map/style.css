@@ -268,13 +268,18 @@ ul.uslist b{color:var(--ink)}
 .coverline a{color:var(--accent)}
 #notcounted{scroll-margin-top:16px}
 
-/* A chain that is here but undrawable still belongs in the chain row, visibly set apart. */
+/* A chain that is here but undrawable still belongs in the chain row, set apart by a dashed
+   border (hand-confirmed, not part of the daily census). "Known" chains are coloured in and
+   darkened; a chain with only unconfirmed leads stays faded and pending a manual check. */
 .chip.off{
-  cursor:help; border-style:dashed; color:var(--muted);
-  background:color-mix(in srgb, var(--muted) 5%, var(--surface));
+  cursor:help; border-style:dashed; color:var(--ink);
+  background:color-mix(in srgb, var(--muted) 4%, var(--surface));
 }
-.chip.off .dot{background:var(--muted); opacity:.45}
+.chip.off .dot{opacity:1}                     /* coloured in (colour set inline) */
 .chip.off .n{color:var(--muted)}
+.chip.off.pending{color:var(--muted)}
+.chip.off.pending .dot{opacity:.4}
+.chip .n .pend{color:var(--soon)}             /* the unconfirmed review flag */
 
 /* Supplied data must never be mistaken for collected data at a glance. */
 .chip.supplied{border-style:dashed; cursor:help}
@@ -284,9 +289,11 @@ ul.uslist b{color:var(--ink)}
 /* A derived position is drawn hollow-hearted: same colour, visibly less certain. */
 .store.geo{fill-opacity:.55}
 
-/* Sightings are squares, not dots: a different claim, drawn as a different shape. */
-.sight{fill:none; stroke:var(--muted); cursor:help}
-.sight.unsure{stroke-dasharray:2 2; opacity:.6}
+/* Sightings are squares, not dots: a different claim, a different shape. A confirmed one is
+   coloured in (fill + stroke set inline); an unconfirmed one is hollow, dashed and dimmed —
+   a review queue, not a counted store. */
+.sight{cursor:help}
+.sight.unsure{stroke-dasharray:2 2; opacity:.65}
 
 /* Coverage scorecard: what we hold vs what is thought to exist */
 #coverage{width:100%; border-collapse:collapse; font-size:13px}
