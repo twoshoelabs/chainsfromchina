@@ -29,6 +29,15 @@
 <div class="introwrap">
   <p class="note" id="okmsg" hidden></p>
 
+  <section class="tocfm" id="toconfirm">
+    <h2>To confirm</h2>
+    <p class="note">These US locations have been <strong>reported but not yet confirmed</strong>, so they are
+      held out of the count. If you can identify one — you've been, you've seen it open, or you have a photo,
+      receipt or link — confirm it below. Once checked (a confirmation can come from you or any other reader)
+      it joins the map and drops off this list.</p>
+    <ul class="tocfmlist" id="tocfmlist"><li class="empty">Loading…</li></ul>
+  </section>
+
   <div class="cardgrid contribgrid">
     <form class="ccard cform" id="locform">
       <h2>Add a location</h2>
@@ -119,6 +128,59 @@ function done(form, kind) {
 }
 handle(document.getElementById('locform'), 'location');
 handle(document.getElementById('chainform'), 'chain');
+
+// The "To confirm" queue: reported-but-unconfirmed locations, read live from the published data.
+// Confirming one pre-fills the location form; when the operator marks it confirmed in the data it
+// drops off this list on the next publish — so the queue clears itself as identifications arrive.
+async function loadToConfirm() {
+  const list = document.getElementById('tocfmlist');
+  let d;
+  try { d = await fetch('data/stores.json').then(r => r.json()); }
+  catch (_) { document.getElementById('toconfirm').hidden = true; return; }
+  const nameOf = {};
+  for (const [id, m] of Object.entries(d.meta.chains || {})) nameOf[id] = m.name_us || m.name || id;
+  for (const b of (d.meta.blocked || [])) nameOf[b.chain_id] = b.name_us || b.name || b.chain_id;
+
+  const pending = (d.meta.sightings || []).filter(g => g.confidence === 'uncertain');
+  if (!pending.length) {
+    list.innerHTML = '';
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'Nothing is awaiting confirmation right now — thank you.';
+    list.append(li);
+    return;
+  }
+  pending.sort((a, b) => (nameOf[a.chain] || a.chain).localeCompare(nameOf[b.chain] || b.chain));
+  list.innerHTML = '';
+  for (const g of pending) {
+    const chainName = nameOf[g.chain] || g.chain;
+    const who = (g.name && !g.name.toLowerCase().includes(chainName.toLowerCase()))
+      ? `${chainName} — ${g.name}` : (g.name || chainName);
+    const li = document.createElement('li');
+    const whoEl = document.createElement('span'); whoEl.className = 'who'; whoEl.textContent = who;
+    const addrEl = document.createElement('span'); addrEl.className = 'addr'; addrEl.textContent = g.address || '';
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'cfmbtn'; btn.textContent = 'I can confirm this';
+    li.append(whoEl, addrEl, btn);
+    const hint = g.verified_by || g.source;   // the concise "why it's still pending" note
+    if (hint) {
+      const srcEl = document.createElement('span'); srcEl.className = 'src';
+      srcEl.textContent = hint; li.append(srcEl);
+    }
+    btn.onclick = () => {
+      const f = document.getElementById('locform');
+      f.chain.value = chainName;
+      const parts = (g.address || '').split(',');
+      f.address.value = (parts.shift() || '').trim();
+      f.citystate.value = parts.join(',').trim();
+      f.notes.value = `Confirming a reported location: ${who}`;
+      f.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try { f.basis.focus({ preventScroll: true }); } catch (_) {}
+    };
+    list.append(li);
+  }
+}
+loadToConfirm();
 </script>
 </body>
 </html>

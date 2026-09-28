@@ -475,3 +475,24 @@ aside h2, .usbox h2{font-weight:600; letter-spacing:.08em}
 .tallygroup{flex:0 0 100%; margin:14px 0 0; font-size:11px; font-weight:600; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted)}
 .tally .tallygroup:first-child{margin-top:0}
+
+/* "To confirm" queue on the Submit Info page: the review list of reported-but-unconfirmed
+   locations, each with a one-tap confirm that pre-fills the location form. */
+.tocfm{background:var(--surface); border:1px solid var(--rule); border-radius:2px;
+  padding:16px 18px; margin-bottom:18px}
+.tocfm h2{margin:0 0 4px; font-size:12px; font-weight:700; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink)}
+.tocfm .note{margin:0 0 12px; max-width:74ch}
+.tocfmlist{list-style:none; padding:0; margin:0}
+.tocfmlist li{display:flex; flex-wrap:wrap; align-items:baseline; gap:5px 10px;
+  padding:9px 0; border-bottom:1px solid var(--rule); font-size:13.5px}
+.tocfmlist li:last-child{border-bottom:0}
+.tocfmlist .who{font-weight:600; color:var(--ink)}
+.tocfmlist .addr{color:var(--ink-2)}
+.tocfmlist .src{flex:1 1 100%; color:var(--muted); font-size:12px}
+.tocfmlist .empty{color:var(--muted); border-bottom:0}
+.tocfmlist .cfmbtn{margin-left:auto; appearance:none; border:1px solid var(--accent);
+  background:transparent; color:var(--accent); font:inherit; font-size:12px; font-weight:600;
+  padding:3px 11px; border-radius:4px; cursor:pointer; white-space:nowrap;
+  transition:background .15s ease, color .15s ease}
+.tocfmlist .cfmbtn:hover{background:var(--accent); color:#fff}
