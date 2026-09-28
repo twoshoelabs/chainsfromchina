@@ -10,9 +10,8 @@
      greyscale printing and the common forms of colour blindness. */
   --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --display:"Bodoni Moda","Newsreader",Georgia,"Times New Roman",serif;
+  --display:"Playfair Display","Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
   --hans:"Noto Serif SC","Songti SC",serif;
 }
 @media (prefers-color-scheme: dark){
@@ -238,10 +237,12 @@ header h1{font-size:44px}
 /* Serif headlines / mono numerals set the editorial tone throughout */
 aside h2, section h2, .usbox h2{font-family:var(--sans)}
 .lede{font-size:16px}
-/* Figures ride the running face with tabular lining numerals — a real publication's
-   way, not a typewriter monospace bolted on to look "data-y". */
-td.n, .chip .n, .cpct, .cbar, #coverage td.num, .abroad,
-.legend .lgt, .conf{font-variant-numeric:tabular-nums lining-nums}
+/* Figures are set in the text serif with old-style numerals — the way an almanac or a
+   newspaper stats table reads. Tabular where columns must line up, so alignment holds while
+   the "dashboard / monospace" feel goes away. */
+td.n, .chip .n, .cpct, #coverage td.num, .abroad, .legend .lgt, table.reg td{
+  font-family:var(--serif); font-variant-numeric:oldstyle-nums tabular-nums;
+}
 .zh, td .zh, .ccard .zh, table.reg th.chain .zh{font-family:var(--hans)}
 
 /* ---- US-first view on the register ---- */
@@ -352,7 +353,7 @@ ul.uslist b{color:var(--ink)}
 .ustotal{margin:22px 0 4px; font-size:18px; color:var(--ink-2); line-height:1.45}
 .ustotal b{display:block; margin-bottom:6px; font-family:var(--serif); font-weight:500;
   font-size:84px; line-height:.9; letter-spacing:-.035em; color:var(--ink); font-variant-numeric:lining-nums}
-.ustotal .dim{color:var(--muted); font-size:13.5px; font-family:var(--mono)}
+.ustotal .dim{color:var(--muted); font-size:13.5px}
 @media (max-width:620px){ .ustotal b{font-size:60px} }
 
 /* ============================================================================
@@ -380,14 +381,14 @@ header > *{max-width:1240px; margin-left:auto; margin-right:auto}
 .masthead .navlink.current{color:var(--h-ink); border-bottom-color:var(--h-accent);
   border-bottom-width:2px}
 
-/* The brand and the headline take the display face (Bodoni Moda) for character. */
-.brand{font-family:var(--display); font-weight:600; letter-spacing:-.005em}
+/* The brand and the headline take the display face (Playfair Display) for character —
+   a high-contrast display serif like Bodoni but with sturdier, more legible strokes. */
+.brand{font-family:var(--display); font-weight:600; letter-spacing:-.01em}
 
-/* Headline: large Didone, light on warm ink. Weight 600 keeps Bodoni's hairlines
-   from going too thin at display size; slightly looser tracking suits the wide forms. */
+/* Headline: large high-contrast serif, light on warm ink. */
 header h1{
   font-family:var(--display); color:var(--h-ink); font-weight:600;
-  font-size:clamp(37px, 5.4vw, 66px); line-height:1.06; letter-spacing:-.015em;
+  font-size:clamp(37px, 5.4vw, 64px); line-height:1.08; letter-spacing:-.012em;
 }
 header .sub, header .lede{color:var(--h-dim); max-width:64ch}
 header .sub strong, header .lede strong{color:var(--h-ink)}
@@ -396,8 +397,8 @@ header .sub strong, header .lede strong{color:var(--h-ink)}
 .ustotal{position:relative; color:var(--h-dim); margin:30px 0 0; font-family:var(--serif); font-size:19px}
 .ustotal::before{content:""; display:block; width:60px; height:3px; margin:0 0 20px;
   background:var(--h-accent)}
-.ustotal b{display:block; color:var(--h-ink); font-family:var(--display); font-weight:900;
-  font-size:clamp(76px, 12.5vw, 150px); line-height:.84; letter-spacing:-.015em; margin-bottom:12px;
+.ustotal b{display:block; color:var(--h-ink); font-family:var(--display); font-weight:800;
+  font-size:clamp(76px, 12.5vw, 148px); line-height:.86; letter-spacing:-.02em; margin-bottom:12px;
   font-variant-numeric:lining-nums}
 .ustotal .dim{color:var(--h-dim); font-family:var(--sans); font-size:12.5px;
   font-variant-numeric:tabular-nums}
@@ -432,3 +433,25 @@ aside h2, .usbox h2{
   header{padding:24px 16px 32px}
   .ustotal b{line-height:.9}
 }
+
+/* ============================================================================
+   Softer data elements (2026-09-28). Takes the "dashboard / IBM Carbon" edge off:
+   chips read as light keys rather than filled buttons, the coverage meter is a thin
+   squared print bar not a rounded progress widget, the view toggle uses warm quiet
+   edges, and the micro-labels are a touch calmer. Figures already moved to the serif.
+   ============================================================================ */
+.chip{background:transparent; border-color:var(--rule-2); padding:5px 12px 5px 9px}
+.chip .n{font-size:12.5px; color:var(--muted)}
+.chip[aria-pressed="false"]{opacity:.42}
+
+.cbar{height:5px; width:52px; border-radius:0; background:var(--band)}
+.cbar::after{border-radius:0}
+.cpct{font-size:12px}
+
+.modes{border-color:var(--rule)}
+.modebtn{color:var(--ink-2)}
+.modebtn + .modebtn{border-left-color:var(--rule)}
+.modebtn[aria-pressed="true"]{background:var(--ink-2); color:var(--paper)}
+
+/* Calmer uppercase micro-labels — less "spec sheet". */
+aside h2, .usbox h2{font-weight:600; letter-spacing:.08em}
