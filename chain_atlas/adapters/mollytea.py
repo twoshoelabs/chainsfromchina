@@ -31,12 +31,23 @@ EXPECTED_MIN = 8
 _TAG = re.compile(r"<[^>]+>")
 
 
+# A short list of verified one-off typos in the source feed, corrected so the store can be placed.
+# Each is a specific fix confirmed against the real address, not a blanket rewrite.
+_FIX = {"E1 Camino Real": "El Camino Real"}   # 605 E El Camino Real, Sunnyvale
+
+
 def _norm(s: str) -> str:
-    """Tidy spacing only: full-width punctuation to ASCII, a space after commas, and a run-together
-    STATE+ZIP split apart so the tail parses. The words themselves are left exactly as entered."""
+    """Tidy a feed address enough to parse and geocode: full-width punctuation to ASCII, spaces
+    after commas, run-together words split (the feed sometimes drops all spaces, e.g.
+    "318UniversityAve, PaloAlto"), a run-together STATE+ZIP separated, and a short list of verified
+    source typos corrected. Wording is otherwise preserved."""
     s = _TAG.sub(" ", s or "")
     s = s.replace("，", ", ").replace("　", " ").replace("．", ".").replace("　", " ")
-    s = re.sub(r",(\S)", r", \1", s)                       # ensure a space after every comma
+    for bad, good in _FIX.items():
+        s = s.replace(bad, good)
+    s = re.sub(r",(\S)", r", \1", s)                       # a space after every comma
+    s = re.sub(r"([a-z])([A-Z])", r"\1 \2", s)             # "UniversityAve" -> "University Ave"
+    s = re.sub(r"(\d)([A-Z][a-z])", r"\1 \2", s)           # "318University" -> "318 University"
     s = re.sub(r"\b([A-Za-z]{2})(\d{5})\b", r"\1 \2", s)   # "CA94301" -> "CA 94301"
     return re.sub(r"\s+", " ", s).strip().strip(".").strip().rstrip(",").strip()
 
