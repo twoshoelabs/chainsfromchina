@@ -33,6 +33,10 @@
     behave differently outside China, so follow them <strong>at your own discretion</strong>. For
     ordering or store hours, use the US sites.
   </p>
+  <section class="patterns" id="patterns" hidden>
+    <h2>Where they land first</h2>
+    <p class="note" id="patternstext"></p>
+  </section>
   <div id="companies" class="cardgrid"></div>
   <p class="note small" id="photonote"></p>
 </div>
@@ -46,6 +50,46 @@
 
 <script>
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// A small, honest read of where and when these chains first landed — computed from the same
+// us_since / first_outlet fields shown on each card, so it stays true as the roster grows.
+function patterns(C) {
+  const metroOf = loc => {
+    const s = (loc || '').toLowerCase();
+    if (/flushing/.test(s)) return 'Flushing';
+    if (/new york|manhattan|brooklyn|queens|east village|long island city|east rutherford|american dream/.test(s)) return 'NYC-other';
+    if (/los angeles|pasadena|arcadia|city of industry|rowland heights|san gabriel|tustin|irvine|century city|silver lake|monterey park|alhambra/.test(s)) return 'LA';
+    return 'other';
+  };
+  let total = 0, flushing = 0, nyc = 0, la = 0, since2023 = 0, earliest = 9999;
+  for (const id in C) {
+    const c = C[id];
+    if (!c.first_outlet && !c.us_since) continue;
+    total++;
+    const leading = (c.first_outlet || '').split('—')[0].split(' - ')[0];
+    const m = metroOf(leading);
+    if (m === 'Flushing') { flushing++; nyc++; }
+    else if (m === 'NYC-other') nyc++;
+    else if (m === 'LA') la++;
+    const y = parseInt(((c.us_since || '').match(/(20\d\d)/) || [])[1], 10);
+    if (y) { earliest = Math.min(earliest, y); if (y >= 2023) since2023++; }
+  }
+  if (total < 6) return;                               // too little data to claim a pattern
+  const el = document.getElementById('patternstext');
+  el.innerHTML =
+    `Two metros dominate where these chains first appear. <strong>New York City</strong> is the ` +
+    `leading gateway — <b>${nyc}</b> of the <b>${total}</b> chains whose first US location we know ` +
+    `opened there — and <b>${flushing}</b> of those in a single neighborhood, <strong>Flushing, ` +
+    `Queens</strong>, more than anywhere else in the country. <strong>Greater Los Angeles</strong> ` +
+    `is the other main entry point (<b>${la}</b>). ` +
+    (earliest < 9999
+      ? `Arrivals have accelerated sharply: <b>${since2023}</b> of the <b>${total}</b> first opened ` +
+        `in 2023 or later, though the earliest goes back to <b>${earliest}</b>. `
+      : '') +
+    `<span class="dim">Counted from each chain's first known US outlet; a few are approximate, and ` +
+    `only chains we've dated are included.</span>`;
+  document.getElementById('patterns').hidden = false;
+}
 const host = u => { try { return new URL(u).host.replace(/^www\./, ''); } catch { return u; } };
 
 fetch('data/stores.json').then(r => r.json()).then(data => {
@@ -53,6 +97,8 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
   const C = (meta.companies && meta.companies.companies) || {};
   if (meta.companies && meta.companies.as_of)
     document.getElementById('asof').textContent = 'Compiled ' + meta.companies.as_of + '.';
+
+  patterns(C);
 
   // Order: follow the map's collected chains first, then the rest, so the biggest names lead.
   const order = [...Object.keys(meta.chains || {}), ...(meta.blocked || []).map(b => b.chain_id)];

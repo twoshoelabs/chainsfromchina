@@ -77,29 +77,31 @@ function usView(chains, markets, cells) {
   const metaOf = c => D.chains[c] || us[c] || { name: c };
   // "Here" is every chain that trades in the US, drawn from us_status (which now covers all US
   // adapters), not just the register's own international chains — so the map's US chains all show.
-  const rank = { collected: 0, present_not_collected: 1 };
+  // Ordered alphabetically by the name shown, so a reader can scan for one.
+  const nameKey = c => String(metaOf(c).name_us || metaOf(c).name || c).toLowerCase();
   const here = Object.keys(us)
     .filter(c => us[c].status === 'collected' || us[c].status === 'present_not_collected')
-    .sort((a, b) => (rank[us[a].status] - rank[us[b].status]) ||
-      String(metaOf(a).name_us || metaOf(a).name || a).localeCompare(metaOf(b).name_us || metaOf(b).name || b));
+    .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
   const notHere = Object.keys(D.chains).filter(c => (us[c] || {}).status === 'not_established')
-    .sort((a, b) => (D.derived.markets_present[b] || 0) - (D.derived.markets_present[a] || 0) || a.localeCompare(b));
+    .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
   const row = c => {
     const st = us[c] || {};
+    // Both are counted — the difference is HOW. "Counted daily" is read automatically from the
+    // chain's own locator; "counted by hand" is verified and entered by a person.
     const badge = st.status === 'collected'
       ? '<span class="status s-collected">counted daily</span>'
       : st.status === 'present_not_collected'
-        ? '<span class="status s-present">here, not yet counted</span>' : '';
+        ? '<span class="status s-present">counted by hand</span>' : '';
     const na = abroad(c);
     return `<li><b>${chainLabel(metaOf(c))}</b> ${badge}` +
-      (na ? `<span class="abroad">${na} market${na === 1 ? '' : 's'} abroad</span>` : '') +
+      (na ? `<span class="abroad">in ${na} other market${na === 1 ? '' : 's'} outside China</span>` : '') +
       (st.detail ? `<div class="rnote">${esc(st.detail)}</div>` : '') + `</li>`;
   };
   document.getElementById('usview').innerHTML =
     `<section class="usbox"><h2>Already in the United States</h2>` +
-    `<p class="note small">Every Chinese chain this project tracks on the US map. "Counted daily" ` +
-    `means we read its own store locator every morning; the rest are here and tracked by hand, ` +
-    `with the reason they aren't auto-counted stated.</p>` +
+    `<p class="note small">Every Chinese chain this project tracks on the US map, A–Z. "Counted ` +
+    `daily" means we read its own store locator every morning; "counted by hand" means its US ` +
+    `locations are verified and entered by a person, with the reason it isn't auto-counted stated.</p>` +
     `<ul class="uslist">${here.map(row).join('')}</ul></section>` +
     (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, US presence not established</h2>` +
       `<p class="note small">The watchlist. These have crossed at least one border; whether they ` +
@@ -180,11 +182,11 @@ function coverage(chains) {
       `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
   }
   document.getElementById('covnote').textContent =
-    `How many markets this register records each chain in — not how many it actually trades in. ` +
-    `The register covers only a hand-picked set of markets and is far from every country: many, ` +
-    `the Philippines among them, have Chinese chains we have not added yet. A low number here ` +
-    `usually means we have not looked, not that a chain is small — MIXUE alone has more stores ` +
-    `abroad than everyone in this table combined.`;
+    `For each chain, the number of markets outside mainland China and the US where this register ` +
+    `records it present — not how many it actually trades in. The register covers only a ` +
+    `hand-picked set of markets and is far from every country. A low number here usually means we ` +
+    `have not looked, not that a chain is small — MIXUE alone has more stores abroad than everyone ` +
+    `in this table combined.`;
 }
 
 main();
