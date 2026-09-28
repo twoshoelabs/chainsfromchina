@@ -20,10 +20,10 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
-   "complete_as_of": "2026-09-22",
+   "complete_as_of": "2026-09-28",
    "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "Hand-assembled and operator-verified, complete for New York City as of 22 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 13 confirmed; 2 more reported but unconfirmed. Cotti also trades outside New York (recorded separately).",
+   "scope": "Hand-assembled and operator-verified, complete for New York City as of 28 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 14 confirmed. Cotti also trades outside New York (recorded separately).",
    "locations": [
     {
      "name": "Smith St",
@@ -104,16 +104,10 @@
      "verified_by": "project operator, 21 Sep 2026"
     },
     {
-     "name": "Nassau St",
-     "address": "65 Nassau St, New York, NY 10038",
-     "confidence": "uncertain",
-     "verified_by": "project operator, 21 Sep 2026 — flagged 'maybe', not confirmed"
-    },
-    {
      "name": "New Dorp Ln",
      "address": "331 New Dorp Ln, Staten Island, NY 10306",
-     "confidence": "uncertain",
-     "verified_by": "project operator, 21 Sep 2026 — flagged 'maybe', not confirmed"
+     "confidence": "confirmed",
+     "verified_by": "joe.coffee, Grubhub & Uber Eats — trading (28 Sep 2026)"
     }
    ]
   },
@@ -441,6 +435,12 @@
      "address": "10520 S De Anza Blvd, Cupertino, CA 95014",
      "confidence": "confirmed",
      "verified_by": "Fish With You trading locally as 'Wei's Fish' — 鱼你在一起 SF Bay Area first store; DoorDash/Fantuan/Yelp, 22 Sep 2026"
+    },
+    {
+     "name": "Sunset Park",
+     "address": "774 60th St, Brooklyn, NY 11220",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (12 reviews) + DoorDash/Uber Eats — trading (28 Sep 2026)"
     }
    ]
   },
@@ -479,6 +479,12 @@
      "address": "1 American Dream Way, East Rutherford, NJ 07073",
      "confidence": "uncertain",
      "verified_by": "boozyburbs 'coming soon' (Apr 2026) — not yet confirmed open"
+    },
+    {
+     "name": "Lower East Side",
+     "address": "303 Grand St, New York, NY 10002",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (25 reviews) + Seamless/Grubhub — trading (28 Sep 2026)"
     }
    ]
   },
@@ -807,7 +813,7 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "3 permit-sourced location(s) (2 operating, 1 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "Fish With You (Mountain View)",
@@ -820,12 +826,6 @@
      "address": "1431 S BALDWIN AVE, Arcadia, CA 91007",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-05-20 (2026-09-23)"
-    },
-    {
-     "name": "Fish With You (Brooklyn)",
-     "address": "774 60 STREET, Brooklyn, NY 11220",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
     }
    ]
   },
@@ -1031,7 +1031,7 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "4 permit-sourced location(s) (2 operating, 2 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "3 permit-sourced location(s) (2 operating, 1 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "NaiSnow (Cupertino)",
@@ -1048,12 +1048,6 @@
     {
      "name": "NaiSnow (233 West 42 Street)",
      "address": "233 WEST   42 STREET, Manhattan, NY 10036",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "NaiSnow (303 Grand Street)",
-     "address": "303 GRAND STREET, Manhattan, NY 10002",
      "confidence": "uncertain",
      "verified_by": "NYC health-department permit (2026-09-23)"
     }
