@@ -351,3 +351,48 @@ ul.uslist b{color:var(--ink)}
   font-size:84px; line-height:.9; letter-spacing:-.035em; color:var(--ink); font-variant-numeric:lining-nums}
 .ustotal .dim{color:var(--muted); font-size:13.5px; font-family:var(--mono)}
 @media (max-width:620px){ .ustotal b{font-size:60px} }
+
+/* ============================================================================
+   Editorial polish (2026-09-28). Motivated by hoverstat.com's confidence, not its
+   look: a firmer hierarchy inside the same newsprint identity. A short accent
+   "kicker" anchors the hero figure; every section header gets a matching accent
+   underline; cards lift off the paper by a whisper; the controls gain motion. The
+   accent is the site's single teal, so the dark theme follows for free.
+   ============================================================================ */
+
+/* Headline scales with the viewport, so it stays commanding on wide screens and
+   composed on phones — replaces the two fixed sizes above at higher specificity. */
+header h1{font-size:clamp(33px, 4.7vw, 54px); line-height:1.0; letter-spacing:-.025em}
+
+/* Hero figure: a short accent rule reads as a kicker above the count. */
+.ustotal{position:relative}
+.ustotal::before{
+  content:""; display:block; width:46px; height:3px; margin:2px 0 18px;
+  background:var(--accent); border-radius:2px;
+}
+
+/* Section headers: a short accent underline gives the sidebar and register a beat. */
+aside h2, .usbox h2{position:relative; padding-bottom:9px}
+aside h2::after, .usbox h2::after{
+  content:""; position:absolute; left:0; bottom:0; width:22px; height:2px;
+  background:var(--accent); border-radius:2px;
+}
+
+/* Cards and the map frame: barely-there depth so they sit above the paper. */
+aside section, figure, .usbox, .chainblock, .ccard{
+  box-shadow:0 1px 2px -1px rgba(23,24,26,.05), 0 14px 30px -22px rgba(23,24,26,.26);
+}
+
+/* Controls answer the pointer, so the map feels alive to the touch. */
+.chip{transition:border-color .15s ease, background .15s ease, opacity .15s ease}
+.chip:hover{border-color:var(--ink-2)}
+.chip.off:hover, .chip.supplied:hover{border-color:var(--muted)}
+.modebtn{transition:background .15s ease, color .15s ease}
+.navlink{transition:color .15s ease, border-color .15s ease}
+.morebtn, #profiles summary{transition:color .15s ease}
+
+@media (prefers-color-scheme: dark){
+  aside section, figure, .usbox, .chainblock, .ccard{
+    box-shadow:0 1px 2px -1px rgba(0,0,0,.45), 0 14px 30px -20px rgba(0,0,0,.55);
+  }
+}
