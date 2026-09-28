@@ -360,27 +360,45 @@ ul.uslist b{color:var(--ink)}
    accent is the site's single teal, so the dark theme follows for free.
    ============================================================================ */
 
-/* Headline scales with the viewport, so it stays commanding on wide screens and
-   composed on phones — replaces the two fixed sizes above at higher specificity. */
-header h1{font-size:clamp(33px, 4.7vw, 54px); line-height:1.0; letter-spacing:-.025em}
+/* Headline scales with the viewport: commanding on wide screens, composed on phones. */
+header h1{font-size:clamp(34px, 5vw, 58px); line-height:1.0; letter-spacing:-.028em}
 
-/* Hero figure: a short accent rule reads as a kicker above the count. */
+/* A hero band lifts the whole masthead onto its own panel, the way a front page sets its
+   nameplate and lead apart from the body. Full-bleed tint with a firm rule beneath. */
+header{
+  background:linear-gradient(180deg, var(--surface), var(--paper));
+  border-bottom:2px solid var(--ink);
+  max-width:none; margin:0; padding:32px 24px 26px;
+}
+header > *{max-width:1240px; margin-left:auto; margin-right:auto}
+.masthead{border-bottom:1px solid var(--rule-2)}
+
+/* Hero figure: a bold accent kicker, a bigger count, and the label in the accent. */
 .ustotal{position:relative}
 .ustotal::before{
-  content:""; display:block; width:46px; height:3px; margin:2px 0 18px;
-  background:var(--accent); border-radius:2px;
+  content:""; display:block; width:64px; height:5px; margin:4px 0 16px;
+  background:var(--accent); border-radius:3px;
 }
+.ustotal b{font-size:96px}
+@media (max-width:620px){ .ustotal b{font-size:64px} }
 
-/* Section headers: a short accent underline gives the sidebar and register a beat. */
-aside h2, .usbox h2{position:relative; padding-bottom:9px}
+/* Section headers: assertive ink-dark labels on a hairline, tagged with a bold accent bar —
+   a clear, repeated structural beat down the sidebar and the register. */
+aside h2, .usbox h2{
+  position:relative; color:var(--ink); font-weight:700; font-size:13px; letter-spacing:.09em;
+  padding-bottom:8px; margin-bottom:12px; border-bottom:1px solid var(--rule-2);
+}
 aside h2::after, .usbox h2::after{
-  content:""; position:absolute; left:0; bottom:0; width:22px; height:2px;
+  content:""; position:absolute; left:0; bottom:-1px; width:42px; height:2.5px;
   background:var(--accent); border-radius:2px;
 }
 
-/* Cards and the map frame: barely-there depth so they sit above the paper. */
+/* Active nav gets a heavier accent underline so the current page is unmistakable. */
+.navlink.current{border-bottom-width:3px}
+
+/* Cards and the map frame lift off the paper. */
 aside section, figure, .usbox, .chainblock, .ccard{
-  box-shadow:0 1px 2px -1px rgba(23,24,26,.05), 0 14px 30px -22px rgba(23,24,26,.26);
+  box-shadow:0 1px 2px -1px rgba(23,24,26,.06), 0 16px 34px -24px rgba(23,24,26,.30);
 }
 
 /* Controls answer the pointer, so the map feels alive to the touch. */
@@ -392,7 +410,8 @@ aside section, figure, .usbox, .chainblock, .ccard{
 .morebtn, #profiles summary{transition:color .15s ease}
 
 @media (prefers-color-scheme: dark){
+  header{background:linear-gradient(180deg, var(--surface), var(--paper))}
   aside section, figure, .usbox, .chainblock, .ccard{
-    box-shadow:0 1px 2px -1px rgba(0,0,0,.45), 0 14px 30px -20px rgba(0,0,0,.55);
+    box-shadow:0 1px 2px -1px rgba(0,0,0,.45), 0 16px 34px -22px rgba(0,0,0,.55);
   }
 }
