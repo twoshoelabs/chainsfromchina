@@ -53,9 +53,9 @@
     "name_zh": "茶颜悦色",
     "hq": "Changsha, Hunan",
     "china_stores": "~1,000+",
-    "status": "abroad",
+    "status": "excluded",
     "markets": "Australia (stores); US e-commerce only",
-    "note": "Watch for US storefront",
+    "note": "EXCLUDED 2026-09-29: e-commerce only, no legitimate overseas storefronts. Watch for US storefront",
     "source": "https://www.instagram.com/sexytea_au/"
    },
    {
@@ -63,9 +63,9 @@
     "name_zh": "益禾堂",
     "hq": "Guangzhou",
     "china_stores": "~8,000",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Vietnam, Thailand, Malaysia",
-    "note": "",
+    "note": "Added to the international register 2026-09-29.",
     "source": "https://en.wikipedia.org/wiki/Yihetang"
    },
    {
@@ -73,9 +73,9 @@
     "name_zh": "甜啦啦",
     "hq": "Bengbu, Anhui",
     "china_stores": "~8,500",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Indonesia, Philippines, Central Asia",
-    "note": "",
+    "note": "Added to the international register 2026-09-29.",
     "source": "https://baike.baidu.com/en/item/Tianlala/35372"
    },
    {
@@ -105,9 +105,9 @@
     "name_zh": "幸运咖",
     "hq": "Zhengzhou",
     "china_stores": "~10,000",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Malaysia",
-    "note": "SUB-BRAND of Mixue (tracked parent, distinct chain)",
+    "note": "Added to the international register 2026-09-29. SUB-BRAND of Mixue (tracked parent, distinct chain)",
     "source": "https://insideretail.asia/2025/11/28/lucky-cup-hits-10000-store-milestone-as-mixue-refocuses-on-overseas-strategy/"
    },
    {
@@ -197,9 +197,9 @@
     "name_zh": "呷哺呷哺",
     "hq": "Beijing",
     "china_stores": "~800+",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore",
-    "note": "HK-listed 0520",
+    "note": "Added to the international register 2026-09-29. HK-listed 0520",
     "source": "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
    },
    {
@@ -207,9 +207,9 @@
     "name_zh": "湊湊",
     "hq": "Beijing",
     "china_stores": "~180",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore",
-    "note": "SUB-BRAND of Xiabu Xiabu; PRC-founded, Taiwanese-style menu",
+    "note": "Added to the international register 2026-09-29. SUB-BRAND of Xiabu Xiabu; PRC-founded, Taiwanese-style menu",
     "source": "https://kr-asia.com/this-hotpot-moguls-business-is-booming-and-he-isnt-following-haidilaos-playbook"
    },
    {
@@ -217,9 +217,9 @@
     "name_zh": "捞王",
     "hq": "Shanghai",
     "china_stores": "~135 direct",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Taipei",
-    "note": "Cantonese pork-bone hotpot",
+    "note": "Added to the international register 2026-09-29. Cantonese pork-bone hotpot",
     "source": "https://www.marketscreener.com/quote/stock/XIABUXIABU-CATERING-MANAG-19119394/news/"
    },
    {
@@ -227,9 +227,9 @@
     "name_zh": "珮姐重庆火锅",
     "hq": "Chongqing",
     "china_stores": "~30 direct",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Netherlands (Amsterdam)",
-    "note": "Rising; IPO planned 2026",
+    "note": "Added to the international register 2026-09-29. Rising; IPO planned 2026",
     "source": "https://www.instagram.com/peijie_hotpot.nl/"
    },
    {
@@ -259,9 +259,9 @@
     "name_zh": "木屋烧烤",
     "hq": "Shenzhen",
     "china_stores": "~400+ direct",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Hong Kong",
-    "note": "Largest sit-down BBQ-skewer chain",
+    "note": "Added to the international register 2026-09-29. Largest sit-down BBQ-skewer chain",
     "source": "https://www.foodtalks.cn/company/muwu_bbq"
    },
    {
@@ -269,9 +269,9 @@
     "name_zh": "钢管厂五区小郡肝串串香",
     "hq": "Chengdu",
     "china_stores": "uncertain",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Australia (Sydney)",
-    "note": "",
+    "note": "Added to the international register 2026-09-29.",
     "source": "https://www.fantuanorder.com/en-US/store/chuan-chuan-hot-pot/au-242858"
    },
    {
@@ -351,9 +351,9 @@
     "name_zh": "米村拌饭",
     "hq": "Yanbian, Jilin",
     "china_stores": "~1,200-1,800",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore",
-    "note": "Korean-Chinese style, mainland-origin",
+    "note": "Added to the international register 2026-09-29. Korean-Chinese style, mainland-origin",
     "source": "https://www.capitaland.com/sg/en/shop/malls/stores/micun-bibimbap.html"
    },
    {
@@ -361,9 +361,9 @@
     "name_zh": "遇见小面",
     "hq": "Guangzhou",
     "china_stores": "~465",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore; HK",
-    "note": "HKEX-listed 2408; Chongqing noodles",
+    "note": "Added to the international register 2026-09-29. HKEX-listed 2408; Chongqing noodles",
     "source": "https://thebambooworks.com/xiao-noodles-serves-up-ipo-plan-to-take-its-tangy-taste-global/"
    },
    {
@@ -371,9 +371,9 @@
     "name_zh": "和府捞面",
     "hq": "Rugao, Jiangsu",
     "china_stores": "~600 direct",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Hong Kong",
-    "note": "",
+    "note": "Added to the international register 2026-09-29.",
     "source": "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/"
    },
    {
@@ -453,9 +453,9 @@
     "name_zh": "绿茶餐厅",
     "hq": "Hangzhou",
     "china_stores": "~493",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore, Thailand, Malaysia, HK",
-    "note": "HKEX-listed 6831; targeting 100+ overseas",
+    "note": "Added to the international register 2026-09-29. HKEX-listed 6831; targeting 100+ overseas",
     "source": "https://finance.yahoo.com/news/green-tea-group-secures-hkex-152831959.html"
    },
    {
@@ -463,9 +463,9 @@
     "name_zh": "探鱼",
     "hq": "Shenzhen (Jiumaojiu)",
     "china_stores": "300+ APAC",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore, Malaysia",
-    "note": "SUB-BRAND of Jiumaojiu (same group as tracked Tai Er); grilled fish",
+    "note": "Added to the international register 2026-09-29. SUB-BRAND of Jiumaojiu (same group as tracked Tai Er); grilled fish",
     "source": "https://www.capitaland.com/sg/malls/westgate/en/stores/tan-yu.html"
    },
    {
@@ -473,9 +473,9 @@
     "name_zh": "南京大牌档",
     "hq": "Nanjing",
     "china_stores": "~40",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Singapore, Australia",
-    "note": "Huaiyang/Nanjing cuisine",
+    "note": "Added to the international register 2026-09-29. Huaiyang/Nanjing cuisine",
     "source": "https://therantingpanda.com/2016/12/31/food-review-nanjing-impressions/"
    },
    {
@@ -483,9 +483,9 @@
     "name_zh": "陶陶居",
     "hq": "Guangzhou",
     "china_stores": "(uncertain)",
-    "status": "abroad",
+    "status": "excluded",
     "markets": "London (Leicester Square)",
-    "note": "Cantonese / dim sum; 广州酒家 group",
+    "note": "EXCLUDED 2026-09-29: no verifiable overseas presence (London is an independent name-reuse). Cantonese / dim sum; 广州酒家 group",
     "source": "https://zh.wikipedia.org/zh-hans/广州酒家"
    },
    {
@@ -505,9 +505,9 @@
     "name_zh": "周黑鸭",
     "hq": "Wuhan",
     "china_stores": "~3,031",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Malaysia (first overseas, Dec 2025)",
-    "note": "Duck neck / 卤味",
+    "note": "Added to the international register 2026-09-29. Duck neck / 卤味",
     "source": "https://news.pedaily.cn/20251212/120110.shtml"
    },
    {
@@ -671,9 +671,9 @@
     "name_zh": "KKV",
     "hq": "Dongguan (KK Group)",
     "china_stores": "~380-400",
-    "status": "abroad",
+    "status": "registered",
     "markets": "SE Asia (SG, MY, TH, PH, ID, VN)",
-    "note": "KK Group core brand",
+    "note": "Added to the international register 2026-09-29. KK Group core brand",
     "source": "https://www.businesswire.com/news/home/20250721453977/en/"
    },
    {
@@ -681,9 +681,9 @@
     "name_zh": "X11",
     "hq": "Dongguan (KK Group)",
     "china_stores": "~50-70",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Malaysia, Indonesia",
-    "note": "KK Group art-toy concept store",
+    "note": "Added to the international register 2026-09-29. KK Group art-toy concept store",
     "source": "https://www.businesswire.com/news/home/20250721453977/en/"
    },
    {
@@ -691,9 +691,9 @@
     "name_zh": "调色师",
     "hq": "Dongguan (KK Group)",
     "china_stores": "~200",
-    "status": "abroad",
+    "status": "registered",
     "markets": "SE Asia (2026)",
-    "note": "Beauty/cosmetics variety (scope call)",
+    "note": "Added to the international register 2026-09-29. Beauty/cosmetics variety (scope call)",
     "source": "https://www.businesswire.com/news/home/20250721453977/en/"
    },
    {
@@ -701,9 +701,9 @@
     "name_zh": "酷乐潮玩",
     "hq": "Guangzhou",
     "china_stores": "300+",
-    "status": "abroad",
+    "status": "registered",
     "markets": "Thailand (2024)",
-    "note": "",
+    "note": "Added to the international register 2026-09-29.",
     "source": "https://m.winshang.com/news731418.html"
    },
    {
