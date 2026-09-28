@@ -10,7 +10,7 @@
      greyscale printing and the common forms of colour blindness. */
   --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --display:"Fraunces","Newsreader",Georgia,"Times New Roman",serif;
+  --display:"Bodoni Moda","Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
   --hans:"Noto Serif SC","Songti SC",serif;
@@ -380,13 +380,14 @@ header > *{max-width:1240px; margin-left:auto; margin-right:auto}
 .masthead .navlink.current{color:var(--h-ink); border-bottom-color:var(--h-accent);
   border-bottom-width:2px}
 
-/* The brand and the headline take the display face (Fraunces) for character. */
-.brand{font-family:var(--display); letter-spacing:-.015em}
+/* The brand and the headline take the display face (Bodoni Moda) for character. */
+.brand{font-family:var(--display); font-weight:600; letter-spacing:-.005em}
 
-/* Headline: large, composed display serif, light on warm ink. */
+/* Headline: large Didone, light on warm ink. Weight 600 keeps Bodoni's hairlines
+   from going too thin at display size; slightly looser tracking suits the wide forms. */
 header h1{
-  font-family:var(--display); color:var(--h-ink); font-weight:500;
-  font-size:clamp(38px, 5.6vw, 68px); line-height:1.04; letter-spacing:-.02em;
+  font-family:var(--display); color:var(--h-ink); font-weight:600;
+  font-size:clamp(37px, 5.4vw, 66px); line-height:1.06; letter-spacing:-.015em;
 }
 header .sub, header .lede{color:var(--h-dim); max-width:64ch}
 header .sub strong, header .lede strong{color:var(--h-ink)}
@@ -396,7 +397,7 @@ header .sub strong, header .lede strong{color:var(--h-ink)}
 .ustotal::before{content:""; display:block; width:60px; height:3px; margin:0 0 20px;
   background:var(--h-accent)}
 .ustotal b{display:block; color:var(--h-ink); font-family:var(--display); font-weight:900;
-  font-size:clamp(76px, 12.5vw, 150px); line-height:.82; letter-spacing:-.03em; margin-bottom:12px;
+  font-size:clamp(76px, 12.5vw, 150px); line-height:.84; letter-spacing:-.015em; margin-bottom:12px;
   font-variant-numeric:lining-nums}
 .ustotal .dim{color:var(--h-dim); font-family:var(--sans); font-size:12.5px;
   font-variant-numeric:tabular-nums}

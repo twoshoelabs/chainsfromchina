@@ -168,9 +168,11 @@ function coverage(chains) {
       `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
   }
   document.getElementById('covnote').textContent =
-    `Markets in this register where each chain is recorded as present. This is not a ranking of ` +
-    `size: MIXUE has more stores abroad than everyone here combined, in countries this register ` +
-    `does not yet cover.`;
+    `How many markets this register records each chain in — not how many it actually trades in. ` +
+    `The register covers only a hand-picked set of markets and is far from every country: many, ` +
+    `the Philippines among them, have Chinese chains we have not added yet. A low number here ` +
+    `usually means we have not looked, not that a chain is small — MIXUE alone has more stores ` +
+    `abroad than everyone in this table combined.`;
 }
 
 main();
