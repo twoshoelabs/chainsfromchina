@@ -831,10 +831,60 @@
   },
   {
    "chain": "heytea",
+   "supplied_on": "2026-09-28",
+   "source": "Operator web-verification of NYC health-department permit leads against Yelp/Maps listings; each of the seven is trading with reviews.",
+   "scope": "HEYTEA (喜茶) New York outlets confirmed open by hand — seven Manhattan and Queens stores that began as permit leads and were verified trading via Yelp/Maps. Confirmed sightings for a chain with no first-party US roster; these supersede the matching permit rows.",
+   "locations": [
+    {
+     "name": "HEYTEA (Upper West Side)",
+     "address": "2815 Broadway, New York, NY 10025",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (28 reviews), trading; from an NYC permit lead at 2813 Broadway (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (East Village)",
+     "address": "128 2nd Ave, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (26 reviews), trading (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (Long Island City)",
+     "address": "42-20 27th St, Long Island City, NY 11101",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (58 reviews), trading; NYC permit lead at 42-17 Crescent St (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (NYU)",
+     "address": "10 Waverly Pl, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (37 reviews), trading (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (Times Square)",
+     "address": "1565 Broadway, New York, NY 10036",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (140 reviews) + Times Square NYC, trading (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (Upper East Side)",
+     "address": "126 East 86th St, New York, NY 10028",
+     "confidence": "confirmed",
+     "verified_by": "Opened 5 Jun 2026 (press) + Yelp, trading (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (Chinatown)",
+     "address": "106 Lafayette St, New York, NY 10013",
+     "confidence": "confirmed",
+     "verified_by": "Yelp (64 reviews, 4.8 stars), trading (28 Sep 2026)"
+    }
+   ]
+  },
+  {
+   "chain": "heytea",
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "30 permit-sourced location(s) (23 operating, 7 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "23 permit-sourced location(s) (23 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "HEYTEA (2855 Stevens Creek Bl)",
@@ -951,12 +1001,6 @@
      "verified_by": "NYC health-department permit, first inspected 2024-12-16 (2026-09-23)"
     },
     {
-     "name": "HEYTEA (2813 Broadway)",
-     "address": "2813 BROADWAY, Manhattan, NY 10025",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
      "name": "HEYTEA (1293 Broadway)",
      "address": "1293 BROADWAY, Manhattan, NY 10001",
      "confidence": "confirmed",
@@ -967,42 +1011,6 @@
      "address": "38-02 PRINCE STREET, Queens, NY 11354",
      "confidence": "confirmed",
      "verified_by": "NYC health-department permit, first inspected 2025-04-17 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (128 2 Avenue)",
-     "address": "128 2 AVENUE, Manhattan, NY 10003",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (42-17 Crescent Street)",
-     "address": "42-17 CRESCENT STREET, Queens, NY 11101",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (10 Waverly Place)",
-     "address": "10 WAVERLY PLACE, Manhattan, NY 10003",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (1565 Broadway)",
-     "address": "1565 BROADWAY, Manhattan, NY 10036",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (126 East 86 Street)",
-     "address": "126 EAST   86 STREET, Manhattan, NY 10028",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (106 Lafayette Street)",
-     "address": "106 LAFAYETTE STREET, Manhattan, NY 10013",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)"
     },
     {
      "name": "HEYTEA (Bellevue)",

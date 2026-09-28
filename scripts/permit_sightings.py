@@ -53,6 +53,16 @@ BRAND = {a.chain_id: (getattr(a, "name_us", None) or getattr(a, "name", a.chain_
 #   a billiards hall that matched on the words "HEY TEA"; not 喜茶.
 FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220"))}
 
+# Permit rows confirmed BY HAND under a CORRECTED address (the store is real and open, but the
+# permit's street address differs from the one it actually trades at), so the permit candidate is
+# dropped in favour of the hand sighting instead of re-appearing as an uncertain duplicate. The
+# matching-address confirmations need nothing here — they dedupe on street_key against the hand
+# group automatically; only an address the permit got wrong needs listing.
+#   heytea @ 2813 Broadway   -> confirmed open at 2815 Broadway (Yelp)
+#   heytea @ 42-17 Crescent  -> confirmed open at 42-20 27th St, Long Island City (Yelp/Corner)
+CONFIRMED_ELSEWHERE = {("heytea", street_key("2813 BROADWAY, Manhattan, NY 10025")),
+                       ("heytea", street_key("42-17 CRESCENT STREET, Queens, NY 11101"))}
+
 _ORD = re.compile(r"(\d)(Th|St|Nd|Rd)\b")
 
 
@@ -127,6 +137,8 @@ def main():
         k = street_key(addr) or norm_addr(addr)
         if (chain, k) in FALSE_MATCHES:
             continue                                       # a verified not-this-chain permit row
+        if (chain, k) in CONFIRMED_ELSEWHERE:
+            continue                                       # confirmed by hand at a corrected address
         if k in rec["held"] or k in rec["seen"]:
             continue                                       # already ours, or a dupe across metros
         rec["seen"].add(k)
