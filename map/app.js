@@ -421,12 +421,11 @@ function drawTally(data) {
   const collectedChip = (id, meta) => {
     const p = per[id] || { open: 0, soon: 0 };
     const un = data.meta.unlocated[id] || 0;
-    const gc = (data.meta.geocoded || {})[id] || 0;
-    // A chain whose locator publishes no coordinates would otherwise read as a zero here,
-    // which is the one number it definitely is not.
+    // The chip carries counts only. Whether a chain's pins are published or geocoded is a
+    // provenance detail, shown where it reads clearly — the "Chains collected" table note and the
+    // fainter geocoded dots — not as a cryptic suffix here.
     const n = un && !p.open ? `${un} unplaced`
-      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}` +
-        (gc ? ` · ${gc} geocoded` : '');
+      : `${p.open}${un ? '+' + un + ' unplaced' : ''}${p.soon ? ' +' + p.soon + ' soon' : ''}`;
     const b = document.createElement('button');
     b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
     b.setAttribute('aria-pressed', String(!hidden.has(id)));
