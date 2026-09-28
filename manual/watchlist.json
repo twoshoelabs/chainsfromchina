@@ -1,893 +1,893 @@
 {
-  "_readme": [
-    "INTERNAL WATCHLIST — not published to the site. The top mainland-China-origin store/restaurant",
-    "chains per category that are NOT already tracked, compiled 2026-09-29 from company/press/wiki",
-    "sources (four+ web-research passes). Store counts are APPROXIMATE and move fast.",
-    "",
-    "status: 'us' = already operating in the US (candidate for new tracking); 'abroad' = operating",
-    "outside China but not the US (candidate for the international register); 'china' = China-only",
-    "(watch target — the expansion routine watches these for first overseas/US moves).",
-    "",
-    "Already-tracked chains are excluded, EXCEPT where a tracked parent runs a DISTINCT sub-brand",
-    "(e.g. Lucky Cup = Mixue's coffee brand; Coucou = Xiabu's brand; Tan Yu = Jiumaojiu/Tai Er group).",
-    "Packaged-goods MAKERS and distribution-only brands (Three Squirrels, ChaCha, Weilong) are NOT",
-    "listed — the site tracks storefront chains, not products on a grocery shelf.",
-    "Excluded as non-mainland-origin: Happy Lemon needs origin verification; Yonghe King (Jollibee),",
-    "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research."
+ "_readme": [
+  "INTERNAL WATCHLIST — not published to the site. The top mainland-China-origin store/restaurant",
+  "chains per category that are NOT already tracked, compiled 2026-09-29 from company/press/wiki",
+  "sources (four+ web-research passes). Store counts are APPROXIMATE and move fast.",
+  "",
+  "status: 'us' = already operating in the US (candidate for new tracking); 'abroad' = operating",
+  "outside China but not the US (candidate for the international register); 'china' = China-only",
+  "(watch target — the expansion routine watches these for first overseas/US moves).",
+  "",
+  "Already-tracked chains are excluded, EXCEPT where a tracked parent runs a DISTINCT sub-brand",
+  "(e.g. Lucky Cup = Mixue's coffee brand; Coucou = Xiabu's brand; Tan Yu = Jiumaojiu/Tai Er group).",
+  "Packaged-goods MAKERS and distribution-only brands (Three Squirrels, ChaCha, Weilong) are NOT",
+  "listed — the site tracks storefront chains, not products on a grocery shelf.",
+  "Excluded as non-mainland-origin: Happy Lemon needs origin verification; Yonghe King (Jollibee),",
+  "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research."
+ ],
+ "as_of": "2026-09-29",
+ "categories": {
+  "Tea": [
+   {
+    "name": "Good Me / Guming",
+    "name_zh": "古茗",
+    "hq": "Taizhou, Zhejiang",
+    "china_stores": "~13,500",
+    "status": "us",
+    "markets": "US: Brooklyn (Park Slope) lease, not yet open",
+    "note": "Already on our watch list; monitor for US opening",
+    "source": "https://en.wikipedia.org/wiki/Good_me"
+   },
+   {
+    "name": "Happy Lemon",
+    "name_zh": "快乐柠檬",
+    "hq": "Shanghai",
+    "china_stores": "~2,000 global (~47 China)",
+    "status": "held",
+    "markets": "US: 115+ (NY, LA, Seattle, Boston, Houston), Canada, UK, France, Dubai",
+    "note": "HELD 2026-09-29 pending scope call: Taiwanese founder (Wu Bochao) and Taiwan parent (RBT/雅茗天地); brand built in Shanghai 2006. Do not add without explicit go. VERIFY origin: Shanghai-founded but 雅茗天地 ties to Taiwan brands — confirm mainland before tracking",
+    "source": "https://www.happylemonusa.com/about/"
+   },
+   {
+    "name": "Shuyi Tealicious",
+    "name_zh": "书亦烧仙草",
+    "hq": "Chengdu",
+    "china_stores": "~7,000",
+    "status": "tracked",
+    "markets": "US: Falls Church VA; Canada",
+    "note": "Added to the US map 2026-09-29 as present-not-collected.",
+    "source": "https://shuyi.ca/menu"
+   },
+   {
+    "name": "Sexytea",
+    "name_zh": "茶颜悦色",
+    "hq": "Changsha, Hunan",
+    "china_stores": "~1,000+",
+    "status": "abroad",
+    "markets": "Australia (stores); US e-commerce only",
+    "note": "Watch for US storefront",
+    "source": "https://www.instagram.com/sexytea_au/"
+   },
+   {
+    "name": "Yihetang",
+    "name_zh": "益禾堂",
+    "hq": "Guangzhou",
+    "china_stores": "~8,000",
+    "status": "abroad",
+    "markets": "Vietnam, Thailand, Malaysia",
+    "note": "",
+    "source": "https://en.wikipedia.org/wiki/Yihetang"
+   },
+   {
+    "name": "Tianlala",
+    "name_zh": "甜啦啦",
+    "hq": "Bengbu, Anhui",
+    "china_stores": "~8,500",
+    "status": "abroad",
+    "markets": "Indonesia, Philippines, Central Asia",
+    "note": "",
+    "source": "https://baike.baidu.com/en/item/Tianlala/35372"
+   },
+   {
+    "name": "LINLEE",
+    "name_zh": "林里",
+    "hq": "Guangzhou",
+    "china_stores": "~2,000",
+    "status": "china",
+    "markets": "HK only; overseas planned 2026",
+    "note": "China's #1 lemon-tea chain",
+    "source": "https://baike.baidu.com/en/item/LINLEE/1465259"
+   },
+   {
+    "name": "Moge Yogurt",
+    "name_zh": "茉酸奶",
+    "hq": "Shanghai",
+    "china_stores": "~1,600",
+    "status": "china",
+    "markets": "",
+    "note": "Made-to-order yogurt drinks (tea-adjacent)",
+    "source": "https://news.qq.com/rain/a/20240228A066SU00"
+   }
   ],
-  "as_of": "2026-09-29",
-  "categories": {
-    "Tea": [
-      {
-        "name": "Good Me / Guming",
-        "name_zh": "古茗",
-        "hq": "Taizhou, Zhejiang",
-        "china_stores": "~13,500",
-        "status": "us",
-        "markets": "US: Brooklyn (Park Slope) lease, not yet open",
-        "note": "Already on our watch list; monitor for US opening",
-        "source": "https://en.wikipedia.org/wiki/Good_me"
-      },
-      {
-        "name": "Happy Lemon",
-        "name_zh": "快乐柠檬",
-        "hq": "Shanghai",
-        "china_stores": "~2,000 global (~47 China)",
-        "status": "us",
-        "markets": "US: 115+ (NY, LA, Seattle, Boston, Houston), Canada, UK, France, Dubai",
-        "note": "VERIFY origin: Shanghai-founded but 雅茗天地 ties to Taiwan brands — confirm mainland before tracking",
-        "source": "https://www.happylemonusa.com/about/"
-      },
-      {
-        "name": "Shuyi Tealicious",
-        "name_zh": "书亦烧仙草",
-        "hq": "Chengdu",
-        "china_stores": "~7,000",
-        "status": "us",
-        "markets": "US: Falls Church VA; Canada",
-        "note": "",
-        "source": "https://shuyi.ca/menu"
-      },
-      {
-        "name": "Sexytea",
-        "name_zh": "茶颜悦色",
-        "hq": "Changsha, Hunan",
-        "china_stores": "~1,000+",
-        "status": "abroad",
-        "markets": "Australia (stores); US e-commerce only",
-        "note": "Watch for US storefront",
-        "source": "https://www.instagram.com/sexytea_au/"
-      },
-      {
-        "name": "Yihetang",
-        "name_zh": "益禾堂",
-        "hq": "Guangzhou",
-        "china_stores": "~8,000",
-        "status": "abroad",
-        "markets": "Vietnam, Thailand, Malaysia",
-        "note": "",
-        "source": "https://en.wikipedia.org/wiki/Yihetang"
-      },
-      {
-        "name": "Tianlala",
-        "name_zh": "甜啦啦",
-        "hq": "Bengbu, Anhui",
-        "china_stores": "~8,500",
-        "status": "abroad",
-        "markets": "Indonesia, Philippines, Central Asia",
-        "note": "",
-        "source": "https://baike.baidu.com/en/item/Tianlala/35372"
-      },
-      {
-        "name": "LINLEE",
-        "name_zh": "林里",
-        "hq": "Guangzhou",
-        "china_stores": "~2,000",
-        "status": "china",
-        "markets": "HK only; overseas planned 2026",
-        "note": "China's #1 lemon-tea chain",
-        "source": "https://baike.baidu.com/en/item/LINLEE/1465259"
-      },
-      {
-        "name": "Moge Yogurt",
-        "name_zh": "茉酸奶",
-        "hq": "Shanghai",
-        "china_stores": "~1,600",
-        "status": "china",
-        "markets": "",
-        "note": "Made-to-order yogurt drinks (tea-adjacent)",
-        "source": "https://news.qq.com/rain/a/20240228A066SU00"
-      }
-    ],
-    "Coffee": [
-      {
-        "name": "Lucky Cup / Lucky Coffee",
-        "name_zh": "幸运咖",
-        "hq": "Zhengzhou",
-        "china_stores": "~10,000",
-        "status": "abroad",
-        "markets": "Malaysia",
-        "note": "SUB-BRAND of Mixue (tracked parent, distinct chain)",
-        "source": "https://insideretail.asia/2025/11/28/lucky-cup-hits-10000-store-milestone-as-mixue-refocuses-on-overseas-strategy/"
-      },
-      {
-        "name": "Nowwa Coffee",
-        "name_zh": "挪瓦咖啡",
-        "hq": "Shanghai",
-        "china_stores": "~10,000 (mostly counters)",
-        "status": "china",
-        "markets": "",
-        "note": "Count inflated by shop-in-shop counters",
-        "source": "https://daxueconsulting.com/nowwa-coffee/"
-      },
-      {
-        "name": "Manner Coffee",
-        "name_zh": "曼纳",
-        "hq": "Shanghai",
-        "china_stores": "~2,600",
-        "status": "china",
-        "markets": "mainland + HK",
-        "note": "",
-        "source": "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/"
-      },
-      {
-        "name": "M Stand",
-        "name_zh": "M Stand",
-        "hq": "Shanghai",
-        "china_stores": "~450-500",
-        "status": "china",
-        "markets": "",
-        "note": "Premium/design-led",
-        "source": ""
-      },
-      {
-        "name": "Seesaw Coffee",
-        "name_zh": "Seesaw",
-        "hq": "Shanghai",
-        "china_stores": "~100+",
-        "status": "china",
-        "markets": "",
-        "note": "Specialty; contracted from peak",
-        "source": ""
-      }
-    ],
-    "Hot pot": [
-      {
-        "name": "Dezhuang",
-        "name_zh": "德庄",
-        "hq": "Chongqing",
-        "china_stores": "~900",
-        "status": "us",
-        "markets": "US: NYC (37 St Marks Pl); Canada",
-        "note": "",
-        "source": "https://www.groupon.com/biz/new-york-city/de-zhuang-hot-pot"
-      },
-      {
-        "name": "Dalongyi",
-        "name_zh": "大龙燚",
-        "hq": "Chengdu",
-        "china_stores": "~1,000+ (uncertain)",
-        "status": "us",
-        "markets": "US: NYC; UK; Singapore (Seattle closed)",
-        "note": "",
-        "source": "https://www.dalongyinyc.com/"
-      },
-      {
-        "name": "Shu Da Xia",
-        "name_zh": "蜀大侠",
-        "hq": "Chengdu",
-        "china_stores": "~650",
-        "status": "us",
-        "markets": "US: Boston (580 Commonwealth Ave); Canada; Malaysia; Singapore",
-        "note": "",
-        "source": "https://www.shudaxiaboston.com/"
-      },
-      {
-        "name": "Banu Maodu",
-        "name_zh": "巴奴毛肚火锅",
-        "hq": "Zhengzhou",
-        "china_stores": "~145 direct",
-        "status": "china",
-        "markets": "",
-        "note": "Premium segment leader; HK IPO 2025",
-        "source": "https://equalocean.com/news/2025061721578"
-      },
-      {
-        "name": "Xiabu Xiabu",
-        "name_zh": "呷哺呷哺",
-        "hq": "Beijing",
-        "china_stores": "~800+",
-        "status": "abroad",
-        "markets": "Singapore",
-        "note": "HK-listed 0520",
-        "source": "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
-      },
-      {
-        "name": "Coucou",
-        "name_zh": "湊湊",
-        "hq": "Beijing",
-        "china_stores": "~180",
-        "status": "abroad",
-        "markets": "Singapore",
-        "note": "SUB-BRAND of Xiabu Xiabu; PRC-founded, Taiwanese-style menu",
-        "source": "https://kr-asia.com/this-hotpot-moguls-business-is-booming-and-he-isnt-following-haidilaos-playbook"
-      },
-      {
-        "name": "Laowang",
-        "name_zh": "捞王",
-        "hq": "Shanghai",
-        "china_stores": "~135 direct",
-        "status": "abroad",
-        "markets": "Taipei",
-        "note": "Cantonese pork-bone hotpot",
-        "source": "https://www.marketscreener.com/quote/stock/XIABUXIABU-CATERING-MANAG-19119394/news/"
-      },
-      {
-        "name": "Peijie",
-        "name_zh": "珮姐重庆火锅",
-        "hq": "Chongqing",
-        "china_stores": "~30 direct",
-        "status": "abroad",
-        "markets": "Netherlands (Amsterdam)",
-        "note": "Rising; IPO planned 2026",
-        "source": "https://www.instagram.com/peijie_hotpot.nl/"
-      },
-      {
-        "name": "Qixintian",
-        "name_zh": "七欣天",
-        "hq": "Jiangsu (Jiangyin)",
-        "china_stores": "~257",
-        "status": "china",
-        "markets": "",
-        "note": "Crab + seafood hotpot; HK IPO",
-        "source": "https://news.futunn.com/en/post/12184806/"
-      }
-    ],
-    "Malatang & skewers": [
-      {
-        "name": "Malubianbian",
-        "name_zh": "马路边边",
-        "hq": "Chengdu",
-        "china_stores": "~1,300 franchise",
-        "status": "us",
-        "markets": "US: LA (2019), Houston; Cambodia, Singapore, Taiwan",
-        "note": "串串香",
-        "source": "https://en.wikipedia.org/wiki/Malubianbian"
-      },
-      {
-        "name": "Muwu BBQ",
-        "name_zh": "木屋烧烤",
-        "hq": "Shenzhen",
-        "china_stores": "~400+ direct",
-        "status": "abroad",
-        "markets": "Hong Kong",
-        "note": "Largest sit-down BBQ-skewer chain",
-        "source": "https://www.foodtalks.cn/company/muwu_bbq"
-      },
-      {
-        "name": "Steel Pipe Factory No.5",
-        "name_zh": "钢管厂五区小郡肝串串香",
-        "hq": "Chengdu",
-        "china_stores": "uncertain",
-        "status": "abroad",
-        "markets": "Australia (Sydney)",
-        "note": "",
-        "source": "https://www.fantuanorder.com/en-US/store/chuan-chuan-hot-pot/au-242858"
-      },
-      {
-        "name": "Yuanji Chuanchuanxiang",
-        "name_zh": "袁记串串香",
-        "hq": "Chengdu",
-        "china_stores": "~1,000+ (uncertain)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Xiaogujiejie",
-        "name_zh": "小谷姐姐麻辣拌·麻辣烫",
-        "hq": "Tianjin",
-        "china_stores": "~1,000+",
-        "status": "china",
-        "markets": "",
-        "note": "malatang + malaban",
-        "source": "https://www.xiaogujiejie.com/"
-      },
-      {
-        "name": "Fengmao Skewers",
-        "name_zh": "丰茂烤串",
-        "hq": "NE China",
-        "china_stores": "~58",
-        "status": "china",
-        "markets": "",
-        "note": "Lamb BBQ skewers",
-        "source": "https://www.rational-online.com/zh_cn/references/restaurant/cn_fengmao.php"
-      },
-      {
-        "name": "A Long Time Ago Lamb Skewers",
-        "name_zh": "很久以前羊肉串",
-        "hq": "Beijing",
-        "china_stores": "dozens (uncertain)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://www.longtimeago.cn/page/10956/"
-      }
-    ],
-    "Chinese fast food": [
-      {
-        "name": "Xijiade",
-        "name_zh": "喜家德",
-        "hq": "Hegang, Heilongjiang",
-        "china_stores": "~900 direct",
-        "status": "us",
-        "markets": "US: New York; Spain (Barcelona)",
-        "note": "Dumpling QSR (also NE-origin)",
-        "source": "https://baike.baidu.com/en/item/Xijiade/667125"
-      },
-      {
-        "name": "Laoxiangji (Home Original Chicken)",
-        "name_zh": "老乡鸡",
-        "hq": "Hefei, Anhui",
-        "china_stores": "~2,000",
-        "status": "china",
-        "markets": "",
-        "note": "HK IPO filed 2025",
-        "source": "https://baike.baidu.com/en/item/Home%20original%20chicken/20376"
-      },
-      {
-        "name": "Country Style Cooking / Mr. Rice",
-        "name_zh": "乡村基 / 大米先生",
-        "hq": "Chongqing",
-        "china_stores": "~2,000 combined",
-        "status": "china",
-        "markets": "",
-        "note": "LA 'Mr. Rice' affiliation UNVERIFIED",
-        "source": "https://www.ichongqing.info/2026/09/26/"
-      },
-      {
-        "name": "Micun Bibimbap",
-        "name_zh": "米村拌饭",
-        "hq": "Yanbian, Jilin",
-        "china_stores": "~1,200-1,800",
-        "status": "abroad",
-        "markets": "Singapore",
-        "note": "Korean-Chinese style, mainland-origin",
-        "source": "https://www.capitaland.com/sg/en/shop/malls/stores/micun-bibimbap.html"
-      },
-      {
-        "name": "Yu Jian Xiao Mian / Xiao Noodles",
-        "name_zh": "遇见小面",
-        "hq": "Guangzhou",
-        "china_stores": "~465",
-        "status": "abroad",
-        "markets": "Singapore; HK",
-        "note": "HKEX-listed 2408; Chongqing noodles",
-        "source": "https://thebambooworks.com/xiao-noodles-serves-up-ipo-plan-to-take-its-tangy-taste-global/"
-      },
-      {
-        "name": "Hefu Noodle",
-        "name_zh": "和府捞面",
-        "hq": "Rugao, Jiangsu",
-        "china_stores": "~600 direct",
-        "status": "abroad",
-        "markets": "Hong Kong",
-        "note": "",
-        "source": "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/"
-      },
-      {
-        "name": "Real Kungfu",
-        "name_zh": "真功夫",
-        "hq": "Guangzhou",
-        "china_stores": "~500-570",
-        "status": "china",
-        "markets": "",
-        "note": "Steamed rice-with-meat QSR",
-        "source": "https://en.wikipedia.org/wiki/Kungfu_(restaurant)"
-      },
-      {
-        "name": "Manling Congee",
-        "name_zh": "曼玲粥店",
-        "hq": "Shanghai",
-        "china_stores": "~1,000+ (dated)",
-        "status": "china",
-        "markets": "",
-        "note": "Congee, delivery-driven",
-        "source": "https://news.qq.com/rain/a/20240126A05HRG00"
-      },
-      {
-        "name": "Babi Mantou",
-        "name_zh": "巴比馒头",
-        "hq": "Shanghai",
-        "china_stores": "several thousand",
-        "status": "china",
-        "markets": "",
-        "note": "Largest baozi/mantou chain; A-share listed",
-        "source": ""
-      }
-    ],
-    "Regional-cuisine sit-down": [
-      {
-        "name": "Meizhou Dongpo",
-        "name_zh": "眉州东坡",
-        "hq": "Chengdu (HQ Beijing)",
-        "china_stores": "100+",
-        "status": "us",
-        "markets": "US: LA (Beverly Hills since 2013), Century City, Irvine",
-        "note": "Sichuan + Peking duck",
-        "source": "https://www.meizhou.us.com/home"
-      },
-      {
-        "name": "Xibei Youmiancun",
-        "name_zh": "西贝莜面村",
-        "hq": "Inner Mongolia / Beijing",
-        "china_stores": "~370-400 direct",
-        "status": "us",
-        "markets": "US: LA (Silverlake dumplings 2024, Arcadia restaurant 2025)",
-        "note": "NW/Shanxi youmian",
-        "source": "https://www.ocalpha.com/xibei-la/"
-      },
-      {
-        "name": "Grandma's Home",
-        "name_zh": "外婆家",
-        "hq": "Hangzhou",
-        "china_stores": "60+ cities",
-        "status": "us",
-        "markets": "US: Manhattan; Singapore",
-        "note": "Hangzhou/Zhejiang",
-        "source": "https://www.grandmashome.us/our-story"
-      },
-      {
-        "name": "Fei Da Chu",
-        "name_zh": "费大厨辣椒炒肉",
-        "hq": "Changsha, Hunan",
-        "china_stores": "~210 direct",
-        "status": "us",
-        "markets": "US: San Diego (Westfield UTC, signed 2025 — verify open)",
-        "note": "Hunan chili-fried pork",
-        "source": "https://zh.wikipedia.org/zh-hans/费大厨"
-      },
-      {
-        "name": "Green Tea",
-        "name_zh": "绿茶餐厅",
-        "hq": "Hangzhou",
-        "china_stores": "~493",
-        "status": "abroad",
-        "markets": "Singapore, Thailand, Malaysia, HK",
-        "note": "HKEX-listed 6831; targeting 100+ overseas",
-        "source": "https://finance.yahoo.com/news/green-tea-group-secures-hkex-152831959.html"
-      },
-      {
-        "name": "Tan Yu",
-        "name_zh": "探鱼",
-        "hq": "Shenzhen (Jiumaojiu)",
-        "china_stores": "300+ APAC",
-        "status": "abroad",
-        "markets": "Singapore, Malaysia",
-        "note": "SUB-BRAND of Jiumaojiu (same group as tracked Tai Er); grilled fish",
-        "source": "https://www.capitaland.com/sg/malls/westgate/en/stores/tan-yu.html"
-      },
-      {
-        "name": "Nanjing Impressions",
-        "name_zh": "南京大牌档",
-        "hq": "Nanjing",
-        "china_stores": "~40",
-        "status": "abroad",
-        "markets": "Singapore, Australia",
-        "note": "Huaiyang/Nanjing cuisine",
-        "source": "https://therantingpanda.com/2016/12/31/food-review-nanjing-impressions/"
-      },
-      {
-        "name": "Tao Tao Ju",
-        "name_zh": "陶陶居",
-        "hq": "Guangzhou",
-        "china_stores": "(uncertain)",
-        "status": "abroad",
-        "markets": "London (Leicester Square)",
-        "note": "Cantonese / dim sum; 广州酒家 group",
-        "source": "https://zh.wikipedia.org/zh-hans/广州酒家"
-      },
-      {
-        "name": "Xiao Cai Yuan",
-        "name_zh": "小菜园",
-        "hq": "Tongling, Anhui",
-        "china_stores": "~663 direct",
-        "status": "china",
-        "markets": "",
-        "note": "HKEX-listed; Anhui home-style",
-        "source": "https://www.cliffordchance.com/news/news/2024/12/"
-      }
-    ],
-    "Snacks & braised deli": [
-      {
-        "name": "Zhou Hei Ya",
-        "name_zh": "周黑鸭",
-        "hq": "Wuhan",
-        "china_stores": "~3,031",
-        "status": "abroad",
-        "markets": "Malaysia (first overseas, Dec 2025)",
-        "note": "Duck neck / 卤味",
-        "source": "https://news.pedaily.cn/20251212/120110.shtml"
-      },
-      {
-        "name": "Mingming Very Busy",
-        "name_zh": "鸣鸣很忙 (零食很忙 + 赵一鸣)",
-        "hq": "Changsha",
-        "china_stores": "~14,400",
-        "status": "china",
-        "markets": "",
-        "note": "China's #1 bulk-snack chain; HK IPO",
-        "source": "https://36kr.com/p/3269956698808448"
-      },
-      {
-        "name": "Haoxianglai",
-        "name_zh": "好想来 (万辰集团)",
-        "hq": "Nanjing",
-        "china_stores": "~18,000",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://m.bjnews.com.cn/detail/1741671894168842.html"
-      },
-      {
-        "name": "Bestore",
-        "name_zh": "良品铺子",
-        "hq": "Wuhan",
-        "china_stores": "~3,000",
-        "status": "china",
-        "markets": "",
-        "note": "Exports via logistics only (no storefronts abroad)",
-        "source": "https://www.jiemian.com/article/10349930.html"
-      },
-      {
-        "name": "Laiyifen",
-        "name_zh": "来伊份",
-        "hq": "Shanghai",
-        "china_stores": "~3,472",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://www.jiemian.com/article/10349930.html"
-      },
-      {
-        "name": "Huangshanghuang",
-        "name_zh": "煌上煌",
-        "hq": "Nanchang, Jiangxi",
-        "china_stores": "~3,660",
-        "status": "china",
-        "markets": "",
-        "note": "Duck / 卤味",
-        "source": "https://m.lejucaijing.com/news-7240687275272239003.html"
-      }
-    ],
-    "Bakery & dessert": [
-      {
-        "name": "Holiland",
-        "name_zh": "好利来",
-        "hq": "Beijing",
-        "china_stores": "~1,000 direct",
-        "status": "china",
-        "markets": "",
-        "note": "Products in US via Yami e-comm only",
-        "source": "https://finance.sina.com.cn/roll/2023-08-30/doc-imziyaxc8167605.shtml"
-      },
-      {
-        "name": "Luxihe",
-        "name_zh": "泸溪河",
-        "hq": "Nanjing",
-        "china_stores": "~460",
-        "status": "china",
-        "markets": "",
-        "note": "New-Chinese pastry",
-        "source": "http://m.winshang.com/news725501.html"
-      },
-      {
-        "name": "Daoxiangcun",
-        "name_zh": "稻香村",
-        "hq": "Suzhou/Beijing",
-        "china_stores": "multi-thousand (mixed)",
-        "status": "china",
-        "markets": "",
-        "note": "Heritage pastry (est. 1773)",
-        "source": ""
-      },
-      {
-        "name": "Wedome",
-        "name_zh": "味多美",
-        "hq": "Beijing",
-        "china_stores": "~300+",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://www.qianzhan.com/"
-      },
-      {
-        "name": "Zhanji",
-        "name_zh": "詹记",
-        "hq": "Hefei, Anhui",
-        "china_stores": "~100+",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://news.qq.com/rain/a/20240703A08LLR00"
-      },
-      {
-        "name": "Momo Dianxinju",
-        "name_zh": "墨茉点心局",
-        "hq": "Changsha",
-        "china_stores": "~37 (shrinking)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": "https://news.qq.com/rain/a/20240703A08LLR00"
-      },
-      {
-        "name": "Happy Cake",
-        "name_zh": "幸福西饼",
-        "hq": "Shenzhen",
-        "china_stores": "uncertain",
-        "status": "china",
-        "markets": "",
-        "note": "Cake-delivery chain",
-        "source": ""
-      }
-    ],
-    "Ice cream / frozen": [
-      {
-        "name": "Blueglass",
-        "name_zh": "Blueglass 酸奶",
-        "hq": "Beijing",
-        "china_stores": "~159",
-        "status": "china",
-        "markets": "",
-        "note": "Premium fresh yogurt",
-        "source": "https://news.qq.com/rain/a/20240228A066SU00"
-      },
-      {
-        "name": "Zhongjie 1946",
-        "name_zh": "中街1946",
-        "hq": "Shenyang",
-        "china_stores": "~50+",
-        "status": "china",
-        "markets": "",
-        "note": "Premium ice-cream parlor",
-        "source": "https://www.foodaily.com/articles/22079"
-      },
-      {
-        "name": "Madieer",
-        "name_zh": "马迭尔",
-        "hq": "Harbin",
-        "china_stores": "small (est. 1906)",
-        "status": "china",
-        "markets": "",
-        "note": "Heritage ice cream",
-        "source": "https://english.visitbeijing.com.cn/article/47ON4gmUYFv"
-      }
-    ],
-    "Art toys & lifestyle retail": [
-      {
-        "name": "KKV",
-        "name_zh": "KKV",
-        "hq": "Dongguan (KK Group)",
-        "china_stores": "~380-400",
-        "status": "abroad",
-        "markets": "SE Asia (SG, MY, TH, PH, ID, VN)",
-        "note": "KK Group core brand",
-        "source": "https://www.businesswire.com/news/home/20250721453977/en/"
-      },
-      {
-        "name": "X11",
-        "name_zh": "X11",
-        "hq": "Dongguan (KK Group)",
-        "china_stores": "~50-70",
-        "status": "abroad",
-        "markets": "Malaysia, Indonesia",
-        "note": "KK Group art-toy concept store",
-        "source": "https://www.businesswire.com/news/home/20250721453977/en/"
-      },
-      {
-        "name": "The Colorist",
-        "name_zh": "调色师",
-        "hq": "Dongguan (KK Group)",
-        "china_stores": "~200",
-        "status": "abroad",
-        "markets": "SE Asia (2026)",
-        "note": "Beauty/cosmetics variety (scope call)",
-        "source": "https://www.businesswire.com/news/home/20250721453977/en/"
-      },
-      {
-        "name": "Cool Toy / KOer",
-        "name_zh": "酷乐潮玩",
-        "hq": "Guangzhou",
-        "china_stores": "300+",
-        "status": "abroad",
-        "markets": "Thailand (2024)",
-        "note": "",
-        "source": "https://m.winshang.com/news731418.html"
-      },
-      {
-        "name": "KK Guan",
-        "name_zh": "KK馆",
-        "hq": "Dongguan (KK Group)",
-        "china_stores": "~67 (declining)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Jiumu Sundry / M&G life",
-        "name_zh": "九木杂物社",
-        "hq": "Shanghai (晨光 M&G)",
-        "china_stores": "860+",
-        "status": "china",
-        "markets": "",
-        "note": "Stationery-led variety + blind box",
-        "source": ""
-      },
-      {
-        "name": "SANFU",
-        "name_zh": "三福 / 三福时尚",
-        "hq": "Fuzhou, Fujian",
-        "china_stores": "1,000+",
-        "status": "china",
-        "markets": "",
-        "note": "Fast-fashion + lifestyle variety",
-        "source": ""
-      },
-      {
-        "name": "NOME",
-        "name_zh": "诺米 / NOME",
-        "hq": "Guangzhou",
-        "china_stores": "~500 peak (uncertain)",
-        "status": "china",
-        "markets": "",
-        "note": "Home/lifestyle variety, contracted",
-        "source": ""
-      }
-    ],
-    "Grocery & convenience": [
-      {
-        "name": "Meiyijia",
-        "name_zh": "美宜佳",
-        "hq": "Dongguan",
-        "china_stores": "~40,000",
-        "status": "china",
-        "markets": "",
-        "note": "#1 China convenience 3 yrs running",
-        "source": " "
-      },
-      {
-        "name": "Furong Xingsheng",
-        "name_zh": "芙蓉兴盛",
-        "hq": "Changsha",
-        "china_stores": "~20,000 franchise",
-        "status": "china",
-        "markets": "",
-        "note": "Light franchise small-format",
-        "source": ""
-      },
-      {
-        "name": "Tianfu",
-        "name_zh": "天福",
-        "hq": "Dongguan",
-        "china_stores": "~7,500",
-        "status": "china",
-        "markets": "",
-        "note": "#4 convenience nationally",
-        "source": ""
-      },
-      {
-        "name": "Jianfu",
-        "name_zh": "见福",
-        "hq": "Xiamen",
-        "china_stores": "~3,000+",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Shizu",
-        "name_zh": "十足 / 之上",
-        "hq": "Taizhou, Zhejiang",
-        "china_stores": "~3,300",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Bianlifeng",
-        "name_zh": "便利蜂",
-        "hq": "Beijing",
-        "china_stores": "~800 (down from peak)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "CR Vanguard",
-        "name_zh": "华润万家",
-        "hq": "Shenzhen (China Resources)",
-        "china_stores": "~3,000 (declining)",
-        "status": "china",
-        "markets": "mainland + HK",
-        "note": "State-backed, mainland origin",
-        "source": ""
-      },
-      {
-        "name": "Lianhua",
-        "name_zh": "联华超市",
-        "hq": "Shanghai",
-        "china_stores": "~3,091",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Wumart",
-        "name_zh": "物美",
-        "hq": "Beijing",
-        "china_stores": "~1,500 (incl Metro China)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Yonghui",
-        "name_zh": "永辉超市",
-        "hq": "Fuzhou, Fujian",
-        "china_stores": "~1,288 (closing)",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Jiajiayue",
-        "name_zh": "家家悦",
-        "hq": "Weihai, Shandong",
-        "china_stores": "~1,100",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Freshippo / Hema",
-        "name_zh": "盒马",
-        "hq": "Shanghai (Alibaba)",
-        "china_stores": "~467",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      },
-      {
-        "name": "Qiandama",
-        "name_zh": "钱大妈",
-        "hq": "Dongguan",
-        "china_stores": "~3,000",
-        "status": "china",
-        "markets": "mainland + HK/Macau",
-        "note": "Community fresh-food franchise",
-        "source": ""
-      },
-      {
-        "name": "Yipin Fresh",
-        "name_zh": "谊品生鲜",
-        "hq": "Hefei, Anhui",
-        "china_stores": "~1,500",
-        "status": "china",
-        "markets": "",
-        "note": "",
-        "source": ""
-      }
-    ]
-  }
+  "Coffee": [
+   {
+    "name": "Lucky Cup / Lucky Coffee",
+    "name_zh": "幸运咖",
+    "hq": "Zhengzhou",
+    "china_stores": "~10,000",
+    "status": "abroad",
+    "markets": "Malaysia",
+    "note": "SUB-BRAND of Mixue (tracked parent, distinct chain)",
+    "source": "https://insideretail.asia/2025/11/28/lucky-cup-hits-10000-store-milestone-as-mixue-refocuses-on-overseas-strategy/"
+   },
+   {
+    "name": "Nowwa Coffee",
+    "name_zh": "挪瓦咖啡",
+    "hq": "Shanghai",
+    "china_stores": "~10,000 (mostly counters)",
+    "status": "china",
+    "markets": "",
+    "note": "Count inflated by shop-in-shop counters",
+    "source": "https://daxueconsulting.com/nowwa-coffee/"
+   },
+   {
+    "name": "Manner Coffee",
+    "name_zh": "曼纳",
+    "hq": "Shanghai",
+    "china_stores": "~2,600",
+    "status": "china",
+    "markets": "mainland + HK",
+    "note": "",
+    "source": "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/"
+   },
+   {
+    "name": "M Stand",
+    "name_zh": "M Stand",
+    "hq": "Shanghai",
+    "china_stores": "~450-500",
+    "status": "china",
+    "markets": "",
+    "note": "Premium/design-led",
+    "source": ""
+   },
+   {
+    "name": "Seesaw Coffee",
+    "name_zh": "Seesaw",
+    "hq": "Shanghai",
+    "china_stores": "~100+",
+    "status": "china",
+    "markets": "",
+    "note": "Specialty; contracted from peak",
+    "source": ""
+   }
+  ],
+  "Hot pot": [
+   {
+    "name": "Dezhuang",
+    "name_zh": "德庄",
+    "hq": "Chongqing",
+    "china_stores": "~900",
+    "status": "tracked",
+    "markets": "US: NYC (37 St Marks Pl); Canada",
+    "note": "Added to the US map 2026-09-29 as present-not-collected.",
+    "source": "https://www.groupon.com/biz/new-york-city/de-zhuang-hot-pot"
+   },
+   {
+    "name": "Dalongyi",
+    "name_zh": "大龙燚",
+    "hq": "Chengdu",
+    "china_stores": "~1,000+ (uncertain)",
+    "status": "tracked",
+    "markets": "US: NYC; UK; Singapore (Seattle closed)",
+    "note": "Added to the US map 2026-09-29 as present-not-collected.",
+    "source": "https://www.dalongyinyc.com/"
+   },
+   {
+    "name": "Shu Da Xia",
+    "name_zh": "蜀大侠",
+    "hq": "Chengdu",
+    "china_stores": "~650",
+    "status": "tracked",
+    "markets": "US: Boston (580 Commonwealth Ave); Canada; Malaysia; Singapore",
+    "note": "Added to the US map 2026-09-29 as present-not-collected.",
+    "source": "https://www.shudaxiaboston.com/"
+   },
+   {
+    "name": "Banu Maodu",
+    "name_zh": "巴奴毛肚火锅",
+    "hq": "Zhengzhou",
+    "china_stores": "~145 direct",
+    "status": "china",
+    "markets": "",
+    "note": "Premium segment leader; HK IPO 2025",
+    "source": "https://equalocean.com/news/2025061721578"
+   },
+   {
+    "name": "Xiabu Xiabu",
+    "name_zh": "呷哺呷哺",
+    "hq": "Beijing",
+    "china_stores": "~800+",
+    "status": "abroad",
+    "markets": "Singapore",
+    "note": "HK-listed 0520",
+    "source": "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
+   },
+   {
+    "name": "Coucou",
+    "name_zh": "湊湊",
+    "hq": "Beijing",
+    "china_stores": "~180",
+    "status": "abroad",
+    "markets": "Singapore",
+    "note": "SUB-BRAND of Xiabu Xiabu; PRC-founded, Taiwanese-style menu",
+    "source": "https://kr-asia.com/this-hotpot-moguls-business-is-booming-and-he-isnt-following-haidilaos-playbook"
+   },
+   {
+    "name": "Laowang",
+    "name_zh": "捞王",
+    "hq": "Shanghai",
+    "china_stores": "~135 direct",
+    "status": "abroad",
+    "markets": "Taipei",
+    "note": "Cantonese pork-bone hotpot",
+    "source": "https://www.marketscreener.com/quote/stock/XIABUXIABU-CATERING-MANAG-19119394/news/"
+   },
+   {
+    "name": "Peijie",
+    "name_zh": "珮姐重庆火锅",
+    "hq": "Chongqing",
+    "china_stores": "~30 direct",
+    "status": "abroad",
+    "markets": "Netherlands (Amsterdam)",
+    "note": "Rising; IPO planned 2026",
+    "source": "https://www.instagram.com/peijie_hotpot.nl/"
+   },
+   {
+    "name": "Qixintian",
+    "name_zh": "七欣天",
+    "hq": "Jiangsu (Jiangyin)",
+    "china_stores": "~257",
+    "status": "china",
+    "markets": "",
+    "note": "Crab + seafood hotpot; HK IPO",
+    "source": "https://news.futunn.com/en/post/12184806/"
+   }
+  ],
+  "Malatang & skewers": [
+   {
+    "name": "Malubianbian",
+    "name_zh": "马路边边",
+    "hq": "Chengdu",
+    "china_stores": "~1,300 franchise",
+    "status": "tracked",
+    "markets": "US: LA (2019), Houston; Cambodia, Singapore, Taiwan",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. 串串香",
+    "source": "https://en.wikipedia.org/wiki/Malubianbian"
+   },
+   {
+    "name": "Muwu BBQ",
+    "name_zh": "木屋烧烤",
+    "hq": "Shenzhen",
+    "china_stores": "~400+ direct",
+    "status": "abroad",
+    "markets": "Hong Kong",
+    "note": "Largest sit-down BBQ-skewer chain",
+    "source": "https://www.foodtalks.cn/company/muwu_bbq"
+   },
+   {
+    "name": "Steel Pipe Factory No.5",
+    "name_zh": "钢管厂五区小郡肝串串香",
+    "hq": "Chengdu",
+    "china_stores": "uncertain",
+    "status": "abroad",
+    "markets": "Australia (Sydney)",
+    "note": "",
+    "source": "https://www.fantuanorder.com/en-US/store/chuan-chuan-hot-pot/au-242858"
+   },
+   {
+    "name": "Yuanji Chuanchuanxiang",
+    "name_zh": "袁记串串香",
+    "hq": "Chengdu",
+    "china_stores": "~1,000+ (uncertain)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Xiaogujiejie",
+    "name_zh": "小谷姐姐麻辣拌·麻辣烫",
+    "hq": "Tianjin",
+    "china_stores": "~1,000+",
+    "status": "china",
+    "markets": "",
+    "note": "malatang + malaban",
+    "source": "https://www.xiaogujiejie.com/"
+   },
+   {
+    "name": "Fengmao Skewers",
+    "name_zh": "丰茂烤串",
+    "hq": "NE China",
+    "china_stores": "~58",
+    "status": "china",
+    "markets": "",
+    "note": "Lamb BBQ skewers",
+    "source": "https://www.rational-online.com/zh_cn/references/restaurant/cn_fengmao.php"
+   },
+   {
+    "name": "A Long Time Ago Lamb Skewers",
+    "name_zh": "很久以前羊肉串",
+    "hq": "Beijing",
+    "china_stores": "dozens (uncertain)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://www.longtimeago.cn/page/10956/"
+   }
+  ],
+  "Chinese fast food": [
+   {
+    "name": "Xijiade",
+    "name_zh": "喜家德",
+    "hq": "Hegang, Heilongjiang",
+    "china_stores": "~900 direct",
+    "status": "tracked",
+    "markets": "US: New York; Spain (Barcelona)",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. Dumpling QSR (also NE-origin)",
+    "source": "https://baike.baidu.com/en/item/Xijiade/667125"
+   },
+   {
+    "name": "Laoxiangji (Home Original Chicken)",
+    "name_zh": "老乡鸡",
+    "hq": "Hefei, Anhui",
+    "china_stores": "~2,000",
+    "status": "china",
+    "markets": "",
+    "note": "HK IPO filed 2025",
+    "source": "https://baike.baidu.com/en/item/Home%20original%20chicken/20376"
+   },
+   {
+    "name": "Country Style Cooking / Mr. Rice",
+    "name_zh": "乡村基 / 大米先生",
+    "hq": "Chongqing",
+    "china_stores": "~2,000 combined",
+    "status": "china",
+    "markets": "",
+    "note": "LA 'Mr. Rice' affiliation UNVERIFIED",
+    "source": "https://www.ichongqing.info/2026/09/26/"
+   },
+   {
+    "name": "Micun Bibimbap",
+    "name_zh": "米村拌饭",
+    "hq": "Yanbian, Jilin",
+    "china_stores": "~1,200-1,800",
+    "status": "abroad",
+    "markets": "Singapore",
+    "note": "Korean-Chinese style, mainland-origin",
+    "source": "https://www.capitaland.com/sg/en/shop/malls/stores/micun-bibimbap.html"
+   },
+   {
+    "name": "Yu Jian Xiao Mian / Xiao Noodles",
+    "name_zh": "遇见小面",
+    "hq": "Guangzhou",
+    "china_stores": "~465",
+    "status": "abroad",
+    "markets": "Singapore; HK",
+    "note": "HKEX-listed 2408; Chongqing noodles",
+    "source": "https://thebambooworks.com/xiao-noodles-serves-up-ipo-plan-to-take-its-tangy-taste-global/"
+   },
+   {
+    "name": "Hefu Noodle",
+    "name_zh": "和府捞面",
+    "hq": "Rugao, Jiangsu",
+    "china_stores": "~600 direct",
+    "status": "abroad",
+    "markets": "Hong Kong",
+    "note": "",
+    "source": "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/"
+   },
+   {
+    "name": "Real Kungfu",
+    "name_zh": "真功夫",
+    "hq": "Guangzhou",
+    "china_stores": "~500-570",
+    "status": "china",
+    "markets": "",
+    "note": "Steamed rice-with-meat QSR",
+    "source": "https://en.wikipedia.org/wiki/Kungfu_(restaurant)"
+   },
+   {
+    "name": "Manling Congee",
+    "name_zh": "曼玲粥店",
+    "hq": "Shanghai",
+    "china_stores": "~1,000+ (dated)",
+    "status": "china",
+    "markets": "",
+    "note": "Congee, delivery-driven",
+    "source": "https://news.qq.com/rain/a/20240126A05HRG00"
+   },
+   {
+    "name": "Babi Mantou",
+    "name_zh": "巴比馒头",
+    "hq": "Shanghai",
+    "china_stores": "several thousand",
+    "status": "china",
+    "markets": "",
+    "note": "Largest baozi/mantou chain; A-share listed",
+    "source": ""
+   }
+  ],
+  "Regional-cuisine sit-down": [
+   {
+    "name": "Meizhou Dongpo",
+    "name_zh": "眉州东坡",
+    "hq": "Chengdu (HQ Beijing)",
+    "china_stores": "100+",
+    "status": "tracked",
+    "markets": "US: LA (Beverly Hills since 2013), Century City, Irvine",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. Sichuan + Peking duck",
+    "source": "https://www.meizhou.us.com/home"
+   },
+   {
+    "name": "Xibei Youmiancun",
+    "name_zh": "西贝莜面村",
+    "hq": "Inner Mongolia / Beijing",
+    "china_stores": "~370-400 direct",
+    "status": "tracked",
+    "markets": "US: LA (Silverlake dumplings 2024, Arcadia restaurant 2025)",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. NW/Shanxi youmian",
+    "source": "https://www.ocalpha.com/xibei-la/"
+   },
+   {
+    "name": "Grandma's Home",
+    "name_zh": "外婆家",
+    "hq": "Hangzhou",
+    "china_stores": "60+ cities",
+    "status": "tracked",
+    "markets": "US: Manhattan; Singapore",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. Hangzhou/Zhejiang",
+    "source": "https://www.grandmashome.us/our-story"
+   },
+   {
+    "name": "Fei Da Chu",
+    "name_zh": "费大厨辣椒炒肉",
+    "hq": "Changsha, Hunan",
+    "china_stores": "~210 direct",
+    "status": "tracked",
+    "markets": "US: San Diego (Westfield UTC, signed 2025 — verify open)",
+    "note": "Added to the US map 2026-09-29 as present-not-collected. Hunan chili-fried pork",
+    "source": "https://zh.wikipedia.org/zh-hans/费大厨"
+   },
+   {
+    "name": "Green Tea",
+    "name_zh": "绿茶餐厅",
+    "hq": "Hangzhou",
+    "china_stores": "~493",
+    "status": "abroad",
+    "markets": "Singapore, Thailand, Malaysia, HK",
+    "note": "HKEX-listed 6831; targeting 100+ overseas",
+    "source": "https://finance.yahoo.com/news/green-tea-group-secures-hkex-152831959.html"
+   },
+   {
+    "name": "Tan Yu",
+    "name_zh": "探鱼",
+    "hq": "Shenzhen (Jiumaojiu)",
+    "china_stores": "300+ APAC",
+    "status": "abroad",
+    "markets": "Singapore, Malaysia",
+    "note": "SUB-BRAND of Jiumaojiu (same group as tracked Tai Er); grilled fish",
+    "source": "https://www.capitaland.com/sg/malls/westgate/en/stores/tan-yu.html"
+   },
+   {
+    "name": "Nanjing Impressions",
+    "name_zh": "南京大牌档",
+    "hq": "Nanjing",
+    "china_stores": "~40",
+    "status": "abroad",
+    "markets": "Singapore, Australia",
+    "note": "Huaiyang/Nanjing cuisine",
+    "source": "https://therantingpanda.com/2016/12/31/food-review-nanjing-impressions/"
+   },
+   {
+    "name": "Tao Tao Ju",
+    "name_zh": "陶陶居",
+    "hq": "Guangzhou",
+    "china_stores": "(uncertain)",
+    "status": "abroad",
+    "markets": "London (Leicester Square)",
+    "note": "Cantonese / dim sum; 广州酒家 group",
+    "source": "https://zh.wikipedia.org/zh-hans/广州酒家"
+   },
+   {
+    "name": "Xiao Cai Yuan",
+    "name_zh": "小菜园",
+    "hq": "Tongling, Anhui",
+    "china_stores": "~663 direct",
+    "status": "china",
+    "markets": "",
+    "note": "HKEX-listed; Anhui home-style",
+    "source": "https://www.cliffordchance.com/news/news/2024/12/"
+   }
+  ],
+  "Snacks & braised deli": [
+   {
+    "name": "Zhou Hei Ya",
+    "name_zh": "周黑鸭",
+    "hq": "Wuhan",
+    "china_stores": "~3,031",
+    "status": "abroad",
+    "markets": "Malaysia (first overseas, Dec 2025)",
+    "note": "Duck neck / 卤味",
+    "source": "https://news.pedaily.cn/20251212/120110.shtml"
+   },
+   {
+    "name": "Mingming Very Busy",
+    "name_zh": "鸣鸣很忙 (零食很忙 + 赵一鸣)",
+    "hq": "Changsha",
+    "china_stores": "~14,400",
+    "status": "china",
+    "markets": "",
+    "note": "China's #1 bulk-snack chain; HK IPO",
+    "source": "https://36kr.com/p/3269956698808448"
+   },
+   {
+    "name": "Haoxianglai",
+    "name_zh": "好想来 (万辰集团)",
+    "hq": "Nanjing",
+    "china_stores": "~18,000",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://m.bjnews.com.cn/detail/1741671894168842.html"
+   },
+   {
+    "name": "Bestore",
+    "name_zh": "良品铺子",
+    "hq": "Wuhan",
+    "china_stores": "~3,000",
+    "status": "china",
+    "markets": "",
+    "note": "Exports via logistics only (no storefronts abroad)",
+    "source": "https://www.jiemian.com/article/10349930.html"
+   },
+   {
+    "name": "Laiyifen",
+    "name_zh": "来伊份",
+    "hq": "Shanghai",
+    "china_stores": "~3,472",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://www.jiemian.com/article/10349930.html"
+   },
+   {
+    "name": "Huangshanghuang",
+    "name_zh": "煌上煌",
+    "hq": "Nanchang, Jiangxi",
+    "china_stores": "~3,660",
+    "status": "china",
+    "markets": "",
+    "note": "Duck / 卤味",
+    "source": "https://m.lejucaijing.com/news-7240687275272239003.html"
+   }
+  ],
+  "Bakery & dessert": [
+   {
+    "name": "Holiland",
+    "name_zh": "好利来",
+    "hq": "Beijing",
+    "china_stores": "~1,000 direct",
+    "status": "china",
+    "markets": "",
+    "note": "Products in US via Yami e-comm only",
+    "source": "https://finance.sina.com.cn/roll/2023-08-30/doc-imziyaxc8167605.shtml"
+   },
+   {
+    "name": "Luxihe",
+    "name_zh": "泸溪河",
+    "hq": "Nanjing",
+    "china_stores": "~460",
+    "status": "china",
+    "markets": "",
+    "note": "New-Chinese pastry",
+    "source": "http://m.winshang.com/news725501.html"
+   },
+   {
+    "name": "Daoxiangcun",
+    "name_zh": "稻香村",
+    "hq": "Suzhou/Beijing",
+    "china_stores": "multi-thousand (mixed)",
+    "status": "china",
+    "markets": "",
+    "note": "Heritage pastry (est. 1773)",
+    "source": ""
+   },
+   {
+    "name": "Wedome",
+    "name_zh": "味多美",
+    "hq": "Beijing",
+    "china_stores": "~300+",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://www.qianzhan.com/"
+   },
+   {
+    "name": "Zhanji",
+    "name_zh": "詹记",
+    "hq": "Hefei, Anhui",
+    "china_stores": "~100+",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://news.qq.com/rain/a/20240703A08LLR00"
+   },
+   {
+    "name": "Momo Dianxinju",
+    "name_zh": "墨茉点心局",
+    "hq": "Changsha",
+    "china_stores": "~37 (shrinking)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": "https://news.qq.com/rain/a/20240703A08LLR00"
+   },
+   {
+    "name": "Happy Cake",
+    "name_zh": "幸福西饼",
+    "hq": "Shenzhen",
+    "china_stores": "uncertain",
+    "status": "china",
+    "markets": "",
+    "note": "Cake-delivery chain",
+    "source": ""
+   }
+  ],
+  "Ice cream / frozen": [
+   {
+    "name": "Blueglass",
+    "name_zh": "Blueglass 酸奶",
+    "hq": "Beijing",
+    "china_stores": "~159",
+    "status": "china",
+    "markets": "",
+    "note": "Premium fresh yogurt",
+    "source": "https://news.qq.com/rain/a/20240228A066SU00"
+   },
+   {
+    "name": "Zhongjie 1946",
+    "name_zh": "中街1946",
+    "hq": "Shenyang",
+    "china_stores": "~50+",
+    "status": "china",
+    "markets": "",
+    "note": "Premium ice-cream parlor",
+    "source": "https://www.foodaily.com/articles/22079"
+   },
+   {
+    "name": "Madieer",
+    "name_zh": "马迭尔",
+    "hq": "Harbin",
+    "china_stores": "small (est. 1906)",
+    "status": "china",
+    "markets": "",
+    "note": "Heritage ice cream",
+    "source": "https://english.visitbeijing.com.cn/article/47ON4gmUYFv"
+   }
+  ],
+  "Art toys & lifestyle retail": [
+   {
+    "name": "KKV",
+    "name_zh": "KKV",
+    "hq": "Dongguan (KK Group)",
+    "china_stores": "~380-400",
+    "status": "abroad",
+    "markets": "SE Asia (SG, MY, TH, PH, ID, VN)",
+    "note": "KK Group core brand",
+    "source": "https://www.businesswire.com/news/home/20250721453977/en/"
+   },
+   {
+    "name": "X11",
+    "name_zh": "X11",
+    "hq": "Dongguan (KK Group)",
+    "china_stores": "~50-70",
+    "status": "abroad",
+    "markets": "Malaysia, Indonesia",
+    "note": "KK Group art-toy concept store",
+    "source": "https://www.businesswire.com/news/home/20250721453977/en/"
+   },
+   {
+    "name": "The Colorist",
+    "name_zh": "调色师",
+    "hq": "Dongguan (KK Group)",
+    "china_stores": "~200",
+    "status": "abroad",
+    "markets": "SE Asia (2026)",
+    "note": "Beauty/cosmetics variety (scope call)",
+    "source": "https://www.businesswire.com/news/home/20250721453977/en/"
+   },
+   {
+    "name": "Cool Toy / KOer",
+    "name_zh": "酷乐潮玩",
+    "hq": "Guangzhou",
+    "china_stores": "300+",
+    "status": "abroad",
+    "markets": "Thailand (2024)",
+    "note": "",
+    "source": "https://m.winshang.com/news731418.html"
+   },
+   {
+    "name": "KK Guan",
+    "name_zh": "KK馆",
+    "hq": "Dongguan (KK Group)",
+    "china_stores": "~67 (declining)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Jiumu Sundry / M&G life",
+    "name_zh": "九木杂物社",
+    "hq": "Shanghai (晨光 M&G)",
+    "china_stores": "860+",
+    "status": "china",
+    "markets": "",
+    "note": "Stationery-led variety + blind box",
+    "source": ""
+   },
+   {
+    "name": "SANFU",
+    "name_zh": "三福 / 三福时尚",
+    "hq": "Fuzhou, Fujian",
+    "china_stores": "1,000+",
+    "status": "china",
+    "markets": "",
+    "note": "Fast-fashion + lifestyle variety",
+    "source": ""
+   },
+   {
+    "name": "NOME",
+    "name_zh": "诺米 / NOME",
+    "hq": "Guangzhou",
+    "china_stores": "~500 peak (uncertain)",
+    "status": "china",
+    "markets": "",
+    "note": "Home/lifestyle variety, contracted",
+    "source": ""
+   }
+  ],
+  "Grocery & convenience": [
+   {
+    "name": "Meiyijia",
+    "name_zh": "美宜佳",
+    "hq": "Dongguan",
+    "china_stores": "~40,000",
+    "status": "china",
+    "markets": "",
+    "note": "#1 China convenience 3 yrs running",
+    "source": " "
+   },
+   {
+    "name": "Furong Xingsheng",
+    "name_zh": "芙蓉兴盛",
+    "hq": "Changsha",
+    "china_stores": "~20,000 franchise",
+    "status": "china",
+    "markets": "",
+    "note": "Light franchise small-format",
+    "source": ""
+   },
+   {
+    "name": "Tianfu",
+    "name_zh": "天福",
+    "hq": "Dongguan",
+    "china_stores": "~7,500",
+    "status": "china",
+    "markets": "",
+    "note": "#4 convenience nationally",
+    "source": ""
+   },
+   {
+    "name": "Jianfu",
+    "name_zh": "见福",
+    "hq": "Xiamen",
+    "china_stores": "~3,000+",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Shizu",
+    "name_zh": "十足 / 之上",
+    "hq": "Taizhou, Zhejiang",
+    "china_stores": "~3,300",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Bianlifeng",
+    "name_zh": "便利蜂",
+    "hq": "Beijing",
+    "china_stores": "~800 (down from peak)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "CR Vanguard",
+    "name_zh": "华润万家",
+    "hq": "Shenzhen (China Resources)",
+    "china_stores": "~3,000 (declining)",
+    "status": "china",
+    "markets": "mainland + HK",
+    "note": "State-backed, mainland origin",
+    "source": ""
+   },
+   {
+    "name": "Lianhua",
+    "name_zh": "联华超市",
+    "hq": "Shanghai",
+    "china_stores": "~3,091",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Wumart",
+    "name_zh": "物美",
+    "hq": "Beijing",
+    "china_stores": "~1,500 (incl Metro China)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Yonghui",
+    "name_zh": "永辉超市",
+    "hq": "Fuzhou, Fujian",
+    "china_stores": "~1,288 (closing)",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Jiajiayue",
+    "name_zh": "家家悦",
+    "hq": "Weihai, Shandong",
+    "china_stores": "~1,100",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Freshippo / Hema",
+    "name_zh": "盒马",
+    "hq": "Shanghai (Alibaba)",
+    "china_stores": "~467",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   },
+   {
+    "name": "Qiandama",
+    "name_zh": "钱大妈",
+    "hq": "Dongguan",
+    "china_stores": "~3,000",
+    "status": "china",
+    "markets": "mainland + HK/Macau",
+    "note": "Community fresh-food franchise",
+    "source": ""
+   },
+   {
+    "name": "Yipin Fresh",
+    "name_zh": "谊品生鲜",
+    "hq": "Hefei, Anhui",
+    "china_stores": "~1,500",
+    "status": "china",
+    "markets": "",
+    "note": "",
+    "source": ""
+   }
+  ]
+ }
 }
