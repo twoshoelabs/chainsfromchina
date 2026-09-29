@@ -404,22 +404,31 @@ function showOnlyChain(id) {          // isolate one chain; others can still be 
   applyChainVisibility();
   refreshChips();
 }
-// Shared wiring for every chip (collected or blocked): the chip body is a show/hide toggle (a
-// checkbox, in effect), the name is a link to the profile, and a small "only" button isolates the
-// chain — but leaves the others clickable, so a reader can start from one and add more.
+// Shared wiring for every chip (collected or blocked). Clicking the CHIP shows/hides that chain on
+// the map (a checkbox, in effect) — that is the primary action a legend chip should have. Two
+// small trailing controls do the rest: "ⓘ" opens the chain's "Who they are" profile, and "only"
+// isolates the chain (leaving the others clickable, so a reader can start from one and add more).
 function wireChip(el, id) {
   el.dataset.chain = id;
   el.setAttribute('role', 'button');
   el.tabIndex = 0;
   el.setAttribute('aria-pressed', String(!hidden.has(id)));
+  el.title = 'Click to show or hide this chain on the map. ' + (el.title || '');
+  const prof = document.createElement('a');
+  prof.className = 'prof';
+  prof.href = `intro.html#${id}`;
+  prof.textContent = 'ⓘ';
+  prof.setAttribute('aria-label', 'About this chain (Who they are)');
+  prof.title = 'Who they are — about this chain';
+  prof.addEventListener('click', e => e.stopPropagation());
   const only = document.createElement('button');
   only.type = 'button';
   only.className = 'only';
   only.textContent = 'only';
   only.title = 'Show only this chain (you can click others to add them)';
   only.addEventListener('click', e => { e.stopPropagation(); showOnlyChain(id); });
-  el.append(only);
-  const isControl = t => t.closest('.chipnm') || t.closest('.only');
+  el.append(prof, only);
+  const isControl = t => t.closest('.prof') || t.closest('.only');
   el.addEventListener('click', e => { if (!isControl(e.target)) toggleChain(id); });
   el.addEventListener('keydown', e => {
     if ((e.key === 'Enter' || e.key === ' ') && !isControl(e.target)) { e.preventDefault(); toggleChain(id); }
@@ -492,7 +501,7 @@ function drawTally(data) {
       b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
         + 'These rows do not refresh; no change tomorrow means nobody looked.';
     b.innerHTML = `<span class="dot" style="background:${colorOf(id)}"></span>` +
-      `<a class="chipnm" href="intro.html#${id}">${chainLabel(meta, { short: true })}</a>` +
+      `<span class="chipnm">${chainLabel(meta, { short: true })}</span>` +
       `<span class="n">${n}</span>`;
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     if (meta.aliases && meta.aliases.length)
@@ -542,7 +551,7 @@ function drawTally(data) {
     else if (ns) n = `${knownN} known${toCfm}`;
     else n = 'not counted yet';
     el.innerHTML = `<span class="dot" style="background:${known ? colorOf(b.chain_id) : 'var(--muted)'}"></span>` +
-      `<a class="chipnm" href="intro.html#${b.chain_id}">${chainLabel(b, { short: true })}</a>` +
+      `<span class="chipnm">${chainLabel(b, { short: true })}</span>` +
       `<span class="n">${n}</span>`;
     // Alias line first, so hovering any chip shows every US name the chain trades under.
     const akaTitle = (b.aliases && b.aliases.length)

@@ -290,9 +290,13 @@ ul.uslist b{color:var(--ink)}
   color:var(--muted); cursor:pointer; opacity:.5}
 .chip:hover .only, .chip:focus-within .only{opacity:1}
 .chip .only:hover{border-color:var(--ink-2); color:var(--ink)}
-/* The chain name in every chip links to its profile under "Who they are". */
-.chipnm{color:inherit; text-decoration:none; cursor:pointer}
-.chipnm:hover, .chipnm:focus{text-decoration:underline}
+/* The chain name is plain text — the whole chip is the map show/hide toggle. */
+.chipnm{color:inherit}
+/* "ⓘ" opens the chain's "Who they are" profile; subtle until hover/focus, always tappable. */
+.chip .prof{margin-left:4px; font-size:13px; line-height:1; text-decoration:none;
+  color:var(--muted); cursor:pointer; opacity:.55}
+.chip:hover .prof, .chip:focus-within .prof{opacity:1}
+.chip .prof:hover{color:var(--accent)}
 .ccard{scroll-margin-top:18px}                /* so #id links from the map land clear of the top */
 .ccard.cardjump{outline:2px solid var(--accent); outline-offset:2px}  /* the card a chip linked to */
 .patterns{background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:14px 18px; margin:0 0 20px}
