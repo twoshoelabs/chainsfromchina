@@ -566,7 +566,7 @@
    "chain": "zhangliang",
    "supplied_on": "2026-09-26",
    "source": "First-party regional site, delivery listing, a city-government notice and county health permits.",
-   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a mainland chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — California (Bay Area, LA/Orange County, San Diego), the Seattle area, and the New York / New Jersey metro — harvested from first-party regional sites, delivery listings, review aggregators and a NYC health permit. Not a complete roster.",
+   "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a Chinese chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — California (Bay Area, LA/Orange County, San Diego), the Seattle area, and the New York / New Jersey metro — harvested from first-party regional sites, delivery listings, review aggregators and a NYC health permit. Not a complete roster.",
    "locations": [
     {
      "name": "Mountain View",
@@ -676,7 +676,7 @@
    "chain": "chahalo",
    "supplied_on": "2026-09-27",
    "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
-   "scope": "Known US ChaHalo (茶话弄) outlets for a mainland Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
+   "scope": "Known US ChaHalo (茶话弄) outlets for a Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
    "locations": [
     {
      "name": "City of Industry",
@@ -702,7 +702,7 @@
    "chain": "lelecha",
    "supplied_on": "2026-09-28",
    "source": "Operator-supplied Yelp listing.",
-   "scope": "Known US Lelecha (乐乐茶) outlets for a mainland Shanghai tea chain whose US site is an unlaunched private Squarespace; no complete roster.",
+   "scope": "Known US Lelecha (乐乐茶) outlets for a Shanghai tea chain whose US site is an unlaunched private Squarespace; no complete roster.",
    "locations": [
     {
      "name": "Rowland Heights",
@@ -716,7 +716,7 @@
    "chain": "nonggengji",
    "supplied_on": "2026-09-28",
    "source": "Yelp listing and local press (MyMCMedia, 22 Sep 2026).",
-   "scope": "Known US Nong Geng Ji (农耕记) outlets for a mainland Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026; a second at 1701 Rockville Pike, Rockville MD is announced with no opening date and is deliberately not listed here until it opens. Not a complete roster.",
+   "scope": "Known US Nong Geng Ji (农耕记) outlets for a Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026; a second at 1701 Rockville Pike, Rockville MD is announced with no opening date and is deliberately not listed here until it opens. Not a complete roster.",
    "locations": [
     {
      "name": "Flushing",
@@ -730,7 +730,7 @@
    "chain": "baospastry",
    "supplied_on": "2026-09-28",
    "source": "Operator-supplied Yelp listing; origin confirmed via press.",
-   "scope": "Known US Bao's Pastry (鲍师傅糕点) outlets for a mainland Beijing bakery chain with no first-party US site. First US store opened Flushing late 2025. Not a complete roster.",
+   "scope": "Known US Bao's Pastry (鲍师傅糕点) outlets for a Beijing bakery chain with no first-party US site. First US store opened Flushing late 2025. Not a complete roster.",
    "locations": [
     {
      "name": "Flushing",
@@ -744,7 +744,7 @@
    "chain": "toptoy",
    "supplied_on": "2026-09-28",
    "source": "The chain's own US store-locations page (gotoptoy.com), which lists a single US store.",
-   "scope": "US TOP TOY outlets for a mainland MINISO Group art-toy brand. Its first-party US locator lists one store (Times Square) as of 28 Sep 2026; JS-rendered, so recorded here rather than collected. Effectively complete at one store.",
+   "scope": "US TOP TOY outlets for a MINISO Group art-toy brand. Its first-party US locator lists one store (Times Square) as of 28 Sep 2026; JS-rendered, so recorded here rather than collected. Effectively complete at one store.",
    "locations": [
     {
      "name": "Times Square",
@@ -758,7 +758,7 @@
    "chain": "toys52",
    "supplied_on": "2026-09-28",
    "source": "Mall directory (simon.com) and a place aggregator (corner.inc).",
-   "scope": "Known US 52Toys (52TOYS) outlets for a mainland Beijing blind-box brand with no US locator. Two Georgia stores so far. Not a complete roster.",
+   "scope": "Known US 52Toys (52TOYS) outlets for a Beijing blind-box brand with no US locator. Two Georgia stores so far. Not a complete roster.",
    "locations": [
     {
      "name": "Mall of Georgia",

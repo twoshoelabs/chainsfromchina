@@ -12,7 +12,7 @@ const chainLabel = (c, opts = {}) => {
   return `${esc(trading)}${zh}${also}`;
 };
 
-const REGION_ORDER = ['Greater China', 'East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
+const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
 let D = null;
 
 async function main() {
@@ -171,7 +171,7 @@ function coverage(chains) {
       `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
   }
   document.getElementById('covnote').textContent =
-    `For each chain, the number of markets outside mainland China and the US where this register ` +
+    `For each chain, the number of markets outside China and the US where this register ` +
     `records it present — not how many it actually trades in. The register covers only a ` +
     `hand-picked set of markets and is far from every country. A low number here usually means we ` +
     `have not looked, not that a chain is small — MIXUE alone has more stores abroad than everyone ` +

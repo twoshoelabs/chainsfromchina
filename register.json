@@ -33,7 +33,7 @@
  "markets": {
   "HK": {
    "name": "Hong Kong",
-   "region": "Greater China",
+   "region": "East Asia",
    "note": "Part of China politically, a separate retail market practically. Included as a destination, never as an origin — see the readme."
   },
   "KR": {
@@ -118,11 +118,11 @@
   },
   "TW": {
    "name": "Taiwan",
-   "region": "Greater China"
+   "region": "East Asia"
   },
   "MO": {
    "name": "Macau",
-   "region": "Greater China"
+   "region": "East Asia"
   }
  },
  "chains": {
@@ -172,7 +172,7 @@
    "name": "Haidilao",
    "name_zh": "海底捞",
    "format": "restaurant",
-   "global": "overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs roughly 120-125 restaurants outside Greater China"
+   "global": "overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs roughly 120-125 restaurants outside China"
   },
   "yangs": {
    "name": "Yang's Braised Chicken Rice",
@@ -254,7 +254,7 @@
    "name": "Lucky Cup",
    "name_zh": "幸运咖",
    "format": "coffee",
-   "global": "Mixue's budget coffee arm; hit 10,000 stores (Nov 2025), almost all mainland China; overseas brand-new"
+   "global": "Mixue's budget coffee arm; hit 10,000 stores (Nov 2025), almost all in China; overseas brand-new"
   },
   "yujianxiaomian": {
    "name": "Yu Jian Xiao Mian",
@@ -266,37 +266,37 @@
    "name": "Hefu Noodle",
    "name_zh": "和府捞面",
    "format": "restaurant",
-   "global": "632 stores (2025) across 80+ mainland cities; overseas began in Hong Kong Feb 2024"
+   "global": "632 stores (2025) across 80+ Chinese cities; overseas began in Hong Kong Feb 2024"
   },
   "xiabu": {
    "name": "Xiabu Xiabu",
    "name_zh": "呷哺呷哺",
    "format": "hotpot",
-   "global": "~1,000+ outlets across the Xiabu + Coucou brands, overwhelmingly mainland; the Xiabu brand's non-mainland footprint is ~21 across HK/Taiwan/Macau/Singapore (Jun 2024)"
+   "global": "~1,000+ outlets across the Xiabu + Coucou brands, overwhelmingly in China; the Xiabu brand's footprint outside China is ~21 across HK/Taiwan/Macau/Singapore (Jun 2024)"
   },
   "coucou": {
    "name": "Coucou",
    "name_zh": "湊湊",
    "format": "hotpot",
-   "global": "Xiabu Xiabu's premium sub-brand (2016); ~200 branches mostly mainland + Hong Kong; non-mainland in Hong Kong and Singapore"
+   "global": "Xiabu Xiabu's premium sub-brand (2016); ~200 branches mostly in China + Hong Kong; outside China in Hong Kong and Singapore"
   },
   "laowang": {
    "name": "Laowang",
    "name_zh": "捞王",
    "format": "hotpot",
-   "global": "China's largest pork-tripe-chicken (猪肚鸡) hotpot chain, ~135-150 mainland restaurants; its only confirmed non-mainland store is one in Taipei"
+   "global": "China's largest pork-tripe-chicken (猪肚鸡) hotpot chain, ~135-150 restaurants in China; its only confirmed store outside China is one in Taipei"
   },
   "peijie": {
    "name": "Peijie",
    "name_zh": "珮姐",
    "format": "hotpot",
-   "global": "Chongqing hotpot, ~30 mostly directly-operated mainland stores; first overseas store Amsterdam (Oct 2025)"
+   "global": "Chongqing hotpot, ~30 mostly directly-operated stores in China; first overseas store Amsterdam (Oct 2025)"
   },
   "zhouheiya": {
    "name": "Zhou Hei Ya",
    "name_zh": "周黑鸭",
    "format": "snack",
-   "global": "~1,000+ braised-duck snack stores, almost all mainland (HK-listed 1458.HK — a stock listing only); a single overseas store"
+   "global": "~1,000+ braised-duck snack stores, almost all in China (HK-listed 1458.HK — a stock listing only); a single overseas store"
   },
   "kkv": {
    "name": "KKV",
@@ -320,31 +320,31 @@
    "name": "Cool Toy",
    "name_zh": "酷乐潮玩",
    "format": "toys",
-   "global": "Ningbo art-toy retailer (~300 stores in 60+ mainland cities); overseas nascent, retrenching domestically"
+   "global": "Ningbo art-toy retailer (~300 stores in 60+ Chinese cities); overseas nascent, retrenching domestically"
   },
   "muwu": {
    "name": "Muwu BBQ",
    "name_zh": "木屋烧烤",
    "format": "restaurant",
-   "global": "~400+ directly-operated skewer/BBQ stores across ~20 mainland cities; overseas early-stage (Hong Kong)"
+   "global": "~400+ directly-operated skewer/BBQ stores across ~20 Chinese cities; overseas early-stage (Hong Kong)"
   },
   "steelpipe": {
    "name": "Steel Pipe No.5",
    "name_zh": "钢管厂五区小郡肝串串香",
    "format": "hotpot",
-   "global": "~880 skewer-hotpot (串串香) stores (Nov 2025), overwhelmingly mainland; overseas is franchise-driven and name-fragmented, so attributions are brand-name-level, not corporate-confirmed"
+   "global": "~880 skewer-hotpot (串串香) stores (Nov 2025), overwhelmingly in China; overseas is franchise-driven and name-fragmented, so attributions are brand-name-level, not corporate-confirmed"
   },
   "micun": {
    "name": "Micun",
    "name_zh": "米村拌饭",
    "format": "restaurant",
-   "global": "1,900+ Korean-style bibimbap fast-food stores, nearly all mainland; overseas footprint = Singapore only"
+   "global": "1,900+ Korean-style bibimbap fast-food stores, nearly all in China; overseas footprint = Singapore only"
   },
   "greentea": {
    "name": "Green Tea",
    "name_zh": "绿茶餐厅",
    "format": "restaurant",
-   "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly mainland, overseas since Aug 2024 across HK + SE Asia"
+   "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly in China, overseas since Aug 2024 across HK + SE Asia"
   },
   "tanyu": {
    "name": "Tan Yu",
@@ -356,7 +356,7 @@
    "name": "Nanjing Impressions",
    "name_zh": "南京大牌档",
    "format": "restaurant",
-   "global": "~35-40 Nanjing-cuisine stores, all mainland except a single overseas outlet"
+   "global": "~35-40 Nanjing-cuisine stores, all in China except a single overseas outlet"
   }
  },
  "entries": [
@@ -1560,7 +1560,7 @@
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-09-29",
-   "note": "Among the ~21 non-mainland Xiabu-brand outlets counted Jun 2024.",
+   "note": "Among the ~21 Xiabu-brand outlets outside China counted Jun 2024.",
    "sources": [
     "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
    ]
@@ -1574,7 +1574,7 @@
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-09-29",
-   "note": "Among the ~21 non-mainland Xiabu-brand outlets counted Jun 2024."
+   "note": "Among the ~21 Xiabu-brand outlets outside China counted Jun 2024."
   },
   {
    "chain": "xiabu",
@@ -1585,7 +1585,7 @@
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-09-29",
-   "note": "Among the ~21 non-mainland outlets (Jun 2024); Taiwan-style individual hotpot. Founder He Guangqi is Taiwan-born, but Xiabu is a Beijing-founded, HKEX-listed mainland company."
+   "note": "Among the ~21 outlets outside China (Jun 2024); Taiwan-style individual hotpot. Founder He Guangqi is Taiwan-born, but Xiabu is a Beijing-founded, HKEX-listed Chinese company."
   },
   {
    "chain": "xiabu",
@@ -1641,7 +1641,7 @@
    "precision": "year",
    "confidence": "high",
    "reviewed": "2026-09-29",
-   "note": "Sole non-mainland store per the 2021 HKEX IPO prospectus (ATT 4 FUN, Taipei). A Barcelona namesake is unconfirmed and omitted.",
+   "note": "Sole store outside China per the 2021 HKEX IPO prospectus (ATT 4 FUN, Taipei). A Barcelona namesake is unconfirmed and omitted.",
    "sources": [
     "https://www.caixinglobal.com/2022-02-25/chinese-hotpot-chain-files-for-hong-kong-ipo-101847160.html"
    ]

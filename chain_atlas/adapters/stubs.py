@@ -419,7 +419,7 @@ class ZhangliangAdapter(Adapter):
     aliases = ("Zhangliang Malatang", "Zhangliang Spicy Hotpot", "ZhangLiang MalaTang")
     parent, format = "Zhang Liang (张亮餐饮, Harbin)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland malatang chain (张亮麻辣烫); its brand news claims 42 North American"
+    BLOCKED_REASON = ("malatang chain (张亮麻辣烫); its brand news claims 42 North American"
                       " outlets (US/Canada/Mexico, 11 Sep 2026) but there is no single US locator —"
                       " US shops appear on per-region franchisee sites, an LA Instagram and delivery"
                       " apps. Tracked via sightings (26 Sep 2026)")
@@ -440,7 +440,7 @@ class ChahaloAdapter(Adapter):
     aliases = ("Cha Hua Nong", "Cha Halo")
     parent, format = "Xi'an Baamu Tian Catering (西安八亩田餐饮)", "tea"
     ENABLED = False
-    BLOCKED_REASON = ("mainland premium-tea chain (茶话弄, Xi'an; ~1,000 stores in China); recent US"
+    BLOCKED_REASON = ("premium-tea chain (茶话弄, Xi'an; ~1,000 stores in China); recent US"
                       " entry (City of Industry, Berkeley, NYC) with no single US locator, also"
                       " expanding into Canada. Tracked via sightings (27 Sep 2026)")
     RECHECK = ["https://www.chahalo.com/"]
@@ -460,7 +460,7 @@ class LelechaAdapter(Adapter):
     aliases = ("Le Le Cha", "LELECHA")
     parent, format = "Lelecha (乐乐茶, Shanghai)", "tea"
     ENABLED = False
-    BLOCKED_REASON = ("mainland premium-tea chain (乐乐茶, Shanghai); US entry with no public"
+    BLOCKED_REASON = ("premium-tea chain (乐乐茶, Shanghai); US entry with no public"
                       " locator — lelechaus.com is an unlaunched private Squarespace, so outlets"
                       " surface only on Yelp and delivery apps. Tracked via sightings (28 Sep 2026)")
     RECHECK = ["https://www.lelechaus.com/"]
@@ -480,7 +480,7 @@ class NonggengjiAdapter(Adapter):
     aliases = ("Nonggengji", "Nong Geng Ji Hunan Cuisine")
     parent, format = "Nong Geng Ji (农耕记, Shenzhen)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Hunan-cuisine chain (农耕记, Shenzhen); first US restaurant opened"
+    BLOCKED_REASON = ("Hunan-cuisine chain (农耕记, Shenzhen); first US restaurant opened"
                       " Flushing NY Jan 2026, a second announced for Rockville MD. Too few US"
                       " outlets for a locator; tracked via sightings (28 Sep 2026)")
     RECHECK = []
@@ -500,7 +500,7 @@ class BaosPastryAdapter(Adapter):
     aliases = ("Bao Shifu", "鲍师傅糕点")
     parent, format = "Bao's Pastry (鲍师傅, Beijing)", "bakery"
     ENABLED = False
-    BLOCKED_REASON = ("mainland bakery chain (鲍师傅糕点, Beijing; 100+ China stores); first US store"
+    BLOCKED_REASON = ("bakery chain (鲍师傅糕点, Beijing; 100+ China stores); first US store"
                       " opened Flushing NY late 2025, no first-party US site. Tracked via sightings"
                       " (28 Sep 2026)")
     RECHECK = []
@@ -521,7 +521,7 @@ class TopToyAdapter(Adapter):
     aliases = ("TOPTOY",)
     parent, format = "MINISO Group", "toys"
     ENABLED = False
-    BLOCKED_REASON = ("mainland art-toy/blind-box retailer (TOP TOY, launched 2020 by MINISO Group);"
+    BLOCKED_REASON = ("art-toy/blind-box retailer (TOP TOY, launched 2020 by MINISO Group);"
                       " its US locator (gotoptoy.com) is a JS-rendered Shopify page listing one US"
                       " store (Times Square). Tracked via sightings (28 Sep 2026)")
     RECHECK = ["https://www.gotoptoy.com/pages/toptoy-usa-store-locations"]
@@ -541,7 +541,7 @@ class Toys52Adapter(Adapter):
     aliases = ("52TOYS",)
     parent, format = "52TOYS (乐自天成, Beijing)", "toys"
     ENABLED = False
-    BLOCKED_REASON = ("mainland designer-toy/blind-box brand (52TOYS, founded 2015 in Beijing);"
+    BLOCKED_REASON = ("designer-toy/blind-box brand (52TOYS, founded 2015 in Beijing);"
                       " us.52toys.com is an online store with no locator, so US outlets (Mall of"
                       " Georgia, Doraville GA) surface via mall directories. Tracked via sightings"
                       " (28 Sep 2026)")
@@ -570,7 +570,7 @@ class DezhuangAdapter(Adapter):
     aliases = ("De Zhuang", "De Hotpot Mini", "德庄火锅")
     parent, format = "Chongqing Dezhuang Industrial Group (重庆德庄实业集团)", "hotpot"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Chongqing hot-pot chain (德庄, founded 1999); US outlets in NYC"
+    BLOCKED_REASON = ("Chongqing hot-pot chain (德庄, founded 1999); US outlets in NYC"
                       " (37 St Marks Pl) and Bellevue WA, but dezhuangofficial.com is a global brand"
                       " page with no US locator. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://dezhuangofficial.com/", "https://www.dezhuanghotpotmini.com/"]
@@ -593,7 +593,7 @@ class MeizhouDongpoAdapter(Adapter):
     aliases = ("Dongpo Kitchen",)
     parent, format = "Meizhou Dongpo Group (眉州东坡集团, Beijing)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Sichuan-cuisine chain (眉州东坡, founded Beijing 1996); in the US"
+    BLOCKED_REASON = ("Sichuan-cuisine chain (眉州东坡, founded Beijing 1996); in the US"
                       " since 2013 with two open CA outlets (Century City, Irvine) after three LA-area"
                       " closures, and its US site meizhou.us.com no longer resolves. Tracked via"
                       " sightings (29 Sep 2026)")
@@ -616,7 +616,7 @@ class ShudaxiaAdapter(Adapter):
     aliases = ("Shudaxia", "Shu Daxia")
     parent, format = "Xiaolongkan group (小龙坎; acquired Shu Daxia 2023)", "hotpot"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Chengdu hot-pot chain (蜀大侠, founded 2015; owned by the Xiaolongkan"
+    BLOCKED_REASON = ("Chengdu hot-pot chain (蜀大侠, founded 2015; owned by the Xiaolongkan"
                       " group since 2023); one US outlet, Boston (580 Commonwealth Ave) open since"
                       " May 2022, with only a per-store site. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://www.shudaxiaboston.com/", "https://www.shudaxiaus.com/"]
@@ -641,7 +641,7 @@ class XibeiAdapter(Adapter):
     aliases = ("Xibei Youmiancun", "Xibei Dumplings", "Xibei Eatery")
     parent, format = "Xibei Catering Group (西贝餐饮集团)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Northwestern-China chain (西贝莜面村, ~370+ China stores); four open"
+    BLOCKED_REASON = ("Northwestern-China chain (西贝莜面村, ~370+ China stores); four open"
                       " SoCal outlets under three US sub-labels (Arcadia flagship, Silver Lake"
                       " dumplings, Santa Ana + Westwood 'Eatery'), first US Dec 2024, no national US"
                       " locator. Tracked via sightings (29 Sep 2026)")
@@ -664,7 +664,7 @@ class GrandmasHomeAdapter(Adapter):
     aliases = ("Waipojia",)
     parent, format = "Grandma's Home Catering Group (外婆家餐饮集团, Hangzhou)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Hangzhou-cuisine chain (外婆家, founded 1998; 200+ China outlets);"
+    BLOCKED_REASON = ("Hangzhou-cuisine chain (外婆家, founded 1998; 200+ China outlets);"
                       " one US restaurant, 56 W 22nd St Manhattan, opened ~March 2024 and its only US"
                       " location. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://www.grandmashome.us/"]
@@ -686,7 +686,7 @@ class XijiadeAdapter(Adapter):
     aliases = ("Xi Jia De", "喜家德水饺")
     parent, format = "Xiding Catering (喜鼎餐饮, Dalian)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Northeastern dumpling chain (喜家德, founded Hegang 2002); trades in"
+    BLOCKED_REASON = ("Northeastern dumpling chain (喜家德, founded Hegang 2002); trades in"
                       " the US as Dumpling Xi with two NYC outlets (Flushing, first US 12 Feb 2025;"
                       " East Village), only a per-store site. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://dumplingxius.com/", "https://www.xijiade.com.cn/"]
@@ -709,7 +709,7 @@ class MalubianbianAdapter(Adapter):
     aliases = ("MLBB", "MLBB AYCE Hot Pot", "Ma Lu Bian Bian Hot Pot")
     parent, format = "Chengdu Ma Lu Bian Restaurant Management (成都马路边边餐饮)", "hotpot"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Chengdu skewer-hotpot chain (马路边边, founded 2015); heavy US churn —"
+    BLOCKED_REASON = ("Chengdu skewer-hotpot chain (马路边边, founded 2015); heavy US churn —"
                       " first US store San Gabriel Nov 2019 and several early CA/TX/PA outlets now"
                       " closed; Orlando FL open, Tustin CA (rebranded MLBB AYCE) uncertain. Per-outlet"
                       " sites, no national locator. Tracked via sightings (29 Sep 2026)")
@@ -731,7 +731,7 @@ class FeidachuAdapter(Adapter):
     aliases = ("Fei Da Chu La Jiao Chao Rou", "费大厨辣椒炒肉")
     parent, format = "Fei Da Chu (费大厨, Hunan)", "restaurant"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Hunan-cuisine chain (费大厨辣椒炒肉, 'stir-fried pork with chili"
+    BLOCKED_REASON = ("Hunan-cuisine chain (费大厨辣椒炒肉, 'stir-fried pork with chili"
                       " peppers'); trades in the US as Chef Fei, first US store opened 5 Sep 2026 at"
                       " Westfield UTC, San Diego, with no national locator. Tracked via sightings"
                       " (29 Sep 2026)")
@@ -754,7 +754,7 @@ class DalongyiAdapter(Adapter):
     aliases = ("Da Long Yi", "Dalongyi Hot Pot")
     parent, format = "Chengdu Dalongyi Catering Management (成都大龙燚餐饮)", "hotpot"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Chengdu hot-pot chain (大龙燚, founded 2013); two open US outlets (Long"
+    BLOCKED_REASON = ("Chengdu hot-pot chain (大龙燚, founded 2013); two open US outlets (Long"
                       " Island City NY, Allston/Boston MA) on separate franchise sites, after the"
                       " first US store (San Gabriel 2019) and Seattle closed. No all-US locator."
                       " Tracked via sightings (29 Sep 2026)")
@@ -776,7 +776,7 @@ class ShuyiAdapter(Adapter):
     aliases = ("Shuyi Shaixiancao", "Shuyi Grass Jelly and Tea")
     parent, format = "Sichuan Shuyi Catering (四川书亦餐饮, Chengdu)", "tea"
     ENABLED = False
-    BLOCKED_REASON = ("mainland Chengdu grass-jelly tea chain (书亦烧仙草, founded 2007; ~5,000+ China"
+    BLOCKED_REASON = ("Chengdu grass-jelly tea chain (书亦烧仙草, founded 2007; ~5,000+ China"
                       " stores); US shops trade as Shuyi Grass Jelly & Tea, three open (Falls Church"
                       " VA, Cupertino + Fremont CA) after the first US store (San Mateo) closed, no"
                       " first-party US locator. Tracked via sightings (29 Sep 2026)")
