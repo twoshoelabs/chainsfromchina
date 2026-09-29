@@ -172,7 +172,7 @@
    "name": "Haidilao",
    "name_zh": "海底捞",
    "format": "restaurant",
-   "global": "overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs roughly 120-125 restaurants outside China"
+   "global": "Overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs ~120-125 restaurants in markets such as Singapore, Japan, Korea, the US, the UK, Canada and Australia; the Haidilao parent separately runs Hong Kong, Macau and Taiwan — which is why those were absent from Super Hi's overseas store list."
   },
   "yangs": {
    "name": "Yang's Braised Chicken Rice",
@@ -2171,6 +2171,48 @@
    "sources": [
     "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/",
     "https://pandaily.com/manner-coffee-to-open-store-in-hong-kong/"
+   ]
+  },
+  {
+   "chain": "haidilao",
+   "market": "TW",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Run by the Haidilao parent group, not Super Hi International — which is why Taiwan was absent from Super Hi's overseas store list. Multiple restaurants operating in Taiwan.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Haidilao"
+   ]
+  },
+  {
+   "chain": "haidilao",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Several Hong Kong branches (Causeway Bay, Tsim Sha Tsui, Yau Ma Tei); operated by the parent, not Super Hi.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Haidilao"
+   ]
+  },
+  {
+   "chain": "haidilao",
+   "market": "MO",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "At least one Macau location (Sands Cotai Central); operated by the parent, not Super Hi.",
+   "sources": [
+    "https://www.openrice.com/en/macau/r-haidilao-hot-pot-coloane-taipa-sichuan-hot-pot-r648644/"
    ]
   }
  ]
