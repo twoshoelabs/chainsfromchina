@@ -616,9 +616,10 @@ function drawPanels(data) {
 
   const sb = document.querySelector('#states tbody');
   // The census counts (by_state) and the hand-confirmed locations (by_state_hand) are held apart
-  // in the data — the collector's total is never polluted by hand entries — but the reader wants
-  // one table, so they are merged for display here, with the hand portion labelled. This is also
-  // how a jurisdiction whose only outlet is a sighting (Washington DC) earns a row at all.
+  // in the data — the collector's total is never polluted by hand entries — but for the reader one
+  // confirmed outlet is one confirmed outlet, so the table shows a single combined total (census +
+  // hand), with only the announced "+N" kept separate. This is also how a jurisdiction whose only
+  // outlet is a sighting (Washington DC) earns a row at all.
   const hand = data.meta.by_state_hand || {};
   const nameOf = c => (data.meta.chains[c] && data.meta.chains[c].name)
     || ((data.meta.blocked || []).find(b => b.chain_id === c) || {}).name || c;
@@ -635,9 +636,8 @@ function drawPanels(data) {
     for (const [c, n] of Object.entries(h.chains || {})) tot[c] = (tot[c] || 0) + n;
     const who = Object.entries(tot).sort((a, b) => b[1] - a[1])
       .map(([c, n]) => `${esc(nameOf(c))} ${n}`).join(', ');
-    const open = v.open || 0, soon = v.coming_soon || 0, hc = h.count || 0;
-    const cnt = (open ? `${open}${hc ? ` +${hc} by hand` : ''}` : (hc ? `${hc} by hand` : '0'))
-      + (soon ? ` +${soon}` : '');
+    const confirmed = (v.open || 0) + (h.count || 0), soon = v.coming_soon || 0;
+    const cnt = `${confirmed}${soon ? ` +${soon}` : ''}`;
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${esc(st)}<br><span class="statewho">${who}</span></td>` +
       `<td class="n">${cnt}</td>`;
