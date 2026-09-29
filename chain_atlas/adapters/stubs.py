@@ -781,3 +781,24 @@ class ShuyiAdapter(Adapter):
                       " VA, Cupertino + Fremont CA) after the first US store (San Mateo) closed, no"
                       " first-party US locator. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://shuyisxc.com/"]
+
+
+class MoreYogurtAdapter(Adapter):
+    """
+    More Yogurt (茉酸奶) — added 2026-09-29. A Shanghai yogurt-drink chain; its own English name is
+    "More Yogurt" (茉 ≈ "mò"/"more"). Parent 上海茉酸奶餐饮管理有限公司. Mainland origin, so in scope.
+    Abroad it operates in Hong Kong, Malaysia and Singapore (see the international register).
+
+    One US outlet confirmed open: The District at Tustin Legacy (2471 Park Ave, Tustin CA), its
+    first and only US store, a soft opening ~June 2026. No national US locator, so tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "moge", "More Yogurt", "茉酸奶"
+    name_us = "More Yogurt"
+    aliases = ("Mo Yogurt", "Mosuannai", "茉酸奶")
+    parent, format = "Shanghai More Yogurt Catering (上海茉酸奶餐饮管理)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("Shanghai yogurt-drink chain (茉酸奶, 'More Yogurt'); first US store opened"
+                      " ~June 2026 at The District at Tustin Legacy (2471 Park Ave, Tustin CA), its"
+                      " only US outlet, with no national locator. Tracked via sightings (29 Sep 2026)")
+    RECHECK = ["https://www.districttustin.com/"]

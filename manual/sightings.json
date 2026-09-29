@@ -1314,6 +1314,20 @@
      "verified_by": "LA County health-department permit, first inspected 2025-03-17 (2026-09-23)"
     }
    ]
+  },
+  {
+   "chain": "moge",
+   "locations": [
+    {
+     "address": "2471 Park Ave, Tustin, CA 92782",
+     "confidence": "confirmed",
+     "name": "The District at Tustin Legacy",
+     "verified_by": "District Tustin (landlord) announcement + Yelp listing, first US store, soft opening ~Jun 2026 (29 Sep 2026)"
+    }
+   ],
+   "scope": "One US outlet identified as open (Tustin, CA — the chain's first and only US location, a soft opening ~June 2026). Not a complete roster.",
+   "source": "Project research 29 Sep 2026: the landlord's own announcement and the store's Yelp listing confirm an open branded storefront. Address is the identified open outlet, not a roster from a map aggregator.",
+   "supplied_on": "2026-09-29"
   }
  ]
 }

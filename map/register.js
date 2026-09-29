@@ -15,9 +15,11 @@ const chainLabel = (c, opts = {}) => {
 const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
 // The same retail-type buckets the landing page groups its chains by, so the matrix reads the
 // same way — tea with tea, toys with toys — and every chain (US or only-abroad) lands in its type.
-const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Bakery', 'Toys & Pop Culture', 'Other'];
+const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Snacks & Delis', 'Bakery',
+  'Grocery & Convenience', 'Toys & Pop Culture', 'Other'];
 const CAT_BY_FORMAT = { tea: 'Tea', coffee: 'Coffee', restaurant: 'Restaurants', hotpot: 'Restaurants',
-  snack: 'Restaurants', bakery: 'Bakery', toys: 'Toys & Pop Culture', lifestyle: 'Toys & Pop Culture' };
+  snack: 'Snacks & Delis', bakery: 'Bakery', toys: 'Toys & Pop Culture', lifestyle: 'Toys & Pop Culture',
+  convenience: 'Grocery & Convenience', supermarket: 'Grocery & Convenience', grocery: 'Grocery & Convenience' };
 const CAT_OVERRIDE = { mixue: 'Ice Cream' };
 let D = null;
 const catOf = c => CAT_OVERRIDE[c] || CAT_BY_FORMAT[(D.chains[c] || {}).format] || 'Other';
