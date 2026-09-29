@@ -161,7 +161,11 @@ li b{color:var(--ink); font-weight:600}
 .xlink{margin-left:10px; color:var(--accent); font-size:13px}
 .lede{margin:0 0 16px; max-width:70ch; line-height:1.6}
 .lede strong{color:var(--ink)}
-table.reg{width:100%; border-collapse:collapse; font-size:13px; margin-bottom:26px}
+/* The market grid has grown past twenty columns; let it scroll sideways inside its own box
+   instead of overflowing the page (which hid the right-hand markets entirely). */
+#matrix{overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:26px}
+table.reg{width:100%; border-collapse:collapse; font-size:13px}
+#matrix table.reg{margin-bottom:0}
 table.reg th, table.reg td{border:1px solid var(--rule); padding:5px 6px; text-align:center}
 table.reg th.corner{border:0}
 table.reg th.region{

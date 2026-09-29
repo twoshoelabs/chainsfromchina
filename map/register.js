@@ -12,7 +12,7 @@ const chainLabel = (c, opts = {}) => {
   return `${esc(trading)}${zh}${also}`;
 };
 
-const REGION_ORDER = ['Greater China', 'East Asia', 'Southeast Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
+const REGION_ORDER = ['Greater China', 'East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
 let D = null;
 
 async function main() {
