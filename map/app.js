@@ -692,11 +692,11 @@ function drawPanels(data) {
     const covered = [...STATES].filter(s => covJur.has(s)).length + (covJur.has('DC') ? 1 : 0);
     const missing = total - covered;
     const stateLine = missing <= 0
-      ? 'Every one of the 50 states and D.C. now has at least one Chinese-chain outlet.'
-      : `All but <b>${missing}</b> of the 50 states and D.C. now have at least one Chinese-chain outlet.`;
+      ? 'Every one of the 50 states and D.C. now has at least one outlet of a Chinese chain.'
+      : `All but <b>${missing}</b> of the 50 states and D.C. now have at least one outlet of a Chinese chain.`;
     cover.innerHTML =
       `We pair AI with careful manual research and confirmation to build the most complete picture ` +
-      `we can of Chinese chain outlets in the US and where they are &mdash; monitoring both openings ` +
+      `we can of outlets of Chinese chains in the US and where they are &mdash; monitoring both openings ` +
       `and closings. Today we follow <b>${nCounted + nBlocked}</b> chains across tea, coffee, hot ` +
       `pot, restaurants, bakeries, toys and more, and the number is growing. ${stateLine}`;
   }
@@ -705,7 +705,7 @@ function drawPanels(data) {
   if (totalEl && data.meta.coverage && data.meta.coverage.totals) {
     const tt = data.meta.coverage.totals;
     const located = (tt.collected_stores || 0) + (tt.sighted_confirmed || 0);
-    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> Chinese chain outlets located in the US` +
+    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> outlets of Chinese chains located in the US` +
       ` <span class="dim">${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
       ` ${tt.sighted_confirmed} more confirmed by hand.</span>`;
   }

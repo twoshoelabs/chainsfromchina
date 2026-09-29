@@ -948,19 +948,13 @@
    "chain": "malubianbian",
    "supplied_on": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
-   "scope": "US footprint has churned heavily; the first US store (San Gabriel 2019) and several early CA/TX/PA outlets are closed and excluded. Orlando FL is confirmed open; Tustin CA (rebranded 'MLBB AYCE Hot Pot') is held as uncertain pending confirmation. Not a complete roster.",
+   "scope": "US footprint has churned heavily; the first US store (San Gabriel 2019) and several early CA/TX/PA outlets are closed, and Tustin CA (rebranded 'MLBB AYCE') is now permanently closed per Google (29 Sep 2026). Orlando FL is the one confirmed open outlet. Not a complete roster.",
    "locations": [
     {
      "name": "Orlando",
      "address": "5062 W Colonial Dr Ste 110, Orlando, FL 32808",
      "confidence": "confirmed",
      "verified_by": "web-verified, official site (open daily) + Chowbus ordering + Yelp active Sep 2026 (29 Sep 2026)"
-    },
-    {
-     "name": "Tustin (MLBB AYCE)",
-     "address": "1056 Walnut Ave, Tustin, CA 92780",
-     "confidence": "uncertain",
-     "verified_by": "web-verified, official CA site + active delivery, but older Yelp listing marked closed — rebrand vs shutdown unresolved (29 Sep 2026)"
     }
    ]
   },
