@@ -272,9 +272,17 @@ ul.uslist b{color:var(--ink)}
    border (hand-confirmed, not part of the daily census). "Known" chains are coloured in and
    darkened; a chain with only unconfirmed leads stays faded and pending a manual check. */
 .chip.off{
-  cursor:default; border-style:dashed; color:var(--ink);
+  cursor:pointer; border-style:dashed; color:var(--ink);
   background:color-mix(in srgb, var(--muted) 4%, var(--surface));
 }
+/* Filter controls: switch chains on the map on and off, or isolate a few. */
+.tallyctl{display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin:0 0 10px; font-size:13px}
+.tallyctl .lbl{color:var(--muted)}
+.tallyctl button{
+  font:inherit; font-size:13px; padding:3px 12px; border:1px solid var(--rule-2);
+  border-radius:4px; background:transparent; color:var(--ink); cursor:pointer}
+.tallyctl button:hover{border-color:var(--ink-2)}
+.tallyctl .hint{color:var(--muted); font-style:italic}
 /* The chain name in every chip links to its profile under "Who they are". */
 .chipnm{color:inherit; text-decoration:none; cursor:pointer}
 .chipnm:hover, .chipnm:focus{text-decoration:underline}

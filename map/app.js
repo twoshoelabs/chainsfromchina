@@ -274,6 +274,9 @@ async function main() {
   drawProfiles(data);
   wireModes(svg);
   wireZoom(svg);
+  const sa = document.getElementById('show-all'), sn = document.getElementById('show-none');
+  if (sa) sa.onclick = () => setAllChains(true);
+  if (sn) sn.onclick = () => setAllChains(false);
   setMode('stores');
   document.getElementById('asof').textContent =
     `Collected ${data.meta.last_collected} · ${data.meta.days_collected} day(s) of archive.`;
@@ -371,16 +374,42 @@ function paintStates(on) {
   for (const t of stateLabels) t.style.display = on ? '' : 'none';
 }
 
+// Chain visibility on the map. `hidden` holds the chains switched off; every dot AND sighting
+// square carries data-chain, so one function draws the lot — which is what lets a reader isolate a
+// chain, or a handful, by switching the rest off, starting from all-shown.
+function applyChainVisibility() {
+  const statesMode = mode === 'states';
+  for (const el of document.querySelectorAll('.store, .sight'))
+    el.style.display = statesMode || hidden.has(el.dataset.chain) ? 'none' : '';
+}
+function refreshChips() {
+  for (const chip of document.querySelectorAll('.chip[data-chain]'))
+    chip.setAttribute('aria-pressed', String(!hidden.has(chip.dataset.chain)));
+}
+function toggleChain(id) {
+  hidden.has(id) ? hidden.delete(id) : hidden.add(id);
+  applyChainVisibility();
+  refreshChips();
+}
+function setAllChains(show) {         // show=true → all on; false → all off (then pick a few)
+  hidden.clear();
+  if (!show)
+    for (const chip of document.querySelectorAll('.chip[data-chain]')) hidden.add(chip.dataset.chain);
+  applyChainVisibility();
+  refreshChips();
+}
+
 function setMode(m) {
   mode = m;
   document.getElementById('map').classList.toggle('statemode', m === 'states');
   for (const b of document.querySelectorAll('.modebtn'))
     b.setAttribute('aria-pressed', String(b.dataset.mode === m));
-  for (const c of document.querySelectorAll('.store'))
-    c.style.display = m === 'states' || hidden.has(c.dataset.chain) ? 'none' : '';
+  applyChainVisibility();
   paintStates(m === 'states');
   document.getElementById('legend').hidden = m !== 'states';
   document.getElementById('tally').hidden = m === 'states';
+  const ctl = document.getElementById('tallyctl');
+  if (ctl) ctl.hidden = m === 'states';
   hideTip();
 }
 
@@ -443,15 +472,10 @@ function drawTally(data) {
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     if (meta.aliases && meta.aliases.length)
       b.title = `Also trades in the US as: ${meta.aliases.join(', ')}. ` + (b.title || '');
-    const toggle = () => {
-      hidden.has(id) ? hidden.delete(id) : hidden.add(id);
-      b.setAttribute('aria-pressed', String(!hidden.has(id)));
-      for (const c of document.querySelectorAll(`.store[data-chain="${id}"]`))
-        c.style.display = hidden.has(id) || mode === 'states' ? 'none' : '';
-    };
-    b.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggle(); });
+    b.dataset.chain = id;
+    b.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggleChain(id); });
     b.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggle(); }
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggleChain(id); }
     });
     return b;
   };
@@ -512,6 +536,16 @@ function drawTally(data) {
         + `Not monitored: this count does not update on its own and is not part of the collected census.`
         + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
       : (b.reason || ''));
+    // Blocked chains draw squares (and count-only chains draw nothing), but their chip is still a
+    // filter toggle like the collected ones, so a reader can isolate, say, only HEYTEA's sightings.
+    el.dataset.chain = b.chain_id;
+    el.setAttribute('role', 'button');
+    el.tabIndex = 0;
+    el.setAttribute('aria-pressed', String(!hidden.has(b.chain_id)));
+    el.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggleChain(b.chain_id); });
+    el.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggleChain(b.chain_id); }
+    });
     return el;
   };
 

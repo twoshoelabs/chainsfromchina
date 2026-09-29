@@ -471,13 +471,13 @@
      "verified_by": "Yelp + DoorDash listing, operating, 23 Sep 2026"
     },
     {
-     "name": "Upper West Side",
+     "name": "Columbia University",
      "address": "971 Amsterdam Ave, New York, NY 10025",
      "confidence": "confirmed",
      "verified_by": "iLoveTheUpperWestSide opening coverage, 23 Sep 2026"
     },
     {
-     "name": "Brooklyn (86th St)",
+     "name": "Brooklyn 86th Street",
      "address": "2141 86th St, Brooklyn, NY 11214",
      "confidence": "confirmed",
      "verified_by": "Yelp + operator's 'officially arrived' post, 23 Sep 2026"
@@ -489,7 +489,7 @@
      "verified_by": "boozyburbs 'coming soon' (Apr 2026) — not yet confirmed open"
     },
     {
-     "name": "Lower East Side",
+     "name": "Grand Street",
      "address": "303 Grand St, New York, NY 10002",
      "confidence": "confirmed",
      "verified_by": "Yelp (25 reviews) + Seamless/Grubhub — trading (28 Sep 2026)"
@@ -1288,7 +1288,7 @@
    "supplied_on": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "3 permit-sourced location(s) (2 operating, 1 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
     {
      "name": "NaiSnow (Cupertino)",
@@ -1303,14 +1303,6 @@
      "address": "227 W VALLEY BLVD 118B, San Gabriel, CA 91776",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2026-04-23 (2026-09-23)"
-    },
-    {
-     "name": "NaiSnow (Manhattan)",
-     "address": "233 WEST   42 STREET, Manhattan, NY 10036",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)",
-     "lat": 40.756753,
-     "lon": -73.988648
     }
    ]
   },

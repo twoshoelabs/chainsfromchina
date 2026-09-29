@@ -57,7 +57,11 @@ BRAND = {a.chain_id: (getattr(a, "name_us", None) or getattr(a, "name", a.chain_
 # source. Keyed by (chain, street fingerprint) so a real store is never dropped by accident.
 #   heytea @ 6019 4th Ave, Brooklyn — "STARLIGHT BILLIARDS / HEY HEY TEA" (DOHMH CAMIS 50174572),
 #   a billiards hall that matched on the words "HEY TEA"; not 喜茶.
-FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220"))}
+#   nayuki @ 233 W 42nd St, Manhattan — a NaiSnow-named health permit with NO operating store:
+#   web-verified 29 Sep 2026 (no Google Business listing, no reviews, no press; 234 W 42nd is an
+#   unrelated bubble-tea shop). A permit that never became a shop; kept out of the sightings.
+FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220")),
+                 ("nayuki", street_key("233 WEST   42 STREET, Manhattan, NY 10036"))}
 
 # Permit rows confirmed BY HAND under a CORRECTED address (the store is real and open, but the
 # permit's street address differs from the one it actually trades at), so the permit candidate is
