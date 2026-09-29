@@ -348,8 +348,7 @@ def export(out_dir: Path) -> dict:
     us_derived = {}
     for c in d["chains"]:
         us_derived[c] = us.get(c, {
-            "status": "not_established",
-            "detail": "no evidence of US presence has been checked",
+            "status": "not_established", "detail": "",
             "name": d["chains"][c].get("name"), "name_zh": d["chains"][c].get("name_zh"),
             "name_us": d["chains"][c].get("name_us"), "format": d["chains"][c].get("format")})
     for c, info in us.items():

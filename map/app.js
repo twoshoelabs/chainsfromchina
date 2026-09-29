@@ -626,12 +626,16 @@ function drawPanels(data) {
     // Coverage in 50-state terms, computed from the data so it stays true as the map fills in.
     const STATES = new Set(('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN ' +
       'MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' '));
-    const covered = new Set([...Object.keys(data.meta.by_state || {}),
-      ...Object.keys(data.meta.by_state_hand || {})].filter(s => STATES.has(s))).size;
-    const missing = STATES.size - covered;
+    // The 50 states plus DC as its own jurisdiction, counting outlets of any kind (collected or
+    // hand-confirmed) so DC — whose only outlet is a sighting — is included.
+    const covJur = new Set([...Object.keys(data.meta.by_state || {}),
+      ...Object.keys(data.meta.by_state_hand || {})]);
+    const total = STATES.size + 1;                      // 50 states + DC
+    const covered = [...STATES].filter(s => covJur.has(s)).length + (covJur.has('DC') ? 1 : 0);
+    const missing = total - covered;
     const stateLine = missing <= 0
-      ? 'Every one of the 50 states now has at least one Chinese-chain outlet.'
-      : `All but <b>${missing}</b> of the 50 states now have at least one Chinese-chain outlet.`;
+      ? 'Every one of the 50 states and D.C. now has at least one Chinese-chain outlet.'
+      : `All but <b>${missing}</b> of the 50 states and D.C. now have at least one Chinese-chain outlet.`;
     cover.innerHTML =
       `We pair AI with careful manual research and confirmation to build the most complete picture ` +
       `we can of Chinese chain outlets in the US and where they are &mdash; monitoring both openings ` +

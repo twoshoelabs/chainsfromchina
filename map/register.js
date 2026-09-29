@@ -59,11 +59,6 @@ async function main() {
   detail(chains, markets, cells);
   coverage(chains);
   document.getElementById('asof').textContent = `Compiled ${D.as_of}.`;
-  document.getElementById('gaps').textContent =
-    `Most of this grid is blank. A blank cell means we hold no record of that chain in that ` +
-    `market — sometimes because we haven't checked, sometimes because a check found nothing worth ` +
-    `recording. It is never a claim that the chain is absent. We add markets as we find them, and ` +
-    `this register covers only a hand-picked set of countries, far from all of them.`;
 }
 
 /*
@@ -95,17 +90,17 @@ function usView(chains, markets, cells) {
     const na = abroad(c);
     return `<li><b>${chainLabel(metaOf(c))}</b> ${badge}` +
       (na ? `<span class="abroad">in ${na} other market${na === 1 ? '' : 's'} outside China</span>` : '') +
-      (st.detail ? `<div class="rnote">${esc(st.detail)}</div>` : '') + `</li>`;
+      `</li>`;
   };
   document.getElementById('usview').innerHTML =
     `<section class="usbox"><h2>Already in the United States</h2>` +
     `<p class="note small">Every Chinese chain this project tracks on the US map, A–Z. "Counted ` +
     `daily" means we read its own store locator every morning; "counted by hand" means its US ` +
-    `locations are verified and entered by a person, with the reason it isn't auto-counted stated.</p>` +
+    `locations are verified and entered by a person.</p>` +
     `<ul class="uslist">${here.map(row).join('')}</ul></section>` +
-    (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, US presence not established</h2>` +
-      `<p class="note small">The watchlist. These have crossed at least one border; whether they ` +
-      `have reached America has not been confirmed. Not a claim of absence.</p>` +
+    (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, not yet in the US</h2>` +
+      `<p class="note small">The watchlist — Chinese chains that have opened outside China but that ` +
+      `we have not found in the United States. If one reaches America, it moves up to the list above.</p>` +
       `<ul class="uslist">${notHere.map(row).join('')}</ul></section>` : '');
 }
 
