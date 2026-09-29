@@ -1322,12 +1322,12 @@
      "address": "2471 Park Ave, Tustin, CA 92782",
      "confidence": "confirmed",
      "name": "The District at Tustin Legacy",
-     "verified_by": "District Tustin (landlord) announcement + Yelp listing, first US store, soft opening ~Jun 2026 (29 Sep 2026)"
+     "verified_by": "Yelp business page (claimed): 4.6★ from 366 reviews, open daily 11:30–23:00, (949) 945-7772, 2471 Park Ave — billed 'First Store in California'; confirmed open (30 Sep 2026)"
     }
    ],
-   "scope": "One US outlet identified as open (Tustin, CA — the chain's first and only US location, a soft opening ~June 2026). Not a complete roster.",
+   "scope": "One US outlet, open and trading (Tustin, CA — the chain's first and only US location, opened ~June 2026, 366+ Yelp reviews by Sep 2026). Not a complete roster.",
    "source": "Project research 29 Sep 2026: the landlord's own announcement and the store's Yelp listing confirm an open branded storefront. Address is the identified open outlet, not a roster from a map aggregator.",
-   "supplied_on": "2026-09-29"
+   "supplied_on": "2026-09-30"
   }
  ]
 }
