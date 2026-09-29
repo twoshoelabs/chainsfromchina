@@ -83,9 +83,9 @@
     "name_zh": "林里",
     "hq": "Guangzhou",
     "china_stores": "~2,000",
-    "status": "china",
-    "markets": "HK only; overseas planned 2026",
-    "note": "China's #1 lemon-tea chain",
+    "status": "registered",
+    "markets": "Hong Kong (2023)",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": "https://baike.baidu.com/en/item/LINLEE/1465259"
    },
    {
@@ -93,9 +93,9 @@
     "name_zh": "茉酸奶",
     "hq": "Shanghai",
     "china_stores": "~1,600",
-    "status": "china",
-    "markets": "",
-    "note": "Made-to-order yogurt drinks (tea-adjacent)",
+    "status": "us",
+    "markets": "Abroad: HK, Malaysia, Singapore. US: Tustin CA (first US store, ~Jun 2026)",
+    "note": "Added to the international register AND US map 2026-09-29 (overseas audit). English name \"More Yogurt\"",
     "source": "https://news.qq.com/rain/a/20240228A066SU00"
    }
   ],
@@ -135,9 +135,9 @@
     "name_zh": "M Stand",
     "hq": "Shanghai",
     "china_stores": "~450-500",
-    "status": "china",
-    "markets": "",
-    "note": "Premium/design-led",
+    "status": "registered",
+    "markets": "Japan (Kyoto, Jul 2025)",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": ""
    },
    {
@@ -187,9 +187,9 @@
     "name_zh": "巴奴毛肚火锅",
     "hq": "Zhengzhou",
     "china_stores": "~145 direct",
-    "status": "china",
-    "markets": "",
-    "note": "Premium segment leader; HK IPO 2025",
+    "status": "registered",
+    "markets": "Hong Kong (announced, ~Nov 2026)",
+    "note": "Added to the international register 2026-09-29 (overseas audit) as announced",
     "source": "https://equalocean.com/news/2025061721578"
    },
    {
@@ -279,9 +279,9 @@
     "name_zh": "袁记串串香",
     "hq": "Chengdu",
     "china_stores": "~1,000+ (uncertain)",
-    "status": "china",
-    "markets": "",
-    "note": "",
+    "status": "registered",
+    "markets": "Canada (2016), Netherlands, Australia",
+    "note": "Added to the international register 2026-09-29 (overseas audit). Skewer hotpot 串串香",
     "source": ""
    },
    {
@@ -313,6 +313,16 @@
     "markets": "",
     "note": "",
     "source": "https://www.longtimeago.cn/page/10956/"
+   },
+   {
+    "name": "Xiaogujiejie",
+    "name_zh": "小谷姐姐",
+    "hq": "Tianjin",
+    "china_stores": "~1,000+",
+    "status": "registered",
+    "markets": "Company claims JP/FR/ID/MY/KH/TH/AU/SG + US; only Cambodia independently confirmed",
+    "note": "Added to the international register 2026-09-29 (overseas audit), low confidence on most markets. Malatang 麻辣烫",
+    "source": "https://www.foodtalks.cn/company/xiao_gu_jie_jie"
    }
   ],
   "Chinese fast food": [
@@ -331,9 +341,9 @@
     "name_zh": "老乡鸡",
     "hq": "Hefei, Anhui",
     "china_stores": "~2,000",
-    "status": "china",
-    "markets": "",
-    "note": "HK IPO filed 2025",
+    "status": "registered",
+    "markets": "Malaysia (KL, Apr 2026); Singapore JV announced",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": "https://baike.baidu.com/en/item/Home%20original%20chicken/20376"
    },
    {
@@ -391,9 +401,9 @@
     "name_zh": "曼玲粥店",
     "hq": "Shanghai",
     "china_stores": "~1,000+ (dated)",
-    "status": "china",
-    "markets": "",
-    "note": "Congee, delivery-driven",
+    "status": "registered",
+    "markets": "Malaysia (Jun 2025), Spain/Madrid (Sep 2025)",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": "https://news.qq.com/rain/a/20240126A05HRG00"
    },
    {
@@ -493,9 +503,9 @@
     "name_zh": "小菜园",
     "hq": "Tongling, Anhui",
     "china_stores": "~663 direct",
-    "status": "china",
-    "markets": "",
-    "note": "HKEX-listed; Anhui home-style",
+    "status": "registered",
+    "markets": "Hong Kong (announced, fit-out since Jul 2025)",
+    "note": "Added to the international register 2026-09-29 (overseas audit) as announced",
     "source": "https://www.cliffordchance.com/news/news/2024/12/"
    }
   ],
@@ -535,9 +545,9 @@
     "name_zh": "良品铺子",
     "hq": "Wuhan",
     "china_stores": "~3,000",
-    "status": "china",
-    "markets": "",
-    "note": "Exports via logistics only (no storefronts abroad)",
+    "status": "registered",
+    "markets": "Malaysia (KL flagship, Oct 2024)",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": "https://www.jiemian.com/article/10349930.html"
    },
    {
@@ -588,8 +598,8 @@
     "hq": "Suzhou/Beijing",
     "china_stores": "multi-thousand (mixed)",
     "status": "china",
-    "markets": "",
-    "note": "Heritage pastry (est. 1773)",
+    "markets": "Canada \"specialty store\" (2017) unverified; current messaging is export-only",
+    "note": "Overseas audit 2026-09-29: thin/unverified overseas claim, current activity is product export only — keep watching",
     "source": ""
    },
    {
@@ -721,9 +731,9 @@
     "name_zh": "九木杂物社",
     "hq": "Shanghai (晨光 M&G)",
     "china_stores": "860+",
-    "status": "china",
-    "markets": "",
-    "note": "Stationery-led variety + blind box",
+    "status": "registered",
+    "markets": "Singapore (2024), Indonesia, Malaysia",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": ""
    },
    {
@@ -753,9 +763,9 @@
     "name_zh": "美宜佳",
     "hq": "Dongguan",
     "china_stores": "~40,000",
-    "status": "china",
-    "markets": "",
-    "note": "#1 China convenience 3 yrs running",
+    "status": "registered",
+    "markets": "Vietnam (Hanoi, Mar 2026, \"Ohmee\" brand); Malaysia announced",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": " "
    },
    {
@@ -784,8 +794,8 @@
     "hq": "Xiamen",
     "china_stores": "~3,000+",
     "status": "china",
-    "markets": "",
-    "note": "",
+    "markets": "MOU only (Malaysia/Singapore study, May 2026) — no store",
+    "note": "Overseas audit 2026-09-29: MOU only, no store yet — keep watching",
     "source": ""
    },
    {
@@ -813,9 +823,9 @@
     "name_zh": "华润万家",
     "hq": "Shenzhen (China Resources)",
     "china_stores": "~3,000 (declining)",
-    "status": "china",
-    "markets": "mainland + HK",
-    "note": "State-backed, mainland origin",
+    "status": "registered",
+    "markets": "Hong Kong (longstanding, China Resources home market)",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": ""
    },
    {
@@ -873,9 +883,9 @@
     "name_zh": "钱大妈",
     "hq": "Dongguan",
     "china_stores": "~3,000",
-    "status": "china",
-    "markets": "mainland + HK/Macau",
-    "note": "Community fresh-food franchise",
+    "status": "registered",
+    "markets": "Hong Kong (2018, \"QDAMA\")",
+    "note": "Added to the international register 2026-09-29 (overseas audit)",
     "source": ""
    },
    {
