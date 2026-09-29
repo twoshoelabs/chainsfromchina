@@ -1323,9 +1323,15 @@
      "confidence": "confirmed",
      "name": "The District at Tustin Legacy",
      "verified_by": "Yelp business page (claimed): 4.6★ from 366 reviews, open daily 11:30–23:00, (949) 945-7772, 2471 Park Ave — billed 'First Store in California'; confirmed open (30 Sep 2026)"
+    },
+    {
+     "address": "37-05 Prince St, Flushing, NY 11354",
+     "confidence": "uncertain",
+     "name": "Flushing (Prince St)",
+     "verified_by": "Announced by the brand's own Instagram @moreyogurt.ny: soft opening 27–29 Sep 2026, grand opening 2–4 Oct 2026 (its first NYC store); awaiting confirmation it is trading (30 Sep 2026)"
     }
    ],
-   "scope": "One US outlet, open and trading (Tustin, CA — the chain's first and only US location, opened ~June 2026, 366+ Yelp reviews by Sep 2026). Not a complete roster.",
+   "scope": "Two US locations known: Tustin, CA (open and trading, the chain's first US store) and Flushing, NY (37-05 Prince St, its first NYC store, brand-announced for late Sep/early Oct 2026, awaiting confirmation it is open). Not a complete roster.",
    "source": "Project research 29 Sep 2026: the landlord's own announcement and the store's Yelp listing confirm an open branded storefront. Address is the identified open outlet, not a roster from a map aggregator.",
    "supplied_on": "2026-09-30"
   }
