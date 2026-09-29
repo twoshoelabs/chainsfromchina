@@ -725,12 +725,18 @@ function drawCoverage(data) {
   const c = data.meta.coverage;
   if (!c || !c.rows) return;
   const t = c.totals;
+  const covPct = t.sighted_estimated
+    ? Math.round(100 * t.sighted_estimable_confirmed / t.sighted_estimated) : null;
   document.getElementById('coverintro').innerHTML =
     `<b>${t.collected}</b> chains are counted in full from their own locators ` +
     `(<b>${t.collected_stores}</b> stores). The other <b>${t.sighted}</b> publish no roster we can ` +
-    `read, so we hold <b>${t.sighted_confirmed}</b> confirmed locations against a trade-press estimate ` +
-    `of about <b>${t.sighted_estimated}</b>. That is roughly ` +
-    `<b>${Math.round(100 * t.sighted_confirmed / t.sighted_estimated)}%</b> of what is thought to exist.`;
+    `read. For the <b>${t.sighted_estimable}</b> of them with a published trade-press estimate, we hold ` +
+    `<b>${t.sighted_estimable_confirmed}</b> of about <b>${t.sighted_estimated}</b> locations` +
+    (covPct != null ? ` — roughly <b>${covPct}%</b> of what is thought to exist` : '') + `.` +
+    (t.sighted_no_benchmark
+      ? ` The remaining <b>${t.sighted_no_benchmark}</b> have no published estimate to measure against yet ` +
+        `(a further <b>${t.sighted_confirmed - t.sighted_estimable_confirmed}</b> confirmed locations).`
+      : '');
 
   const tb = document.querySelector('#coverage tbody');
   tb.innerHTML = '';
@@ -778,7 +784,7 @@ function drawProfiles(data) {
     d.innerHTML =
       `<summary><span class="dot" style="background:${collected.has(id) ? colorOf(id) : 'var(--muted)'}"></span>` +
       `<span class="nm">${esc(p.name)}</span><span class="zh">${esc(p.name_zh)}</span>` +
-      `${collected.has(id) ? '' : '<span class="tagoff">not collected</span>'}</summary>` +
+      `</summary>` +
       `<p>${esc(p.blurb)}</p>` +
       `<p class="why"><b>Why it is in this archive.</b> ${esc(p.why_watch)}</p>` +
       `<dl>` +
@@ -791,9 +797,9 @@ function drawProfiles(data) {
     box.append(d);
   }
   document.getElementById('profnote').textContent =
-    `Background from published sources as of ${data.meta.profiles_as_of}, typed in by hand. It is ` +
-    `not collected automatically and will go out of date. The US counts above are the collector's ` +
-    `own and are not repeated here.`;
+    `These are fixed background profiles, written by hand from published sources as of ` +
+    `${data.meta.profiles_as_of} — descriptions, not live figures, so they can go out of date. ` +
+    `The live US counts are on the map above.`;
 }
 
 /* ---- interaction ---------------------------------------------------------------------- */

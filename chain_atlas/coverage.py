@@ -98,6 +98,12 @@ def scorecard() -> dict:
     rows.sort(key=lambda r: (r["kind"] != "collected", -(r["held"] or 0)))
     collected = [r for r in rows if r["kind"] == "collected"]
     sighted = [r for r in rows if r["kind"] == "sighted"]
+    # The completeness ratio must compare like with like: only the sighted chains that HAVE a
+    # published estimate can be measured against one. Summing every sighted chain's confirmed count
+    # (numerator) against just the estimated chains' estimates (denominator) inflates the ratio to a
+    # meaningless ~100% as chains without a benchmark are added, so the estimable subset is tracked
+    # separately. `sighted_confirmed` stays the full count — the located headline needs it.
+    estimable = [r for r in sighted if r["estimate"]]
     return {
         "as_of": est.get("as_of"),
         "rows": rows,
@@ -107,6 +113,9 @@ def scorecard() -> dict:
             "collected_stores": sum(r["held"] for r in collected),
             "sighted": len(sighted),
             "sighted_confirmed": sum(r["held_confirmed"] for r in sighted),
-            "sighted_estimated": sum(r["estimate"] for r in sighted if r["estimate"]),
+            "sighted_estimable": len(estimable),
+            "sighted_estimable_confirmed": sum(r["held_confirmed"] for r in estimable),
+            "sighted_estimated": sum(r["estimate"] for r in estimable),
+            "sighted_no_benchmark": len(sighted) - len(estimable),
         },
     }
