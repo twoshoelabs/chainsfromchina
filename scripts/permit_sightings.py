@@ -8,12 +8,18 @@ when we have it). So these enter as sightings, clearly marked permit-sourced, ne
 CONFIDENCE mirrors what the permit says:
   confirmed   the establishment has a routine health inspection — it is operating
   uncertain   only a pre-permit / not-yet-inspected record — licensed, maybe not yet trading
-  (skipped)   an INACTIVE / closing candidate — not added; a closure is a lead, not a sighting
+  closing     an INACTIVE / closing candidate — retires the matching sighting if we hold one
 
-It is IDEMPOTENT and self-correcting: it rebuilds the permit-sourced groups from the current CSVs
-each run (replacing the previous ones), and it DEDUPES every candidate against the sightings we
-already hold from first-party sites or filings, so a shop we confirmed by hand is never demoted to
-a permit guess. Collected chains are skipped entirely — they have a census.
+It MERGES; it does NOT rebuild from scratch. The permit sightings already in manual/sightings.json
+are the accumulated result of every past run and the source of truth. Each CSV only carries the
+candidates the watcher currently flags NEW — so replacing the held set with "whatever the CSV lists
+today" silently deletes every store that was new on an earlier day (a bug that once wiped 33 real
+sightings). Instead this run keeps what is held, ADDS genuinely-new rows, and REMOVES a sighting
+only on a positive signal: a closing permit, or a first-party/hand sighting (or a FALSE_MATCHES /
+CONFIRMED_ELSEWHERE entry) that supersedes it. A missing or shrunken CSV can no longer erase data.
+It still DEDUPES against everything held from first-party sites or filings, so a shop we confirmed
+by hand is never demoted to a permit guess. Collected chains are skipped entirely — they have a
+census.
 
 Run: .venv/bin/python scripts/permit_sightings.py     (after the watchers have written their CSVs)
 """
@@ -100,29 +106,32 @@ def _flt(v):
 
 
 def read_candidates():
-    """Yield (chain, metro, name, address, confidence, first_inspection, lat, lon) for every NEW
-    blocked-chain permit row. lat/lon are the health department's OWN coordinates when the source
-    carries them (many do), used only as a fallback where the Census geocoder can't place the
-    address."""
+    """Yield one dict per blocked-chain permit row across every present CSV, carrying the flags the
+    merge needs: `is_new` (the watcher had not seen it before) and `is_closing` (the permit is
+    going inactive). lat/lon are the health department's OWN coordinates when the source carries
+    them, used only as a fallback where the Census geocoder cannot place the address. Unlike the
+    old version this does NOT pre-filter to new-and-open rows — the merge in main() needs to see
+    known and closing rows too, so it can retire a closed store without discarding the rest."""
     import glob
     blocked = blocked_chains()
     for path in sorted(glob.glob(os.path.join(DATA, "review_*_permits.csv"))):
         jid = os.path.basename(path)[len("review_"):-len("_permits.csv")]
         metro = NAMES.get(jid, jid)
         for r in csv.DictReader(open(path)):
-            if r["chain"] not in blocked or r.get("already_known") != "NEW CANDIDATE":
+            if r["chain"] not in blocked:
                 continue
-            if (r.get("closing_candidate") or "").upper() == "YES":
-                continue                                   # a closure is a lead, not a sighting
             name = r.get("name") or r.get("facility_name") or ""
             pre = (r.get("pre_opening") or "").upper() == "YES"
             # Bay Area has no pre-opening field; treat a facility with no real inspection date as
             # pre-opening too (its "first_inspection" is blank or a placeholder).
             fi = r.get("first_inspection") or ""
             not_inspected = fi in ("", "not yet inspected")
-            conf = "uncertain" if (pre or not_inspected) else "confirmed"
-            yield (r["chain"], metro, name.strip(), r["address"].strip(), conf, fi,
-                   _flt(r.get("lat")), _flt(r.get("lon")))
+            yield {"chain": r["chain"], "metro": metro, "name": name.strip(),
+                   "address": r["address"].strip(),
+                   "conf": "uncertain" if (pre or not_inspected) else "confirmed", "fi": fi,
+                   "lat": _flt(r.get("lat")), "lon": _flt(r.get("lon")),
+                   "is_new": r.get("already_known") == "NEW CANDIDATE",
+                   "is_closing": (r.get("closing_candidate") or "").upper() == "YES"}
 
 
 def existing_keys(sightings, chain):
@@ -138,62 +147,110 @@ def existing_keys(sightings, chain):
 
 def main():
     doc = json.load(open(SIGHTINGS, encoding="utf-8"))
-    # Drop the permit groups from a previous run; we are about to rebuild them.
-    doc["sightings"] = [g for g in doc["sightings"] if g.get("provenance") != MARKER]
 
-    by_chain = {}
-    for chain, metro, name, addr, conf, fi, lat, lon in read_candidates():
-        by_chain.setdefault(chain, {"locs": [], "seen": set(), "held": existing_keys(doc, chain)})
-        rec = by_chain[chain]
-        k = street_key(addr) or norm_addr(addr)
-        if (chain, k) in FALSE_MATCHES:
-            continue                                       # a verified not-this-chain permit row
-        if (chain, k) in CONFIRMED_ELSEWHERE:
-            continue                                       # confirmed by hand at a corrected address
-        if k in rec["held"] or k in rec["seen"]:
-            continue                                       # already ours, or a dupe across metros
-        rec["seen"].add(k)
-        loc = {
-            "_chain": chain, "name": name[:60] or "(permit)", "address": addr, "confidence": conf,
-            "verified_by": f"{metro} health-department permit"
-            + (f", first inspected {fi}" if fi and conf == "confirmed" else "") + f" ({TODAY})"}
-        # Carry the permit's own coordinates: used only where the Census geocoder can't place the
-        # address (a redeveloped block, a mall unit), so a real, inspected shop is still drawn.
-        if lat is not None and lon is not None:
-            loc["lat"], loc["lon"] = lat, lon
-        rec["locs"].append(loc)
-
-    # Name every permit location Brand (Locality), disambiguating same-city shops by street.
-    for rec in by_chain.values():
-        counts = Counter(c for c in (_city(l["address"]) for l in rec["locs"]) if c)
-        for l in rec["locs"]:
-            l["name"] = branch_name(l["_chain"], l["address"], counts)
-
-    added = 0
-    for chain, rec in sorted(by_chain.items()):
-        if not rec["locs"]:
+    # MERGE, never rebuild-from-scratch. The permit sightings already in the file are the
+    # accumulated result of every past run and the SOURCE OF TRUTH — the CSVs only carry whichever
+    # candidates the watcher currently flags NEW, so rebuilding from them alone silently deletes
+    # every store that was flagged new on some earlier day (the bug that once wiped 33 real
+    # sightings). Instead: start from what is held, ADD genuinely-new rows, and REMOVE a sighting
+    # only on a positive signal — a closing permit, a first-party/hand sighting that supersedes it,
+    # or an explicit FALSE_MATCHES / CONFIRMED_ELSEWHERE entry. Anything the CSVs don't mention is
+    # left exactly as it was.
+    held: dict = {}                       # (chain, street_key) -> location dict (the live objects)
+    for g in doc["sightings"]:
+        if g.get("provenance") != MARKER:
             continue
-        c = sum(1 for l in rec["locs"] if l["confidence"] == "confirmed")
-        u = len(rec["locs"]) - c
+        for loc in g.get("locations", []):
+            k = street_key(loc.get("address") or "") or norm_addr(loc.get("address") or "")
+            held[(g["chain"], k)] = loc
+
+    hand_cache: dict = {}
+    def hand_keys(chain):                 # street fingerprints held from NON-permit sources
+        if chain not in hand_cache:
+            hand_cache[chain] = existing_keys(doc, chain)
+        return hand_cache[chain]
+
+    # Aggregate the CSV rows per (chain, street fingerprint) FIRST. One address can carry several
+    # permit records — a stale INACTIVE one beside a fresh ACTIVE one when a shop re-permits — so a
+    # closure must not win while an open record for the same address exists. An address is OPEN if
+    # ANY record is non-closing; it is closing-only when every record for it is a closure.
+    sig: dict = {}
+    for r in read_candidates():
+        key = (r["chain"], street_key(r["address"]) or norm_addr(r["address"]))
+        e = sig.setdefault(key, {"open": False, "closing": False, "new": False, "conf": None,
+                                 "address": r["address"], "metro": r["metro"], "name": r["name"],
+                                 "fi": "", "lat": None, "lon": None})
+        e["new"] = e["new"] or r["is_new"]
+        if r["is_closing"]:
+            e["closing"] = True
+            continue
+        e["open"] = True
+        if e["conf"] != "confirmed":      # take details from the best (a confirmed) open record
+            e.update(conf=r["conf"], address=r["address"], metro=r["metro"], name=r["name"],
+                     fi=r["fi"], lat=r["lat"], lon=r["lon"])
+
+    added = removed = upgraded = 0
+    for key, e in sig.items():
+        chain, k = key
+        if key in FALSE_MATCHES or key in CONFIRMED_ELSEWHERE or k in hand_keys(chain):
+            if held.pop(key, None):       # not-this-chain, a corrected address, or a first-party /
+                removed += 1              # hand sighting — each supersedes the permit one
+        elif e["open"]:
+            if key in held:
+                loc = held[key]           # already ours: keep it, but let a real inspection promote
+                if loc.get("confidence") == "uncertain" and e["conf"] == "confirmed":
+                    loc["confidence"] = "confirmed"
+                    loc["verified_by"] = (f"{e['metro']} health-department permit"
+                                          + (f", first inspected {e['fi']}" if e["fi"] else "")
+                                          + f" (confirmed {TODAY})")
+                    upgraded += 1
+            elif e["new"]:                # a genuinely new, open candidate — add it
+                loc = {"name": e["name"][:60] or "(permit)", "address": e["address"],
+                       "confidence": e["conf"],
+                       "verified_by": f"{e['metro']} health-department permit"
+                       + (f", first inspected {e['fi']}" if e["fi"] and e["conf"] == "confirmed" else "")
+                       + f" ({TODAY})"}
+                # Carry the permit's own coordinates as a fallback where Census can't place it.
+                if e["lat"] is not None and e["lon"] is not None:
+                    loc["lat"], loc["lon"] = e["lat"], e["lon"]
+                held[key] = loc
+                added += 1
+            # open but neither held nor new → a known store we don't carry; leave it alone
+        elif e["closing"]:                # closing-only (no open record anywhere for this address)
+            if held.pop(key, None):
+                removed += 1
+
+    # Rebuild the permit groups FROM `held` (the merged set), one per chain, with names and scope
+    # regenerated from the addresses so they stay consistent.
+    doc["sightings"] = [g for g in doc["sightings"] if g.get("provenance") != MARKER]
+    by_chain: dict = {}
+    for (chain, _k), loc in held.items():
+        by_chain.setdefault(chain, []).append(loc)
+
+    total = 0
+    for chain, locs in sorted(by_chain.items()):
+        counts = Counter(c for c in (_city(l["address"]) for l in locs) if c)
+        for l in locs:
+            l["name"] = branch_name(chain, l["address"], counts)
+        c = sum(1 for l in locs if l["confidence"] == "confirmed")
+        u = len(locs) - c
         doc["sightings"].append({
             "chain": chain, "supplied_on": TODAY, "provenance": MARKER,
             "source": ("Municipal health-department food-establishment permit records, matched by "
                        "the chain's trading name or a recorded alias, deduped against everything "
                        "already held from first-party sites or filings."),
-            "scope": (f"{len(rec['locs'])} permit-sourced location(s) ({c} operating, {u} pre-opening "
+            "scope": (f"{len(locs)} permit-sourced location(s) ({c} operating, {u} pre-opening "
                       "or not-yet-inspected) for a chain with no first-party US roster. A permit is a "
                       "government record that a food business of this name is licensed at this "
                       "address — stronger than an aggregator, weaker than the chain's own page. Not "
                       "a complete roster; not the census."),
-            "locations": rec["locs"]})
-        added += len(rec["locs"])
-        print(f"  {chain:12} +{len(rec['locs']):>2} permit sighting(s)  ({c} confirmed, {u} uncertain)")
+            "locations": locs})
+        total += len(locs)
+        print(f"  {chain:12} {len(locs):>2} permit sighting(s)  ({c} confirmed, {u} uncertain)")
 
-    for g in doc["sightings"]:
-        for l in g.get("locations", []):
-            l.pop("_chain", None)
     json.dump(doc, open(SIGHTINGS, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"\n{added} permit-sourced sighting(s) written across {sum(1 for r in by_chain.values() if r['locs'])} chain(s).")
+    print(f"\nmerge complete: +{added} added, -{removed} removed, {upgraded} promoted; "
+          f"{total} permit sighting(s) held across {len(by_chain)} chain(s).")
 
 
 if __name__ == "__main__":
