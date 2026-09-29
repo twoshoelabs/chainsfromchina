@@ -20,10 +20,10 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
-   "complete_as_of": "2026-09-28",
+   "complete_as_of": "2026-09-29",
    "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "Hand-assembled and operator-verified, complete for New York City as of 28 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 14 confirmed. Cotti also trades outside New York (recorded separately).",
+   "scope": "Hand-assembled and operator-verified, complete for New York City as of 29 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 15 confirmed. Cotti also trades outside New York (recorded separately).",
    "locations": [
     {
      "name": "Smith St",
@@ -108,6 +108,12 @@
      "address": "331 New Dorp Ln, Staten Island, NY 10306",
      "confidence": "confirmed",
      "verified_by": "joe.coffee, Grubhub & Uber Eats — trading (28 Sep 2026)"
+    },
+    {
+     "name": "Chelsea (239 8th Ave)",
+     "address": "239 8th Ave, New York, NY 10011",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Cotti Coffee - Chelsea' (8 reviews, active pickup/delivery, posted hours) + chain Instagram grand-opening (~Aug 2026); operator-verified 29 Sep 2026. Yelp has no page yet (newly opened). Originally a NYC health-department permit lead."
     }
    ]
   },
@@ -805,14 +811,6 @@
      "address": "17418 COLIMA RD, Rowland Heights, CA 91748",
      "confidence": "confirmed",
      "verified_by": "LA County health-department permit, first inspected 2025-06-27 (2026-09-23)"
-    },
-    {
-     "name": "Cotti Coffee (Manhattan)",
-     "address": "239 8 AVENUE, Manhattan, NY 10011",
-     "confidence": "uncertain",
-     "verified_by": "NYC health-department permit (2026-09-23)",
-     "lat": 40.744768,
-     "lon": -73.998878
     }
    ]
   },
