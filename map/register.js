@@ -80,23 +80,17 @@ function usView(chains, markets, cells) {
   const notHere = Object.keys(D.chains).filter(c => (us[c] || {}).status === 'not_established')
     .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
   const row = c => {
-    const st = us[c] || {};
-    // Both are counted — the difference is HOW. "Counted daily" is read automatically from the
-    // chain's own locator; "counted by hand" is verified and entered by a person.
-    const badge = st.status === 'collected'
-      ? '<span class="status s-collected">counted daily</span>'
-      : st.status === 'present_not_collected'
-        ? '<span class="status s-present">counted by hand</span>' : '';
     const na = abroad(c);
-    return `<li><b>${chainLabel(metaOf(c))}</b> ${badge}` +
+    // No "how it's counted" badge — if a chain is tracked here, it's tracked; whether the count
+    // comes from a daily locator read or is entered by hand is a map-side data-quality detail,
+    // not something to label every chain with.
+    return `<li><b>${chainLabel(metaOf(c))}</b>` +
       (na ? `<span class="abroad">in ${na} other market${na === 1 ? '' : 's'} outside China</span>` : '') +
       `</li>`;
   };
   document.getElementById('usview').innerHTML =
     `<section class="usbox"><h2>Already in the United States</h2>` +
-    `<p class="note small">Every Chinese chain this project tracks on the US map, A–Z. "Counted ` +
-    `daily" means we read its own store locator every morning; "counted by hand" means its US ` +
-    `locations are verified and entered by a person.</p>` +
+    `<p class="note small">Every Chinese chain this project tracks on the US map, A–Z.</p>` +
     `<ul class="uslist">${here.map(row).join('')}</ul></section>` +
     (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, not yet in the US</h2>` +
       `<p class="note small">The watchlist — Chinese chains that have opened outside China but that ` +
