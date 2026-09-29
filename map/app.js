@@ -709,13 +709,6 @@ function drawPanels(data) {
       ` <span class="dim">${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
       ` ${tt.sighted_confirmed} more confirmed by hand.</span>`;
   }
-
-  const ul = document.getElementById('blocked');
-  for (const b of data.meta.blocked) {
-    const li = document.createElement('li');
-    li.innerHTML = `<b>${chainLabel(b)}</b> — ${esc(b.reason)}`;
-    ul.append(li);
-  }
 }
 
 function drawCoverage(data) {
