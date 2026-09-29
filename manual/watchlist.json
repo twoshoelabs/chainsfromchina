@@ -115,9 +115,9 @@
     "name_zh": "挪瓦咖啡",
     "hq": "Shanghai",
     "china_stores": "~10,000 (mostly counters)",
-    "status": "china",
+    "status": "registered",
     "markets": "",
-    "note": "Count inflated by shop-in-shop counters",
+    "note": "Added to the international register 2026-09-29 — has moved beyond the mainland. Count inflated by shop-in-shop counters",
     "source": "https://daxueconsulting.com/nowwa-coffee/"
    },
    {
@@ -125,9 +125,9 @@
     "name_zh": "曼纳",
     "hq": "Shanghai",
     "china_stores": "~2,600",
-    "status": "china",
+    "status": "registered",
     "markets": "mainland + HK",
-    "note": "",
+    "note": "Added to the international register 2026-09-29 — has moved beyond the mainland.",
     "source": "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/"
    },
    {

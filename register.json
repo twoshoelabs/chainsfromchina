@@ -357,6 +357,18 @@
    "name_zh": "南京大牌档",
    "format": "restaurant",
    "global": "~35-40 Nanjing-cuisine stores, all in China except a single overseas outlet"
+  },
+  "nowwa": {
+   "name": "Nowwa Coffee",
+   "name_zh": "挪瓦咖啡",
+   "format": "coffee",
+   "global": "~10,000 stores (Dec 2025) across 300+ cities, grown largely through Meiyijia convenience-store counters; overseas since 2024 — Macau, then its first standalone overseas store in Melbourne (Apr 2025) and Indonesia (Jan 2026), with more of Southeast Asia signed."
+  },
+  "manner": {
+   "name": "Manner Coffee",
+   "name_zh": "",
+   "format": "coffee",
+   "global": "Premium 'street coffee' chain founded 2015 in Shanghai, ~1,000 stores in China; making its first move outside the mainland with a Hong Kong store (announced 2026, signage 'Maners Coffee')."
   }
  },
  "entries": [
@@ -2060,6 +2072,105 @@
    "note": "Its one overseas branch — Plaza Singapura, opened ~Dec 2016, still operating.",
    "sources": [
     "https://www.opentable.com/restaurant/profile/122963"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "MO",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Nowwa's first store outside the mainland, opened 2024.",
+   "sources": [
+    "https://asiafoodbeverages.com/chinas-coffee-startup-plans-expansion-in-southeast-asia/"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2025-04-28",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-09-29",
+   "note": "First standalone overseas store — The Strand, Elizabeth St, Melbourne, opened 28 Apr 2025.",
+   "sources": [
+    "https://www.worldcoffeeportal.com/news/chinas-nowwa-coffee-makes-international-debut-in-australia/"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2026-01",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-09-29",
+   "note": "Launched in Indonesia in Jan 2026 as part of its Southeast Asia push.",
+   "sources": [
+    "https://asiafoodbeverages.com/chinas-coffee-startup-plans-expansion-in-southeast-asia/"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "SG",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Signed to open; not yet trading.",
+   "sources": [
+    "https://www.yicaiglobal.com/news/chinas-nowwa-coffee-to-hasten-southeast-asia-expansion-after-latest-fundraiser"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "TH",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Signed to open; not yet trading.",
+   "sources": [
+    "https://www.yicaiglobal.com/news/chinas-nowwa-coffee-to-hasten-southeast-asia-expansion-after-latest-fundraiser"
+   ]
+  },
+  {
+   "chain": "nowwa",
+   "market": "HK",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "Reported as launching soon.",
+   "sources": [
+    "https://www.yicaiglobal.com/news/chinas-nowwa-coffee-to-hasten-southeast-asia-expansion-after-latest-fundraiser"
+   ]
+  },
+  {
+   "chain": "manner",
+   "market": "HK",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-09-29",
+   "note": "First store outside mainland China — World Trade Centre, Causeway Bay; under renovation as of early 2026. Signage reads 'Maners Coffee' / 'originated from Manner' (a local name-registration workaround).",
+   "sources": [
+    "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/",
+    "https://pandaily.com/manner-coffee-to-open-store-in-hong-kong/"
    ]
   }
  ]
