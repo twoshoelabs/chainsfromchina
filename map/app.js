@@ -557,16 +557,32 @@ function drawPanels(data) {
   }
 
   const sb = document.querySelector('#states tbody');
-  const rows = Object.entries(data.meta.by_state).sort((a, b) =>
-    (b[1].open - a[1].open) || (b[1].coming_soon - a[1].coming_soon));
+  // The census counts (by_state) and the hand-confirmed locations (by_state_hand) are held apart
+  // in the data — the collector's total is never polluted by hand entries — but the reader wants
+  // one table, so they are merged for display here, with the hand portion labelled. This is also
+  // how a jurisdiction whose only outlet is a sighting (Washington DC) earns a row at all.
+  const hand = data.meta.by_state_hand || {};
+  const nameOf = c => (data.meta.chains[c] && data.meta.chains[c].name)
+    || ((data.meta.blocked || []).find(b => b.chain_id === c) || {}).name || c;
+  const allSt = new Set([...Object.keys(data.meta.by_state), ...Object.keys(hand)]);
+  const rows = [...allSt].map(st => {
+    const v = data.meta.by_state[st] || { open: 0, coming_soon: 0, chains: {} };
+    const h = hand[st] || { count: 0, chains: {} };
+    return { st, v, h, total: (v.open || 0) + (h.count || 0) };
+  }).sort((a, b) => (b.total - a.total) || ((b.v.coming_soon || 0) - (a.v.coming_soon || 0)) || a.st.localeCompare(b.st));
   const SHOWN = 12;
-  for (const [st, v] of rows) {
-    const who = Object.entries(v.chains)
-      .sort((a, b) => b[1].open - a[1].open)
-      .map(([c, n]) => `${esc(data.meta.chains[c]?.name || c)} ${n.open + n.coming_soon}`).join(', ');
+  for (const { st, v, h } of rows) {
+    const tot = {};                                   // per-chain: census open+soon plus hand
+    for (const [c, n] of Object.entries(v.chains || {})) tot[c] = (tot[c] || 0) + (n.open || 0) + (n.coming_soon || 0);
+    for (const [c, n] of Object.entries(h.chains || {})) tot[c] = (tot[c] || 0) + n;
+    const who = Object.entries(tot).sort((a, b) => b[1] - a[1])
+      .map(([c, n]) => `${esc(nameOf(c))} ${n}`).join(', ');
+    const open = v.open || 0, soon = v.coming_soon || 0, hc = h.count || 0;
+    const cnt = (open ? `${open}${hc ? ` +${hc} by hand` : ''}` : (hc ? `${hc} by hand` : '0'))
+      + (soon ? ` +${soon}` : '');
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${esc(st)}<br><span class="statewho">${who}</span></td>` +
-      `<td class="n">${v.open}${v.coming_soon ? ' +' + v.coming_soon : ''}</td>`;
+      `<td class="n">${cnt}</td>`;
     sb.append(tr);
   }
   // Every state stays in the DOM — the count in the "more" row has to be the real remainder,
@@ -610,7 +626,8 @@ function drawPanels(data) {
     // Coverage in 50-state terms, computed from the data so it stays true as the map fills in.
     const STATES = new Set(('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN ' +
       'MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' '));
-    const covered = Object.keys(data.meta.by_state || {}).filter(s => STATES.has(s)).length;
+    const covered = new Set([...Object.keys(data.meta.by_state || {}),
+      ...Object.keys(data.meta.by_state_hand || {})].filter(s => STATES.has(s))).size;
     const missing = STATES.size - covered;
     const stateLine = missing <= 0
       ? 'Every one of the 50 states now has at least one Chinese-chain outlet.'

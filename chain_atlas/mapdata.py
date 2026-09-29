@@ -169,6 +169,19 @@ def export(out_dir: Path) -> dict:
         manual_rosters = _rosters()
     except Exception:                                           # noqa: BLE001
         sight, manual_rosters = [], []
+
+    # Confirmed hand-verified locations per state, kept in their OWN structure so the census
+    # `by_state` above stays the collector's alone (a hand count never merges into it). The
+    # by-state table renders the two side by side, so a jurisdiction whose only outlet is a
+    # sighting — Washington DC's Cotti, say — still appears, and the table reflects every located
+    # outlet, not only the collected ones. Uncertain (unverified) sightings are excluded.
+    by_state_hand: dict = {}
+    for s in sight:
+        if s.get("confidence") == "uncertain" or not s.get("state"):
+            continue
+        h = by_state_hand.setdefault(s["state"], {"count": 0, "chains": {}})
+        h["count"] += 1
+        h["chains"][s["chain"]] = h["chains"].get(s["chain"], 0) + 1
     try:
         from .coverage import scorecard
         _coverage = scorecard()
@@ -198,7 +211,7 @@ def export(out_dir: Path) -> dict:
         "manual_rosters": manual_rosters,
         "coverage": _coverage,
         "companies": _companies,
-        "by_state": by_state, "no_state": no_state,
+        "by_state": by_state, "by_state_hand": by_state_hand, "no_state": no_state,
         "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
         "counts": {
             "open": sum(1 for s in stores if s["status"] == "active"),
