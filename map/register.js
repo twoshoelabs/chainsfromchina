@@ -13,7 +13,14 @@ const chainLabel = (c, opts = {}) => {
 };
 
 const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
+// The same retail-type buckets the landing page groups its chains by, so the matrix reads the
+// same way — tea with tea, toys with toys — and every chain (US or only-abroad) lands in its type.
+const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Bakery', 'Toys & Pop Culture', 'Other'];
+const CAT_BY_FORMAT = { tea: 'Tea', coffee: 'Coffee', restaurant: 'Restaurants', hotpot: 'Restaurants',
+  snack: 'Restaurants', bakery: 'Bakery', toys: 'Toys & Pop Culture', lifestyle: 'Toys & Pop Culture' };
+const CAT_OVERRIDE = { mixue: 'Ice Cream' };
 let D = null;
+const catOf = c => CAT_OVERRIDE[c] || CAT_BY_FORMAT[(D.chains[c] || {}).format] || 'Other';
 
 async function main() {
   D = await fetch('data/register.json').then(r => r.json());
@@ -39,13 +46,21 @@ async function main() {
     '</tr><tr><th class="corner"></th>' +
     markets.map(m => `<th title="${esc(D.markets[m].name)}">${esc(m)}</th>`).join('') +
     '</tr></thead><tbody>';
-  for (const c of chains) {
-    h += `<tr><th class="chain">${chainLabel(D.chains[c])}</th>`;
-    for (const m of markets) {
-      const e = cells[c + '/' + m];
-      h += `<td class="${cellClass(e)}" data-key="${esc(c + '/' + m)}">${cellText(e)}</td>`;
+  // Rows grouped by retail type; within each type the most-widely-expanded chain leads (chains is
+  // already sorted by markets present). A category band spans the whole width above its chains.
+  const byCat = {};
+  for (const c of chains) (byCat[catOf(c)] = byCat[catOf(c)] || []).push(c);
+  const cats = [...CAT_ORDER.filter(c => byCat[c]), ...Object.keys(byCat).filter(c => !CAT_ORDER.includes(c))];
+  for (const cat of cats) {
+    h += `<tr class="catrow"><th class="catcell" colspan="${markets.length + 1}">${esc(cat)}</th></tr>`;
+    for (const c of byCat[cat]) {
+      h += `<tr><th class="chain">${chainLabel(D.chains[c])}</th>`;
+      for (const m of markets) {
+        const e = cells[c + '/' + m];
+        h += `<td class="${cellClass(e)}" data-key="${esc(c + '/' + m)}">${cellText(e)}</td>`;
+      }
+      h += '</tr>';
     }
-    h += '</tr>';
   }
   h += '</tbody></table>';
   document.getElementById('matrix').innerHTML = h;

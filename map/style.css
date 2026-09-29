@@ -166,6 +166,11 @@ li b{color:var(--ink); font-weight:600}
 #matrix{overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:26px}
 table.reg{width:100%; border-collapse:collapse; font-size:13px}
 #matrix table.reg{margin-bottom:0}
+/* Retail-type band spanning the grid, matching the landing page's group labels. */
+table.reg tr.catrow th.catcell{
+  border:0; text-align:left; padding:14px 6px 4px; background:var(--paper);
+  font:600 11px/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+table.reg tr.catrow:first-child th.catcell{padding-top:4px}
 table.reg th, table.reg td{border:1px solid var(--rule); padding:5px 6px; text-align:center}
 table.reg th.corner{border:0}
 table.reg th.region{
