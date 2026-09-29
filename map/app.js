@@ -398,6 +398,34 @@ function setAllChains(show) {         // show=true → all on; false → all off
   applyChainVisibility();
   refreshChips();
 }
+function showOnlyChain(id) {          // isolate one chain; others can still be clicked back on after
+  for (const chip of document.querySelectorAll('.chip[data-chain]')) hidden.add(chip.dataset.chain);
+  hidden.delete(id);
+  applyChainVisibility();
+  refreshChips();
+}
+// Shared wiring for every chip (collected or blocked): the chip body is a show/hide toggle (a
+// checkbox, in effect), the name is a link to the profile, and a small "only" button isolates the
+// chain — but leaves the others clickable, so a reader can start from one and add more.
+function wireChip(el, id) {
+  el.dataset.chain = id;
+  el.setAttribute('role', 'button');
+  el.tabIndex = 0;
+  el.setAttribute('aria-pressed', String(!hidden.has(id)));
+  const only = document.createElement('button');
+  only.type = 'button';
+  only.className = 'only';
+  only.textContent = 'only';
+  only.title = 'Show only this chain (you can click others to add them)';
+  only.addEventListener('click', e => { e.stopPropagation(); showOnlyChain(id); });
+  el.append(only);
+  const isControl = t => t.closest('.chipnm') || t.closest('.only');
+  el.addEventListener('click', e => { if (!isControl(e.target)) toggleChain(id); });
+  el.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && !isControl(e.target)) { e.preventDefault(); toggleChain(id); }
+  });
+  return el;
+}
 
 function setMode(m) {
   mode = m;
@@ -460,9 +488,6 @@ function drawTally(data) {
     // else on the chip still toggles the chain on the map.
     const b = document.createElement('span');
     b.className = 'chip' + (meta.provenance && meta.provenance !== 'collected' ? ' supplied' : '');
-    b.setAttribute('role', 'button');
-    b.tabIndex = 0;
-    b.setAttribute('aria-pressed', String(!hidden.has(id)));
     if (meta.provenance && meta.provenance !== 'collected')
       b.title = `Supplied, not collected — ${meta.provenance_detail || ''}. `
         + 'These rows do not refresh; no change tomorrow means nobody looked.';
@@ -472,12 +497,7 @@ function drawTally(data) {
     if (un && !p.open) b.title = 'No coordinates published — counted, but nothing to draw';
     if (meta.aliases && meta.aliases.length)
       b.title = `Also trades in the US as: ${meta.aliases.join(', ')}. ` + (b.title || '');
-    b.dataset.chain = id;
-    b.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggleChain(id); });
-    b.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggleChain(id); }
-    });
-    return b;
+    return wireChip(b, id);
   };
 
   // Chains with known locations but no roster get a count of what is KNOWN, never of what is.
@@ -538,15 +558,7 @@ function drawTally(data) {
       : (b.reason || ''));
     // Blocked chains draw squares (and count-only chains draw nothing), but their chip is still a
     // filter toggle like the collected ones, so a reader can isolate, say, only HEYTEA's sightings.
-    el.dataset.chain = b.chain_id;
-    el.setAttribute('role', 'button');
-    el.tabIndex = 0;
-    el.setAttribute('aria-pressed', String(!hidden.has(b.chain_id)));
-    el.addEventListener('click', e => { if (!e.target.closest('.chipnm')) toggleChain(b.chain_id); });
-    el.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.chipnm')) { e.preventDefault(); toggleChain(b.chain_id); }
-    });
-    return el;
+    return wireChip(el, b.chain_id);
   };
 
   // Bucket every chip by category — collected (drawable) first, then blocked, within each group.
