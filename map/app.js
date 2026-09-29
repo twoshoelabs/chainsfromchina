@@ -720,7 +720,7 @@ function drawPanels(data) {
 
 function drawCoverage(data) {
   // The scorecard: what we hold against what the trade press says exists. Collected chains are
-  // complete; sighted chains show a rough ratio against a dated, hand-typed estimate — a yardstick,
+  // complete; sighted chains show a rough ratio against a dated trade-press estimate — a yardstick,
   // never a measurement. The point is to be honest about the gap, in numbers, on the page itself.
   const c = data.meta.coverage;
   if (!c || !c.rows) return;
@@ -768,7 +768,7 @@ function drawCoverage(data) {
     tb.append(tr);
   }
   document.getElementById('covernote').textContent =
-    `Estimates are hand-typed from the trade press, dated, and never added to any count on this ` +
+    `Estimates are drawn from the trade press, dated, and never added to any count on this ` +
     `page. They only show how big the gap is, as of ${c.as_of}. Hover a row for its source. ` +
     `"Complete" means the chain's own locator is the count, not that its growth has stopped.`;
 }
