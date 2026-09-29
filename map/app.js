@@ -483,20 +483,19 @@ function drawTally(data) {
     const usWide = /^\s*(united states|u\.?s\.?a?\.?)\b/i.test((rr && rr.complete_scope) || '');
     // No "roster incomplete" claim — we do not know a list is incomplete. Any unconfirmed tail is
     // flagged separately as a manual review queue.
-    // A roster claims completeness only for its scope (Cotti: New York City). But we may also hold
-    // confirmed locations OUTSIDE that scope — tracked down one by one, even to Hawaii — so the
-    // chip shows the full count of what is known and marks the scope as complete, rather than
-    // reporting only the scoped roster and hiding the rest.
     const knownN = ns - nu;                                   // confirmed locations held
     const scopeShort = ((rr && rr.complete_scope) || '').split('(')[0].trim();
+    const toCfm = nu ? ` <span class="pend">+${nu} to confirm</span>` : '';
     let n;
+    // A roster that is complete for the WHOLE US reads simply "complete". A roster complete only
+    // for a sub-scope (Cotti's New York City) but with confirmed locations elsewhere too just shows
+    // the full known count — the sub-scope completeness is a hover detail, not a headline that
+    // makes a nationally-tracked chain look local.
     if (rr && usWide) n = `${rr.count} — complete`;
-    else if (rr && knownN > rr.count)
-      n = `${knownN} known <span class="pend">${esc(scopeShort)} complete</span>`
-        + (nu ? ` <span class="pend">+${nu} to confirm</span>` : '');
+    else if (rr && knownN > rr.count) n = `${knownN} known${toCfm}`;
     else if (rr) n = `${rr.count} — complete for ${esc(scopeShort || 'a defined area')}`;
     else if (kc) n = `${kc.stores} — no locations published`;
-    else if (ns) n = `${knownN} known${nu ? ` <span class="pend">+${nu} to confirm</span>` : ''}`;
+    else if (ns) n = `${knownN} known${toCfm}`;
     else n = 'not counted yet';
     el.innerHTML = `<span class="dot" style="background:${known ? colorOf(b.chain_id) : 'var(--muted)'}"></span>` +
       `<a class="chipnm" href="intro.html#${b.chain_id}">${chainLabel(b, { short: true })}</a>` +
@@ -505,8 +504,12 @@ function drawTally(data) {
     const akaTitle = (b.aliases && b.aliases.length)
       ? `Also trades in the US as: ${b.aliases.join(', ')}. ` : '';
     el.title = akaTitle + (rr
-      ? `Hand-assembled and operator-verified, as of ${rr.complete_as_of}. Not monitored: `
-        + `this count does not update on its own and is not part of the collected census.`
+      ? `Hand-assembled and operator-verified. `
+        + (usWide
+          ? `Complete for the US as of ${rr.complete_as_of}. `
+          : `${rr.count} confirmed and complete for ${scopeShort || 'a defined area'} as of `
+            + `${rr.complete_as_of}` + (knownN > rr.count ? `, plus ${knownN - rr.count} known elsewhere. ` : `. `))
+        + `Not monitored: this count does not update on its own and is not part of the collected census.`
         + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
       : (b.reason || ''));
     return el;
