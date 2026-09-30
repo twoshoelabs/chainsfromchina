@@ -317,8 +317,10 @@
     "colorist": {
       "name": "The Colorist",
       "name_zh": "调色师",
-      "format": "lifestyle",
-      "global": "KK Group cosmetics retail brand (2019); part of the group's 170+ overseas stores"
+      "format": "beauty",
+      "global": "KK Group cosmetics retail brand (2019); part of the group's 170+ overseas stores",
+      "sector": "beauty",
+      "sub_category": "cosmetics variety"
     },
     "cooltoy": {
       "name": "Cool Toy",
@@ -457,6 +459,203 @@
       "name_zh": "九木杂物社",
       "format": "lifestyle",
       "global": "M&G/Chenguang lifestyle-stationery retailer (Jiumu Sundry Social); expanding in Southeast Asia."
+    },
+    "anta": {
+      "name": "Anta",
+      "name_zh": "安踏",
+      "format": "apparel",
+      "global": "China's largest sportswear group (~9,900 Anta-brand stores); Southeast Asia expansion (targeting ~1,000 stores by 2028) with a first US flagship in Beverly Hills (Feb 2026).",
+      "sector": "apparel",
+      "sub_category": "sportswear",
+      "tickers": [
+        "HKEX:2020"
+      ],
+      "operating_model": "company_owned",
+      "us_entry_date": "2026-02-13"
+    },
+    "urbanrevivo": {
+      "name": "Urban Revivo",
+      "name_zh": "",
+      "format": "apparel",
+      "global": "Guangzhou fast-fashion chain (400+ large-format stores, parent FMG); overseas in SE Asia, Hong Kong, the UK and (Feb 2025) the US (SoHo).",
+      "sector": "apparel",
+      "operating_model": "company_owned",
+      "us_entry_date": "2025-02-28"
+    },
+    "jnby": {
+      "name": "JNBY",
+      "name_zh": "江南布衣",
+      "format": "apparel",
+      "global": "Hangzhou designer-apparel house (~2,118 stores across JNBY and its sister brands); overseas in Canada and the US, where it trades as AGoodFun via a local licensee.",
+      "sector": "apparel",
+      "sub_category": "designer",
+      "tickers": [
+        "HKEX:3306"
+      ],
+      "operating_model": "licence",
+      "us_entry_date": "2015-11",
+      "name_us": "AGoodFun"
+    },
+    "meilleurmoment": {
+      "name": "Meilleur Moment",
+      "name_zh": "伊芙丽",
+      "format": "apparel",
+      "global": "Womenswear line of Hangzhou's Eifini group (600+ stores group-wide); overseas boutiques in France, Singapore and (May 2025) the US (SoHo).",
+      "sector": "apparel",
+      "operating_model": "company_owned",
+      "us_entry_date": "2025-05"
+    },
+    "bosideng": {
+      "name": "Bosideng",
+      "name_zh": "波司登",
+      "format": "apparel",
+      "global": "Changshu down-jacket maker; a London flagship (reopened Oct 2022). European sales are otherwise wholesale.",
+      "sector": "apparel",
+      "sub_category": "outerwear",
+      "tickers": [
+        "HKEX:3998"
+      ],
+      "operating_model": "company_owned"
+    },
+    "semir": {
+      "name": "Semir",
+      "name_zh": "森马",
+      "format": "apparel",
+      "global": "Wenzhou mass-apparel group (Semir adult + Balabala kidswear); 100+ overseas stores across ~15 markets.",
+      "sector": "apparel",
+      "sub_category": "mass apparel / kidswear (Balabala)",
+      "tickers": [
+        "SZSE:002563"
+      ],
+      "operating_model": "company_owned"
+    },
+    "xtep": {
+      "name": "Xtep",
+      "name_zh": "特步",
+      "format": "apparel",
+      "global": "Quanzhou sportswear/running brand; mono-brand 'retail+community' stores in Malaysia and Singapore.",
+      "sector": "apparel",
+      "sub_category": "sportswear",
+      "tickers": [
+        "HKEX:1368"
+      ],
+      "operating_model": "company_owned"
+    },
+    "laopu": {
+      "name": "Laopu Gold",
+      "name_zh": "老铺黄金",
+      "format": "apparel",
+      "global": "Beijing heritage-gold jeweller; Hong Kong and Macau, plus a first true overseas store in Singapore (Jun 2025).",
+      "sector": "apparel",
+      "sub_category": "jewellery",
+      "tickers": [
+        "HKEX:6181"
+      ],
+      "operating_model": "company_owned"
+    },
+    "lining": {
+      "name": "Li-Ning",
+      "name_zh": "李宁",
+      "format": "apparel",
+      "global": "Beijing sportswear brand; a Hong Kong flagship (2022) and Southeast-Asia plans. An earlier US store (Portland) has closed.",
+      "sector": "apparel",
+      "sub_category": "sportswear",
+      "tickers": [
+        "HKEX:2331"
+      ],
+      "operating_model": "company_owned"
+    },
+    "moco": {
+      "name": "MO&Co.",
+      "name_zh": "摩安珂",
+      "format": "apparel",
+      "global": "Guangzhou contemporary womenswear; standalone stores in Paris, London and Malaysia.",
+      "sector": "apparel",
+      "sub_category": "womenswear",
+      "operating_model": "company_owned"
+    },
+    "icicle": {
+      "name": "Icicle",
+      "name_zh": "之禾",
+      "format": "apparel",
+      "global": "Shanghai premium apparel house (owns France's Carven); boutiques in Paris incl. a 35 Av. George V flagship.",
+      "sector": "apparel",
+      "sub_category": "womenswear",
+      "operating_model": "company_owned"
+    },
+    "cabbeen": {
+      "name": "Cabbeen",
+      "name_zh": "卡宾",
+      "format": "apparel",
+      "global": "Foshan designer menswear; first overseas stores in Malaysia, with more planned.",
+      "sector": "apparel",
+      "sub_category": "menswear",
+      "operating_model": "franchise"
+    },
+    "florasis": {
+      "name": "Florasis",
+      "name_zh": "花西子",
+      "format": "beauty",
+      "global": "Hangzhou heritage-cosmetics brand; a Tokyo flagship (Jan 2025) and a Paris counter (2024). US reach is retail shelves only.",
+      "sector": "beauty",
+      "operating_model": "company_owned"
+    },
+    "maogeping": {
+      "name": "Mao Geping",
+      "name_zh": "毛戈平",
+      "format": "beauty",
+      "global": "Prestige-makeup house (first HK-listed C-beauty, 1318); a department-counter model with a first overseas store in Hong Kong (2025).",
+      "sector": "beauty",
+      "tickers": [
+        "HKEX:1318"
+      ],
+      "operating_model": "company_owned"
+    },
+    "judydoll": {
+      "name": "Judydoll",
+      "name_zh": "橘朵",
+      "format": "beauty",
+      "global": "Shanghai colour-cosmetics brand (Joy Group); standalone stores in Singapore and Hong Kong.",
+      "sector": "beauty",
+      "operating_model": "company_owned"
+    },
+    "joocyee": {
+      "name": "Joocyee",
+      "name_zh": "酵色",
+      "format": "beauty",
+      "global": "Shanghai colour-cosmetics brand (Joy Group, sister to Judydoll); first international store in Singapore.",
+      "sector": "beauty",
+      "operating_model": "company_owned"
+    },
+    "xiaomi": {
+      "name": "Xiaomi",
+      "name_zh": "小米",
+      "format": "electronics",
+      "global": "Consumer-electronics giant; 100+ own/franchised Mi Stores across Western Europe, plus India, SE Asia and the Middle East. No US retail.",
+      "sector": "electronics",
+      "sub_category": "consumer electronics",
+      "tickers": [
+        "HKEX:1810"
+      ],
+      "operating_model": "franchise"
+    },
+    "huawei": {
+      "name": "Huawei",
+      "name_zh": "华为",
+      "format": "electronics",
+      "global": "Consumer-electronics maker; branded 'experience stores' across Europe (Madrid, Milan, Barcelona, Paris, Vienna). No US presence.",
+      "sector": "electronics",
+      "sub_category": "consumer electronics",
+      "operating_model": "company_owned"
+    },
+    "hotmaxx": {
+      "name": "HotMaxx",
+      "name_zh": "好特卖",
+      "format": "grocery",
+      "global": "Shanghai soft-discount / near-expiry snack & packaged-goods retailer (~950 stores); a Hong Kong store (Sep 2024), Japan announced.",
+      "sector": "grocery_convenience",
+      "sub_category": "soft-discount retail",
+      "operating_model": "franchise"
     }
   },
   "entries": [
@@ -1884,33 +2083,42 @@
       "market": "MY",
       "status": "present",
       "locations": null,
-      "first_opened": "2024-12-19",
-      "precision": "day",
-      "confidence": "high",
-      "reviewed": "2026-09-29",
-      "note": "First overseas store Pavilion Bukit Jalil 19 Dec 2024; 2nd at Central i-City, Shah Alam."
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "First overseas store (Dec 2024).",
+      "sources": [
+        "https://insideretail.asia/2025/11/06/kk-group-targets-the-philippines-eyes-southeast-asia-growth/"
+      ]
     },
     {
       "chain": "colorist",
       "market": "VN",
       "status": "present",
       "locations": null,
-      "first_opened": "2025",
-      "precision": "year",
+      "first_opened": null,
+      "precision": null,
       "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "An early Colorist overseas market (before the Philippines)."
+      "reviewed": "2026-09-30",
+      "note": "Southeast-Asian market.",
+      "sources": [
+        "https://insideretail.asia/2025/11/06/kk-group-targets-the-philippines-eyes-southeast-asia-growth/"
+      ]
     },
     {
       "chain": "colorist",
       "market": "PH",
       "status": "present",
       "locations": null,
-      "first_opened": "2025-09-25",
-      "precision": "day",
-      "confidence": "high",
-      "reviewed": "2026-09-29",
-      "note": "Debut 25 Sep 2025 across three malls (Southwoods, Festival, SM Bicutan)."
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Debut via SM Group (Sep 2025).",
+      "sources": [
+        "https://insideretail.asia/2025/11/06/kk-group-targets-the-philippines-eyes-southeast-asia-growth/"
+      ]
     },
     {
       "chain": "colorist",
@@ -3539,6 +3747,664 @@
       "sources": [
         "https://en.wikipedia.org/wiki/Qiandama",
         "https://www.facebook.com/qdamahk19/"
+      ]
+    },
+    {
+      "chain": "anta",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Flagship stores on Marina Bay and Orchard Road; SE-Asia HQ in Singapore.",
+      "sources": [
+        "https://www.thestar.com.my/business/business-news/2025/09/18/anta-winning-big-in-southeast-asia"
+      ]
+    },
+    {
+      "chain": "anta",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "~40 Anta-brand stores.",
+      "sources": [
+        "https://www.thestar.com.my/business/business-news/2025/09/18/anta-winning-big-in-southeast-asia"
+      ]
+    },
+    {
+      "chain": "anta",
+      "market": "PH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "~40 Anta-brand stores.",
+      "sources": [
+        "https://www.thestar.com.my/business/business-news/2025/09/18/anta-winning-big-in-southeast-asia"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Southeast-Asian market.",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Southeast-Asian market.",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "TH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "One Bangkok flagship (Dec 2024).",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "VN",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Southeast-Asian market.",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "PH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Southeast-Asian market.",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Tsim Sha Tsui store (May 2025).",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Westfield London (2018), Covent Garden and Stratford (2025).",
+      "sources": [
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
+      ]
+    },
+    {
+      "chain": "jnby",
+      "market": "CA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Stores in Canada alongside its China network.",
+      "sources": [
+        "https://thebambooworks.com/sales-growth-lifts-jnbys-annual-profit-over-10-2/"
+      ]
+    },
+    {
+      "chain": "meilleurmoment",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Boutique in France.",
+      "sources": [
+        "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/"
+      ]
+    },
+    {
+      "chain": "meilleurmoment",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Store in Singapore.",
+      "sources": [
+        "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/"
+      ]
+    },
+    {
+      "chain": "bosideng",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "South Molton Street flagship, London (reopened Oct 2022).",
+      "sources": [
+        "https://www.yicaiglobal.com/news/chinese-down-jacket-maker-bosideng-reopens-london-flagship-store-after-four-years"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "First HK store 2018.",
+      "sources": [
+        "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Balabala flagship, Plaza Singapura.",
+      "sources": [
+        "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Semir at 1 Utama; Balabala at Pavilion KL.",
+      "sources": [
+        "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "VN",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Stores in Hanoi, HCMC, Hue.",
+      "sources": [
+        "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "KH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Store in Phnom Penh.",
+      "sources": [
+        "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
+      ]
+    },
+    {
+      "chain": "xtep",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Six mono-brand stores (KL, Penang, Johor Bahru, Kuantan, Shah Alam) from Nov 2024.",
+      "sources": [
+        "https://www.globalxtep.com/news/xtep-fortifies-southeast-asia-push-with-6-new-stores-in-malaysia/"
+      ]
+    },
+    {
+      "chain": "xtep",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Running-club store, Kallang Wave.",
+      "sources": [
+        "https://www.globalxtep.com/news/xtep-fortifies-southeast-asia-push-with-6-new-stores-in-malaysia/"
+      ]
+    },
+    {
+      "chain": "laopu",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Existing Hong Kong stores.",
+      "sources": [
+        "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
+      ]
+    },
+    {
+      "chain": "laopu",
+      "market": "MO",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Existing Macau stores.",
+      "sources": [
+        "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
+      ]
+    },
+    {
+      "chain": "laopu",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Marina Bay Sands (opened 21 Jun 2025), first overseas store.",
+      "sources": [
+        "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
+      ]
+    },
+    {
+      "chain": "lining",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Canton Road flagship, Tsim Sha Tsui (2022).",
+      "sources": [
+        "https://www.thestandard.com.hk/section-news/section/2/248347/"
+      ]
+    },
+    {
+      "chain": "moco",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Le Marais standalone (+ Galeries Lafayette corner).",
+      "sources": [
+        "https://www.drapersonline.com/news/exclusive-mo-co-to-debut-london-store"
+      ]
+    },
+    {
+      "chain": "moco",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "62 South Molton St, London.",
+      "sources": [
+        "https://www.drapersonline.com/news/exclusive-mo-co-to-debut-london-store"
+      ]
+    },
+    {
+      "chain": "moco",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Pavilion KL.",
+      "sources": [
+        "https://www.drapersonline.com/news/exclusive-mo-co-to-debut-london-store"
+      ]
+    },
+    {
+      "chain": "icicle",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Four Paris boutiques incl. the 35 Avenue George V flagship (2019).",
+      "sources": [
+        "https://wwd.com/fashion-news/fashion-features/feature/icicle-opens-paris-avenue-george-v-1203307499/"
+      ]
+    },
+    {
+      "chain": "cabbeen",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Pavilion Bukit Jalil and Sunway Velocity.",
+      "sources": [
+        "https://malaysia.news.yahoo.com/chinese-menswear-label-cabbeen-eyes-013143919.html"
+      ]
+    },
+    {
+      "chain": "florasis",
+      "market": "JP",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Ginza Six flagship, Tokyo (Jan 2025).",
+      "sources": [
+        "https://www.chinadaily.com.cn/a/202501/27/WS67975094a310a2ab06ea99d2.html"
+      ]
+    },
+    {
+      "chain": "florasis",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Samaritaine Paris counter via DFS (Sep 2024).",
+      "sources": [
+        "https://www.chinadaily.com.cn/a/202501/27/WS67975094a310a2ab06ea99d2.html"
+      ]
+    },
+    {
+      "chain": "maogeping",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Harbour City standalone store, Tsim Sha Tsui (2025).",
+      "sources": [
+        "https://www.thestandard.com.hk/news/article/314879/"
+      ]
+    },
+    {
+      "chain": "judydoll",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Wisma Atria and Bugis+ stores (2025).",
+      "sources": [
+        "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/"
+      ]
+    },
+    {
+      "chain": "judydoll",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "First HK store (2026).",
+      "sources": [
+        "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/"
+      ]
+    },
+    {
+      "chain": "joocyee",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Wisma Atria standalone store (2025).",
+      "sources": [
+        "https://www.lofficielsingapore.com/beauty/joocyee-opens-first-international-store-singapore-boutique-exclusive-launch-c-beauty-affordable-makeup"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "ES",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Deepest EU market; first own-brand store in Madrid.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "IT",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Mi Stores.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Mi Stores.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "DE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Mi Stores.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "NL",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Mi Stores.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Mi Stores.",
+      "sources": [
+        "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+      ]
+    },
+    {
+      "chain": "huawei",
+      "market": "ES",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Madrid + Barcelona experience stores.",
+      "sources": [
+        "https://consumer.huawei.com/en/community/details/topicId-145930/"
+      ]
+    },
+    {
+      "chain": "huawei",
+      "market": "IT",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Milan experience store.",
+      "sources": [
+        "https://consumer.huawei.com/en/community/details/topicId-145930/"
+      ]
+    },
+    {
+      "chain": "huawei",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Paris experience store.",
+      "sources": [
+        "https://consumer.huawei.com/en/community/details/topicId-145930/"
+      ]
+    },
+    {
+      "chain": "hotmaxx",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Olympian City store, Tai Kok Tsui (30 Sep 2024).",
+      "sources": [
+        "https://www.stheadline.com/food/3387847/"
+      ]
+    },
+    {
+      "chain": "hotmaxx",
+      "market": "JP",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-09-30",
+      "note": "HotMaxx Japan entity (Osaka); first store announced for 2025, not yet confirmed open.",
+      "sources": [
+        "https://www.stheadline.com/food/3387847/"
       ]
     }
   ]

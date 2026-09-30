@@ -33,7 +33,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     LelechaAdapter, NonggengjiAdapter, BaosPastryAdapter, TopToyAdapter,
                     Toys52Adapter, DezhuangAdapter, MeizhouDongpoAdapter, ShudaxiaAdapter,
                     XibeiAdapter, GrandmasHomeAdapter, XijiadeAdapter, MalubianbianAdapter,
-                    FeidachuAdapter, DalongyiAdapter, ShuyiAdapter, MoreYogurtAdapter)
+                    FeidachuAdapter, DalongyiAdapter, ShuyiAdapter, MoreYogurtAdapter,
+                    AntaAdapter, UrbanRevivoAdapter, JnbyAdapter, MeilleurMomentAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -70,6 +71,10 @@ REGISTRY: list[Adapter] = [
     DalongyiAdapter(), # mainland Chengdu hot pot 大龙燚; LIC + Boston — see stubs.py
     ShuyiAdapter(), # mainland Chengdu tea 书亦烧仙草; VA + Bay Area — see stubs.py
     MoreYogurtAdapter(), # mainland yogurt 茉酸奶 / More Yogurt; Tustin CA — see stubs.py
+    AntaAdapter(), # mainland sportswear 安踏; Beverly Hills flagship — see stubs.py
+    UrbanRevivoAdapter(), # mainland fast fashion UR; SoHo NYC flagship — see stubs.py
+    JnbyAdapter(), # mainland designer 江南布衣 / AGoodFun; SF + Seattle — see stubs.py
+    MeilleurMomentAdapter(), # mainland womenswear 伊芙丽 / Meilleur Moment; SoHo NYC — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py

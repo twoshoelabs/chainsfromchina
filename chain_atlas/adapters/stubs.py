@@ -802,3 +802,83 @@ class MoreYogurtAdapter(Adapter):
                       " ~June 2026 at The District at Tustin Legacy (2471 Park Ave, Tustin CA), its"
                       " only US outlet, with no national locator. Tracked via sightings (29 Sep 2026)")
     RECHECK = ["https://www.districttustin.com/"]
+
+
+class AntaAdapter(Adapter):
+    """
+    Anta (安踏) — added 2026-09-30 (Phase-1 apparel backfill). China's largest sportswear group;
+    the ANTA nameplate runs ~9,900 stores (nearly all mainland). Mainland origin, in scope.
+
+    One US outlet: a first US flagship at 330 N Beverly Dr, Beverly Hills CA, opened 13 Feb 2026,
+    company-operated. No national US locator, so tracked via sightings. (Group brands FILA,
+    Descente, Amer/Arc'teryx etc. are foreign-origin and out of scope — this is the Anta brand only.)
+    """
+    chain_id, name, name_zh = "anta", "Anta", "安踏"
+    name_us = "Anta"
+    aliases = ("ANTA",)
+    parent, format = "Anta Sports Products (HKEX 2020)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("China's largest sportswear brand (安踏, ~9,900 stores); first US store opened"
+                      " 13 Feb 2026 at 330 N Beverly Dr, Beverly Hills CA, its only US outlet, with no"
+                      " national locator. Tracked via sightings (30 Sep 2026)")
+    RECHECK = ["https://www.anta.com/"]
+
+
+class UrbanRevivoAdapter(Adapter):
+    """
+    Urban Revivo (UR) — added 2026-09-30 (Phase-1 apparel backfill). Guangzhou fast-fashion chain,
+    400+ large-format stores (parent FMG). Mainland origin, in scope.
+
+    One US outlet: a first US flagship at 515 Broadway, SoHo NYC (~30,000 sq ft), opened 28 Feb 2025,
+    company-operated. No national US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "urbanrevivo", "Urban Revivo", ""
+    name_us = "Urban Revivo"
+    aliases = ("UR", "URBAN REVIVO")
+    parent, format = "Fashion Momentum Group (FMG, Guangzhou)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Guangzhou fast-fashion chain (UR, 400+ stores); first US store opened 28 Feb"
+                      " 2025 at 515 Broadway, SoHo NYC (~30,000 sq ft), its only US outlet, with no"
+                      " national locator. Tracked via sightings (30 Sep 2026)")
+    RECHECK = ["https://www.urbanrevivo.com/"]
+
+
+class JnbyAdapter(Adapter):
+    """
+    JNBY (江南布衣) — added 2026-09-30 (Phase-1 apparel backfill). Hangzhou designer-apparel house,
+    ~2,118 stores across its brands (HKEX 3306). Mainland origin, in scope.
+
+    Its US arm trades as "AGoodFun", run by a local licensee (Sightclassic LLC). Two US outlets
+    open: San Francisco (865 Market St, Westfield SF Centre) and Seattle (600 Pine St, Pacific
+    Place); the Bellevue WA and SoHo NYC stores have closed. No national US locator, so tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "jnby", "JNBY", "江南布衣"
+    name_us = "AGoodFun"
+    aliases = ("AGoodFun", "JNBY USA", "Sightclassic")
+    parent, format = "JNBY Design (HKEX 3306)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Hangzhou designer-apparel house (江南布衣, HKEX 3306); US arm trades as AGoodFun"
+                      " via licensee Sightclassic LLC, open in San Francisco (865 Market St) and"
+                      " Seattle (600 Pine St) — Bellevue and SoHo NYC closed. No national locator."
+                      " Tracked via sightings (30 Sep 2026)")
+    RECHECK = ["https://www.jnby.com/"]
+
+
+class MeilleurMomentAdapter(Adapter):
+    """
+    Meilleur Moment (伊芙丽 / Eifini) — added 2026-09-30 (Phase-1 apparel backfill). Womenswear line
+    of Hangzhou's Eifini group (600+ stores group-wide). Mainland origin, in scope.
+
+    One US outlet: a flagship at 257 Elizabeth St, SoHo NYC, opened May 2025, company-operated.
+    No national US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "meilleurmoment", "Meilleur Moment", "伊芙丽"
+    name_us = "Meilleur Moment"
+    aliases = ("Eifini",)
+    parent, format = "Eifini Group (Hangzhou)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Womenswear line of Hangzhou's Eifini group (伊芙丽); first US store opened May"
+                      " 2025 at 257 Elizabeth St, SoHo NYC, its only US outlet, with no national"
+                      " locator. Tracked via sightings (30 Sep 2026)")
+    RECHECK = ["https://www.eifini.com/"]

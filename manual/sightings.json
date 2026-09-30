@@ -1334,6 +1334,68 @@
    "scope": "Two US locations known: Tustin, CA (open and trading, the chain's first US store) and Flushing, NY (37-05 Prince St, its first NYC store, brand-announced for late Sep/early Oct 2026, awaiting confirmation it is open). Not a complete roster.",
    "source": "Project research 29 Sep 2026: the landlord's own announcement and the store's Yelp listing confirm an open branded storefront. Address is the identified open outlet, not a roster from a map aggregator.",
    "supplied_on": "2026-09-30"
+  },
+  {
+   "chain": "anta",
+   "locations": [
+    {
+     "address": "330 N Beverly Dr, Beverly Hills, CA 90210",
+     "confidence": "confirmed",
+     "name": "Beverly Hills",
+     "verified_by": "Company press release; first US flagship, company-operated, opened 13 Feb 2026 (30 Sep 2026)"
+    }
+   ],
+   "scope": "One US store (Beverly Hills, the chain's first US location). Not a complete roster.",
+   "source": "Project research 30 Sep 2026: company press release confirming the first US flagship. Address is the identified open outlet.",
+   "supplied_on": "2026-09-30"
+  },
+  {
+   "chain": "urbanrevivo",
+   "locations": [
+    {
+     "address": "515 Broadway, New York, NY 10012",
+     "confidence": "confirmed",
+     "name": "SoHo",
+     "verified_by": "Press + company; first US flagship (~30,000 sq ft), opened 28 Feb 2025 (30 Sep 2026)"
+    }
+   ],
+   "scope": "One US store (SoHo NYC, the chain's first US location). Not a complete roster.",
+   "source": "Project research 30 Sep 2026: trade press and company announcement of the SoHo flagship.",
+   "supplied_on": "2026-09-30"
+  },
+  {
+   "chain": "jnby",
+   "locations": [
+    {
+     "address": "865 Market St, San Francisco, CA 94103",
+     "confidence": "confirmed",
+     "name": "San Francisco (Westfield SF Centre) — AGoodFun",
+     "verified_by": "Open per company/US operator; trades as AGoodFun (30 Sep 2026)"
+    },
+    {
+     "address": "600 Pine St, Seattle, WA 98101",
+     "confidence": "confirmed",
+     "name": "Seattle (Pacific Place) — AGoodFun",
+     "verified_by": "Open per Seattle Times + US operator; trades as AGoodFun (30 Sep 2026)"
+    }
+   ],
+   "scope": "Two US stores (San Francisco + Seattle), trading as AGoodFun via licensee Sightclassic LLC. Bellevue WA and SoHo NYC are closed. Not a complete roster.",
+   "source": "Project research 30 Sep 2026: press and the US operator's sites confirming the two open stores and the two closures.",
+   "supplied_on": "2026-09-30"
+  },
+  {
+   "chain": "meilleurmoment",
+   "locations": [
+    {
+     "address": "257 Elizabeth St, New York, NY 10012",
+     "confidence": "confirmed",
+     "name": "SoHo",
+     "verified_by": "WWD; first US flagship, opened May 2025 (30 Sep 2026)"
+    }
+   ],
+   "scope": "One US store (SoHo NYC, the chain's first US location). Not a complete roster.",
+   "source": "Project research 30 Sep 2026: WWD coverage of the SoHo flagship opening.",
+   "supplied_on": "2026-09-30"
   }
  ]
 }
