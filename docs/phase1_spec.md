@@ -23,30 +23,57 @@ review-velocity needs Yelp/Google data the guardrails forbid scraping); customs 
 (licensing); foot-traffic (paid). State-registry, permit, mall-directory and job-posting
 collectors are Phase 2/3 — the schema below is built so they slot in without migration.
 
-## 2. What counts as a store (inclusion rules)
+## 2. What counts (scope: retail chains of brick-and-mortar outlets)
 
-A **location** is counted only when it is the brand's own consumer-facing retail storefront where a
-customer transacts with the brand. Concretely:
+The subject is **retail chains**: companies that reach consumers through a **network (chain) of their
+own branded, consumer-facing brick-and-mortar outlets** — company-owned, franchise or
+dealer-operated. Starbucks and CVS are retail chains; Formica (a materials manufacturer sold through
+fabricators/wholesale) and a product house like Gucci are not the subject. A single-brand company
+that runs its own store chain (Anta, Urban Revivo, JNBY, MINISO) IS a retail chain and is in scope.
 
-COUNTS: company-owned stores; franchise stores operated under the brand's fascia; brand experience
-/ flagship stores; kiosks; mall inline; shop-in-shop that is the brand's own staffed counter.
+**Ownership is not a filter.** Company-owned, franchise, and dealer-operated outlets all count, as
+long as they are outlets of an in-scope retail chain.
 
-DOES NOT COUNT (record as context, never as a store, never in a store total or revenue estimate):
-- Wholesale / distribution (goods sold through Costco, Macy's, Best Buy, Target, Sam's Club, etc.).
-- Third-party retailer shelves (Ulta, Sephora, department-store buys) and marketplace / e-commerce
-  (Amazon, Tmall, Weee!, Yamibuy, brand's own web shop).
-- **Dealer showrooms and franchise/partner design showrooms** (e.g. custom-kitchen/cabinet studios
-  such as Suofeiya's dealer-run NJ showroom; Oppein's franchise showrooms are the same format and
-  are treated as borderline — flag, do not count without an explicit decision). A showroom is an
-  order-and-deliver design studio, not a walk-out-with-product store.
+**Chain, not a lone flagship.** Chain-ness is judged at the brand level: the company must run a
+*network* of its own outlets as an ongoing retail channel. A company whose consumer distribution is
+wholesale / authorised resellers / online, with only one or two brand flagships, is a **product
+brand, not a retail chain** — out of scope entirely, not recorded even as a signal (decision
+2026-09-30). Out on this test: DJI (one US flagship + reseller/online), Insta360 (one Times Square
+flagship), Anker (one Berlin store), Narwal (one KL flagship). Xiaomi is IN — 100+ franchised Mi
+Stores is a network. Note a chain's US footprint may itself be a single store (More Yogurt,
+Grandma's Home) — a chain with one US outlet is different from a brand that has no store network.
+
+COUNTS — a branded consumer retail store/outlet of an in-scope chain: company-owned, franchise, or
+dealer-operated; flagship, standard, mall inline, street, kiosk, food hall, or the brand's own
+staffed shop-in-shop / counter.
+
+DOES NOT COUNT (record as context / signal, never as a store, never in a store total or revenue
+estimate):
+- **Manufacturers / product brands with no own retail-outlet chain** — reach consumers via
+  wholesale, distributors, fabricators or third-party retailers (Formica; furniture wholesalers
+  Kuka, Man Wah, Mlily, Markor).
+- Third-party retailer shelves, marketplace / e-commerce, and department-store concessions only
+  (Ulta/Sephora/Best Buy/Target/Costco/Sam's Club shelves; Amazon/Tmall/Weee!/Yamibuy; beauty
+  shelf-only such as Proya and Florasis-in-US).
+- **Order-and-install design showrooms** — custom kitchen / cabinet / furniture studios where the
+  customer designs and orders and the product is manufactured and installed later (Oppein,
+  Suofeiya). Branded and consumer-facing, but not a retail store; treat as a manufacturer showroom.
+  (Decision 2026-09-30: OUT.)
+- **Lone-flagship product brands** — no own-store network; one or two brand flagships plus
+  wholesale / authorised-reseller / online distribution (DJI, Insta360, Anker, Narwal).
+  (Decision 2026-09-30: OUT entirely — not recorded, not a signal.)
 - Trade / industry-show showrooms (e.g. High Point Market) and authorised-reseller shop-in-shops.
-- Pop-ups count only as `format='pop_up'` with planned start/end dates and are held out of the
-  permanent store total.
+- Pop-ups count only as `format='pop_up'` with planned start/end dates, held out of the permanent
+  store total.
 - A stock listing, an IPO, a corporate/sales office, or a namesake/copycat brand.
 
-Encode the rule with fields, not prose: a row with `format='showroom'` **or** `operating_model IN
-('dealer','wholesale')` is excluded from store counts and revenue models. `operating_model` is the
-gate; `format` is the descriptor.
+Encode with fields, not prose: a brand enters the registry only if it is a **retail chain** — it runs
+a network of its own branded retail outlets. A company that is only a manufacturer/wholesaler
+(Formica, Kuka), sells only through third parties/online, runs only order-and-install showrooms
+(Oppein, Suofeiya), or has only a lone flagship (DJI) does not qualify and is not added. Where an
+in-scope chain has an individual non-retail location (a one-off showroom or a pop-up), tag it via
+`format` so it is held out of the store count and revenue. Ownership model (company / franchise /
+dealer) never excludes on its own.
 
 Origin gate (unchanged): mainland-China origin only. Exclude Taiwan- and Hong-Kong-origin brands;
 record ambiguous cases (Man Wah, Shang Xia, Hsu Fu Chi, Feiyue trademark split, Narwal) with a note
@@ -203,9 +230,14 @@ Before building, per the brief's build-order rule, the source card:
    `entities`, `pipeline_signals`, `financial_anchors` (empty, provenance columns present).
 2. Brand-identity unification on `chain_id`; move brand-level fields to one canonical store.
 3. Backfill the 2026-09-30 sector-scan brands (apparel/beauty/electronics/home/grocery) into the
-   registry with `sector`, `operating_model`, `tickers`; set US sightings for the confirmed
-   US-present ones (Anta, Urban Revivo, JNBY, Meilleur Moment, DJI, Insta360 — NOT the dealer
-   showrooms; Oppein flagged pending decision; Peak pending live re-verification).
+   registry with `sector`, `operating_model`, `tickers` — retail chains only. Set US sightings for the
+   confirmed US-present store-chains: **Anta, Urban Revivo, JNBY, Meilleur Moment** (Peak pending live
+   re-verification; exact current US store lists to confirm before load). Excluded, NOT added: DJI,
+   Insta360, Anker, Narwal (lone-flagship product brands); Oppein, Suofeiya (order-and-install
+   showrooms); furniture wholesalers (Kuka, Man Wah, Mlily, Markor) and beauty shelf-only brands
+   (Proya, Florasis-US). Overseas-only chains (Bosideng, Semir/Balabala, Xtep, Laopu Gold, Florasis,
+   Mao Geping, Judydoll, Joocyee, The Colorist, HotMaxx, Xiaomi, etc.) go to the international
+   register without US rows.
 4. USPTO collector (§5), end to end, weekly, writing `pipeline_signals`.
 5. Tests: schema round-trip; inclusion-rule unit tests (dealer showroom / wholesale excluded);
    USPTO collector idempotency; validate() extended for the new brand fields.
