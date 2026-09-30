@@ -26,6 +26,14 @@ DELAY_MIN_S = float(os.environ.get("CHAIN_ATLAS_DELAY_MIN", 4))
 DELAY_MAX_S = float(os.environ.get("CHAIN_ATLAS_DELAY_MAX", 8))
 MAX_RETRIES = 3
 
+# USPTO trademark collector (Phase-1 pipeline signals). Official US-government data — public
+# records, an official API, no third-party scraping. The current API requires a free key from the
+# USPTO developer hub; without one the collector skips (manual fallback), never invents data.
+# The base URL and response shape should be confirmed against USPTO's live API docs before the
+# first live run — parse() is the only piece that depends on the exact field names.
+USPTO_API_KEY = os.environ.get("USPTO_API_KEY", "").strip()
+USPTO_API_BASE = os.environ.get("USPTO_API_BASE", "https://api.uspto.gov").rstrip("/")
+
 
 def ensure_dirs():
     """

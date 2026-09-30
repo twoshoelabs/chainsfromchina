@@ -65,6 +65,12 @@ def main(argv=None):
         print(f"synced brand fields into {n} chains")
         return 0
 
+    if cmd == "uspto":
+        from . import db, uspto
+        con = db.connect()
+        print(uspto.run(con))
+        return 0
+
     if cmd == "export":
         from .mapdata import export
         from . import register
@@ -94,6 +100,7 @@ def main(argv=None):
     print("  status                                          stock, pipeline, blocked chains")
     print("  geocode [--chain X] [--limit N]                  derive coordinates from US addresses")
     print("  sync-brands                                     push register brand fields into the DB")
+    print("  uspto                                           weekly USPTO trademark pipeline signals")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
