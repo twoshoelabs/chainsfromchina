@@ -9,7 +9,7 @@
   "until one is added the tab shows a neutral placeholder. Never hotlink a copyrighted storefront",
   "photo. `photo_credit` is shown beneath the image when present."
  ],
- "as_of": "2026-09-29",
+ "as_of": "2026-10-01",
  "companies": {
   "mixue": {
    "name": "MIXUE",
@@ -442,6 +442,18 @@
    "photo_credit": null,
    "us_since": "Late 2023",
    "first_outlet": "San Mateo, CA — 165 E 4th Ave (now closed)"
+  },
+  "anta": {
+   "name": "Anta",
+   "name_zh": "安踏",
+   "category": "Sportswear & footwear",
+   "blurb": "China's largest sportswear company, founded in 1991 in Jinjiang, Fujian, and listed in Hong Kong. The Anta brand runs roughly 9,900 stores across Greater China; its parent group also owns or controls FILA, Descente and Amer Sports (Arc'teryx, Salomon, Wilson), though those are not Chinese brands and are tracked separately. Anta opened its first US store — a company-operated flagship in Beverly Hills — in February 2026, with NBA players it sponsors at the launch, and is expanding across Southeast Asia.",
+   "us_since": "Feb 2026",
+   "first_outlet": "Beverly Hills, CA — 330 N Beverly Dr",
+   "site_cn": "https://www.anta.com/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null
   }
  }
 }
