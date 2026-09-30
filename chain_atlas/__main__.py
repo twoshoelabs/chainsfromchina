@@ -71,12 +71,19 @@ def main(argv=None):
         print(uspto.run(con))
         return 0
 
+    if cmd == "centers":
+        from . import db, centers
+        con = db.connect()
+        centers.report(con, min_brands=int(opt("--min", 2)))
+        return 0
+
     if cmd == "export":
         from .mapdata import export
-        from . import register
+        from . import register, centers, db
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
         print(export(out), "->", out)
         print(register.export(out), "-> register.json")
+        print(centers.export(db.connect(), out), "-> centers.json")
         return 0
 
     if cmd == "probe":
@@ -101,6 +108,7 @@ def main(argv=None):
     print("  geocode [--chain X] [--limit N]                  derive coordinates from US addresses")
     print("  sync-brands                                     push register brand fields into the DB")
     print("  uspto                                           weekly USPTO trademark pipeline signals")
+    print("  centers [--min N]                               co-tenancy clusters (>=N China brands)")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
