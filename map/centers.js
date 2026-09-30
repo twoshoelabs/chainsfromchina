@@ -29,9 +29,22 @@ function chainChips(c) {
   }).join(' ');
 }
 
+function renderLandlords(roll) {
+  if (!roll || !roll.length) return;
+  document.getElementById('landlordsec').hidden = false;
+  document.querySelector('#reit tbody').innerHTML = roll.map(r => `
+    <tr>
+      <td class="place">${esc(r.owner_reit)}</td>
+      <td><span class="sec">${r.is_reit ? 'REIT' : 'private'}</span></td>
+      <td class="num">${r.centers}</td>
+      <td class="num">${r.brands}</td>
+    </tr>`).join('');
+}
+
 fetch('data/centers.json?cb=' + Date.now())
   .then(r => r.json())
   .then(data => {
+    renderLandlords(data.reit_rollup);
     const rows = data.co_tenancy || [];
     const tb = document.querySelector('#cot tbody');
     tb.innerHTML = rows.map((c, i) => `
@@ -44,10 +57,12 @@ fetch('data/centers.json?cb=' + Date.now())
       </tr>`).join('');
 
     const three = rows.filter(c => c.brand_count >= 3).length;
+    const named = rows.filter(c => c.center).length;
     const states = new Set(rows.map(c => c.state).filter(Boolean)).size;
     document.getElementById('summary').textContent =
-      `${rows.length} clusters where 2+ Chinese chains trade together` +
-      (three ? `, ${three} with 3 or more` : '') + `, across ${states} states.`;
+      `${rows.length} places where 2+ Chinese chains trade together` +
+      (three ? `, ${three} with 3 or more` : '') +
+      `, across ${states} states — ${named} in a named shopping center.`;
     document.getElementById('method').textContent =
       'A cluster is chains geocoded within about 100 m of each other. ' +
       'Counts are distinct brands and distinct sectors; “×N” marks more than one outlet of a brand ' +

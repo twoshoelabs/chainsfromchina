@@ -17,10 +17,55 @@ Two ways a cluster is formed, authoritative first:
 CO-TENANCY is a cluster with two or more DISTINCT brands — the sellable signal. Everything carries
 its members, so every count links back to the specific stores behind it.
 """
+import json
+import math
 from collections import defaultdict
+from pathlib import Path
 
 from . import register
 from .register import sector_of
+
+CENTERS_PATH = Path(__file__).resolve().parents[1] / "manual" / "shopping_centers.json"
+# How close a curated center must be to a cluster to be its name/owner (meters). A cluster is
+# chains within ~100 m of each other; a named center within ~250 m of the cluster's centroid is it.
+ATTACH_RADIUS_M = 250.0
+
+
+def load_centers(path: Path | None = None) -> list[dict]:
+    """
+    name:      load_centers
+    purpose:   Read the hand-curated shopping centers (names, owners/REITs, coordinates).
+    arguments: path — defaults to manual/shopping_centers.json
+    returns:   list of center dicts (empty if the file is absent — centers are optional)
+    effects:   None
+    other:     These are compiled from mall sites, REIT property lists and the trade press, each
+               with a source; they attach a name/owner to a computed cluster but never create one.
+    """
+    p = path or CENTERS_PATH
+    if not p.exists():
+        return []
+    return json.loads(p.read_text(encoding="utf-8")).get("centers", [])
+
+
+def _dist_m(lat1, lon1, lat2, lon2) -> float:
+    """name: _dist_m / purpose: quick planar distance in meters / arguments: two lat/lon pairs /
+    returns: meters / effects: none / other: good enough at mall scale."""
+    dlat = (lat2 - lat1) * 111320.0
+    dlon = (lon2 - lon1) * 111320.0 * math.cos(math.radians((lat1 + lat2) / 2))
+    return math.hypot(dlat, dlon)
+
+
+def _nearest_center(lat, lon, centers: list[dict]) -> dict | None:
+    """name: _nearest_center / purpose: the curated center within ATTACH_RADIUS_M of a point /
+    arguments: lat, lon, centers / returns: a center dict or None / effects: none."""
+    best, best_d = None, ATTACH_RADIUS_M
+    for c in centers:
+        if c.get("lat") is None or c.get("lon") is None:
+            continue
+        d = _dist_m(lat, lon, c["lat"], c["lon"])
+        if d <= best_d:
+            best, best_d = c, d
+    return best
 
 
 def _brand_meta(d: dict) -> dict:
@@ -90,7 +135,8 @@ def _center_rows(con) -> dict:
         return {}
 
 
-def clusters(con, precision: int = 3, include_sightings: bool = True, d: dict | None = None) -> list[dict]:
+def clusters(con, precision: int = 3, include_sightings: bool = True, d: dict | None = None,
+             curated: list[dict] | None = None) -> list[dict]:
     """
     name:      clusters
     purpose:   Group located US storefronts into centers/clusters and describe the brands in each.
@@ -104,7 +150,8 @@ def clusters(con, precision: int = 3, include_sightings: bool = True, d: dict | 
     """
     d = d if d is not None else register.load()
     meta = _brand_meta(d)
-    centers = _center_rows(con)
+    curated = curated if curated is not None else load_centers()
+    center_rows = _center_rows(con)
     groups: dict = defaultdict(list)
     for m in _members(con, include_sightings):
         key = f"center:{m['center_id']}" if m["center_id"] else f"geo:{round(m['lat'], precision)},{round(m['lon'], precision)}"
@@ -125,12 +172,17 @@ def clusters(con, precision: int = 3, include_sightings: bool = True, d: dict | 
                            "count": agg["count"], "statuses": sorted(agg["statuses"])})
         brands.sort(key=lambda b: (-b["count"], b["name"]))
         rep = members[0]
-        center = centers.get(key.split("center:", 1)[1]) if key.startswith("center:") else None
+        clat = round(sum(m["lat"] for m in members) / len(members), 5)
+        clon = round(sum(m["lon"] for m in members) / len(members), 5)
+        # An explicit center_id link is authoritative (its meta is the DB row); a geographic
+        # cluster takes the nearest curated center within ATTACH_RADIUS_M, if any.
+        center = (center_rows.get(key.split("center:", 1)[1]) if key.startswith("center:")
+                  else _nearest_center(clat, clon, curated))
         out.append({
             "key": key,
             "center": center,
-            "lat": round(sum(m["lat"] for m in members) / len(members), 5),
-            "lon": round(sum(m["lon"] for m in members) / len(members), 5),
+            "lat": clat,
+            "lon": clon,
             "city": rep["city"], "state": rep["state"],
             "brands": brands,
             "brand_count": len(by_chain),
@@ -141,15 +193,51 @@ def clusters(con, precision: int = 3, include_sightings: bool = True, d: dict | 
     return out
 
 
-def co_tenancy(con, min_brands: int = 2, **kw) -> list[dict]:
+def places(con, min_brands: int = 2, **kw) -> list[dict]:
     """
-    name:      co_tenancy
-    purpose:   The clusters that matter to a landlord: two or more distinct China-origin brands together.
+    name:      places
+    purpose:   The co-tenancy view as one row PER PLACE — a named center (all its clusters merged)
+               or a single unnamed geographic cluster — which is what a landlord actually asks about.
     arguments: con; min_brands (default 2); passthrough kwargs to clusters()
-    returns:   list of cluster dicts with brand_count >= min_brands, most brands first
+    returns:   list of place dicts (center meta or None, merged brands, counts), most brands first
     effects:   Reads the DB and sightings.
+    other:     A big mall spans several 100 m buckets, so its clusters are merged by center id; the
+               brands are unioned, which also catches co-tenants that sit in different corners of the
+               same center. Unnamed clusters (street corridors) pass through individually.
     """
-    return [c for c in clusters(con, **kw) if c["brand_count"] >= min_brands]
+    merged: dict = {}
+    for c in clusters(con, **kw):
+        gid = f"center:{c['center']['id']}" if c.get("center") else c["key"]
+        p = merged.get(gid)
+        if p is None:
+            p = {"key": gid, "center": c.get("center"), "city": c["city"], "state": c["state"],
+                 "lat": c["lat"], "lon": c["lon"], "_brands": {}, "store_count": 0, "cluster_count": 0}
+            merged[gid] = p
+        p["cluster_count"] += 1
+        p["store_count"] += c["store_count"]
+        if p["center"] and not p.get("city"):
+            p["city"], p["state"] = c["city"], c["state"]
+        for b in c["brands"]:
+            e = p["_brands"].setdefault(b["chain_id"], {"chain_id": b["chain_id"], "name": b["name"],
+                                        "sector": b["sector"], "count": 0, "statuses": set()})
+            e["count"] += b["count"]
+            e["statuses"].update(b["statuses"])
+    out = []
+    for p in merged.values():
+        brands = sorted(p.pop("_brands").values(), key=lambda b: (-b["count"], b["name"]))
+        for b in brands:
+            b["statuses"] = sorted(b["statuses"])
+        p["brands"] = brands
+        p["brand_count"] = len(brands)
+        p["sector_count"] = len({b["sector"] for b in brands if b["sector"]})
+        if p["brand_count"] >= min_brands:
+            out.append(p)
+    out.sort(key=lambda p: (-p["brand_count"], -p["store_count"], p["state"] or "", p["city"] or ""))
+    return out
+
+
+# Back-compat name: co-tenancy is the per-place view.
+co_tenancy = places
 
 
 def reit_rollup(con, **kw) -> list[dict]:
@@ -157,24 +245,53 @@ def reit_rollup(con, **kw) -> list[dict]:
     name:      reit_rollup
     purpose:   Roll co-tenancy up by owner / REIT, for the landlord league table.
     arguments: con; passthrough kwargs
-    returns:   list of {owner_reit, centers, brand_instances, brands} sorted by brand_instances
+    returns:   list of {owner_reit, is_reit, centers, brands, brand_ids} sorted by centers then brands
     effects:   Reads the DB and sightings.
-    other:     Only clusters attached to a named `shopping_centers` row carry an owner, so this is
-               empty until centers are curated — the machinery, ready for the data.
+    other:     Counts DISTINCT named centers per owner (one row per mall, not per geo bucket) and
+               unions the brands across them. Empty until centers are curated.
     """
-    by_reit: dict = defaultdict(lambda: {"centers": 0, "brand_instances": 0, "brands": set()})
-    for c in clusters(con, **kw):
-        owner = (c["center"] or {}).get("owner_reit")
-        if not owner:
+    by_reit: dict = defaultdict(lambda: {"centers": 0, "is_reit": False, "brands": set()})
+    for p in places(con, **kw):
+        c = p["center"]
+        if not c or not c.get("owner_reit"):
             continue
-        r = by_reit[owner]
+        r = by_reit[c["owner_reit"]]
         r["centers"] += 1
-        r["brand_instances"] += c["brand_count"]
-        r["brands"].update(b["chain_id"] for b in c["brands"])
-    out = [{"owner_reit": k, "centers": v["centers"], "brand_instances": v["brand_instances"],
-            "brands": sorted(v["brands"])} for k, v in by_reit.items()]
-    out.sort(key=lambda r: (-r["brand_instances"], -r["centers"]))
+        r["is_reit"] = r["is_reit"] or bool(c.get("is_reit"))
+        r["brands"].update(b["chain_id"] for b in p["brands"])
+    out = [{"owner_reit": k, "is_reit": v["is_reit"], "centers": v["centers"],
+            "brands": len(v["brands"]), "brand_ids": sorted(v["brands"])} for k, v in by_reit.items()]
+    out.sort(key=lambda r: (-r["centers"], -r["brands"]))
     return out
+
+
+def sync_centers_to_db(con, centers: list[dict] | None = None) -> int:
+    """
+    name:      sync_centers_to_db
+    purpose:   Mirror the curated shopping centers into the DB shopping_centers table.
+    arguments: con; centers — defaults to load_centers()
+    returns:   number of centers upserted
+    effects:   INSERT/UPDATE rows in shopping_centers.
+    other:     The co-tenancy page reads the JSON directly; this keeps the DB table current for
+               anything that queries it. Idempotent (keyed on id).
+    """
+    centers = centers if centers is not None else load_centers()
+    n = 0
+    for c in centers:
+        con.execute(
+            "INSERT INTO shopping_centers(id,name,owner_reit,class_tier,metro,anchors,source,"
+            "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?) "
+            "ON CONFLICT(id) DO UPDATE SET name=excluded.name, owner_reit=excluded.owner_reit, "
+            "class_tier=excluded.class_tier, metro=excluded.metro, anchors=excluded.anchors, "
+            "source=excluded.source, source_url=excluded.source_url, "
+            "retrieved_at=excluded.retrieved_at, confidence=excluded.confidence",
+            (c["id"], c.get("name"), c.get("owner_reit"), c.get("class_tier"), c.get("metro"),
+             json.dumps(c.get("anchors"), ensure_ascii=False) if c.get("anchors") else None,
+             c.get("source"), c.get("source_url"), c.get("retrieved_at"), c.get("confidence")),
+        )
+        n += 1
+    con.commit()
+    return n
 
 
 def export(con, out_dir, d: dict | None = None) -> dict:
@@ -187,10 +304,9 @@ def export(con, out_dir, d: dict | None = None) -> dict:
     other:     Ships the co-tenancy clusters (>=2 brands) and the full cluster list, so the page can
                show "Chinese brands cluster here" without recomputing.
     """
-    import json
-    from pathlib import Path
+    sync_centers_to_db(con)
     allc = clusters(con, d=d)
-    cot = [c for c in allc if c["brand_count"] >= 2]
+    cot = places(con, d=d)
     payload = {"co_tenancy": cot, "clusters": allc, "reit_rollup": reit_rollup(con, d=d)}
     Path(out_dir).mkdir(parents=True, exist_ok=True)
     (Path(out_dir) / "centers.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))

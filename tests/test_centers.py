@@ -61,7 +61,7 @@ def main():
         ("haidilao","h2", 47.6200, -122.3500, "Seattle", "WA", "sc1"),
     ])
 
-    cl = centers.clusters(con, include_sightings=False, d=REG)
+    cl = centers.clusters(con, include_sightings=False, d=REG, curated=[])
     by_where = {(c["city"], c["state"], c["key"].startswith("center:")): c for c in cl}
     # Queens geo cluster: 2 brands
     q = next(c for c in cl if c["city"] == "Queens")
@@ -80,15 +80,16 @@ def main():
     check("center meta attached (name)", sc["center"]["name"], "Trophy Mall")
     check("center meta attached (owner)", sc["center"]["owner_reit"], "GiantREIT")
 
-    cot = centers.co_tenancy(con, include_sightings=False, d=REG)
+    cot = centers.co_tenancy(con, include_sightings=False, d=REG, curated=[])
     check("co_tenancy keeps only 2+ brand clusters", sorted(c["key"] for c in cot),
           sorted(["geo:40.76,-73.834", "center:sc1"]))
     check("co_tenancy excludes the lone LA brand", all(c["city"] != "Los Angeles" for c in cot), True)
 
     # REIT rollup only counts centers with a known owner
-    roll = centers.reit_rollup(con, include_sightings=False, d=REG)
+    roll = centers.reit_rollup(con, include_sightings=False, d=REG, curated=[])
     check("REIT rollup surfaces GiantREIT", roll[0]["owner_reit"], "GiantREIT")
-    check("REIT rollup counts its brand instances", roll[0]["brand_instances"], 2)
+    check("REIT rollup counts one distinct center", roll[0]["centers"], 1)
+    check("REIT rollup unions its brands", roll[0]["brands"], 2)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAILED: {fails}"))
     return 1 if fails else 0
