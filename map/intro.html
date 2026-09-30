@@ -103,6 +103,7 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
 
   // Order: follow the map's collected chains first, then the rest, so the biggest names lead.
   const order = [...Object.keys(meta.chains || {}), ...(meta.blocked || []).map(b => b.chain_id)];
+  const usPresent = new Set(order);   // chains with at least one US outlet (collected or sighted)
   const ids = [...new Set([...order.filter(id => C[id]), ...Object.keys(C)])];
 
   const grid = document.getElementById('companies');
@@ -119,6 +120,11 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
     const usLink = c.site_us
       ? `<a href="${esc(c.site_us)}" target="_blank" rel="noopener">US site ↗ <span class="dim">${esc(host(c.site_us))}</span></a>`
       : `<span class="dim">no US site</span>`;
+    // Chains with a US outlet link back to the map's legend, so a reader can see how this chain is
+    // drawn and read the symbols. (Overseas-only chains are not on the US map, so no link.)
+    const mapLink = usPresent.has(id)
+      ? ` &nbsp;·&nbsp; <a href="index.html#maplegend">On the US map ↗</a>`
+      : '';
 
     // Photo: only shown when the project ships a licensed image; otherwise a labelled placeholder.
     const photo = c.photo
@@ -144,7 +150,7 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
         `<p class="cblurb">${esc(c.blurb || '')}</p>` +
         usline +
         (c.photo_credit ? `<p class="ccredit">Photo: ${esc(c.photo_credit)}</p>` : '') +
-        `<p class="clinks">${cnLink} &nbsp;·&nbsp; ${usLink}</p>` +
+        `<p class="clinks">${cnLink} &nbsp;·&nbsp; ${usLink}${mapLink}</p>` +
       `</div>`;
     grid.append(card);
   }
