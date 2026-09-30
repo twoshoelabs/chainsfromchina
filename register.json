@@ -444,7 +444,7 @@
       "name": "Qiandama",
       "name_zh": "钱大妈",
       "format": "grocery",
-      "global": "Dongguan fresh-food/grocery chain; present in Hong Kong (branded QDAMA)."
+      "global": "Dongguan fresh-food/grocery chain; 72 stores across Hong Kong and Macau (2025), branded QDAMA."
     },
     "bestore": {
       "name": "Bestore",
@@ -2677,8 +2677,8 @@
       "first_opened": "2018-08-25",
       "precision": "day",
       "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "First Hong Kong store opened 25 Aug 2018 (the chain's 11th city); ~37 HK stores by 2021, branded QDAMA / 錢大媽.",
+      "reviewed": "2026-09-30",
+      "note": "Franchise fresh-food chain; 72 stores across Hong Kong and Macau as of 30 Sep 2025 (branded QDAMA / 錢大媽).",
       "sources": [
         "https://en.wikipedia.org/wiki/Qiandama",
         "https://www.facebook.com/qdamahk19/"
@@ -3524,6 +3524,21 @@
       "note": "Amsterdam Kalverstraat, first permanent Dutch store (Jul 2024).",
       "sources": [
         "https://www.prnewswire.com/"
+      ]
+    },
+    {
+      "chain": "qiandama",
+      "market": "MO",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-09-30",
+      "note": "Franchise fresh-food chain; 72 stores across Hong Kong and Macau as of 30 Sep 2025 (branded QDAMA / 錢大媽).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Qiandama",
+        "https://www.facebook.com/qdamahk19/"
       ]
     }
   ]
