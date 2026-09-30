@@ -73,7 +73,7 @@ def main():
     check("idempotent — anta unchanged on re-run", con.execute(
         "SELECT tickers FROM chains WHERE chain_id='anta'").fetchone()["tickers"], '["HKEX:2020"]')
 
-    # sector_of unit behaviour
+    # sector_of unit behavior
     check("sector_of prefers explicit sector", register.sector_of({"sector": "beauty", "format": "tea"}), "beauty")
     check("sector_of falls back to format", register.sector_of({"format": "hotpot"}), "food_drink")
     check("sector_of unknown -> None", register.sector_of({"format": "mystery"}), None)

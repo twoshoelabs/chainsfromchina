@@ -16,7 +16,7 @@ Differences from the Taiwan sibling, all deliberate:
 
 Phase 1 (intelligence) extends this archive across sectors without forking it: `chains` gains
 cross-sector brand fields, `stores` gains pipeline/landlord location detail, `events` gains
-first-class provenance, and four tables land empty for later phases — `shopping_centres`,
+first-class provenance, and four tables land empty for later phases — `shopping_centers`,
 `entities`, `pipeline_signals`, `financial_anchors`. All additive; see docs/phase1_spec.md §4.
 """
 import sqlite3
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS chains (
     sub_category            TEXT,
     tickers                 TEXT,     -- JSON array, e.g. ["HKEX:2020"]; NULL/[] for private
     us_entry_date           TEXT,     -- first US store open date; NULL if not in US
-    operating_model         TEXT,     -- company_owned|franchise|master_franchise|licence|jv|wholesale|dealer
+    operating_model         TEXT,     -- company_owned|franchise|master_franchise|license|jv|wholesale|dealer
     fdd_available           INTEGER,  -- 0/1/NULL(unknown): US franchise disclosure document on file
     franchise_available_us  INTEGER   -- 0/1/NULL
 );
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS stores (
                                            -- active | pre_opening | closed | temp_closed | withdrawn
     -- Phase 1 (intelligence): location detail for the pipeline / landlord views. §4.3.
     metro               TEXT,      -- Census CBSA code
-    centre_id           TEXT,      -- soft FK -> shopping_centres.id (NULL for street/standalone)
+    center_id           TEXT,      -- soft FK -> shopping_centers.id (NULL for street/standalone)
     format              TEXT,      -- flagship|standard|mall_inline|street|food_hall|kiosk|pop_up|
                                    -- shop_in_shop|vending_robo|showroom
     square_footage      INTEGER,
@@ -136,12 +136,12 @@ CREATE TABLE IF NOT EXISTS runs (
 -- later phases; every row carries source/source_url/retrieved_at(UTC)/confidence, and corrections
 -- are new rows (history is the product), never overwrites.
 
--- Shopping centres, for the co-tenancy / landlord view. Filled in Phase 2.
-CREATE TABLE IF NOT EXISTS shopping_centres (
+-- Shopping centers, for the co-tenancy / landlord view.
+CREATE TABLE IF NOT EXISTS shopping_centers (
     id           TEXT PRIMARY KEY,
     name         TEXT NOT NULL,
     owner_reit   TEXT,
-    class_tier   TEXT,                       -- rubric to be fixed before filling (avoid drift)
+    class_tier   TEXT,                       -- A|B|C tier rubric (see docs); avoid subjective drift
     metro        TEXT,                       -- Census CBSA
     anchors      TEXT,                       -- JSON array
     source       TEXT,
@@ -223,9 +223,21 @@ def _migrate(con):
                or rewrite a column has no business running automatically on connect.
                Each new column must ALSO appear in SCHEMA's CREATE (for fresh databases, where
                _migrate is a no-op because the table does not exist yet). The new intelligence
-               tables (shopping_centres, entities, pipeline_signals, financial_anchors) need no
+               tables (shopping_centers, entities, pipeline_signals, financial_anchors) need no
                entry here — CREATE TABLE IF NOT EXISTS in SCHEMA makes them on both paths.
     """
+    # One-time rename to American spelling. The `shopping_centres` table and `stores.centre_id`
+    # column were introduced 2026-09-30 and are empty and unused everywhere, so renaming them is
+    # safe (the only exception to "additive only"). Guarded so it runs at most once per archive.
+    tabs = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    if "shopping_centres" in tabs and "shopping_centers" not in tabs:
+        con.execute("ALTER TABLE shopping_centres RENAME TO shopping_centers")
+        con.commit()
+    scols = {r[1] for r in con.execute("PRAGMA table_info(stores)")}
+    if "centre_id" in scols and "center_id" not in scols:
+        con.execute("ALTER TABLE stores RENAME COLUMN centre_id TO center_id")
+        con.commit()
+
     columns = (
         ("chains", "country", "TEXT NOT NULL DEFAULT 'US'"),
         ("stores", "country", "TEXT NOT NULL DEFAULT 'US'"),
@@ -239,7 +251,7 @@ def _migrate(con):
         ("chains", "franchise_available_us", "INTEGER"),
         # Phase 1 — location detail on stores (§4.3)
         ("stores", "metro", "TEXT"),
-        ("stores", "centre_id", "TEXT"),
+        ("stores", "center_id", "TEXT"),
         ("stores", "format", "TEXT"),
         ("stores", "square_footage", "INTEGER"),
         ("stores", "operator_entity_id", "TEXT"),

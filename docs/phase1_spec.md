@@ -3,7 +3,7 @@
 Status: draft, 2026-09-30. Owner: Twoshoe Labs. This is the first phase of turning `chain_atlas`
 from a US-map measurement project (food/tea/toys-forward) into a multi-sector
 **China-retail-into-the-US intelligence** dataset. It covers only Phase 1 of the agreed build
-order; later phases (shopping centres, pricing, revenue models) get their own specs.
+order; later phases (shopping centers, pricing, revenue models) get their own specs.
 
 ## 1. Scope
 
@@ -11,14 +11,14 @@ order; later phases (shopping centres, pricing, revenue models) get their own sp
 1. Generalise the brand registry across all sectors (schema + backfill the non-food brands already
    found in the 2026-09-30 sector scan).
 2. Keep the existing locator census + `status_events` engine; extend `locations` with the fields
-   the intelligence product needs (metro, centre, format, size, operator).
+   the intelligence product needs (metro, center, format, size, operator).
 3. Stand up the **entities** graph (US LLCs / franchisees / officers) and **financial_anchors**
    tables as empty, provenance-carrying tables ready to fill.
 4. Build ONE pipeline-signal collector end to end: **USPTO trademark filings** (the cleanest,
    most legally unambiguous, highest-signal source).
 
-**Explicitly deferred (later phases, do not build now):** shopping-centre / co-tenancy view;
-catalogues / products / price observations; revenue models; `review_metrics` (legal landmine —
+**Explicitly deferred (later phases, do not build now):** shopping-center / co-tenancy view;
+catalogs / products / price observations; revenue models; `review_metrics` (legal landmine —
 review-velocity needs Yelp/Google data the guardrails forbid scraping); customs import records
 (licensing); foot-traffic (paid). State-registry, permit, mall-directory and job-posting
 collectors are Phase 2/3 — the schema below is built so they slot in without migration.
@@ -135,7 +135,7 @@ Add:
 - `sub_category` TEXT.
 - `tickers` TEXT — JSON array, e.g. `["HKEX:2020"]`; empty for private.
 - `us_entry_date` TEXT — first US store open date (NULL if not in US).
-- `operating_model` TEXT — `company_owned | franchise | master_franchise | licence | jv | wholesale | dealer`.
+- `operating_model` TEXT — `company_owned | franchise | master_franchise | license | jv | wholesale | dealer`.
 - `fdd_available` INTEGER — 0/1 (US franchise disclosure document on file).
 - `franchise_available_us` INTEGER — 0/1.
 - Keep `format` for the store format descriptor of the *typical* outlet, but the sector lives in
@@ -148,7 +148,7 @@ opened_on, status` (`active | pre_opening | closed | temp_closed | withdrawn`).
 
 Add:
 - `metro` TEXT — Census CBSA code (free join: we already geocode via Census).
-- `centre_id` TEXT — FK to `shopping_centres` (NULL for street/standalone).
+- `center_id` TEXT — FK to `shopping_centers` (NULL for street/standalone).
 - `format` TEXT — `flagship | standard | mall_inline | street | food_hall | kiosk | pop_up |
   shop_in_shop | vending_robo | showroom`.
 - `square_footage` INTEGER — NULL if unknown.
@@ -170,7 +170,7 @@ silence, manual visit), `supersedes_id`.
 
 ### 4.5 New tables
 
-`shopping_centres` (created empty in Phase 1; filled in Phase 2):
+`shopping_centers` (created empty in Phase 1; filled in Phase 2):
 `id, name, owner_reit, class_tier, metro (CBSA), anchors(JSON), source, source_url, retrieved_at,
 confidence`. Define `class_tier` with an explicit rubric before filling (avoid subjective drift).
 
@@ -221,12 +221,12 @@ Before building, per the brief's build-order rule, the source card:
   / # effects: / # other:`.
 - Collectors are idempotent per date; append-only history; corrections reference the superseded row.
 - Sector differences are handled with fields and channel tags, never separate databases.
-- Measured vs modelled stays walled: nothing in Phase 1 emits an estimate. When estimates arrive
+- Measured vs modeled stays walled: nothing in Phase 1 emits an estimate. When estimates arrive
   (later phase) they live behind their own table and are never rendered as a reported figure.
 
 ## 7. Phase-1 deliverables (order)
 
-1. Schema migration: additive columns on `chains`, `stores`, `events`; create `shopping_centres`,
+1. Schema migration: additive columns on `chains`, `stores`, `events`; create `shopping_centers`,
    `entities`, `pipeline_signals`, `financial_anchors` (empty, provenance columns present).
 2. Brand-identity unification on `chain_id`; move brand-level fields to one canonical store.
 3. Backfill the 2026-09-30 sector-scan brands (apparel/beauty/electronics/home/grocery) into the

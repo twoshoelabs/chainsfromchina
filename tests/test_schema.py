@@ -21,10 +21,10 @@ from chain_atlas import db  # noqa: E402
 
 CHAINS_NEW = {"sector", "sub_category", "tickers", "us_entry_date",
               "operating_model", "fdd_available", "franchise_available_us"}
-STORES_NEW = {"metro", "centre_id", "format", "square_footage",
+STORES_NEW = {"metro", "center_id", "format", "square_footage",
               "operator_entity_id", "closed_on", "popup_start", "popup_end"}
 EVENTS_NEW = {"source", "source_url", "retrieved_at", "confidence", "evidence", "supersedes_id"}
-NEW_TABLES = {"shopping_centres", "entities", "pipeline_signals", "financial_anchors"}
+NEW_TABLES = {"shopping_centers", "entities", "pipeline_signals", "financial_anchors"}
 
 # An archive as it looked BEFORE Phase 1 — base columns only.
 OLD_SCHEMA = """

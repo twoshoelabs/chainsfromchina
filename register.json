@@ -492,7 +492,7 @@
       "tickers": [
         "HKEX:3306"
       ],
-      "operating_model": "licence",
+      "operating_model": "license",
       "us_entry_date": "2015-11",
       "name_us": "AGoodFun"
     },
@@ -615,7 +615,7 @@
       "name": "Judydoll",
       "name_zh": "橘朵",
       "format": "beauty",
-      "global": "Shanghai colour-cosmetics brand (Joy Group); standalone stores in Singapore and Hong Kong.",
+      "global": "Shanghai color cosmetics brand (Joy Group); standalone stores in Singapore and Hong Kong.",
       "sector": "beauty",
       "operating_model": "company_owned"
     },
@@ -623,7 +623,7 @@
       "name": "Joocyee",
       "name_zh": "酵色",
       "format": "beauty",
-      "global": "Shanghai colour-cosmetics brand (Joy Group, sister to Judydoll); first international store in Singapore.",
+      "global": "Shanghai color cosmetics brand (Joy Group, sister to Judydoll); first international store in Singapore.",
       "sector": "beauty",
       "operating_model": "company_owned"
     },
@@ -3057,7 +3057,7 @@
       "precision": "day",
       "confidence": "medium",
       "reviewed": "2026-09-29",
-      "note": "First Mexico store opened 13 Feb 2026 in Mexico City's historic centre.",
+      "note": "First Mexico store opened 13 Feb 2026 in Mexico City's historic center.",
       "sources": [
         "https://www.mexcham.org/mixue-debuts-in-mexico-with-first-store-in-historic-center/"
       ]
