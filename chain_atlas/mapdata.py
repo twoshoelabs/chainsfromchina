@@ -193,6 +193,48 @@ def export(out_dir: Path) -> dict:
     except Exception:                                           # noqa: BLE001
         _companies = {}
 
+    # Fallback "Who they are" cards: every registered chain that lacks a hand-written profile gets a
+    # lightweight card built from the register (its name, sector and `global` blurb), so no tracked
+    # chain is missing a box. Hand-written profiles always win (skip a chain that already has one).
+    try:
+        from . import register as _reg
+        _regd = _reg.load()
+        _SECTOR_LABEL = {
+            "food_drink": "Restaurant", "tea": "Bubble tea / tea", "coffee": "Coffee",
+            "bakery": "Bakery", "grocery_convenience": "Grocery / convenience", "snacks": "Snacks",
+            "apparel": "Apparel & accessories", "beauty": "Beauty",
+            "lifestyle_variety": "Lifestyle / variety", "electronics": "Electronics", "home": "Home",
+        }
+        _MON = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+        def _fmt_since(s):
+            # "2026-02-13"/"2026-02" -> "Feb 2026"; "2026" -> "2026"; else unchanged
+            if not s:
+                return None
+            p = str(s).split("-")
+            try:
+                return f"{_MON[int(p[1])]} {p[0]}" if len(p) >= 2 else p[0]
+            except (ValueError, IndexError):
+                return str(s)
+
+        comps = _companies.setdefault("companies", {})
+        for _cid, _c in _regd.get("chains", {}).items():
+            if _cid in comps:
+                continue
+            comps[_cid] = {
+                "name": _c.get("name_us") or _c.get("name"),
+                "name_zh": _c.get("name_zh") or "",
+                "category": _SECTOR_LABEL.get(_reg.sector_of(_c)),
+                "blurb": _c.get("global") or "",
+                "us_since": _fmt_since(_c.get("us_entry_date")),
+                "first_outlet": None,
+                "site_cn": None, "site_us": None,
+                "photo": None, "photo_credit": None,
+                "auto": True,
+            }
+    except Exception:                                           # noqa: BLE001
+        pass
+
     cov = con.execute(
         "SELECT MIN(obs_date) a, MAX(obs_date) b, COUNT(DISTINCT obs_date) n"
         " FROM runs WHERE status='ok'").fetchone()
