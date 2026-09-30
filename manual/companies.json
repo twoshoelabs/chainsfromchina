@@ -454,6 +454,30 @@
    "site_us": null,
    "photo": null,
    "photo_credit": null
+  },
+  "urbanrevivo": {
+   "name": "Urban Revivo",
+   "name_zh": "",
+   "category": "Fast fashion (apparel)",
+   "blurb": "A Guangzhou fashion retailer founded in 2006 and often called China's answer to Zara, known for large, design-led stores. It runs more than 400 stores, mostly in China and Southeast Asia, and has since expanded to the UK and the US; its parent, Fashion Momentum Group, is privately held. Urban Revivo opened its first US store — a roughly 30,000-square-foot flagship in SoHo — in February 2025.",
+   "us_since": "Feb 2025",
+   "first_outlet": "SoHo, New York, NY — 515 Broadway",
+   "site_cn": null,
+   "site_us": "https://www.urbanrevivo.com/",
+   "photo": null,
+   "photo_credit": null
+  },
+  "jnby": {
+   "name": "JNBY",
+   "name_zh": "江南布衣",
+   "category": "Designer apparel",
+   "blurb": "A Hangzhou designer-fashion house, listed in Hong Kong, that runs a family of in-house women's and lifestyle labels — JNBY, Croquis, less, jnby by JNBY and Pomme de terre — across roughly 2,100 stores, almost all in China. In the United States its stores trade as “AGoodFun”, run by a local licensee, with locations in San Francisco and Seattle; earlier stores in Bellevue and SoHo, New York have closed.",
+   "us_since": "2015",
+   "first_outlet": "Seattle, WA — 600 Pine St (Pacific Place), as AGoodFun",
+   "site_cn": "https://www.jnby.com/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null
   }
  }
 }
