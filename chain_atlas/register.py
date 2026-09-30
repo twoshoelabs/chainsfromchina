@@ -41,6 +41,37 @@ STATUSES = {"present", "announced", "exited", "no_evidence"}
 CONFIDENCE = {"high", "medium", "low"}
 PRECISION = {"day", "month", "year", None}
 
+# Phase 1 (intelligence): sectors. `format` is the store-format descriptor an adapter already
+# carries; `sector` is the retail category the intelligence product groups by. Most brands map
+# cleanly from format; a brand may override with an explicit `sector` in register.json.
+SECTORS = {"food_drink", "tea", "coffee", "bakery", "grocery_convenience", "snacks",
+           "apparel", "beauty", "lifestyle_variety", "electronics", "home"}
+SECTOR_BY_FORMAT = {
+    "tea": "tea", "coffee": "coffee", "bakery": "bakery",
+    "restaurant": "food_drink", "hotpot": "food_drink", "fastfood": "food_drink",
+    "snack": "snacks",
+    "lifestyle": "lifestyle_variety", "toys": "lifestyle_variety",
+    "convenience": "grocery_convenience", "supermarket": "grocery_convenience",
+    "grocery": "grocery_convenience",
+    "apparel": "apparel", "beauty": "beauty", "electronics": "electronics", "home": "home",
+}
+
+
+def sector_of(chain: dict) -> str | None:
+    """
+    name:      sector_of
+    purpose:   The intelligence sector for a brand: its explicit `sector`, else mapped from `format`.
+    arguments: chain — a register.json chain dict (anything with sector/format keys)
+    returns:   a sector string, or None if neither is set nor mappable
+    effects:   None
+    other:     The format->sector map lets brands that predate the intelligence fields (including
+               US-only adapter chains) get a sector without hand-editing each one.
+    """
+    s = chain.get("sector")
+    if s:
+        return s
+    return SECTOR_BY_FORMAT.get(chain.get("format"))
+
 
 def load(path: Path | None = None) -> dict:
     """
@@ -353,6 +384,12 @@ def export(out_dir: Path) -> dict:
             "name_us": d["chains"][c].get("name_us"), "format": d["chains"][c].get("format")})
     for c, info in us.items():
         us_derived.setdefault(c, info)
+    # Phase 1: carry each brand's sector so the page (and later the pipeline/landlord views) can
+    # group across sectors. Register brands map via sector_of; adapter-only chains via their format.
+    for c, info in us_derived.items():
+        if "sector" not in info:
+            info["sector"] = (sector_of(d["chains"][c]) if c in d["chains"]
+                              else SECTOR_BY_FORMAT.get(info.get("format")))
     d["derived"] = {
         "us_status": us_derived,
         "markets_present": dict(by_chain),
@@ -363,3 +400,42 @@ def export(out_dir: Path) -> dict:
     }
     (out_dir / "register.json").write_text(json.dumps(d, ensure_ascii=False, indent=1))
     return d["derived"]
+
+
+def sync_brands_to_db(con, d: dict | None = None) -> int:
+    """
+    name:      sync_brands_to_db
+    purpose:   Make register.json the canonical brand registry: push its intelligence fields into
+               the DB `chains` table, and give every collected chain a `sector`.
+    arguments: con — an open DB connection; d — a register dict (defaults to the repo's register)
+    returns:   number of chains updated
+    effects:   UPDATEs rows in chains. Never creates or deletes rows — the collection universe is
+               the adapters' to define; this only enriches the brands they already record.
+    other:     For a chain the register describes, its intelligence fields (sector, sub_category,
+               tickers, us_entry_date, operating_model, fdd_available, franchise_available_us) are
+               authoritative. For a US-only adapter chain the register does not list, only `sector`
+               is filled, mapped from the chain's `format`. Idempotent.
+    """
+    d = d or load()
+    reg = d.get("chains", {})
+    n = 0
+    for row in con.execute("SELECT chain_id, format FROM chains").fetchall():
+        cid = row["chain_id"]
+        c = reg.get(cid)
+        if c is not None:
+            vals = {
+                "sector": sector_of(c),
+                "sub_category": c.get("sub_category"),
+                "tickers": json.dumps(c["tickers"], ensure_ascii=False) if c.get("tickers") else None,
+                "us_entry_date": c.get("us_entry_date"),
+                "operating_model": c.get("operating_model"),
+                "fdd_available": c.get("fdd_available"),
+                "franchise_available_us": c.get("franchise_available_us"),
+            }
+        else:
+            vals = {"sector": SECTOR_BY_FORMAT.get(row["format"])}
+        sets = ", ".join(f"{k}=?" for k in vals)
+        con.execute(f"UPDATE chains SET {sets} WHERE chain_id=?", (*vals.values(), cid))
+        n += 1
+    con.commit()
+    return n

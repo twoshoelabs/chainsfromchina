@@ -58,6 +58,13 @@ def main(argv=None):
         print(geocode.run(con, chain_id=opt("--chain"), limit=int(opt("--limit", 500))))
         return 0
 
+    if cmd == "sync-brands":
+        from . import db, register
+        con = db.connect()
+        n = register.sync_brands_to_db(con)
+        print(f"synced brand fields into {n} chains")
+        return 0
+
     if cmd == "export":
         from .mapdata import export
         from . import register
@@ -86,6 +93,7 @@ def main(argv=None):
     print("  reparse [--chain X] [--date YYYY-MM-DD]                re-derive a day from raw, no network")
     print("  status                                          stock, pipeline, blocked chains")
     print("  geocode [--chain X] [--limit N]                  derive coordinates from US addresses")
+    print("  sync-brands                                     push register brand fields into the DB")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
