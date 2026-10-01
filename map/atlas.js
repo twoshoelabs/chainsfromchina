@@ -46,9 +46,9 @@ const MONOGRAM = {
 // to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
 const LOGO_CHAINS = new Set([
   'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'cotti', 'dezhuang', 'fishwithyou',
-  'haidilao', 'heytea', 'jnby', 'liuyishou', 'luckin', 'malubianbian', 'miniso', 'mixue', 'mollytea',
-  'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'toptoy', 'xiaolongkan', 'yangguofu',
-  'yangs', 'zhangliang',
+  'haidilao', 'heytea', 'jnby', 'lelecha', 'liuyishou', 'luckin', 'malubianbian', 'miniso', 'mixue',
+  'mollytea', 'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'toptoy', 'xiaolongkan',
+  'yangguofu', 'yangs', 'zhangliang',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
