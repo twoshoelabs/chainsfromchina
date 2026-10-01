@@ -122,8 +122,25 @@ cat > "$CORS" <<JSON
   "MaxAgeSeconds": 86400
 } ] }
 JSON
-aws s3api put-bucket-cors --bucket "$R2_BUCKET" --cors-configuration "file://$CORS" \
-  --endpoint-url "$ENDPOINT" --region auto && echo "CORS set (any origin, GET/HEAD)."
+if aws s3api put-bucket-cors --bucket "$R2_BUCKET" --cors-configuration "file://$CORS" \
+     --endpoint-url "$ENDPOINT" --region auto 2>/tmp/corserr; then
+  echo "CORS set (any origin, GET/HEAD)."
+else
+  echo "NOTE: could not set CORS via the API:"; sed 's/^/    /' /tmp/corserr
+  echo "    An 'Object Read & Write' token can upload objects but NOT edit bucket config (CORS)."
+  echo "    Easiest fix — set it in the dashboard: bucket -> Settings -> CORS Policy -> Edit/Add,"
+  echo "    paste this, Save:"
+  cat <<'DASHCORS'
+    [
+      { "AllowedOrigins": ["*"],
+        "AllowedMethods": ["GET","HEAD"],
+        "AllowedHeaders": ["*"],
+        "ExposeHeaders": ["ETag","Content-Length","Content-Range","Accept-Ranges"],
+        "MaxAgeSeconds": 86400 }
+    ]
+DASHCORS
+  echo "    (Or re-run this script with an 'Admin Read & Write' R2 token, which can set CORS.)"
+fi
 
 PUBLIC="${R2_PUBLIC_BASE%/}/$OUT_NAME"
 echo
