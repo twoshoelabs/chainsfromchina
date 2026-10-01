@@ -9,8 +9,8 @@
 //        exactly this URL. When set, the Protomaps light theme loads from a US PMTiles file on R2.
 // (To use MapTiler instead, set BASEMAP.style to a MapTiler style URL with your key.)
 const BASEMAP = {
-  pmtiles: '',
-  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+  pmtiles: 'https://pub-7dec9caf8d7e4d4e9f4ab6dea7bb8005.r2.dev/us.pmtiles',  // self-hosted US Protomaps (R2)
+  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',     // fallback if pmtiles is cleared
 };
 let GLYPH_FONT = 'Open Sans Regular';   // a font the active style's glyph server provides
 
@@ -35,7 +35,7 @@ async function resolveStyle() {
   // Protomaps path: register the pmtiles:// protocol and build the light theme over our US file.
   const [pm, bm] = await Promise.all([
     import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm'),
-    import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@4/+esm'),
+    import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm'),
   ]);
   maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
   GLYPH_FONT = 'Noto Sans Regular';                // Protomaps' glyph server provides this
