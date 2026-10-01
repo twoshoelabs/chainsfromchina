@@ -502,6 +502,18 @@
    "site_us": null,
    "photo": null,
    "photo_credit": null
+  },
+  "moge": {
+   "name": "Möge Tee",
+   "name_zh": "茉莉奶白",
+   "category": "Bubble tea",
+   "blurb": "A mainland-China bubble-tea chain that trades in the US as “Möge Tee”. It has grown quickly across the US — roughly 70 stores in 18 states by late 2026, clustered in the Northeast, Florida, Texas and California — each listed on its own US store locator. (Not to be confused with More Yogurt / 茉酸奶, a separate yogurt-drink brand.)",
+   "us_since": "2018",
+   "first_outlet": null,
+   "site_cn": null,
+   "site_us": "https://www.mogeteeusa.com/",
+   "photo": null,
+   "photo_credit": null
   }
  }
 }

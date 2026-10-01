@@ -42,7 +42,7 @@ const MONOGRAM = {
   toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
   xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
   jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
-  moreyogurt: 'MG', baospastry: 'BP',
+  moge: 'MG', moreyogurt: 'MG', baospastry: 'BP',
 };
 
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
@@ -50,7 +50,7 @@ const MONOGRAM = {
 const LOGO_CHAINS = new Set([
   'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
   'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
-  'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'mollytea', 'moreyogurt',
+  'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
   'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang',
 ]);

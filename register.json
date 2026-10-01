@@ -424,6 +424,12 @@
       "format": "tea",
       "global": "Shanghai yogurt-drink chain (its own English name is 'More Yogurt'); operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026."
     },
+    "moge": {
+      "name": "Möge Tee",
+      "name_zh": "茉莉奶白",
+      "format": "tea",
+      "global": "Mainland-China bubble-tea chain (茉莉奶白); its US arm runs ~70 stores across 18 states, listed on its own US locator (mogeteeusa.com) as of Oct 2026, with outlets also reported in Canada, Australia and Southeast Asia."
+    },
     "mstand": {
       "name": "M Stand",
       "name_zh": "M Stand",

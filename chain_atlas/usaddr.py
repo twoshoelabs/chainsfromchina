@@ -57,6 +57,10 @@ _TAIL = re.compile(
 _STATE_ZIP = re.compile(
     rf"\b(?P<state>[A-Za-z]{{2}}|{_FULL_ALT})\.?\s*[-,\s]\s*(?P<zip>\d{{5}})(?:-\d{{4}})?\s*$",
     re.I)
+# Last fallback: some first-party locators list a store with no ZIP ("…, Queens, NY"). A trailing
+# ", <state>" (validated against the USPS list) still pins the store to a state, which is enough to
+# place it on the state map even when the Census match carried no ZIP back.
+_STATE_ONLY = re.compile(rf"(?:,|\s)\s*(?P<state>[A-Za-z]{{2}}|{_FULL_ALT})\.?\s*$", re.I)
 
 
 def split_tail(addr: str | None) -> tuple[str | None, str | None, str | None]:
@@ -85,6 +89,13 @@ def split_tail(addr: str | None) -> tuple[str | None, str | None, str | None]:
         st = _abbr(m.group("state"))
         if st:
             return None, st, m.group("zip")
+    m = _STATE_ONLY.search(s)
+    if m:
+        st = _abbr(m.group("state"))
+        if st:
+            head = s[:m.start()].rstrip(" ,")
+            city = head.rsplit(",", 1)[-1].strip() if "," in head else None
+            return (city or None), st, None
     return None, None, None
 
 
