@@ -358,8 +358,13 @@ fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
   const open = fc.features.filter((f) => f.properties.status === 'open').length;
   const soon = fc.features.filter((f) => f.properties.status === 'coming_soon').length;
   const sight = fc.features.filter((f) => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
-  document.getElementById('count').textContent =
-    `${open.toLocaleString()} open outlets, ${sight} hand-verified sightings, ${soon} coming soon.`;
+  // One grand total, with its additive parts spelled out — the open count and the hand-verified
+  // sightings are DISJOINT sets (a sighting is a chain the daily census doesn't cover), so they sum.
+  const located = open + sight;
+  const ut = document.getElementById('ustotal');
+  if (ut) ut.innerHTML = `<b>${located.toLocaleString()}</b> outlets of Chinese chains located in the US` +
+    `<span class="dim">— ${open.toLocaleString()} open outlets counted daily from the chains’ own ` +
+    `lists, plus ${sight} hand-verified sightings. ${soon} more announced / coming soon.</span>`;
   const asof = document.getElementById('asof');
   if (asof && fc.meta && fc.meta.collected) asof.textContent = `Collected ${fc.meta.collected}.`;
 }).catch(() => {});
