@@ -14,6 +14,9 @@ const BASEMAP = {
 };
 let GLYPH_FONT = 'Open Sans Regular';   // a font the active style's glyph server provides
 let LOGO_PRESENT = {};                   // chain -> whether a logo badge (vs monogram) was used
+let MAP_REF = null, FULL_FC = null;      // the map + full FeatureCollection, for the chain filter
+let HIDDEN = new Set();                  // chains currently hidden from the map
+let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sector
 
 // Sector → color. Keep in sync with the register's sectors.
 const SECTOR = {
@@ -149,6 +152,7 @@ async function init() {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }));
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
+  MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
 
   // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
   // every icon-image reference resolves to either a logo badge or a monogram badge.
@@ -240,7 +244,94 @@ async function init() {
     }
 
     buildLegend();
+    buildTally(fc);
   });
+}
+
+// ---- Chain filter panel ---------------------------------------------------------------------
+// The homepage lists every brand on the map, grouped by sector, and lets a reader show/hide a brand,
+// a whole group, or all of them — and jump to each one's "Who they are" profile. Toggling re-sets the
+// GeoJSON source so clusters recount from only the visible brands.
+function applyFilter() {
+  if (MAP_REF && FULL_FC) {
+    const src = MAP_REF.getSource('stores');
+    if (src) src.setData({ type: 'FeatureCollection',
+      features: FULL_FC.features.filter((f) => !HIDDEN.has(f.properties.chain)) });
+  }
+  for (const chip of document.querySelectorAll('.chip[data-chain]'))
+    chip.setAttribute('aria-pressed', String(!HIDDEN.has(chip.dataset.chain)));
+  for (const h of document.querySelectorAll('button.tallygroup[data-sector]')) {
+    const on = (GROUP_CHAINS[h.dataset.sector] || []).filter((c) => !HIDDEN.has(c)).length;
+    const total = (GROUP_CHAINS[h.dataset.sector] || []).length;
+    h.setAttribute('aria-pressed', String(on > 0));
+    h.classList.toggle('partial', on > 0 && on < total);
+    h.style.opacity = on ? '' : '.5';
+  }
+}
+function toggleChain(id) { HIDDEN.has(id) ? HIDDEN.delete(id) : HIDDEN.add(id); applyFilter(); }
+function setAllChains(show) { HIDDEN = show ? new Set() : new Set(ALL_CHAINS); applyFilter(); }
+function toggleGroup(sector) {
+  const chains = GROUP_CHAINS[sector] || [];
+  const anyOn = chains.some((c) => !HIDDEN.has(c));
+  for (const c of chains) { if (anyOn) HIDDEN.add(c); else HIDDEN.delete(c); }
+  applyFilter();
+}
+function onlyChain(id) { HIDDEN = new Set(ALL_CHAINS); HIDDEN.delete(id); applyFilter(); }
+
+function buildTally(fc) {
+  const box = document.getElementById('tally');
+  if (!box) return;
+  const meta = {};
+  for (const f of fc.features) {
+    const p = f.properties;
+    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0 });
+    m.n++;
+    if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
+  }
+  ALL_CHAINS = Object.keys(meta);
+  GROUP_CHAINS = {};
+  for (const id of ALL_CHAINS) (GROUP_CHAINS[meta[id].sector] || (GROUP_CHAINS[meta[id].sector] = [])).push(id);
+  const order = Object.keys(SECTOR);
+  const sectors = [...order.filter((s) => GROUP_CHAINS[s]),
+                   ...Object.keys(GROUP_CHAINS).filter((s) => !order.includes(s))];
+  box.innerHTML = '';
+  for (const s of sectors) {
+    const head = document.createElement('button');
+    head.type = 'button'; head.className = 'tallygroup'; head.dataset.sector = s;
+    head.textContent = SECTOR_LABEL[s] || 'Other';
+    head.title = 'Show or hide this whole group';
+    head.addEventListener('click', () => toggleGroup(s));
+    box.append(head);
+    for (const id of GROUP_CHAINS[s].sort((a, b) => meta[b].n - meta[a].n)) {
+      const m = meta[id];
+      const chip = document.createElement('span');
+      chip.className = 'chip'; chip.dataset.chain = id;
+      chip.setAttribute('role', 'button'); chip.tabIndex = 0;
+      chip.title = 'Click to show or hide this chain on the map.';
+      chip.innerHTML = `<span class="dot" style="background:${SECTOR[s] || OTHER}"></span>` +
+        `<span class="chipnm">${esc(m.name)}</span><span class="n">${m.n}</span>`;
+      const prof = document.createElement('a');
+      prof.className = 'prof'; prof.href = 'intro.html#' + id; prof.textContent = 'ⓘ';
+      prof.title = 'Who they are — about this chain';
+      prof.setAttribute('aria-label', 'About this chain (Who they are)');
+      prof.addEventListener('click', (e) => e.stopPropagation());
+      const only = document.createElement('button');
+      only.type = 'button'; only.className = 'only'; only.textContent = 'only';
+      only.title = 'Show only this chain (click others to add them back)';
+      only.addEventListener('click', (e) => { e.stopPropagation(); onlyChain(id); });
+      chip.append(prof, only);
+      const isCtl = (t) => t.closest('.prof') || t.closest('.only');
+      chip.addEventListener('click', (e) => { if (!isCtl(e.target)) toggleChain(id); });
+      chip.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && !isCtl(e.target)) { e.preventDefault(); toggleChain(id); }
+      });
+      box.append(chip);
+    }
+  }
+  const sa = document.getElementById('show-all'), sn = document.getElementById('show-none');
+  if (sa) sa.onclick = () => setAllChains(true);
+  if (sn) sn.onclick = () => setAllChains(false);
+  applyFilter();
 }
 
 init().catch((e) => {
