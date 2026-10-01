@@ -490,6 +490,18 @@
    "site_us": null,
    "photo": null,
    "photo_credit": null
+  },
+  "moge": {
+   "name": "More Yogurt",
+   "name_zh": "茉酸奶",
+   "category": "Yogurt drinks & smoothies",
+   "blurb": "A Shanghai chain of yogurt-based drinks and smoothies — its signature is an avocado yogurt smoothie — that uses the English name “More Yogurt”. It operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026, with a second announced for Flushing, New York.",
+   "us_since": "2026",
+   "first_outlet": "Tustin, CA — 2471 Park Ave (The District at Tustin Legacy)",
+   "site_cn": null,
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null
   }
  }
 }
