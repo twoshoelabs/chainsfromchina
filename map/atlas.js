@@ -13,6 +13,7 @@ const BASEMAP = {
   style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',     // fallback if pmtiles is cleared
 };
 let GLYPH_FONT = 'Open Sans Regular';   // a font the active style's glyph server provides
+let LOGO_PRESENT = {};                   // chain -> whether a logo badge (vs monogram) was used
 
 // Sector → color. Keep in sync with the register's sectors.
 const SECTOR = {
@@ -28,6 +29,79 @@ const SECTOR_LABEL = {
 };
 const sectorColor = ['match', ['get', 'sector'],
   ...Object.entries(SECTOR).flatMap(([k, v]) => [k, v]), OTHER];
+
+// Short monograms, used for the pin badge ONLY when a brand has no logo file in icons/.
+const MONOGRAM = {
+  mixue: 'MX', chagee: 'CG', luckin: 'LK', miniso: 'MO', popmart: 'PM', haidilao: 'HD',
+  heytea: 'HT', cotti: 'CT', taier: 'TE', chabaidao: 'CB', nayuki: 'NX', juewei: 'JW',
+  yangguofu: 'YG', fishwithyou: 'FW', yangs: 'YS', zhangliang: 'ZL', chahalo: 'CH',
+  xiaolongkan: 'XL', liuyishou: 'LY', aunteajenny: 'AJ', mollytea: 'MT', lelecha: 'LL',
+  toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
+  xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
+  jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
+  moge: 'MG', baospastry: 'BP',
+};
+
+const DPR = 2;            // render badges at 2× for crisp icons on retina
+const BADGE = 64;         // logical badge diameter (px); device size = BADGE * DPR
+
+// Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null if there is none.
+function loadLogo(chain) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = 'icons/' + chain + '.png';
+  });
+}
+
+// Compose a circular pin badge. With a logo: a white chip + sector-colored ring + the logo inside.
+// Without one: a solid sector-colored disc with the brand's monogram. `soft` (coming-soon or
+// unconfirmed) draws a dashed ring and a hollow, faded treatment, matching the legend.
+function makeBadge(logo, color, mono, soft) {
+  const S = BADGE * DPR;
+  const cv = document.createElement('canvas');
+  cv.width = S; cv.height = S;
+  const ctx = cv.getContext('2d');
+  const cx = S / 2, cy = S / 2;
+  const ring = Math.round(4 * DPR);
+  const r = cx - ring / 2 - DPR;          // ring centerline radius
+
+  // soft drop in opacity for the whole mark
+  ctx.globalAlpha = soft ? 0.82 : 1;
+
+  if (logo) {
+    // white chip
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.fillStyle = soft ? 'rgba(255,255,255,0.92)' : '#ffffff'; ctx.fill();
+    // logo, contained within the inner circle's bounding square
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r - ring * 0.6, 0, 2 * Math.PI); ctx.clip();
+    const inset = (r - ring) * 1.42;       // side of the square that fits inside the inner circle
+    const scale = Math.min(inset / logo.width, inset / logo.height);
+    const w = logo.width * scale, h = logo.height * scale;
+    ctx.drawImage(logo, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
+  } else {
+    // monogram: solid disc (open) or white disc (soft)
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
+    ctx.fillStyle = soft ? color : '#ffffff';
+    ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(mono || '•', cx, cy + S * 0.02);
+  }
+
+  // ring
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+  ctx.lineWidth = ring; ctx.strokeStyle = color;
+  if (soft) ctx.setLineDash([ring * 1.4, ring * 1.1]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  return { width: S, height: S, data: ctx.getImageData(0, 0, S, S).data };
+}
 
 // Resolve the basemap style: a hosted URL (CARTO/MapTiler) or a built Protomaps style over PMTiles.
 async function resolveStyle() {
@@ -52,6 +126,11 @@ async function resolveStyle() {
 }
 
 async function init() {
+  // Fetch our data once; we reuse it for the source, the per-brand icons, and the count line.
+  const fc = await fetch('data/stores.geojson').then((r) => r.json());
+  const chainSector = {};
+  for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
+
   const style = await resolveStyle();
   const map = new maplibregl.Map({
     container: 'map', style, center: [-96, 38], zoom: 3.3,
@@ -61,7 +140,22 @@ async function init() {
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }));
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
 
+  // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
+  // every icon-image reference resolves to either a logo badge or a monogram badge.
+  const chains = Object.keys(chainSector);
+  const logos = await Promise.all(chains.map((c) => loadLogo(c)));
+  chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
+
   map.on('load', () => {
+    // Register a per-brand badge (solid "open" + dashed "soft" variant). addImage requires the
+    // style to be loaded, so it happens here, not before.
+    chains.forEach((c, i) => {
+      const color = SECTOR[chainSector[c]] || OTHER;
+      const mono = MONOGRAM[c] || c.slice(0, 2).toUpperCase();
+      if (!map.hasImage('ic-' + c)) map.addImage('ic-' + c, makeBadge(logos[i], color, mono, false), { pixelRatio: DPR });
+      if (!map.hasImage('ic-' + c + '-s')) map.addImage('ic-' + c + '-s', makeBadge(logos[i], color, mono, true), { pixelRatio: DPR });
+    });
+
     // Turn OFF the basemap's own points of interest, so only our pins read as data.
     for (const l of map.getStyle().layers) {
       if (/poi|place.?of.?interest/i.test(l.id)) {
@@ -70,7 +164,7 @@ async function init() {
     }
 
     map.addSource('stores', {
-      type: 'geojson', data: 'data/stores.geojson',
+      type: 'geojson', data: fc,
       cluster: true, clusterRadius: 48, clusterMaxZoom: 11,
     });
 
@@ -92,12 +186,17 @@ async function init() {
       paint: { 'text-color': '#fff' },
     });
 
+    // Individual outlets: a per-brand logo/monogram badge. "soft" (coming-soon or unconfirmed) uses
+    // the dashed variant.
+    const soft = ['any', ['==', ['get', 'status'], 'coming_soon'], ['==', ['get', 'confidence'], 'uncertain']];
     map.addLayer({
-      id: 'pts', type: 'circle', source: 'stores', filter: ['!', ['has', 'point_count']],
-      paint: {
-        'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 3.5, 8, 6, 12, 7.5],
-        'circle-color': ['case', ['==', ['get', 'status'], 'open'], sectorColor, '#ffffff'],
-        'circle-stroke-width': 2, 'circle-stroke-color': sectorColor, 'circle-opacity': 0.95,
+      id: 'pts', type: 'symbol', source: 'stores', filter: ['!', ['has', 'point_count']],
+      layout: {
+        'icon-image': ['case', soft,
+          ['concat', 'ic-', ['get', 'chain'], '-s'],
+          ['concat', 'ic-', ['get', 'chain']]],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
       },
     });
 
@@ -113,10 +212,14 @@ async function init() {
       const state = p.status === 'open' ? 'Open'
         : p.status === 'coming_soon' ? 'Announced / coming soon' : 'Reported sighting';
       const prov = p.kind === 'sighting' ? ' · hand-verified sighting' : ' · counted from its own locator';
+      const logo = LOGO_PRESENT[p.chain]
+        ? `<img src="icons/${esc(p.chain)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        : '';
       new maplibregl.Popup({ closeButton: false })
         .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<b>${esc(p.name)}</b><br>${esc(p.city || '')}${p.city ? ', ' : ''}${esc(p.state || '')}` +
-                 `<br><span style="color:#666">${sec} · ${state}${prov}</span>`)
+        .setHTML(`<div style="display:flex;gap:.55rem;align-items:center">${logo}<div>` +
+                 `<b>${esc(p.name)}</b><br>${esc(p.city || '')}${p.city ? ', ' : ''}${esc(p.state || '')}` +
+                 `<br><span style="color:#666">${sec} · ${state}${prov}</span></div></div>`)
         .addTo(map);
     });
     for (const id of ['clusters', 'pts']) {
@@ -142,9 +245,9 @@ function esc(s) {
 function buildLegend() {
   const el = document.getElementById('legend');
   const sectors = Object.keys(SECTOR).map((k) =>
-    `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:${SECTOR[k]}"></span>${SECTOR_LABEL[k]}</span>`).join('');
-  el.innerHTML = sectors +
-    `<span class="k"><span class="dot hollow" style="border-color:#888"></span>coming soon / unconfirmed</span>`;
+    `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
+  el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
+    `<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>coming soon / unconfirmed</span>`;
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
