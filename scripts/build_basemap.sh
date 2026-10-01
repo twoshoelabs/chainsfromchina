@@ -35,7 +35,7 @@ set -euo pipefail
 : "${R2_BUCKET:?set R2_BUCKET}"
 : "${R2_ACCESS_KEY:?set R2_ACCESS_KEY}"
 : "${R2_SECRET_KEY:?set R2_SECRET_KEY}"
-: "${R2_PUBLIC_BASE:?set R2_PUBLIC_BASE (the bucket's public URL)}"
+: "${R2_PUBLIC_BASE:?set R2_PUBLIC_BASE to the bucket public URL}"
 
 US_BBOX="${US_BBOX:--179.9,15.0,-64.5,72.0}"   # CONUS + AK (incl. most Aleutians) + HI + PR
 OUT_NAME="${OUT_NAME:-us.pmtiles}"
