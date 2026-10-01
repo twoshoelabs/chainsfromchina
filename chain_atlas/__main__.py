@@ -79,11 +79,13 @@ def main(argv=None):
 
     if cmd == "export":
         from .mapdata import export
-        from . import register, centers, db
+        from . import register, centers, geojson, db
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
+        con = db.connect()
         print(export(out), "->", out)
         print(register.export(out), "-> register.json")
-        print(centers.export(db.connect(), out), "-> centers.json")
+        print(centers.export(con, out), "-> centers.json")
+        print(geojson.export(con, out), "-> stores.geojson")
         return 0
 
     if cmd == "probe":
