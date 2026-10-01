@@ -99,23 +99,31 @@ else
 fi
 
 # 3) Upload to R2 (S3-compatible). application/octet-stream keeps range requests working.
-echo "uploading -> s3://$R2_BUCKET/$OUT_NAME via R2 ..."
-aws s3 cp "$LOCAL" "s3://$R2_BUCKET/$OUT_NAME" \
-  --endpoint-url "$ENDPOINT" --region auto --content-type application/octet-stream
+#    Skip if the object is already there, so re-running (e.g. just to fix CORS) doesn't re-upload GBs.
+if [ -z "${FORCE_UPLOAD:-}" ] && aws s3api head-object --bucket "$R2_BUCKET" --key "$OUT_NAME" \
+     --endpoint-url "$ENDPOINT" --region auto >/dev/null 2>&1; then
+  echo "already in R2: s3://$R2_BUCKET/$OUT_NAME (skipping upload; set FORCE_UPLOAD=1 to re-upload)."
+else
+  echo "uploading -> s3://$R2_BUCKET/$OUT_NAME via R2 ..."
+  aws s3 cp "$LOCAL" "s3://$R2_BUCKET/$OUT_NAME" \
+    --endpoint-url "$ENDPOINT" --region auto --content-type application/octet-stream
+fi
 
-# 4) CORS so the browser can range-request the tiles.
+# 4) CORS so the browser can range-request the tiles. AllowedOrigins "*" is fine for a public,
+#    read-only tiles bucket (the file is public via r2.dev anyway) and avoids origin-pattern pitfalls
+#    (R2 rejects a wildcard PORT like http://localhost:*, which is what failed before).
 CORS="$WORK/cors.json"
 cat > "$CORS" <<JSON
 { "CORSRules": [ {
-  "AllowedOrigins": ["$SITE_ORIGIN", "http://localhost:*", "http://127.0.0.1:*"],
+  "AllowedOrigins": ["*"],
   "AllowedMethods": ["GET", "HEAD"],
-  "AllowedHeaders": ["Range", "If-Match", "If-None-Match"],
+  "AllowedHeaders": ["*"],
   "ExposeHeaders": ["ETag", "Content-Length", "Content-Range", "Accept-Ranges"],
   "MaxAgeSeconds": 86400
 } ] }
 JSON
 aws s3api put-bucket-cors --bucket "$R2_BUCKET" --cors-configuration "file://$CORS" \
-  --endpoint-url "$ENDPOINT" --region auto && echo "CORS set for $SITE_ORIGIN."
+  --endpoint-url "$ENDPOINT" --region auto && echo "CORS set (any origin, GET/HEAD)."
 
 PUBLIC="${R2_PUBLIC_BASE%/}/$OUT_NAME"
 echo
