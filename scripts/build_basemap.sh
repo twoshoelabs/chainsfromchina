@@ -38,15 +38,40 @@ set -euo pipefail
 : "${R2_PUBLIC_BASE:?set R2_PUBLIC_BASE to the bucket public URL}"
 
 US_BBOX="${US_BBOX:--179.9,15.0,-64.5,72.0}"   # CONUS + AK (incl. most Aleutians) + HI + PR
+MAXZOOM="${MAXZOOM:-13}"                        # z13 ≈ street-level; plenty behind pins, ~a few GB.
+                                               #   Raise to 14/15 for more detail (much bigger), or
+                                               #   lower to 12 for a smaller file.
 OUT_NAME="${OUT_NAME:-us.pmtiles}"
 SITE_ORIGIN="${SITE_ORIGIN:-https://chainsfromchina.com}"
+# The extract is cached here so a failed/retried upload does NOT re-download it. Delete to reclaim
+# space, or set FORCE_EXTRACT=1 to rebuild it.
+CACHE_DIR="${BASEMAP_CACHE:-$HOME/.cache/chain_atlas_basemap}"
+LOCAL="$CACHE_DIR/$OUT_NAME"
 
 command -v pmtiles >/dev/null || { echo "ERROR: install the pmtiles CLI (brew install pmtiles)"; exit 1; }
 command -v aws     >/dev/null || { echo "ERROR: install the aws CLI (brew install awscli)"; exit 1; }
 command -v curl    >/dev/null || { echo "ERROR: curl is required"; exit 1; }
 
-WORK="$(mktemp -d)"; trap 'rm -rf "$WORK"' EXIT
-LOCAL="$WORK/$OUT_NAME"
+WORK="$(mktemp -d)"; trap 'rm -rf "$WORK"' EXIT   # temp holds only the small CORS json
+mkdir -p "$CACHE_DIR"
+
+export AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY"
+export AWS_SECRET_ACCESS_KEY="$R2_SECRET_KEY"
+ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+
+# 0) Preflight: verify the R2 token can reach the bucket BEFORE the ~10-minute extract, so an auth
+#    problem fails in seconds, not after a big download.
+echo "checking R2 access to bucket '$R2_BUCKET' ..."
+if ! aws s3api head-bucket --bucket "$R2_BUCKET" --endpoint-url "$ENDPOINT" --region auto 2>/tmp/r2err; then
+  echo "ERROR: cannot access the bucket with these credentials:"
+  sed 's/^/    /' /tmp/r2err
+  echo "    Fix: in Cloudflare → R2 → Manage R2 API Tokens, create an R2 API token with"
+  echo "    'Object Read & Write' permission for bucket '$R2_BUCKET' (or All buckets), then pass its"
+  echo "    Access Key ID as R2_ACCESS_KEY and Secret as R2_SECRET_KEY. (A generic Cloudflare API"
+  echo "    token will NOT work here — it must be an R2 token that gives S3 credentials.)"
+  exit 1
+fi
+echo "R2 access OK."
 
 # 1) Resolve the latest Protomaps daily build unless one was given.
 if [ -z "${PMTILES_SRC:-}" ]; then
@@ -60,18 +85,20 @@ if [ -z "${PMTILES_SRC:-}" ]; then
   PMTILES_SRC="$SRC"
 fi
 echo "source build : $PMTILES_SRC"
-echo "us bbox      : $US_BBOX"
+echo "us bbox      : $US_BBOX  (max zoom $MAXZOOM)"
 echo "output key   : $OUT_NAME"
 
-# 2) Extract only the US (range reads against the hosted build; no full-planet download).
-echo "extracting US subset (this streams only the US tiles; a few minutes + a few GB) ..."
-pmtiles extract "$PMTILES_SRC" "$LOCAL" --bbox="$US_BBOX"
-echo "built: $(ls -lh "$LOCAL" | awk '{print $5}')  $LOCAL"
+# 2) Extract only the US, capped at MAXZOOM (range reads; no full-planet download). Cached so a
+#    retried upload does NOT re-download it.
+if [ -s "$LOCAL" ] && [ -z "${FORCE_EXTRACT:-}" ]; then
+  echo "using cached extract: $LOCAL ($(ls -lh "$LOCAL" | awk '{print $5}')).  Set FORCE_EXTRACT=1 to rebuild."
+else
+  echo "extracting US subset to z$MAXZOOM (streams only the US tiles; a few minutes) ..."
+  pmtiles extract "$PMTILES_SRC" "$LOCAL" --bbox="$US_BBOX" --maxzoom="$MAXZOOM"
+  echo "built: $(ls -lh "$LOCAL" | awk '{print $5}')  $LOCAL"
+fi
 
 # 3) Upload to R2 (S3-compatible). application/octet-stream keeps range requests working.
-export AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY"
-export AWS_SECRET_ACCESS_KEY="$R2_SECRET_KEY"
-ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
 echo "uploading -> s3://$R2_BUCKET/$OUT_NAME via R2 ..."
 aws s3 cp "$LOCAL" "s3://$R2_BUCKET/$OUT_NAME" \
   --endpoint-url "$ENDPOINT" --region auto --content-type application/octet-stream
