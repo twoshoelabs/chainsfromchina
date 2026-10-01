@@ -478,6 +478,18 @@
    "site_us": null,
    "photo": null,
    "photo_credit": null
+  },
+  "meilleurmoment": {
+   "name": "Meilleur Moment",
+   "name_zh": "伊芙丽",
+   "category": "Womenswear (apparel)",
+   "blurb": "A minimalist womenswear label from Hangzhou's Eifini group (伊芙丽), a privately held fashion company founded in 2001 with more than 600 stores across its brands in China. Meilleur Moment opened its first US store — a boutique in SoHo — in May 2025.",
+   "us_since": "May 2025",
+   "first_outlet": "SoHo, New York, NY — 257 Elizabeth St",
+   "site_cn": "https://www.eifini.com/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null
   }
  }
 }
