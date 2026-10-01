@@ -42,7 +42,7 @@ const MONOGRAM = {
   toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
   xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
   jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
-  moge: 'MG', baospastry: 'BP',
+  moreyogurt: 'MG', baospastry: 'BP',
 };
 
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
@@ -50,7 +50,7 @@ const MONOGRAM = {
 const LOGO_CHAINS = new Set([
   'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
   'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
-  'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea',
+  'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
   'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang',
 ]);
@@ -308,7 +308,8 @@ function buildTally(fc) {
       chip.className = 'chip'; chip.dataset.chain = id;
       chip.setAttribute('role', 'button'); chip.tabIndex = 0;
       chip.title = 'Click to show or hide this chain on the map.';
-      chip.innerHTML = `<span class="dot" style="background:${SECTOR[s] || OTHER}"></span>` +
+      chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
+        `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
         `<span class="chipnm">${esc(m.name)}</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
       prof.className = 'prof'; prof.href = 'intro.html#' + id; prof.textContent = 'ⓘ';

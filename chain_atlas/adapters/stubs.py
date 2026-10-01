@@ -793,7 +793,7 @@ class MoreYogurtAdapter(Adapter):
     first and only US store, a soft opening ~June 2026. No national US locator, so tracked via
     sightings.
     """
-    chain_id, name, name_zh = "moge", "More Yogurt", "茉酸奶"
+    chain_id, name, name_zh = "moreyogurt", "More Yogurt", "茉酸奶"
     name_us = "More Yogurt"
     aliases = ("Mo Yogurt", "Mosuannai", "茉酸奶")
     parent, format = "Shanghai More Yogurt Catering (上海茉酸奶餐饮管理)", "tea"

@@ -418,7 +418,7 @@
       "format": "tea",
       "global": "Foshan (Guangdong) tea brand; overseas expansion began with Hong Kong."
     },
-    "moge": {
+    "moreyogurt": {
       "name": "More Yogurt",
       "name_zh": "茉酸奶",
       "format": "tea",
@@ -2776,7 +2776,7 @@
       ]
     },
     {
-      "chain": "moge",
+      "chain": "moreyogurt",
       "market": "SG",
       "status": "present",
       "locations": null,
@@ -2791,7 +2791,7 @@
       ]
     },
     {
-      "chain": "moge",
+      "chain": "moreyogurt",
       "market": "MY",
       "status": "present",
       "locations": null,
@@ -2805,7 +2805,7 @@
       ]
     },
     {
-      "chain": "moge",
+      "chain": "moreyogurt",
       "market": "HK",
       "status": "present",
       "locations": null,
