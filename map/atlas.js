@@ -42,6 +42,14 @@ const MONOGRAM = {
   moge: 'MG', baospastry: 'BP',
 };
 
+// Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
+// to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
+const LOGO_CHAINS = new Set([
+  'baospastry', 'chagee', 'cotti', 'dezhuang', 'haidilao', 'heytea', 'jnby', 'liuyishou', 'luckin',
+  'malubianbian', 'miniso', 'mixue', 'mollytea', 'nayuki', 'popmart', 'shudaxia', 'toptoy',
+  'xiaolongkan', 'yangs',
+]);
+
 const DPR = 2;            // render badges at 2× for crisp icons on retina
 const BADGE = 64;         // logical badge diameter (px); device size = BADGE * DPR
 
@@ -143,7 +151,7 @@ async function init() {
   // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
   // every icon-image reference resolves to either a logo badge or a monogram badge.
   const chains = Object.keys(chainSector);
-  const logos = await Promise.all(chains.map((c) => loadLogo(c)));
+  const logos = await Promise.all(chains.map((c) => (LOGO_CHAINS.has(c) ? loadLogo(c) : Promise.resolve(null))));
   chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
 
   map.on('load', () => {
