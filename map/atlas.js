@@ -45,10 +45,11 @@ const MONOGRAM = {
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
 // to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
 const LOGO_CHAINS = new Set([
-  'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'cotti', 'dezhuang', 'fishwithyou',
-  'haidilao', 'heytea', 'jnby', 'lelecha', 'liuyishou', 'luckin', 'malubianbian', 'meizhoudongpo',
-  'miniso', 'mixue', 'mollytea', 'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier',
-  'toptoy', 'toys52', 'xiaolongkan', 'xibei', 'yangguofu', 'yangs', 'zhangliang',
+  'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'cotti', 'dalongyi', 'dezhuang',
+  'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'heytea', 'jnby', 'lelecha', 'liuyishou',
+  'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea',
+  'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'xiaolongkan',
+  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
