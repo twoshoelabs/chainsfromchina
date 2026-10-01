@@ -8,6 +8,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- MapLibre GL JS (open-source renderer; no key, no fees) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  #map { width: 100%; height: 74vh; min-height: 440px; border: 1px solid var(--rule, #e5e0d8); border-radius: 6px; }
+  .maplibregl-popup-content { font-family: "Libre Franklin", system-ui, sans-serif; font-size: .9rem; padding: .6rem .8rem; }
+  .legendrow { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: .5rem 0 0; font-family: "Libre Franklin", system-ui, sans-serif; font-size: .85rem; }
+  .legendrow .k { display: inline-flex; align-items: center; gap: .35rem; }
+  .legendrow .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid; }
+  .legendrow .hollow { background: #fff; }
+</style>
 </head>
 <body>
 <header>
@@ -23,92 +34,43 @@
   </div>
   <h1>Where China&rsquo;s chains are open in America</h1>
   <p class="sub">A daily count of Chinese chains open across the US &mdash; bubble tea and hot pot,
-     but also art toys, cosmetics, sportswear and more &mdash; taken from each company's own store
-     list. See which have <a href="register.html">gone global</a> and where they
-     <a href="centers.html">cluster together</a>, or try the
-     <a href="atlas.html">new vector map (beta)</a>. <span id="asof"></span></p>
-  <p class="ustotal" id="ustotal"></p>
-  <p class="coverline" id="coverline"></p>
+     but also art toys, cosmetics, sportswear and more &mdash; taken from each company&rsquo;s own
+     store list. Every pin is the brand&rsquo;s own logo; click a cluster to open it, or a pin for the
+     street address. See which have <a href="register.html">gone global</a> and where they
+     <a href="centers.html">cluster together</a>. <span id="asof"></span></p>
+  <p class="coverline" id="count"></p>
 </header>
 
 <div class="wrap">
   <main>
-    <div class="modes" role="group" aria-label="Map view">
-      <button class="modebtn" data-mode="stores" aria-pressed="true">Stores</button>
-      <button class="modebtn" data-mode="states" aria-pressed="false">By state</button>
-    </div>
-    <div class="tallyctl" id="tallyctl">
-      <span class="lbl">Show on the map:</span>
-      <button type="button" id="show-all">All chains</button>
-      <button type="button" id="show-none">Hide all</button>
-      <span class="hint">then click any chain to show or hide just it</span>
-    </div>
-    <div class="tally" id="tally"></div>
-    <div class="legend" id="legend" hidden></div>
-    <figure>
-      <svg id="map" role="img" aria-label="Map of Chinese chain stores in the United States"></svg>
-      <p class="note warn" id="offmap" hidden></p>
-      <figcaption id="maplegend">
-        Filled dot = trading. Hollow ring = announced, not yet open. Filled square = a
-        hand-confirmed location (counted, but not collected daily); a dashed square is reported
-        and awaiting confirmation. Drag to pan, scroll to zoom,
-        double-click to reset. Where chains share a mall they overlap at this zoom; the smallest
-        one is drawn on top so it stays visible. Zoom in, or use the chain buttons above, to
-        separate them. Alaska, Hawaii, Puerto Rico and Guam are shown as insets, each at its own
-        scale, so their size and position are not comparable to the mainland map.
-      </figcaption>
-    </figure>
+    <div id="map"></div>
+    <div class="legendrow" id="legend"></div>
+    <p class="note small" id="method">
+      Each pin is a brand&rsquo;s logo, ringed in its sector color. A filled pin is an open outlet; a
+      hollow, dashed pin is announced / coming-soon or a reported-but-unconfirmed sighting, held out of
+      totals. Clusters show how many outlets fall in an area at the current zoom &mdash; click to
+      expand. Prefer tables? The <a href="classic.html">by-state view</a> breaks the count down by
+      state with coverage detail.
+    </p>
+    <p class="note small">
+      The record starts on the first day we collected it; we don&rsquo;t backfill from old press
+      reports, and the counts are whatever each chain publishes about itself. Basemap: a US Protomaps
+      vector basemap the project self-hosts on static storage &mdash; no tile server, no API fees &mdash;
+      rendered client-side by open-source MapLibre GL. Coastlines and labels &copy; OpenStreetMap
+      contributors.
+    </p>
   </main>
-
-  <aside>
-    <section>
-      <h2>By state</h2>
-      <table id="states"><tbody></tbody></table>
-      <p class="note" id="nostate"></p>
-    </section>
-    <section>
-      <h2>Chains collected</h2>
-      <table id="chains"><tbody></tbody></table>
-    </section>
-
-    <section id="coveragesec">
-      <h2>How complete is this?</h2>
-      <p class="note" id="coverintro"></p>
-      <table id="coverage"><tbody></tbody></table>
-      <p class="note small" id="covernote"></p>
-    </section>
-    <section>
-      <h2>Pipeline</h2>
-      <p class="note" id="pipeline"></p>
-    </section>
-    <section>
-      <h2>Who these companies are</h2>
-      <div id="profiles"></div>
-      <p class="note small" id="profnote"></p>
-    </section>
-    <section>
-      <h2>About these numbers</h2>
-      <p class="note">The record starts on the first day we collected it; we don't backfill from old press reports,
-      so any change we show is only as old as that. The counts are whatever each chain publishes
-      about itself. If a store opens and the chain hasn't updated its locator, we can't see it
-      yet.</p>
-    </section>
-  </aside>
 </div>
-
 
 <footer class="sitefoot">
   <p><strong>Chains From China</strong> is an independent measurement project. It is
   <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
   site; brand names identify the businesses being measured and nothing more.</p>
-  <p>Store counts on the US map are collected daily from each chain's own public store locator.
-  The international register is compiled by hand from company filings, exchange announcements and
-  the trade press. Every row carries its source, its date and how far it should be trusted, and
-  the two are never added together. Coastlines and boundaries from
-  <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+  <p>Store counts are collected daily from each chain&rsquo;s own public store locator; hand-verified
+  sightings are compiled by hand and never added into the daily totals. Brand logos are each
+  company&rsquo;s own, shown to identify its outlets.</p>
   <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
 </footer>
-<div id="tip" hidden></div>
-<script src="app.js"></script>
+<script src="atlas.js?v=20261002a"></script>
 </body>
 </html>

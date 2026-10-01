@@ -268,4 +268,6 @@ fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
   const sight = fc.features.filter((f) => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
   document.getElementById('count').textContent =
     `${open.toLocaleString()} open outlets, ${sight} hand-verified sightings, ${soon} coming soon.`;
+  const asof = document.getElementById('asof');
+  if (asof && fc.meta && fc.meta.collected) asof.textContent = `Collected ${fc.meta.collected}.`;
 }).catch(() => {});

@@ -123,7 +123,7 @@ fetch('data/stores.json').then(r => r.json()).then(data => {
     // Chains with a US outlet link back to the map's legend, so a reader can see how this chain is
     // drawn and read the symbols. (Overseas-only chains are not on the US map, so no link.)
     const mapLink = usPresent.has(id)
-      ? ` &nbsp;·&nbsp; <a href="index.html#maplegend">On the US map ↗</a>`
+      ? ` &nbsp;·&nbsp; <a href="index.html">On the US map ↗</a>`
       : '';
 
     // Photo: only shown when the project ships a licensed image; otherwise a labelled placeholder.

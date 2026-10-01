@@ -116,7 +116,11 @@ def build(con, d: dict | None = None) -> dict:
             "address": _street(s.get("address"), s.get("city"), s.get("state")),
             "city": s.get("city"), "state": s.get("state"),
         }))
-    return {"type": "FeatureCollection", "features": feats}
+    last = con.execute(
+        "SELECT MAX(last_seen) AS d FROM stores WHERE country='US' AND status IN ('active','pre_opening')"
+    ).fetchone()
+    return {"type": "FeatureCollection", "features": feats,
+            "meta": {"collected": last["d"] if last else None}}
 
 
 def export(con, out_dir, d: dict | None = None) -> dict:
