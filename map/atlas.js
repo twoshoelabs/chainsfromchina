@@ -225,10 +225,12 @@ async function init() {
       const logo = LOGO_PRESENT[p.chain]
         ? `<img src="icons/${esc(p.chain)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
+      const addr = p.address ? `${esc(p.address)}<br>` : '';
+      const cityState = `${esc(p.city || '')}${p.city && p.state ? ', ' : ''}${esc(p.state || '')}`;
       new maplibregl.Popup({ closeButton: false })
         .setLngLat(e.features[0].geometry.coordinates)
         .setHTML(`<div style="display:flex;gap:.55rem;align-items:center">${logo}<div>` +
-                 `<b>${esc(p.name)}</b><br>${esc(p.city || '')}${p.city ? ', ' : ''}${esc(p.state || '')}` +
+                 `<b>${esc(p.name)}</b><br>${addr}${cityState}` +
                  `<br><span style="color:#666">${sec} · ${state}${prov}</span></div></div>`)
         .addTo(map);
     });

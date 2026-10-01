@@ -13,6 +13,7 @@ Each feature is a Point with:
   kind        'store'  (daily census) or 'sighting' (hand-verified, not collected)
   status      'open' | 'coming_soon' | 'sighting'
   confidence  for sightings: 'confirmed' | 'uncertain'
+  address     the street line (e.g. '174 Smith St'), when known
   city, state
 Counts are never baked in here; the map derives cluster counts from the features themselves.
 """
@@ -26,6 +27,15 @@ from .centers import _brand_meta
 def _feature(lon, lat, props):
     return {"type": "Feature", "geometry": {"type": "Point", "coordinates": [lon, lat]},
             "properties": props}
+
+
+def _street(addr: str | None) -> str | None:
+    """The street line of an address, i.e. the part before the city — so the popup can show it on
+    its own line above the city/state it already displays. 'A, B, C' -> 'A'."""
+    if not addr:
+        return None
+    street = addr.split(",")[0].strip()
+    return street or None
 
 
 def build(con, d: dict | None = None) -> dict:
@@ -43,7 +53,7 @@ def build(con, d: dict | None = None) -> dict:
     meta = _brand_meta(d)
     feats = []
     for r in con.execute(
-        "SELECT chain_id, name, lat, lon, city, state, status FROM stores "
+        "SELECT chain_id, name, lat, lon, addr_norm, addr_raw, city, state, status FROM stores "
         "WHERE country='US' AND lat IS NOT NULL AND status IN ('active','pre_opening')"
     ).fetchall():
         bm = meta.get(r["chain_id"], {})
@@ -53,6 +63,7 @@ def build(con, d: dict | None = None) -> dict:
             "sector": bm.get("sector"),
             "kind": "store",
             "status": "coming_soon" if r["status"] == "pre_opening" else "open",
+            "address": _street(r["addr_raw"] or r["addr_norm"]),
             "city": r["city"], "state": r["state"],
         }))
     for s in sightings.geocoded(cache_only=True):
@@ -66,6 +77,7 @@ def build(con, d: dict | None = None) -> dict:
             "kind": "sighting",
             "status": "coming_soon" if s.get("confidence") == "uncertain" else "sighting",
             "confidence": s.get("confidence"),
+            "address": _street(s.get("address")),
             "city": s.get("city"), "state": s.get("state"),
         }))
     return {"type": "FeatureCollection", "features": feats}
