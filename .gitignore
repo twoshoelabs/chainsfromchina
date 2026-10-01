@@ -5,3 +5,7 @@ __pycache__/
 .env
 chain_atlas_data/
 map/data/*.json
+
+# R2 basemap credentials (local only)
+.r2.env
+scripts/.r2.env
