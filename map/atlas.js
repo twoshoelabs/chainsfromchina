@@ -17,6 +17,8 @@ let LOGO_PRESENT = {};                   // chain -> whether a logo badge (vs mo
 let MAP_REF = null, FULL_FC = null;      // the map + full FeatureCollection, for the chain filter
 let HIDDEN = new Set();                  // chains currently hidden from the map
 let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sector
+let CO_TENANCY = [];                     // named co-tenancy clusters, for search + place panel
+let SHOW_ANNOUNCED = true;               // the map toolbar's "show announced" status toggle
 
 // Sector → color. Keep in sync with the register's sectors.
 const SECTOR = {
@@ -199,6 +201,8 @@ async function init() {
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }));
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
+  // Named co-tenancy clusters feed the "Shopping centers" search group and the place panel.
+  fetch('data/centers.json').then((r) => r.json()).then((d) => { CO_TENANCY = d.co_tenancy || []; }).catch(() => {});
 
   // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
   // every icon-image reference resolves to either a logo badge or a monogram badge.
@@ -271,8 +275,8 @@ async function init() {
         // every outlet at a shared address is one click away. Otherwise jump in hard (at least a
         // couple of levels) so the US view reaches street level in two clicks, not six.
         if (z > 14) {
-          src.getClusterLeaves(id, 50, 0, (err, leaves) => {
-            if (!err && leaves) stackPopup(f.geometry.coordinates, leaves);
+          src.getClusterLeaves(id, 100, 0, (err, leaves) => {
+            if (!err && leaves) openPlacePanel(f.geometry.coordinates, leaves);
           });
         } else {
           map.easeTo({ center: f.geometry.coordinates, zoom: Math.max(z, map.getZoom() + 2.5) });
@@ -302,25 +306,206 @@ async function init() {
 
     buildLegend();
     buildTally(fc);
+    setupSearch(map);
+    setupToolbar(map);
+    restoreFromURL(map);
     map.once('idle', () => { if (loadingEl) { loadingEl.remove(); loadingEl = null; } });
   });
 }
 
-// A same-address stack: list the outlets sharing one spot so each is reachable in a single click.
-// (The richer place panel is a later step; this guarantees nothing is trapped under an overlap.)
-function stackPopup(coords, leaves) {
+// ---- Place panel ----------------------------------------------------------------------------
+// Opened from a same-address cluster (or a center search result): the brands at one spot, with its
+// center name/owner when known, directions and a copy-link. Every outlet here is one click away.
+function closePlacePanel() {
+  const el = document.getElementById('place-panel');
+  if (el) { el.hidden = true; el.innerHTML = ''; }
+}
+
+// The named co-tenancy center within ~250 m of a point, so a cluster can show its name and owner.
+function nearestCenter(lng, lat) {
+  let best = null, bestD = 0.0035;
+  for (const c of CO_TENANCY) {
+    if (c.lat == null || c.lon == null || !c.center || !c.center.name) continue;
+    const d = Math.hypot(c.lon - lng, c.lat - lat);
+    if (d < bestD) { bestD = d; best = c; }
+  }
+  return best;
+}
+
+function openPlacePanel(coords, leaves) {
+  const el = document.getElementById('place-panel');
+  if (!el || !leaves || !leaves.length) return;
+  const [lng, lat] = coords;
+  const center = nearestCenter(lng, lat);
+  const brands = new Set(leaves.map((l) => l.properties.chain));
+  const sectors = new Set(leaves.map((l) => l.properties.sector));
   const addr = (leaves.find((l) => l.properties.address) || { properties: {} }).properties.address;
-  const head = `<div style="font-weight:600;margin-bottom:.25rem">${leaves.length} outlets here</div>` +
-    (addr ? `<div style="color:#666;font-size:.82em;margin-bottom:.45rem">${esc(addr)}</div>` : '');
-  const rows = leaves.map((l) => {
+  const title = center ? center.center.name : (addr || 'This location');
+  const owner = center && center.center.owner_reit ? center.center.owner_reit
+    : center ? [center.city, center.state].filter(Boolean).join(', ') : '';
+  const dest = encodeURIComponent(lat + ',' + lng);
+  const rows = leaves.slice().sort((a, b) => a.properties.name.localeCompare(b.properties.name)).map((l) => {
     const p = l.properties;
-    const state = p.status === 'coming_soon' ? 'coming soon' : 'open';
-    const dot = `<span style="width:9px;height:9px;border-radius:50%;border:2px solid ${SECTOR[p.sector] || OTHER};display:inline-block;flex:0 0 auto"></span>`;
-    return `<a href="intro.html#${esc(p.chain)}" style="display:flex;align-items:center;gap:.45rem;padding:.18rem 0;text-decoration:none;color:inherit">` +
-      `${dot}<span style="flex:1">${esc(p.name)}</span><span style="color:#999;font-size:.78em">${state}</span></a>`;
+    const sq = p.kind === 'sighting' ? ' sq' : '';
+    const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
+    return `<a class="pp-row" href="intro.html#${esc(p.chain)}">` +
+      `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
+      `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
   }).join('');
-  new maplibregl.Popup({ closeButton: true, maxWidth: '260px' })
-    .setLngLat(coords).setHTML(`<div>${head}${rows}</div>`).addTo(MAP_REF);
+  el.dataset.lng = lng; el.dataset.lat = lat;
+  el.innerHTML =
+    '<div class="pp-head"><button class="pp-x" aria-label="Close place panel" onclick="closePlacePanel()">×</button>' +
+    `<h3>${esc(title)}</h3>` + (owner ? `<div class="pp-owner">${esc(owner)}</div>` : '') + '</div>' +
+    '<div class="pp-stats">' +
+      `<div class="s"><b>${brands.size}</b><span>brand${brands.size > 1 ? 's' : ''}</span></div>` +
+      `<div class="s"><b>${leaves.length}</b><span>outlets</span></div>` +
+      `<div class="s"><b>${sectors.size}</b><span>sector${sectors.size > 1 ? 's' : ''}</span></div></div>` +
+    '<div class="pp-btns">' +
+      `<a href="https://www.google.com/maps/dir/?api=1&destination=${dest}" target="_blank" rel="noopener">Directions</a>` +
+      '<button type="button" onclick="cfcCopyPlace(this)">Copy link</button>' +
+      '<button type="button" class="pro" title="Follow this place — Pro, in development">Follow</button></div>' +
+    `<div class="pp-list"><div class="lbl">Chinese brands here</div>${rows}</div>`;
+  el.hidden = false;
+}
+
+function cfcCopyPlace(btn) {
+  const el = document.getElementById('place-panel');
+  if (!el) return;
+  const u = location.origin + location.pathname + '#c=' + (+el.dataset.lng).toFixed(4) +
+    ',' + (+el.dataset.lat).toFixed(4) + '&z=15';
+  if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
+  const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = o; }, 1200);
+}
+
+// ---- Search: grouped suggestions (Places / Shopping centers / Chains) ------------------------
+function buildSearchIndex() {
+  const meta = window.CHAIN_META || {};
+  const chains = Object.keys(meta).map((id) => ({ type: 'chain', id, name: meta[id].name, sector: meta[id].sector }));
+  const cityMap = {};
+  for (const f of FULL_FC.features) {
+    const p = f.properties; if (!p.city || !p.state) continue;
+    const k = p.city + ', ' + p.state;
+    const c = cityMap[k] || (cityMap[k] = { name: p.city, state: p.state, n: 0, x: 0, y: 0 });
+    c.n++; c.x += f.geometry.coordinates[0]; c.y += f.geometry.coordinates[1];
+  }
+  const places = Object.values(cityMap).map((c) => ({ type: 'place', name: c.name, state: c.state, n: c.n, lng: c.x / c.n, lat: c.y / c.n }));
+  const centers = CO_TENANCY.filter((c) => c.center && c.center.name && c.lat != null)
+    .map((c) => ({ type: 'center', name: c.center.name, city: c.city, state: c.state, lng: c.lon, lat: c.lat, cluster: c }));
+  return { chains, places, centers };
+}
+
+function fitChain(id) {
+  const pts = FULL_FC.features.filter((f) => f.properties.chain === id &&
+    (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon'));
+  if (!pts.length || !MAP_REF) return;
+  let minx = 180, miny = 90, maxx = -180, maxy = -90;
+  for (const f of pts) { const [x, y] = f.geometry.coordinates; minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); }
+  if (minx === maxx && miny === maxy) MAP_REF.flyTo({ center: [minx, miny], zoom: 13 });
+  else MAP_REF.fitBounds([[minx, miny], [maxx, maxy]], { padding: 70, maxZoom: 13 });
+}
+
+function openCenterPanel(cluster) {
+  const lng = cluster.lon, lat = cluster.lat;
+  const leaves = FULL_FC.features.filter((f) => {
+    const [x, y] = f.geometry.coordinates; return Math.hypot(x - lng, y - lat) < 0.004;
+  });
+  if (leaves.length) openPlacePanel([lng, lat], leaves);
+}
+
+function setupSearch(map) {
+  const box = document.getElementById('hero-search');
+  const panel = document.getElementById('search-suggest');
+  if (!box || !panel) return;
+  let opts = [], sel = -1;
+
+  const close = () => { panel.hidden = true; box.setAttribute('aria-expanded', 'false'); sel = -1; };
+  const matchIn = (arr, q) => arr.filter((o) => o.name.toLowerCase().includes(q))
+    .sort((a, b) => a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q));
+
+  function render(raw) {
+    const q = raw.trim().toLowerCase();
+    if (!q) { close(); return; }
+    const idx = buildSearchIndex();
+    const places = matchIn(idx.places, q).slice(0, 5);
+    const centers = matchIn(idx.centers, q).slice(0, 5);
+    const chains = matchIn(idx.chains, q).slice(0, 6);
+    opts = [];
+    let html = '';
+    const grp = (label, arr, make) => {
+      if (!arr.length) return;
+      html += `<div class="grp">${label}</div>`;
+      for (const o of arr) { const i = opts.length; opts.push(o); html += `<div class="opt" role="option" data-i="${i}">${make(o)}</div>`; }
+    };
+    if (!chains.length && (places.length || centers.length)) {
+      html += `<div class="none">No chain names match <b>${esc(raw.trim())}</b> — try a place or center:</div>`;
+    }
+    grp('Places', places, (o) => `<span class="ic">◉</span><span class="nm">${esc(o.name)}, ${esc(o.state)}</span><span class="meta">${o.n} outlet${o.n > 1 ? 's' : ''}</span>`);
+    grp('Shopping centers', centers, (o) => `<span class="ic">▣</span><span class="nm">${esc(o.name)}</span><span class="meta">${esc([o.city, o.state].filter(Boolean).join(', '))}</span>`);
+    grp('Chains', chains, (o) => `<span class="ring" style="border-color:${SECTOR[o.sector] || OTHER}"></span><span class="nm">${esc(o.name)}</span><span class="meta">${esc(SECTOR_LABEL[o.sector] || '')}</span>`);
+    if (!opts.length) html = `<div class="none">No matches for <b>${esc(raw.trim())}</b>.</div>`;
+    panel.innerHTML = html; panel.hidden = false; box.setAttribute('aria-expanded', 'true'); sel = -1;
+    panel.querySelectorAll('.opt').forEach((elt) => {
+      elt.addEventListener('mousedown', (e) => { e.preventDefault(); choose(+elt.dataset.i); });
+    });
+  }
+
+  function highlight() {
+    panel.querySelectorAll('.opt').forEach((elt, i) => elt.setAttribute('aria-selected', String(i === sel)));
+    const cur = panel.querySelector('.opt[aria-selected="true"]');
+    if (cur) cur.scrollIntoView({ block: 'nearest' });
+  }
+
+  function choose(i) {
+    const o = opts[i]; if (!o) return;
+    close(); box.value = o.name;
+    if (o.type === 'chain') { onlyChain(o.id); fitChain(o.id); }
+    else if (o.type === 'place') { map.flyTo({ center: [o.lng, o.lat], zoom: 10 }); }
+    else if (o.type === 'center') { map.flyTo({ center: [o.lng, o.lat], zoom: 15 }); openCenterPanel(o.cluster); }
+  }
+
+  box.addEventListener('input', () => render(box.value));
+  box.addEventListener('focus', () => { if (box.value.trim()) render(box.value); });
+  box.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (opts.length) { sel = Math.min(sel + 1, opts.length - 1); highlight(); } }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); if (opts.length) { sel = Math.max(sel - 1, 0); highlight(); } }
+    else if (e.key === 'Enter') { if (sel >= 0) { e.preventDefault(); choose(sel); } }
+    else if (e.key === 'Escape') { close(); box.blur(); }
+  });
+  document.addEventListener('click', (e) => { if (!panel.contains(e.target) && e.target !== box) close(); });
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); box.focus(); box.select(); }
+  });
+}
+
+// ---- Toolbar: status toggle + Share view ----------------------------------------------------
+function shareURL(map) {
+  const c = map.getCenter();
+  const parts = ['c=' + c.lng.toFixed(4) + ',' + c.lat.toFixed(4), 'z=' + map.getZoom().toFixed(2)];
+  const hide = [...HIDDEN]; if (hide.length) parts.push('hide=' + hide.join(','));
+  if (!SHOW_ANNOUNCED) parts.push('open=1');
+  return location.origin + location.pathname + '#' + parts.join('&');
+}
+
+function setupToolbar(map) {
+  const share = document.getElementById('share-view');
+  if (share) share.addEventListener('click', () => {
+    const u = shareURL(map);
+    if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
+    share.classList.add('copied'); const o = share.textContent; share.textContent = 'Link copied';
+    setTimeout(() => { share.classList.remove('copied'); share.textContent = o; }, 1400);
+  });
+  const ann = document.getElementById('show-announced');
+  if (ann) ann.addEventListener('change', () => { SHOW_ANNOUNCED = ann.checked; applyFilter(); });
+}
+
+function restoreFromURL(map) {
+  const h = location.hash.replace(/^#/, ''); if (!h) return;
+  const p = new URLSearchParams(h);
+  if (p.get('hide')) HIDDEN = new Set(p.get('hide').split(',').filter(Boolean));
+  if (p.get('open') === '1') { SHOW_ANNOUNCED = false; const ann = document.getElementById('show-announced'); if (ann) ann.checked = false; }
+  if (p.get('hide') || p.get('open')) applyFilter();
+  const c = p.get('c'), z = p.get('z');
+  if (c) { const [lng, lat] = c.split(',').map(Number); if (isFinite(lng) && isFinite(lat)) map.jumpTo({ center: [lng, lat], zoom: z ? parseFloat(z) : 11 }); }
 }
 
 // ---- Chain filter panel ---------------------------------------------------------------------
@@ -331,7 +516,9 @@ function applyFilter() {
   if (MAP_REF && FULL_FC) {
     const src = MAP_REF.getSource('stores');
     if (src) src.setData({ type: 'FeatureCollection',
-      features: FULL_FC.features.filter((f) => !HIDDEN.has(f.properties.chain)) });
+      features: FULL_FC.features.filter((f) =>
+        !HIDDEN.has(f.properties.chain) &&
+        (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon')) });
   }
   for (const chip of document.querySelectorAll('.chip[data-chain]'))
     chip.setAttribute('aria-pressed', String(!HIDDEN.has(chip.dataset.chain)));
