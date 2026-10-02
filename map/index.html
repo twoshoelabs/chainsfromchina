@@ -86,7 +86,14 @@
   .pbtns button { font: 500 .85rem var(--sans); padding: 6px 14px; border: 1px solid var(--line);
     background: #fff; border-radius: 999px; cursor: pointer; }
   .pbtns button:hover { border-color: var(--ink); }
-  .tally { max-height: 54vh; overflow: auto; margin: 0 -6px; padding: 0 6px; }
+  .tally { max-height: 54vh; overflow-y: scroll; margin: 0 -6px; padding: 0 6px; }
+  /* A persistent, visible scrollbar so it's clear the brand list keeps going. Styling the webkit
+     pseudo-element forces a reserved, non-overlay bar even where macOS would hide it; we deliberately
+     do NOT set scrollbar-width, which would disable this and fall back to the hidden overlay bar. */
+  .tally::-webkit-scrollbar { width: 11px; }
+  .tally::-webkit-scrollbar-track { background: #efece3; border-radius: 6px; }
+  .tally::-webkit-scrollbar-thumb { background: #c3bbaa; border-radius: 6px; border: 2px solid #efece3; }
+  .tally::-webkit-scrollbar-thumb:hover { background: #a89f8c; }
   button.tallygroup { background: none; border: 0; padding: 12px 0 6px; cursor: pointer; text-align: left;
     width: 100%; font: 600 .76rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
     color: var(--faint); border-top: 1px solid var(--line); margin-top: 6px; }
