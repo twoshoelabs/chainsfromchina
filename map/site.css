@@ -30,7 +30,11 @@
   position: sticky; top: 0; z-index: 1000; background: var(--cfc-night); color: var(--cfc-paper);
   display: flex; align-items: center; gap: 14px; padding: 0 20px; height: 60px; white-space: nowrap;
   border-bottom: 1px solid rgba(243,240,232,.12); font-family: var(--cfc-sans);
+  max-width: none; width: 100%; margin: 0; box-sizing: border-box;
 }
+/* Legacy pages load style.css, whose generic `header` and `header > *` rules would otherwise
+   centre and re-pad this injected <header>. Neutralise them so the bar is identical on every page. */
+.site-nav > * { max-width: none; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; }
 .site-nav .wm { font-family: var(--cfc-display); font-weight: 700; font-size: 20px; line-height: 1;
   letter-spacing: -.01em; color: var(--cfc-paper); text-decoration: none; flex: 0 0 auto; }
 .site-nav .beta { font: 600 10px/1 var(--cfc-mono); letter-spacing: .12em; text-transform: uppercase;
