@@ -358,9 +358,11 @@
     },
     {
      "name": "Katy",
-     "address": "23015 Colonial Parkway STE #107, Katy, TX 77449",
+     "address": "23015 Colonial Pkwy #107, Katy, TX 77449",
      "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+     "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); Google-confirmed operating 2026-10-02 as 'YGF Malatang Katy' (4.7★, 287 reviews). Census has no TIGER range for 23015 Colonial Pkwy, so the coordinate is derived from the Census match for the neighbouring 23119 Colonial Pkwy (H Mart) in the same plaza.",
+     "lat": 29.793769,
+     "lon": -95.773288
     },
     {
      "name": "Tukwila",
@@ -1441,10 +1443,10 @@
      "verified_by": "press: opened — routine discovery 2026-10-01 — https://planomagazine.com/chahalo-opens/"
     },
     {
-     "address": "9889 Bellaire Blvd, Houston, TX 77036",
+     "address": "9889 Bellaire Blvd Ste 111, Houston, TX 77036",
      "name": "Houston",
-     "confidence": "uncertain",
-     "verified_by": "reported (routine discovery 2026-10-01) — https://houstonhotspots.com/blog/MjIyMA=="
+     "confidence": "confirmed",
+     "verified_by": "Operator manual pull 2026-10-02: Yelp lists Chahalo at 9889 Bellaire Blvd Ste 111 (3.8★, 28 reviews, 71 photos), Bubble Tea / Coffee & Tea, operating."
     },
     {
      "address": "1403 Research Blvd, Rockville, MD 20850",
