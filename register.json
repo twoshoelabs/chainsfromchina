@@ -1023,11 +1023,11 @@
       "locations": null,
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
-      "reviewed": "2026-09-21",
-      "note": "Named in a list of markets; no store-level confirmation found.",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Several Dubai stores — first Middle East store in Deira/Business Village (Mar 2024), then Dubai Internet City / Knowledge Park, and a Dubai Mall flagship; 4+ UAE outlets.",
       "sources": [
-        "https://en.wikipedia.org/wiki/Cotti_Coffee"
+        "https://gulfnews.com/business/corporate-news/cotti-coffee-accelerates-global-footprint-with-flagship-store-in-iconic-dubai-mall-1.500373885"
       ]
     },
     {
@@ -1052,10 +1052,10 @@
       "first_opened": null,
       "precision": null,
       "confidence": "high",
-      "reviewed": "2026-09-21",
-      "note": "Runs a dedicated UAE site with its own store list; a flagship in one of the world's largest malls. A country count could be collected from that locator the way the US one is — the best candidate for promoting an entry here into real collection.",
+      "reviewed": "2026-10-02",
+      "note": "Dubai Mall flagship (387 sqm) and ~25 UAE stores (Mall of the Emirates, Deira City Centre, Dubai Hills and more).",
       "sources": [
-        "https://www.miniso-uae.com/our-stores/"
+        "https://www.prnewswire.com/news-releases/miniso-opens-new-flagship-store-in-one-of-the-worlds-largest-shopping-malls-in-uae-301388802.html"
       ]
     },
     {
@@ -1247,16 +1247,15 @@
     {
       "chain": "popmart",
       "market": "AE",
-      "status": "no_evidence",
+      "status": "present",
       "locations": null,
-      "locations_as_of": "2026-01",
       "first_opened": null,
       "precision": null,
       "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "Presence appears to be authorized resellers (noon, Virgin Megastore) and official online only; no confirmed standalone POP MART store as of Aug 2025.",
+      "reviewed": "2026-10-02",
+      "note": "Official UAE market entry — a trading entity (Pop Mart Middle East Trading LLC, Aug 2024) and authorised retail at The Dubai Mall (via 'The Little Things'), with Careem delivery. Distributor-led; no brand-operated standalone store confirmed yet.",
       "sources": [
-        "https://www.thenationalnews.com/"
+        "https://gulfnews.com/business/retail/labubu-collectible-dolls-can-now-be-delivered-via-careem-in-dubai-abu-dhabi-1.500143013"
       ]
     },
     {
@@ -1457,17 +1456,15 @@
       "chain": "haidilao",
       "market": "AE",
       "status": "present",
-      "locations": 1,
+      "locations": null,
       "first_opened": null,
       "precision": null,
       "confidence": "high",
-      "reviewed": "2026-09-21",
-      "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. See the UK note — combined figure.",
+      "reviewed": "2026-10-02",
+      "note": "Dubai — The Dubai Mall (first UAE branch), Dubai Festival City Mall and Downtown Dubai; all-halal.",
       "sources": [
-        "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
-        "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
-      ],
-      "locations_as_of": "2026-09-21"
+        "https://www.visitdubai.com/en/restaurants/haidilao-dubai"
+      ]
     },
     {
       "chain": "yangs",
@@ -3421,13 +3418,13 @@
       "market": "SA",
       "status": "present",
       "locations": null,
-      "first_opened": "2017",
-      "precision": "year",
-      "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "Multiple stores (Riyadh, Jeddah); local operation MINISO Saudi Arabia.",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Riyadh — Panorama Mall, Eastern Ring Road (Al Rabwah) and more; listed on Saudi retail directories.",
       "sources": [
-        "https://miniso.sa/"
+        "https://pik.sa/en/stores/miniso/264"
       ]
     },
     {
@@ -4720,6 +4717,1658 @@
       "sources": [
         "https://foursquare.com/v/%E9%A9%AC%E8%B7%AF%E8%BE%B9%E8%BE%B9-malubianbian-shore2/5e51eccf2b631a0008d6ee3a"
       ]
+    },
+    {
+      "chain": "fishwithyou",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Dubai — Mall of the Emirates (Al Barsha) and International City (China Cluster).",
+      "sources": [
+        "https://bestthings.ae/dubai/fish-with-you-suan-cai-yu/461025"
+      ]
+    },
+    {
+      "chain": "xiaolongkan",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Dubai — Dubai Mall Chinatown and International City; operates its own UAE site.",
+      "sources": [
+        "https://shooloongkan.ae/"
+      ]
+    },
+    {
+      "chain": "anta",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Anta brand store at Dubai Hills Mall (also listed for Mall of Arabia Dubai).",
+      "sources": [
+        "https://www.dubaihillsmall.ae/shop/anta/295/"
+      ]
+    },
+    {
+      "chain": "jnby",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "JNBY's first UAE flagship at City Walk, Jumeirah 1, Dubai.",
+      "sources": [
+        "https://www.timeoutdubai.com/shopping/features/52045-jnby-in-dubai"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Mi Store flagship at The Dubai Mall (opened Apr 2023, then its largest outside China/India) plus a second Dubai store.",
+      "sources": [
+        "https://www.thenationalnews.com/business/technology/2023/04/27/xiaomi-opens-biggest-middle-east-store-in-dubai-to-boost-regional-footprint/"
+      ]
+    },
+    {
+      "chain": "huawei",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Multiple Huawei Experience Stores — Dubai Mall, City Centre Deira, Mall of the Emirates, Mirdif City Centre.",
+      "sources": [
+        "https://consumer.huawei.com/ae-en/retail/"
+      ]
+    },
+    {
+      "chain": "lining",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Li-Ning Pro Shop at Madina Mall, Al Qusais, Dubai; official UAE site.",
+      "sources": [
+        "https://ae.lining.studio/"
+      ]
+    },
+    {
+      "chain": "xtep",
+      "market": "AE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "UAE listed as a market on Xtep's own global site; no specific brand store pinned.",
+      "sources": [
+        "https://www.globalxtep.com/"
+      ]
+    },
+    {
+      "chain": "luckin",
+      "market": "AE",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Publicly weighing a GCC debut (UAE among candidate markets) after the Sept 2026 Mubadala/Centurium deal; nothing signed or located.",
+      "sources": [
+        "https://www.cnbc.com/2026/09/29/luckin-coffee-mubadala-middle-east-temasek-centurium-capital.html"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "AE",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Company says Middle East store openings are 'planned for this year' but names no UAE city, mall or date; UAE via e-commerce (Noon/Amazon.ae) only for now.",
+      "sources": [
+        "https://beyondretailindustry.mapic.com/en-gb/blog/retail/urban-revivo-global-expansion.html"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "AE",
+      "status": "exited",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Operated a Dubai outlet at La Mer, Jumeirah 1, now listed permanently closed (Zomato/HiDubai) — a retreat, not a current presence.",
+      "sources": [
+        "https://www.zomato.com/dubai/m%C3%B6ge-tee-1-jumeirah-1"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "First official Mi Store opened in Riyadh (Electron Commercial Center, Jun 2021); official mi.com/sa.",
+      "sources": [
+        "https://www.gizmochina.com/2021/06/07/xiaomi-opens-first-physical-store-saudi-arabia/"
+      ]
+    },
+    {
+      "chain": "huawei",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Largest overseas flagship at Riyadh Front (~2,000 sqm) plus Experience Stores (The View Mall & Salam Mall Riyadh, Jeddah Park).",
+      "sources": [
+        "https://www.arabnews.com/node/2018906/corporate-news"
+      ]
+    },
+    {
+      "chain": "lining",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Official 'Li-Ning Saudi Arabia & Bahrain' presence; store listed in Dammam.",
+      "sources": [
+        "https://www.facebook.com/LiningSAR/"
+      ]
+    },
+    {
+      "chain": "xtep",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Jeddah brand store (Prince Miteb Street); official KSA channels (xtep.sa).",
+      "sources": [
+        "https://www.instagram.com/xtep.sa/"
+      ]
+    },
+    {
+      "chain": "semir",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Riyadh — first overseas SEMIR store opened at Riyadh Park Mall (Aug 2018); sister brand Balabala at Al Othaim Mall.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Semir_(company)"
+      ]
+    },
+    {
+      "chain": "tianlala",
+      "market": "SA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Riyadh (Al Olaya) — live TIANLALA storefront on HungerStation plus a dated local post tying it to 甜啦啦; no first-party page or street address confirmed.",
+      "sources": [
+        "https://hungerstation.com/sa-en/qc/102913/TIANLALA/"
+      ]
+    },
+    {
+      "chain": "luckin",
+      "market": "SA",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Publicly weighing a GCC debut (Saudi named among candidate markets) after the Sept 2026 Mubadala/Centurium deal; nothing signed.",
+      "sources": [
+        "https://www.cnbc.com/2026/09/29/luckin-coffee-mubadala-middle-east-temasek-centurium-capital.html"
+      ]
+    },
+    {
+      "chain": "urbanrevivo",
+      "market": "SA",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Same 'Middle East' expansion plan with no Saudi specifics; Amazon.sa e-commerce only for now.",
+      "sources": [
+        "https://beyondretailindustry.mapic.com/en-gb/blog/retail/urban-revivo-global-expansion.html"
+      ]
+    },
+    {
+      "chain": "heytea",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Dubai 'Hey Tea' delivery listings could not be verified as the genuine 喜茶 (Heytea's official overseas-market list excludes the UAE; it only opened UAE franchise applications in 2023) — likely a namesake. Flagged for manual check."
+    },
+    {
+      "chain": "cotti",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Operates in the UAE and Qatar (Doha) but no Saudi outlet found."
+    },
+    {
+      "chain": "haidilao",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Only self-heating hotpot retail products sold online to Saudi; no restaurant found (Riyadh 'Habibi Hotpot' is an unrelated local brand)."
+    },
+    {
+      "chain": "popmart",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Labubu pop-ups and official online sales (noon/amazon.sa), but no permanent brand store confirmed."
+    },
+    {
+      "chain": "mixue",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Only a DIFC corporate-office registration surfaced, no retail outlet."
+    },
+    {
+      "chain": "mixue",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chagee",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chagee",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "heytea",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yangs",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yangs",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "taier",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "taier",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "juewei",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "juewei",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nayuki",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nayuki",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chabaidao",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chabaidao",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yangguofu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yangguofu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "fishwithyou",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "zhangliang",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "zhangliang",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chahalo",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "chahalo",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiaolongkan",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yihetang",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yihetang",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "tianlala",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "luckycup",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "luckycup",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yujianxiaomian",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yujianxiaomian",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "hefu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "hefu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiabu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiabu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "coucou",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "coucou",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laowang",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laowang",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "peijie",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "peijie",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "zhouheiya",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "zhouheiya",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "kkv",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "kkv",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "x11",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "x11",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "colorist",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "colorist",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "cooltoy",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "cooltoy",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "muwu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "muwu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "steelpipe",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "steelpipe",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "micun",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "micun",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "greentea",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "greentea",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "tanyu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "tanyu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nanjingimpressions",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nanjingimpressions",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nowwa",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "nowwa",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "manner",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "manner",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yuanji",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "yuanji",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiaogujiejie",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiaogujiejie",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "banu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "banu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laoxiangji",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laoxiangji",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "manling",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "manling",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiaocaiyuan",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "xiaocaiyuan",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "linlee",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "linlee",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moreyogurt",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moreyogurt",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moge",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "mstand",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "mstand",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "meiyijia",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "meiyijia",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "crvanguard",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "crvanguard",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "qiandama",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "qiandama",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "bestore",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "bestore",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "mglife",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "mglife",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "anta",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "jnby",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "meilleurmoment",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "meilleurmoment",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "bosideng",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "bosideng",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "semir",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laopu",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "laopu",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moco",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moco",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "icicle",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "icicle",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "cabbeen",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "cabbeen",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "florasis",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "florasis",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "maogeping",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "maogeping",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "judydoll",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "judydoll",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "joocyee",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "joocyee",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "hotmaxx",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "hotmaxx",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "malubianbian",
+      "market": "AE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "malubianbian",
+      "market": "SA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
     }
   ]
 }
