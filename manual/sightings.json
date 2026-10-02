@@ -1357,9 +1357,9 @@
     },
     {
      "address": "37-05 Prince St, Flushing, NY 11354",
-     "confidence": "uncertain",
+     "confidence": "confirmed",
      "name": "Flushing (Prince St)",
-     "verified_by": "Announced by the brand's own Instagram @moreyogurt.ny: soft opening 27–29 Sep 2026, grand opening 2–4 Oct 2026 (its first NYC store); awaiting confirmation it is trading (30 Sep 2026)"
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms MoreYogurt Flushing operating at 37-05 Prince St (4.9★, 97 reviews)."
     }
    ],
    "scope": "Two US locations known: Tustin, CA (open and trading, the chain's first US store) and Flushing, NY (37-05 Prince St, its first NYC store, brand-announced for late Sep/early Oct 2026, awaiting confirmation it is open). Not a complete roster.",
@@ -1547,26 +1547,28 @@
     {
      "address": "2125 Shattuck Ave, Berkeley, CA 94704",
      "name": "Berkeley",
-     "confidence": "uncertain",
-     "verified_by": "opening (routine discovery 2026-10-01) — https://whatnow.com/san-francisco/restaurants/chinese-chain-heytea-is-opening-its-first-outpost-in-berkeley/"
+     "confidence": "confirmed",
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (Berkeley) operating at 2125 Shattuck Ave (4.3★, 239 reviews)."
     },
     {
-     "address": "479 N Rodeo Dr, Beverly Hills, CA 90210",
+     "address": "479 N Rodeo Dr Ste D, Beverly Hills, CA 90210",
      "name": "Beverly Hills (Rodeo Dr)",
-     "confidence": "uncertain",
-     "verified_by": "opening (routine discovery 2026-10-01) — https://www.laweekly.com/heytea-brings-its-trendsetting-new-asian-tea-to-the-west-coast-with-the-opening-of-its-first-los-angeles-store/"
+     "confidence": "confirmed",
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (Beverly Hills) operating at 479 N Rodeo Dr Ste D (3.8★, 223 reviews, +1 310-734-7362)."
     },
     {
      "address": "180 Pleasant St, Malden, MA 02148",
      "name": "Malden",
-     "confidence": "uncertain",
-     "verified_by": "not yet open (routine discovery 2026-10-01) — https://whatnow.com/boston/restaurants/heytea-to-open-new-tea-house-in-malden/"
+     "confidence": "confirmed",
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (Malden) operating at 180 Pleasant St (3.7★, 54 reviews, +1 781-480-3096)."
     },
     {
-     "address": "One Garden State Plaza, Paramus, NJ 07652",
+     "address": "1 Garden State Plaza Pkwy, Paramus, NJ 07652",
      "name": "Paramus (Garden State Plaza)",
-     "confidence": "uncertain",
-     "verified_by": "opening (routine discovery 2026-10-01) — https://njbiz.com/heytea-westfield-garden-state-plaza-paramus-opening/"
+     "confidence": "confirmed",
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (GSP) operating in Westfield Garden State Plaza, Level 2 A10 (4.1★, 250 reviews, +1 201-234-8549). Census cannot place the mall address, so the coordinate is the mall's documented location (40.91896, -74.07639).",
+     "lat": 40.91896,
+     "lon": -74.07639
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
@@ -1582,21 +1584,6 @@
      "name": "Midtown Manhattan",
      "confidence": "confirmed",
      "verified_by": "first-party store site — routine discovery 2026-10-01 — https://www.lelechanewyork.com/"
-    }
-   ],
-   "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
-   "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01",
-   "reviewed": "2026-10-01"
-  },
-  {
-   "chain": "yangguofu",
-   "locations": [
-    {
-     "address": "3655 S Durango Dr, Las Vegas, NV 89147",
-     "name": "Las Vegas",
-     "confidence": "uncertain",
-     "verified_by": "prepping to open (routine discovery 2026-10-01) — https://whatnow.com/las-vegas/restaurants/ygf-mala-tang-headed-to-las-vegas/"
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",

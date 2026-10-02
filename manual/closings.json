@@ -185,6 +185,18 @@
    "closed_note": "On the 31 Dec 2025 FDD roster; field audit 2026-10-02 found it permanently closed on Google Maps (4.0★, 45 reviews). Not to be confused with Zhang Liang at 1380 Fullerton Rd #104 (different chain, still open). Removed from the sightings roster.",
    "confidence": "confirmed",
    "source": "Google Maps (permanently closed); YGF field audit 2026-10-02. Context in manual/sightings.json yangguofu FDD roster."
+  },
+  {
+   "chain": "yangguofu",
+   "name": "Las Vegas (Durango Dr)",
+   "address": "3655 S Durango Dr Ste 18, Las Vegas, NV 89147",
+   "city": "Las Vegas",
+   "state": "NV",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Field audit 2026-10-02: Google shows permanently closed (4.7★, 36 reviews — it did operate). Had been a discovery-routine lead (reported prepping to open); likely the Nevada outlet the FDD noted as opening and closing. Never mapped (held as uncertain); removed from sightings.",
+   "confidence": "confirmed",
+   "source": "Google Maps (permanently closed); YGF field audit 2026-10-02."
   }
  ]
 }
