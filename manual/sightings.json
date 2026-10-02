@@ -1622,6 +1622,23 @@
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
    "reviewed": "2026-10-01"
+  },
+  {
+   "chain": "miniso",
+   "supplied_on": "2026-10-02",
+   "reviewed": "2026-10-02",
+   "source": "Operator manual pull from mall directories, for Miniso stores not yet on Miniso’s own locator (which the daily census reads).",
+   "scope": "Manually-verified Miniso US locations not yet listed on Miniso’s own store locator. Held here as sightings so they show now; each MUST be retired once the daily census covers the site, because the pipeline does not auto-dedup sightings against the census and would otherwise double-count. Not a roster.",
+   "locations": [
+    {
+     "name": "South Portland (The Maine Mall)",
+     "address": "364 Maine Mall Rd, South Portland, ME 04106",
+     "lat": 43.63358,
+     "lon": -70.3341,
+     "confidence": "confirmed",
+     "verified_by": "The Maine Mall directory (mainemall.com/en/directory/10993) lists Miniso (Accessories); operator pull 2026-10-02. Not yet in Miniso’s own locator. Census has no range for 364 Maine Mall Rd, so the coordinate is the mall’s published building location (multiple mapping sources agree). RETIRE when the census picks it up."
+    }
+   ]
   }
  ]
 }
