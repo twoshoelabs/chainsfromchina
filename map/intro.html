@@ -69,6 +69,7 @@
   .frtag { font: 600 .6rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
     color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
     white-space: nowrap; vertical-align: middle; }
+  .frtag.fdd { background: var(--teal); color: #fff; }   /* stronger tier: US FDD on file */
   .csince { color: var(--faint); font-size: .82rem; margin-top: auto; }
 
   table.ctable { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: .92rem; }
@@ -153,8 +154,9 @@ let CHAINS = [];
   const cnt = {};
   for (const f of gj.features) {
     const p = f.properties;
-    const c = cnt[p.chain] || (cnt[p.chain] = { open: 0, hand: 0, soon: 0, sector: p.sector, name: p.name, fr: 0 });
+    const c = cnt[p.chain] || (cnt[p.chain] = { open: 0, hand: 0, soon: 0, sector: p.sector, name: p.name, fr: 0, fdd: 0 });
     if (p.fr === 1) c.fr = 1;                   // chain is open to a US franchisee
+    if (p.fdd === 1) c.fdd = 1;                 // ...backed by a registered US FDD
     if (p.status === 'coming_soon') c.soon++;
     else if (p.kind === 'sighting') c.hand++;
     else c.open++;
@@ -167,7 +169,7 @@ let CHAINS = [];
     const comp = companies[id] || {};
     CHAINS.push({
       id, name: m.name || id, zh: m.name_zh || '', sector: k.sector || m.format || 'other',
-      outlets: k.open + k.hand, announced: k.soon, source, franchise: k.fr || 0,
+      outlets: k.open + k.hand, announced: k.soon, source, franchise: k.fr || 0, fdd: k.fdd || 0,
       since: comp.us_since || '', year: yearOf(comp.us_since),
       ny: NY_RE.test(comp.first_outlet || ''), flushing: /flushing/i.test(comp.first_outlet || ''),
     });
@@ -233,7 +235,7 @@ function cardHTML(c) {
     `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
     `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
     `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>` +
-      (c.franchise ? '<span class="frtag" title="Open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</span>' : '') +
+      (c.franchise ? `<span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
     `</div>` +
     `<div class="csince">${c.since ? 'In the US since ' + esc(c.since) : 'US arrival not dated'}</div></a>`;
 }
@@ -241,7 +243,7 @@ function cardHTML(c) {
 function tableHTML(list) {
   const rows = list.map(c =>
     `<tr><td><a href="chain.html?c=${esc(c.id)}">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span>` +
-      (c.franchise ? ' <span class="frtag" title="Open to a US franchisee">Franchise</span>' : '') + `</td>` +
+      (c.franchise ? ` <span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'US FDD on file' : 'First-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') + `</td>` +
     `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
     `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +
     `<td>${esc(c.since || '—')}</td></tr>`).join('');

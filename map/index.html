@@ -112,6 +112,8 @@
   .chip .frmark { font: 600 .56rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
     color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 2px 4px;
     margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+  /* Stronger tier: a registered US FDD is on file — filled, not outline. */
+  .chip .frmark.fdd, .legendrow .frmark.fdd { background: var(--accent); color: #fff; }
   .chip .n { font: 500 .9rem var(--mono); color: var(--dim); }
   .chip .prof { text-decoration: none; color: var(--faint); font-size: .95rem; padding: 0 2px; }
   .chip .prof:hover { color: var(--green); }
@@ -452,7 +454,7 @@
   </div>
 </footer>
 
-<script src="atlas.js?v=20261003a"></script>
+<script src="atlas.js?v=20261003b"></script>
 <script>
 // ---- Hero + section data bindings (independent of the map engine) --------------------------
 const SECTOR_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',

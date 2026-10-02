@@ -44,10 +44,12 @@
     border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
   .hb.counted { color: var(--teal); border-color: var(--teal); }
   .hb.fr { color: var(--teal); border-color: var(--teal); }
+  .hb.fr.fdd { background: var(--teal); color: #fff; }   /* stronger tier: US FDD on file */
   /* Franchise detail line + tag — a chain open to a US franchisee. */
   .frtag { font: 600 .6rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
     color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
     vertical-align: middle; white-space: nowrap; }
+  .frtag.fdd { background: var(--teal); color: #fff; }
   .frline { margin: 16px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.55; }
   .frline .frtag { margin-right: 8px; }
   .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
@@ -156,6 +158,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const isCollected = !!collected[id];
   const regChain = (reg.chains && reg.chains[id]) || {};
   const franchiseUS = regChain.franchise_available_us === 1;   // open to a US franchisee
+  const franchiseFDD = regChain.fdd_available === 1;           // ...backed by a registered US FDD
   const franchiseNote = regChain.franchise_note || '';
 
   const feats = gj.features.filter(f => f.properties.chain === id);
@@ -219,7 +222,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `<div class="chero">${logoHTML}<div class="cheromain">` +
       `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
       `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
-        (franchiseUS ? '<span class="hb fr" title="Open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</span>' : '') +
+        (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
       `</div>` +
       (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
     `</div></div>` +
@@ -235,7 +238,10 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
       firstStore +
     `</div>` +
-    (franchiseUS ? `<p class="frline"><span class="frtag">Franchise</span> Open to a qualifying US franchisee.${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
+    (franchiseUS ? `<p class="frline"><span class="frtag${franchiseFDD ? ' fdd' : ''}">Franchise</span> ` +
+      (franchiseFDD ? 'Open to a qualifying US franchisee, backed by a registered US FDD.'
+                    : 'Open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +
+      `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +

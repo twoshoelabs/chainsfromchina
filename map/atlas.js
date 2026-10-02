@@ -618,9 +618,10 @@ function buildTally(fc) {
   const meta = {};
   for (const f of fc.features) {
     const p = f.properties;
-    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0, fr: 0 });
+    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0, fr: 0, fdd: 0 });
     m.n++;
     if (p.fr === 1) m.fr = 1;                   // chain is open to a US franchisee
+    if (p.fdd === 1) m.fdd = 1;                 // ...backed by a registered US FDD (stronger tier)
     if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
   }
   ALL_CHAINS = Object.keys(meta);
@@ -648,7 +649,7 @@ function buildTally(fc) {
       chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
         `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
         `<span class="chipnm">${esc(m.name)}` +
-        (m.fr ? ' <span class="frmark" title="Open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</span>' : '') +
+        (m.fr ? ` <span class="frmark${m.fdd ? ' fdd' : ''}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file (fee, royalty &amp; standards disclosed)' : 'Open to a US franchisee via a first-party US franchise page — FDD not confirmed'}">Franchise</span>` : '') +
         `</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
       prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
@@ -694,7 +695,8 @@ function buildLegend() {
     '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>counted outlet</span>' +
     '<span class="k"><span class="dot" style="border-color:#888;background:#fff;border-radius:3px"></span>hand-verified</span>' +
     '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>' +
-    '<span class="k" style="margin-left:.4rem"><span class="frmark">Franchise</span> open to a US franchisee</span>';
+    '<span class="k" style="margin-left:.4rem"><span class="frmark fdd">Franchise</span> US FDD on file</span>' +
+    '<span class="k"><span class="frmark">Franchise</span> open via first-party page</span>';
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
