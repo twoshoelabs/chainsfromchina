@@ -223,9 +223,10 @@ async function init() {
     map.on('click', 'pts', (e) => {
       const p = e.features[0].properties;
       const sec = SECTOR_LABEL[p.sector] || 'Other';
-      const state = p.status === 'open' ? 'Open'
-        : p.status === 'coming_soon' ? 'Announced / coming soon' : 'Reported sighting';
-      const prov = p.kind === 'sighting' ? ' · hand-verified sighting' : ' · counted from its own locator';
+      const state = p.status === 'coming_soon' ? 'Announced / coming soon'
+        : p.kind === 'sighting' ? (p.confidence === 'uncertain' ? 'Reported location' : 'Hand-verified location')
+        : 'Open';
+      const prov = p.kind === 'sighting' ? '' : ' · counted from its own locator';
       const logo = LOGO_PRESENT[p.chain]
         ? `<img src="icons/${esc(p.chain)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
