@@ -138,18 +138,64 @@ async function resolveStyle() {
   };
 }
 
+// US extents: the opening view frames the lower 48, and panning/zooming is clamped to the US and
+// its territories so a stray scroll never drifts into the empty grey world beyond the tiles.
+const US_BOUNDS = [[-125, 24.2], [-66.5, 49.6]];
+const MAX_BOUNDS = [[-179.5, 13], [-63, 72]];
+
+// A one-tap "frame the United States" button, sitting under the zoom control.
+class FitUSControl {
+  onAdd(map) {
+    this._map = map;
+    const d = document.createElement('div');
+    d.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    const b = document.createElement('button');
+    b.type = 'button'; b.title = 'Fit the United States';
+    b.setAttribute('aria-label', 'Fit the United States');
+    b.style.cssText = 'font:700 11px/29px "Libre Franklin",system-ui,sans-serif';
+    b.textContent = 'US';
+    b.onclick = () => map.fitBounds(US_BOUNDS, { padding: 40 });
+    d.appendChild(b); this._c = d; return d;
+  }
+  onRemove() { this._c.remove(); this._map = undefined; }
+}
+
 async function init() {
+  // Loading state: the basemap and the badge icons take a moment, so the map and the brand list get
+  // a skeleton instead of sitting blank and grey.
+  const mapEl = document.getElementById('map');
+  let loadingEl = null;
+  if (mapEl) {
+    mapEl.style.position = 'relative';
+    loadingEl = document.createElement('div');
+    loadingEl.className = 'map-loading';
+    loadingEl.textContent = 'Loading the map…';
+    mapEl.appendChild(loadingEl);
+  }
+  const tallyEl = document.getElementById('tally');
+  if (tallyEl) tallyEl.innerHTML = '<div class="tally-skel">' + '<div class="skelrow"></div>'.repeat(7) + '</div>';
+
   // Fetch our data once; we reuse it for the source, the per-brand icons, and the count line.
   const fc = await fetch('data/stores.geojson').then((r) => r.json());
+  if (loadingEl) {
+    const n = (fc.meta && fc.meta.totals && fc.meta.totals.mapped) || fc.features.length;
+    loadingEl.textContent = `Loading ${n.toLocaleString()} outlets…`;
+  }
   const chainSector = {};
   for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
 
   const style = await resolveStyle();
   const map = new maplibregl.Map({
-    container: 'map', style, center: [-96, 38], zoom: 3.3,
+    container: 'map', style,
+    bounds: US_BOUNDS, fitBoundsOptions: { padding: 40 },
+    maxBounds: MAX_BOUNDS, minZoom: 2.6, maxZoom: 17,
+    cooperativeGestures: true,          // page scroll no longer zooms the map; ⌘/Ctrl+scroll or two fingers does
     attributionControl: { compact: true },
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.addControl(new maplibregl.GeolocateControl({
+    positionOptions: { enableHighAccuracy: false }, trackUserLocation: false }), 'top-right');
+  map.addControl(new FitUSControl(), 'top-right');
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }));
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
@@ -179,7 +225,7 @@ async function init() {
 
     map.addSource('stores', {
       type: 'geojson', data: fc,
-      cluster: true, clusterRadius: 48, clusterMaxZoom: 11,
+      cluster: true, clusterRadius: 48, clusterMaxZoom: 14,
     });
 
     map.addLayer({
@@ -217,8 +263,20 @@ async function init() {
 
     map.on('click', 'clusters', (e) => {
       const f = map.queryRenderedFeatures(e.point, { layers: ['clusters'] })[0];
-      map.getSource('stores').getClusterExpansionZoom(f.properties.cluster_id).then((z) => {
-        map.easeTo({ center: f.geometry.coordinates, zoom: z });
+      const src = map.getSource('stores');
+      const id = f.properties.cluster_id;
+      src.getClusterExpansionZoom(id).then((z) => {
+        // A cluster that only breaks apart beyond the clustering max is effectively one place —
+        // the outlets share an address (Tangram's nine). Don't zoom into nothing; list them so
+        // every outlet at a shared address is one click away. Otherwise jump in hard (at least a
+        // couple of levels) so the US view reaches street level in two clicks, not six.
+        if (z > 14) {
+          src.getClusterLeaves(id, 50, 0, (err, leaves) => {
+            if (!err && leaves) stackPopup(f.geometry.coordinates, leaves);
+          });
+        } else {
+          map.easeTo({ center: f.geometry.coordinates, zoom: Math.max(z, map.getZoom() + 2.5) });
+        }
       });
     });
     map.on('click', 'pts', (e) => {
@@ -244,7 +302,25 @@ async function init() {
 
     buildLegend();
     buildTally(fc);
+    map.once('idle', () => { if (loadingEl) { loadingEl.remove(); loadingEl = null; } });
   });
+}
+
+// A same-address stack: list the outlets sharing one spot so each is reachable in a single click.
+// (The richer place panel is a later step; this guarantees nothing is trapped under an overlap.)
+function stackPopup(coords, leaves) {
+  const addr = (leaves.find((l) => l.properties.address) || { properties: {} }).properties.address;
+  const head = `<div style="font-weight:600;margin-bottom:.25rem">${leaves.length} outlets here</div>` +
+    (addr ? `<div style="color:#666;font-size:.82em;margin-bottom:.45rem">${esc(addr)}</div>` : '');
+  const rows = leaves.map((l) => {
+    const p = l.properties;
+    const state = p.status === 'coming_soon' ? 'coming soon' : 'open';
+    const dot = `<span style="width:9px;height:9px;border-radius:50%;border:2px solid ${SECTOR[p.sector] || OTHER};display:inline-block;flex:0 0 auto"></span>`;
+    return `<a href="intro.html#${esc(p.chain)}" style="display:flex;align-items:center;gap:.45rem;padding:.18rem 0;text-decoration:none;color:inherit">` +
+      `${dot}<span style="flex:1">${esc(p.name)}</span><span style="color:#999;font-size:.78em">${state}</span></a>`;
+  }).join('');
+  new maplibregl.Popup({ closeButton: true, maxWidth: '260px' })
+    .setLngLat(coords).setHTML(`<div>${head}${rows}</div>`).addTo(MAP_REF);
 }
 
 // ---- Chain filter panel ---------------------------------------------------------------------

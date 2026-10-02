@@ -71,3 +71,13 @@
 .cfc-badge.announced { color: var(--cfc-amber); border-color: var(--cfc-amber); }
 .cfc-badge.pro     { background: var(--cfc-brass); border-color: #e4d2a4; color: var(--cfc-ink); }
 .cfc-badge.modeled { color: var(--cfc-amber); border-style: dashed; }
+
+/* ---- Map + brand-list loading state ------------------------------------------------------ */
+.map-loading { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center;
+  justify-content: center; border-radius: 10px; color: #6b6456;
+  font: 500 14px/1 var(--cfc-mono); background: #efece3; }
+.tally-skel { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px; }
+.tally-skel .skelrow { height: 26px; border-radius: 6px;
+  background: linear-gradient(90deg, #e8e3d8 25%, #f1ede4 37%, #e8e3d8 63%);
+  background-size: 400% 100%; animation: cfcshimmer 1.3s ease infinite; }
+@keyframes cfcshimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
