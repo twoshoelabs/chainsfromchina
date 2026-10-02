@@ -85,8 +85,9 @@ function roundRect(ctx, x, y, w, h, rad) {
   ctx.closePath();
 }
 
-// A circular badge for census outlets, or a rounded SQUARE one for hand-verified sightings, so the
-// legend's two shapes read apart. `soft` = announced / coming soon (dashed, faded).
+// A circular pin badge: the brand's logo in a sector-colored ring. `soft` = announced / coming soon
+// (dashed, faded). `square` renders a rounded-square variant — retained but unused; every outlet we
+// draw now shares one shape, since all are confirmed to exist.
 function makeBadge(logo, color, mono, soft, square) {
   const S = BADGE * DPR;
   const cv = document.createElement('canvas');
