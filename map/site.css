@@ -29,6 +29,7 @@
 .site-nav {
   position: sticky; top: 0; z-index: 1000; background: var(--cfc-night); color: var(--cfc-paper);
   display: flex; align-items: center; gap: 14px; padding: 0 20px; height: 60px; white-space: nowrap;
+  border-top: 4px solid var(--cfc-teal);   /* editorial accent rule across the very top */
   border-bottom: 1px solid rgba(243,240,232,.12); font-family: var(--cfc-sans);
   max-width: none; width: 100%; margin: 0; box-sizing: border-box;
 }
