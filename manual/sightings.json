@@ -1437,10 +1437,12 @@
    "chain": "chahalo",
    "locations": [
     {
-     "address": "6809 North Central Expressway, Plano, TX 75023",
+     "address": "6809 N Central Expy #500, Plano, TX 75023",
      "name": "Plano",
      "confidence": "confirmed",
-     "verified_by": "press: opened — routine discovery 2026-10-01 — https://planomagazine.com/chahalo-opens/"
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms Chahalo 茶话弄 operating at 6809 N Central Expy #500 (3.7★, 98 reviews, +1 945-369-6084, confirmed by the business). Census has no range for N Central Expy here, so the coordinate is the Census match for 6809 K Ave — the same building number on the parallel US-75 frontage street.",
+     "lat": 33.066532,
+     "lon": -96.687399
     },
     {
      "address": "9889 Bellaire Blvd Ste 111, Houston, TX 77036",
