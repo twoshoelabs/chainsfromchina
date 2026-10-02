@@ -690,10 +690,12 @@
       "locations": null,
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
-      "reviewed": "2026-09-26",
-      "note": "Its own brand news (11 Sep 2026) places it in Toronto and Vancouver, as part of a claimed 42 outlets across North America (US, Canada, Mexico); no Canadian count or opening date is published.",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Multiple Canadian stores across two provinces: Coquitlam (204-403 North Road, BC) and Greater Vancouver, plus Toronto (3278 Midland Avenue; 482 Dundas Street West) and Mississauga (4040 Creditview Road) in Ontario. The chain's own brand news (11 Sep 2026) folds Canada into a claimed 42 North American outlets (US, Canada, Mexico).",
       "sources": [
+        "https://www.ubereats.com/ca/store/zhang-liang-malatang-coquitlam/MfiIluQ_WAW5VpjY4ehbkw",
+        "https://www.yelp.ca/biz/%E5%BC%A0%E4%BA%AE%E9%BA%BB%E8%BE%A3%E7%83%AB-zhang-liang-spicy-hotpot-toronto",
         "https://www.zlmlt.com/Brand_News.html"
       ]
     },
@@ -4529,9 +4531,9 @@
       "locations": null,
       "first_opened": null,
       "precision": null,
-      "confidence": "medium",
+      "confidence": "high",
       "reviewed": "2026-10-02",
-      "note": "Opened its first Taiwan store in Nangang, Taipei (454 Zhongxiao East Road Section 6); little further coverage so far, so breadth beyond that one site is unconfirmed.",
+      "note": "At least two Taipei stores: the Nangang 'first store' (南港首店, No. 280 Section 2 Nangang Road, Nangang District) and a Xinyi / Taipei Arena-area store (市府巨蛋店, off Section 4 Zhongxiao East Road, Xinyi District).",
       "sources": [
         "https://vjjourney.com/yang-guo-fu/"
       ]
@@ -4543,12 +4545,116 @@
       "locations": null,
       "first_opened": "2017",
       "precision": "year",
-      "confidence": "low",
+      "confidence": "medium",
       "reviewed": "2026-10-02",
-      "note": "Canada was the chain's first overseas market — a Vancouver-area franchise opened in September 2017. The branded Greater Vancouver stores have since largely closed (the Burnaby and Richmond/Ackroyd Road sites are reported shut, signage removed), with a Coquitlam location reported still trading. Present but contracting — recheck.",
+      "note": "Canada was the chain's first overseas market — a Vancouver-area franchise opened in September 2017. The early Greater Vancouver stores have largely closed (the Burnaby and Richmond/Ackroyd Road sites are reported shut, signage removed), but the brand still trades here through a Canadian arm (ygfmalatangca.com): an operating store sits at 1609 Pembina Highway, Winnipeg, Manitoba.",
       "sources": [
         "https://baike.baidu.com/en/item/Yang%20Guofu%20Malatang/24375",
-        "https://nomsmagazine.com/report-ygf-malatang-richmond-closure/"
+        "https://nomsmagazine.com/report-ygf-malatang-richmond-closure/",
+        "https://restaurantguru.com/YGF-hotpot-%E6%9D%A8%E5%9B%BD%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%83%AB-Winnipeg"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "JP",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2019",
+      "precision": "year",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Japan was the chain's first overseas market (2019). Several locations — Tokyo (Nishi-Ikebukuro), Kobe (Nankinmachi) and Koshigaya Lake Town in Saitama — with its 10th Japanese site reported signed in 2026.",
+      "sources": [
+        "https://www.mala-tabetai.com/en/shops/zhangliang-malatang-koshigaya-laketown",
+        "https://eu.36kr.com/en/p/3259572934177287"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "KR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Reported operating in South Korea (Seoul) as part of the chain's East Asian expansion; no specific store address or count pinned in this pass.",
+      "sources": [
+        "https://eu.36kr.com/en/p/3259572934177287"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "A well-established Singapore market — a single franchisee is reported to run 13 stores — with mall locations including Scotts Square (14 Scotts Road), Bedok Mall and 100AM.",
+      "sources": [
+        "https://www.capitaland.com/sg/malls/bedokmall/en/stores/zhang-liang-malatang.html",
+        "https://www.barchart.com/story/news/33157298/singapore-franchise-owner-zou-lexin-the-crosscultural-business-of-13-zhang-liang-malatang-stores"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "AU",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2020",
+      "precision": "year",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "In Australia since 2020 — Queensland stores in Sunnybank (Brisbane, the first) and Southport (Australia Fair Metro, Gold Coast), among others.",
+      "sources": [
+        "https://foodgoldcoast.com.au/zhang-liang-malatang/",
+        "https://www.indailyqld.com.au/theweekendedition-goldcoast/directory/zhang-liang-malatang"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2025-04",
+      "precision": "month",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "First French store opened in the Galeries Lafayette, Paris, in April 2025 — positioned as the chain's European hub.",
+      "sources": [
+        "https://www.zlmlt.com/en_Brand_News/358.html",
+        "https://eu.36kr.com/en/p/3259572934177287"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "A London Chinatown restaurant at 112 Shaftesbury Avenue (W1D 5EJ), billed as the chain's European debut.",
+      "sources": [
+        "https://www.rli.uk.com/zhang-liang-malatang-to-open-in-londons-chinatown/",
+        "https://www.tripadvisor.com/Restaurant_Review-g186338-d28155304-Reviews-Zhangliang_Malatang-London_England.html"
+      ]
+    },
+    {
+      "chain": "zhangliang",
+      "market": "NL",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Operates in the Netherlands through a dedicated Dutch arm (zlmlt.nl); specific store addresses not pinned in this pass.",
+      "sources": [
+        "https://zlmlt.nl/story"
       ]
     }
   ]
