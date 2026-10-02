@@ -1,6 +1,6 @@
 {
  "_readme": [
-  "KNOWN US CLOSINGS WE CAME ACROSS BY HAND, BEFORE A DAILY CENSUS COULD WATCH THEM.",
+  "KNOWN CLOSINGS WE CAME ACROSS BY HAND, BEFORE A DAILY CENSUS COULD WATCH THEM.",
   "",
   "A census detects a closing by absence: a store drops off its own locator and, after N",
   "collected days, is dated closed (see events.py). That only works for chains with a live",
@@ -19,6 +19,10 @@
   "is 'confirmed' for an explicit closed admission/record and 'uncertain' for 'appears closed'.",
   "Aggregate retreats we cannot pin to an address (Yang's broad US withdrawal; Taier's and",
   "Meizhou Dongpo's earlier LA-area outlets) are described in companies.json, not invented here.",
+  "",
+  "SCOPE. Rows are US unless a `country` field (ISO-2) says otherwise, in which case `state` holds",
+  "the province or region. Non-US rows are kept here only as an internal record behind the",
+  "international register's prose — they are out of scope for the US map and are never shown.",
   "",
   "A closing graduates the other way from a sighting: once a chain's live locator covers the",
   "site, the census owns its open/closed state and the hand record here can be retired."
@@ -131,6 +135,32 @@
    "closed_note": "Early US store, since closed; close date unknown. Part of Yang's broader US retreat.",
    "confidence": "confirmed",
    "source": "companies.json yangs first_outlet '(since closed)'."
+  },
+  {
+   "chain": "yangguofu",
+   "name": "Burnaby (Kingsway)",
+   "address": "4500 Kingsway #1233, Burnaby, BC",
+   "city": "Burnaby",
+   "state": "BC",
+   "country": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Greater Vancouver YGF location, now closed; close date unknown. Part of the chain's contraction in its first overseas market (Canada).",
+   "confidence": "confirmed",
+   "source": "Web search; Google permanently closed. Context in register.json yangguofu/CA."
+  },
+  {
+   "chain": "yangguofu",
+   "name": "Richmond (Ackroyd Rd)",
+   "address": "8100 Ackroyd Rd #195, Richmond, BC",
+   "city": "Richmond",
+   "state": "BC",
+   "country": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Last branded YGF in Greater Vancouver; permanently closed with signage removed, close date unknown. Reported as 'China's largest DIY malatang chain closes Richmond outpost'.",
+   "confidence": "confirmed",
+   "source": "https://nomsmagazine.com/report-ygf-malatang-richmond-closure/ ; recorded behind register.json yangguofu/CA."
   }
  ]
 }

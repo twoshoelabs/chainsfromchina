@@ -147,7 +147,7 @@ def main(argv=None):
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
     print("  sightings [--stale] [--stale-days N]            hand-verified locations; review cadence")
-    print("  closings                                        hand-recorded historical US closings")
+    print("  closings                                        hand-recorded historical closings")
     print("  probe --chain X                                 print one chain's live locator")
     return 0
 
