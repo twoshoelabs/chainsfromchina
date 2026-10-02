@@ -200,9 +200,10 @@ async function init() {
       paint: { 'text-color': '#fff' },
     });
 
-    // Individual outlets: a per-brand logo/monogram badge. "soft" (coming-soon or unconfirmed) uses
-    // the dashed variant.
-    const soft = ['any', ['==', ['get', 'status'], 'coming_soon'], ['==', ['get', 'confidence'], 'uncertain']];
+    // Individual outlets: a per-brand logo/monogram badge. The dashed "soft" variant marks an outlet
+    // that isn't open yet (announced / coming soon); every confirmed location, census or sighting, is
+    // a solid pin.
+    const soft = ['==', ['get', 'status'], 'coming_soon'];
     map.addLayer({
       id: 'pts', type: 'symbol', source: 'stores', filter: ['!', ['has', 'point_count']],
       layout: {
@@ -224,7 +225,7 @@ async function init() {
       const p = e.features[0].properties;
       const sec = SECTOR_LABEL[p.sector] || 'Other';
       const state = p.status === 'coming_soon' ? 'Announced / coming soon'
-        : p.kind === 'sighting' ? (p.confidence === 'uncertain' ? 'Reported location' : 'Hand-verified location')
+        : p.kind === 'sighting' ? 'Hand-verified location'
         : 'Open';
       const prov = p.kind === 'sighting' ? '' : ' · counted from its own locator';
       const logo = LOGO_PRESENT[p.chain]
