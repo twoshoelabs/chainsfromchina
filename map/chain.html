@@ -28,17 +28,33 @@
   .crumb { font: 500 .8rem var(--sans); color: var(--dim); padding: 18px 0 0; }
   .crumb a { color: var(--dim); text-decoration: none; } .crumb a:hover { color: var(--ink); }
 
-  .chero { display: flex; gap: 20px; align-items: center; padding: 22px 0 10px; flex-wrap: wrap; }
-  .chero .logo { width: 72px; height: 72px; border-radius: 50%; border: 3px solid; background: #fff; flex: 0 0 auto;
+  .sectorbar { height: 6px; border-radius: 3px; margin: 18px 0 2px; }
+  .chero { display: flex; gap: 22px; align-items: flex-start; padding: 16px 0 10px; flex-wrap: wrap; }
+  .chero .logo { width: 112px; height: 112px; border-radius: 50%; border: 4px solid; background: #fff; flex: 0 0 auto;
     display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
   .chero .logo img { width: 80%; height: 80%; object-fit: contain; }
-  .chero .logo.mono { color: #fff; font: 700 1.6rem var(--sans); }
+  .chero .logo.mono { color: #fff; font: 700 2.4rem var(--sans); }
   .chero .logo.mono::after { content: attr(data-m); }
-  .chero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2rem,4.5vw,3rem); line-height: 1; margin: 0; }
+  .chero .cheromain { flex: 1 1 320px; }
+  .chero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2rem,4.5vw,3rem); line-height: 1.02; margin: 0; }
   .chero .zh { font-family: var(--zh); color: var(--dim); font-size: 1.2rem; }
   .chero .aka { color: var(--faint); font-size: .85rem; margin-top: 4px; }
-  .srcline { font: 500 .8rem var(--mono); color: var(--teal); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
-  .srcline.hand { color: var(--dim); }
+  .herobadges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .hb { font: 600 .68rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
+    border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
+  .hb.counted { color: var(--teal); border-color: var(--teal); }
+  .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 22px; border-bottom: 1px solid var(--rule); }
+  .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 8px;
+    background: var(--card); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  .btn:hover { border-color: var(--ink); }
+  .btn.pro { background: var(--brass); border-color: #e4d2a4; }
+  .related { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 10px; }
+  .relcard { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 12px; text-decoration: none; color: inherit; }
+  .relcard:hover { border-color: var(--ink); }
+  .relcard .rring { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid; flex: 0 0 auto; }
+  .relcard .rn { margin-left: auto; font-family: var(--mono); color: var(--dim); }
 
   .stats { display: flex; flex-wrap: wrap; gap: 26px 36px; padding: 18px 0 24px; border-bottom: 1px solid var(--rule); }
   .stats .s b { display: block; font-family: var(--serif); font-weight: 700; font-size: 2rem; line-height: 1; }
@@ -149,11 +165,39 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const abroad = abroadAll.filter(e => e.status === 'present');
   const abroadOther = abroadAll.filter(e => e.status !== 'present');
 
-  // Neighbours: named co-tenancy clusters that include this chain.
+  // Neighbours: named co-tenancy clusters that include this chain, noting whether it's open or
+  // announced there (from its brand entry's statuses).
   const nb = (cen.co_tenancy || []).filter(c => (c.brands || []).some(b => (b.chain_id || b.chain || b) === id))
-    .slice(0, 6);
+    .slice(0, 6).map(c => {
+      const b = (c.brands || []).find(x => (x.chain_id || x.chain || x) === id);
+      const sts = (b && b.statuses) || [];
+      const here = (sts.indexOf('pre_opening') >= 0 || sts.indexOf('coming_soon') >= 0) && sts.indexOf('active') < 0 && sts.indexOf('sighting') < 0
+        ? 'announced here' : 'open here';
+      return { c, here };
+    });
 
-  document.title = `${m.name} — Chains From China`;
+  // First US city (from first_outlet), a one-sentence data summary, and related same-sector chains.
+  const firstCity = comp.first_outlet ? comp.first_outlet.split('—')[0].split(',')[0].trim() : '';
+  const sents = [];
+  if (comp.blurb) sents.push(comp.blurb.split(/(?<=\.)\s/)[0]);
+  let cs = '';
+  if (open) cs = `${open} outlet${open > 1 ? 's are' : ' is'} open in the US`;
+  if (!open && hand) cs = `${hand} location${hand > 1 ? 's are' : ' is'} hand-verified`;
+  if (soon) cs += cs ? ` and ${soon} more are announced` : `${soon} announced, none open yet`;
+  if (cs) sents.push(cs + '.');
+  if (firstCity && comp.us_since) sents.push(`Its first US store opened in ${firstCity} in ${comp.us_since}.`);
+  const summary = sents.join(' ');
+
+  const cnt = {};
+  for (const f of gj.features) { const p = f.properties; const c = cnt[p.chain] || (cnt[p.chain] = { n: 0, sector: p.sector, name: p.name });
+    if (p.status !== 'coming_soon') c.n++; }
+  const related = Object.keys(cnt).filter(k => cnt[k].sector === sector && k !== id)
+    .sort((a, b) => cnt[b].n - cnt[a].n).slice(0, 4);
+  const sectorTotal = Object.keys(cnt).filter(k => cnt[k].sector === sector).length;
+
+  document.title = `${m.name} ${m.name_zh || ''} in the US — Chains From China`.replace(/\s+/g, ' ');
+  var md = document.querySelector('meta[name="description"]');
+  if (md && summary) md.setAttribute('content', summary);
   document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
 
   const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
@@ -162,8 +206,18 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
 
   box.innerHTML =
-    `<div class="chero">${logoHTML}<div><h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
-      `<div class="srcline ${isCollected ? '' : 'hand'}">${isCollected ? 'Counted daily from its own locator' : 'Hand-verified locations'}</div></div></div>` +
+    `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
+    `<div class="chero">${logoHTML}<div class="cheromain">` +
+      `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
+      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
+        `<span class="hb ${isCollected ? 'counted' : ''}">${isCollected ? 'Counted daily from its own locator' : 'Hand-verified'}</span></div>` +
+      (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
+    `</div></div>` +
+    `<div class="actions">` +
+      `<a class="btn pro" href="index.html#pro">Follow</a>` +
+      `<button class="btn" type="button" onclick="cfcShare(this)">Share this page</button>` +
+      `<a class="btn" href="contribute.html?chain=${encodeURIComponent(m.name)}">Report a ${esc(m.name)} store</a>` +
+    `</div>` +
     `<div class="stats">` +
       `<div class="s"><b>${open}</b><span>open in the US</span></div>` +
       (hand ? `<div class="s"><b>${hand}</b><span>hand-verified</span></div>` : '') +
@@ -188,6 +242,11 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
         (nb.length ? `<h2 style="margin-top:22px">Neighbours</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
       `</div>` +
     `</div></section>` +
+    (related.length ? `<section><h2>Related ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains</h2>` +
+      `<div class="related">` + related.map(k =>
+        `<a class="relcard" href="chain.html?c=${esc(k)}"><span class="rring" style="border-color:${secColor(sector)}"></span>` +
+        `<span>${esc(cnt[k].name)}</span><span class="rn">${cnt[k].n}</span></a>`).join('') + `</div>` +
+      `<p class="lead" style="margin-top:12px"><a href="intro.html?sector=${esc(sector)}">All ${sectorTotal} ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains →</a></p></section>` : '') +
     `<section style="border-bottom:0"><h2>More, with Pro</h2>` +
       `<div class="promods">` +
         `<div class="pmod"><div class="tag">PRO</div><h4>Daily history</h4><p>Open and announced counts for every day since the archive began.</p></div>` +
@@ -233,9 +292,20 @@ function abroadHTML(abroad, other) {
   return '<div class="flags">' + present + struck + '</div>';
 }
 
-function nbHTML(c) {
+function nbHTML(n) {
+  const c = n.c;
   const name = (c.center && c.center.name) || [c.city, c.state].filter(Boolean).join(', ') || 'Cluster';
-  return `<a href="centers.html"><span>${esc(name)}</span><span class="meta">${c.brand_count || (c.brands || []).length} brands</span></a>`;
+  return `<a href="centers.html"><span>${esc(name)}<br><span class="meta">${esc(n.here)}</span></span>` +
+    `<span class="meta">${c.brand_count || (c.brands || []).length} brands</span></a>`;
+}
+
+// name: cfcShare | purpose: share the chain page | arguments: btn | returns: nothing
+// effects: Web Share sheet, or copies the URL and flashes "Link copied" | other: —
+function cfcShare(btn) {
+  const url = location.href, title = document.title;
+  if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
+  if (navigator.clipboard) navigator.clipboard.writeText(url).catch(function () {});
+  const o = btn.textContent; btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = o; }, 1400);
 }
 
 function drawMap(feats, sector) {

@@ -185,6 +185,13 @@ async function loadToConfirm() {
   }
 }
 loadToConfirm();
+// Prefill the chain name when arriving from a chain page's "Report a … store" button.
+(function () {
+  var c = new URLSearchParams(location.search).get('chain');
+  if (!c) return;
+  var f = document.querySelector('#locform input[name="chain"], form input[name="chain"]');
+  if (f) { f.value = c; try { f.scrollIntoView({ block: 'center' }); } catch (e) {} }
+})();
 </script>
 <script src="site.js?v=5"></script>
 </body>
