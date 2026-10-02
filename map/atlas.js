@@ -74,33 +74,46 @@ function loadLogo(chain) {
 // Compose a circular pin badge. With a logo: a white chip + sector-colored ring + the logo inside.
 // Without one: a solid sector-colored disc with the brand's monogram. `soft` (announced / coming
 // soon, not yet open) draws a dashed ring and a hollow, faded treatment, matching the legend.
-function makeBadge(logo, color, mono, soft) {
+function roundRect(ctx, x, y, w, h, rad) {
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+
+// A circular badge for census outlets, or a rounded SQUARE one for hand-verified sightings, so the
+// legend's two shapes read apart. `soft` = announced / coming soon (dashed, faded).
+function makeBadge(logo, color, mono, soft, square) {
   const S = BADGE * DPR;
   const cv = document.createElement('canvas');
   cv.width = S; cv.height = S;
   const ctx = cv.getContext('2d');
   const cx = S / 2, cy = S / 2;
   const ring = Math.round(4 * DPR);
-  const r = cx - ring / 2 - DPR;          // ring centerline radius
+  const r = cx - ring / 2 - DPR;          // ring centerline "radius" (half-side for the square)
+  const corner = r * 0.42;
+  const trace = (rr) => {
+    ctx.beginPath();
+    if (square) roundRect(ctx, cx - rr, cy - rr, rr * 2, rr * 2, Math.min(corner, rr * 0.6));
+    else ctx.arc(cx, cy, rr, 0, 2 * Math.PI);
+  };
 
-  // soft drop in opacity for the whole mark
   ctx.globalAlpha = soft ? 0.82 : 1;
 
   if (logo) {
-    // white chip
-    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    trace(r);
     ctx.fillStyle = soft ? 'rgba(255,255,255,0.92)' : '#ffffff'; ctx.fill();
-    // logo, contained within the inner circle's bounding square
     ctx.save();
-    ctx.beginPath(); ctx.arc(cx, cy, r - ring * 0.6, 0, 2 * Math.PI); ctx.clip();
-    const inset = (r - ring) * 1.42;       // side of the square that fits inside the inner circle
+    trace(r - ring * 0.6); ctx.clip();
+    const inset = (r - ring) * 1.42;
     const scale = Math.min(inset / logo.width, inset / logo.height);
     const w = logo.width * scale, h = logo.height * scale;
     ctx.drawImage(logo, cx - w / 2, cy - h / 2, w, h);
     ctx.restore();
   } else {
-    // monogram: solid disc (open) or white disc (soft)
-    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    trace(r);
     ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
     ctx.fillStyle = soft ? color : '#ffffff';
     ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
@@ -108,8 +121,7 @@ function makeBadge(logo, color, mono, soft) {
     ctx.fillText(mono || '•', cx, cy + S * 0.02);
   }
 
-  // ring
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+  trace(r);
   ctx.lineWidth = ring; ctx.strokeStyle = color;
   if (soft) ctx.setLineDash([ring * 1.4, ring * 1.1]);
   ctx.stroke();
@@ -216,8 +228,9 @@ async function init() {
     chains.forEach((c, i) => {
       const color = SECTOR[chainSector[c]] || OTHER;
       const mono = MONOGRAM[c] || c.slice(0, 2).toUpperCase();
-      if (!map.hasImage('ic-' + c)) map.addImage('ic-' + c, makeBadge(logos[i], color, mono, false), { pixelRatio: DPR });
-      if (!map.hasImage('ic-' + c + '-s')) map.addImage('ic-' + c + '-s', makeBadge(logos[i], color, mono, true), { pixelRatio: DPR });
+      if (!map.hasImage('ic-' + c)) map.addImage('ic-' + c, makeBadge(logos[i], color, mono, false, false), { pixelRatio: DPR });
+      if (!map.hasImage('ic-' + c + '-s')) map.addImage('ic-' + c + '-s', makeBadge(logos[i], color, mono, true, false), { pixelRatio: DPR });
+      if (!map.hasImage('ic-' + c + '-sq')) map.addImage('ic-' + c + '-sq', makeBadge(logos[i], color, mono, false, true), { pixelRatio: DPR });
     });
 
     // Turn OFF the basemap's own points of interest, so only our pins read as data.
@@ -250,15 +263,15 @@ async function init() {
       paint: { 'text-color': '#fff' },
     });
 
-    // Individual outlets: a per-brand logo/monogram badge. The dashed "soft" variant marks an outlet
-    // that isn't open yet (announced / coming soon); every confirmed location, census or sighting, is
-    // a solid pin.
+    // Individual outlets: a per-brand badge. Hand-verified sightings are rounded squares; census
+    // outlets are circles, dashed ("soft") when announced / coming soon and solid when open.
     const soft = ['==', ['get', 'status'], 'coming_soon'];
     map.addLayer({
       id: 'pts', type: 'symbol', source: 'stores', filter: ['!', ['has', 'point_count']],
       layout: {
-        'icon-image': ['case', soft,
-          ['concat', 'ic-', ['get', 'chain'], '-s'],
+        'icon-image': ['case',
+          ['==', ['get', 'kind'], 'sighting'], ['concat', 'ic-', ['get', 'chain'], '-sq'],
+          soft, ['concat', 'ic-', ['get', 'chain'], '-s'],
           ['concat', 'ic-', ['get', 'chain']]],
         'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
         'icon-allow-overlap': true, 'icon-ignore-placement': true,
@@ -352,6 +365,17 @@ function openPlacePanel(coords, leaves) {
       `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
       `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
   }).join('');
+  // Nearby named clusters, by rough distance, so a reader can hop between centers.
+  const near = CO_TENANCY
+    .filter((c) => c.center && c.center.name && c.lat != null && Math.hypot(c.lon - lng, c.lat - lat) > 0.0006)
+    .map((c) => ({ c, d: milesBetween(lat, lng, c.lat, c.lon) }))
+    .sort((a, b) => a.d - b.d).slice(0, 3);
+  const nearHtml = near.length
+    ? '<div class="pp-list" style="flex:0 0 auto;border-top:1px solid var(--rule)"><div class="lbl">Nearby clusters</div>' +
+      near.map((n) => `<a class="pp-row" href="#" onclick="cfcGoCenter('${esc(n.c.key)}');return false;">` +
+        `<span>${esc(n.c.center.name)}</span><span class="st">${n.d < 10 ? n.d.toFixed(1) : Math.round(n.d)} mi</span></a>`).join('') +
+      '</div>'
+    : '';
   el.dataset.lng = lng; el.dataset.lat = lat;
   el.innerHTML =
     '<div class="pp-head"><button class="pp-x" aria-label="Close place panel" onclick="closePlacePanel()">×</button>' +
@@ -364,8 +388,21 @@ function openPlacePanel(coords, leaves) {
       `<a href="https://www.google.com/maps/dir/?api=1&destination=${dest}" target="_blank" rel="noopener">Directions</a>` +
       '<button type="button" onclick="cfcCopyPlace(this)">Copy link</button>' +
       '<button type="button" class="pro" title="Follow this place — Pro, in development">Follow</button></div>' +
-    `<div class="pp-list"><div class="lbl">Chinese brands here</div>${rows}</div>`;
+    `<div class="pp-list"><div class="lbl">Chinese brands here</div>${rows}</div>` + nearHtml;
   el.hidden = false;
+}
+
+function milesBetween(lat1, lng1, lat2, lng2) {
+  const dy = (lat2 - lat1) * 69;
+  const dx = (lng2 - lng1) * 69 * Math.cos(lat1 * Math.PI / 180);
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function cfcGoCenter(key) {
+  const c = CO_TENANCY.find((x) => x.key === key);
+  if (!c || !MAP_REF) return;
+  MAP_REF.flyTo({ center: [c.lon, c.lat], zoom: 15 });
+  openCenterPanel(c);
 }
 
 function cfcCopyPlace(btn) {
@@ -630,7 +667,10 @@ function buildLegend() {
   const sectors = Object.keys(SECTOR).map((k) =>
     `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
   el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
-    `<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>`;
+    '<span class="k" style="font-weight:600;margin-left:.4rem">Shape:</span>' +
+    '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>counted outlet</span>' +
+    '<span class="k"><span class="dot" style="border-color:#888;background:#fff;border-radius:3px"></span>hand-verified</span>' +
+    '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>';
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
