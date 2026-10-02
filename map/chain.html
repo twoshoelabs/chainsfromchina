@@ -54,9 +54,14 @@
   .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
   .kv { margin: 0; } .kv dt { font: 600 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-top: 12px; }
   .kv dd { margin: 3px 0 0; }
-  .bystate { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px,1fr)); gap: 8px; }
-  .bystate .st { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 8px 10px; font-size: .9rem; }
-  .bystate .st b { font-family: var(--mono); }
+  .bystate2 { display: flex; flex-direction: column; gap: 7px; }
+  .bsrow { display: grid; grid-template-columns: 120px 1fr 54px; gap: 10px; align-items: center; font-size: .88rem; }
+  .bsname { color: var(--ink); }
+  .bsbar { display: flex; height: 10px; background: #e8e3d8; border-radius: 999px; overflow: hidden; }
+  .bsopen { display: block; height: 100%; }
+  .bssoon { display: block; height: 100%; background: repeating-linear-gradient(45deg, var(--amber), var(--amber) 3px, transparent 3px, transparent 6px); }
+  .bsnum { font-family: var(--mono); text-align: right; }
+  .bsnum em { font-style: normal; color: var(--amber); }
   .nb { display: flex; flex-direction: column; gap: 8px; }
   .nb a { display: flex; justify-content: space-between; gap: 10px; background: var(--card); border: 1px solid var(--rule);
     border-radius: 7px; padding: 10px 12px; text-decoration: none; color: inherit; }
@@ -66,6 +71,7 @@
   .flag { font: 600 .72rem var(--mono); padding: 4px 8px; border: 1px solid var(--rule); border-radius: 5px; background: var(--card); }
   .flag.hi { border-color: var(--teal); color: var(--teal); }
   .flag.lo { opacity: .6; }
+  .flag.gone { text-decoration: line-through; color: var(--faint); opacity: .7; }
 
   .promods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; }
   .pmod { border: 1px dashed var(--rule); border-radius: 10px; padding: 18px; background: repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(0,0,0,.02) 10px, rgba(0,0,0,.02) 20px); }
@@ -134,10 +140,14 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const sector = (feats[0] && feats[0].properties.sector) || m.format || 'other';
   const states = new Set(feats.filter(f => f.properties.state).map(f => f.properties.state));
 
-  // Abroad: register entries for this chain in markets other than the US.
+  // Abroad: register entries for this chain in markets other than the US. "Markets reached" counts
+  // only markets where the chain is actually PRESENT — never a cell marked "–" (searched, none
+  // found), nor one it has exited. Those are shown after, struck through, but not counted.
   const markets = reg.markets || {};
-  const abroad = (reg.entries || []).filter(e => e.chain === id && e.market && e.market !== 'US')
-    .map(e => ({ code: e.market, name: (markets[e.code] || markets[e.market] || {}).name || e.market, conf: e.confidence }));
+  const abroadAll = (reg.entries || []).filter(e => e.chain === id && e.market && e.market !== 'US')
+    .map(e => ({ code: e.market, name: (markets[e.market] || {}).name || e.market, conf: e.confidence, status: e.status }));
+  const abroad = abroadAll.filter(e => e.status === 'present');
+  const abroadOther = abroadAll.filter(e => e.status !== 'present');
 
   // Neighbours: named co-tenancy clusters that include this chain.
   const nb = (cen.co_tenancy || []).filter(c => (c.brands || []).some(b => (b.chain_id || b.chain || b) === id))
@@ -172,9 +182,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
         (comp.site_cn ? `<dt>Site in China</dt><dd><a href="${esc(comp.site_cn)}" target="_blank" rel="noopener">${esc(comp.site_cn.replace(/^https?:\/\//,''))}</a> <span style="color:var(--faint)">(untested)</span></dd>` : '') +
       `</dl></section>` : '') +
     `<section><div class="cols">` +
-      `<div><h2>By state</h2>${byStateHTML(feats)}</div>` +
+      `<div><h2>By state</h2>${byStateHTML(feats, sector)}</div>` +
       `<div>` +
-        `<h2>Abroad</h2>${abroadHTML(abroad)}` +
+        `<h2>Abroad</h2>${abroadHTML(abroad, abroadOther)}` +
         (nb.length ? `<h2 style="margin-top:22px">Neighbours</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
       `</div>` +
     `</div></section>` +
@@ -189,21 +199,38 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (outlets + soon) drawMap(feats, sector);
 })();
 
-function byStateHTML(feats) {
+function byStateHTML(feats, sector) {
+  // Split each state into open (solid, sector colour) and announced (dashed amber). The open values
+  // add up to the chain's "open in the US" headline; announced is shown apart so the two never merge.
   const by = {};
-  for (const f of feats) { const s = f.properties.state; if (!s) continue; by[s] = (by[s] || 0) + 1; }
-  const rows = Object.entries(by).sort((a, b) => b[1] - a[1]);
+  for (const f of feats) {
+    const s = f.properties.state; if (!s) continue;
+    const b = by[s] || (by[s] = { open: 0, soon: 0 });
+    if (f.properties.status === 'coming_soon') b.soon++; else b.open++;
+  }
+  const rows = Object.entries(by).sort((a, b) => (b[1].open + b[1].soon) - (a[1].open + a[1].soon));
   if (!rows.length) return '<p class="lead">No located outlets yet.</p>';
-  return '<div class="bystate">' + rows.map(([s, n]) =>
-    `<div class="st">${esc(STATE_NAMES[s] || s)} <b>${n}</b></div>`).join('') + '</div>';
+  const max = Math.max(...rows.map(([, v]) => v.open + v.soon)) || 1;
+  const color = secColor(sector);
+  return '<div class="bystate2">' + rows.map(([s, v]) =>
+    `<div class="bsrow"><span class="bsname">${esc(STATE_NAMES[s] || s)}</span>` +
+    `<span class="bsbar"><span class="bsopen" style="width:${v.open / max * 100}%;background:${color}"></span>` +
+    `<span class="bssoon" style="width:${v.soon / max * 100}%"></span></span>` +
+    `<span class="bsnum">${v.open}${v.soon ? ` <em>+${v.soon}</em>` : ''}</span></div>`).join('') +
+    '</div><p class="lead" style="font-size:.78rem;margin-top:8px">Solid = open · <span style="color:var(--amber)">dashed = announced</span></p>';
 }
 
-function abroadHTML(abroad) {
-  if (!abroad.length) return '<p class="lead">No markets outside China recorded.</p>';
-  return '<div class="flags">' + abroad.map(a => {
+function abroadHTML(abroad, other) {
+  if (!abroad.length && !(other && other.length)) return '<p class="lead">No markets outside China recorded.</p>';
+  const present = abroad.map(a => {
     const cls = a.conf === 'high' ? 'hi' : a.conf === 'low' ? 'lo' : '';
     return `<span class="flag ${cls}" title="${esc(a.name)}${a.conf ? ' · ' + esc(a.conf) + ' confidence' : ''}">${esc(a.name)}</span>`;
-  }).join('') + '</div>';
+  }).join('');
+  const struck = (other || []).map(a => {
+    const label = a.status === 'announced' ? esc(a.name) + ' (announced)' : esc(a.name);
+    return `<span class="flag gone" title="${a.status === 'announced' ? 'Announced, not yet open' : 'Searched, none found'}">${label}</span>`;
+  }).join('');
+  return '<div class="flags">' + present + struck + '</div>';
 }
 
 function nbHTML(c) {
