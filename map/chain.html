@@ -43,15 +43,11 @@
   .hb { font: 600 .72rem/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
     border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
   .hb.counted { color: var(--teal); border-color: var(--teal); }
+  /* Franchise badge in the hero — filled = US FDD on file, outline = first-party page only. */
   .hb.fr { color: var(--teal); border-color: var(--teal); }
-  .hb.fr.fdd { background: var(--teal); color: #fff; }   /* stronger tier: US FDD on file */
-  /* Franchise detail line + tag — a chain open to a US franchisee. */
-  .frtag { font: 600 .6rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
-    color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
-    vertical-align: middle; white-space: nowrap; }
-  .frtag.fdd { background: var(--teal); color: #fff; }
+  .hb.fr.fdd { background: var(--teal); color: #fff; }
   .frline { margin: 16px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.55; }
-  .frline .frtag { margin-right: 8px; }
+  .frline b { color: var(--teal); font-weight: 600; }
   .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 22px; border-bottom: 1px solid var(--rule); }
   .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 3px;
@@ -238,9 +234,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
       firstStore +
     `</div>` +
-    (franchiseUS ? `<p class="frline"><span class="frtag${franchiseFDD ? ' fdd' : ''}">Franchise</span> ` +
-      (franchiseFDD ? 'Open to a qualifying US franchisee, backed by a registered US FDD.'
-                    : 'Open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +
+    (franchiseUS ? `<p class="frline"><b>Franchising:</b> ` +
+      (franchiseFDD ? 'open to a qualifying US franchisee, backed by a registered US FDD.'
+                    : 'open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +
       `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
@@ -442,10 +438,9 @@ async function drawMap(feats, sector, id, name) {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   map.on('load', () => {
-    // Per-brand badges: solid circle (open), dashed circle (announced), rounded square (sighting).
+    // Per-brand badges, one shape for every outlet: solid circle (open), dashed circle (announced).
     if (!map.hasImage('pin'))    map.addImage('pin',    makeBadge(logo, color, mono, false, false), { pixelRatio: DPR });
     if (!map.hasImage('pin-s'))  map.addImage('pin-s',  makeBadge(logo, color, mono, true,  false), { pixelRatio: DPR });
-    if (!map.hasImage('pin-sq')) map.addImage('pin-sq', makeBadge(logo, color, mono, false, true),  { pixelRatio: DPR });
 
     // Hide the basemap's own points of interest so only our outlets read as data.
     for (const l of map.getStyle().layers) {
@@ -460,7 +455,6 @@ async function drawMap(feats, sector, id, name) {
       id: 'pins', type: 'symbol', source: 'c',
       layout: {
         'icon-image': ['case',
-          ['==', ['get', 'kind'], 'sighting'], 'pin-sq',
           soft, 'pin-s',
           'pin'],
         'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],

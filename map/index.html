@@ -108,12 +108,10 @@
     display: inline-flex; align-items: center; justify-content: center; overflow: hidden; flex: 0 0 auto; }
   .chip .chiplogo img { width: 82%; height: 82%; object-fit: contain; display: block; }
   .chip .chipnm { flex: 1; font-size: .92rem; }
-  /* Marks a chain open to a US franchisee — a small teal tag in the brand list. */
-  .chip .frmark { font: 600 .56rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
-    color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 2px 4px;
-    margin-left: 6px; vertical-align: middle; white-space: nowrap; }
-  /* Stronger tier: a registered US FDD is on file — filled, not outline. */
-  .chip .frmark.fdd, .legendrow .frmark.fdd { background: var(--accent); color: #fff; }
+  /* A chain open to a US franchisee gets a quiet teal box around its name — solid when a US FDD is
+     on file, dashed when it's only a first-party franchise page. Deliberately understated. */
+  .frbox { border: 1px solid var(--accent); border-radius: 3px; padding: 1px 5px; }
+  .frbox.page { border-style: dashed; }
   .chip .n { font: 500 .9rem var(--mono); color: var(--dim); }
   .chip .prof { text-decoration: none; color: var(--faint); font-size: .95rem; padding: 0 2px; }
   .chip .prof:hover { color: var(--green); }
@@ -454,7 +452,7 @@
   </div>
 </footer>
 
-<script src="atlas.js?v=20261003b"></script>
+<script src="atlas.js?v=20261003c"></script>
 <script>
 // ---- Hero + section data bindings (independent of the map engine) --------------------------
 const SECTOR_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',

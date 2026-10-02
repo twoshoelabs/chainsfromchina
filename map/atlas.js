@@ -232,7 +232,6 @@ async function init() {
       const mono = MONOGRAM[c] || c.slice(0, 2).toUpperCase();
       if (!map.hasImage('ic-' + c)) map.addImage('ic-' + c, makeBadge(logos[i], color, mono, false, false), { pixelRatio: DPR });
       if (!map.hasImage('ic-' + c + '-s')) map.addImage('ic-' + c + '-s', makeBadge(logos[i], color, mono, true, false), { pixelRatio: DPR });
-      if (!map.hasImage('ic-' + c + '-sq')) map.addImage('ic-' + c + '-sq', makeBadge(logos[i], color, mono, false, true), { pixelRatio: DPR });
     });
 
     // Turn OFF the basemap's own points of interest, so only our pins read as data.
@@ -265,14 +264,14 @@ async function init() {
       paint: { 'text-color': '#fff' },
     });
 
-    // Individual outlets: a per-brand badge. Hand-verified sightings are rounded squares; census
-    // outlets are circles, dashed ("soft") when announced / coming soon and solid when open.
+    // Individual outlets: a per-brand badge. Every outlet we draw is confirmed to exist, so they
+    // share one shape (a circle) — the only variation is solid (open) vs dashed ("soft", announced
+    // / coming soon). We do not distinguish how we learned of a store on the map.
     const soft = ['==', ['get', 'status'], 'coming_soon'];
     map.addLayer({
       id: 'pts', type: 'symbol', source: 'stores', filter: ['!', ['has', 'point_count']],
       layout: {
         'icon-image': ['case',
-          ['==', ['get', 'kind'], 'sighting'], ['concat', 'ic-', ['get', 'chain'], '-sq'],
           soft, ['concat', 'ic-', ['get', 'chain'], '-s'],
           ['concat', 'ic-', ['get', 'chain']]],
         'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
@@ -361,7 +360,7 @@ function openPlacePanel(coords, leaves) {
   const dest = encodeURIComponent(lat + ',' + lng);
   const rows = leaves.slice().sort((a, b) => a.properties.name.localeCompare(b.properties.name)).map((l) => {
     const p = l.properties;
-    const sq = p.kind === 'sighting' ? ' sq' : '';
+    const sq = '';                              // one shape for every outlet (no counted/hand split)
     const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
     return `<a class="pp-row" href="chain.html?c=${esc(p.chain)}">` +
       `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
@@ -648,8 +647,10 @@ function buildTally(fc) {
       chip.title = 'Click to show or hide this chain on the map.';
       chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
         `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
-        `<span class="chipnm">${esc(m.name)}` +
-        (m.fr ? ` <span class="frmark${m.fdd ? ' fdd' : ''}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file (fee, royalty &amp; standards disclosed)' : 'Open to a US franchisee via a first-party US franchise page — FDD not confirmed'}">Franchise</span>` : '') +
+        `<span class="chipnm">` +
+        (m.fr
+          ? `<span class="frbox${m.fdd ? '' : ' page'}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">${esc(m.name)}</span>`
+          : esc(m.name)) +
         `</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
       prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
@@ -691,12 +692,10 @@ function buildLegend() {
   const sectors = Object.keys(SECTOR).map((k) =>
     `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
   el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
-    '<span class="k" style="font-weight:600;margin-left:.4rem">Shape:</span>' +
-    '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>counted outlet</span>' +
-    '<span class="k"><span class="dot" style="border-color:#888;background:#fff;border-radius:3px"></span>hand-verified</span>' +
+    '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>open</span>' +
     '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>' +
-    '<span class="k" style="margin-left:.4rem"><span class="frmark fdd">Franchise</span> US FDD on file</span>' +
-    '<span class="k"><span class="frmark">Franchise</span> open via first-party page</span>';
+    '<span class="k" style="margin-left:.4rem"><span class="frbox">name</span> franchise (US FDD)</span>' +
+    '<span class="k"><span class="frbox page">name</span> franchise (first-party page)</span>';
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
