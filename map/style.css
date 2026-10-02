@@ -64,7 +64,7 @@ aside section{
   background:var(--surface); border:1px solid var(--rule); border-radius:2px;
   padding:12px 14px; margin-bottom:14px;
 }
-aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent)}
 table{width:100%; border-collapse:collapse; font-size:13.5px}
 td{padding:4px 0; border-bottom:1px solid var(--rule)}
 tr:last-child td{border-bottom:0}
@@ -169,7 +169,7 @@ table.reg{width:100%; border-collapse:collapse; font-size:13px}
 /* Retail-type band spanning the grid, matching the landing page's group labels. */
 table.reg tr.catrow th.catcell{
   border:0; text-align:left; padding:14px 6px 4px; background:var(--paper);
-  font:600 11px/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  font:600 11px/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--accent)}
 table.reg tr.catrow:first-child th.catcell{padding-top:4px}
 .matlegend{margin:-14px 0 26px}   /* sits just under the grid it explains */
 .matlegend .conf{margin:0 1px}
@@ -465,7 +465,7 @@ figure, aside section, .usbox, .chainblock, .ccard{border-radius:2px; box-shadow
 
 /* Section headers: a bold ink label on a full hairline — no coloured tick. */
 aside h2, .usbox h2{
-  color:var(--ink); font-weight:700; font-size:12px; letter-spacing:.11em;
+  color:var(--accent); font-weight:700; font-size:12px; letter-spacing:.11em;
   padding-bottom:8px; margin-bottom:12px; border-bottom:1px solid var(--rule);
 }
 
