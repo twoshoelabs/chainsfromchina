@@ -58,8 +58,8 @@
   /* big total */
   .total { text-align: left; }
   .total .big { font-family: var(--serif); font-weight: 800; font-size: clamp(5rem, 11vw, 8.5rem);
-    line-height: .9; letter-spacing: -.03em; }
-  .total .cap { font-size: 1.05rem; color: var(--dark-dim); max-width: 18ch; margin: 6px 0 22px; }
+    line-height: 1; letter-spacing: -.03em; display: block; margin-bottom: 16px; }
+  .total .cap { font-size: 1.05rem; color: var(--dark-dim); max-width: 22ch; margin: 0 0 24px; }
   .substats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
   .substats .s b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 700; }
   .substats .s span { font-size: .8rem; color: var(--dark-dim); }
@@ -71,7 +71,9 @@
     color: var(--faint); margin: 0 0 14px; }
   h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.5rem);
     line-height: 1.1; letter-spacing: -.01em; margin: 0 0 10px; }
+  h2.minor { font-size: 1.5rem; }     /* deprioritized sections (e.g. new-outlets-on-the-way) */
   .note { color: var(--dim); font-size: .92rem; }
+  #comingnext .note b { color: var(--amber, #a0660f); font-family: var(--mono); }
   .small { font-size: .82rem; }
 
   /* ---------- Map section ---------- */
@@ -276,7 +278,6 @@
         <div class="big" id="total-big">&mdash;</div>
         <p class="cap">outlets of Chinese chains open in the US<span id="total-note"></span></p>
         <div class="substats">
-          <div class="s soon"><b id="total-soon">&mdash;</b><span>announced,<br>not yet open</span></div>
           <div class="s"><b id="total-chains">&mdash;</b><span>chains</span></div>
           <div class="s"><b id="total-sectors">&mdash;</b><span>sectors</span></div>
         </div>
@@ -320,19 +321,6 @@
 </section>
 </div>
 
-<!-- ===================== COMING NEXT ===================== -->
-<div class="wrap">
-<section id="comingnext">
-  <p class="kicker">Coming next</p>
-  <h2>Announced, not yet open</h2>
-  <p class="note">These outlets have been announced but haven&rsquo;t opened yet, so they aren&rsquo;t in the total above. Each one is counted only once its store listing shows it trading.</p>
-  <div class="pipewrap" style="margin-top:28px">
-    <div class="pipebig" id="pipe-big">&mdash;<span>announced across the register</span></div>
-    <div class="pipebars" id="pipe-bars"></div>
-  </div>
-</section>
-</div>
-
 <!-- ===================== SECTOR BREAKDOWN ===================== -->
 <div class="wrap">
 <section id="sectors">
@@ -366,6 +354,19 @@
       <div class="ncarrow">Open the register &rarr;</div>
     </a>
   </div>
+</section>
+</div>
+
+<!-- ===================== NEW OUTLETS ON THE WAY (deprioritized) ===================== -->
+<div class="wrap">
+<section id="comingnext">
+  <p class="kicker">Also tracked</p>
+  <h2 class="minor">New outlets on the way</h2>
+  <p class="note">Beyond the outlets open today, tracked chains have announced <b id="pipe-count">&mdash;</b>
+    more US locations that haven&rsquo;t opened yet &mdash; new stores from chains already trading here,
+    or, in a few cases, a chain&rsquo;s first US site. None is counted in the total above until its own
+    store listing shows it open.</p>
+  <div class="pipebars" id="pipe-bars" style="margin-top:18px;max-width:640px"></div>
 </section>
 </div>
 
@@ -455,9 +456,8 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   const chains = Object.keys(chainOf);
   const sectors = [...new Set(Object.values(sectorOf))];
 
-  // Hero numbers
+  // Hero numbers (the announced figure lives lower, in its own section, not up here)
   document.getElementById('total-big').textContent = fmt(located);
-  document.getElementById('total-soon').textContent = '+' + fmt(announced);
   document.getElementById('total-chains').textContent = fmt(chains.length);
   document.getElementById('total-sectors').textContent = fmt(sectors.length);
   const unmapped = T ? T.unmapped : 0;
@@ -474,7 +474,7 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   const soonBy = {};
   for (const f of feats) if (f.properties.status === 'coming_soon') soonBy[f.properties.chain] = (soonBy[f.properties.chain]||0)+1;
   const soonRanked = Object.entries(soonBy).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  document.getElementById('pipe-big').innerHTML = '+' + fmt(soon) + '<span>announced across the register</span>';
+  document.getElementById('pipe-count').textContent = fmt(announced);
   const maxSoon = soonRanked.length ? soonRanked[0][1] : 1;
   const nameFor = (id) => chainName[id] || id;
   document.getElementById('pipe-bars').innerHTML = soonRanked.map(([id,n]) =>
