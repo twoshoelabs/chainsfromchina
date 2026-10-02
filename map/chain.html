@@ -252,7 +252,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
         `<div class="pmod"><div class="tag">PRO · SOON</div><h4>Menu &amp; prices<span class="modeled">Modeled</span></h4><p>Tracked list prices for signature items, vs the same in China.</p></div>` +
       `</div></section>`;
 
-  if (outlets + soon) drawMap(feats, sector);
+  if (outlets + soon) drawMap(feats, sector, id, m.name);
 })();
 
 function byStateHTML(feats, sector) {
@@ -305,33 +305,161 @@ function cfcShare(btn) {
   const o = btn.textContent; btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = o; }, 1400);
 }
 
-function drawMap(feats, sector) {
+// ---- Map: Protomaps basemap + logo-badge pins (parity with the main US map) ------------------
+// The main map (atlas.js) draws each outlet as a canvas badge — the brand's logo in a sector-colored
+// ring — over a self-hosted Protomaps basemap. The chain page used plain circles on CARTO; this
+// brings it to the same look so a brand's own page matches how it reads on the full map.
+const BASEMAP = {
+  pmtiles: 'https://pub-7dec9caf8d7e4d4e9f4ab6dea7bb8005.r2.dev/us.pmtiles',  // self-hosted US Protomaps (R2)
+  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',     // fallback if PMTiles can't load
+};
+let GLYPH_FONT = 'Open Sans Regular';
+const DPR = 2, BADGE = 64;
+
+// Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null when there is none.
+function loadLogo(chain) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = 'icons/' + chain + '.png';
+  });
+}
+
+function roundRect(ctx, x, y, w, h, rad) {
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+
+// Compose a circular (census outlet) or rounded-square (hand-verified sighting) pin badge: a white
+// chip with the brand logo inside a sector-colored ring, or a solid sector disc with a monogram when
+// there is no logo. `soft` = announced / coming soon (dashed, faded). Mirrors atlas.js makeBadge.
+function makeBadge(logo, color, mono, soft, square) {
+  const S = BADGE * DPR;
+  const cv = document.createElement('canvas');
+  cv.width = S; cv.height = S;
+  const ctx = cv.getContext('2d');
+  const cx = S / 2, cy = S / 2;
+  const ring = Math.round(4 * DPR);
+  const r = cx - ring / 2 - DPR;
+  const corner = r * 0.42;
+  const trace = (rr) => {
+    ctx.beginPath();
+    if (square) roundRect(ctx, cx - rr, cy - rr, rr * 2, rr * 2, Math.min(corner, rr * 0.6));
+    else ctx.arc(cx, cy, rr, 0, 2 * Math.PI);
+  };
+  ctx.globalAlpha = soft ? 0.82 : 1;
+  if (logo) {
+    trace(r);
+    ctx.fillStyle = soft ? 'rgba(255,255,255,0.92)' : '#ffffff'; ctx.fill();
+    ctx.save();
+    trace(r - ring * 0.6); ctx.clip();
+    const inset = (r - ring) * 1.42;
+    const scale = Math.min(inset / logo.width, inset / logo.height);
+    const w = logo.width * scale, h = logo.height * scale;
+    ctx.drawImage(logo, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
+  } else {
+    trace(r);
+    ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
+    ctx.fillStyle = soft ? color : '#ffffff';
+    ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(mono || '•', cx, cy + S * 0.02);
+  }
+  trace(r);
+  ctx.lineWidth = ring; ctx.strokeStyle = color;
+  if (soft) ctx.setLineDash([ring * 1.4, ring * 1.1]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  return { width: S, height: S, data: ctx.getImageData(0, 0, S, S).data };
+}
+
+// Resolve the basemap: the project's self-hosted Protomaps light theme over US PMTiles, or the hosted
+// CARTO style if the PMTiles/protomaps modules can't load. Same path the main map takes.
+async function resolveStyle() {
+  if (!BASEMAP.pmtiles) return BASEMAP.style;
+  try {
+    const [pm, bm] = await Promise.all([
+      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm'),
+      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm'),
+    ]);
+    maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
+    GLYPH_FONT = 'Noto Sans Regular';
+    return {
+      version: 8,
+      glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+      sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
+      sources: {
+        protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
+                     attribution: '© OpenStreetMap contributors' },
+      },
+      layers: bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' }),
+    };
+  } catch (e) {
+    return BASEMAP.style;
+  }
+}
+
+async function drawMap(feats, sector, id, name) {
   const color = secColor(sector);
+  const mono = initials(name);
   const fc = { type: 'FeatureCollection', features: feats };
   let minx = 180, miny = 90, maxx = -180, maxy = -90;
   for (const f of feats) { const [x, y] = f.geometry.coordinates; minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); }
+
+  const [style, logo] = await Promise.all([resolveStyle(), loadLogo(id)]);
   const map = new maplibregl.Map({
-    container: 'map',
-    style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+    container: 'map', style,
     bounds: (minx <= maxx) ? [[minx, miny], [maxx, maxy]] : [[-125, 24], [-66, 49]],
-    fitBoundsOptions: { padding: 50, maxZoom: 12 },
-    cooperativeGestures: true, attributionControl: { compact: true },
+    fitBoundsOptions: { padding: 60, maxZoom: 12 },
+    maxZoom: 17, cooperativeGestures: true, attributionControl: { compact: true },
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   map.on('load', () => {
+    // Per-brand badges: solid circle (open), dashed circle (announced), rounded square (sighting).
+    if (!map.hasImage('pin'))    map.addImage('pin',    makeBadge(logo, color, mono, false, false), { pixelRatio: DPR });
+    if (!map.hasImage('pin-s'))  map.addImage('pin-s',  makeBadge(logo, color, mono, true,  false), { pixelRatio: DPR });
+    if (!map.hasImage('pin-sq')) map.addImage('pin-sq', makeBadge(logo, color, mono, false, true),  { pixelRatio: DPR });
+
+    // Hide the basemap's own points of interest so only our outlets read as data.
+    for (const l of map.getStyle().layers) {
+      if (/poi|place.?of.?interest/i.test(l.id)) {
+        try { map.setLayoutProperty(l.id, 'visibility', 'none'); } catch (e) { /* non-symbol layer */ }
+      }
+    }
+
     map.addSource('c', { type: 'geojson', data: fc });
-    map.addLayer({ id: 'pins', type: 'circle', source: 'c', paint: {
-      'circle-radius': 7,
-      'circle-color': ['case', ['==', ['get', 'status'], 'coming_soon'], '#fff', color],
-      'circle-opacity': 0.95,
-      'circle-stroke-width': ['case', ['==', ['get', 'kind'], 'sighting'], 3, 2],
-      'circle-stroke-color': color,
-    } });
+    const soft = ['==', ['get', 'status'], 'coming_soon'];
+    map.addLayer({
+      id: 'pins', type: 'symbol', source: 'c',
+      layout: {
+        'icon-image': ['case',
+          ['==', ['get', 'kind'], 'sighting'], 'pin-sq',
+          soft, 'pin-s',
+          'pin'],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      },
+    });
     map.on('click', 'pins', (e) => {
       const p = e.features[0].properties;
       const st = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
+      const chip = logo
+        ? `<img src="icons/${esc(id)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        : '';
+      const addr = p.address ? `${esc(p.address)}<br>` : '';
       new maplibregl.Popup({ closeButton: false }).setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<b>${esc(p.name)}</b><br>${esc(p.address || '')}<br><span style="color:#666">${esc([p.city, p.state].filter(Boolean).join(', '))} · ${st}</span>`).addTo(map);
+        .setHTML(`<div style="display:flex;gap:.55rem;align-items:center">${chip}<div>` +
+                 `<b>${esc(p.name)}</b><br>${addr}${esc([p.city, p.state].filter(Boolean).join(', '))}` +
+                 `<br><span style="color:#666">${st}</span></div></div>`)
+        .addTo(map);
     });
     map.on('mouseenter', 'pins', () => map.getCanvas().style.cursor = 'pointer');
     map.on('mouseleave', 'pins', () => map.getCanvas().style.cursor = '');
