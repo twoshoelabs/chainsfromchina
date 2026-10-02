@@ -71,6 +71,11 @@
     color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
     white-space: nowrap; vertical-align: middle; }
   .frtag.fdd { background: var(--teal); color: #fff; }
+  /* "Open to franchise" filter toggle — teal when active, like the map's Franchise toggle. */
+  .frfilter { font: 500 .9rem var(--sans); padding: 10px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--card); cursor: pointer; white-space: nowrap; }
+  .frfilter:hover { border-color: var(--ink); }
+  .frfilter[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
   .csince { color: var(--faint); font-size: .82rem; margin-top: auto; }
 
   table.ctable { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: .92rem; }
@@ -112,6 +117,8 @@
       <button type="button" data-view="cards" aria-pressed="true">Cards</button>
       <button type="button" data-view="table" aria-pressed="false">Table</button>
     </div>
+    <button type="button" id="frfilter" class="frfilter" aria-pressed="false"
+            title="Show only chains open to a US franchisee">Open to franchise</button>
   </div>
   <div class="secchips" id="secchips"></div>
   <div id="cards" class="cardgrid"></div>
@@ -140,7 +147,7 @@ const yearOf = s => { const m = /\b(20\d{2})\b/.exec(s || ''); return m ? +m[1] 
 const NY_RE = /\b(flushing|brooklyn|queens|manhattan|bronx|staten|new york|nyc|, ny\b|— .*, ny\b)/i;
 const initials = n => (n || '?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
 
-const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set() };
+const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set(), franchiseOnly: false };
 let CHAINS = [];
 
 (async function () {
@@ -217,6 +224,7 @@ function renderSectorChips() {
 function filtered() {
   const q = state.q.trim().toLowerCase();
   let list = CHAINS.filter(c => {
+    if (state.franchiseOnly && !c.franchise) return false;
     if (state.sectors.size && !state.sectors.has(c.sector)) return false;
     if (q && !(c.name.toLowerCase().includes(q) || (c.zh && c.zh.includes(state.q.trim())))) return false;
     return true;
@@ -276,6 +284,12 @@ function wire() {
     render();
   }));
   document.getElementById('sort').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+  const fr = document.getElementById('frfilter');
+  fr.addEventListener('click', () => {
+    state.franchiseOnly = !state.franchiseOnly;
+    fr.setAttribute('aria-pressed', String(state.franchiseOnly));
+    render();
+  });
 }
 </script>
 </body>
