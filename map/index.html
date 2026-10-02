@@ -238,7 +238,7 @@
       box-shadow: 0 -8px 30px rgba(0,0,0,.2); }
   }
 </style>
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5">
 </head>
 <body data-page="map">
 
@@ -461,11 +461,14 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   document.getElementById('total-chains').textContent = fmt(chains.length);
   document.getElementById('total-sectors').textContent = fmt(sectors.length);
   const unmapped = T ? T.unmapped : 0;
+  const mapped = T ? T.mapped : located;
+  // "950 open · 940 on the map, 10 awaiting an address" — all three from the same build, so the
+  // map's "Loading 940 outlets…" message agrees with the hero.
   document.getElementById('total-note').textContent = unmapped > 0
-    ? ` · ${fmt(unmapped)} not yet mapped` : '';
+    ? ` · ${fmt(mapped)} on the map, ${fmt(unmapped)} awaiting an address` : '';
   const day = fc.meta && fc.meta.days, coll = fc.meta && fc.meta.collected;
   document.getElementById('eyebrow').textContent =
-    `Daily census · collected ${coll ? prettyDate(coll) : '—'}${day ? ' · day ' + day : ''}`;
+    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}, 06:00 UTC${day ? ' · Day ' + day : ''}`;
 
   // Coming next: coming_soon features grouped by chain
   const soonBy = {};
@@ -521,6 +524,6 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 // where the map and data live.
 </script>
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
-<script src="site.js"></script>
+<script src="site.js?v=5"></script>
 </body>
 </html>
