@@ -81,7 +81,8 @@ def _brand_meta(d: dict) -> dict:
     """
     meta = {}
     for cid, c in d.get("chains", {}).items():
-        meta[cid] = {"name": c.get("name_us") or c.get("name") or cid, "sector": sector_of(c)}
+        meta[cid] = {"name": c.get("name_us") or c.get("name") or cid, "sector": sector_of(c),
+                     "franchise": c.get("franchise_available_us")}
     try:
         from .adapters import REGISTRY
         for a in REGISTRY:

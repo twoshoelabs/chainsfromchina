@@ -97,6 +97,7 @@ def build(con, d: dict | None = None) -> dict:
             "chain": r["chain_id"],
             "name": bm.get("name") or r["name"] or r["chain_id"],
             "sector": bm.get("sector"),
+            "fr": bm.get("franchise"),          # 1 = open to a US franchisee, 0 = not, null = unknown
             "kind": "store",
             "status": "coming_soon" if r["status"] == "pre_opening" else "open",
             "address": _street(r["addr_raw"] or r["addr_norm"], r["city"], r["state"], r["zip"]),
@@ -121,6 +122,7 @@ def build(con, d: dict | None = None) -> dict:
             "chain": s["chain"],
             "name": bm.get("name") or s["chain"],
             "sector": bm.get("sector"),
+            "fr": bm.get("franchise"),          # 1 = open to a US franchisee, 0 = not, null = unknown
             "kind": "sighting",
             "status": "sighting",
             "address": _street(s.get("address"), s.get("city"), s.get("state")),

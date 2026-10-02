@@ -19,6 +19,8 @@ let HIDDEN = new Set();                  // chains currently hidden from the map
 let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sector
 let CO_TENANCY = [];                     // named co-tenancy clusters, for search + place panel
 let SHOW_ANNOUNCED = true;               // the map toolbar's "show announced" status toggle
+let FRANCHISE_ONLY = false;              // "Franchise" filter: show only chains open to a US franchisee
+let FRANCHISERS = new Set();             // chains with franchise_available_us === 1 (from feature .fr)
 
 // Sector → color. Keep in sync with the register's sectors.
 const SECTOR = {
@@ -533,6 +535,12 @@ function setupToolbar(map) {
   });
   const ann = document.getElementById('show-announced');
   if (ann) ann.addEventListener('change', () => { SHOW_ANNOUNCED = ann.checked; applyFilter(); });
+  const fr = document.getElementById('only-franchise');
+  if (fr) fr.addEventListener('click', () => {
+    FRANCHISE_ONLY = !FRANCHISE_ONLY;
+    fr.setAttribute('aria-pressed', String(FRANCHISE_ONLY));
+    applyFilter();
+  });
 }
 
 function restoreFromURL(map) {
@@ -555,20 +563,31 @@ function applyFilter() {
     if (src) src.setData({ type: 'FeatureCollection',
       features: FULL_FC.features.filter((f) =>
         !HIDDEN.has(f.properties.chain) &&
-        (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon')) });
+        (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon') &&
+        (!FRANCHISE_ONLY || FRANCHISERS.has(f.properties.chain))) });
   }
-  for (const chip of document.querySelectorAll('.chip[data-chain]'))
-    chip.setAttribute('aria-pressed', String(!HIDDEN.has(chip.dataset.chain)));
+  for (const chip of document.querySelectorAll('.chip[data-chain]')) {
+    const id = chip.dataset.chain;
+    chip.setAttribute('aria-pressed', String(!HIDDEN.has(id)));
+    chip.style.display = (FRANCHISE_ONLY && !FRANCHISERS.has(id)) ? 'none' : '';
+  }
   for (const h of document.querySelectorAll('button.tallygroup[data-sector]')) {
-    const on = (GROUP_CHAINS[h.dataset.sector] || []).filter((c) => !HIDDEN.has(c)).length;
-    const total = (GROUP_CHAINS[h.dataset.sector] || []).length;
+    const chains = GROUP_CHAINS[h.dataset.sector] || [];
+    const on = chains.filter((c) => !HIDDEN.has(c)).length;
     h.setAttribute('aria-pressed', String(on > 0));
-    h.classList.toggle('partial', on > 0 && on < total);
+    h.classList.toggle('partial', on > 0 && on < chains.length);
     h.style.opacity = on ? '' : '.5';
+    h.style.display = (FRANCHISE_ONLY && !chains.some((c) => FRANCHISERS.has(c))) ? 'none' : '';
   }
 }
 function toggleChain(id) { HIDDEN.has(id) ? HIDDEN.delete(id) : HIDDEN.add(id); applyFilter(); }
-function setAllChains(show) { HIDDEN = show ? new Set() : new Set(ALL_CHAINS); applyFilter(); }
+function setAllChains(show) {
+  HIDDEN = show ? new Set() : new Set(ALL_CHAINS);
+  FRANCHISE_ONLY = false;                                  // "All"/"None" also clear the franchise filter
+  const fr = document.getElementById('only-franchise');
+  if (fr) fr.setAttribute('aria-pressed', 'false');
+  applyFilter();
+}
 function toggleGroup(sector) {
   const chains = GROUP_CHAINS[sector] || [];
   const anyOn = chains.some((c) => !HIDDEN.has(c));
@@ -599,11 +618,13 @@ function buildTally(fc) {
   const meta = {};
   for (const f of fc.features) {
     const p = f.properties;
-    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0 });
+    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0, fr: 0 });
     m.n++;
+    if (p.fr === 1) m.fr = 1;                   // chain is open to a US franchisee
     if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
   }
   ALL_CHAINS = Object.keys(meta);
+  FRANCHISERS = new Set(ALL_CHAINS.filter((id) => meta[id].fr));
   window.CHAIN_META = meta;                // let the hero search map chain id -> display name
   GROUP_CHAINS = {};
   for (const id of ALL_CHAINS) (GROUP_CHAINS[meta[id].sector] || (GROUP_CHAINS[meta[id].sector] = [])).push(id);
@@ -626,7 +647,9 @@ function buildTally(fc) {
       chip.title = 'Click to show or hide this chain on the map.';
       chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
         `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
-        `<span class="chipnm">${esc(m.name)}</span><span class="n">${m.n}</span>`;
+        `<span class="chipnm">${esc(m.name)}` +
+        (m.fr ? ' <span class="frmark" title="Open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</span>' : '') +
+        `</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
       prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
       prof.title = 'Who they are — about this chain';
@@ -670,7 +693,8 @@ function buildLegend() {
     '<span class="k" style="font-weight:600;margin-left:.4rem">Shape:</span>' +
     '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>counted outlet</span>' +
     '<span class="k"><span class="dot" style="border-color:#888;background:#fff;border-radius:3px"></span>hand-verified</span>' +
-    '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>';
+    '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>' +
+    '<span class="k" style="margin-left:.4rem"><span class="frmark">Franchise</span> open to a US franchisee</span>';
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
