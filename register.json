@@ -138,185 +138,294 @@
       "name": "MIXUE",
       "name_zh": "蜜雪冰城",
       "format": "tea",
-      "global": "59,823 stores worldwide at 31 Dec 2025; about 4,700 of them outside China across 13 countries"
+      "global": "59,823 stores worldwide at 31 Dec 2025; about 4,700 of them outside China across 13 countries",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "Open US franchise — join.mixueusfranchise.com (Snow King (US) Corp); ~$10K fee, 2% royalty, ~$272K-843K total per its own US FDD (first-party, not state-verified); applications open in NY/CA/MA."
     },
     "chagee": {
       "name": "CHAGEE",
       "name_zh": "霸王茶姬",
       "format": "tea",
-      "global": "about 7,500 teahouses in 2026"
+      "global": "about 7,500 teahouses in 2026",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US deliberately company-owned (~9 CA stores); heavily franchised in China/Asia but no US franchise offer."
     },
     "luckin": {
       "name": "Luckin Coffee",
       "name_zh": "瑞幸咖啡",
       "format": "coffee",
-      "global": "surpassed 35,000 stores globally in 2026"
+      "global": "surpassed 35,000 stores globally in 2026",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US stores company-operated; no US franchise offer or FDD (China mixes self-operated + partnership)."
     },
     "cotti": {
       "name": "Cotti Coffee",
       "name_zh": "库迪咖啡",
       "format": "coffee",
-      "global": "18,000+ stores in 28 countries as of April 2026"
+      "global": "18,000+ stores in 28 countries as of April 2026",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "New US franchise via Cotti Partners LLC (Delaware); 2026 US FDD; ~$259K-608K total. Legacy US stores were a license network; franchise is the go-forward path."
     },
     "miniso": {
       "name": "MINISO",
       "name_zh": "名创优品",
       "format": "lifestyle",
-      "global": "8,485 stores at 31 Dec 2025, of which 3,583 overseas"
+      "global": "8,485 stores at 31 Dec 2025, of which 3,583 overseas",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "Franchising in the US since 2018 via Miniso Depot Franchisor LLC; registered US FDDs (2021/2023/2025); 'MINISO Partner' consignment/purchase tracks, ~$20-30K fee. Best-documented open US offer."
     },
     "popmart": {
       "name": "POP MART",
       "name_zh": "泡泡玛特",
       "format": "toys",
-      "global": "630 retail stores and 2,637 roboshops at end-2025, across more than 30 countries and regions; overseas sales are over 40% of revenue."
+      "global": "630 retail stores and 2,637 roboshops at end-2025, across more than 30 countries and regions; overseas sales are over 40% of revenue.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Does not franchise anywhere; US is wholly company-owned stores + robo-shops + wholesale."
     },
     "heytea": {
       "name": "HEYTEA",
       "name_zh": "喜茶",
       "format": "tea",
-      "global": "4,000+ stores; over 100 of them overseas across 8 countries and 28 cities"
+      "global": "4,000+ stores; over 100 of them overseas across 8 countries and 28 cities",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "franchise_note": "First-party US 'partnership' franchise (aboutPartnersEn): $300K+ liquidity, ~$50K fee/3yr, 3% royalty, ~$295K-507K total; applications reopened Sept 2025. No confirmed US-registered FDD."
     },
     "haidilao": {
       "name": "Haidilao",
       "name_zh": "海底捞",
       "format": "restaurant",
-      "global": "Overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs ~120-125 restaurants in markets such as Singapore, Japan, Korea, the US, the UK, Canada and Australia; the Haidilao parent separately runs Hong Kong, Macau and Taiwan — which is why those were absent from Super Hi's overseas store list."
+      "global": "Overseas arm Super Hi International (HKEX 9658 / Nasdaq HDL) runs ~120-125 restaurants in markets such as Singapore, Japan, Korea, the US, the UK, Canada and Australia; the Haidilao parent separately runs Hong Kong, Macau and Taiwan — which is why those were absent from Super Hi's overseas store list.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US/NA stores company-owned (Super Hi Int'l); franchising is China-only. No US franchise offer."
     },
     "yangs": {
       "name": "Yang's Braised Chicken Rice",
       "name_zh": "杨铭宇黄焖鸡",
       "format": "restaurant",
-      "global": "6,000+ locations, overwhelmingly in China; abroad since 2017"
+      "global": "6,000+ locations, overwhelmingly in China; abroad since 2017",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "Yang's Braised Chicken Rice USA — franchising in the US since ~2018; registered US FDD; ~$35K fee, 6% royalty + 2% marketing, ~$258K-538K total. Actively franchising in CA."
     },
     "taier": {
       "name": "Tai Er",
       "name_zh": "太二",
       "format": "restaurant",
       "global": "482 Tai Er outlets at March 2026; parent Jiumaojiu (HKEX 9922) ran 31 restaurants outside China at H1 2025, up from 22",
-      "name_us": "Tai Er Sichuan Cuisine"
+      "name_us": "Tai Er Sichuan Cuisine",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US stores run directly by parent Jiumaojiu; Tai Er franchising is China-only."
     },
     "juewei": {
       "name": "Juewei",
       "name_zh": "绝味鸭脖",
       "format": "snack",
       "global": "16,000+ outlets; trades as King of Braise in Singapore — the same naming trap as ChaPanda/TeaByDo",
-      "name_us": "Juewei Yabo"
+      "name_us": "Juewei Yabo",
+      "operating_model": "franchise",
+      "franchise_note": "Heavily franchised in China (10,000+); only North-American arm is Canada (BC). No US-specific open application or US FDD found; US presence appears informal."
     },
     "nayuki": {
       "name": "Naixue",
       "name_zh": "奈雪的茶",
       "format": "tea",
       "global": "HKEX 2150; rebranded from Nayuki to Naixue",
-      "name_us": "NaiSnow"
+      "name_us": "NaiSnow",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US entry direct/company-operated; China 'Partner Plan' franchising (from Jul 2023) is China-only."
     },
     "chabaidao": {
       "name": "ChaPanda",
       "name_zh": "茶百道",
       "format": "tea",
       "global": "HKEX 2555; 8,700+ stores worldwide. Trades as ChaPanda in English and as TeaByDo in North America",
-      "name_us": "TeaByDo"
+      "name_us": "TeaByDo",
+      "operating_model": "company_owned",
+      "franchise_note": "First US store Aug 2025 (Flushing) as a direct rollout; heavily franchised in China; intl master/area via VF (Asia/MENA), not US. No first-party US franchise application or US FDD found."
     },
     "yangguofu": {
       "name": "Yangguofu",
       "name_zh": "杨国福麻辣烫",
       "format": "restaurant",
-      "global": "6,000+ malatang outlets, overwhelmingly in China, as of 2025; US franchising began 2024"
+      "global": "6,000+ malatang outlets, overwhelmingly in China, as of 2025; US franchising began 2024",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "Open first-party US franchise application (ygfus.com/franchise.html; asks net assets >$500K); backed by a registered US FDD (Captain Business Management Co., Minnesota franchise registration #11645 — the source of our US store roster). Fee/royalty not disclosed on the site."
     },
     "fishwithyou": {
       "name": "Fish With You",
       "name_zh": "鱼你在一起",
       "format": "restaurant",
-      "global": "sauerkraut-fish (酸菜鱼) fast-casual chain, several thousand outlets in China (2025 est.); US franchising began 2024-25"
+      "global": "sauerkraut-fish (酸菜鱼) fast-casual chain, several thousand outlets in China (2025 est.); US franchising began 2024-25",
+      "operating_model": "franchise",
+      "franchise_note": "Sauerkraut-fish franchise (2,700+); many US locations and a public 'US 1,000 cities' recruiting push suggest US units are franchised, but no confirmed first-party US application page or US FDD found."
     },
     "zhangliang": {
       "name": "Zhang Liang Malatang",
       "name_zh": "张亮麻辣烫",
       "format": "restaurant",
-      "global": "one of China's two dominant malatang chains, ~6,000 outlets, founded in Harbin in 2008; its own brand news reports 42 North American outlets across the US, Canada and Mexico as of Sept 2026"
+      "global": "one of China's two dominant malatang chains, ~6,000 outlets, founded in Harbin in 2008; its own brand news reports 42 North American outlets across the US, Canada and Mexico as of Sept 2026",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "franchise_note": "Open US franchise application on first-party US site (zlmalatang.us/franchise); many US stores. Fee/royalty/FDD not publicly disclosed."
     },
     "chahalo": {
       "name": "ChaHalo",
       "name_zh": "茶话弄",
       "format": "tea",
-      "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US and Canada"
+      "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US and Canada",
+      "operating_model": "company_owned",
+      "franchise_note": "Entered the US in 2025 as company-driven expansion (NY/CA/TX/MD); its 'Join ChaHalo' page is China-market. No open US franchise offer found."
     },
     "xiaolongkan": {
       "name": "Shoo Loong Kan Hotpot",
       "name_zh": "小龙坎",
       "format": "restaurant",
-      "global": "Sichuan hotpot chain from Chengdu (2014), thousands of outlets in China; trades in the US as Shoo Loong Kan Hotpot and publishes its own US locator (8 open + 4 coming soon, Sept 2026)"
+      "global": "Sichuan hotpot chain from Chengdu (2014), thousands of outlets in China; trades in the US as Shoo Loong Kan Hotpot and publishes its own US locator (8 open + 4 coming soon, Sept 2026)",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "franchise_note": "First-party US franchise page (shooloongkan.us/franchise) with a 4-step application; ~7 US stores. Fee/royalty/FDD not disclosed."
     },
     "yihetang": {
       "name": "Yihetang",
       "name_zh": "益禾堂",
       "format": "tea",
-      "global": "8,000+ contracted stores (Dec 2024), overwhelmingly China; ~60 international stores in a Vietnam-Thailand-Malaysia-Indonesia SE-Asia cluster (early 2026)"
+      "global": "8,000+ contracted stores (Dec 2024), overwhelmingly China; ~60 international stores in a Vietnam-Thailand-Malaysia-Indonesia SE-Asia cluster (early 2026)",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "8,000+ franchises but China + SE Asia only; no US presence or offer."
     },
     "tianlala": {
       "name": "Tianlala",
       "name_zh": "甜啦啦",
       "format": "tea",
-      "global": "~8,000 China stores + 200+ overseas (Feb 2025); trademarks in 52 countries; overseas ops HQ Singapore (2023), SE Asia + Central Asia focus"
+      "global": "~8,000 China stores + 200+ overseas (Feb 2025); trademarks in 52 countries; overseas ops HQ Singapore (2023), SE Asia + Central Asia focus",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "8,000+ China franchises, ~200 international (Philippines etc.); no US presence or offer."
     },
     "luckycup": {
       "name": "Lucky Cup",
       "name_zh": "幸运咖",
       "format": "coffee",
-      "global": "Mixue's budget coffee arm; hit 10,000 stores (Nov 2025), almost all in China; overseas brand-new"
+      "global": "Mixue's budget coffee arm; hit 10,000 stores (Nov 2025), almost all in China; overseas brand-new",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Mixue's low-cost coffee sub-brand (NOT Luckin); 10,000+ China franchises + SE Asia; no US."
     },
     "yujianxiaomian": {
       "name": "Yu Jian Xiao Mian",
       "name_zh": "遇见小面",
       "format": "restaurant",
-      "global": "~500+ stores worldwide (Chongqing noodles, HKEX-listed Dec 2025); overseas new and small — Singapore and Hong Kong since Dec 2025"
+      "global": "~500+ stores worldwide (Chongqing noodles, HKEX-listed Dec 2025); overseas new and small — Singapore and Hong Kong since Dec 2025",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "China/HK chain; no US locations (the DC 'Yu Noodles' is an unrelated US brand)."
     },
     "hefu": {
       "name": "Hefu Noodle",
       "name_zh": "和府捞面",
       "format": "restaurant",
-      "global": "632 stores (2025) across 80+ Chinese cities; overseas began in Hong Kong Feb 2024"
+      "global": "632 stores (2025) across 80+ Chinese cities; overseas began in Hong Kong Feb 2024",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Began franchising Apr 2024 — China only (~600 stores); no US stores or offer."
     },
     "xiabu": {
       "name": "Xiabu Xiabu",
       "name_zh": "呷哺呷哺",
       "format": "hotpot",
-      "global": "~1,000+ outlets across the Xiabu + Coucou brands, overwhelmingly in China; the Xiabu brand's footprint outside China is ~21 across HK/Taiwan/Macau/Singapore (Jun 2024)"
+      "global": "~1,000+ outlets across the Xiabu + Coucou brands, overwhelmingly in China; the Xiabu brand's footprint outside China is ~21 across HK/Taiwan/Macau/Singapore (Jun 2024)",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "No US restaurants (only packaged hotpot products via Weee); China/HK company-operated."
     },
     "coucou": {
       "name": "Coucou",
       "name_zh": "湊湊",
       "format": "hotpot",
-      "global": "Xiabu Xiabu's premium sub-brand (2016); ~200 branches mostly in China + Hong Kong; outside China in Hong Kong and Singapore"
+      "global": "Xiabu Xiabu's premium sub-brand (2016); ~200 branches mostly in China + Hong Kong; outside China in Hong Kong and Singapore",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Xiabu Xiabu's premium hotpot+tea brand; China/HK/Singapore only; no US."
     },
     "laowang": {
       "name": "Laowang",
       "name_zh": "捞王",
       "format": "hotpot",
-      "global": "China's largest pork-tripe-chicken (猪肚鸡) hotpot chain, ~135-150 restaurants in China; its only confirmed store outside China is one in Taipei"
+      "global": "China's largest pork-tripe-chicken (猪肚鸡) hotpot chain, ~135-150 restaurants in China; its only confirmed store outside China is one in Taipei",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Directly operated; China (and Spain); no confirmed US location or franchise offer."
     },
     "peijie": {
       "name": "Peijie",
       "name_zh": "珮姐",
       "format": "hotpot",
-      "global": "Chongqing hotpot, ~30 mostly directly-operated stores in China; first overseas store Amsterdam (Oct 2025)"
+      "global": "Chongqing hotpot, ~30 mostly directly-operated stores in China; first overseas store Amsterdam (Oct 2025)",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Chongqing hotpot; expanded to Amsterdam, not the US."
     },
     "zhouheiya": {
       "name": "Zhou Hei Ya",
       "name_zh": "周黑鸭",
       "format": "snack",
-      "global": "~1,000+ braised-duck snack stores, almost all in China (HK-listed 1458.HK — a stock listing only); a single overseas store"
+      "global": "~1,000+ braised-duck snack stores, almost all in China (HK-listed 1458.HK — a stock listing only); a single overseas store",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Began China franchising 2019-20; no US stores (products sold online only)."
     },
     "kkv": {
       "name": "KKV",
       "name_zh": "KKV",
       "format": "lifestyle",
-      "global": "KK Group's lead overseas retail brand; the group has >1,000 China stores + 170+ overseas across 6 SE-Asian countries (Jun 2026)"
+      "global": "KK Group's lead overseas retail brand; the group has >1,000 China stores + 170+ overseas across 6 SE-Asian countries (Jun 2026)",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "KK Group variety-store brand; expanding in SE Asia, not the US."
     },
     "x11": {
       "name": "X11",
       "name_zh": "X11",
       "format": "toys",
-      "global": "KK Group art-toy/trend retail brand (~64 stores Jan 2024, mostly China); a later overseas entrant, part of the group's 170+ overseas"
+      "global": "KK Group art-toy/trend retail brand (~64 stores Jan 2024, mostly China); a later overseas entrant, part of the group's 170+ overseas",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "KK Group trend-toy brand (NOT Pop Mart); SE Asia expansion; no US presence."
     },
     "colorist": {
       "name": "The Colorist",
@@ -324,151 +433,245 @@
       "format": "beauty",
       "global": "KK Group cosmetics retail brand (2019); part of the group's 170+ overseas stores",
       "sector": "beauty",
-      "sub_category": "cosmetics variety"
+      "sub_category": "cosmetics variety",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "KK Group beauty-retail; China company-owned + franchise mix; no US stores or offer."
     },
     "cooltoy": {
       "name": "Cool Toy",
       "name_zh": "酷乐潮玩",
       "format": "toys",
-      "global": "Ningbo art-toy retailer (~300 stores in 60+ Chinese cities); overseas nascent, retrenching domestically"
+      "global": "Ningbo art-toy retailer (~300 stores in 60+ Chinese cities); overseas nascent, retrenching domestically",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Opened China franchising in 2022 (~300 stores), China-only; no US presence."
     },
     "muwu": {
       "name": "Muwu BBQ",
       "name_zh": "木屋烧烤",
       "format": "restaurant",
-      "global": "~400+ directly-operated skewer/BBQ stores across ~20 Chinese cities; overseas early-stage (Hong Kong)"
+      "global": "~400+ directly-operated skewer/BBQ stores across ~20 Chinese cities; overseas early-stage (Hong Kong)",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "400+ direct-operated stores, explicitly not franchised; no US franchise."
     },
     "steelpipe": {
       "name": "Steel Pipe No.5",
       "name_zh": "钢管厂五区小郡肝串串香",
       "format": "hotpot",
-      "global": "~880 skewer-hotpot (串串香) stores (Nov 2025), overwhelmingly in China; overseas is franchise-driven and name-fragmented, so attributions are brand-name-level, not corporate-confirmed"
+      "global": "~880 skewer-hotpot (串串香) stores (Nov 2025), overwhelmingly in China; overseas is franchise-driven and name-fragmented, so attributions are brand-name-level, not corporate-confirmed",
+      "operating_model": "franchise",
+      "franchise_note": "Franchises globally (853 stores incl. some US/Canada/Australia); no US FDD or first-party US franchise page found; likely area/master deals abroad."
     },
     "micun": {
       "name": "Micun",
       "name_zh": "米村拌饭",
       "format": "restaurant",
-      "global": "1,900+ Korean-style bibimbap fast-food stores, nearly all in China; overseas footprint = Singapore only"
+      "global": "1,900+ Korean-style bibimbap fast-food stores, nearly all in China; overseas footprint = Singapore only",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Officially directly-operated only; states it does not franchise (warns offers are scams)."
     },
     "greentea": {
       "name": "Green Tea",
       "name_zh": "绿茶餐厅",
       "format": "restaurant",
-      "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly in China, overseas since Aug 2024 across HK + SE Asia"
+      "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly in China, overseas since Aug 2024 across HK + SE Asia",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "470+ directly-operated; officially no franchising (warns offers are fraudulent); US only in planning."
     },
     "tanyu": {
       "name": "Tan Yu",
       "name_zh": "探鱼",
       "format": "restaurant",
-      "global": "400+ grilled-fish stores in 80+ cities; overseas across ~8 markets (parent: Gantang Mingshan 甘棠明善, Shenzhen)"
+      "global": "400+ grilled-fish stores in 80+ cities; overseas across ~8 markets (parent: Gantang Mingshan 甘棠明善, Shenzhen)",
+      "operating_model": "franchise",
+      "franchise_note": "Franchises in China; has a Flushing NY store + Vancouver; no US FDD or first-party US franchise page found."
     },
     "nanjingimpressions": {
       "name": "Nanjing Impressions",
       "name_zh": "南京大牌档",
       "format": "restaurant",
-      "global": "~35-40 Nanjing-cuisine stores, all in China except a single overseas outlet"
+      "global": "~35-40 Nanjing-cuisine stores, all in China except a single overseas outlet",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "~40 outlets (China + Singapore), directly operated; no US presence or offer."
     },
     "nowwa": {
       "name": "Nowwa Coffee",
       "name_zh": "挪瓦咖啡",
       "format": "coffee",
-      "global": "~10,000 stores (Dec 2025) across 300+ cities, grown largely through Meiyijia convenience-store counters; overseas since 2024 — Macau, then its first standalone overseas store in Melbourne (Apr 2025) and Indonesia (Jan 2026), with more of Southeast Asia signed."
+      "global": "~10,000 stores (Dec 2025) across 300+ cities, grown largely through Meiyijia convenience-store counters; overseas since 2024 — Macau, then its first standalone overseas store in Melbourne (Apr 2025) and Indonesia (Jan 2026), with more of Southeast Asia signed.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Shop-in-shop/partner franchise, 10,000+ China outlets; no US stores or offer."
     },
     "manner": {
       "name": "Manner Coffee",
       "name_zh": "",
       "format": "coffee",
-      "global": "Premium 'street coffee' chain founded 2015 in Shanghai, ~1,000 stores in China; making its first move outside China with a Hong Kong store (announced 2026, signage 'Maners Coffee')."
+      "global": "Premium 'street coffee' chain founded 2015 in Shanghai, ~1,000 stores in China; making its first move outside China with a Hong Kong store (announced 2026, signage 'Maners Coffee').",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "100% company-operated; publicly states it does not franchise anywhere; China-only."
     },
     "yuanji": {
       "name": "Yuanji Chuanchuanxiang",
       "name_zh": "袁记串串香",
       "format": "hotpot",
-      "global": "Chengdu skewer-hotpot chain (founded 1996; distinct from the 袁记云饺 dumpling brand); claims industry-first overseas direct stores from 2016 in Canada, then the Netherlands and Australia."
+      "global": "Chengdu skewer-hotpot chain (founded 1996; distinct from the 袁记云饺 dumpling brand); claims industry-first overseas direct stores from 2016 in Canada, then the Netherlands and Australia.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Franchises heavily in China (4,773 global) + some overseas direct stores; no US offer or FDD."
     },
     "xiaogujiejie": {
       "name": "Xiaogujiejie",
       "name_zh": "小谷姐姐",
       "format": "hotpot",
-      "global": "Tianjin malatang chain (founded 2018), 1,000+ stores by Aug 2026. Company and trade press describe overseas stores across Japan, France, Indonesia, Malaysia, Cambodia, Thailand, Australia, Singapore and the US, but few are independently confirmed."
+      "global": "Tianjin malatang chain (founded 2018), 1,000+ stores by Aug 2026. Company and trade press describe overseas stores across Japan, France, Indonesia, Malaysia, Cambodia, Thailand, Australia, Singapore and the US, but few are independently confirmed.",
+      "operating_model": "franchise",
+      "franchise_note": "Malatang franchise (China terms ~RMB19,800 fee); claims a US store but no US FDD or first-party US franchise page found."
     },
     "banu": {
       "name": "Banu Maodu Hotpot",
       "name_zh": "巴奴毛肚火锅",
       "format": "hotpot",
-      "global": "Premium Henan hotpot chain (founded 2001, Anyang). Began going global with an announced first Hong Kong store."
+      "global": "Premium Henan hotpot chain (founded 2001, Anyang). Began going global with an announced first Hong Kong store.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "162 stores all self-operated (per 2025 HK IPO); founder eyeing North America but no US store or franchise yet."
     },
     "laoxiangji": {
       "name": "Laoxiangji",
       "name_zh": "老乡鸡",
       "format": "restaurant",
-      "global": "Hefei home-style chicken chain; opened its first overseas store in 2026 (Malaysia)."
+      "global": "Hefei home-style chicken chain; opened its first overseas store in 2026 (Malaysia).",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "China direct + franchise mix since 2020 (~1,900 stores); China-only, no US franchise."
     },
     "manling": {
       "name": "Manling Congee",
       "name_zh": "曼玲粥店",
       "format": "restaurant",
-      "global": "Shanghai congee chain; overseas debut 2025 in Malaysia, then Spain."
+      "global": "Shanghai congee chain; overseas debut 2025 in Malaysia, then Spain.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Delivery-focused franchise chain; heavy China franchising; no US presence or offer."
     },
     "xiaocaiyuan": {
       "name": "Xiao Cai Yuan",
       "name_zh": "小菜园",
       "format": "restaurant",
-      "global": "Anhui home-style (徽菜) chain, HK-listed (HKEX 0999); announced Hong Kong as its overseas debut."
+      "global": "Anhui home-style (徽菜) chain, HK-listed (HKEX 0999); announced Hong Kong as its overseas debut.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Self-operated homestyle dining in China (~300+); does not franchise; no US presence."
     },
     "linlee": {
       "name": "LINLEE",
       "name_zh": "林里",
       "format": "tea",
-      "global": "Foshan (Guangdong) tea brand; overseas expansion began with Hong Kong."
+      "global": "Foshan (Guangdong) tea brand; overseas expansion began with Hong Kong.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Franchises in China only (~2,000); international expansion 'planned 2026'; no US store or franchise offer."
     },
     "moreyogurt": {
       "name": "More Yogurt",
       "name_zh": "茉酸奶",
       "format": "tea",
-      "global": "Shanghai yogurt-drink chain (its own English name is 'More Yogurt'); operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026."
+      "global": "Shanghai yogurt-drink chain (its own English name is 'More Yogurt'); operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Franchises in China; US entry (Tustin, CA) is brand-led; no US FDD or open US franchise application."
     },
     "moge": {
       "name": "Möge Tee",
       "name_zh": "愿茶",
       "format": "tea",
-      "global": "Chinese bubble-tea chain (愿茶, trades in the US as 'Möge Tee'); founded 2012, franchised from 2018. Its US estate is collected daily from its own locator (mogeteeusa.com): ~70 stores across 18 states as of Oct 2026. A different brand from Molly Tea (茉莉奶白)."
+      "global": "Chinese bubble-tea chain (愿茶, trades in the US as 'Möge Tee'); founded 2012, franchised from 2018. Its US estate is collected daily from its own locator (mogeteeusa.com): ~70 stores across 18 states as of Oct 2026. A different brand from Molly Tea (茉莉奶白).",
+      "operating_model": "franchise",
+      "franchise_available_us": 1,
+      "fdd_available": 1,
+      "franchise_note": "Moge Tee USA Franchising LLC — US FDD (2022/2023); $40K fee, 3% royalty + 2% marketing, ~$159K-269K total; open first-party US application; 75+ US units."
     },
     "mstand": {
       "name": "M Stand",
       "name_zh": "M Stand",
       "format": "coffee",
-      "global": "Shanghai specialty-coffee chain (founded 2017); first overseas store in Japan."
+      "global": "Shanghai specialty-coffee chain (founded 2017); first overseas store in Japan.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Direct + some franchise in China (~500 stores); no US stores or franchise offer."
     },
     "meiyijia": {
       "name": "Meiyijia",
       "name_zh": "美宜佳",
       "format": "convenience",
-      "global": "Dongguan convenience-store chain; expanding into Southeast Asia, partly under an 'Ohmee' brand."
+      "global": "Dongguan convenience-store chain; expanding into Southeast Asia, partly under an 'Ohmee' brand.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "China's largest convenience franchise (~38,000) but China-only; overseas push is SE Asia."
     },
     "crvanguard": {
       "name": "CR Vanguard",
       "name_zh": "华润万家",
       "format": "supermarket",
-      "global": "China Resources supermarket group; long-established in Hong Kong."
+      "global": "China Resources supermarket group; long-established in Hong Kong.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "State-owned supermarket (China Resources); operates in mainland China + HK only."
     },
     "qiandama": {
       "name": "Qiandama",
       "name_zh": "钱大妈",
       "format": "grocery",
-      "global": "Dongguan fresh-food/grocery chain; 72 stores across Hong Kong and Macau (2025), branded QDAMA."
+      "global": "Dongguan fresh-food/grocery chain; 72 stores across Hong Kong and Macau (2025), branded QDAMA.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Fresh-grocery franchise in China (Pearl River Delta) only; no US presence."
     },
     "bestore": {
       "name": "Bestore",
       "name_zh": "良品铺子",
       "format": "snack",
-      "global": "Wuhan packaged-snack retailer; first branded overseas flagship in Malaysia."
+      "global": "Wuhan packaged-snack retailer; first branded overseas flagship in Malaysia.",
+      "operating_model": "wholesale",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US reach is distribution/retailers (H-Mart, Weee, Amazon) + a Times Square pop-up; not a franchise."
     },
     "mglife": {
       "name": "M&G LIFE",
       "name_zh": "九木杂物社",
       "format": "lifestyle",
-      "global": "M&G/Chenguang lifestyle-stationery retailer (Jiumu Sundry Social); expanding in Southeast Asia."
+      "global": "M&G/Chenguang lifestyle-stationery retailer (Jiumu Sundry Social); expanding in Southeast Asia.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Company-run lifestyle retail in China/Asia; US only via Amazon wholesale; no US stores or franchise."
     },
     "anta": {
       "name": "Anta",
@@ -481,7 +684,10 @@
         "HKEX:2020"
       ],
       "operating_model": "company_owned",
-      "us_entry_date": "2026-02-13"
+      "us_entry_date": "2026-02-13",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "First US store (Beverly Hills, 2026) directly operated — DTC pivot; no US franchise."
     },
     "urbanrevivo": {
       "name": "Urban Revivo",
@@ -490,7 +696,10 @@
       "global": "Guangzhou fast-fashion chain (400+ large-format stores, parent FMG); overseas in SE Asia, Hong Kong, the UK and (Feb 2025) the US (SoHo).",
       "sector": "apparel",
       "operating_model": "company_owned",
-      "us_entry_date": "2025-02-28"
+      "us_entry_date": "2025-02-28",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US debut is a company-operated SoHo NYC flagship; no US FDD or open franchise application."
     },
     "jnby": {
       "name": "JNBY",
@@ -504,7 +713,10 @@
       ],
       "operating_model": "license",
       "us_entry_date": "2015-11",
-      "name_us": "AGoodFun"
+      "name_us": "AGoodFun",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US stores run by JNBY USA / authorized partner; apparel brand, no US franchise or FDD."
     },
     "meilleurmoment": {
       "name": "Meilleur Moment",
@@ -513,7 +725,10 @@
       "global": "Womenswear line of Hangzhou's Eifini group (600+ stores group-wide); overseas boutiques in France, Singapore and (May 2025) the US (SoHo).",
       "sector": "apparel",
       "operating_model": "company_owned",
-      "us_entry_date": "2025-05"
+      "us_entry_date": "2025-05",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Eifini Group brand; US entry is a company-operated SoHo NYC flagship. No franchise offer."
     },
     "bosideng": {
       "name": "Bosideng",
@@ -525,7 +740,10 @@
       "tickers": [
         "HKEX:3998"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US reach is marketplaces + own DTC e-commerce; no US retail franchise."
     },
     "semir": {
       "name": "Semir",
@@ -537,7 +755,10 @@
       "tickers": [
         "SZSE:002563"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "China ~42% franchised but global franchise reps cover SE Asia/Russia/Middle East, not the US; US entered via e-commerce only."
     },
     "xtep": {
       "name": "Xtep",
@@ -549,7 +770,10 @@
       "tickers": [
         "HKEX:1368"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Distributor + franchise network globally (~8,100 stores); no US stores or US franchise program; US reach online/marketplace."
     },
     "laopu": {
       "name": "Laopu Gold",
@@ -561,7 +785,10 @@
       "tickers": [
         "HKEX:6181"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "~41 directly operated boutiques, no franchising; no US presence."
     },
     "lining": {
       "name": "Li-Ning",
@@ -573,7 +800,10 @@
       "tickers": [
         "HKEX:2331"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US served by a distributor (LN Distribution); China company+franchise hybrid; no US FDD or open US franchise."
     },
     "moco": {
       "name": "MO&Co.",
@@ -582,7 +812,10 @@
       "global": "Guangzhou contemporary womenswear; standalone stores in Paris, London and Malaysia.",
       "sector": "apparel",
       "sub_category": "womenswear",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "EPO Fashion Group brand; US orders/shipping suspended; no US franchise or license program."
     },
     "icicle": {
       "name": "Icicle",
@@ -591,7 +824,10 @@
       "global": "Shanghai premium apparel house (owns France's Carven); boutiques in Paris incl. a 35 Av. George V flagship.",
       "sector": "apparel",
       "sub_category": "womenswear",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "~106 directly operated boutiques + department-store wholesale; US via multi-brand retailers; no franchise."
     },
     "cabbeen": {
       "name": "Cabbeen",
@@ -600,7 +836,10 @@
       "global": "Foshan designer menswear; first overseas stores in Malaysia, with more planned.",
       "sector": "apparel",
       "sub_category": "menswear",
-      "operating_model": "franchise"
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "China revenue via company-operated + franchise + wholesale; no US stores or US franchise program."
     },
     "florasis": {
       "name": "Florasis",
@@ -608,7 +847,10 @@
       "format": "beauty",
       "global": "Hangzhou heritage-cosmetics brand; a Tokyo flagship (Jan 2025) and a Paris counter (2024). US reach is retail shelves only.",
       "sector": "beauty",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US is DTC only (own site + Amazon + TikTok Shop); no physical stores, no franchise."
     },
     "maogeping": {
       "name": "Mao Geping",
@@ -619,7 +861,10 @@
       "tickers": [
         "HKEX:1318"
       ],
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Self-operated counters in Chinese department stores + e-commerce; US only via third-party resellers; no franchise."
     },
     "judydoll": {
       "name": "Judydoll",
@@ -627,7 +872,10 @@
       "format": "beauty",
       "global": "Shanghai color cosmetics brand (Joy Group); standalone stores in Singapore and Hong Kong.",
       "sector": "beauty",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US via Amazon flagship + cross-border e-commerce (Joy Group); no franchise."
     },
     "joocyee": {
       "name": "Joocyee",
@@ -635,7 +883,10 @@
       "format": "beauty",
       "global": "Shanghai color cosmetics brand (Joy Group, sister to Judydoll); first international store in Singapore.",
       "sector": "beauty",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "US via own site, TikTok Shop and cross-border retailers (Joy Group); no franchise."
     },
     "xiaomi": {
       "name": "Xiaomi",
@@ -647,7 +898,10 @@
       "tickers": [
         "HKEX:1810"
       ],
-      "operating_model": "franchise"
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "No US Mi Stores; US via Best Buy co-listing + third-party importers; Mi Store franchise/distributor programs exist only outside the US."
     },
     "huawei": {
       "name": "Huawei",
@@ -656,7 +910,10 @@
       "global": "Consumer-electronics maker; branded 'experience stores' across Europe (Madrid, Milan, Barcelona, Paris, Vienna). No US presence.",
       "sector": "electronics",
       "sub_category": "consumer electronics",
-      "operating_model": "company_owned"
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "FCC bars authorization/sale of new Huawei devices; no authorized US retailers; US only via gray-market importers. No US franchise."
     },
     "hotmaxx": {
       "name": "HotMaxx",
@@ -665,13 +922,18 @@
       "global": "Shanghai soft-discount / near-expiry snack & packaged-goods retailer (~950 stores); a Hong Kong store (Sep 2024), Japan announced.",
       "sector": "grocery_convenience",
       "sub_category": "soft-discount retail",
-      "operating_model": "franchise"
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Opened China franchising Apr 2023 (~950 stores); international began Osaka 2025; no US entry or franchise."
     },
     "malubianbian": {
       "name": "Malubianbian",
       "name_zh": "马路边边",
       "format": "hotpot",
-      "global": "Chengdu skewer-style (chuàn-chuàn) hot pot chain founded 2015 (2016 per some sources); more than 1,000 outlets in and outside China by 2021. In the US since 2019 (Los Angeles / Rowland Heights), trading as MLBB / Ma Lu Bian Bian."
+      "global": "Chengdu skewer-style (chuàn-chuàn) hot pot chain founded 2015 (2016 per some sources); more than 1,000 outlets in and outside China by 2021. In the US since 2019 (Los Angeles / Rowland Heights), trading as MLBB / Ma Lu Bian Bian.",
+      "operating_model": "franchise",
+      "franchise_note": "Heavily franchised (1,000+); ~5 US restaurants (Houston, Tustin, Orlando, Philadelphia) but no US FDD or open first-party US franchise application found; US units likely area-developer/licensed, unconfirmed."
     }
   },
   "entries": [
