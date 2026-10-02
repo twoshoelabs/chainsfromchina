@@ -3,173 +3,282 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chains From China — Who they are</title>
+<title>Chains From China — the chains</title>
+<meta name="description" content="Every mainland-China retail and F&B chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
+<style>
+  :root {
+    --bg:#f3f0e8; --ink:#1a1916; --dim:#6b6456; --faint:#908874; --rule:#d3ccbe; --card:#fbfaf6;
+    --dark:#181714; --dark-ink:#f3f0e8; --teal:#2f7a6e; --amber:#a0660f;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --zh:"Noto Serif SC",serif;
+    --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
+    --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
+    --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .phero { background: var(--dark); color: var(--dark-ink); padding: 40px 0 36px; }
+  .phero .eyebrow { font: 500 .72rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: #7CC0B2; margin: 0 0 14px; }
+  .phero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem,5vw,3.4rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 14px; }
+  .phero p { color: #b3ac9c; max-width: 56ch; margin: 0 0 24px; }
+  .psum { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
+  .psum .s b { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.7rem; }
+  .psum .s span { font-size: .8rem; color: #b3ac9c; }
+
+  .controls { display: flex; gap: 12px 16px; flex-wrap: wrap; align-items: center; margin: 26px 0 18px; }
+  .csearch { position: relative; flex: 1 1 260px; }
+  .csearch input { width: 100%; font: 1rem var(--sans); padding: 11px 14px; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); }
+  .segmented { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .segmented button { font: 500 .85rem var(--sans); padding: 9px 13px; border: 0; background: var(--card); cursor: pointer; border-left: 1px solid var(--rule); }
+  .segmented button:first-child { border-left: 0; }
+  .segmented button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .sortsel { font: 500 .85rem var(--sans); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); min-height: 40px; }
+  .secchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .secchip { display: inline-flex; align-items: center; gap: 7px; font: 500 .85rem var(--sans); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--card); cursor: pointer; }
+  .secchip .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .secchip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .secchip .n { color: var(--faint); font-family: var(--mono); font-size: .8rem; }
+  .secchip[aria-pressed="true"] .n { color: #cfc9bc; }
+
+  .cardgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 16px; margin-bottom: 40px; }
+  .ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px; text-decoration: none;
+    color: inherit; display: flex; flex-direction: column; gap: 10px; transition: border-color .12s, transform .12s; }
+  .ccard:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .ccard .top { display: flex; align-items: center; gap: 12px; }
+  .clogo { width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid; background: #fff; flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
+  .clogo img { width: 80%; height: 80%; object-fit: contain; }
+  .clogo.mono { font: 700 1rem var(--sans); color: #fff; }
+  .clogo.mono::after { content: attr(data-m); }
+  .cname { font-weight: 700; font-size: 1.05rem; line-height: 1.15; }
+  .cname .zh { font-family: var(--zh); font-weight: 500; color: var(--dim); font-size: .9rem; display: block; }
+  .cfig { font-family: var(--serif); font-weight: 700; font-size: 2rem; line-height: 1; }
+  .cfig span { font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--dim); margin-left: 6px; }
+  .cfig em { font-style: normal; color: var(--amber); font-size: 1rem; margin-left: 8px; }
+  .cbadges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cbadge { font: 600 .66rem/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px; border: 1px solid var(--rule); color: var(--dim); }
+  .cbadge.counted { color: var(--teal); border-color: var(--teal); }
+  .csince { color: var(--faint); font-size: .82rem; margin-top: auto; }
+
+  table.ctable { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: .92rem; }
+  table.ctable th, table.ctable td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+  table.ctable th { font: 600 .7rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+  table.ctable td.num { font-family: var(--mono); text-align: right; }
+  table.ctable tr:hover td { background: rgba(0,0,0,.03); }
+  table.ctable a { text-decoration: none; font-weight: 600; }
+  .hidden { display: none !important; }
+  .emptymsg { color: var(--dim); padding: 24px 2px; }
+
+  footer.sitefoot { background: var(--dark); color: #b3ac9c; padding: 40px 0; margin-top: 20px; font-size: .9rem; }
+  footer.sitefoot b { color: var(--dark-ink); }
+  @media (max-width: 700px) { .psum { gap: 20px; } }
+</style>
 </head>
 <body data-page="chains">
-<header>
-  <div class="masthead">
-    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
-    <nav>
-      <a class="navlink" href="index.html">US store map</a>
-      <a class="navlink" href="register.html">International register</a>
-      <a class="navlink" href="centers.html">Co-tenancy</a>
-      <a class="navlink current" href="intro.html">Who they are</a>
-      <a class="navlink" href="contribute.html">Submit Info</a>
-    </nav>
-  </div>
-  <h1>Who these companies are</h1>
-  <p class="sub">A short introduction, for US readers, to each Chinese chain this project follows. Each card
-     links to the company's own site in China, and to its US site where one exists.
-     <span id="asof"></span></p>
-</header>
 
-<div class="introwrap">
-  <p class="note warn" id="linkwarn">
-    <strong>A note on the links.</strong> Links to a company's <strong>own site in China</strong>
-    are for reference only. We have <strong>not tested them</strong>; they may be in Chinese or
-    behave differently outside China, so follow them <strong>at your own discretion</strong>. For
-    ordering or store hours, use the US sites.
-  </p>
-  <section class="patterns" id="patterns" hidden>
-    <h2>Where they land first</h2>
-    <p class="note" id="patternstext"></p>
-  </section>
-  <div id="companies" class="cardgrid"></div>
-  <p class="note small" id="photonote"></p>
+<div class="phero">
+  <div class="wrap">
+    <p class="eyebrow">The chains</p>
+    <h1>Every Chinese chain we track in America</h1>
+    <p>Mainland-China retail and food brands trading in the United States — how many outlets each has,
+      what it sells, and when it arrived. Tap any chain for its full page.</p>
+    <div class="psum" id="summary"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="csearch"><input id="q" type="search" autocomplete="off" placeholder="Search by name or 中文…" aria-label="Search chains"></div>
+    <div class="segmented" id="srcfilter" role="group" aria-label="Source">
+      <button type="button" data-src="all" aria-pressed="true">All</button>
+      <button type="button" data-src="collected" aria-pressed="false">Counted daily</button>
+      <button type="button" data-src="hand" aria-pressed="false">Hand-verified</button>
+    </div>
+    <select class="sortsel" id="sort" aria-label="Sort">
+      <option value="outlets">Most outlets</option>
+      <option value="newest">Newest arrival</option>
+      <option value="az">A–Z</option>
+    </select>
+    <div class="segmented" id="viewtoggle" role="group" aria-label="View">
+      <button type="button" data-view="cards" aria-pressed="true">Cards</button>
+      <button type="button" data-view="table" aria-pressed="false">Table</button>
+    </div>
+  </div>
+  <div class="secchips" id="secchips"></div>
+  <div id="cards" class="cardgrid"></div>
+  <div id="table" class="hidden"></div>
+  <p class="emptymsg hidden" id="empty"></p>
 </div>
 
 <footer class="sitefoot">
-  <p><strong>Chains From China</strong> is an independent measurement project. It is
-  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
-  site; brand names identify the businesses being measured and nothing more.</p>
-  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+  <div class="wrap">
+    <p><b>Chains From China</b> is an independent measurement project — not affiliated with, endorsed by
+      or sponsored by any company named here. Outlet counts are collected daily from each chain's own
+      locator, or hand-verified where a chain publishes no usable one.</p>
+    <p>&copy; 2026 Twoshoe Labs LLC.</p>
+  </div>
 </footer>
 
-<script>
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-// A small, honest read of where and when these chains first landed — computed from the same
-// us_since / first_outlet fields shown on each card, so it stays true as the roster grows.
-function patterns(C) {
-  const metroOf = loc => {
-    const s = (loc || '').toLowerCase();
-    if (/flushing/.test(s)) return 'Flushing';
-    if (/new york|manhattan|brooklyn|queens|east village|long island city|east rutherford|american dream/.test(s)) return 'NYC-other';
-    if (/los angeles|pasadena|arcadia|city of industry|rowland heights|san gabriel|tustin|irvine|century city|silver lake|monterey park|alhambra/.test(s)) return 'LA';
-    return 'other';
-  };
-  let total = 0, flushing = 0, nyc = 0, la = 0, since2023 = 0, earliest = 9999;
-  for (const id in C) {
-    const c = C[id];
-    if (!c.first_outlet && !c.us_since) continue;
-    total++;
-    const leading = (c.first_outlet || '').split('—')[0].split(' - ')[0];
-    const m = metroOf(leading);
-    if (m === 'Flushing') { flushing++; nyc++; }
-    else if (m === 'NYC-other') nyc++;
-    else if (m === 'LA') la++;
-    const y = parseInt(((c.us_since || '').match(/(20\d\d)/) || [])[1], 10);
-    if (y) { earliest = Math.min(earliest, y); if (y >= 2023) since2023++; }
-  }
-  if (total < 6) return;                               // too little data to claim a pattern
-  const el = document.getElementById('patternstext');
-  el.innerHTML =
-    `Two metros dominate where these chains first appear. <strong>New York City</strong> is the ` +
-    `leading gateway — <b>${nyc}</b> of the <b>${total}</b> chains whose first US location we know ` +
-    `opened there — and <b>${flushing}</b> of those in a single neighborhood, <strong>Flushing, ` +
-    `Queens</strong>, more than anywhere else in the country. <strong>Greater Los Angeles</strong> ` +
-    `is the other main entry point (<b>${la}</b>). ` +
-    (earliest < 9999
-      ? `Arrivals have accelerated sharply: <b>${since2023}</b> of the <b>${total}</b> first opened ` +
-        `in 2023 or later, though the earliest goes back to <b>${earliest}</b>. `
-      : '') +
-    `<span class="dim">Counted from each chain's first known US outlet; a few are approximate, and ` +
-    `only chains we've dated are included.</span>`;
-  document.getElementById('patterns').hidden = false;
-}
-const host = u => { try { return new URL(u).host.replace(/^www\./, ''); } catch { return u; } };
-
-fetch('data/stores.json').then(r => r.json()).then(data => {
-  const meta = data.meta || {};
-  const C = (meta.companies && meta.companies.companies) || {};
-  if (meta.companies && meta.companies.as_of)
-    document.getElementById('asof').textContent = 'Compiled ' + meta.companies.as_of + '.';
-
-  patterns(C);
-
-  // Order: follow the map's collected chains first, then the rest, so the biggest names lead.
-  const order = [...Object.keys(meta.chains || {}), ...(meta.blocked || []).map(b => b.chain_id)];
-  const usPresent = new Set(order);   // chains with at least one US outlet (collected or sighted)
-  const ids = [...new Set([...order.filter(id => C[id]), ...Object.keys(C)])];
-
-  const grid = document.getElementById('companies');
-  let anyPhoto = false;
-  for (const id of ids) {
-    const c = C[id]; if (!c) continue;
-    const card = document.createElement('article');
-    card.className = 'ccard';
-    card.id = id;                       // anchor target for links from the map's chain chips
-
-    const cnLink = c.site_cn
-      ? `<a href="${esc(c.site_cn)}" target="_blank" rel="noopener nofollow">China site ↗ <span class="cnwarn" title="Outside the USA — untested, follow at your own discretion">⚠︎ ${esc(host(c.site_cn))}</span></a>`
-      : `<span class="dim">no China site listed</span>`;
-    const usLink = c.site_us
-      ? `<a href="${esc(c.site_us)}" target="_blank" rel="noopener">US site ↗ <span class="dim">${esc(host(c.site_us))}</span></a>`
-      : `<span class="dim">no US site</span>`;
-    // Chains with a US outlet link back to the map's legend, so a reader can see how this chain is
-    // drawn and read the symbols. (Overseas-only chains are not on the US map, so no link.)
-    const mapLink = usPresent.has(id)
-      ? ` &nbsp;·&nbsp; <a href="index.html">On the US map ↗</a>`
-      : '';
-
-    // Photo: only shown when the project ships a licensed image; otherwise a labelled placeholder.
-    const photo = c.photo
-      ? `<img class="cphoto" src="${esc(c.photo)}" alt="A ${esc(c.name)} outlet in China" loading="lazy"
-             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'cphoto placeholder',textContent:'photo to come'}))">`
-      : `<div class="cphoto placeholder">photo to come</div>`;
-    if (c.photo) anyPhoto = true;
-
-    // "US since" line: when known, when it opened and where its first US outlet was.
-    let usline = '';
-    if (c.us_since || c.first_outlet) {
-      const since = c.us_since ? `In the US since <b>${esc(c.us_since)}</b>` : '';
-      const store = c.first_outlet
-        ? `${c.us_since ? 'first store: ' : 'First US store: '}${esc(c.first_outlet)}` : '';
-      usline = `<p class="cus">${[since, store].filter(Boolean).join(' · ')}</p>`;
-    }
-
-    card.innerHTML =
-      `${photo}` +
-      `<div class="cbody">` +
-        `<h2>${esc(c.name)} <span class="zh">${esc(c.name_zh || '')}</span></h2>` +
-        (c.category ? `<p class="ccat">${esc(c.category)}</p>` : '') +
-        `<p class="cblurb">${esc(c.blurb || '')}</p>` +
-        usline +
-        (c.photo_credit ? `<p class="ccredit">Photo: ${esc(c.photo_credit)}</p>` : '') +
-        `<p class="clinks">${cnLink} &nbsp;·&nbsp; ${usLink}${mapLink}</p>` +
-      `</div>`;
-    grid.append(card);
-  }
-
-  document.getElementById('photonote').textContent = anyPhoto
-    ? 'Outlet photos are used with permission or under licence; credit appears beneath each.'
-    : 'Representative outlet photos will appear here once licensed images are added — the project does not reproduce photos it has no right to use.';
-
-  // Cards are built here, after fetch — so an #id in the URL (a link from the map's chain chips)
-  // could not resolve at load. Scroll to it now, and briefly highlight it.
-  if (location.hash.length > 1) {
-    const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-    if (t) { t.scrollIntoView({ block: 'start' }); t.classList.add('cardjump'); }
-  }
-}).catch(() => {
-  document.getElementById('companies').innerHTML = '<p class="note">Could not load company data.</p>';
-});
-</script>
 <script src="site.js"></script>
+<script>
+const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
+  grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+const SEC_ORDER = Object.keys(SEC_LABEL);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const secColor = s => getComputedStyle(document.documentElement).getPropertyValue('--sec-' + s).trim() || '#6b7280';
+const yearOf = s => { const m = /\b(20\d{2})\b/.exec(s || ''); return m ? +m[1] : null; };
+const NY_RE = /\b(flushing|brooklyn|queens|manhattan|bronx|staten|new york|nyc|, ny\b|— .*, ny\b)/i;
+const initials = n => (n || '?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
+
+const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set() };
+let CHAINS = [];
+
+(async function () {
+  let gj, sj;
+  try { [gj, sj] = await Promise.all([
+    fetch('data/stores.geojson').then(r=>r.json()),
+    fetch('data/stores.json').then(r=>r.json()),
+  ]); } catch (e) { document.getElementById('cards').innerHTML = '<p class="emptymsg">Could not load chain data.</p>'; return; }
+  const meta = sj.meta || {};
+  const companies = (meta.companies && meta.companies.companies) || {};
+
+  const cnt = {};
+  for (const f of gj.features) {
+    const p = f.properties;
+    const c = cnt[p.chain] || (cnt[p.chain] = { open: 0, hand: 0, soon: 0, sector: p.sector, name: p.name });
+    if (p.status === 'coming_soon') c.soon++;
+    else if (p.kind === 'sighting') c.hand++;
+    else c.open++;
+  }
+
+  const seen = new Set();
+  const add = (id, source, m) => {
+    if (!id || seen.has(id)) return; seen.add(id);
+    const k = cnt[id] || { open: 0, hand: 0, soon: 0, sector: m.format, name: m.name };
+    const comp = companies[id] || {};
+    CHAINS.push({
+      id, name: m.name || id, zh: m.name_zh || '', sector: k.sector || m.format || 'other',
+      outlets: k.open + k.hand, announced: k.soon, source,
+      since: comp.us_since || '', year: yearOf(comp.us_since),
+      ny: NY_RE.test(comp.first_outlet || ''), flushing: /flushing/i.test(comp.first_outlet || ''),
+    });
+  };
+  for (const [id, m] of Object.entries(meta.chains || {})) add(id, 'collected', m);
+  for (const b of (meta.blocked || [])) add(b.chain_id, 'hand', b);
+
+  renderSummary();
+  renderSectorChips();
+  render();
+  wire();
+})();
+
+function renderSummary() {
+  const n = CHAINS.length;
+  const ny = CHAINS.filter(c => c.ny).length;
+  const flush = CHAINS.filter(c => c.flushing).length;
+  const since23 = CHAINS.filter(c => c.year && c.year >= 2023).length;
+  const el = document.getElementById('summary');
+  el.innerHTML =
+    `<div class="s"><b>${n}</b><span>chains tracked</span></div>` +
+    `<div class="s"><b>${ny}</b><span>first opened in the NY area</span></div>` +
+    `<div class="s"><b>${flush}</b><span>of those in Flushing</span></div>` +
+    `<div class="s"><b>${since23}</b><span>arrived since 2023</span></div>`;
+}
+
+function renderSectorChips() {
+  const by = {};
+  for (const c of CHAINS) by[c.sector] = (by[c.sector] || 0) + 1;
+  const secs = [...SEC_ORDER.filter(s => by[s]), ...Object.keys(by).filter(s => !SEC_ORDER.includes(s))];
+  const el = document.getElementById('secchips');
+  el.innerHTML = secs.map(s =>
+    `<button type="button" class="secchip" data-sec="${esc(s)}" aria-pressed="false">` +
+    `<span class="dot" style="background:${secColor(s)}"></span>${esc(SEC_LABEL[s] || s)} <span class="n">${by[s]}</span></button>`
+  ).join('');
+  el.querySelectorAll('.secchip').forEach(ch => ch.addEventListener('click', () => {
+    const s = ch.dataset.sec;
+    if (state.sectors.has(s)) state.sectors.delete(s); else state.sectors.add(s);
+    ch.setAttribute('aria-pressed', String(state.sectors.has(s)));
+    render();
+  }));
+}
+
+function filtered() {
+  const q = state.q.trim().toLowerCase();
+  let list = CHAINS.filter(c => {
+    if (state.src !== 'all' && c.source !== state.src) return false;
+    if (state.sectors.size && !state.sectors.has(c.sector)) return false;
+    if (q && !(c.name.toLowerCase().includes(q) || (c.zh && c.zh.includes(state.q.trim())))) return false;
+    return true;
+  });
+  list.sort((a, b) =>
+    state.sort === 'az' ? a.name.localeCompare(b.name) :
+    state.sort === 'newest' ? (b.year || 0) - (a.year || 0) || b.outlets - a.outlets :
+    b.outlets - a.outlets || a.name.localeCompare(b.name));
+  return list;
+}
+
+function cardHTML(c) {
+  const color = secColor(c.sector);
+  const logo = `<span class="clogo" style="border-color:${color}" data-m="${esc(initials(c.name))}">` +
+    `<img src="icons/${esc(c.id)}.png" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
+  const src = c.source === 'collected'
+    ? '<span class="cbadge counted">Counted daily</span>' : '<span class="cbadge">Hand-verified</span>';
+  return `<a class="ccard" href="chain.html?c=${esc(c.id)}">` +
+    `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
+    `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
+    `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>${src}</div>` +
+    `<div class="csince">${c.since ? 'In the US since ' + esc(c.since) : 'US arrival not dated'}</div></a>`;
+}
+
+function tableHTML(list) {
+  const rows = list.map(c =>
+    `<tr><td><a href="chain.html?c=${esc(c.id)}">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span></td>` +
+    `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
+    `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +
+    `<td>${c.source === 'collected' ? 'Counted daily' : 'Hand-verified'}</td>` +
+    `<td>${esc(c.since || '—')}</td></tr>`).join('');
+  return `<table class="ctable"><thead><tr><th>Chain</th><th>Sector</th><th>Outlets</th><th>Announced</th>` +
+    `<th>Source</th><th>In the US since</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function render() {
+  const list = filtered();
+  const cards = document.getElementById('cards'), table = document.getElementById('table'), empty = document.getElementById('empty');
+  const isCards = state.view === 'cards';
+  cards.classList.toggle('hidden', !isCards);
+  table.classList.toggle('hidden', isCards);
+  if (!list.length) {
+    empty.classList.remove('hidden'); empty.textContent = 'No chains match those filters.';
+    cards.innerHTML = ''; table.innerHTML = ''; return;
+  }
+  empty.classList.add('hidden');
+  if (isCards) { cards.innerHTML = list.map(cardHTML).join(''); table.innerHTML = ''; }
+  else { table.innerHTML = tableHTML(list); cards.innerHTML = ''; }
+}
+
+function wire() {
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => { state.q = q.value; render(); });
+  document.querySelectorAll('#srcfilter button').forEach(b => b.addEventListener('click', () => {
+    state.src = b.dataset.src;
+    document.querySelectorAll('#srcfilter button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  }));
+  document.querySelectorAll('#viewtoggle button').forEach(b => b.addEventListener('click', () => {
+    state.view = b.dataset.view;
+    document.querySelectorAll('#viewtoggle button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  }));
+  document.getElementById('sort').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+}
+</script>
 </body>
 </html>

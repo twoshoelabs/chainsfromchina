@@ -361,7 +361,7 @@ function openPlacePanel(coords, leaves) {
     const p = l.properties;
     const sq = p.kind === 'sighting' ? ' sq' : '';
     const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
-    return `<a class="pp-row" href="intro.html#${esc(p.chain)}">` +
+    return `<a class="pp-row" href="chain.html?c=${esc(p.chain)}">` +
       `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
       `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
   }).join('');
@@ -628,7 +628,7 @@ function buildTally(fc) {
         `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
         `<span class="chipnm">${esc(m.name)}</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
-      prof.className = 'prof'; prof.href = 'intro.html#' + id; prof.textContent = 'ⓘ';
+      prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
       prof.title = 'Who they are — about this chain';
       prof.setAttribute('aria-label', 'About this chain (Who they are)');
       prof.addEventListener('click', (e) => e.stopPropagation());
