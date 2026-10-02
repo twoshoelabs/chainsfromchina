@@ -86,7 +86,9 @@
   .pbtns button { font: 500 .85rem var(--sans); padding: 6px 14px; border: 1px solid var(--line);
     background: #fff; border-radius: 4px; cursor: pointer; }
   .pbtns button:hover { border-color: var(--ink); }
-  /* "Franchise" filter toggle: teal when active, to match the committed accent. */
+  /* "Franchise" filter toggle: a teal "green box" around the word (matching the franchiser name
+     boxes in the list), filled teal when active. */
+  .pbtns #only-franchise { border-color: var(--accent); color: var(--accent); }
   .pbtns #only-franchise[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
   .tally { max-height: 54vh; overflow-y: scroll; margin: 0 -6px; padding: 0 6px; }
   /* A persistent, visible scrollbar so it's clear the brand list keeps going. Styling the webkit
