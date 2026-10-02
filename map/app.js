@@ -537,12 +537,12 @@ function drawTally(data) {
     const scopeShort = ((rr && rr.complete_scope) || '').split('(')[0].trim();
     const toCfm = '';
     let n;
-    // A roster that is complete for the WHOLE US reads simply "complete". A roster complete only
-    // for a sub-scope (Cotti's New York City) but with confirmed locations elsewhere too just shows
-    // the full known count — the sub-scope completeness is a hover detail, not a headline that
-    // makes a nationally-tracked chain look local.
-    if (rr && usWide) n = `${rr.count} — complete`;
-    else if (rr && knownN > rr.count) n = `${knownN} known${toCfm}`;
+    // If the live count of hand-verified locations EXCEEDS a dated roster, the roster is stale
+    // (newer outlets found since it was filed), so show the current count rather than claiming
+    // "complete" at the old number — this keeps the chip equal to the by-state hand total. Otherwise
+    // a roster complete for the whole US reads simply "complete"; a sub-scope keeps its qualifier.
+    if (rr && knownN > rr.count) n = `${knownN} known${toCfm}`;
+    else if (rr && usWide) n = `${rr.count} — complete`;
     else if (rr) n = `${rr.count} — complete for ${esc(scopeShort || 'a defined area')}`;
     else if (kc) n = `${kc.stores} — no locations published`;
     else if (ns) n = `${knownN} known${toCfm}`;
@@ -714,8 +714,10 @@ function drawCoverage(data) {
   const c = data.meta.coverage;
   if (!c || !c.rows) return;
   const t = c.totals;
+  // An estimate is a rumour with a date, so holding more than it is possible; coverage is capped at
+  // 100% rather than claiming we found more than exists.
   const covPct = t.sighted_estimated
-    ? Math.round(100 * t.sighted_estimable_confirmed / t.sighted_estimated) : null;
+    ? Math.min(100, Math.round(100 * t.sighted_estimable_confirmed / t.sighted_estimated)) : null;
   document.getElementById('coverintro').innerHTML =
     `<b>${t.collected}</b> chains are counted in full from their own locators ` +
     `(<b>${t.collected_stores}</b> stores). The other <b>${t.sighted}</b> publish no roster we can ` +
@@ -729,7 +731,9 @@ function drawCoverage(data) {
 
   const tb = document.querySelector('#coverage tbody');
   tb.innerHTML = '';
-  const pct = r => r.ratio == null ? '' : `${Math.round(r.ratio * 100)}%`;
+  // Cap at 100%: when we hold at least as many as the estimate, say so plainly rather than
+  // printing an impossible figure like 200%.
+  const pct = r => r.ratio == null ? '' : (r.ratio >= 1 ? 'exceeds est.' : `${Math.round(r.ratio * 100)}%`);
   const bar = r => {
     if (r.kind === 'collected') return '<span class="cbar full"></span>';
     const w = r.ratio == null ? 0 : Math.min(100, Math.round(r.ratio * 100));

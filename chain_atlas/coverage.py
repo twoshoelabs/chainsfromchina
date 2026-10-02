@@ -84,7 +84,10 @@ def scorecard() -> dict:
             conf = sight_conf.get(a.chain_id, 0)
             estimate = e.get("us")
             ratio = round(conf / estimate, 2) if estimate else None
+            # An estimate is a rumour with a date; holding at least as many as it claims is possible
+            # and simply means the estimate was low, never that coverage is "more than 100%".
             status = ("no benchmark" if not estimate
+                      else "exceeds" if ratio >= 1
                       else "strong" if ratio >= 0.8
                       else "partial" if ratio >= 0.35
                       else "sparse")
