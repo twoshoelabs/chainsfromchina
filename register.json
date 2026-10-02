@@ -426,9 +426,9 @@
     },
     "moge": {
       "name": "Möge Tee",
-      "name_zh": "茉莉奶白",
+      "name_zh": "愿茶",
       "format": "tea",
-      "global": "Mainland-China bubble-tea chain (茉莉奶白); its US arm runs ~70 stores across 18 states, listed on its own US locator (mogeteeusa.com) as of Oct 2026, with outlets also reported in Canada, Australia and Southeast Asia."
+      "global": "Mainland-China bubble-tea chain (愿茶, trades in the US as 'Möge Tee'); founded 2012, franchised from 2018. Its US estate is collected daily from its own locator (mogeteeusa.com): ~70 stores across 18 states as of Oct 2026. A different brand from Molly Tea (茉莉奶白)."
     },
     "mstand": {
       "name": "M Stand",
