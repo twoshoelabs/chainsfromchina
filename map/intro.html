@@ -7,13 +7,13 @@
 <meta name="description" content="Every Chinese retail and F&B chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=6">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=7">
 <style>
   :root {
     --bg:#f3f0e8; --ink:#1a1916; --dim:#6b6456; --faint:#908874; --rule:#d3ccbe; --card:#fbfaf6;
     --dark:#181714; --dark-ink:#f3f0e8; --teal:#2f7a6e; --amber:#a0660f;
-    --serif:"Playfair Display",Georgia,serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --zh:"Noto Serif SC",serif;
     --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
     --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
@@ -25,7 +25,7 @@
   .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
   .phero { background: var(--dark); color: var(--dark-ink); padding: 40px 0 36px; }
-  .phero .eyebrow { font: 500 .72rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: #7CC0B2; margin: 0 0 14px; }
+  .phero .eyebrow { font: 500 .82rem/1.4 var(--sans); letter-spacing: 0; color: #7CC0B2; margin: 0 0 14px; }
   .phero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem,5vw,3.4rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 14px; }
   .phero p { color: #b3ac9c; max-width: 56ch; margin: 0 0 24px; }
   .psum { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
@@ -34,21 +34,21 @@
 
   .controls { display: flex; gap: 12px 16px; flex-wrap: wrap; align-items: center; margin: 26px 0 18px; }
   .csearch { position: relative; flex: 1 1 260px; }
-  .csearch input { width: 100%; font: 1rem var(--sans); padding: 11px 14px; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); }
-  .segmented { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .csearch input { width: 100%; font: 1rem var(--sans); padding: 11px 14px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); }
+  .segmented { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
   .segmented button { font: 500 .85rem var(--sans); padding: 9px 13px; border: 0; background: var(--card); cursor: pointer; border-left: 1px solid var(--rule); }
   .segmented button:first-child { border-left: 0; }
   .segmented button[aria-pressed="true"] { background: var(--ink); color: #fff; }
-  .sortsel { font: 500 .85rem var(--sans); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); min-height: 40px; }
+  .sortsel { font: 500 .85rem var(--sans); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); min-height: 40px; }
   .secchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .secchip { display: inline-flex; align-items: center; gap: 7px; font: 500 .85rem var(--sans); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--card); cursor: pointer; }
+  .secchip { display: inline-flex; align-items: center; gap: 7px; font: 500 .85rem var(--sans); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); cursor: pointer; }
   .secchip .dot { width: 10px; height: 10px; border-radius: 50%; }
   .secchip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
   .secchip .n { color: var(--faint); font-family: var(--mono); font-size: .8rem; }
   .secchip[aria-pressed="true"] .n { color: #cfc9bc; }
 
   .cardgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 16px; margin-bottom: 40px; }
-  .ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px; text-decoration: none;
+  .ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 18px; text-decoration: none;
     color: inherit; display: flex; flex-direction: column; gap: 10px; transition: border-color .12s, transform .12s; }
   .ccard:hover { border-color: var(--ink); transform: translateY(-1px); }
   .ccard .top { display: flex; align-items: center; gap: 12px; }

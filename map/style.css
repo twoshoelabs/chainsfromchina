@@ -10,7 +10,7 @@
      greyscale printing and the common forms of colour blindness. */
   --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --display:"Playfair Display","Newsreader",Georgia,"Times New Roman",serif;
+  --display:"Fraunces","Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --hans:"Noto Serif SC","Songti SC",serif;
 }
@@ -43,14 +43,14 @@ aside{flex:0 0 300px}
 .tally{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
 .chip{
   display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
-  background:var(--surface); border:1px solid var(--rule); border-radius:999px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:3px;
   padding:6px 13px 6px 9px; font-size:13px; color:var(--ink);
 }
 .chip[aria-pressed="false"]{opacity:.38}
 .chip .dot{width:10px; height:10px; border-radius:50%}
 .chip .n{color:var(--muted); font-variant-numeric:tabular-nums}
 
-figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:5px; padding:8px}
+figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:8px}
 figcaption{color:var(--muted); font-size:12.5px; padding:6px 6px 2px}
 svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cursor:grab}
 svg#map.drag{cursor:grabbing}
@@ -61,7 +61,7 @@ svg#map.drag{cursor:grabbing}
 .store{cursor:pointer}
 
 aside section{
-  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:2px;
   padding:12px 14px; margin-bottom:14px;
 }
 aside h2{margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
@@ -77,7 +77,7 @@ li b{color:var(--ink); font-weight:600}
 #tip{
   position:fixed; z-index:9; pointer-events:none; max-width:280px;
   background:var(--surface); color:var(--ink); border:1px solid var(--rule);
-  border-radius:8px; padding:8px 10px; font-size:13px; box-shadow:0 6px 24px -10px rgba(0,0,0,.4);
+  border-radius:3px; padding:8px 10px; font-size:13px; box-shadow:0 6px 24px -10px rgba(0,0,0,.4);
 }
 #tip b{display:block}
 #tip .loc{font-size:13px; margin-top:2px}
@@ -151,7 +151,7 @@ li b{color:var(--ink); font-weight:600}
 .insetframe{fill:none; stroke:var(--rule); stroke-dasharray:none}
 .inset .state{stroke-width:0}
 #offmap.warn{
-  margin:8px 6px 0; padding:7px 9px; font-size:12.5px; border-radius:6px;
+  margin:8px 6px 0; padding:7px 9px; font-size:12.5px; border-radius:3px;
   color:var(--ink); background:color-mix(in srgb, var(--soon) 14%, var(--surface));
   border:1px solid color-mix(in srgb, var(--soon) 45%, var(--rule));
 }
@@ -195,7 +195,7 @@ td.c-none{color:var(--rule)}
 .legendlist li{margin-bottom:5px}
 .legendlist b{display:inline-block; min-width:26px; color:var(--ink)}
 .chainblock{
-  background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:2px;
   padding:12px 15px; margin-bottom:14px;
 }
 .chainblock h3{margin:0 0 3px; font-size:15px}
@@ -257,7 +257,7 @@ td.n, .chip .n, .cpct, #coverage td.num, .abroad, .legend .lgt, table.reg td{
 .zh, td .zh, .ccard .zh, table.reg th.chain .zh{font-family:var(--hans)}
 
 /* ---- US-first view on the register ---- */
-.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:5px;
+.usbox{background:var(--surface); border:1px solid var(--rule); border-radius:2px;
        padding:14px 16px; margin-bottom:14px}
 .usbox h2{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
 .usbox.watch{border-color:color-mix(in srgb, var(--soon) 45%, var(--rule))}
@@ -273,7 +273,7 @@ ul.uslist b{color:var(--ink)}
   font-size:13px; line-height:1.55; color:var(--ink-2);
   background:color-mix(in srgb, var(--soon) 10%, var(--surface));
   border:1px solid color-mix(in srgb, var(--soon) 38%, var(--rule));
-  border-radius:8px;
+  border-radius:3px;
 }
 .coverline b{color:var(--ink)}
 .coverline a{color:var(--accent)}
@@ -297,7 +297,7 @@ ul.uslist b{color:var(--ink)}
 /* Per-chip "only" — isolate this chain; subtle until hovered/focused, always tappable. */
 .chip .only{
   font:inherit; font-size:11px; line-height:1; margin-left:2px; padding:2px 6px;
-  border:1px solid var(--rule-2); border-radius:999px; background:transparent;
+  border:1px solid var(--rule-2); border-radius:3px; background:transparent;
   color:var(--muted); cursor:pointer; opacity:.5}
 .chip:hover .only, .chip:focus-within .only{opacity:1}
 .chip .only:hover{border-color:var(--ink-2); color:var(--ink)}
@@ -354,7 +354,7 @@ ul.uslist b{color:var(--ink)}
 /* Introduction & Contribute pages */
 .introwrap{max-width:1000px; margin:0 auto; padding:0 16px 40px}
 .cardgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-top:16px}
-.ccard{background:var(--surface); border:1px solid var(--rule); border-radius:5px; overflow:hidden;
+.ccard{background:var(--surface); border:1px solid var(--rule); border-radius:2px; overflow:hidden;
   display:flex; flex-direction:column}
 .cphoto{width:100%; height:150px; object-fit:cover; display:block; background:var(--paper)}
 .cphoto.placeholder{display:flex; align-items:center; justify-content:center; color:var(--muted);
@@ -372,7 +372,7 @@ ul.uslist b{color:var(--ink)}
 .cnwarn{color:var(--soon); font-size:11px; white-space:nowrap}
 .dim{color:var(--muted)}
 .note.warn{background:color-mix(in srgb, var(--soon) 12%, var(--surface)); border:1px solid var(--soon);
-  border-radius:8px; padding:10px 12px}
+  border-radius:3px; padding:10px 12px}
 
 /* Contribute forms */
 .contribgrid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
@@ -380,14 +380,14 @@ ul.uslist b{color:var(--ink)}
 .cform label{display:block; font-size:13px; color:var(--ink-2); margin:10px 0 0}
 .cform input, .cform select, .cform textarea{width:100%; box-sizing:border-box; margin-top:4px;
   padding:8px 9px; font:inherit; font-size:14px; color:var(--ink); background:var(--paper);
-  border:1px solid var(--rule); border-radius:7px}
+  border:1px solid var(--rule); border-radius:3px}
 .cform .req{color:var(--closed)}
 .cform button{margin-top:14px; padding:9px 16px; font:inherit; font-size:14px; font-weight:600;
-  color:#fff; background:var(--accent); border:0; border-radius:8px; cursor:pointer}
+  color:#fff; background:var(--accent); border:0; border-radius:3px; cursor:pointer}
 .cform button:hover{filter:brightness(1.06)}
 .cform .hp{position:absolute; left:-9999px; height:0; overflow:hidden}
 #okmsg{background:color-mix(in srgb, var(--open) 14%, var(--surface)); border:1px solid var(--open);
-  border-radius:8px; padding:10px 12px; margin-top:16px}
+  border-radius:3px; padding:10px 12px; margin-top:16px}
 
 /* Beta badge in the masthead */
 .beta{display:inline-block; margin-left:10px; padding:3px 8px; font-size:10.5px;
@@ -426,7 +426,7 @@ header > *{max-width:1240px; margin-left:auto; margin-right:auto}
 .masthead .navlink.current{color:var(--h-ink); border-bottom-color:var(--h-accent);
   border-bottom-width:2px}
 
-/* The brand and the headline take the display face (Playfair Display) for character —
+/* The brand and the headline take the display face (Fraunces) for character —
    a high-contrast display serif like Bodoni but with sturdier, more legible strokes. */
 .brand{font-family:var(--display); font-weight:600; letter-spacing:-.01em}
 

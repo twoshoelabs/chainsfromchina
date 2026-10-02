@@ -7,7 +7,7 @@
 <meta name="description" content="A daily count of Chinese retail and F&B chains open across the United States — taken from each company's own store list.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
@@ -17,7 +17,7 @@
     --dark: #1a1916; --dark-ink: #f3f0e8; --dark-dim: #b3ac9c;
     --green: #16a34a; --pro: #b45309; --pro-chip: #e8b83a;
     --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-    --serif: "Playfair Display", Georgia, serif;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Libre Franklin", system-ui, -apple-system, sans-serif;
     --zh: "Noto Serif SC", serif;
   }
@@ -44,15 +44,14 @@
   nav.top a.pro { color: var(--pro-chip); }
 
   .herobody { padding: 44px 0 52px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: end; }
-  .eyebrow { font: 500 .72rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-    color: var(--green); margin: 0 0 18px; }
+  .eyebrow { font: 500 .82rem/1.4 var(--sans); letter-spacing: 0; color: var(--dark-dim); margin: 0 0 18px; }
   h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.6rem);
     line-height: 1.02; letter-spacing: -.02em; margin: 0 0 18px; }
   .lede { font-size: 1.12rem; color: var(--dark-dim); max-width: 36ch; margin: 0 0 26px; }
   .searchlbl { font-size: .82rem; color: var(--dark-dim); margin: 0 0 8px; font-weight: 500; }
   .search { position: relative; max-width: 460px; }
   .search input { width: 100%; font-family: var(--sans); font-size: 1rem; padding: 14px 16px 14px 44px;
-    border: 0; border-radius: 10px; background: var(--bg); color: var(--ink); }
+    border: 0; border-radius: 2px; background: var(--bg); color: var(--ink); }
   .search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: .5; }
 
   /* big total */
@@ -67,7 +66,7 @@
 
   /* ---------- Section scaffolding ---------- */
   section { padding: 56px 0; border-top: 1px solid var(--line); }
-  .kicker { font: 500 .72rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+  .kicker { font: 600 .74rem/1 var(--sans); letter-spacing: .07em; text-transform: uppercase;
     color: var(--faint); margin: 0 0 14px; }
   h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.5rem);
     line-height: 1.1; letter-spacing: -.01em; margin: 0 0 10px; }
@@ -79,12 +78,12 @@
   /* ---------- Map section ---------- */
   #mapsec { padding-top: 40px; }
   .maplayout { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
-  .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px; }
+  .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 18px; }
   .panel h3 { font: 600 .74rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
     color: var(--faint); margin: 0 0 12px; }
   .pbtns { display: flex; gap: 8px; margin-bottom: 14px; }
   .pbtns button { font: 500 .85rem var(--sans); padding: 6px 14px; border: 1px solid var(--line);
-    background: #fff; border-radius: 999px; cursor: pointer; }
+    background: #fff; border-radius: 4px; cursor: pointer; }
   .pbtns button:hover { border-color: var(--ink); }
   .tally { max-height: 54vh; overflow-y: scroll; margin: 0 -6px; padding: 0 6px; }
   /* A persistent, visible scrollbar so it's clear the brand list keeps going. Styling the webkit
@@ -99,7 +98,7 @@
     color: var(--faint); border-top: 1px solid var(--line); margin-top: 6px; }
   button.tallygroup:first-child { border-top: 0; margin-top: 0; }
   button.tallygroup.partial { opacity: .6; }
-  .chip { display: flex; align-items: center; gap: 10px; padding: 5px 2px; cursor: pointer; border-radius: 6px; }
+  .chip { display: flex; align-items: center; gap: 10px; padding: 5px 2px; cursor: pointer; border-radius: 3px; }
   .chip:hover { background: rgba(0,0,0,.04); }
   .chip[aria-pressed="false"] { opacity: .4; }
   .chip .chiplogo { width: 26px; height: 26px; border-radius: 50%; border: 2px solid; background: #fff;
@@ -114,17 +113,17 @@
   .chip:hover .only { opacity: 1; }
 
   .maptoolbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
-  .maptabs { display: flex; gap: 2px; background: var(--dark); padding: 4px; border-radius: 10px; width: max-content; }
+  .maptabs { display: flex; gap: 2px; background: var(--dark); padding: 4px; border-radius: 2px; width: max-content; }
   .statustoggle { font-size: .85rem; color: var(--dim); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
   .sharebtn { margin-left: auto; font: 500 .85rem var(--sans); padding: 7px 13px; border: 1px solid var(--line);
-    background: #fff; border-radius: 999px; cursor: pointer; min-height: 36px; }
+    background: #fff; border-radius: 4px; cursor: pointer; min-height: 36px; }
   .sharebtn:hover { border-color: var(--ink); }
   .sharebtn.copied { background: #2F7A6E; color: #fff; border-color: #2F7A6E; }
   .maptabs a { text-decoration: none; color: var(--dark-dim); font-size: .9rem; font-weight: 500;
-    padding: 7px 18px; border-radius: 7px; }
+    padding: 7px 18px; border-radius: 3px; }
   .maptabs a.on { background: var(--bg); color: var(--ink); }
-  #map { width: 100%; height: 66vh; min-height: 440px; border: 1px solid var(--rule); border-radius: 10px; }
-  .maplibregl-popup-content { font-family: var(--sans); font-size: .9rem; padding: .6rem .8rem; border-radius: 8px; }
+  #map { width: 100%; height: 66vh; min-height: 440px; border: 1px solid var(--rule); border-radius: 2px; }
+  .maplibregl-popup-content { font-family: var(--sans); font-size: .9rem; padding: .6rem .8rem; border-radius: 3px; }
   .legendrow { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 12px 0 0; font-size: .82rem; color: var(--dim); }
   .legendrow .k { display: inline-flex; align-items: center; gap: .35rem; }
   .legendrow .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid; }
@@ -142,7 +141,7 @@
 
   /* ---------- Sector breakdown ---------- */
   .sectorgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 14px; margin-top: 24px; }
-  .scard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; }
+  .scard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 16px; }
   .scard .sname { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: .95rem; }
   .scard .sdot { width: 11px; height: 11px; border-radius: 50%; }
   .scard .srow { display: flex; justify-content: space-between; font-size: .84rem; color: var(--dim); margin-top: 10px; }
@@ -150,7 +149,7 @@
 
   /* ---------- Nav cards ---------- */
   .navcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-  .ncard { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 26px;
+  .ncard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 26px;
     text-decoration: none; color: inherit; display: block; transition: border-color .15s; }
   .ncard:hover { border-color: var(--ink); }
   .ncard .ncnum { font-family: var(--serif); font-weight: 800; font-size: 3rem; line-height: 1; }
@@ -164,7 +163,7 @@
   .pro h2 { color: #fff; }
   .pro .note { color: var(--dark-dim); max-width: 52ch; }
   .promods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 16px; margin-top: 28px; }
-  .pmod { border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 20px; }
+  .pmod { border: 1px solid rgba(255,255,255,.16); border-radius: 2px; padding: 20px; }
   .pmod .pnum2 { font: 500 .72rem var(--mono); color: var(--pro-chip); letter-spacing: .1em; }
   .pmod h4 { margin: 10px 0 6px; font-size: 1.02rem; }
   .pmod p { margin: 0; color: var(--dark-dim); font-size: .88rem; }
@@ -197,11 +196,11 @@
   }
   /* ---- Search suggestions ---- */
   .suggest { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: #fff; color: var(--ink);
-    border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 12px 34px rgba(0,0,0,.18);
+    border: 1px solid var(--rule); border-radius: 2px; box-shadow: 0 12px 34px rgba(0,0,0,.18);
     max-height: 60vh; overflow: auto; z-index: 60; padding: 6px; text-align: left; }
   .suggest .grp { font: 600 .66rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
     color: var(--faint); padding: 11px 10px 6px; }
-  .suggest .opt { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 7px;
+  .suggest .opt { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 3px;
     cursor: pointer; font-size: .95rem; min-height: 40px; }
   .suggest .opt[aria-selected="true"], .suggest .opt:hover { background: rgba(47,122,110,.12); }
   .suggest .opt .ring { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex: 0 0 auto; }
@@ -247,7 +246,7 @@
       box-shadow: 0 -8px 30px rgba(0,0,0,.2); }
   }
 </style>
-<link rel="stylesheet" href="site.css?v=6">
+<link rel="stylesheet" href="site.css?v=7">
 </head>
 <body data-page="map">
 

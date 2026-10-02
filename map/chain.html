@@ -7,15 +7,15 @@
 <meta name="description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="site.css?v=6">
+<link rel="stylesheet" href="site.css?v=7">
 <style>
   :root {
     --bg:#f3f0e8; --ink:#1a1916; --dim:#6b6456; --faint:#908874; --rule:#d3ccbe; --card:#fbfaf6;
     --dark:#181714; --dark-ink:#f3f0e8; --teal:#2f7a6e; --amber:#a0660f; --brass:#f3e6c8;
-    --serif:"Playfair Display",Georgia,serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --zh:"Noto Serif SC",serif;
     --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
     --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
@@ -40,18 +40,18 @@
   .chero .zh { font-family: var(--zh); color: var(--dim); font-size: 1.2rem; }
   .chero .aka { color: var(--faint); font-size: .85rem; margin-top: 4px; }
   .herobadges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .hb { font: 600 .68rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
+  .hb { font: 600 .72rem/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
     border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
   .hb.counted { color: var(--teal); border-color: var(--teal); }
   .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 22px; border-bottom: 1px solid var(--rule); }
-  .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 8px;
+  .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 3px;
     background: var(--card); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
   .btn:hover { border-color: var(--ink); }
   .btn.pro { background: var(--brass); border-color: #e4d2a4; }
   .related { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 10px; }
   .relcard { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--rule);
-    border-radius: 8px; padding: 12px; text-decoration: none; color: inherit; }
+    border-radius: 3px; padding: 12px; text-decoration: none; color: inherit; }
   .relcard:hover { border-color: var(--ink); }
   .relcard .rring { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid; flex: 0 0 auto; }
   .relcard .rn { margin-left: auto; font-family: var(--mono); color: var(--dim); }
@@ -64,7 +64,7 @@
   section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
   h2 { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; margin: 0 0 14px; }
   .lead { color: var(--dim); }
-  #map { width: 100%; height: 420px; border: 1px solid var(--rule); border-radius: 10px; }
+  #map { width: 100%; height: 420px; border: 1px solid var(--rule); border-radius: 2px; }
   .maplibregl-popup-content { font-family: var(--sans); font-size: .88rem; }
 
   .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
@@ -90,7 +90,7 @@
   .flag.gone { text-decoration: line-through; color: var(--faint); opacity: .7; }
 
   .promods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; }
-  .pmod { border: 1px dashed var(--rule); border-radius: 10px; padding: 18px; background: repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(0,0,0,.02) 10px, rgba(0,0,0,.02) 20px); }
+  .pmod { border: 1px dashed var(--rule); border-radius: 2px; padding: 18px; background: repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(0,0,0,.02) 10px, rgba(0,0,0,.02) 20px); }
   .pmod .tag { font: 600 .66rem var(--mono); letter-spacing: .08em; color: var(--amber); }
   .pmod h4 { margin: 8px 0 6px; } .pmod p { margin: 0; color: var(--dim); font-size: .86rem; }
   .pmod .modeled { display: inline-block; font: 600 .6rem var(--mono); text-transform: uppercase; background: var(--brass); color: var(--ink); padding: 3px 6px; border-radius: 4px; margin-left: 6px; }

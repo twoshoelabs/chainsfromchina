@@ -1,7 +1,7 @@
 /* Chains From China — shared design system (v4 brief).
    Loaded on every page AFTER the page's own CSS so these tokens win. Pairs with site.js, which
    injects the universal header. */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&display=swap');
 
 :root {
   /* core palette */
@@ -13,8 +13,8 @@
   --sec-snacks: #D0702A; --sec-grocery_convenience: #2F8C8C; --sec-apparel: #6B4FA0;
   --sec-beauty: #C4577A; --sec-lifestyle_variety: #2F5FA8; --sec-electronics: #3C7A9A;
   --sec-home: #7A8C3A;
-  /* type */
-  --cfc-display: "Playfair Display", Georgia, serif;
+  /* type — Fraunces for display/headlines (a characterful editorial serif, not the template default) */
+  --cfc-display: "Fraunces", Georgia, "Times New Roman", serif;
   --cfc-sans: "Libre Franklin", system-ui, -apple-system, sans-serif;
   --cfc-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --cfc-hans: "Noto Serif SC", serif;
@@ -47,7 +47,7 @@
 .site-nav .right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
 .site-nav .searchbtn { display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
   background: rgba(243,240,232,.08); color: #d8d2c4; border: 1px solid rgba(243,240,232,.18);
-  border-radius: 8px; padding: 7px 10px; font: 500 13px var(--cfc-sans); min-height: 36px; }
+  border-radius: 4px; padding: 7px 10px; font: 500 13px var(--cfc-sans); min-height: 36px; }
 .site-nav .searchbtn:hover { color: #fff; border-color: rgba(243,240,232,.42); }
 .site-nav .searchbtn kbd { font: 500 11px var(--cfc-mono); background: rgba(243,240,232,.14);
   border-radius: 4px; padding: 2px 5px; }
@@ -58,13 +58,13 @@
   display: inline-flex; align-items: center; justify-content: center; }
 .site-nav .accticon:hover { color: #fff; }
 .site-nav .acctmenu { position: absolute; right: 0; top: 46px; background: #232019;
-  border: 1px solid rgba(243,240,232,.16); border-radius: 8px; padding: 6px; min-width: 164px;
+  border: 1px solid rgba(243,240,232,.16); border-radius: 4px; padding: 6px; min-width: 164px;
   box-shadow: 0 12px 30px rgba(0,0,0,.4); }
 .site-nav .acctmenu a { display: block; padding: 9px 10px; color: #d8d2c4; text-decoration: none;
   border-radius: 5px; font-size: 14px; }
 .site-nav .acctmenu a:hover { background: rgba(243,240,232,.08); color: #fff; }
 .site-nav .pro { background: var(--cfc-brass); color: var(--cfc-ink); text-decoration: none;
-  font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 6px; min-height: 36px;
+  font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 3px; min-height: 36px;
   display: inline-flex; align-items: center; flex: 0 0 auto; }
 .site-nav .pro:hover { filter: brightness(.96); }
 
@@ -85,20 +85,20 @@
 }
 
 /* ---- Census eyebrow (the "Updated …" line, moved out of the header) ----------------------- */
-.census-line { font: 500 .72rem/1.5 var(--cfc-mono); letter-spacing: .14em; text-transform: uppercase; color: #8C8470; }
+.census-line { font: 500 .8rem/1.5 var(--cfc-sans); letter-spacing: 0; color: #8C8470; }
 
 /* ---- ⌘K search overlay ------------------------------------------------------------------- */
 .cfc-searchmodal { position: fixed; inset: 0; z-index: 2000; background: rgba(24,23,20,.55);
   display: flex; align-items: flex-start; justify-content: center; padding: 12vh 16px 16px; }
 .cfc-searchmodal[hidden] { display: none; }
-.cfc-sm-box { width: min(560px, 100%); background: #fff; color: #1a1916; border-radius: 12px;
+.cfc-sm-box { width: min(560px, 100%); background: #fff; color: #1a1916; border-radius: 4px;
   box-shadow: 0 24px 64px rgba(0,0,0,.4); overflow: hidden; font-family: var(--cfc-sans); }
 .cfc-sm-top { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid #e5e0d8; }
 .cfc-sm-top input { flex: 1; border: 0; font: 1.05rem var(--cfc-sans); outline: none; background: transparent; }
 .cfc-sm-top kbd { font: 500 11px var(--cfc-mono); color: #908874; border: 1px solid #d3ccbe; border-radius: 4px; padding: 2px 6px; }
 .cfc-sm-list { max-height: 56vh; overflow: auto; padding: 6px; }
 .cfc-sm-grp { font: 600 .66rem var(--cfc-mono); letter-spacing: .1em; text-transform: uppercase; color: #908874; padding: 10px 10px 6px; }
-.cfc-sm-opt { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 7px; cursor: pointer; }
+.cfc-sm-opt { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 4px; cursor: pointer; }
 .cfc-sm-opt[aria-selected="true"], .cfc-sm-opt:hover { background: rgba(47,122,110,.12); }
 .cfc-sm-opt .ring { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex: 0 0 auto; }
 .cfc-sm-opt .nm { flex: 1; } .cfc-sm-opt .meta { color: #908874; font-size: .8rem; } .cfc-sm-opt .ic { opacity: .5; }
