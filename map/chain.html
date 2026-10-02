@@ -181,8 +181,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const sents = [];
   if (comp.blurb) sents.push(comp.blurb.split(/(?<=\.)\s/)[0]);
   let cs = '';
-  if (open) cs = `${open} outlet${open > 1 ? 's are' : ' is'} open in the US`;
-  if (!open && hand) cs = `${hand} location${hand > 1 ? 's are' : ' is'} hand-verified`;
+  if (outlets) cs = `${outlets} outlet${outlets > 1 ? 's are' : ' is'} open in the US`;
   if (soon) cs += cs ? ` and ${soon} more are announced` : `${soon} announced, none open yet`;
   if (cs) sents.push(cs + '.');
   if (firstCity && comp.us_since) sents.push(`Its first US store opened in ${firstCity} in ${comp.us_since}.`);
@@ -209,8 +208,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
     `<div class="chero">${logoHTML}<div class="cheromain">` +
       `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
-      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
-        `<span class="hb ${isCollected ? 'counted' : ''}">${isCollected ? 'Counted daily from its own locator' : 'Hand-verified'}</span></div>` +
+      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span></div>` +
       (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
     `</div></div>` +
     `<div class="actions">` +
@@ -219,8 +217,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<a class="btn" href="contribute.html?chain=${encodeURIComponent(m.name)}">Report a ${esc(m.name)} store</a>` +
     `</div>` +
     `<div class="stats">` +
-      `<div class="s"><b>${open}</b><span>open in the US</span></div>` +
-      (hand ? `<div class="s"><b>${hand}</b><span>hand-verified</span></div>` : '') +
+      `<div class="s"><b>${outlets}</b><span>open in the US</span></div>` +
       (soon ? `<div class="s"><b class="soon">+${soon}</b><span>announced</span></div>` : '') +
       `<div class="s"><b>${states.size}</b><span>state${states.size === 1 ? '' : 's'}</span></div>` +
       `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
@@ -332,7 +329,7 @@ function drawMap(feats, sector) {
     } });
     map.on('click', 'pins', (e) => {
       const p = e.features[0].properties;
-      const st = p.status === 'coming_soon' ? 'Announced / coming soon' : (p.kind === 'sighting' ? 'Hand-verified' : 'Open');
+      const st = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
       new maplibregl.Popup({ closeButton: false }).setLngLat(e.features[0].geometry.coordinates)
         .setHTML(`<b>${esc(p.name)}</b><br>${esc(p.address || '')}<br><span style="color:#666">${esc([p.city, p.state].filter(Boolean).join(', '))} · ${st}</span>`).addTo(map);
     });

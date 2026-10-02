@@ -97,11 +97,6 @@
 <div class="wrap">
   <div class="controls">
     <div class="csearch"><input id="q" type="search" autocomplete="off" placeholder="Search by name or 中文…" aria-label="Search chains"></div>
-    <div class="segmented" id="srcfilter" role="group" aria-label="Source">
-      <button type="button" data-src="all" aria-pressed="true">All</button>
-      <button type="button" data-src="collected" aria-pressed="false">Counted daily</button>
-      <button type="button" data-src="hand" aria-pressed="false">Hand-verified</button>
-    </div>
     <select class="sortsel" id="sort" aria-label="Sort">
       <option value="outlets">Most outlets</option>
       <option value="newest">Newest arrival</option>
@@ -214,7 +209,6 @@ function renderSectorChips() {
 function filtered() {
   const q = state.q.trim().toLowerCase();
   let list = CHAINS.filter(c => {
-    if (state.src !== 'all' && c.source !== state.src) return false;
     if (state.sectors.size && !state.sectors.has(c.sector)) return false;
     if (q && !(c.name.toLowerCase().includes(q) || (c.zh && c.zh.includes(state.q.trim())))) return false;
     return true;
@@ -230,12 +224,10 @@ function cardHTML(c) {
   const color = secColor(c.sector);
   const logo = `<span class="clogo" style="border-color:${color}" data-m="${esc(initials(c.name))}">` +
     `<img src="icons/${esc(c.id)}.png" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
-  const src = c.source === 'collected'
-    ? '<span class="cbadge counted">Counted daily</span>' : '<span class="cbadge">Hand-verified</span>';
   return `<a class="ccard" href="chain.html?c=${esc(c.id)}">` +
     `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
     `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
-    `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>${src}</div>` +
+    `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span></div>` +
     `<div class="csince">${c.since ? 'In the US since ' + esc(c.since) : 'US arrival not dated'}</div></a>`;
 }
 
@@ -244,10 +236,9 @@ function tableHTML(list) {
     `<tr><td><a href="chain.html?c=${esc(c.id)}">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span></td>` +
     `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
     `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +
-    `<td>${c.source === 'collected' ? 'Counted daily' : 'Hand-verified'}</td>` +
     `<td>${esc(c.since || '—')}</td></tr>`).join('');
   return `<table class="ctable"><thead><tr><th>Chain</th><th>Sector</th><th>Outlets</th><th>Announced</th>` +
-    `<th>Source</th><th>In the US since</th></tr></thead><tbody>${rows}</tbody></table>`;
+    `<th>In the US since</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function render() {
@@ -268,11 +259,6 @@ function render() {
 function wire() {
   const q = document.getElementById('q');
   q.addEventListener('input', () => { state.q = q.value; render(); });
-  document.querySelectorAll('#srcfilter button').forEach(b => b.addEventListener('click', () => {
-    state.src = b.dataset.src;
-    document.querySelectorAll('#srcfilter button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-    render();
-  }));
   document.querySelectorAll('#viewtoggle button').forEach(b => b.addEventListener('click', () => {
     state.view = b.dataset.view;
     document.querySelectorAll('#viewtoggle button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
