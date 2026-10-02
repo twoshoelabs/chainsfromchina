@@ -38,8 +38,6 @@
 .site-nav > * { max-width: none; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; }
 .site-nav .wm { font-family: var(--cfc-display); font-weight: 700; font-size: 20px; line-height: 1;
   letter-spacing: -.01em; color: var(--cfc-paper); text-decoration: none; flex: 0 0 auto; }
-/* Masthead accent: a teal full stop anchors the wordmark to the one accent color. */
-.site-nav .wm::after { content: "."; color: var(--cfc-teal-on-dark); margin-left: 1px; }
 .site-nav .beta { font: 600 10px/1 var(--cfc-mono); letter-spacing: .12em; text-transform: uppercase;
   color: #B3AC9C; border: 1px solid rgba(243,240,232,.35); padding: 4px 6px; border-radius: 3px; flex: 0 0 auto; }
 .site-nav .primary { display: flex; gap: 18px; align-items: center; height: 100%; }
