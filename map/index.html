@@ -210,7 +210,7 @@
       </div>
       <div class="total">
         <div class="big" id="total-big">&mdash;</div>
-        <p class="cap">outlets of Chinese chains open in the US</p>
+        <p class="cap">outlets of Chinese chains open in the US<span id="total-note"></span></p>
         <div class="substats">
           <div class="s soon"><b id="total-soon">&mdash;</b><span>announced,<br>not yet open</span></div>
           <div class="s"><b id="total-chains">&mdash;</b><span>chains</span></div>
@@ -368,10 +368,14 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   let fc, centers, reg;
   try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
   const feats = fc.features;
-  const open  = feats.filter(f => f.properties.status === 'open').length;
+  // One canonical total, computed once by the exporter and shared with every page (meta.totals).
+  // Fall back to counting plotted features only if an older data file has no totals block.
   const soon  = feats.filter(f => f.properties.status === 'coming_soon').length;
-  const sight = feats.filter(f => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
-  const located = open + sight;
+  const T = (fc.meta && fc.meta.totals) || null;
+  const located = T ? T.outlets
+    : feats.filter(f => f.properties.status === 'open').length
+      + feats.filter(f => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
+  const announced = T ? T.announced : soon;
 
   const chainOf = {}, sectorOf = {}, chainName = {};
   for (const f of feats) {
@@ -385,9 +389,12 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 
   // Hero numbers
   document.getElementById('total-big').textContent = fmt(located);
-  document.getElementById('total-soon').textContent = '+' + fmt(soon);
+  document.getElementById('total-soon').textContent = '+' + fmt(announced);
   document.getElementById('total-chains').textContent = fmt(chains.length);
   document.getElementById('total-sectors').textContent = fmt(sectors.length);
+  const unmapped = T ? T.unmapped : 0;
+  document.getElementById('total-note').textContent = unmapped > 0
+    ? ` · ${fmt(unmapped)} not yet mapped` : '';
   const day = fc.meta && fc.meta.days, coll = fc.meta && fc.meta.collected;
   document.getElementById('eyebrow').textContent =
     `Daily census · collected ${coll ? prettyDate(coll) : '—'}${day ? ' · day ' + day : ''}`;

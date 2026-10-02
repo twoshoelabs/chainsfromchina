@@ -105,14 +105,18 @@ def build(con, d: dict | None = None) -> dict:
     for s in sightings.geocoded(cache_only=True):
         if s.get("lat") is None or not s.get("state"):
             continue
+        # Low-confidence sightings are held out of the map and the count — they wait in the
+        # submit-info queue until a human confirms them. Everything drawn here is confirmed, so
+        # every sighting is a solid pin; the only not-yet-open marker is a census pre_opening.
+        if s.get("confidence") == "uncertain":
+            continue
         bm = meta.get(s["chain"], {})
         feats.append(_feature(s["lon"], s["lat"], {
             "chain": s["chain"],
             "name": bm.get("name") or s["chain"],
             "sector": bm.get("sector"),
             "kind": "sighting",
-            "status": "coming_soon" if s.get("confidence") == "uncertain" else "sighting",
-            "confidence": s.get("confidence"),
+            "status": "sighting",
             "address": _street(s.get("address"), s.get("city"), s.get("state")),
             "city": s.get("city"), "state": s.get("state"),
         }))
@@ -121,9 +125,11 @@ def build(con, d: dict | None = None) -> dict:
     ).fetchone()
     # `days` is how many distinct days the census has actually run — the homepage's "DAY N".
     days = con.execute("SELECT COUNT(DISTINCT obs_date) AS n FROM runs WHERE status='ok'").fetchone()
+    from .mapdata import us_totals            # one canonical total, shared with stores.json
     return {"type": "FeatureCollection", "features": feats,
             "meta": {"collected": last["d"] if last else None,
-                     "days": days["n"] if days else None}}
+                     "days": days["n"] if days else None,
+                     "totals": us_totals(con)}}
 
 
 def export(con, out_dir, d: dict | None = None) -> dict:

@@ -235,8 +235,11 @@ async function main() {
   // are a different kind of claim and must not read as one more store in the census.
   for (const g of (data.meta.sightings || [])) {
     if (g.lat == null || g.lon == null) continue;
+    // Low-confidence sightings are held out of the map and the count, waiting in the submit-info
+    // queue until a human confirms them, so everything drawn here is confirmed.
+    if (g.confidence === 'uncertain') continue;
     const [sx, sy] = project(g.lat, g.lon, INSETS[g.state] && INSETS[g.state].centre);
-    // Every sighting is a hand-verified location, so all are drawn solid — the only distinction the
+    // Every drawn sighting is a hand-verified location, so all are solid — the only distinction the
     // map makes is open vs not-yet-open, the same as the census pins.
     const q = el('rect', {
       class: 'sight',
@@ -505,8 +508,12 @@ function drawTally(data) {
   };
 
   // Chains with known locations but no roster get a count of what is KNOWN, never of what is.
+  // Low-confidence sightings are held out (they wait in the submit-info queue), so they are not counted.
   const sightBy = {};
-  for (const g of (data.meta.sightings || [])) sightBy[g.chain] = (sightBy[g.chain] || 0) + 1;
+  for (const g of (data.meta.sightings || [])) {
+    if (g.confidence === 'uncertain') continue;
+    sightBy[g.chain] = (sightBy[g.chain] || 0) + 1;
+  }
   // A hand-assembled roster with a dated completeness claim gets a real count — clearly
   // marked hand-made and unmonitored, so it never reads as a collected total.
   const rosterBy = {};
@@ -691,12 +698,12 @@ function drawPanels(data) {
   }
 
   const totalEl = document.getElementById('ustotal');
-  if (totalEl && data.meta.coverage && data.meta.coverage.totals) {
-    const tt = data.meta.coverage.totals;
-    const located = (tt.collected_stores || 0) + (tt.sighted_confirmed || 0);
-    totalEl.innerHTML = `<b>${located.toLocaleString()}</b> outlets of Chinese chains located in the US` +
-      ` <span class="dim">${tt.collected_stores} counted daily from the chains\u2019 own lists,` +
-      ` ${tt.sighted_confirmed} more confirmed by hand.</span>`;
+  const T = data.meta.totals;
+  if (totalEl && T) {
+    // One canonical total, shared with the homepage (meta.totals.outlets). The by-state table
+    // below carries the breakdown, so the headline stays a single plain number.
+    totalEl.innerHTML = `<b>${T.outlets.toLocaleString()}</b> outlets of Chinese chains open in the US` +
+      (T.unmapped > 0 ? ` <span class="dim">${T.unmapped} not yet mapped.</span>` : '');
   }
 }
 

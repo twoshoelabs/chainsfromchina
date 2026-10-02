@@ -64,6 +64,37 @@ def display_name(chain: str, name: str | None) -> str:
     return n or (name or "").strip()
 
 
+def us_totals(con) -> dict:
+    """
+    name:      us_totals
+    purpose:   The one canonical set of US outlet counts, so every page shows the SAME number.
+    arguments: con
+    returns:   {open, hand, announced, outlets, mapped, unmapped}
+    effects:   None
+    other:     `outlets` is what the project knows is open — collected census (active) plus
+               hand-verified sightings — and is the single headline total. `mapped` is the geocoded
+               subset actually drawn, so a page can note the few not yet placed. Low-confidence
+               ('uncertain') sightings are held OUT: they wait in the submit-info queue until a
+               human confirms them, so everything counted here is confirmed. Keep this the sole
+               source of the total; pages read meta.totals rather than recomputing.
+    """
+    from .sightings import geocoded as _sightings
+    r = con.execute(
+        "SELECT SUM(status='active') o, SUM(status='pre_opening') p,"
+        " SUM(status='active' AND lat IS NOT NULL) og FROM stores WHERE country='US'").fetchone()
+    open_, announced, open_mapped = r["o"] or 0, r["p"] or 0, r["og"] or 0
+    hand = hand_mapped = 0
+    for s in _sightings(cache_only=True):
+        if s.get("confidence") == "uncertain" or not s.get("state"):
+            continue
+        hand += 1
+        if s.get("lat") is not None:
+            hand_mapped += 1
+    outlets, mapped = open_ + hand, open_mapped + hand_mapped
+    return {"open": open_, "hand": hand, "announced": announced,
+            "outlets": outlets, "mapped": mapped, "unmapped": outlets - mapped}
+
+
 def export(out_dir: Path) -> dict:
     """
     name:      export
@@ -260,6 +291,7 @@ def export(out_dir: Path) -> dict:
             "coming_soon": sum(1 for s in stores if s["status"] == "pre_opening"),
             "closed": sum(1 for s in stores if s["status"] == "closed"),
         },
+        "totals": us_totals(con),
     }
     meta["sighting_note"] = (
         "Known locations of chains this project does not count. They are not in any total on "
