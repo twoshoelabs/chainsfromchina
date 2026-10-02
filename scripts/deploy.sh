@@ -2,10 +2,20 @@
 # Publish the static site (map/, WITH its exported data) to the gh-pages branch, which GitHub Pages
 # serves at chainsfromchina.com. map/data/*.json is gitignored on main (it is derived), so it lives
 # only here, on the deploy branch. Idempotent: re-run any time, and the nightly job can call it.
+# Also syncs the SOURCE (main) to origin, so the GitHub source of truth never drifts behind what we
+# publish — the register, sightings and code are backed up and the cloud routines see the real data.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REPO="https://github.com/twoshoelabs/chainsfromchina.git"
 PY=".venv/bin/python"
+
+# Keep the source of truth (main) in step with what we publish. Best-effort: a deploy must still
+# succeed if main can't fast-forward (diverged upstream, e.g. a merged routine PR) or we are offline.
+if git push -q origin main 2>/dev/null; then
+  echo "pushed source to origin/main"
+else
+  echo "WARNING: could not push main to origin (diverged or offline) — reconcile and push manually"
+fi
 
 "$PY" -m chain_atlas export >/dev/null           # fresh data into map/data
 
