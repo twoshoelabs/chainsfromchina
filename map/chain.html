@@ -43,6 +43,13 @@
   .hb { font: 600 .72rem/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
     border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
   .hb.counted { color: var(--teal); border-color: var(--teal); }
+  .hb.fr { color: var(--teal); border-color: var(--teal); }
+  /* Franchise detail line + tag — a chain open to a US franchisee. */
+  .frtag { font: 600 .6rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
+    color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
+    vertical-align: middle; white-space: nowrap; }
+  .frline { margin: 16px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.55; }
+  .frline .frtag { margin-right: 8px; }
   .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 22px; border-bottom: 1px solid var(--rule); }
   .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 3px;
@@ -147,6 +154,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (!m) { box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return; }
   const comp = companies[id] || {};
   const isCollected = !!collected[id];
+  const regChain = (reg.chains && reg.chains[id]) || {};
+  const franchiseUS = regChain.franchise_available_us === 1;   // open to a US franchisee
+  const franchiseNote = regChain.franchise_note || '';
 
   const feats = gj.features.filter(f => f.properties.chain === id);
   const open = feats.filter(f => f.properties.status === 'open').length;
@@ -208,7 +218,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
     `<div class="chero">${logoHTML}<div class="cheromain">` +
       `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
-      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span></div>` +
+      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
+        (franchiseUS ? '<span class="hb fr" title="Open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</span>' : '') +
+      `</div>` +
       (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
     `</div></div>` +
     `<div class="actions">` +
@@ -223,6 +235,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
       firstStore +
     `</div>` +
+    (franchiseUS ? `<p class="frline"><span class="frtag">Franchise</span> Open to a qualifying US franchisee.${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
