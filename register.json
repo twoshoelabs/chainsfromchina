@@ -88,6 +88,10 @@
       "name": "Netherlands",
       "region": "Western Europe"
     },
+    "BE": {
+      "name": "Belgium",
+      "region": "Western Europe"
+    },
     "VN": {
       "name": "Vietnam",
       "region": "Southeast Asia"
@@ -4411,6 +4415,140 @@
       "note": "HotMaxx Japan entity (Osaka); first store announced for 2025, not yet confirmed open.",
       "sources": [
         "https://www.stheadline.com/food/3387847/"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "At least two London restaurants under the Yangguofu Malatang name: an early branch in Hammersmith (8 Hammersmith Broadway) and a two-storey site in Chinatown (47-49 Charing Cross Road) that opened in August 2025.",
+      "sources": [
+        "https://www.hot-dinners.com/2025080614398/Gastroblog/Latest-news/yangguofu-malatang-opens-chinatown-london-hotpot",
+        "https://www.theinfatuation.com/london/reviews/yangguofu-malatang-chinatown"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "In at least three French cities: Paris (13th and 9th arrondissements), Lille, and Strasbourg, where its first store opened on 23 May 2026 and was reported as the chain's third French city.",
+      "sources": [
+        "https://www.pariszigzag.fr/bar-restaurant/restaurant/yang-guo-fu/",
+        "https://lexpress-franchise.com/actualites/yang-guo-fu-ouvre-son-premier-restaurant-a-strasbourg-troisieme-ville-francaise-pour-lenseigne-de-malatang/"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Multiple Klang Valley outlets since 2023 — Pavilion KL / Pavilion Elite, 1 Utama, SS2 and IOI City Mall — operated 'no pork no lard' for the local market.",
+      "sources": [
+        "https://www.pavilion-kl.com/store/yang-guo-fu/",
+        "https://www.malaysianfoodie.com/2023/10/yang-guo-fu-pavilion-bukit-bintang.html"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "AU",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Several Sydney locations — the Dixon House food court on Sussex Street (CBD), 708 George Street in Haymarket, and Burwood (127-133 Burwood Road).",
+      "sources": [
+        "https://www.broadsheet.com.au/sydney/food-and-drink/article/local-knowledge-yang-guo-fu-malatang",
+        "https://www.tripadvisor.com.au/Restaurant_Review-g1899976-d14246242-Reviews-Yang_Guo_Fu_Ma_La_Tang-Burwood_Greater_Sydney_New_South_Wales.html"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "A Central restaurant at the Nexxus Building, 41 Connaught Road Central, with a dedicated Hong Kong social presence and delivery listings.",
+      "sources": [
+        "https://www.openrice.com/en/hongkong/r-%E6%A5%8A%E5%9C%8B%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%87%99-central-northeastern-r809941",
+        "https://www.foodpanda.hk/zh/chain/cw0ii/yang-guo-fu-mala-tang"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "NL",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Two Dutch cities run through the brand's European arm (yangguofueurope.com): Rotterdam, in the Markthal as 'Hotbowl Yangguofu Malatang' (Verlengde Nieuwstraat 87), and Eindhoven (Nieuwstraat 27).",
+      "sources": [
+        "https://www.yangguofueurope.com/en/",
+        "https://www.hotbowl.nl/menu"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "BE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Brussels (Rue Ernest Solvay 6, Ixelles — billed as the first malatang in Belgium) and Antwerp, run through the brand's European arm.",
+      "sources": [
+        "https://yangguofu-resto.be/",
+        "https://restaurantguru.com/Yangguofu-Malatang-%E6%9D%A8%E5%9B%BD%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%83%AB-Ixelles"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "TW",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Opened its first Taiwan store in Nangang, Taipei (454 Zhongxiao East Road Section 6); little further coverage so far, so breadth beyond that one site is unconfirmed.",
+      "sources": [
+        "https://vjjourney.com/yang-guo-fu/"
+      ]
+    },
+    {
+      "chain": "yangguofu",
+      "market": "CA",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2017",
+      "precision": "year",
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Canada was the chain's first overseas market — a Vancouver-area franchise opened in September 2017. The branded Greater Vancouver stores have since largely closed (the Burnaby and Richmond/Ackroyd Road sites are reported shut, signage removed), with a Coquitlam location reported still trading. Present but contracting — recheck.",
+      "sources": [
+        "https://baike.baidu.com/en/item/Yang%20Guofu%20Malatang/24375",
+        "https://nomsmagazine.com/report-ygf-malatang-richmond-closure/"
       ]
     }
   ]
