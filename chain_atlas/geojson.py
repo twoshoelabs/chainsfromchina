@@ -119,8 +119,11 @@ def build(con, d: dict | None = None) -> dict:
     last = con.execute(
         "SELECT MAX(last_seen) AS d FROM stores WHERE country='US' AND status IN ('active','pre_opening')"
     ).fetchone()
+    # `days` is how many distinct days the census has actually run — the homepage's "DAY N".
+    days = con.execute("SELECT COUNT(DISTINCT obs_date) AS n FROM runs WHERE status='ok'").fetchone()
     return {"type": "FeatureCollection", "features": feats,
-            "meta": {"collected": last["d"] if last else None}}
+            "meta": {"collected": last["d"] if last else None,
+                     "days": days["n"] if days else None}}
 
 
 def export(con, out_dir, d: dict | None = None) -> dict:

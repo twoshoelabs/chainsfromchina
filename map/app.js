@@ -236,14 +236,12 @@ async function main() {
   for (const g of (data.meta.sightings || [])) {
     if (g.lat == null || g.lon == null) continue;
     const [sx, sy] = project(g.lat, g.lon, INSETS[g.state] && INSETS[g.state].centre);
-    // A confirmed ("known") location is coloured in — solid, counted, confident. An unconfirmed
-    // one stays hollow and dashed: a review queue awaiting a manual check, held out of the total.
-    const confirmed = g.confidence !== 'uncertain';
+    // Every sighting is a hand-verified location, so all are drawn solid — the only distinction the
+    // map makes is open vs not-yet-open, the same as the census pins.
     const q = el('rect', {
-      class: 'sight' + (confirmed ? '' : ' unsure'),
+      class: 'sight',
       'data-chain': g.chain, x: sx.toFixed(0), y: sy.toFixed(0), width: 1, height: 1,
-      fill: confirmed ? colorOf(g.chain) : 'none',
-      stroke: confirmed ? 'var(--surface)' : colorOf(g.chain) });
+      fill: colorOf(g.chain), stroke: 'var(--surface)' });
     q.addEventListener('pointerenter', e => {
       const c = chainObj(g.chain);
       const chainName = c.name_us || c.name || g.chain;
@@ -253,12 +251,9 @@ async function main() {
         (loc && loc !== g.address ? `<div class="loc">${esc(loc)}</div>` : '') +
         (g.address ? `<div class="addr">${esc(g.address)}</div>` : '') +
         `<div class="meta">` +
-        (confirmed
-          ? `A hand-confirmed location — counted in the total, but not part of the daily census: `
-            + `this chain publishes no roster this project can read.`
-            + (g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '')
-          : `<b>Reported, not yet confirmed</b> — held out of the total until a manual check clears `
-            + `or rejects it.`) +
+        `A hand-verified location — counted in the total, but not part of the daily census: `
+        + `this chain publishes no roster this project can read.`
+        + (g.verified_by ? `<br>Verified: ${esc(g.verified_by)}` : '') +
         `<br>${esc(g.source || '')}</div>`);
     });
     q.addEventListener('pointerleave', hideTip);
@@ -525,20 +520,15 @@ function drawTally(data) {
     const kc = b.known_count;
     const rr = rosterBy[b.chain_id];
     const ns = sightBy[b.chain_id] || 0;
-    const nu = ((data.meta.sightings || [])
-      .filter(g => g.chain === b.chain_id && g.confidence === 'uncertain')).length;
-    // "Known" enough to colour in and darken: a complete-for-the-US roster, a disclosed count, or
-    // at least one confirmed location. A chain with only unconfirmed leads stays faded and pending.
-    const known = !!(rr || kc || (ns - nu) > 0);
+    // Every hand-verified location counts; the map makes no confirmed/unconfirmed distinction.
+    const known = !!(rr || kc || ns > 0);
     el.className = 'chip off' + (known ? ' known' : ' pending');
     // This page counts the US only, so a roster complete for the whole country is simply
     // "complete"; a sub-national scope (Cotti's New York City) keeps its qualifier.
     const usWide = /^\s*(united states|u\.?s\.?a?\.?)\b/i.test((rr && rr.complete_scope) || '');
-    // No "roster incomplete" claim — we do not know a list is incomplete. Any unconfirmed tail is
-    // flagged separately as a manual review queue.
-    const knownN = ns - nu;                                   // confirmed locations held
+    const knownN = ns;                                        // hand-verified locations held
     const scopeShort = ((rr && rr.complete_scope) || '').split('(')[0].trim();
-    const toCfm = nu ? ` <span class="pend">+${nu} to confirm</span>` : '';
+    const toCfm = '';
     let n;
     // A roster that is complete for the WHOLE US reads simply "complete". A roster complete only
     // for a sub-scope (Cotti's New York City) but with confirmed locations elsewhere too just shows
@@ -563,7 +553,6 @@ function drawTally(data) {
           : `${rr.count} confirmed and complete for ${scopeShort || 'a defined area'} as of `
             + `${rr.complete_as_of}` + (knownN > rr.count ? `, plus ${knownN - rr.count} known elsewhere. ` : `. `))
         + `Not monitored: this count does not update on its own and is not part of the collected census.`
-        + (rr.unconfirmed ? ` ${rr.unconfirmed} further location(s) reported but unconfirmed.` : '')
       : (b.reason || ''));
     // Blocked chains draw squares (and count-only chains draw nothing), but their chip is still a
     // filter toggle like the collected ones, so a reader can isolate, say, only HEYTEA's sightings.
@@ -742,8 +731,7 @@ function drawCoverage(data) {
   for (const r of c.rows) {
     const meta = (data.meta.chains && data.meta.chains[r.chain]) ||
                  (data.meta.blocked || []).find(b => b.chain_id === r.chain) || { name: r.name };
-    const held = r.kind === 'collected' ? `<b>${r.held}</b>` :
-      `<b>${r.held_confirmed}</b>${r.held > r.held_confirmed ? ` <span class="dim">+${r.held - r.held_confirmed}?</span>` : ''}`;
+    const held = `<b>${r.held}</b>`;   // all hand-verified locations count; no confirmed/unconfirmed split
     const est = r.kind === 'collected' ? '<span class="dim">— complete —</span>'
       : esc(String(r.estimate_text || r.estimate || 'no est.'));
     const title = r.kind === 'collected'

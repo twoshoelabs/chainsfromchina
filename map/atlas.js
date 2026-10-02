@@ -70,8 +70,8 @@ function loadLogo(chain) {
 }
 
 // Compose a circular pin badge. With a logo: a white chip + sector-colored ring + the logo inside.
-// Without one: a solid sector-colored disc with the brand's monogram. `soft` (coming-soon or
-// unconfirmed) draws a dashed ring and a hollow, faded treatment, matching the legend.
+// Without one: a solid sector-colored disc with the brand's monogram. `soft` (announced / coming
+// soon, not yet open) draws a dashed ring and a hollow, faded treatment, matching the legend.
 function makeBadge(logo, color, mono, soft) {
   const S = BADGE * DPR;
   const cv = document.createElement('canvas');
@@ -277,6 +277,22 @@ function toggleGroup(sector) {
 }
 function onlyChain(id) { HIDDEN = new Set(ALL_CHAINS); HIDDEN.delete(id); applyFilter(); }
 
+// Free-text search over brand names, for the hero search box. Empty query restores every brand.
+// It also shows/hides the matching chips so the panel and the map stay in step.
+window.filterChains = function (q) {
+  q = (q || '').toLowerCase().trim();
+  const names = window.CHAIN_META || {};
+  HIDDEN = !q ? new Set() : new Set(ALL_CHAINS.filter((c) => {
+    const nm = (names[c] && names[c].name ? names[c].name : c).toLowerCase();
+    return !(nm.includes(q) || c.includes(q));
+  }));
+  applyFilter();
+  for (const chip of document.querySelectorAll('.chip[data-chain]')) {
+    const nm = (chip.querySelector('.chipnm')?.textContent || '').toLowerCase();
+    chip.style.display = (!q || nm.includes(q) || chip.dataset.chain.includes(q)) ? '' : 'none';
+  }
+};
+
 function buildTally(fc) {
   const box = document.getElementById('tally');
   if (!box) return;
@@ -288,6 +304,7 @@ function buildTally(fc) {
     if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
   }
   ALL_CHAINS = Object.keys(meta);
+  window.CHAIN_META = meta;                // let the hero search map chain id -> display name
   GROUP_CHAINS = {};
   for (const id of ALL_CHAINS) (GROUP_CHAINS[meta[id].sector] || (GROUP_CHAINS[meta[id].sector] = [])).push(id);
   const order = Object.keys(SECTOR);
@@ -350,7 +367,7 @@ function buildLegend() {
   const sectors = Object.keys(SECTOR).map((k) =>
     `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
   el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
-    `<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>coming soon / unconfirmed</span>`;
+    `<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>`;
 }
 
 fetch('data/stores.geojson').then((r) => r.json()).then((fc) => {
