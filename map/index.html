@@ -139,34 +139,45 @@
   .pbar .fill { display: block; height: 100%; background: var(--pro); border-radius: 999px; }
   .pbar .pnum { font: 500 .9rem var(--mono); color: var(--pro); text-align: right; }
 
-  /* ---------- Sector breakdown ---------- */
-  .sectorgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 14px; margin-top: 24px; }
-  .scard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 16px; }
-  .scard .sname { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: .95rem; }
-  .scard .sdot { width: 11px; height: 11px; border-radius: 50%; }
-  .scard .srow { display: flex; justify-content: space-between; font-size: .84rem; color: var(--dim); margin-top: 10px; }
-  .scard .srow b { color: var(--ink); font-family: var(--mono); font-weight: 500; }
+  /* ---------- Sector breakdown: a ranked table, not tiles ---------- */
+  .sectortable { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: .96rem; }
+  .sectortable thead th { font: 600 .7rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--faint); text-align: right; padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
+  .sectortable thead th:first-child { text-align: left; }
+  .sectortable td { padding: 11px 0; border-bottom: 1px solid var(--rule); }
+  .sectortable tbody tr:last-child td { border-bottom: 0; }
+  .sectortable .snm { font-weight: 500; }
+  .sectortable .snm .sdot { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 10px; vertical-align: middle; }
+  .sectortable .snum { text-align: right; font-family: var(--mono); font-weight: 500; color: var(--ink);
+    white-space: nowrap; width: 6rem; }
 
-  /* ---------- Nav cards ---------- */
-  .navcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-  .ncard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 26px;
-    text-decoration: none; color: inherit; display: block; transition: border-color .15s; }
-  .ncard:hover { border-color: var(--ink); }
-  .ncard .ncnum { font-family: var(--serif); font-weight: 800; font-size: 3rem; line-height: 1; }
-  .ncard .nctitle { font-weight: 600; margin: 8px 0 4px; }
-  .ncard .ncsub { color: var(--dim); font-size: .9rem; }
-  .ncard .ncarrow { color: var(--green); margin-top: 14px; font-weight: 600; }
+  /* ---------- Nav index: rule-divided columns, no boxes (editorial, not feature-cards) ---------- */
+  .navcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); }
+  .ncard { background: none; border: 0; border-left: 1px solid var(--rule); border-radius: 0;
+    padding: 22px 30px 6px; text-decoration: none; color: inherit; display: block; }
+  .ncard:first-child { border-left: 0; padding-left: 0; }
+  .ncard:last-child { padding-right: 0; }
+  .ncard .ncnum { font-family: var(--serif); font-weight: 700; font-size: 2.7rem; line-height: 1; color: var(--ink); }
+  .ncard .nctitle { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; margin: 10px 0 7px; }
+  .ncard:hover .nctitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .ncard .ncsub { color: var(--dim); font-size: .9rem; line-height: 1.55; }
+  .ncard .ncarrow { color: var(--dim); margin-top: 12px; font-size: .82rem; font-weight: 500; }
+  .ncard:hover .ncarrow { color: var(--ink); }
 
   /* ---------- Pro teaser (dark) ---------- */
   .pro { background: var(--dark); color: var(--dark-ink); border-top: 0; }
   .pro .kicker { color: var(--pro-chip); }
   .pro h2 { color: #fff; }
   .pro .note { color: var(--dark-dim); max-width: 52ch; }
-  .promods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 16px; margin-top: 28px; }
-  .pmod { border: 1px solid rgba(255,255,255,.16); border-radius: 2px; padding: 20px; }
+  .promods { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.22); }
+  .pmod { border: 0; border-left: 1px solid rgba(255,255,255,.14); border-radius: 0; padding: 22px 22px 6px; }
+  .pmod:first-child { border-left: 0; padding-left: 0; }
+  .pmod:last-child { padding-right: 0; }
   .pmod .pnum2 { font: 500 .72rem var(--mono); color: var(--pro-chip); letter-spacing: .1em; }
-  .pmod h4 { margin: 10px 0 6px; font-size: 1.02rem; }
-  .pmod p { margin: 0; color: var(--dark-dim); font-size: .88rem; }
+  .pmod h4 { margin: 10px 0 6px; font-size: 1.05rem; font-family: var(--serif); font-weight: 600; }
+  .pmod p { margin: 0; color: var(--dark-dim); font-size: .88rem; line-height: 1.55; }
   .proflag { display: inline-block; font: 600 .62rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
     background: var(--pro-chip); color: #1a1916; padding: 4px 7px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
 
@@ -190,7 +201,12 @@
     #map { height: 62vh; }
     .maptoolbar { gap: 8px 12px; }
     .sharebtn { margin-left: 0; }
-    .navcards { grid-template-columns: 1fr; }
+    .navcards { grid-template-columns: 1fr; border-top-width: 1px; }
+    .ncard { border-left: 0; border-top: 1px solid var(--rule); padding: 20px 0 10px; }
+    .ncard:first-child { border-top: 0; }
+    .promods { grid-template-columns: 1fr; }
+    .pmod { border-left: 0; border-top: 1px solid rgba(255,255,255,.14); padding: 18px 0 6px; }
+    .pmod:first-child { border-top: 0; }
     .footgrid { grid-template-columns: 1fr 1fr; }
     .pipewrap { grid-template-columns: 1fr; gap: 20px; }
   }
@@ -340,6 +356,7 @@
 <!-- ===================== NAV CARDS ===================== -->
 <div class="wrap">
 <section id="explore">
+  <p class="kicker">More from the project</p>
   <div class="navcards">
     <a class="ncard" href="intro.html">
       <div class="ncnum" id="nc-chains">&mdash;</div>
@@ -512,11 +529,13 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
         `outlets (${fmt(topOutletSector[1].outlets)}).`;
     }
   }
-  document.getElementById('sectorgrid').innerHTML = secRows.map(([s,v]) =>
-    `<div class="scard"><div class="sname"><span class="sdot" style="background:${SECTOR_COLOR[s]||'#6b7280'}"></span>${SECTOR_NAME[s]||s}</div>`+
-    `<div class="srow"><span>Outlets</span><b>${fmt(v.outlets)}</b></div>`+
-    `<div class="srow"><span>Chains</span><b>${v.chains.size}</b></div></div>`
-  ).join('');
+  document.getElementById('sectorgrid').innerHTML =
+    '<table class="sectortable"><thead><tr><th>Sector</th><th>Outlets</th><th>Chains</th></tr></thead><tbody>' +
+    secRows.map(([s,v]) =>
+      `<tr><td class="snm"><span class="sdot" style="background:${SECTOR_COLOR[s]||'#6b7280'}"></span>${SECTOR_NAME[s]||s}</td>`+
+      `<td class="snum">${fmt(v.outlets)}</td>`+
+      `<td class="snum">${v.chains.size}</td></tr>`
+    ).join('') + '</tbody></table>';
 
   // Nav card counts
   document.getElementById('nc-chains').textContent = fmt(chains.length);
