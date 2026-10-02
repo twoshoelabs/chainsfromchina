@@ -1,7 +1,7 @@
 """
 Liuyishou Hot Pot — https://www.liuyishouna.com
 
-刘一手火锅 (Liuyishou), a Chongqing hotpot chain founded 2000 and one of the mainland's largest,
+刘一手火锅 (Liuyishou), a Chongqing hotpot chain founded 2000 and one of China's largest,
 trading in North America as "Liuyishou Hot Pot". Its NA site is a Wix build with one page per
 city; the address sits in the page hero as "A  <address>". The sitemap (pages-sitemap.xml) lists
 both the US cities and the Canadian ones (Toronto, Burnaby, Richmond, Montreal, Ottawa,

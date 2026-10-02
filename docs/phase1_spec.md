@@ -75,7 +75,7 @@ in-scope chain has an individual non-retail location (a one-off showroom or a po
 `format` so it is held out of the store count and revenue. Ownership model (company / franchise /
 dealer) never excludes on its own.
 
-Origin gate (unchanged): mainland-China origin only. Exclude Taiwan- and Hong-Kong-origin brands;
+Origin gate (unchanged): Chinese origin only. Exclude Taiwan- and Hong-Kong-origin brands;
 record ambiguous cases (Man Wah, Shang Xia, Hsu Fu Chi, Feiyue trademark split, Narwal) with a note
 and keep them out until resolved.
 

@@ -23,7 +23,7 @@ measured — which is nominative use, and is why no brand appears in the domain,
 page styling.
 
 **Why it exists.** As of September 2026 nobody publishes a store-level, dated map of
-mainland-China-origin chains in the US. Momentum Works tracks this category well but reports on
+China-origin chains in the US. Momentum Works tracks this category well but reports on
 Southeast Asia in PDFs; Technomic's Top 500 is annual and these chains are still too small to
 make it; the trade press counts them accurately but in prose, as snapshots. All of those are
 pictures of a moment. The thing none of them has — and the only thing that answers "how fast" —
@@ -31,7 +31,7 @@ is a daily series, which cannot be bought later because nobody is keeping it.
 
 ## Who this is for
 
-**A US audience.** The product is the American picture: which mainland-China-origin chains are
+**A US audience.** The product is the American picture: which China-origin chains are
 open here, where, and what changes week to week.
 
 The international register exists to serve that, not to compete with it. Its job is to answer
@@ -46,7 +46,7 @@ stays because it works — but it is not a template for more non-US adapters.
 
 ## Scope
 
-Mainland-China-origin chains, in any market this project covers. Taiwanese and Hong Kong brands
+China-origin chains, in any market this project covers. Taiwanese and Hong Kong brands
 (Tiger Sugar, The Alley, Gong Cha) are an earlier and different wave and are out of scope as
 *origins*. Asian grocers such as 99 Ranch and H Mart sell Chinese products but are not Chinese
 chains. Hong Kong is out of scope as an origin and in scope as a *destination* — the two are
@@ -253,7 +253,7 @@ report a chain growing monotonically forever while the archive faithfully record
 Haidilao's 15 US restaurants are collected from
 `haidilao-inc.com/us/eportal/store/listObjByPosition` — one request, with coordinates, a stable
 per-store id, phone and hours. Every obvious host was a decoy: **haidilao.com** serves only
-Greater China whatever country is passed, **superhiinternational.com** publishes country summaries
+China whatever country is passed, **superhiinternational.com** publishes country summaries
 and no store list, and **haidilao.us / hdlus.com / haidilaousa.com** do not resolve.
 
 The lat/lon in that URL are a **sort origin, not a filter** — the same fifteen ids return from
@@ -421,7 +421,7 @@ them a store the census still counts.
 **The Bay Area** (`scripts/bayarea_permits.py`) is the fragmented case: no single county covers
 it, and the counties' open data is uneven. Santa Clara County (data.sccgov.org) is live to within
 days and geocoded, and covers San Jose, Milpitas, Cupertino, Sunnyvale and Santa Clara — nearly all
-of the region's mainland-chain density — so that is what the watcher reads. San Mateo County's food
+of the region's Chinese-chain density — so that is what the watcher reads. San Mateo County's food
 feed is frozen at January 2022 and useless for this wave, so the Peninsula is a named gap, not an
 absence; San Francisco's feed currently lists none of these chains. The first run found **Tai Er
 (TAIER FISH, San Jose, first inspected 9 Apr 2026)** — the chain this jurisdiction was added for —

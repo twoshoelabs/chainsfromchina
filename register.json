@@ -374,7 +374,7 @@
       "name": "Manner Coffee",
       "name_zh": "",
       "format": "coffee",
-      "global": "Premium 'street coffee' chain founded 2015 in Shanghai, ~1,000 stores in China; making its first move outside the mainland with a Hong Kong store (announced 2026, signage 'Maners Coffee')."
+      "global": "Premium 'street coffee' chain founded 2015 in Shanghai, ~1,000 stores in China; making its first move outside China with a Hong Kong store (announced 2026, signage 'Maners Coffee')."
     },
     "yuanji": {
       "name": "Yuanji Chuanchuanxiang",
@@ -428,7 +428,7 @@
       "name": "Möge Tee",
       "name_zh": "愿茶",
       "format": "tea",
-      "global": "Mainland-China bubble-tea chain (愿茶, trades in the US as 'Möge Tee'); founded 2012, franchised from 2018. Its US estate is collected daily from its own locator (mogeteeusa.com): ~70 stores across 18 states as of Oct 2026. A different brand from Molly Tea (茉莉奶白)."
+      "global": "Chinese bubble-tea chain (愿茶, trades in the US as 'Möge Tee'); founded 2012, franchised from 2018. Its US estate is collected daily from its own locator (mogeteeusa.com): ~70 stores across 18 states as of Oct 2026. A different brand from Molly Tea (茉莉奶白)."
     },
     "mstand": {
       "name": "M Stand",
@@ -2383,7 +2383,7 @@
       "precision": "year",
       "confidence": "medium",
       "reviewed": "2026-09-29",
-      "note": "Nowwa's first store outside the mainland, opened 2024.",
+      "note": "Nowwa's first store outside China, opened 2024.",
       "sources": [
         "https://asiafoodbeverages.com/chinas-coffee-startup-plans-expansion-in-southeast-asia/"
       ]
@@ -2467,7 +2467,7 @@
       "precision": null,
       "confidence": "low",
       "reviewed": "2026-09-29",
-      "note": "First store outside mainland China — World Trade Centre, Causeway Bay; under renovation as of early 2026. Signage reads 'Maners Coffee' / 'originated from Manner' (a local name-registration workaround).",
+      "note": "First store outside China — World Trade Centre, Causeway Bay; under renovation as of early 2026. Signage reads 'Maners Coffee' / 'originated from Manner' (a local name-registration workaround).",
       "sources": [
         "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/",
         "https://pandaily.com/manner-coffee-to-open-store-in-hong-kong/"
@@ -2689,7 +2689,7 @@
       "precision": null,
       "confidence": "medium",
       "reviewed": "2026-09-29",
-      "note": "First store outside mainland China announced for Hysan Place, Causeway Bay, Hong Kong, opening ~November 2026 (not yet open).",
+      "note": "First store outside China announced for Hysan Place, Causeway Bay, Hong Kong, opening ~November 2026 (not yet open).",
       "sources": [
         "https://www.rli.uk.com/banu-launches-first-hong-kong-store/",
         "https://insideretail.asia/2026/07/24/hotpot-brand-banu-opens-first-hong-kong-store/"
@@ -3217,7 +3217,7 @@
       "precision": null,
       "confidence": "low",
       "reviewed": "2026-09-29",
-      "note": "Entry via a local proxy (順昱控股); first Taipei store targeted Dec 2025 but not open pending Taiwan's mainland-investment approval.",
+      "note": "Entry via a local proxy (順昱控股); first Taipei store targeted Dec 2025 but not open pending Taiwan's approval of the China investment.",
       "sources": [
         "https://www.bnext.com.tw/article/85255"
       ]

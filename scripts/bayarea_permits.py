@@ -6,7 +6,7 @@ department, and their open data is wildly uneven:
 
   * Santa Clara County (data.sccgov.org) is LIVE — inspections current to within days — and
     GEOCODED. It covers San Jose, Milpitas, Cupertino, Sunnyvale, Santa Clara and Mountain View,
-    which is where nearly all of the Bay Area's mainland-chain density actually is. This is the
+    which is where nearly all of the Bay Area's Chinese-chain density actually is. This is the
     source the watcher reads.
   * San Mateo County's food-inspection feed is frozen at January 2022 — it predates this whole
     wave of expansion and is useless for it. The Peninsula is therefore a KNOWN GAP, named here so

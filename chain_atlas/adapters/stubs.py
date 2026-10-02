@@ -317,7 +317,7 @@ class FishWithYouAdapter(Adapter):
 
     IN SCOPE, and confirmed first-party: the Flushing storefront's own page, fishwithyouny.com,
     identifies it as 鱼你在一起（法拉盛）Fish With You | Sauerkraut Fish 酸菜鱼 at 135-25A 40th Rd,
-    Flushing, NY 11354. Mainland origin, not Taiwan or Hong Kong.
+    Flushing, NY 11354. Chinese origin, not Taiwan or Hong Kong.
 
     NO NATIONAL LOCATOR. The web presence is per-store (fishwithyouny.com is the Flushing shop
     alone), so there is nothing to collect daily. Its complete US roster is where Yangguofu's was —
@@ -405,7 +405,7 @@ class CottiAdapter(Adapter):
 
 class ZhangliangAdapter(Adapter):
     """
-    Zhang Liang Malatang (张亮麻辣烫) — added 2026-09-26. With Yangguofu, one of mainland China's two
+    Zhang Liang Malatang (张亮麻辣烫) — added 2026-09-26. With Yangguofu, one of China's two
     dominant self-serve malatang chains, founded in Harbin in 2008, ~6,000 outlets.
 
     Its own brand news (zlmlt.com, 11 Sep 2026) claims 42 outlets across North America — the US,
@@ -430,7 +430,7 @@ class ChahaloAdapter(Adapter):
     """
     ChaHalo (茶话弄) — added 2026-09-27. A premium "modern Chinese tea" chain founded in 2016 in
     Xi'an (Shaanxi), parent Xi'an Baamu Tian Catering (西安八亩田餐饮管理), ~1,000 stores across
-    170+ Chinese cities. Mainland origin, so in scope.
+    170+ Chinese cities. Chinese origin, so in scope.
 
     Recent US entry with no single US locator: outlets surface through per-store sites, delivery
     apps and review aggregators (City of Industry, Berkeley, NYC so far), and it is expanding into
@@ -449,7 +449,7 @@ class ChahaloAdapter(Adapter):
 class LelechaAdapter(Adapter):
     """
     Lelecha (乐乐茶) — added 2026-09-28. A premium "modern Chinese tea" chain founded in 2016 in
-    Shanghai, known for cheese-foam teas and bread; mainland origin, so in scope.
+    Shanghai, known for cheese-foam teas and bread; Chinese origin, so in scope.
 
     Its US site (lelechaus.com) is an unlaunched Squarespace "Private Site" (noindex), so there is
     no public first-party locator. US presence surfaces through Yelp and delivery apps (Rowland
@@ -469,7 +469,7 @@ class LelechaAdapter(Adapter):
 class NonggengjiAdapter(Adapter):
     """
     Nong Geng Ji (农耕记 · 湖南菜) — added 2026-09-28. A Hunan-cuisine restaurant chain from
-    Shenzhen known for countryside-style, wok-charred Hunan cooking; mainland origin, so in scope.
+    Shenzhen known for countryside-style, wok-charred Hunan cooking; Chinese origin, so in scope.
 
     First US location opened Flushing, Queens in January 2026; a second is announced for Rockville,
     Maryland (1701 Rockville Pike) with no opening date. Too few US outlets to publish a locator,
@@ -489,7 +489,7 @@ class NonggengjiAdapter(Adapter):
 class BaosPastryAdapter(Adapter):
     """
     Bao's Pastry (鲍师傅糕点) — added 2026-09-28. A Beijing-headquartered bakery chain (founder Bao
-    Caisheng; 100+ outlets in China) known for pork-floss cakes and cream-filled sponge; mainland
+    Caisheng; 100+ outlets in China) known for pork-floss cakes and cream-filled sponge; Chinese
     origin, so in scope.
 
     First US store opened Flushing, Queens in late 2025; there is no first-party US site, so it is
@@ -508,8 +508,8 @@ class BaosPastryAdapter(Adapter):
 
 class TopToyAdapter(Adapter):
     """
-    TOP TOY — added 2026-09-28. A mainland art-toy / blind-box retailer launched in 2020 by MINISO
-    Group (Guangzhou), a direct peer of POP MART and MINISO already tracked here; mainland origin,
+    TOP TOY — added 2026-09-28. A Chinese art-toy / blind-box retailer launched in 2020 by MINISO
+    Group (Guangzhou), a direct peer of POP MART and MINISO already tracked here; Chinese origin,
     so in scope.
 
     Its US site (gotoptoy.com) publishes a "USA Store Locations" page, but it is a JS-rendered
@@ -529,8 +529,8 @@ class TopToyAdapter(Adapter):
 
 class Toys52Adapter(Adapter):
     """
-    52Toys — added 2026-09-28. A mainland designer-toy / blind-box brand founded 2015 in Beijing
-    (乐自天成), a peer of POP MART and TOP TOY; mainland origin, so in scope.
+    52Toys — added 2026-09-28. A Chinese designer-toy / blind-box brand founded 2015 in Beijing
+    (乐自天成), a peer of POP MART and TOP TOY; Chinese origin, so in scope.
 
     Its US site (us.52toys.com) is an online store with no locator; US retail presence surfaces
     through mall directories and aggregators (Mall of Georgia and Doraville GA so far), so it is
@@ -548,7 +548,7 @@ class Toys52Adapter(Adapter):
     RECHECK = []
 
 
-# The 2026-09-29 batch: mainland sit-down / hot-pot chains already trading in the US, found by
+# The 2026-09-29 batch: Chinese sit-down / hot-pot chains already trading in the US, found by
 # building the internal watchlist of top China chains and checking which had already crossed over.
 # Each is present-not-collected — a real US footprint, no first-party national locator to read —
 # so each is tracked via hand-verified sightings, with the addresses confirmed open by web search
@@ -558,7 +558,7 @@ class DezhuangAdapter(Adapter):
     """
     Dezhuang / De Zhuang Hot Pot (德庄火锅) — added 2026-09-29. A Chongqing hot-pot restaurant and
     seasoning group founded 1999 by Li Dejian (李德建); parent 重庆德庄实业（集团）有限公司, ~900+
-    restaurants in China. Mainland origin, so in scope.
+    restaurants in China. Chinese origin, so in scope.
 
     Two US outlets confirmed open: the full "De Zhuang Hot Pot" at 37 St Marks Pl, New York (the
     brand's US arrival, ~early 2025), and a "De Hotpot Mini" (德庄小火锅) express store in Bellevue,
@@ -580,8 +580,8 @@ class MeizhouDongpoAdapter(Adapter):
     """
     Meizhou Dongpo (眉州东坡) — added 2026-09-29. A Sichuan-cuisine sit-down chain founded in
     Beijing in 1996 by Wang Gang (王刚) and Liang Di (梁棣); parent Meizhou Dongpo Group; ~114
-    mainland outlets. One of the earliest mainland chains in the US — its Century City (Los Angeles)
-    flagship opened in 2013. Mainland origin, so in scope.
+    outlets in China. One of the earliest Chinese chains in the US — its Century City (Los Angeles)
+    flagship opened in 2013. Chinese origin, so in scope.
 
     Two US outlets confirmed open in 2026 (Century City and Irvine, both CA); three former LA-area
     locations (Universal CityWalk, Arcadia, Baldwin Park) are closed. The former US site
@@ -605,7 +605,7 @@ class ShudaxiaAdapter(Adapter):
     Shu Da Xia (蜀大侠) — added 2026-09-29. A Chengdu, Sichuan hot-pot chain founded 2015; parent
     Chengdu Shu Daxia Catering Management Co., and since January 2023 owned by the Xiaolongkan /
     Shoo Loong Kan group (小龙坎) — the same parent as a chain this project already collects, but a
-    distinct mainland brand, so in scope on its own.
+    distinct Chinese brand, so in scope on its own.
 
     One US outlet confirmed open: Boston (580 Commonwealth Ave), open since May 2022. A Toronto
     store exists but is Canada, not US. The Boston store runs its own site; there is no national US
@@ -626,15 +626,15 @@ class XibeiAdapter(Adapter):
     """
     Xibei / Xibei Youmiancun (西贝莜面村) — added 2026-09-29. The flagship brand of Xibei Catering
     Group, founded by Jia Guolong; the business traces to a 1988 snack shop in Linhe, Inner
-    Mongolia, opened its first Youmiancun in Beijing in 2002, and now runs ~370+ mainland outlets of
-    Northwestern-China oat-noodle-and-mutton cuisine. Mainland origin, so in scope.
+    Mongolia, opened its first Youmiancun in Beijing in 2002, and now runs ~370+ outlets in China of
+    Northwestern-China oat-noodle-and-mutton cuisine. Chinese origin, so in scope.
 
     Four US outlets confirmed open in 2026, all in Southern California, trading under three US
     sub-labels run by one operator (@xibei.us): the flagship "Xibei" (Arcadia), "Xibei Dumplings"
     (Silver Lake, the Dec 2024 first US store), and "Xibei Eatery" fast-casual (Santa Ana, Westwood).
     No single national US locator — the Arcadia store uses its own ordering site — so tracked via
     sightings. (Corporate ownership vs. licensee is not documented in English sources; treated as
-    the mainland Xibei brand's US expansion.)
+    the Xibei brand's US expansion.)
     """
     chain_id, name, name_zh = "xibei", "Xibei", "西贝莜面村"
     name_us = "Xibei"
@@ -652,7 +652,7 @@ class GrandmasHomeAdapter(Adapter):
     """
     Grandma's Home (外婆家 / Waipojia) — added 2026-09-29. A Hangzhou-cuisine chain founded 1998 in
     Hangzhou by Wu Guoping (吴国平); parent 外婆家餐饮集团, 200+ directly-run restaurants across
-    China. Mainland origin, so in scope.
+    China. Chinese origin, so in scope.
 
     One US outlet confirmed open: 56 West 22nd St, Manhattan (Flatiron), the chain's first US
     restaurant, opened ~March 2024. The US site lists only this location; no national locator, so
@@ -674,7 +674,7 @@ class XijiadeAdapter(Adapter):
     """
     Xijiade / Dumpling Xi (喜家德) — added 2026-09-29. A Northeastern-China shrimp-dumpling chain
     founded 2002 in Hegang, Heilongjiang by Gao Defu (高德福); parent Xiding Catering (喜鼎餐饮,
-    Dalian); all directly-operated, 800+ China stores. Mainland origin, so in scope.
+    Dalian); all directly-operated, 800+ China stores. Chinese origin, so in scope.
 
     It trades in the US as "Dumpling Xi". Two US outlets confirmed open, both in New York City:
     Flushing (37-02 Prince St, the first US store, opened 12 Feb 2025) and the East Village (71 4th
@@ -696,7 +696,7 @@ class MalubianbianAdapter(Adapter):
     """
     Malubianbian / Ma Lu Bian Bian (马路边边) — added 2026-09-29. A Chengdu, Sichuan roadside-style
     skewer hot-pot (串串香) chain founded 2015; parent 成都马路边边餐饮管理有限公司, 1,000+ outlets
-    claimed globally. Mainland origin, so in scope.
+    claimed globally. Chinese origin, so in scope.
 
     Heavy US churn: the first US store (San Gabriel CA, Nov 2019) and the early Rowland Heights,
     Houston and Philadelphia outlets are all closed. As of Sep 2026 the clearly-open US outlet is
@@ -720,7 +720,7 @@ class FeidachuAdapter(Adapter):
     """
     Fei Da Chu (费大厨辣椒炒肉) — added 2026-09-29. A Hunan-cuisine chain built on one signature dish,
     辣椒炒肉 (stir-fried pork with chili peppers); founded by Fei Lianghui in Hunan, hundreds of
-    restaurants across China, billed in its US marketing as "China's King of Stir-Fry". Mainland
+    restaurants across China, billed in its US marketing as "China's King of Stir-Fry". Chinese
     origin, so in scope.
 
     It trades in the US as "Chef Fei". Its first US location opened 5 Sep 2026 at Westfield UTC in
@@ -742,7 +742,7 @@ class DalongyiAdapter(Adapter):
     """
     Dalongyi / Da Long Yi (大龙燚) — added 2026-09-29. A Chengdu, Sichuan hot-pot chain founded 2013
     in the Yulin district; parent 成都大龙燚餐饮管理有限公司, a large franchised chain (2,000+ stores
-    claimed) with overseas outlets. Mainland origin, so in scope.
+    claimed) with overseas outlets. Chinese origin, so in scope.
 
     Two US outlets confirmed open (Long Island City NY and Allston/Boston MA), run as independent
     franchise sites. The first US store (San Gabriel CA, Jun 2019) is closed, as is Seattle; a
@@ -765,7 +765,7 @@ class ShuyiAdapter(Adapter):
     """
     Shuyi Tealicious (书亦烧仙草) — added 2026-09-29. A grass-jelly (烧仙草) milk-tea chain founded
     2007 in Chengdu by Wang Bin; parent 四川书亦餐饮管理有限公司; one of China's largest tea chains
-    (~5,000+ stores). Mainland origin, so in scope.
+    (~5,000+ stores). Chinese origin, so in scope.
 
     US shops trade as "Shuyi Grass Jelly & Tea", franchise-operated rather than a unified US
     rollout. Three outlets confirmed open (Falls Church VA, Cupertino CA, Fremont CA); the first US
@@ -786,7 +786,7 @@ class ShuyiAdapter(Adapter):
 class MoreYogurtAdapter(Adapter):
     """
     More Yogurt (茉酸奶) — added 2026-09-29. A Shanghai yogurt-drink chain; its own English name is
-    "More Yogurt" (茉 ≈ "mò"/"more"). Parent 上海茉酸奶餐饮管理有限公司. Mainland origin, so in scope.
+    "More Yogurt" (茉 ≈ "mò"/"more"). Parent 上海茉酸奶餐饮管理有限公司. Chinese origin, so in scope.
     Abroad it operates in Hong Kong, Malaysia and Singapore (see the international register).
 
     One US outlet confirmed open: The District at Tustin Legacy (2471 Park Ave, Tustin CA), its
@@ -807,7 +807,7 @@ class MoreYogurtAdapter(Adapter):
 class AntaAdapter(Adapter):
     """
     Anta (安踏) — added 2026-09-30 (Phase-1 apparel backfill). China's largest sportswear group;
-    the ANTA nameplate runs ~9,900 stores (nearly all mainland). Mainland origin, in scope.
+    the ANTA nameplate runs ~9,900 stores (nearly all in China). Chinese origin, in scope.
 
     One US outlet: a first US flagship at 330 N Beverly Dr, Beverly Hills CA, opened 13 Feb 2026,
     company-operated. No national US locator, so tracked via sightings. (Group brands FILA,
@@ -827,7 +827,7 @@ class AntaAdapter(Adapter):
 class UrbanRevivoAdapter(Adapter):
     """
     Urban Revivo (UR) — added 2026-09-30 (Phase-1 apparel backfill). Guangzhou fast-fashion chain,
-    400+ large-format stores (parent FMG). Mainland origin, in scope.
+    400+ large-format stores (parent FMG). Chinese origin, in scope.
 
     One US outlet: a first US flagship at 515 Broadway, SoHo NYC (~30,000 sq ft), opened 28 Feb 2025,
     company-operated. No national US locator, so tracked via sightings.
@@ -846,7 +846,7 @@ class UrbanRevivoAdapter(Adapter):
 class JnbyAdapter(Adapter):
     """
     JNBY (江南布衣) — added 2026-09-30 (Phase-1 apparel backfill). Hangzhou designer-apparel house,
-    ~2,118 stores across its brands (HKEX 3306). Mainland origin, in scope.
+    ~2,118 stores across its brands (HKEX 3306). Chinese origin, in scope.
 
     Its US arm trades as "AGoodFun", run by a local licensee (Sightclassic LLC). Two US outlets
     open: San Francisco (865 Market St, Westfield SF Centre) and Seattle (600 Pine St, Pacific
@@ -868,7 +868,7 @@ class JnbyAdapter(Adapter):
 class MeilleurMomentAdapter(Adapter):
     """
     Meilleur Moment (伊芙丽 / Eifini) — added 2026-09-30 (Phase-1 apparel backfill). Womenswear line
-    of Hangzhou's Eifini group (600+ stores group-wide). Mainland origin, in scope.
+    of Hangzhou's Eifini group (600+ stores group-wide). Chinese origin, in scope.
 
     One US outlet: a flagship at 257 Elizabeth St, SoHo NYC, opened May 2025, company-operated.
     No national US locator, so tracked via sightings.

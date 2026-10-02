@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS chains (
     country         TEXT NOT NULL DEFAULT 'US',   -- ISO-3166-1 alpha-2 of the market collected
     name            TEXT NOT NULL,         -- as it trades in that market
     name_zh         TEXT,                  -- parent's Chinese name, for the record
-    origin          TEXT NOT NULL,         -- 'CN' — mainland-China-origin is this project's scope
+    origin          TEXT NOT NULL,         -- 'CN' — China-origin is this project's scope
     parent          TEXT,                  -- listed entity / franchisor
     format          TEXT NOT NULL,         -- 'tea','coffee','fastfood','lifestyle','toys','other'
     closure_n_days  INTEGER NOT NULL DEFAULT 7,  -- consecutive absent days before 'closed'

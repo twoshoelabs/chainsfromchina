@@ -1,8 +1,8 @@
 """
 Xiaolongkan / Shoo Loong Kan Hotpot — https://shooloongkan.us/locations/
 
-A Sichuan hotpot chain from Chengdu, one of mainland China's largest, trading in the US as
-"Shoo Loong Kan Hotpot". Unusually for the mainland restaurant chains tracked here, it publishes
+A Sichuan hotpot chain from Chengdu, one of China's largest, trading in the US as
+"Shoo Loong Kan Hotpot". Unusually for the Chinese restaurant chains tracked here, it publishes
 its own US locator: a Bricks-builder page whose location cards each carry a city heading, the
 address in the first <p>, and a "Coming Soon" ribbon on the ones not yet trading. One request
 gets the whole US footprint; no coordinates are published, so addresses are geocoded.

@@ -1,7 +1,7 @@
 """
 Auntea Jenny — https://aunteajenny.us
 
-沪上阿姨 (Auntea Jenny), a Shanghai bubble-tea chain founded 2013 and one of the mainland's largest,
+沪上阿姨 (Auntea Jenny), a Shanghai bubble-tea chain founded 2013 and one of China's largest,
 trading in the US as "Auntea Jenny". Its US site renders the locator from a CMS list the page
 itself reads: POST /api/cms/get_md with the site's own "All States" column returns every US outlet
 as JSON — name in `title`, address in `desc` (with a <br>), "(Coming Soon)" marked in the title.

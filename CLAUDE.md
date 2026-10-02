@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 `chain_atlas` is the collector behind the *Chains From China* site (chainsfromchina.com): a daily
-census of US store locators for mainland-China-origin chains, plus a hand-typed international
+census of US store locators for China-origin chains, plus a hand-typed international
 register. `README.md` is long and is the design record: read the relevant section before changing
 a rule. Most "why is it done this way" answers are there.
 
@@ -108,7 +108,7 @@ scaling, browser caching).
 
 ## Project conventions
 
-- Scope: mainland-China-origin chains only. Taiwan/HK brands and Asian grocers are out of scope
+- Scope: China-origin chains only. Taiwan/HK brands and Asian grocers are out of scope
   as origins.
 - Honour robots.txt and terms gates absolutely. Blocked-by-policy is recorded as a reason, not
   worked around (see Cotti's legal gate, Honolulu, MINISO UAE's `/wp-admin/`).

@@ -1,7 +1,7 @@
 """
 Möge Tee — https://www.mogeteeusa.com  (愿茶)
 
-愿茶 "Möge Tee", a mainland-China bubble-tea chain (founded 2012, franchised from 2018), trading in
+愿茶 "Möge Tee", a Chinese bubble-tea chain (founded 2012, franchised from 2018), trading in
 the US as "Möge Tee". NOT 茉莉奶白 / Molly Tea — a different brand with a similar milk-tea line, tracked
 separately (see mollytea.py).
 

@@ -1,6 +1,6 @@
 {
  "_readme": [
-  "INTERNAL WATCHLIST — not published to the site. The top mainland-China-origin store/restaurant",
+  "INTERNAL WATCHLIST — not published to the site. The top China-origin store/restaurant",
   "chains per category that are NOT already tracked, compiled 2026-09-29 from company/press/wiki",
   "sources (four+ web-research passes). Store counts are APPROXIMATE and move fast.",
   "",
@@ -12,7 +12,7 @@
   "(e.g. Lucky Cup = Mixue's coffee brand; Coucou = Xiabu's brand; Tan Yu = Jiumaojiu/Tai Er group).",
   "Packaged-goods MAKERS and distribution-only brands (Three Squirrels, ChaCha, Weilong) are NOT",
   "listed — the site tracks storefront chains, not products on a grocery shelf.",
-  "Excluded as non-mainland-origin: Happy Lemon needs origin verification; Yonghe King (Jollibee),",
+  "Excluded as non-Chinese-origin: Happy Lemon needs origin verification; Yonghe King (Jollibee),",
   "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research."
  ],
  "as_of": "2026-09-29",
@@ -35,7 +35,7 @@
     "china_stores": "~2,000 global (~47 China)",
     "status": "held",
     "markets": "US: 115+ (NY, LA, Seattle, Boston, Houston), Canada, UK, France, Dubai",
-    "note": "HELD 2026-09-29 pending scope call: Taiwanese founder (Wu Bochao) and Taiwan parent (RBT/雅茗天地); brand built in Shanghai 2006. Do not add without explicit go. VERIFY origin: Shanghai-founded but 雅茗天地 ties to Taiwan brands — confirm mainland before tracking",
+    "note": "HELD 2026-09-29 pending scope call: Taiwanese founder (Wu Bochao) and Taiwan parent (RBT/雅茗天地); brand built in Shanghai 2006. Do not add without explicit go. VERIFY origin: Shanghai-founded but 雅茗天地 ties to Taiwan brands — confirm Chinese origin before tracking",
     "source": "https://www.happylemonusa.com/about/"
    },
    {
@@ -117,7 +117,7 @@
     "china_stores": "~10,000 (mostly counters)",
     "status": "registered",
     "markets": "",
-    "note": "Added to the international register 2026-09-29 — has moved beyond the mainland. Count inflated by shop-in-shop counters",
+    "note": "Added to the international register 2026-09-29 — has moved beyond China. Count inflated by shop-in-shop counters",
     "source": "https://daxueconsulting.com/nowwa-coffee/"
    },
    {
@@ -126,8 +126,8 @@
     "hq": "Shanghai",
     "china_stores": "~2,600",
     "status": "registered",
-    "markets": "mainland + HK",
-    "note": "Added to the international register 2026-09-29 — has moved beyond the mainland.",
+    "markets": "China + HK",
+    "note": "Added to the international register 2026-09-29 — has moved beyond China.",
     "source": "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/"
    },
    {
@@ -363,7 +363,7 @@
     "china_stores": "~1,200-1,800",
     "status": "registered",
     "markets": "Singapore",
-    "note": "Added to the international register 2026-09-29. Korean-Chinese style, mainland-origin",
+    "note": "Added to the international register 2026-09-29. Korean-Chinese style, China-origin",
     "source": "https://www.capitaland.com/sg/en/shop/malls/stores/micun-bibimbap.html"
    },
    {

@@ -1,7 +1,7 @@
 """
 Molly Tea — https://usa.mollytea.com
 
-茉莉奶白 (Molly Tea), a mainland Chinese premium milk-tea chain founded in 2021, known for
+茉莉奶白 (Molly Tea), a Chinese premium milk-tea chain founded in 2021, known for
 jasmine-tea-forward "milk white" drinks, trading in the US as "Molly Tea". Its US site runs the
 Advanced Store Locator (ASL) WordPress plugin, whose admin-ajax feed returns every store as JSON —
 and the site's robots.txt explicitly allows /wp-admin/admin-ajax.php. The feed is GLOBAL (Thailand,

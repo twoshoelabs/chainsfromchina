@@ -1,7 +1,7 @@
 """
 Haidilao US (海底捞) — https://www.haidilao-inc.com/us/serve/storeSearch
 
-The longest-established mainland chain in America: first restaurant Arcadia, Los Angeles, 2013.
+The longest-established Chinese chain in America: first restaurant Arcadia, Los Angeles, 2013.
 
 ENDPOINT.
 
@@ -15,7 +15,7 @@ origins before this adapter was written, because an endpoint that silently retur
 would have quietly truncated the estate the day it grew past N.
 
 WHY IT TOOK SO LONG TO FIND, recorded so the next hunt is shorter. The obvious hosts are all
-decoys: haidilao.com serves only Greater China whatever country parameter is passed (1,493
+decoys: haidilao.com serves only China whatever country parameter is passed (1,493
 stores, countryId CN/HK/MO/TW); superhiinternational.com, the listed overseas arm, publishes
 country SUMMARIES at /eportal/earth/list and no store list at all; haidilao.us, hdlus.com and
 haidilaousa.com do not resolve. The US estate lives on a third domain, haidilao-inc.com, under a
