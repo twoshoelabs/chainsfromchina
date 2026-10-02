@@ -161,6 +161,30 @@
    "closed_note": "Last branded YGF in Greater Vancouver; permanently closed with signage removed, close date unknown. Reported as 'China's largest DIY malatang chain closes Richmond outpost'.",
    "confidence": "confirmed",
    "source": "https://nomsmagazine.com/report-ygf-malatang-richmond-closure/ ; recorded behind register.json yangguofu/CA."
+  },
+  {
+   "chain": "yangguofu",
+   "name": "Flushing (40th Rd)",
+   "address": "13505 40th Rd, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "On the 31 Dec 2025 FDD roster; field audit 2026-10-02 found it permanently closed on Google Maps (3.9★, 135 reviews). Removed from the sightings roster.",
+   "confidence": "confirmed",
+   "source": "Google Maps (permanently closed); YGF field audit 2026-10-02. Context in manual/sightings.json yangguofu FDD roster."
+  },
+  {
+   "chain": "yangguofu",
+   "name": "Rowland Heights (Fullerton Rd)",
+   "address": "1745 Fullerton Rd, Rowland Heights, CA 91748",
+   "city": "Rowland Heights",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "On the 31 Dec 2025 FDD roster; field audit 2026-10-02 found it permanently closed on Google Maps (4.0★, 45 reviews). Not to be confused with Zhang Liang at 1380 Fullerton Rd #104 (different chain, still open). Removed from the sightings roster.",
+   "confidence": "confirmed",
+   "source": "Google Maps (permanently closed); YGF field audit 2026-10-02. Context in manual/sightings.json yangguofu FDD roster."
   }
  ]
 }

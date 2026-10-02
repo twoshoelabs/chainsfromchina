@@ -254,11 +254,11 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-22",
-   "reviewed": "2025-12-31",
+   "reviewed": "2026-10-02",
    "complete_as_of": "2025-12-31",
    "complete_scope": "United States (franchise disclosure Item 20)",
    "source": "Franchise Disclosure Document of Captain Business Management Co., Limited (YGF / Yangguofu), Minnesota registration #11645 submission 35686-202603, Item 20 and Exhibit C. Item 20 states 23 franchised US outlets in 9 states as of 31 Dec 2025; Exhibit C lists their addresses, which reconcile exactly with the per-state counts.",
-   "scope": "A COMPLETE national roster as of 31 Dec 2025, taken from a legally-required filing — not collected daily and already low: the same FDD projects 37+ new US outlets for 2026. Nevada had one outlet open and close within 2025 and is not listed. Some addresses are recorded with a ZIP inferred from the city where the filing omitted it. Superseded the day ygfus.com publishes a locator this project can read.",
+   "scope": "A COMPLETE national roster as of 31 Dec 2025, taken from a legally-required filing — not collected daily and already low: the same FDD projects 37+ new US outlets for 2026. Nevada had one outlet open and close within 2025 and is not listed. Some addresses are recorded with a ZIP inferred from the city where the filing omitted it. Superseded the day ygfus.com publishes a locator this project can read. Field-reviewed 2026-10-02 against Google Maps: two filed outlets since permanently closed (Flushing NY, Rowland Heights CA) were removed, Orlando FL flagged unconfirmed pending re-check, and the Daly City suite and Boston ZIP corrected; the remaining filed outlets were confirmed still open.",
    "locations": [
     {
      "name": "San Diego",
@@ -297,12 +297,6 @@
      "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
     },
     {
-     "name": "Rowland Heights",
-     "address": "1745 Fullerton Rd, Rowland Heights, CA 91748",
-     "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
-    },
-    {
      "name": "Milpitas",
      "address": "540 Barber Ln, Milpitas, CA 95035",
      "confidence": "filed",
@@ -310,9 +304,9 @@
     },
     {
      "name": "Daly City",
-     "address": "72B Serramonte Center, Daly City, CA 94015",
+     "address": "66 Serramonte Center, Daly City, CA 94015",
      "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+     "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); suite corrected 72B→66 Serramonte Center per Google Maps (same mall), field audit 2026-10-02 — 4.5★ (226 reviews), operating."
     },
     {
      "name": "Cupertino",
@@ -323,8 +317,8 @@
     {
      "name": "Orlando",
      "address": "5600 W Colonial Dr #316, Orlando, FL 32808",
-     "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+     "confidence": "uncertain",
+     "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); field audit 2026-10-02 found no business at this address on Google Maps (bare address pin, no name or page) — flagged unconfirmed pending a phone/Yelp check, held out of totals."
     },
     {
      "name": "Doraville",
@@ -346,15 +340,9 @@
     },
     {
      "name": "Boston",
-     "address": "137 Massachusetts Ave, Boston, MA 02115",
+     "address": "137 Massachusetts Ave, Boston, MA 02215",
      "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
-    },
-    {
-     "name": "Flushing",
-     "address": "13505 40th Rd, Flushing, NY 11354",
-     "confidence": "filed",
-     "verified_by": "FDD Item 20 / Exhibit C, effective 31 Dec 2025"
+     "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); ZIP corrected 02115→02215 per Google Maps, field audit 2026-10-02 — 4.1★ (301 reviews), operating."
     },
     {
      "name": "Manhattan (3rd Ave)",
@@ -560,7 +548,7 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-26",
-   "reviewed": "2026-09-26",
+   "reviewed": "2026-10-02",
    "source": "YGF regional franchisee locators (e.g. ygfatlanta.com).",
    "scope": "YGF (Yangguofu 杨国福麻辣烫) outlets published on the chain's own regional franchisee sites, opened after the 31 Dec 2025 FDD roster. First-party evidence; not a complete roster.",
    "locations": [
@@ -1343,7 +1331,7 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-23",
-   "reviewed": "2026-09-23",
+   "reviewed": "2026-10-02",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1613,6 +1601,21 @@
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
    "reviewed": "2026-10-01"
+  },
+  {
+   "chain": "yangguofu",
+   "supplied_on": "2026-10-02",
+   "reviewed": "2026-10-02",
+   "source": "Operator field verification via Google Maps and ygfus.com (2 Oct 2026); per-location detail in verified_by.",
+   "scope": "Operator field audit, 2 Oct 2026 — US YGF outlets confirmed open on Google Maps that are not in the 31 Dec 2025 FDD roster, the franchisee sites or the permit records. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Denver",
+     "address": "7350 E Hampden Ave B2, Denver, CO 80231",
+     "confidence": "confirmed",
+     "verified_by": "Google Maps, 4.7★ (82 reviews), operating, +1 720-726-7841 (field audit 2026-10-02)"
+    }
+   ]
   },
   {
    "chain": "zhangliang",
