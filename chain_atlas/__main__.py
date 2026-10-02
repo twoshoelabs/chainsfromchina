@@ -52,6 +52,37 @@ def main(argv=None):
         register.report(d, chain=opt("--chain"), market=opt("--market"))
         return 0
 
+    if cmd == "sightings":
+        from . import sightings
+        d = sightings.load()
+        if "--stale" in argv:
+            days = int(opt("--stale-days", sightings.REVIEW_STALE_DAYS))
+            rows = sightings.stale(d, days)
+            print(f"{len(rows)} sighting group(s) not re-verified in {days} days:")
+            for chain, scope, age in rows:
+                when = f"{age} days" if age >= 0 else "NEVER (no reviewed date)"
+                print(f"  {chain:12} {when:>24}  {str(scope)[:70]}")
+            return 0
+        groups = d.get("sightings", [])
+        locs = sum(len(g.get("locations", [])) for g in groups)
+        print(f"{len(groups)} sighting groups, {locs} locations. "
+              f"Use --stale [--stale-days N] to list groups due for re-verification.")
+        return 0
+
+    if cmd == "closings":
+        from . import closings
+        rows = closings.load().get("closings", [])
+        cs = closings.summary()
+        print(f"{cs['total']} hand-recorded closings "
+              f"({cs['confirmed']} confirmed, {cs['uncertain']} uncertain), "
+              f"{len(cs['chains'])} chains:")
+        for r in sorted(rows, key=lambda r: (r["chain"], r.get("city") or "")):
+            where = r.get("address") or f"{r.get('city','')}, {r.get('state','')}".strip(", ")
+            when = r.get("closed_on") or (r.get("closed_note") or "")
+            mark = "" if r.get("confidence") == "confirmed" else " (uncertain)"
+            print(f"  {r['chain']:13} {where:40}  {when}{mark}")
+        return 0
+
     if cmd == "geocode":
         from . import db, geocode
         con = db.connect()
@@ -115,6 +146,8 @@ def main(argv=None):
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
+    print("  sightings [--stale] [--stale-days N]            hand-verified locations; review cadence")
+    print("  closings                                        hand-recorded historical US closings")
     print("  probe --chain X                                 print one chain's live locator")
     return 0
 

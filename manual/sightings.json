@@ -14,12 +14,19 @@
   "as known-but-not-counted, and excluded from every total.",
   "",
   "A sighting graduates by being deleted: when a chain's real locator is found, its adapter",
-  "supersedes this file and these entries should go."
+  "supersedes this file and these entries should go.",
+  "",
+  "REVIEW CADENCE. Because nothing here is monitored, every group carries a `reviewed` date:",
+  "the day a human last re-verified these locations against reality. `python -m chain_atlas",
+  "sightings --stale` lists any group not re-checked within 90 days, so a closed shop cannot",
+  "sit here unnoticed forever. Re-checking a group means confirming each location is still open",
+  "(delete or move any that closed) and then bumping its `reviewed` date."
  ],
  "sightings": [
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
+   "reviewed": "2026-09-29",
    "complete_as_of": "2026-09-29",
    "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
@@ -120,6 +127,7 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
+   "reviewed": "2026-09-21",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
    "scope": "Web-verified US Cotti Coffee locations beyond the NYC cluster — a franchisee-led chain that publishes no readable US locator. Sources are regional/dedicated sites, delivery listings and review aggregators; the national footprint reaches HI, IL, DC and TN. Not a complete roster.",
    "locations": [
@@ -190,6 +198,7 @@
   {
    "chain": "yangs",
    "supplied_on": "2026-09-21",
+   "reviewed": "2026-09-21",
    "source": "Yang's own store page (yangschicken.ca), supplied by the project operator",
    "scope": "One store. Yang's is separately attested across roughly eight California restaurants plus Australia, Japan and Singapore; this is not a roster.",
    "locations": [
@@ -218,6 +227,7 @@
   {
    "chain": "chabaidao",
    "supplied_on": "2026-09-21",
+   "reviewed": "2026-09-21",
    "source": "Press coverage of the opening; brand alias identified by the project operator",
    "scope": "One store — the chain's first in North America. Not a roster; a second US location in Irvine CA is suggested by a business filing but unconfirmed.",
    "locations": [
@@ -244,6 +254,7 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-22",
+   "reviewed": "2025-12-31",
    "complete_as_of": "2025-12-31",
    "complete_scope": "United States (franchise disclosure Item 20)",
    "source": "Franchise Disclosure Document of Captain Business Management Co., Limited (YGF / Yangguofu), Minnesota registration #11645 submission 35686-202603, Item 20 and Exhibit C. Item 20 states 23 franchised US outlets in 9 states as of 31 Dec 2025; Exhibit C lists their addresses, which reconcile exactly with the per-state counts.",
@@ -392,6 +403,7 @@
   {
    "chain": "fishwithyou",
    "supplied_on": "2026-09-22",
+   "reviewed": "2026-09-22",
    "source": "Chain's own per-store sites (fishwithyouny.com, fishwithyouca.com, fishwithyoumd.com, fishwithyouyonny.com) for the confirmed rows; press and delivery-platform listings for the uncertain rows. Web search on 22 Sep 2026.",
    "scope": "Known US locations, assembled by targeted web search and verified against the chain's own per-store sites and brand-named platform listings. All eight rows below are now first-party or strongly confirmed. Still NOT a complete roster: Fish With You is a registered US franchisor (WI 639995) whose own FDD Item 20 is empty of US outlets (a just-registered franchisor), and it has no national locator, so this is the best available US data, not a census. Note the fragmented US naming — Fish With You, YONNY, YONNY Mini Hot Pot (San Diego), Wei's Fish (Cupertino) — all trading as 鱼你在一起.",
    "locations": [
@@ -455,6 +467,7 @@
   {
    "chain": "nayuki",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "source": "Web verification — Yelp review counts, DoorDash/Fantuan listings, and local press (iLoveTheUpperWestSide, QNS, boozyburbs). No first-party US site; naisnow.us is parked.",
    "scope": "Web-verified US locations. NaiSnow (奈雪的茶) entered the US in Oct 2025 and is expanding fast (it claims a 500-store US target over 3-5 years). Confirmed = operating per Yelp reviews and press; American Dream NJ is coming-soon. Not a complete roster.",
    "locations": [
@@ -499,6 +512,7 @@
   {
    "chain": "juewei",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "source": "Web verification — Yelp, Fantuan, SanDiegoVille press.",
    "scope": "Web-verified US locations for Juewei (绝味鸭脖), which trades in the US as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food and is delivery-forward. San Gabriel is an operating storefront; a USC / Los Angeles presence is delivery-only via Fantuan with no public street address; the San Diego store (4698 Convoy St, Kearny Mesa) CLOSED in Mar 2026. Not a complete roster.",
    "locations": [
@@ -513,6 +527,7 @@
   {
    "chain": "taier",
    "supplied_on": "2026-09-24",
+   "reviewed": "2026-09-24",
    "source": "Health-department permits, confirmed against the brand's own listings on delivery/deal directories (Dealmoon, Fantuan).",
    "scope": "Known Tai Er (太二 / Tai Er Sichuan Cuisine) US outlets, each confirmed operating by a municipal health permit and carried under the brand's full name. Given the brand name in place of the raw permit facility name. Not a complete roster; not the census.",
    "locations": [
@@ -545,6 +560,7 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-26",
+   "reviewed": "2026-09-26",
    "source": "YGF regional franchisee locators (e.g. ygfatlanta.com).",
    "scope": "YGF (Yangguofu 杨国福麻辣烫) outlets published on the chain's own regional franchisee sites, opened after the 31 Dec 2025 FDD roster. First-party evidence; not a complete roster.",
    "locations": [
@@ -565,6 +581,7 @@
   {
    "chain": "zhangliang",
    "supplied_on": "2026-09-26",
+   "reviewed": "2026-09-26",
    "source": "First-party regional site, delivery listing, a city-government notice and county health permits.",
    "scope": "Known US Zhang Liang Malatang (张亮麻辣烫) outlets for a Chinese chain with no single US locator. Its own brand news claims 42 across North America (US/Canada/Mexico); these are the US locations verified so far — California (Bay Area, LA/Orange County, San Diego), the Seattle area, and the New York / New Jersey metro — harvested from first-party regional sites, delivery listings, review aggregators and a NYC health permit. Not a complete roster.",
    "locations": [
@@ -675,6 +692,7 @@
   {
    "chain": "chahalo",
    "supplied_on": "2026-09-27",
+   "reviewed": "2026-09-27",
    "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
    "scope": "Known US ChaHalo (茶话弄) outlets for a Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
    "locations": [
@@ -701,6 +719,7 @@
   {
    "chain": "lelecha",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "Operator-supplied Yelp listing.",
    "scope": "Known US Lelecha (乐乐茶) outlets for a Shanghai tea chain whose US site is an unlaunched private Squarespace; no complete roster.",
    "locations": [
@@ -715,6 +734,7 @@
   {
    "chain": "nonggengji",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "Yelp listing and local press (MyMCMedia, 22 Sep 2026).",
    "scope": "Known US Nong Geng Ji (农耕记) outlets for a Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026; a second at 1701 Rockville Pike, Rockville MD is announced with no opening date and is deliberately not listed here until it opens. Not a complete roster.",
    "locations": [
@@ -729,6 +749,7 @@
   {
    "chain": "baospastry",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "Operator-supplied Yelp listing; origin confirmed via press.",
    "scope": "Known US Bao's Pastry (鲍师傅糕点) outlets for a Beijing bakery chain with no first-party US site. First US store opened Flushing late 2025. Not a complete roster.",
    "locations": [
@@ -743,6 +764,7 @@
   {
    "chain": "toptoy",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "The chain's own US store-locations page (gotoptoy.com), which lists a single US store.",
    "scope": "US TOP TOY outlets for a MINISO Group art-toy brand. Its first-party US locator lists one store (Times Square) as of 28 Sep 2026; JS-rendered, so recorded here rather than collected. Effectively complete at one store.",
    "locations": [
@@ -757,6 +779,7 @@
   {
    "chain": "toys52",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "Mall directory (simon.com) and a place aggregator (corner.inc).",
    "scope": "Known US 52Toys (52TOYS) outlets for a Beijing blind-box brand with no US locator. Two Georgia stores so far. Not a complete roster.",
    "locations": [
@@ -777,6 +800,7 @@
   {
    "chain": "heytea",
    "supplied_on": "2026-09-28",
+   "reviewed": "2026-09-28",
    "source": "Operator web-verification of NYC health-department permit leads against Yelp/Maps listings; each of the seven is trading with reviews.",
    "scope": "HEYTEA (喜茶) New York outlets confirmed open by hand — seven Manhattan and Queens stores that began as permit leads and were verified trading via Yelp/Maps. Confirmed sightings for a chain with no first-party US roster; these supersede the matching permit rows.",
    "locations": [
@@ -827,6 +851,7 @@
   {
    "chain": "dezhuang",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "Two US outlets identified as open (Manhattan full restaurant + Bellevue WA express 'mini' store) for a chain with no first-party US locator; not a complete roster.",
    "locations": [
@@ -847,6 +872,7 @@
   {
    "chain": "meizhoudongpo",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "Two California restaurants identified as open in 2026 (Century City, Irvine); three former LA-area outlets are closed and excluded. Not a complete roster.",
    "locations": [
@@ -867,6 +893,7 @@
   {
    "chain": "shudaxia",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "One US restaurant identified as open (Boston, since May 2022). A Toronto store exists but is in Canada and excluded. Not a complete roster.",
    "locations": [
@@ -881,6 +908,7 @@
   {
    "chain": "xibei",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "Four Southern California outlets identified as open in 2026 under three US sub-labels run by one operator (Arcadia flagship, Silver Lake dumplings, Santa Ana + Westwood 'Eatery'). Not a complete roster.",
    "locations": [
@@ -913,6 +941,7 @@
   {
    "chain": "grandmashome",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "One US restaurant identified as open (Manhattan Flatiron, the chain's first and only US location, opened ~March 2024). Not a complete roster.",
    "locations": [
@@ -927,6 +956,7 @@
   {
    "chain": "xijiade",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "Two New York City outlets identified as open, trading as 'Dumpling Xi' (Flushing, first US Feb 2025; East Village, Jul 2025). Not a complete roster.",
    "locations": [
@@ -947,6 +977,7 @@
   {
    "chain": "malubianbian",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
    "scope": "US footprint has churned heavily; the first US store (San Gabriel 2019) and several early CA/TX/PA outlets are closed, and Tustin CA (rebranded 'MLBB AYCE') is now permanently closed per Google (29 Sep 2026). Orlando FL is the one confirmed open outlet. Not a complete roster.",
    "locations": [
@@ -961,6 +992,7 @@
   {
    "chain": "feidachu",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026, corroborated by the operator: San Diego press (Axios, Fox5, SanDiegoVille) and the chain's Yelp page confirm the first US restaurant open.",
    "scope": "One US restaurant, the chain's first and only US outlet, opened 5 Sep 2026. Not a complete roster.",
    "locations": [
@@ -975,6 +1007,7 @@
   {
    "chain": "dalongyi",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: the outlets' own franchise sites (dalongyinyc.com, dlyhotpot.com), press, and recent review activity; addresses of currently-open shops.",
    "scope": "Two US outlets identified as open (Long Island City NY, Allston/Boston MA); the first US store (San Gabriel 2019) and Seattle are closed, and Manhattan Canal St appears closed. Not a complete roster.",
    "locations": [
@@ -995,6 +1028,7 @@
   {
    "chain": "shuyi",
    "supplied_on": "2026-09-29",
+   "reviewed": "2026-09-29",
    "source": "Project research 29 Sep 2026: live first-party ordering pages (Chowbus/Snackpass), local press and recent review activity; addresses of currently-open franchise shops.",
    "scope": "Three US outlets identified as open (Falls Church VA, Cupertino CA, Fremont CA); the first US store (San Mateo, ~late 2023) is closed. Franchise-operated, not a unified US rollout. Not a complete roster.",
    "locations": [
@@ -1023,6 +1057,7 @@
   {
    "chain": "chabaidao",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1048,6 +1083,7 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1063,6 +1099,7 @@
   {
    "chain": "fishwithyou",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1086,6 +1123,7 @@
   {
    "chain": "heytea",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "23 permit-sourced location(s) (23 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1263,6 +1301,7 @@
   {
    "chain": "juewei",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1280,6 +1319,7 @@
   {
    "chain": "nayuki",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1303,6 +1343,7 @@
   {
    "chain": "yangguofu",
    "supplied_on": "2026-09-23",
+   "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
    "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
@@ -1333,7 +1374,8 @@
    ],
    "scope": "Two US locations known: Tustin, CA (open and trading, the chain's first US store) and Flushing, NY (37-05 Prince St, its first NYC store, brand-announced for late Sep/early Oct 2026, awaiting confirmation it is open). Not a complete roster.",
    "source": "Project research 29 Sep 2026: the landlord's own announcement and the store's Yelp listing confirm an open branded storefront. Address is the identified open outlet, not a roster from a map aggregator.",
-   "supplied_on": "2026-09-30"
+   "supplied_on": "2026-09-30",
+   "reviewed": "2026-09-30"
   },
   {
    "chain": "anta",
@@ -1347,7 +1389,8 @@
    ],
    "scope": "One US store (Beverly Hills, the chain's first US location). Not a complete roster.",
    "source": "Project research 30 Sep 2026: company press release confirming the first US flagship. Address is the identified open outlet.",
-   "supplied_on": "2026-09-30"
+   "supplied_on": "2026-09-30",
+   "reviewed": "2026-09-30"
   },
   {
    "chain": "urbanrevivo",
@@ -1361,7 +1404,8 @@
    ],
    "scope": "One US store (SoHo NYC, the chain's first US location). Not a complete roster.",
    "source": "Project research 30 Sep 2026: trade press and company announcement of the SoHo flagship.",
-   "supplied_on": "2026-09-30"
+   "supplied_on": "2026-09-30",
+   "reviewed": "2026-09-30"
   },
   {
    "chain": "jnby",
@@ -1381,7 +1425,8 @@
    ],
    "scope": "Two US stores (San Francisco + Seattle), trading as AGoodFun via licensee Sightclassic LLC. Bellevue WA and SoHo NYC are closed. Not a complete roster.",
    "source": "Project research 30 Sep 2026: press and the US operator's sites confirming the two open stores and the two closures.",
-   "supplied_on": "2026-09-30"
+   "supplied_on": "2026-09-30",
+   "reviewed": "2026-09-30"
   },
   {
    "chain": "meilleurmoment",
@@ -1395,7 +1440,8 @@
    ],
    "scope": "One US store (SoHo NYC, the chain's first US location). Not a complete roster.",
    "source": "Project research 30 Sep 2026: WWD coverage of the SoHo flagship opening.",
-   "supplied_on": "2026-09-30"
+   "supplied_on": "2026-09-30",
+   "reviewed": "2026-09-30"
   },
   {
    "chain": "chahalo",
@@ -1421,7 +1467,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "cotti",
@@ -1453,7 +1500,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "dalongyi",
@@ -1467,7 +1515,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "fishwithyou",
@@ -1493,7 +1542,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "heytea",
@@ -1531,7 +1581,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "lelecha",
@@ -1545,7 +1596,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "yangguofu",
@@ -1559,7 +1611,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   },
   {
    "chain": "zhangliang",
@@ -1573,7 +1626,8 @@
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01"
+   "supplied_on": "2026-10-01",
+   "reviewed": "2026-10-01"
   }
  ]
 }

@@ -22,9 +22,51 @@ locations of a chain that is not counted. A sighting graduates by being deleted:
 locator is found, its adapter supersedes this file.
 """
 import json
+from datetime import date, timedelta
 from pathlib import Path
 
 SIGHTINGS_PATH = Path(__file__).resolve().parents[1] / "manual" / "sightings.json"
+
+# Sightings are hand-assembled facts, not a locator, so they cannot go stale on their own — a shop
+# in the list can close and nothing here will move. The counterpart to a daily census is a periodic
+# human re-check: every group carries a `reviewed` date, and a group not looked at within this many
+# days is due for one. Ninety days matches the international register's cadence, for the same reason
+# — facts from press and field notes, re-verified on a schedule rather than crawled.
+REVIEW_STALE_DAYS = 90
+
+
+def reviewed_on(group: dict) -> str:
+    """The date a group was last re-verified: explicit `reviewed`, else the newest claim it carries."""
+    return group.get("reviewed") or group.get("complete_as_of") or group.get("supplied_on")
+
+
+def stale(d: dict | None = None, days: int = REVIEW_STALE_DAYS) -> list[tuple[str, str, int]]:
+    """
+    name:      stale
+    purpose:   List sighting groups not re-verified within `days`.
+    arguments: d (loaded sightings, or None to load), days
+    returns:   list of (chain, scope-or-reviewed-date, age_days), oldest first
+    effects:   None
+    other:     This is the sightings file's only scheduled obligation, and the reason it is safe for
+               these locations to sit outside the daily machinery: a human re-reads them on a cadence
+               instead. A group with no reviewable date at all is returned with age -1 so it sorts to
+               the top and cannot hide.
+    """
+    d = d or load()
+    cutoff = date.today() - timedelta(days=days)
+    out = []
+    for g in d.get("sightings", []):
+        r = reviewed_on(g)
+        if r is None:
+            out.append((g["chain"], "no reviewed date", -1))
+            continue
+        rd = date.fromisoformat(r)
+        if rd < cutoff:
+            out.append((g["chain"], g.get("complete_scope") or g.get("scope") or r,
+                        (date.today() - rd).days))
+    # Undated groups (age -1) are the most urgent — we cannot know when they were last checked —
+    # so they sort to the top; the rest follow by descending age (longest overdue first).
+    return sorted(out, key=lambda t: (t[2] >= 0, -t[2] if t[2] >= 0 else 0))
 
 
 def load(path: Path | None = None) -> dict:

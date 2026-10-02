@@ -7,7 +7,8 @@ retry costs the sites nothing for work already done.
 import json
 import random
 import re
-from datetime import datetime
+from datetime import date, datetime
+from itertools import groupby
 from pathlib import Path
 
 from . import capture, db
@@ -19,6 +20,13 @@ from .identity import store_key, norm_addr
 # A day's count that moves by more than this fraction is not trusted without a second look:
 # the usual cause is a partial page, and a partial page looks exactly like a wave of closures.
 SUSPICIOUS_DELTA = 0.30
+
+# A live locator should breathe: stores edit their hours, a row moves, a店 opens or shuts, and the
+# captured bytes change. A feed whose bytes have not moved in this many days is either a genuinely
+# quiet chain or a frozen/cached asset that can no longer show us a closure — either way a human
+# should glance at it. This is the counterpart to SUSPICIOUS_DELTA: that guards against a feed that
+# moved too much, this against one that has stopped moving at all.
+FEED_STALE_DAYS = 21
 
 
 def normalise(a, recs):
@@ -391,6 +399,35 @@ def watch_launches(chain_id: str | None = None) -> int:
     return fired
 
 
+def feed_staleness(con) -> dict:
+    """
+    name:      feed_staleness
+    purpose:   For each collected chain, how long its raw capture has been byte-for-byte identical.
+    arguments: con
+    returns:   {chain_id: (days_unchanged, since_date, collected_runs_unchanged)}
+    effects:   None
+    other:     Reads the trailing run of identical raw_sha256 values. A long run means the locator
+               has not changed a byte since `since_date` — a chain that cannot have shown us an
+               opening or a closure in that window. Only successful captures count, so collector
+               downtime is not mistaken for a frozen feed.
+    """
+    rows = con.execute(
+        "SELECT chain_id, obs_date, raw_sha256 FROM runs WHERE status='ok' AND raw_sha256 IS NOT NULL"
+        " ORDER BY chain_id, obs_date, run_id").fetchall()
+    today = date.today()
+    out = {}
+    for cid, grp in groupby(rows, key=lambda r: r["chain_id"]):
+        g = list(grp)
+        latest = g[-1]["raw_sha256"]
+        since, runs = g[-1]["obs_date"], 0
+        for r in reversed(g):                       # walk back while the bytes are still identical
+            if r["raw_sha256"] != latest:
+                break
+            since, runs = r["obs_date"], runs + 1
+        out[cid] = ((today - date.fromisoformat(since)).days, since, runs)
+    return out
+
+
 def status():
     """
     name:      status
@@ -399,9 +436,13 @@ def status():
     returns:   None
     effects:   Reads the database.
     other:     Blocked chains are listed with their reason. A tracker must show its own holes.
+               The `unchgd` column is days since the locator's bytes last moved — a staleness guard
+               so a frozen feed that can no longer surface a closure is visible, not silent.
     """
     con = db.connect()
-    print(f"{'chain':10} {'open':>5} {'soon':>5} {'closed':>6} {'located':>8}  last run")
+    stale = feed_staleness(con)
+    print(f"{'chain':10} {'open':>5} {'soon':>5} {'closed':>6} {'located':>8} {'unchgd':>6}  last run")
+    frozen = []
     for a in REGISTRY:
         row = con.execute(
             "SELECT SUM(status='active') o, SUM(status='pre_opening') p, SUM(status='closed') c,"
@@ -411,13 +452,33 @@ def status():
             "SELECT obs_date,status,n_records FROM runs WHERE chain_id=? ORDER BY run_id DESC LIMIT 1",
             (a.chain_id,)).fetchone()
         if not a.ENABLED and not last:
-            print(f"{a.chain_id:10} {'—':>5} {'—':>5} {'—':>6} {'—':>8}  BLOCKED: {a.BLOCKED_REASON}")
+            print(f"{a.chain_id:10} {'—':>5} {'—':>5} {'—':>6} {'—':>8} {'—':>6}  BLOCKED: {a.BLOCKED_REASON}")
             continue
         o, p, c, loc = (row["o"] or 0, row["p"] or 0, row["c"] or 0, row["loc"] or 0)
         lastdesc = f"{last['obs_date']} {last['status']} ({last['n_records']})" if last else "never"
         if a.PROVENANCE != "collected":
             lastdesc += f"  [{a.PROVENANCE.upper()} — not fetched from the chain]"
-        print(f"{a.chain_id:10} {o:5} {p:5} {c:6} {loc:8}  {lastdesc}")
+        st = stale.get(a.chain_id)
+        # Only a chain with enough collected history to clear the window can be called frozen; a
+        # young adapter that has simply not run long enough is left unmarked.
+        age = "—"
+        if st:
+            days, since, runs = st
+            flag = days >= FEED_STALE_DAYS and runs >= FEED_STALE_DAYS
+            age = f"{days}d!" if flag else f"{days}d"
+            if flag:
+                frozen.append((a.chain_id, days, since))
+        print(f"{a.chain_id:10} {o:5} {p:5} {c:6} {loc:8} {age:>6}  {lastdesc}")
+    if frozen:
+        print(f"\n⚠ feeds unchanged ≥{FEED_STALE_DAYS} days — verify the locator still prunes closings:")
+        for cid, days, since in sorted(frozen, key=lambda t: -t[1]):
+            print(f"    {cid:10} {days} days byte-identical (since {since})")
     ev = con.execute("SELECT event_type, COUNT(*) n FROM events GROUP BY 1 ORDER BY 2 DESC").fetchall()
     if ev:
-        print("\nevents: " + ", ".join(f"{r['event_type']}={r['n']}" for r in ev))
+        print("\nevents (census-detected): " + ", ".join(f"{r['event_type']}={r['n']}" for r in ev))
+    from . import closings
+    cs = closings.summary()
+    if cs["total"]:
+        print(f"hand-recorded historical closings: {cs['total']} "
+              f"({cs['confirmed']} confirmed, {cs['uncertain']} uncertain) "
+              f"across {len(cs['chains'])} chains — see manual/closings.json")
