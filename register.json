@@ -666,6 +666,12 @@
       "sector": "grocery_convenience",
       "sub_category": "soft-discount retail",
       "operating_model": "franchise"
+    },
+    "malubianbian": {
+      "name": "Malubianbian",
+      "name_zh": "马路边边",
+      "format": "hotpot",
+      "global": "Chengdu skewer-style (chuàn-chuàn) hot pot chain founded 2015 (2016 per some sources); more than 1,000 outlets in and outside China by 2021. In the US since 2019 (Los Angeles / Rowland Heights), trading as MLBB / Ma Lu Bian Bian."
     }
   },
   "entries": [
@@ -4655,6 +4661,64 @@
       "note": "Operates in the Netherlands through a dedicated Dutch arm (zlmlt.nl); specific store addresses not pinned in this pass.",
       "sources": [
         "https://zlmlt.nl/story"
+      ]
+    },
+    {
+      "chain": "malubianbian",
+      "market": "CA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "At least two Ontario stores: Toronto (440 Dundas Street West) and Waterloo.",
+      "sources": [
+        "https://restaurantguru.com/malubianbian-Toronto",
+        "https://www.fantuanorder.com/en-US/store/malubianbian/ca-11491"
+      ]
+    },
+    {
+      "chain": "malubianbian",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "A City Hall / Funan-area outlet (5 Coleman Street #01-01) with a dedicated Singapore brand presence.",
+      "sources": [
+        "https://www.instagram.com/malubianbian_sg/",
+        "https://www.quandoo.sg/place/malu-bian-bian-hotpot-102650/menu"
+      ]
+    },
+    {
+      "chain": "malubianbian",
+      "market": "KH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "A Phnom Penh flagship (50 Street 322), described on the brand's own page as the only official flagship store in Cambodia.",
+      "sources": [
+        "https://www.facebook.com/p/MaluBianbian-Chuanchuan-Hotpot%E9%A9%AC%E8%B7%AF%E8%BE%B9%E8%BE%B9%E4%B8%B2%E4%B8%B2%E7%81%AB%E9%94%85-61550267565865/"
+      ]
+    },
+    {
+      "chain": "malubianbian",
+      "market": "PH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "An outlet at Shore Residences, Pasay City (Metro Manila); aggregator and social listings, no count published.",
+      "sources": [
+        "https://foursquare.com/v/%E9%A9%AC%E8%B7%AF%E8%BE%B9%E8%BE%B9-malubianbian-shore2/5e51eccf2b631a0008d6ee3a"
       ]
     }
   ]
