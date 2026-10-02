@@ -20,9 +20,9 @@ let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sec
 
 // Sector → color. Keep in sync with the register's sectors.
 const SECTOR = {
-  tea: '#16a34a', coffee: '#92400e', food_drink: '#dc2626', bakery: '#d97706',
-  grocery_convenience: '#0891b2', snacks: '#ea580c', apparel: '#7c3aed', beauty: '#db2777',
-  lifestyle_variety: '#2563eb', electronics: '#0d9488', home: '#65a30d',
+  tea: '#5E8C3A', coffee: '#7A4E2D', food_drink: '#B5462E', bakery: '#C08A2B',
+  grocery_convenience: '#2F8C8C', snacks: '#D0702A', apparel: '#6B4FA0', beauty: '#C4577A',
+  lifestyle_variety: '#2F5FA8', electronics: '#3C7A9A', home: '#7A8C3A',
 };
 const OTHER = '#6b7280';
 const SECTOR_LABEL = {

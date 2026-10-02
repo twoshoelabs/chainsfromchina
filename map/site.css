@@ -1,0 +1,73 @@
+/* Chains From China — shared design system (v4 brief).
+   Loaded on every page AFTER the page's own CSS so these tokens win. Pairs with site.js, which
+   injects the universal header. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* core palette */
+  --cfc-ink: #1A1916; --cfc-night: #181714; --cfc-paper: #F3F0E8; --cfc-card: #FBFAF6;
+  --cfc-rule: #D3CCBE; --cfc-teal: #2F7A6E; --cfc-teal-on-dark: #7CC0B2;
+  --cfc-amber: #A0660F; --cfc-brass: #F3E6C8;
+  /* sector rings, fixed order */
+  --sec-tea: #5E8C3A; --sec-coffee: #7A4E2D; --sec-food_drink: #B5462E; --sec-bakery: #C08A2B;
+  --sec-snacks: #D0702A; --sec-grocery_convenience: #2F8C8C; --sec-apparel: #6B4FA0;
+  --sec-beauty: #C4577A; --sec-lifestyle_variety: #2F5FA8; --sec-electronics: #3C7A9A;
+  --sec-home: #7A8C3A;
+  /* type */
+  --cfc-display: "Playfair Display", Georgia, serif;
+  --cfc-sans: "Libre Franklin", system-ui, -apple-system, sans-serif;
+  --cfc-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --cfc-hans: "Noto Serif SC", serif;
+  /* nudge the legacy pages' accent to the one brief accent (teal) */
+  --accent: #2F7A6E; --accent-ink: #123C39;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --accent: #7CC0B2; --accent-ink: #8FCFC3; }
+}
+
+/* ---- Universal header (60px, dark) ------------------------------------------------------- */
+.site-nav {
+  position: sticky; top: 0; z-index: 1000; background: var(--cfc-night); color: var(--cfc-paper);
+  display: flex; align-items: center; gap: 16px; padding: 0 24px; min-height: 60px; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(243,240,232,.12); font-family: var(--cfc-sans);
+}
+.site-nav .wm { font-family: var(--cfc-display); font-weight: 700; font-size: 20px; line-height: 1;
+  letter-spacing: -.01em; color: var(--cfc-paper); text-decoration: none; }
+.site-nav .beta { font: 600 10px/1 var(--cfc-mono); letter-spacing: .12em; text-transform: uppercase;
+  color: #B3AC9C; border: 1px solid rgba(243,240,232,.35); padding: 4px 6px; border-radius: 3px; }
+.site-nav .primary { display: flex; gap: 20px; align-items: center; height: 60px; }
+.site-nav .primary a { color: #B3AC9C; text-decoration: none; font-size: 14px; font-weight: 500;
+  display: inline-flex; align-items: center; height: 100%; border-bottom: 2px solid transparent; }
+.site-nav .primary a:hover { color: #fff; }
+.site-nav .primary a[aria-current="page"] { color: #fff; border-bottom-color: var(--cfc-teal-on-dark); }
+.site-nav .right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.site-nav .updated { font: 500 12px/1 var(--cfc-mono); color: #8C8470; display: inline-flex;
+  align-items: center; gap: 7px; white-space: nowrap; }
+.site-nav .updated .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cfc-teal-on-dark);
+  box-shadow: 0 0 0 0 rgba(124,192,178,.6); animation: cfcpulse 2.6s infinite; }
+@keyframes cfcpulse { 0%{box-shadow:0 0 0 0 rgba(124,192,178,.5)} 70%{box-shadow:0 0 0 6px rgba(124,192,178,0)} 100%{box-shadow:0 0 0 0 rgba(124,192,178,0)} }
+.site-nav .txt { color: #B3AC9C; text-decoration: none; font-size: 14px; font-weight: 500; }
+.site-nav .txt:hover { color: #fff; }
+.site-nav .pro { background: var(--cfc-brass); color: var(--cfc-ink); text-decoration: none;
+  font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 6px; min-height: 36px;
+  display: inline-flex; align-items: center; }
+.site-nav .pro:hover { filter: brightness(.96); }
+
+@media (max-width: 860px) {
+  .site-nav { gap: 10px 14px; padding: 10px 16px; }
+  .site-nav .primary { order: 3; width: 100%; height: auto; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid rgba(243,240,232,.12); padding-top: 8px; }
+  .site-nav .primary a { height: auto; padding: 4px 0; min-height: 36px; }
+  .site-nav .updated { display: none; }
+  .site-nav .right { gap: 12px; }
+}
+
+/* ---- Status badges ----------------------------------------------------------------------- */
+.cfc-badge { display: inline-flex; align-items: center; gap: 5px; font: 600 11px/1 var(--cfc-mono);
+  letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px;
+  border: 1px solid var(--cfc-rule); color: var(--cfc-ink); background: var(--cfc-card); }
+.cfc-badge.counted { color: var(--cfc-teal); border-color: var(--cfc-teal); }
+.cfc-badge.hand    { color: #4a4540; }
+.cfc-badge.announced { color: var(--cfc-amber); border-color: var(--cfc-amber); }
+.cfc-badge.pro     { background: var(--cfc-brass); border-color: #e4d2a4; color: var(--cfc-ink); }
+.cfc-badge.modeled { color: var(--cfc-amber); border-style: dashed; }

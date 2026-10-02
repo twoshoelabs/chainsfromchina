@@ -302,5 +302,11 @@ def export(out_dir: Path) -> dict:
     (out_dir / "events.json").write_text(
         json.dumps({"meta": {"generated": meta["generated"]}, "events": events},
                    ensure_ascii=False, indent=1))
+    # A tiny file every page can fetch cheaply for the universal header's "Updated …" line and
+    # shared totals, without pulling the full stores feed.
+    (out_dir / "meta.json").write_text(json.dumps({
+        "generated": meta["generated"], "last_collected": meta["last_collected"],
+        "days_collected": meta["days_collected"], "totals": meta["totals"],
+    }, ensure_ascii=False, indent=1))
     return {"stores": len(stores), "events": len(events), "unlocated": unlocated,
             "states": len(by_state), "no_state": no_state}
