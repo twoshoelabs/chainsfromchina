@@ -64,6 +64,36 @@ def display_name(chain: str, name: str | None) -> str:
     return n or (name or "").strip()
 
 
+# ---- Sighting graduation -------------------------------------------------------------------
+# A hand-recorded sighting "graduates" the day the daily census starts covering the same spot:
+# the census then owns that store's open/closed state, so the sighting is retired automatically \u2014
+# suppressed from the map and the count \u2014 without editing sightings.json. Matching is by chain and
+# proximity (a same-chain census store within ~180 m), because a mall sighting's address
+# ("364 Maine Mall Rd") rarely matches the locator's unit string, but the coordinates line up.
+_GRADUATE_M = 180.0
+
+
+def census_points(con) -> dict:
+    """{chain_id: [(lon, lat), ...]} for located, open or announced US census stores."""
+    out = {}
+    for r in con.execute(
+            "SELECT chain_id, lon, lat FROM stores WHERE country='US'"
+            " AND status IN ('active','pre_opening') AND lat IS NOT NULL AND lon IS NOT NULL"):
+        out.setdefault(r["chain_id"], []).append((r["lon"], r["lat"]))
+    return out
+
+
+def census_covers(points, lon, lat, meters: float = _GRADUATE_M) -> bool:
+    """True when a same-chain census point lies within `meters` of (lon, lat) \u2014 the sighting has
+    graduated to the census and should be retired from the hand record's drawing and count."""
+    if lon is None or lat is None or not points:
+        return False
+    import math
+    dlat = meters / 111_320.0
+    dlon = meters / (111_320.0 * max(math.cos(math.radians(lat)), 0.01))
+    return any(abs(plat - lat) <= dlat and abs(plon - lon) <= dlon for plon, plat in points)
+
+
 def us_totals(con) -> dict:
     """
     name:      us_totals
@@ -84,9 +114,12 @@ def us_totals(con) -> dict:
         " SUM(status='active' AND lat IS NOT NULL) og FROM stores WHERE country='US'").fetchone()
     open_, announced, open_mapped = r["o"] or 0, r["p"] or 0, r["og"] or 0
     hand = hand_mapped = 0
+    cpts = census_points(con)
     for s in _sightings(cache_only=True):
         if s.get("confidence") == "uncertain" or not s.get("state"):
             continue
+        if census_covers(cpts.get(s["chain"], []), s.get("lon"), s.get("lat")):
+            continue                               # graduated to the census — retired here
         hand += 1
         if s.get("lat") is not None:
             hand_mapped += 1

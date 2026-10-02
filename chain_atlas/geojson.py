@@ -102,6 +102,8 @@ def build(con, d: dict | None = None) -> dict:
             "address": _street(r["addr_raw"] or r["addr_norm"], r["city"], r["state"], r["zip"]),
             "city": r["city"], "state": r["state"],
         }))
+    from .mapdata import census_points, census_covers
+    cpts = census_points(con)
     for s in sightings.geocoded(cache_only=True):
         if s.get("lat") is None or not s.get("state"):
             continue
@@ -109,6 +111,10 @@ def build(con, d: dict | None = None) -> dict:
         # submit-info queue until a human confirms them. Everything drawn here is confirmed, so
         # every sighting is a solid pin; the only not-yet-open marker is a census pre_opening.
         if s.get("confidence") == "uncertain":
+            continue
+        # A sighting graduates once the census covers the same spot (same chain, within ~180 m):
+        # the census owns it, so the hand record is retired here automatically — no double count.
+        if census_covers(cpts.get(s["chain"], []), s.get("lon"), s.get("lat")):
             continue
         bm = meta.get(s["chain"], {})
         feats.append(_feature(s["lon"], s["lat"], {
