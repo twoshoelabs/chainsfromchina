@@ -6631,6 +6631,110 @@
       "confidence": "low",
       "reviewed": "2026-10-02",
       "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+    },
+    {
+      "chain": "moge",
+      "market": "NL",
+      "status": "present",
+      "locations": 3,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "First-party site mogetee.nl lists three operating Dutch stores — Maastricht (Markt 1), Eindhoven (Jan van Lieshoutstraat) and Nijmegen (Augustijnenstraat) — with a fourth, Beek (Makado Mall), marked opening soon. An active .nl brand site and Instagram (@mogetee.nl) back the presence.",
+      "sources": [
+        "https://www.mogetee.nl/stores",
+        "https://www.instagram.com/mogetee.nl/"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "DE",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "A Berlin outlet at Bergmannstraße 110 (Kreuzberg), operating per its Google listing (4.7★, 779 reviews) and backed by a dedicated German site (moge-tee.de) and Facebook page. No national count published.",
+      "sources": [
+        "https://moge-tee.de/",
+        "https://www.facebook.com/mogetee.de/"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "AU",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "At least three outlets — South Brisbane (118 Merivale St, currently temporarily closed), Runcorn Plaza (Brisbane) and Doncaster East (Melbourne) — with a first-party site (mogetee.com.au), a Facebook page (mogeteeaus) and active delivery listings.",
+      "sources": [
+        "https://www.mogetee.com.au/",
+        "https://www.facebook.com/mogeteeaus/"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "MX",
+      "status": "present",
+      "locations": 1,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-03",
+      "note": "A single outlet at Plaza Periférico, Blvd. Hidalgo 1000, Reynosa (Tamaulipas), operating per its Google Business listing (Oct 2026). No first-party Mexican site found.",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=MOGE+TEE+Plaza+Perif%C3%A9rico+Reynosa"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "JP",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-03",
+      "note": "Operated via tapioka.co.jp; a contracting presence — the Harajuku outlet (愿茶 原宿店, Jingūmae, Shibuya) is now permanently closed and the Osaka Nipponbashi outlet is temporarily closed (Google, Oct 2026). Kept as present on the strength of the temporarily-closed Osaka shop; re-check.",
+      "sources": [
+        "https://tabelog.com/en/tokyo/A1306/A130601/13241428/",
+        "https://www.tapioka.co.jp/"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "KR",
+      "status": "exited",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-03",
+      "note": "Operated a Hongdae outlet (35 Wausan-ro 23-gil, Seogyo-dong, Mapo-gu, Seoul), now permanently closed (Google, Oct 2026); no other Korean outlet found — a retreat.",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Moge+Tee+Hongdae+Seoul"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "VN",
+      "status": "exited",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-03",
+      "note": "Operated a Bến Thành-area outlet (29 Đ. Hải Triều, District 1, HCMC), now permanently closed (Google, Oct 2026). An unverified Uber Eats listing (moge-tee-tmc) may indicate a remaining outlet; treated as exited pending confirmation — re-check.",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Moge+Tee+29+H%E1%BA%A3i+Tri%E1%BB%81u+Ho+Chi+Minh"
+      ]
     }
   ]
 }
