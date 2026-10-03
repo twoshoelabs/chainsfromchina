@@ -147,7 +147,9 @@
   .ph-frame { position:relative; background:var(--grey-base); display:flex; align-items:center;
     justify-content:center; overflow:hidden; }
   .ph-frame.r32 { aspect-ratio:3/2; } .ph-frame.r45 { aspect-ratio:4/5; }
+  .ph-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
   .ph-note { font-size:12px; color:var(--muted); background:var(--ground); padding:3px 9px; }
+  .ph-city, .sheet .num { z-index:2; }
   .ph-city { position:absolute; left:12px; bottom:10px; background:var(--ground); padding:2px 8px; font-size:22px; }
   .ph-city.zh { font-family:var(--zh); } .ph-city.us { font-weight:800; font-size:24px; }
   figure.ph figcaption { display:flex; justify-content:space-between; gap:16px; padding-top:8px; font-size:13px; line-height:1.4; }
@@ -405,12 +407,18 @@
     </div>
     <div class="diptych">
       <figure class="ph">
-        <div class="ph-frame r32"><span class="ph-note">Photograph to come</span><span class="ph-city zh" lang="zh-Hant">鄭州</span></div>
-        <figcaption><span><b>Zhengzhou, Henan.</b> Where the chain began.</span><span class="by">[date · photographer]</span></figcaption>
+        <div class="ph-frame r32">
+          <picture><source srcset="photos/pair-china-storefront.webp" type="image/webp">
+            <img src="photos/pair-china-storefront.jpg" alt="Illustration of a tea and ice cream shopfront in China with a red Chinese sign and people outside"></picture>
+          <span class="ph-city zh" lang="zh-Hant">鄭州</span></div>
+        <figcaption><span><b>Zhengzhou, Henan.</b> Where the chain began. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
       </figure>
       <figure class="ph">
-        <div class="ph-frame r32"><span class="ph-note">Photograph to come</span><span class="ph-city us cond">[CITY, ST]</span></div>
-        <figcaption><span><b>[City, State].</b> The same chain, open in the US today.</span><span class="by">[date · photographer]</span></figcaption>
+        <div class="ph-frame r32">
+          <picture><source srcset="photos/pair-us-storefront.webp" type="image/webp">
+            <img src="photos/pair-us-storefront.jpg" alt="Illustration of a tea and ice cream shopfront on a US street with a green sign"></picture>
+          <span class="ph-city us cond">[CITY, ST]</span></div>
+        <figcaption><span><b>[City, State].</b> The same chain, open in the US today. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
       </figure>
     </div>
   </section>
@@ -651,11 +659,20 @@ const $ = id => document.getElementById(id);
   $('dc-cot').textContent = centers ? fmt((centers.co_tenancy||[]).length) : '—';
   $('dc-ctry').textContent = reg ? fmt(Object.keys(reg.markets||{}).length) : '—';
 
-  // Sightings sheet — placeholders until images arrive
-  $('sheet').innerHTML = Array.from({length:6}, (_,i) =>
-    '<figure><div class="ph-frame r45"><span class="num">'+(meta.days||'')+'-'+(i+1)+'</span>'+
-    '<span class="ph-note">Photograph to come</span></div>'+
-    '<figcaption><b>[Chain]</b>, [city]<br><span class="meta">[date · reader · status]</span></figcaption></figure>').join('');
+  // Sightings sheet — placeholder illustrations until readers' photos arrive
+  const SIGHTINGS = [
+    ['sighting-01-opening', 'Illustration of a shopfront on opening day with people outside'],
+    ['sighting-02-coming-soon', 'Illustration of a coming-soon hoarding inside a mall'],
+    ['sighting-03-night', 'Illustration of a lit shopfront at night'],
+    ['sighting-04-interior', 'Illustration of a shop interior with menu boards and a counter'],
+    ['sighting-05-strip-mall', 'Illustration of a strip-mall storefront with parked cars'],
+    ['sighting-06-closed', 'Illustration of a closed shop with its shutter down and sign still up'],
+  ];
+  $('sheet').innerHTML = SIGHTINGS.map(([f, alt], i) =>
+    '<figure><div class="ph-frame r45"><span class="num">' + (meta.days || '') + '-' + (i + 1) + '</span>' +
+    '<picture><source srcset="photos/' + f + '.webp" type="image/webp">' +
+    '<img src="photos/' + f + '.jpg" alt="' + alt + '"></picture></div>' +
+    '<figcaption><b>[Chain]</b>, [city]<br><span class="meta">[date · reader · status · placeholder]</span></figcaption></figure>').join('');
 })();
 </script>
 </body>

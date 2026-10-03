@@ -258,6 +258,23 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
+    `<section><h2>Photographs</h2>` +
+      `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
+      `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:20px">` +
+        `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">The first US storefront. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<div style="flex:1 1 200px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start">` +
+          ['thumb-night', 'thumb-interior', 'thumb-menu'].map((t) => `<div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${t}.webp" type="image/webp"><img src="photos/${t}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div>`).join('') +
+        `</div></div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hant">鄭州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+      `</div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">` +
+        [['specimen-menu-us', 'US menu board'], ['specimen-menu-china', 'Menu board in China'], ['specimen-sign', 'Bilingual sign'], ['specimen-cup', 'Takeaway cup']].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">Fig. ${i + 1}. ${cap}</figcaption></figure>`).join('') +
+      `</div>` +
+    `</section>` +
     (comp.blurb ? `<section><h2>About</h2><p class="lead">${esc(comp.blurb)}</p>` +
       `<dl class="kv">` +
         (comp.first_outlet ? `<dt>First US store</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
