@@ -50,6 +50,13 @@
   for (var i = 0; i < olds.length; i++) olds[i].style.display = 'none';
   document.body.insertBefore(header, document.body.firstChild);
 
+  // The home page carries its own hero search, and the header Search button there only focuses it —
+  // a duplicate. Hide the header button wherever a hero search exists; ⌘K still focuses the hero.
+  if (document.getElementById('hero-search')) {
+    var dupBtn = header.querySelector('#cfc-searchbtn');
+    if (dupBtn) dupBtn.style.display = 'none';
+  }
+
   // Tablet account menu
   var acctBtn = header.querySelector('.accticon'), acctMenu = header.querySelector('.acctmenu');
   acctBtn.addEventListener('click', function (e) {
