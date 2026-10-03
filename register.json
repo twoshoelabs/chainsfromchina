@@ -6696,13 +6696,13 @@
     {
       "chain": "moge",
       "market": "JP",
-      "status": "present",
+      "status": "exited",
       "locations": null,
       "first_opened": null,
       "precision": null,
       "confidence": "low",
       "reviewed": "2026-10-03",
-      "note": "Operated via tapioka.co.jp; a contracting presence — the Harajuku outlet (愿茶 原宿店, Jingūmae, Shibuya) is now permanently closed and the Osaka Nipponbashi outlet is temporarily closed (Google, Oct 2026). Kept as present on the strength of the temporarily-closed Osaka shop; re-check.",
+      "note": "Operated via tapioka.co.jp, but both known outlets are now closed — the Harajuku shop (愿茶 原宿店, Jingūmae, Shibuya) permanently and the Osaka Nipponbashi shop temporarily (Google, Oct 2026). Treated as exited until an outlet reopens.",
       "sources": [
         "https://tabelog.com/en/tokyo/A1306/A130601/13241428/",
         "https://www.tapioka.co.jp/"
