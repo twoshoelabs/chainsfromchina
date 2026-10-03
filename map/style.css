@@ -1,29 +1,18 @@
 :root{
-  color-scheme: light dark;
-  /* Editorial "newsprint" identity: warm paper, near-black ink, one teal accent. */
-  --paper:#F4F1EA; --surface:#FBFAF6; --band:#EBE6DB; --ink:#17181A; --ink-2:#3D3A34; --muted:#5E5A52;
-  --rule:#CFC9BC; --rule-2:#D9D3C6; --land:#E6E1D5; --land-line:#C4BDAD;
-  --accent:#1F5C58; --accent-ink:#123C39; --open:#2C6F66; --soon:#8A5A12; --closed:#9A3B2E;
-  --mixue:#C94A5A; --chagee:#2E6B4F; --luckin:#2B5C9E; --miniso:#5B4B9A;
-  --popmart:#C07A2C; --haidilao:#9A3B2E; --other:#C07A2C;
-  /* Choropleth ramp: one teal hue, four steps. Lightness carries the count, so it survives
-     greyscale printing and the common forms of colour blindness. */
-  --c0:#DCE8E4; --c1:#A7CAC2; --c2:#62A095; --c3:#2C6F66;
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --display:"Fraunces","Newsreader",Georgia,"Times New Roman",serif;
-  --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --hans:"Noto Serif SC","Songti SC",serif;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    /* A dark counterpart to the paper theme — warm charcoal, not blue-grey. */
-    --paper:#17181A; --surface:#1F2020; --band:#232421; --ink:#EDEAE0; --ink-2:#C4BEB0; --muted:#918B7C;
-    --rule:#34342F; --rule-2:#3C3B34; --land:#26261F; --land-line:#3A392F;
-    --accent:#5FB0A2; --accent-ink:#8FCFC3; --open:#5FB0A2; --soon:#D6A44A; --closed:#D67662;
-    --mixue:#E07484; --chagee:#5AAE8A; --luckin:#7C9DDD; --miniso:#9B87CE;
-    --popmart:#D8A05C; --haidilao:#D67662; --other:#D8A05C;
-    --c0:#2A3F3B; --c1:#365E56; --c2:#43897C; --c3:#5FB0A2;
-  }
+  color-scheme: light;
+  /* Oct 2026 newspaper redesign: cool pale-grey ground, near-black ink, one brick-red accent. */
+  --paper:#E3E5E1; --surface:#E3E5E1; --band:#D7DAD5; --ink:#0E0F0E; --ink-2:#2E302D; --muted:#4F524E;
+  --rule:#0E0F0E; --rule-2:#C4C7C2; --land:#EDEFEB; --land-line:#C4C7C2;
+  --accent:#C94A35; --accent-ink:#B8301C; --open:#0E0F0E; --soon:#B8301C; --closed:#B8301C;
+  --mixue:#C94A35; --chagee:#6E716C; --luckin:#4F524E; --miniso:#2E302D;
+  --popmart:#A3A6A1; --haidilao:#6E716C; --other:#A3A6A1;
+  /* Choropleth ramp: one hue — grey to ink. Lightness carries the count. */
+  --c0:#D7DAD5; --c1:#A3A6A1; --c2:#6E716C; --c3:#0E0F0E;
+  --serif:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --display:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --cond:'Archivo','Helvetica Neue',sans-serif;
+  --hans:'Noto Serif SC',serif;
 }
 *{box-sizing:border-box}
 body{
@@ -35,7 +24,7 @@ header{padding:32px 24px 10px; max-width:1240px; margin:0 auto}
 h1{margin:0; font-family:var(--serif); font-weight:500; font-size:44px; line-height:1.02; letter-spacing:-.02em}
 .sub{margin:12px 0 0; color:var(--ink-2); font-size:17px; line-height:1.5; max-width:64ch}
 @media (max-width:620px){ h1{font-size:32px} }
-.wrap{display:flex; gap:24px; padding:16px 24px 48px; max-width:1240px; margin:0 auto; align-items:flex-start}
+.wrap{display:flex; gap:24px; padding:16px clamp(16px,3vw,44px) 48px; max-width:1440px; margin:0 auto; align-items:flex-start}
 main{flex:1 1 auto; min-width:0}
 aside{flex:0 0 300px}
 @media (max-width:900px){ .wrap{flex-direction:column} aside{flex:1 1 auto; width:100%} }
@@ -409,13 +398,12 @@ ul.uslist b{color:var(--ink)}
    confidence, but the grammar of a printed page rather than a dashboard.
    ============================================================================ */
 header{
-  --h-ink:#F4F0E6; --h-dim:#A29A88; --h-accent:#5FB4A4; --h-line:rgba(244,240,230,.16);
-  background:#181510;                        /* flat warm ink — no gradient */
-  color:var(--h-ink);
-  max-width:none; margin:0; padding:38px 24px 46px;
-  border-bottom:2px solid var(--h-accent);
+  background:var(--ground);
+  color:var(--ink);
+  max-width:1440px; margin:0 auto; padding:26px clamp(16px,3vw,44px) 10px;
+  border-bottom:0;
 }
-header > *{max-width:1240px; margin-left:auto; margin-right:auto}
+header > *{max-width:none; margin-left:0; margin-right:0}
 
 /* Masthead sits inside the flat nameplate. */
 .masthead{border-bottom:1px solid var(--h-line); padding-bottom:16px; margin-bottom:30px}
@@ -541,3 +529,11 @@ aside h2, .usbox h2{font-weight:600; letter-spacing:.08em}
 
 /* "US since" note in the Chains collected table rows. */
 .csince{font-size:11.5px; color:var(--muted); letter-spacing:.02em}
+
+/* ---- Oct 2026 redesign flatten: square corners, no shadows, brick accent -------------------
+   (Dots and rings keep their explicit border-radius:50% in the rules above.) */
+.chip, figure, .tt, .modes, .modebtn, .legend .sw, .badge, .pill,
+table.reg th, table.reg td, button, input, select, textarea, aside, .card, .panel { border-radius:0; }
+.tt, .chip, figure, .card, .panel, aside, .modes { box-shadow:none; }
+h1 { font-weight:700; letter-spacing:-0.02em; }
+a { color:var(--ink); } a:hover { color:var(--accent-ink); }

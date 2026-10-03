@@ -8,13 +8,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=10">
+<link rel="stylesheet" href="site.css?v=11">
 <style>
   :root {
-    --bg:#f3f0e8; --ink:#1a1916; --dim:#6b6456; --faint:#908874; --rule:#d3ccbe; --card:#fbfaf6;
-    --dark:#181714; --dark-ink:#f3f0e8; --teal:#2f7a6e; --amber:#a0660f;
-    --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --zh:"Noto Serif SC",serif;
+    --bg:#E3E5E1; --ink:#0E0F0E; --dim:#4F524E; --faint:#6E716C; --rule:#C4C7C2; --card:#E3E5E1;
+    --dark:#E3E5E1; --dark-ink:#0E0F0E; --teal:#C94A35; --amber:#B8301C;
+    --serif:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif; --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'Schibsted Grotesk',sans-serif; --cond:'Archivo','Helvetica Neue',sans-serif; --zh:'Noto Serif SC',serif;
     --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
     --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
     --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;
@@ -25,7 +25,7 @@
   .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
   .phero { background: var(--dark); color: var(--dark-ink); padding: 40px 0 36px; }
-  .phero .eyebrow { font: 500 .82rem/1.4 var(--sans); letter-spacing: 0; color: #7CC0B2; margin: 0 0 14px; }
+  .phero .eyebrow { font: 600 .82rem/1.4 var(--sans); letter-spacing: 0; color: #B8301C; margin: 0 0 14px; }
   .phero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem,5vw,3.4rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 14px; }
   .phero p { color: #b3ac9c; max-width: 56ch; margin: 0 0 24px; }
   .psum { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
@@ -87,9 +87,19 @@
   .hidden { display: none !important; }
   .emptymsg { color: var(--dim); padding: 24px 2px; }
 
-  footer.sitefoot { background: var(--dark); color: #b3ac9c; padding: 40px 0; margin-top: 20px; font-size: .9rem; }
-  footer.sitefoot b { color: var(--dark-ink); }
+  footer.sitefoot { background: var(--bg); color: var(--dim); padding: 28px 0 40px; margin-top: 20px;
+    font-size: .9rem; border-top: 3px solid var(--ink); }
+  footer.sitefoot b { color: var(--ink); }
   @media (max-width: 700px) { .psum { gap: 20px; } }
+
+  /* Oct 2026 redesign: Archivo-condensed numerals, square corners, flat surfaces */
+  .cfig, .psum .s b { font-family: var(--cond); font-stretch: 62%; font-weight: 800; letter-spacing: -0.02em; }
+  .csearch input, .segmented, .sortsel, .secchip, .ccard, .cbadge, .frtag, .srcfilter,
+    input, button, select { border-radius: 0; }
+  .ccard { box-shadow: none; }
+  .phero { padding: 26px 0 30px; }
+  .frtag.fdd { background: var(--teal); color: #fff; }
+  .cbadge.counted { color: var(--teal); border-color: var(--teal); }
 </style>
 </head>
 <body data-page="chains">
@@ -135,7 +145,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=6"></script>
+<script src="site.js?v=7"></script>
 <script>
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
   grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',

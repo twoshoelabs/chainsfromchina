@@ -11,66 +11,56 @@
  */
 (function () {
   var PAGES = [
-    ['map', 'index.html', 'US map'],
+    ['map', 'index.html', 'Map'],
     ['chains', 'intro.html', 'Chains'],
     ['cotenancy', 'centers.html', 'Co-tenancy'],
     ['global', 'register.html', 'Global'],
+    ['method', 'classic.html', 'Method'],
+    ['pro', 'index.html#pro', 'Pro'],
   ];
   var cur = (document.body.getAttribute('data-page') || '').trim();
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-  // ---- Header ------------------------------------------------------------------------------
+  // ---- Header: newspaper nameplate (shared with the home page) ------------------------------
   var nav = PAGES.map(function (p) {
     return '<a href="' + p[1] + '"' + (p[0] === cur ? ' aria-current="page"' : '') + '>' + p[2] + '</a>';
   }).join('');
 
-  var searchIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
   var header = document.createElement('header');
   header.className = 'site-nav';
   header.innerHTML =
-    '<a class="wm" href="index.html">Chains From China</a>' +
-    '<span class="beta" title="In beta — coverage is still being built and figures may change.">Beta</span>' +
-    '<nav class="primary" aria-label="Primary">' + nav + '</nav>' +
-    '<div class="right">' +
-      '<button type="button" class="searchbtn" id="cfc-searchbtn" aria-label="Search">' +
-        searchIcon + '<span class="lbl">Search</span><kbd>⌘K</kbd></button>' +
-      '<a class="txt submit" href="contribute.html">Submit a sighting</a>' +
-      '<a class="txt signin" href="index.html#pro">Sign in</a>' +
-      '<div class="acct" id="cfc-acct">' +
-        '<button type="button" class="accticon" aria-label="Account menu" aria-expanded="false">' +
-          '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></button>' +
-        '<div class="acctmenu" hidden><a href="contribute.html">Submit a sighting</a><a href="index.html#pro">Sign in</a></div>' +
-      '</div>' +
-      '<a class="pro" href="index.html#pro">Pro</a>' +
+    '<div class="np-issue"><span id="cfc-issue">The daily census of China-origin retail in the United States</span>' +
+      '<span class="np-sub">The daily census of China-origin retail in the United States</span></div>' +
+    '<div class="np-row">' +
+      '<a class="np-wm" href="index.html">' +
+        '<span class="np-mark">Chains From China</span>' +
+        '<span class="np-zh" lang="zh-Hant">中國連鎖在美門市</span></a>' +
+      '<nav class="np-nav" aria-label="Primary">' + nav + '</nav>' +
     '</div>';
 
   var olds = document.querySelectorAll('.masthead');
   for (var i = 0; i < olds.length; i++) olds[i].style.display = 'none';
   document.body.insertBefore(header, document.body.firstChild);
 
-  // The home page carries its own hero search, and the header Search button there only focuses it —
-  // a duplicate. Hide the header button wherever a hero search exists; ⌘K still focuses the hero.
-  if (document.getElementById('hero-search')) {
-    var dupBtn = header.querySelector('#cfc-searchbtn');
-    if (dupBtn) dupBtn.style.display = 'none';
-  }
+  // Search icon, reused by the ⌘K overlay below (the nameplate itself carries no search button).
+  var searchIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
 
-  // Tablet account menu
-  var acctBtn = header.querySelector('.accticon'), acctMenu = header.querySelector('.acctmenu');
-  acctBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var open = acctMenu.hidden; acctMenu.hidden = !open; acctBtn.setAttribute('aria-expanded', String(open));
-  });
-  document.addEventListener('click', function () { acctMenu.hidden = true; acctBtn.setAttribute('aria-expanded', 'false'); });
-
-  // ---- Census eyebrow + meta -----------------------------------------------------------------
+  // ---- Census meta: fill the nameplate issue line + any [data-census] eyebrow -----------------
   fetch('data/meta.json').then(function (r) { return r.json(); }).then(function (m) {
     if (!m) return;
-    var d = m.last_collected, label = d;
-    try { label = new Date(d + 'T00:00:00').toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) {}
-    var text = 'Daily census · Updated ' + label + ', 06:00 UTC' + (m.days_collected ? ' · Day ' + m.days_collected : '');
+    var d = m.last_collected, shortLabel = d, issue = '';
+    try {
+      var dt = new Date(d + 'T00:00:00');
+      shortLabel = dt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+      issue = 'No. ' + (m.days_collected || '—') + ' · ' +
+        dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
+        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear() + ' · counted 06:00 UTC';
+    } catch (e) {}
+    var issueEl = document.getElementById('cfc-issue');
+    if (issueEl && issue) issueEl.textContent = issue;
+    var text = 'Daily census · Updated ' + shortLabel + ', 06:00 UTC' + (m.days_collected ? ' · Day ' + m.days_collected : '');
     document.querySelectorAll('[data-census]').forEach(function (el) { el.textContent = text; });
   }).catch(function () {});
 
@@ -175,10 +165,10 @@
   }
   function closeModal() { if (overlay) overlay.hidden = true; }
 
-  document.getElementById('cfc-searchbtn').addEventListener('click', openModal);
+  var sbtn = document.getElementById('cfc-searchbtn');
+  if (sbtn) sbtn.addEventListener('click', openModal);   // nameplate has no button; ⌘K still opens it
   document.addEventListener('keydown', function (e) {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-      if (heroSearch() && document.getElementById('cfc-searchbtn')) { /* home: atlas.js handles ⌘K; still focus */ }
       e.preventDefault(); openModal();
     }
   });
