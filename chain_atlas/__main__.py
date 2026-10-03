@@ -110,14 +110,19 @@ def main(argv=None):
 
     if cmd == "export":
         from .mapdata import export
-        from . import register, centers, geojson, db
+        from . import register, centers, geojson, db, demographics
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
         con = db.connect()
         print(export(out), "->", out)
         print(register.export(out), "-> register.json")
         print(centers.export(con, out), "-> centers.json")
         print(geojson.export(con, out), "-> stores.geojson")
+        print(demographics.export(out), "-> demographics.json")
         return 0
+
+    if cmd == "demographics":
+        from . import demographics
+        return demographics.run()
 
     if cmd == "probe":
         from .adapters import by_id
@@ -143,6 +148,7 @@ def main(argv=None):
     print("  uspto                                           weekly USPTO trademark pipeline signals")
     print("  centers [--min N]                               co-tenancy clusters (>=N China brands)")
     print("  export [--out DIR]                              write map/data/*.json")
+    print("  demographics                                    DERIVED/MODELED: tract %Asian, metro, campus aggregates")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")

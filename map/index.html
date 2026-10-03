@@ -161,6 +161,35 @@
   .sectortable .snum { text-align: right; font-family: var(--mono); font-weight: 500; color: var(--ink);
     white-space: nowrap; width: 6rem; }
 
+  /* ---------- Demographics (derived / modeled): rule-divided stat columns ---------- */
+  .demostats { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 26px;
+    border-top: 2px solid var(--ink); }
+  .dcol { border-left: 1px solid var(--rule); padding: 24px 30px 4px; }
+  .dcol:first-child { border-left: 0; padding-left: 0; }
+  .dcol:last-child { padding-right: 0; }
+  .dcol .dbig { font: 600 2.5rem/1 var(--serif); color: var(--ink); display: flex; align-items: baseline; gap: 10px; }
+  .dcol .dbig .dx { font: 500 .78rem var(--mono); color: var(--accent); letter-spacing: .02em; }
+  .dcol .dlab { font: 600 .7rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); margin: 12px 0 14px; }
+  .dcol .dlist { list-style: none; margin: 0; padding: 0; }
+  .dcol .dlist li { font-size: .9rem; color: var(--dim); line-height: 1.5; padding: 5px 0;
+    border-top: 1px solid var(--rule); }
+  .dcol .dlist li:first-child { border-top: 0; }
+  .dcol .dlist li b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
+  .dmetros { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+  .dmetros .dmlab { font: 600 .7rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); margin-right: 6px; }
+  .dmetros .dm { font-size: .85rem; color: var(--ink); border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 11px; }
+  .dmetros .dm b { font-family: var(--mono); color: var(--accent); }
+  .demo-method { margin-top: 24px; max-width: 70ch; font-size: .82rem; color: var(--faint);
+    border-left: 2px solid var(--pro-chip); padding-left: 12px; }
+  @media (max-width: 760px) {
+    .demostats { grid-template-columns: 1fr; }
+    .dcol { border-left: 0; border-top: 1px solid var(--rule); padding: 20px 0 4px; }
+    .dcol:first-child { border-top: 0; }
+  }
+
   /* ---------- Nav index: rule-divided columns, no boxes (editorial, not feature-cards) ---------- */
   .navcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); }
   .ncard { background: none; border: 0; border-left: 1px solid var(--rule); border-radius: 0;
@@ -364,6 +393,18 @@
 </section>
 </div>
 
+<!-- ===================== DEMOGRAPHICS (DERIVED / MODELED) ===================== -->
+<div class="wrap">
+<section id="demographics" hidden>
+  <p class="kicker">Where they cluster <span class="proflag">Modeled</span></p>
+  <h2>The neighborhoods China's chains choose</h2>
+  <p class="note" id="demo-sub"></p>
+  <div class="demostats" id="demostats"></div>
+  <div class="dmetros" id="demometros"></div>
+  <p class="demo-method" id="demo-method"></p>
+</section>
+</div>
+
 <!-- ===================== NAV CARDS ===================== -->
 <div class="wrap">
 <section id="explore">
@@ -554,6 +595,49 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
         document.getElementById('nc-cotenancy').textContent = fmt((centers.co_tenancy||[]).length); } catch(e){}
   try { reg = await fetch('data/register.json').then(r=>r.json());
         document.getElementById('nc-global').textContent = fmt(Object.keys(reg.markets||{}).length); } catch(e){}
+
+  // Demographics (derived / modeled). The section stays hidden unless the snapshot is present,
+  // so the measured part of the page never depends on this optional, slow-to-build file.
+  try {
+    const dm = await fetch('data/demographics.json').then(r=>r.json());
+    const a = dm.asian_density, me = dm.metro, u = dm.university;
+    const ratio = a.median_tract_pct / dm.national_pct_asian;
+    document.getElementById('demo-sub').textContent =
+      `Across ${fmt(dm.outlets_analyzed)} measured storefronts, the typical outlet sits in a census tract ` +
+      `about ${ratio.toFixed(1)}× as Asian as the country as a whole — and a majority are in tracts with at ` +
+      `least double the national share. They are almost entirely urban, metro-core and campus-adjacent.`;
+    document.getElementById('demostats').innerHTML =
+      `<div class="dcol">` +
+        `<div class="dbig">${a.median_tract_pct}%<span class="dx">${ratio.toFixed(1)}× national</span></div>` +
+        `<div class="dlab">Median host-tract Asian share</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${a.ge_2x}%</b> in a tract ≥2× the national share (${dm.national_pct_asian}%)</li>` +
+          `<li><b>${a.ge_5x}%</b> ≥5× national · <b>${a.ge_10x}%</b> ≥10×</li>` +
+          `<li><b>${a.ge_national}%</b> above the national share</li>` +
+        `</ul></div>` +
+      `<div class="dcol">` +
+        `<div class="dbig">${me.in_csa_pct}%<span class="dx">in a major metro</span></div>` +
+        `<div class="dlab">Metro &amp; urban setting</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${me.urban_pct}%</b> inside a Census urban area</li>` +
+          `<li><b>${me.in_csa_pct}%</b> in a combined statistical area</li>` +
+        `</ul></div>` +
+      `<div class="dcol">` +
+        `<div class="dbig">${u.within_1mi}%<span class="dx">within 1 mile</span></div>` +
+        `<div class="dlab">Near a college campus</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${u.within_half_mi}%</b> within ½ mile of a campus</li>` +
+          `<li><b>${u.within_3mi}%</b> within 3 miles · median ${u.median_miles} mi</li>` +
+        `</ul></div>`;
+    const metros = (me.top || []).slice(0, 8).map(m =>
+      `<span class="dm">${m.name.split('-')[0]} <b>${m.n}</b></span>`).join('');
+    document.getElementById('demometros').innerHTML = `<span class="dmlab">Top metros</span>` + metros;
+    document.getElementById('demo-method').textContent =
+      `Derived, not measured — and kept out of the outlet count. ${dm.method} ` +
+      `Coverage: tract Asian share resolved for ${fmt(dm.with_tract_asian)} of ${fmt(dm.outlets_analyzed)} ` +
+      `outlets. Snapshot ${dm.generated}.`;
+    document.getElementById('demographics').hidden = false;
+  } catch (e) { /* no snapshot — section stays hidden */ }
 })();
 
 // The grouped search (Places / Shopping centers / Chains) and the place panel are wired in atlas.js,
