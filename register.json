@@ -6640,9 +6640,9 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "medium",
+      "confidence": "high",
       "reviewed": "2026-10-03",
-      "note": "First-party site mogetee.nl lists three operating Dutch stores — Maastricht (Markt 1), Eindhoven (Jan van Lieshoutstraat) and Nijmegen (Augustijnenstraat) — with a fourth, Beek (Makado Mall), marked opening soon. An active .nl brand site and Instagram (@mogetee.nl) back the presence.",
+      "note": "Three operating Dutch storefronts, each confirmed open on its own Google listing — Nijmegen (Augustijnenstraat 40A, 4.5★/387), Eindhoven (Jan van Lieshoutstraat 12, 4.2★/434) and Maastricht (Markt 1, 4.3★/160) — plus a Beek (Makado Mall) outlet marked opening soon on the first-party site mogetee.nl. Active .nl site and Instagram (@mogetee.nl).",
       "sources": [
         "https://www.mogetee.nl/stores",
         "https://www.instagram.com/mogetee.nl/"
@@ -6734,6 +6734,21 @@
       "note": "Operated a Bến Thành-area outlet (29 Đ. Hải Triều, District 1, HCMC), now permanently closed (Google, Oct 2026). An unverified Uber Eats listing (moge-tee-tmc) may indicate a remaining outlet; treated as exited pending confirmation — re-check.",
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Moge+Tee+29+H%E1%BA%A3i+Tri%E1%BB%81u+Ho+Chi+Minh"
+      ]
+    },
+    {
+      "chain": "moge",
+      "market": "BE",
+      "status": "present",
+      "locations": 1,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-03",
+      "note": "A Liège outlet at Rue de la Régence 19 (4000 Liège), open per its Google listing (4.3★, 114 reviews, Oct 2026); likely run by the same Benelux operator as the Dutch stores. No first-party Belgian site found.",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=MOGE+TEE+Rue+de+la+R%C3%A9gence+19+Li%C3%A8ge"
       ]
     }
   ]
