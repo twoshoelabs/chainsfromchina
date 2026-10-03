@@ -164,6 +164,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const outlets = open + hand;
   const sector = (feats[0] && feats[0].properties.sector) || m.format || 'other';
   const states = new Set(feats.filter(f => f.properties.state).map(f => f.properties.state));
+  // Unstaffed machines (e.g. POP MART ROBO SHOPs) are tracked in the data but are not storefronts,
+  // so they are shown as a separate figure and never folded into the outlet count.
+  const robos = (sj.stores || []).filter(s => s.chain === id && s.format === 'vending_robo' && s.status === 'active').length;
 
   // Abroad: register entries for this chain in markets other than the US. "Markets reached" counts
   // only markets where the chain is actually PRESENT — never a cell marked "–" (searched, none
@@ -232,8 +235,11 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       (soon ? `<div class="s"><b class="soon">+${soon}</b><span>announced</span></div>` : '') +
       `<div class="s"><b>${states.size}</b><span>state${states.size === 1 ? '' : 's'}</span></div>` +
       `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
+      (robos ? `<div class="s"><b>${robos}</b><span>roboshops (not counted)</span></div>` : '') +
       firstStore +
     `</div>` +
+    (robos ? `<p class="frline"><b>Roboshops:</b> ${robos} unstaffed vending machine${robos === 1 ? '' : 's'} ` +
+      `are tracked in the data but counted separately from staffed storefronts, and are not shown on the map.</p>` : '') +
     (franchiseUS ? `<p class="frline"><b>Franchising:</b> ` +
       (franchiseFDD ? 'open to a qualifying US franchisee, backed by a registered US FDD.'
                     : 'open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +

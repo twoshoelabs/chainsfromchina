@@ -48,6 +48,12 @@ def main():
     check("two roboshops at one address stay apart",
           len({by_code["R3S-E950"].store_code, by_code["R3S-E850"].store_code}), 2)
 
+    # type 1 is a staffed store, type 2 a ROBO SHOP vending machine. The format marks the machine
+    # so downstream counts keep it out of the storefront total while still tracking it.
+    check("a staffed store is 'standard'", by_code["POSUS25"].format, "standard")
+    check("a ROBO SHOP is 'vending_robo'", by_code["R3S-E950"].format, "vending_robo")
+    check("...and so is the second machine", by_code["R3S-E850"].format, "vending_robo")
+
     # The feed calls this one American. The coordinate is Mississauga, Ontario. parse() keeps it —
     # filtering by geography is normalise()'s job — but no US state may be invented for it.
     mi = by_code["R2Y-C712"]

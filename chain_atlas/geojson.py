@@ -90,7 +90,10 @@ def build(con, d: dict | None = None) -> dict:
     feats = []
     for r in con.execute(
         "SELECT chain_id, name, lat, lon, addr_norm, addr_raw, city, state, zip, status FROM stores "
-        "WHERE country='US' AND lat IS NOT NULL AND status IN ('active','pre_opening')"
+        "WHERE country='US' AND lat IS NOT NULL AND status IN ('active','pre_opening') "
+        # Unstaffed machines are not storefronts: kept in the data (stores.json), but off the map
+        # and out of every count. POP MART ROBO SHOPs are the case this exists for.
+        "AND COALESCE(format,'')<>'vending_robo'"
     ).fetchall():
         bm = meta.get(r["chain_id"], {})
         feats.append(_feature(r["lon"], r["lat"], {

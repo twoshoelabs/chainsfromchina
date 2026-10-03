@@ -47,6 +47,7 @@ import re
 
 from .base import Adapter, StoreRecord
 from .. import capture
+from ..identity import norm_addr
 from ..usaddr import split_tail
 
 TOKENS_URL = "https://www.miniso-us.com/_api/v1/access-tokens"
@@ -144,7 +145,7 @@ class MinisoAdapter(Adapter):
             for cluster in _split_far(members):
                 out.append(self._record(key if len(members) == len(cluster) else
                                         f"wix:{cluster[0]['_id']}", cluster))
-        return out
+        return _merge_same_store(out)
 
     def _record(self, key, cluster) -> StoreRecord:
         # Prefer the row that can be placed on a map, then the most recently created: the
@@ -169,6 +170,67 @@ class MinisoAdapter(Adapter):
             trading=(kind != "Coming Soon"),
             flags={"store_type": kind, "code": best.get("storeCode"),
                    "merged_rows": len(cluster) if len(cluster) > 1 else None})
+
+
+_SUITE_MARK = {"STE", "UNIT", "SPC", "BLDG", "FL", "RM"}
+_MERGE_KM = 0.06  # 60 m: a mall centroid and its storefront, or an address reworded between imports
+
+
+def _suite_tokens(norm):
+    toks = norm.split()
+    return {toks[i + 1] for i, w in enumerate(toks[:-1]) if w in _SUITE_MARK}
+
+
+def _same_store(a, b) -> bool:
+    """One MINISO shop seen twice: same normalised street address, or within 60 m with no
+    conflicting suite. A conflict is two non-empty suite sets that share nothing (STE 100 vs
+    STE 200 — two real counters); a suite on one side only, or shared, is the same door."""
+    an, bn = norm_addr(a.addr_raw), norm_addr(b.addr_raw)
+    if an and an == bn:
+        return True
+    if a.lat is None or b.lat is None:
+        return False
+    d = _km((a.lat, a.lon), (b.lat, b.lon))
+    if d is None or d > _MERGE_KM:
+        return False
+    sa, sb = _suite_tokens(an), _suite_tokens(bn)
+    return not (sa and sb and sa.isdisjoint(sb))
+
+
+def _merge_same_store(records):
+    """
+    name:      _merge_same_store
+    purpose:   Fold two rows that are one physical MINISO store into a single record.
+    arguments: records — StoreRecords from parse()
+    returns:   list[StoreRecord]
+    effects:   None
+    other:     The Wix CMS carries a handful of shops twice — 320 W Kimberly Rd under both USY5
+               and USM1, 490 Broadway once coded and once as a bare wix row — and the identity key
+               (storeCode, else _id) cannot join them, so they survived as twin stores and
+               inflated the count. MINISO runs no roboshop or kiosk estate, so unlike POP MART two
+               nearby rows are never two real points; proximity is safe here. The kept record is
+               the one that can be placed, then the coded one, then the one trading, then (for a
+               stable, repeatable choice) its store_code, so the survivor does not flap runs.
+    """
+    def rank(r):
+        return (r.lat is not None,
+                bool(_REAL_CODE.match((r.store_code or "").split(":")[0])),
+                r.trading,
+                (r.store_code or "~"))
+
+    clusters: list[list] = []
+    for r in records:
+        for c in clusters:
+            if _same_store(c[0], r):
+                c.append(r)
+                break
+        else:
+            clusters.append([r])
+    out = []
+    for c in clusters:
+        c.sort(key=rank, reverse=True)
+        out.append(c[0])
+    return out
 
 
 def _split_far(members):

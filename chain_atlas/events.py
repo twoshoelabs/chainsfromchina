@@ -82,13 +82,13 @@ def diff(con, chain_id: str, obs_date: str, closure_n_days: int, baseline: bool)
             status = "active" if trading else "pre_opening"
             cur = con.execute(
                 "INSERT INTO stores (chain_id,country,store_key,store_code,name,addr_raw,addr_norm,"
-                "city,state,zip,lat,lon,coord_src,cell100,first_seen,last_seen,opened_on,status)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "city,state,zip,lat,lon,coord_src,cell100,first_seen,last_seen,opened_on,status,format)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 (chain_id, country, key, o["store_code"], o["name"], o["addr_raw"], o["addr_norm"],
                  o["city"], o["state"], o["zip"], o["lat"], o["lon"],
                  "published" if o["lat"] is not None else None,
                  _cell(o["lat"], o["lon"], country), obs_date, obs_date,
-                 obs_date if trading else None, status))
+                 obs_date if trading else None, status, o["format"]))
             sid = cur.lastrowid
             if baseline:
                 bump("baseline")
@@ -106,9 +106,11 @@ def diff(con, chain_id: str, obs_date: str, closure_n_days: int, baseline: bool)
         moved = haversine_m(prev["lat"], prev["lon"], o["lat"], o["lon"])
         con.execute(
             "UPDATE stores SET store_code=?,name=?,addr_raw=?,addr_norm=?,city=?,state=?,zip=?,"
-            "lat=COALESCE(?,lat),lon=COALESCE(?,lon),cell100=COALESCE(?,cell100),last_seen=? WHERE store_id=?",
+            "lat=COALESCE(?,lat),lon=COALESCE(?,lon),cell100=COALESCE(?,cell100),"
+            "format=COALESCE(?,format),last_seen=? WHERE store_id=?",
             (o["store_code"], o["name"], o["addr_raw"], o["addr_norm"], o["city"], o["state"],
-             o["zip"], o["lat"], o["lon"], _cell(o["lat"], o["lon"], country), obs_date, sid))
+             o["zip"], o["lat"], o["lon"], _cell(o["lat"], o["lon"], country),
+             o["format"], obs_date, sid))
 
         if trading and prev["status"] == "pre_opening":
             # The precise case: announced, then seen trading. This is a real opening date.

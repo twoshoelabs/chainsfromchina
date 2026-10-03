@@ -93,6 +93,10 @@ class PopMartUSAdapter(Adapter):
                 # Every US row carries status 1 today. A different value is not assumed to mean
                 # "closed" — it means the field needs looking at before it is trusted.
                 trading=(s.get("status") == 1),
+                # type 1 is a staffed store; type 2 is a ROBO SHOP — an unstaffed vending machine,
+                # often two or three to a mall. Machines are tracked but not counted as storefronts,
+                # so the format marks them for every downstream view.
+                format=("vending_robo" if s.get("type") == 2 else "standard"),
                 flags={"phone": s.get("storeTEL"), "hours": s.get("openingTimeDesc"),
                        "store_type": s.get("type"), "status": s.get("status")}))
         return out

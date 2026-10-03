@@ -64,6 +64,33 @@ def main():
     check("keys are unique", len({r.store_code for r in recs}), len(recs))
     check("all trading (no Coming Soon in fixture)", all(r.trading for r in recs), True)
 
+    # Cross-key de-duplication: the CMS carries a few shops as two rows the identity key cannot
+    # join — two different real codes, or one coded and one bare wix row — at one address. These
+    # are the real double-counts the site showed; _merge_same_store folds them, but must never
+    # merge two genuinely distinct counters that differ by suite.
+    from chain_atlas.adapters.base import StoreRecord
+    from chain_atlas.adapters.miniso import _merge_same_store
+
+    def R(code, addr, lat, lon):
+        return StoreRecord(store_code=code, name="MINISO", addr_raw=addr, lat=lat, lon=lon)
+
+    two_codes = _merge_same_store([
+        R("USY5:davenport", "320 W Kimberly Rd, Davenport, IA 52806 USA", 41.56088, -90.57361),
+        R("USM1:davenport", "320 W Kimberly Rd, Davenport, IA 52806", 41.56088, -90.57361)])
+    check("two codes at one address merge", len(two_codes), 1)
+    check("...keeping a single coded record", two_codes[0].store_code, "USY5:davenport")
+
+    coded_and_wix = _merge_same_store([
+        R("US65:new york", "490 Broadway, New York, NY 10012", 40.72193, -73.99957),
+        R("wix:abc", "490 Broadway, New York, NY 10012", 40.72193, -73.99957)])
+    check("coded + bare wix row at one address merge", len(coded_and_wix), 1)
+    check("...preferring the coded record", coded_and_wix[0].store_code, "US65:new york")
+
+    two_suites = _merge_same_store([
+        R("USAA:mall", "100 Mall Dr Ste 100, Anytown, CA 90000", 34.0, -118.0),
+        R("USBB:mall", "100 Mall Dr Ste 200, Anytown, CA 90000", 34.00005, -118.00005)])
+    check("two suites at one mall stay two stores", len(two_suites), 2)
+
     print(f"\n{'ALL PASS' if not fails else 'FAILURES: ' + ', '.join(fails)}")
     return 1 if fails else 0
 

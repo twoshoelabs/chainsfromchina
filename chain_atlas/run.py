@@ -141,11 +141,11 @@ def run(chain_id: str | None = None, obs_date: str | None = None, force: bool = 
             for r in recs:
                 con.execute(
                     "INSERT OR IGNORE INTO observations (obs_date,chain_id,store_key,store_code,"
-                    "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed,run_id)"
-                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed,format,run_id)"
+                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (obs_date, a.chain_id, store_key(r), r.store_code, r.name, r.addr_raw,
                      norm_addr(r.addr_raw), r.city, r.state, r.zip, r.lat, r.lon,
-                     int(r.trading), int(r.temp_closed), run_id))
+                     int(r.trading), int(r.temp_closed), r.format, run_id))
 
             counts = diff(con, a.chain_id, obs_date, a.closure_n_days, baseline)
             con.execute("UPDATE runs SET finished=?,status='ok',n_records=?,delta=?,raw_path=?,"
@@ -205,11 +205,11 @@ def reparse(chain_id: str | None = None, obs_date: str | None = None) -> int:
         for rec in recs:
             con.execute(
                 "INSERT OR IGNORE INTO observations (obs_date,chain_id,store_key,store_code,"
-                "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "name,addr_raw,addr_norm,city,state,zip,lat,lon,trading,temp_closed,format)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 (obs_date, a.chain_id, store_key(rec), rec.store_code, rec.name, rec.addr_raw,
                  norm_addr(rec.addr_raw), rec.city, rec.state, rec.zip, rec.lat, rec.lon,
-                 int(rec.trading), int(rec.temp_closed)))
+                 int(rec.trading), int(rec.temp_closed), rec.format))
         # The roster carries fields derived from the observations, so it is rebuilt too. A
         # reparse of the baseline day stays a baseline: it must not invent openings.
         baseline = con.execute(

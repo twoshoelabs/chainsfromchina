@@ -94,6 +94,8 @@ CREATE TABLE IF NOT EXISTS observations (
     lon         REAL,
     trading     INTEGER NOT NULL DEFAULT 1,  -- 0 = listed but not yet open (announced)
     temp_closed INTEGER NOT NULL DEFAULT 0,
+    format      TEXT,                         -- per-store format when the adapter knows it
+                                              -- (e.g. 'vending_robo' for a POP MART ROBO SHOP)
     run_id      INTEGER,
     PRIMARY KEY (obs_date, chain_id, store_key)
 );
@@ -258,6 +260,10 @@ def _migrate(con):
         ("stores", "closed_on", "TEXT"),
         ("stores", "popup_start", "TEXT"),
         ("stores", "popup_end", "TEXT"),
+        # A per-store format the adapter can assign (e.g. POP MART tells a staffed store from a
+        # ROBO SHOP vending machine). Carried on the daily observation so the roster can keep it
+        # current, and so a machine is never counted as a storefront.
+        ("observations", "format", "TEXT"),
         # Phase 1 — provenance on events (= status_events) (§4.4)
         ("events", "source", "TEXT"),
         ("events", "source_url", "TEXT"),

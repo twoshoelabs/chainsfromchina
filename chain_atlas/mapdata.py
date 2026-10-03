@@ -74,11 +74,14 @@ _GRADUATE_M = 180.0
 
 
 def census_points(con) -> dict:
-    """{chain_id: [(lon, lat), ...]} for located, open or announced US census stores."""
+    """{chain_id: [(lon, lat), ...]} for located, open or announced US census storefronts.
+    Unstaffed machines (vending_robo) are excluded: a hand-verified storefront sighting must not
+    be retired just because a ROBO SHOP machine sits at the same mall."""
     out = {}
     for r in con.execute(
             "SELECT chain_id, lon, lat FROM stores WHERE country='US'"
-            " AND status IN ('active','pre_opening') AND lat IS NOT NULL AND lon IS NOT NULL"):
+            " AND status IN ('active','pre_opening') AND lat IS NOT NULL AND lon IS NOT NULL"
+            " AND COALESCE(format,'')<>'vending_robo'"):
         out.setdefault(r["chain_id"], []).append((r["lon"], r["lat"]))
     return out
 
@@ -107,12 +110,19 @@ def us_totals(con) -> dict:
                ('uncertain') sightings are held OUT: they wait in the submit-info queue until a
                human confirms them, so everything counted here is confirmed. Keep this the sole
                source of the total; pages read meta.totals rather than recomputing.
+               Unstaffed machines (format='vending_robo', e.g. POP MART ROBO SHOPs) are NOT
+               storefronts: they are kept in the data and reported as `roboshops`, but never added
+               to `open`/`outlets`.
     """
     from .sightings import geocoded as _sightings
     r = con.execute(
-        "SELECT SUM(status='active') o, SUM(status='pre_opening') p,"
-        " SUM(status='active' AND lat IS NOT NULL) og FROM stores WHERE country='US'").fetchone()
+        "SELECT SUM(status='active' AND COALESCE(format,'')<>'vending_robo') o,"
+        " SUM(status='pre_opening' AND COALESCE(format,'')<>'vending_robo') p,"
+        " SUM(status='active' AND lat IS NOT NULL AND COALESCE(format,'')<>'vending_robo') og,"
+        " SUM(status='active' AND format='vending_robo') robo"
+        " FROM stores WHERE country='US'").fetchone()
     open_, announced, open_mapped = r["o"] or 0, r["p"] or 0, r["og"] or 0
+    roboshops = r["robo"] or 0
     hand = hand_mapped = 0
     cpts = census_points(con)
     for s in _sightings(cache_only=True):
@@ -125,7 +135,8 @@ def us_totals(con) -> dict:
             hand_mapped += 1
     outlets, mapped = open_ + hand, open_mapped + hand_mapped
     return {"open": open_, "hand": hand, "announced": announced,
-            "outlets": outlets, "mapped": mapped, "unmapped": outlets - mapped}
+            "outlets": outlets, "mapped": mapped, "unmapped": outlets - mapped,
+            "roboshops": roboshops}
 
 
 def export(out_dir: Path) -> dict:
@@ -175,7 +186,9 @@ def export(out_dir: Path) -> dict:
     by_state, no_state = {}, 0
     for r in con.execute(
             "SELECT state, chain_id, status, COUNT(*) n FROM stores"
-            " WHERE status!='withdrawn' AND country='US' GROUP BY state, chain_id, status"):
+            " WHERE status!='withdrawn' AND country='US'"
+            " AND COALESCE(format,'')<>'vending_robo'"       # machines are not storefront counts
+            " GROUP BY state, chain_id, status"):
         if not r["state"]:
             no_state += r["n"]
             continue
@@ -189,7 +202,7 @@ def export(out_dir: Path) -> dict:
     stores, unlocated = [], {}
     for r in con.execute(
             "SELECT chain_id,store_key,name,addr_raw,city,state,zip,lat,lon,coord_src,status,"
-            "first_seen,last_seen,opened_on FROM stores"
+            "format,first_seen,last_seen,opened_on FROM stores"
             " WHERE status!='withdrawn' AND country='US'"):
         if r["lat"] is None or r["lon"] is None:
             unlocated[r["chain_id"]] = unlocated.get(r["chain_id"], 0) + 1
@@ -199,6 +212,8 @@ def export(out_dir: Path) -> dict:
             "city": r["city"], "state": r["state"],
             "lat": round(r["lat"], 6), "lon": round(r["lon"], 6),
             "coord_src": r["coord_src"],
+            # Machines stay in the data, tagged, so a consumer can tell a ROBO SHOP from a store.
+            "format": r["format"],
             "status": r["status"], "first_seen": r["first_seen"],
             "opened_on": r["opened_on"],
         })

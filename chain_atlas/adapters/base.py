@@ -22,6 +22,10 @@ class StoreRecord:
     lon: float | None = None
     trading: bool = True            # False = listed but not yet open ("coming soon")
     temp_closed: bool = False
+    # A per-store format when the adapter can tell one apart — e.g. POP MART publishes staffed
+    # stores and unstaffed ROBO SHOP machines in one feed, and a machine is not a storefront.
+    # None leaves it unclassified. Values follow the stores.format vocabulary in db.py.
+    format: str | None = None
     flags: dict = field(default_factory=dict)
 
 
