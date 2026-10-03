@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — where China's chains are open in America</title>
+<meta name="description" content="A daily count of Chinese retail and F&B chains open across the United States — taken from each company's own store list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root {
+    --bg: #f3f0e8; --ink: #1a1916; --dim: #6b6456; --faint: #908874;
+    --line: rgba(26,25,22,.14); --card: #faf8f2; --rule: #e5e0d8;
+    --dark: #1a1916; --dark-ink: #f3f0e8; --dark-dim: #b3ac9c;
+    --green: #16a34a; --pro: #b45309; --pro-chip: #e8b83a;
+    --accent: #2f7a6e; --accent-dark: #123c39;   /* one committed editorial accent (teal) */
+    --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Libre Franklin", system-ui, -apple-system, sans-serif;
+    --zh: "Noto Serif SC", serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Masthead + hero (dark) ---------- */
+  .hero { background: var(--dark); color: var(--dark-ink); }
+  .masthead { display: flex; align-items: center; gap: 14px;
+    padding: 20px 0 18px; border-bottom: 1px solid rgba(255,255,255,.12); flex-wrap: wrap; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 1.5rem;
+    letter-spacing: -.01em; text-decoration: none; }
+  .beta { font: 600 .62rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,.4); color: var(--dark-dim); padding: 4px 6px; border-radius: 3px; }
+  nav.top { margin-left: auto; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  nav.top a { color: var(--dark-dim); text-decoration: none; font-size: .92rem; font-weight: 500;
+    padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  nav.top a:hover { color: #fff; }
+  nav.top a.current { color: #fff; border-bottom-color: var(--green); }
+  nav.top a.pro { color: var(--pro-chip); }
+
+  .herobody { padding: 44px 0 52px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: end; }
+  .eyebrow { font: 500 .82rem/1.4 var(--sans); letter-spacing: 0; color: var(--dark-dim); margin: 0 0 18px; }
+  h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02; letter-spacing: -.02em; margin: 0 0 18px; }
+  .lede { font-size: 1.12rem; color: var(--dark-dim); max-width: 36ch; margin: 0 0 26px; }
+  .searchlbl { font-size: .82rem; color: var(--dark-dim); margin: 0 0 8px; font-weight: 500; }
+  .search { position: relative; max-width: 460px; }
+  .search input { width: 100%; font-family: var(--sans); font-size: 1rem; padding: 14px 16px 14px 44px;
+    border: 0; border-radius: 2px; background: var(--bg); color: var(--ink); }
+  .search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: .5; }
+
+  /* big total */
+  .total { text-align: left; }
+  .total .big { font-family: var(--serif); font-weight: 800; font-size: clamp(5rem, 11vw, 8.5rem);
+    line-height: 1; letter-spacing: -.03em; display: block; margin-bottom: 16px; }
+  .total .cap { font-size: 1.05rem; color: var(--dark-dim); max-width: 22ch; margin: 0 0 24px; }
+  .substats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
+  .substats .s b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 700; }
+  .substats .s span { font-size: .8rem; color: var(--dark-dim); }
+  .substats .s.soon b { color: var(--pro-chip); }
+
+  /* ---------- Section scaffolding ---------- */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .kicker { font: 600 .74rem/1 var(--sans); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 14px; }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+    line-height: 1.1; letter-spacing: -.01em; margin: 0 0 10px; }
+  h2.minor { font-size: 1.5rem; }     /* deprioritized sections (e.g. new-outlets-on-the-way) */
+  .note { color: var(--dim); font-size: .92rem; }
+  #comingnext .note b { color: var(--amber, #a0660f); font-family: var(--mono); }
+  .small { font-size: .82rem; }
+
+  /* ---------- Map section ---------- */
+  #mapsec { padding-top: 40px; }
+  .maplayout { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
+  .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 18px; }
+  .panel h3 { font: 600 .74rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; }
+  .pbtns { display: flex; gap: 8px; margin-bottom: 14px; }
+  .pbtns button { font: 500 .85rem var(--sans); padding: 6px 14px; border: 1px solid var(--line);
+    background: #fff; border-radius: 4px; cursor: pointer; }
+  .pbtns button:hover { border-color: var(--ink); }
+  /* "Franchise" filter toggle: a teal "green box" around the word (matching the franchiser name
+     boxes in the list), filled teal when active. */
+  .pbtns #only-franchise { border-color: var(--accent); color: var(--accent); }
+  .pbtns #only-franchise[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tally { max-height: 54vh; overflow-y: scroll; margin: 0 -6px; padding: 0 6px; }
+  /* A persistent, visible scrollbar so it's clear the brand list keeps going. Styling the webkit
+     pseudo-element forces a reserved, non-overlay bar even where macOS would hide it; we deliberately
+     do NOT set scrollbar-width, which would disable this and fall back to the hidden overlay bar. */
+  .tally::-webkit-scrollbar { width: 11px; }
+  .tally::-webkit-scrollbar-track { background: #efece3; border-radius: 6px; }
+  .tally::-webkit-scrollbar-thumb { background: #c3bbaa; border-radius: 6px; border: 2px solid #efece3; }
+  .tally::-webkit-scrollbar-thumb:hover { background: #a89f8c; }
+  button.tallygroup { background: none; border: 0; padding: 12px 0 6px; cursor: pointer; text-align: left;
+    width: 100%; font: 600 .76rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--faint); border-top: 1px solid var(--line); margin-top: 6px; }
+  button.tallygroup:first-child { border-top: 0; margin-top: 0; }
+  button.tallygroup.partial { opacity: .6; }
+  .chip { display: flex; align-items: center; gap: 10px; padding: 5px 2px; cursor: pointer; border-radius: 3px; }
+  .chip:hover { background: rgba(0,0,0,.04); }
+  .chip[aria-pressed="false"] { opacity: .4; }
+  .chip .chiplogo { width: 26px; height: 26px; border-radius: 50%; border: 2px solid; background: #fff;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden; flex: 0 0 auto; }
+  .chip .chiplogo img { width: 82%; height: 82%; object-fit: contain; display: block; }
+  .chip .chipnm { flex: 1; font-size: .92rem; }
+  /* A chain open to a US franchisee gets a quiet teal box around its name — solid when a US FDD is
+     on file, dashed when it's only a first-party franchise page. Deliberately understated. */
+  .frbox { border: 1px solid var(--accent); border-radius: 3px; padding: 1px 5px; }
+  .frbox.page { border-style: dashed; }
+  .chip .n { font: 500 .9rem var(--mono); color: var(--dim); }
+  .chip .prof { text-decoration: none; color: var(--faint); font-size: .95rem; padding: 0 2px; }
+  .chip .prof:hover { color: var(--green); }
+  .chip .only { font: 500 .68rem var(--sans); border: 1px solid var(--line); background: #fff;
+    border-radius: 4px; padding: 2px 6px; cursor: pointer; color: var(--dim); opacity: 0; }
+  .chip:hover .only { opacity: 1; }
+
+  .maptoolbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+  .maptabs { display: flex; gap: 2px; background: var(--dark); padding: 4px; border-radius: 2px; width: max-content; }
+  .statustoggle { font-size: .85rem; color: var(--dim); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .sharebtn { margin-left: auto; font: 500 .85rem var(--sans); padding: 7px 13px; border: 1px solid var(--line);
+    background: #fff; border-radius: 4px; cursor: pointer; min-height: 36px; }
+  .sharebtn:hover { border-color: var(--ink); }
+  .sharebtn.copied { background: #2F7A6E; color: #fff; border-color: #2F7A6E; }
+  .maptabs a { text-decoration: none; color: var(--dark-dim); font-size: .9rem; font-weight: 500;
+    padding: 7px 18px; border-radius: 3px; }
+  .maptabs a.on { background: var(--bg); color: var(--ink); }
+  #map { width: 100%; height: 66vh; min-height: 440px; border: 1px solid var(--rule); border-radius: 2px; }
+  .maplibregl-popup-content { font-family: var(--sans); font-size: .9rem; padding: .6rem .8rem; border-radius: 3px; }
+  .legendrow { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 12px 0 0; font-size: .82rem; color: var(--dim); }
+  .legendrow .k { display: inline-flex; align-items: center; gap: .35rem; }
+  .legendrow .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid; }
+  .legendrow .hollow { background: #fff; }
+
+  /* ---------- Coming next ---------- */
+  .pipewrap { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  .pipebig { font-family: var(--serif); font-weight: 800; font-size: 4.5rem; line-height: .9; color: var(--pro); }
+  .pipebig span { display: block; font-family: var(--sans); font-size: .8rem; font-weight: 500; color: var(--dim); margin-top: 6px; }
+  .pipebars { display: flex; flex-direction: column; gap: 10px; }
+  .pbar { display: grid; grid-template-columns: 160px 1fr 44px; gap: 12px; align-items: center; font-size: .92rem; }
+  .pbar .track { display: block; height: 10px; background: rgba(180,83,9,.15); border-radius: 999px; overflow: hidden; }
+  .pbar .fill { display: block; height: 100%; background: var(--pro); border-radius: 999px; }
+  .pbar .pnum { font: 500 .9rem var(--mono); color: var(--pro); text-align: right; }
+
+  /* ---------- Sector breakdown: a ranked table, not tiles ---------- */
+  .sectortable { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: .96rem; }
+  .sectortable thead th { font: 600 .7rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--faint); text-align: right; padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
+  .sectortable thead th:first-child { text-align: left; }
+  .sectortable td { padding: 11px 0; border-bottom: 1px solid var(--rule); }
+  .sectortable tbody tr:last-child td { border-bottom: 0; }
+  .sectortable .snm { font-weight: 500; }
+  .sectortable .snm .sdot { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 10px; vertical-align: middle; }
+  .sectortable .snum { text-align: right; font-family: var(--mono); font-weight: 500; color: var(--ink);
+    white-space: nowrap; width: 6rem; }
+
+  /* ---------- Demographics (derived / modeled): rule-divided stat columns ---------- */
+  .demostats { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 26px;
+    border-top: 2px solid var(--ink); }
+  .dcol { border-left: 1px solid var(--rule); padding: 24px 30px 4px; }
+  .dcol:first-child { border-left: 0; padding-left: 0; }
+  .dcol:last-child { padding-right: 0; }
+  .dcol .dbig { font: 600 2.5rem/1 var(--serif); color: var(--ink); display: flex; align-items: baseline; gap: 10px; }
+  .dcol .dbig .dx { font: 500 .78rem var(--mono); color: var(--accent); letter-spacing: .02em; }
+  .dcol .dlab { font: 600 .7rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); margin: 12px 0 14px; }
+  .dcol .dlist { list-style: none; margin: 0; padding: 0; }
+  .dcol .dlist li { font-size: .9rem; color: var(--dim); line-height: 1.5; padding: 5px 0;
+    border-top: 1px solid var(--rule); }
+  .dcol .dlist li:first-child { border-top: 0; }
+  .dcol .dlist li b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
+  .dmetros { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+  .dmetros .dmlab { font: 600 .7rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); margin-right: 6px; }
+  .dmetros .dm { font-size: .85rem; color: var(--ink); border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 11px; }
+  .dmetros .dm b { font-family: var(--mono); color: var(--accent); }
+  .demo-method { margin-top: 24px; max-width: 70ch; font-size: .82rem; color: var(--faint);
+    border-left: 2px solid var(--pro-chip); padding-left: 12px; }
+  @media (max-width: 760px) {
+    .demostats { grid-template-columns: 1fr; }
+    .dcol { border-left: 0; border-top: 1px solid var(--rule); padding: 20px 0 4px; }
+    .dcol:first-child { border-top: 0; }
+  }
+
+  /* ---------- Nav index: rule-divided columns, no boxes (editorial, not feature-cards) ---------- */
+  .navcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); }
+  .ncard { background: none; border: 0; border-left: 1px solid var(--rule); border-radius: 0;
+    padding: 22px 30px 6px; text-decoration: none; color: inherit; display: block; }
+  .ncard:first-child { border-left: 0; padding-left: 0; }
+  .ncard:last-child { padding-right: 0; }
+  .ncard .ncnum { font-family: var(--serif); font-weight: 700; font-size: 2.7rem; line-height: 1; color: var(--accent); }
+  .ncard .nctitle { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; margin: 10px 0 7px; }
+  .ncard:hover .nctitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .ncard .ncsub { color: var(--dim); font-size: .9rem; line-height: 1.55; }
+  .ncard .ncarrow { color: var(--accent); margin-top: 12px; font-size: .82rem; font-weight: 600; }
+  .ncard:hover .ncarrow { color: var(--accent-dark); }
+
+  /* ---------- Pro teaser (dark) ---------- */
+  .pro { background: var(--dark); color: var(--dark-ink); border-top: 0; }
+  .pro .kicker { color: var(--pro-chip); }
+  .pro h2 { color: #fff; }
+  .pro .note { color: var(--dark-dim); max-width: 52ch; }
+  .promods { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.22); }
+  .pmod { border: 0; border-left: 1px solid rgba(255,255,255,.14); border-radius: 0; padding: 22px 22px 6px; }
+  .pmod:first-child { border-left: 0; padding-left: 0; }
+  .pmod:last-child { padding-right: 0; }
+  .pmod .pnum2 { font: 500 .72rem var(--mono); color: var(--pro-chip); letter-spacing: .1em; }
+  .pmod h4 { margin: 10px 0 6px; font-size: 1.05rem; font-family: var(--serif); font-weight: 600; }
+  .pmod p { margin: 0; color: var(--dark-dim); font-size: .88rem; line-height: 1.55; }
+  .proflag { display: inline-block; font: 600 .62rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    background: var(--pro-chip); color: #1a1916; padding: 4px 7px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+
+  /* ---------- Footer ---------- */
+  footer.sitefoot { background: var(--dark); color: var(--dark-dim); padding: 48px 0 40px; }
+  .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; }
+  footer.sitefoot h5 { font: 600 .7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 14px; }
+  footer.sitefoot a { color: var(--dark-dim); text-decoration: none; display: block; margin-bottom: 8px; font-size: .9rem; }
+  footer.sitefoot a:hover { color: #fff; }
+  footer.sitefoot .brandblurb { color: var(--dark-dim); font-size: .9rem; max-width: 34ch; }
+  footer.sitefoot .brandblurb b { color: var(--dark-ink); }
+  .copyline { border-top: 1px solid rgba(255,255,255,.12); margin-top: 36px; padding-top: 20px;
+    font-size: .82rem; color: var(--faint); }
+
+  @media (max-width: 900px) {
+    .herobody { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    .maplayout { grid-template-columns: 1fr; }
+    .maplayout > div { order: -1; }          /* map leads on phones; the brand list follows */
+    .tally { max-height: 42vh; }             /* keep the brand list from pushing the map far down */
+    #map { height: 62vh; }
+    .maptoolbar { gap: 8px 12px; }
+    .sharebtn { margin-left: 0; }
+    .navcards { grid-template-columns: 1fr; border-top-width: 1px; }
+    .ncard { border-left: 0; border-top: 1px solid var(--rule); padding: 20px 0 10px; }
+    .ncard:first-child { border-top: 0; }
+    .promods { grid-template-columns: 1fr; }
+    .pmod { border-left: 0; border-top: 1px solid rgba(255,255,255,.14); padding: 18px 0 6px; }
+    .pmod:first-child { border-top: 0; }
+    .footgrid { grid-template-columns: 1fr 1fr; }
+    .pipewrap { grid-template-columns: 1fr; gap: 20px; }
+  }
+  /* ---- Search suggestions ---- */
+  .suggest { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: #fff; color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 2px; box-shadow: 0 12px 34px rgba(0,0,0,.18);
+    max-height: 60vh; overflow: auto; z-index: 60; padding: 6px; text-align: left; }
+  .suggest .grp { font: 600 .66rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--faint); padding: 11px 10px 6px; }
+  .suggest .opt { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 3px;
+    cursor: pointer; font-size: .95rem; min-height: 40px; }
+  .suggest .opt[aria-selected="true"], .suggest .opt:hover { background: rgba(47,122,110,.12); }
+  .suggest .opt .ring { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex: 0 0 auto; }
+  .suggest .opt .ring.sq { border-radius: 5px; }
+  .suggest .opt .nm { flex: 1; }
+  .suggest .opt .zh { color: var(--faint); font-family: var(--zh); font-size: .85em; margin-left: 4px; }
+  .suggest .opt .meta { color: var(--faint); font-size: .8rem; }
+  .suggest .opt .ic { width: 18px; text-align: center; opacity: .55; flex: 0 0 auto; }
+  .suggest .none { padding: 12px 10px; color: var(--dim); font-size: .9rem; }
+  .suggest .none b { color: var(--ink); }
+
+  /* ---- Place panel (desktop right / phone bottom sheet) ---- */
+  .place-panel { position: fixed; top: 0; right: 0; width: 370px; max-width: 92vw; height: 100vh; z-index: 1200;
+    background: var(--card); border-left: 1px solid var(--rule); box-shadow: -8px 0 30px rgba(0,0,0,.16);
+    display: flex; flex-direction: column; font-family: var(--sans); }
+  .place-panel[hidden] { display: none; }
+  .place-panel .pp-head { padding: 22px 20px 16px; border-bottom: 1px solid var(--rule); position: relative; }
+  .place-panel .pp-x { position: absolute; top: 12px; right: 12px; background: none; border: 0; font-size: 1.5rem;
+    line-height: 1; cursor: pointer; color: var(--dim); width: 40px; height: 40px; }
+  .place-panel h3 { font-family: var(--serif); font-weight: 700; font-size: 1.4rem; line-height: 1.12;
+    margin: 0 28px 3px 0; }
+  .place-panel .pp-owner { color: var(--dim); font-size: .85rem; }
+  .place-panel .pp-stats { display: flex; gap: 20px; padding: 14px 20px; border-bottom: 1px solid var(--rule); }
+  .place-panel .pp-stats .s b { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.35rem; }
+  .place-panel .pp-stats .s span { font-size: .72rem; color: var(--dim); }
+  .place-panel .pp-btns { display: flex; gap: 8px; padding: 14px 20px; flex-wrap: wrap; }
+  .place-panel .pp-btns a, .place-panel .pp-btns button { font: 500 .85rem var(--sans); padding: 9px 13px;
+    border: 1px solid var(--rule); border-radius: 6px; background: #fff; cursor: pointer; text-decoration: none;
+    color: var(--ink); min-height: 40px; display: inline-flex; align-items: center; gap: 6px; }
+  .place-panel .pp-btns .pro { background: #F3E6C8; border-color: #e4d2a4; }
+  .place-panel .pp-list { flex: 1; overflow: auto; padding: 8px 12px 18px; }
+  .place-panel .pp-list .lbl { font: 600 .66rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--faint); padding: 10px 8px 6px; }
+  .place-panel .pp-row { display: flex; align-items: center; gap: 10px; padding: 9px 8px; border-radius: 7px;
+    text-decoration: none; color: inherit; }
+  .place-panel .pp-row:hover { background: rgba(0,0,0,.05); }
+  .place-panel .pp-row .ring { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex: 0 0 auto; }
+  .place-panel .pp-row .ring.sq { border-radius: 5px; }
+  .place-panel .pp-row .st { margin-left: auto; font-size: .78rem; color: var(--faint); }
+  @media (max-width: 860px) {
+    .place-panel { top: auto; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; height: 72vh;
+      border-left: 0; border-top: 1px solid var(--rule); border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 30px rgba(0,0,0,.2); }
+  }
+</style>
+<link rel="stylesheet" href="site.css?v=10">
+</head>
+<body data-page="map">
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="masthead">
+      <a class="brand" href="index.html">Chains From China</a>
+      <span class="beta" title="In beta — coverage is still being built and figures may change.">Beta</span>
+      <nav class="top">
+        <a class="current" href="index.html">US map</a>
+        <a href="intro.html">Chains</a>
+        <a href="centers.html">Co-tenancy</a>
+        <a href="register.html">Global</a>
+        <a href="contribute.html">Submit a sighting</a>
+        <a class="pro" href="#pro">Pro</a>
+      </nav>
+    </div>
+    <div class="herobody">
+      <div>
+        <p class="eyebrow" id="eyebrow">Daily census</p>
+        <h1>Where China&rsquo;s chains are open in America</h1>
+        <p class="lede">Bubble tea and hot pot, but also art toys, sportswear and more, counted every
+          day from each company&rsquo;s own store list.</p>
+        <p class="searchlbl">Find a chain, city or shopping center</p>
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="hero-search" type="search" autocomplete="off" role="combobox"
+                 aria-expanded="false" aria-controls="search-suggest" aria-autocomplete="list"
+                 placeholder="Try &ldquo;MIXUE&rdquo;, &ldquo;Flushing&rdquo; or &ldquo;Westfield&rdquo;" aria-label="Search chains, cities or shopping centers">
+          <div id="search-suggest" class="suggest" role="listbox" hidden></div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="big" id="total-big">&mdash;</div>
+        <p class="cap">outlets of Chinese chains open in the US<span id="total-note"></span></p>
+        <div class="substats">
+          <div class="s"><b id="total-chains">&mdash;</b><span>chains</span></div>
+          <div class="s"><b id="total-sectors">&mdash;</b><span>sectors</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MAP ===================== -->
+<div class="wrap">
+<section id="mapsec" style="border-top:0">
+  <div class="maplayout">
+    <aside class="panel">
+      <h3>Show on map</h3>
+      <div class="pbtns">
+        <button type="button" id="show-all">All</button>
+        <button type="button" id="show-none">None</button>
+        <button type="button" id="only-franchise" aria-pressed="false"
+                title="Show only chains open to a US franchisee — pay a fee &amp; royalty, follow brand standards">Franchise</button>
+      </div>
+      <div class="tally" id="tally"></div>
+    </aside>
+    <div>
+      <div class="maptoolbar">
+        <div class="maptabs">
+          <a class="on" href="#mapsec">Map</a>
+          <a href="classic.html">By state</a>
+          <a href="classic.html">Table</a>
+        </div>
+        <label class="statustoggle"><input type="checkbox" id="show-announced" checked> Show announced</label>
+        <button type="button" id="share-view" class="sharebtn" title="Copy a link to this exact view">Share view</button>
+      </div>
+      <div id="map"></div>
+      <div class="legendrow" id="legend"></div>
+      <p class="note small" id="method" style="margin-top:12px">
+        Each pin is a brand&rsquo;s logo, ringed in its sector color. A filled pin is a confirmed
+        outlet; a hollow, dashed pin is announced / coming soon, held out of the total. Clusters show
+        how many outlets fall in an area at the current zoom; click one to expand. For a table instead,
+        the <a href="classic.html">by-state view</a> breaks the count down by state.
+      </p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===================== SECTOR BREAKDOWN ===================== -->
+<div class="wrap">
+<section id="sectors">
+  <p class="kicker">By sector</p>
+  <h2 id="sector-head">The mix of what China is retailing in America</h2>
+  <p class="note" id="sector-sub"></p>
+  <div class="sectorgrid" id="sectorgrid"></div>
+</section>
+</div>
+
+<!-- ===================== DEMOGRAPHICS (DERIVED / MODELED) ===================== -->
+<div class="wrap">
+<section id="demographics" hidden>
+  <p class="kicker">Where they cluster <span class="proflag">Modeled</span></p>
+  <h2>The neighborhoods China's chains choose</h2>
+  <p class="note" id="demo-sub"></p>
+  <div class="demostats" id="demostats"></div>
+  <div class="dmetros" id="demometros"></div>
+  <p class="demo-method" id="demo-method"></p>
+</section>
+</div>
+
+<!-- ===================== NAV CARDS ===================== -->
+<div class="wrap">
+<section id="explore">
+  <p class="kicker">More from the project</p>
+  <div class="navcards">
+    <a class="ncard" href="intro.html">
+      <div class="ncnum" id="nc-chains">&mdash;</div>
+      <div class="nctitle">Chains</div>
+      <div class="ncsub">What each chain is and where it trades in the US, with a page for every brand.</div>
+      <div class="ncarrow">Explore chains &rarr;</div>
+    </a>
+    <a class="ncard" href="centers.html">
+      <div class="ncnum" id="nc-cotenancy">&mdash;</div>
+      <div class="nctitle">Co-tenancy</div>
+      <div class="ncsub">Places where two or more Chinese chains trade in the same center or block.</div>
+      <div class="ncarrow">See the clusters &rarr;</div>
+    </a>
+    <a class="ncard" href="register.html">
+      <div class="ncnum" id="nc-global">&mdash;</div>
+      <div class="nctitle">Global</div>
+      <div class="ncsub">The countries each chain has reached outside China, and which may enter the US next.</div>
+      <div class="ncarrow">Open the register &rarr;</div>
+    </a>
+  </div>
+</section>
+</div>
+
+<!-- ===================== NEW OUTLETS ON THE WAY (deprioritized) ===================== -->
+<div class="wrap">
+<section id="comingnext">
+  <p class="kicker">Also tracked</p>
+  <h2 class="minor">New outlets on the way</h2>
+  <p class="note">Beyond the outlets open today, tracked chains have announced <b id="pipe-count">&mdash;</b>
+    more US locations that haven&rsquo;t opened yet &mdash; new stores from chains already trading here,
+    or, in a few cases, a chain&rsquo;s first US site. None is counted in the total above until its own
+    store listing shows it open.</p>
+  <div class="pipebars" id="pipe-bars" style="margin-top:18px;max-width:640px"></div>
+</section>
+</div>
+
+<!-- ===================== PRO TEASER ===================== -->
+<section class="pro" id="pro">
+  <div class="wrap">
+    <p class="kicker">Pro &middot; in development</p>
+    <h2>A paid tier for people who work with this data</h2>
+    <p class="note">The map and the daily counts are free for anyone to use. Pro adds the full history,
+      alerts, exports and landlord tools, built on the same measured record. It&rsquo;s meant for
+      landlords and brokers, brand expansion teams, and analysts who track these chains for a living.</p>
+    <div class="promods">
+      <div class="pmod"><div class="pnum2">01</div><h4>History &amp; alerts</h4><p>The full daily archive, plus alerts when a chain opens in a state, metro or center you follow.</p></div>
+      <div class="pmod"><div class="pnum2">02</div><h4>Store-level exports</h4><p>Every outlet with address, coordinates, status and first-seen date, as CSV or GeoJSON.</p></div>
+      <div class="pmod"><div class="pnum2">03</div><h4>Co-tenancy &amp; gap finder</h4><p>The landlord view of which owners host these tenants, and which of their centers still have none.</p></div>
+      <div class="pmod"><div class="pnum2">04</div><h4>Revenue &amp; price estimates <span class="proflag">modeled</span></h4><p>Per-outlet revenue ranges and tracked menu prices, with the method shown. Kept separate from the measured count.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="brand" style="color:var(--dark-ink);font-size:1.3rem;margin-bottom:12px">Chains From China</div>
+        <p class="brandblurb">An independent measurement project. <b>Not affiliated with, endorsed by or
+          sponsored by</b> any company named on this site; brand names identify the businesses being
+          measured and nothing more.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="index.html">US map</a>
+        <a href="intro.html">Chains</a>
+        <a href="centers.html">Co-tenancy</a>
+        <a href="register.html">Global register</a>
+      </div>
+      <div>
+        <h5>Method</h5>
+        <a href="classic.html">Coverage &amp; by state</a>
+        <a href="contribute.html">Submit a sighting</a>
+      </div>
+      <div>
+        <h5>Twoshoe Labs LLC</h5>
+        <a href="#pro">Pro &amp; data (soon)</a>
+        <span class="brandblurb">Store counts are collected daily from each chain&rsquo;s own public
+          locator; hand-verified sightings are compiled by hand.</span>
+      </div>
+    </div>
+    <div class="copyline">&copy; 2026 Twoshoe Labs LLC. Brand logos are each company&rsquo;s own, shown to identify its outlets.</div>
+  </div>
+</footer>
+
+<script src="atlas.js?v=20261003d"></script>
+<script>
+// ---- Hero + section data bindings (independent of the map engine) --------------------------
+const SECTOR_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',
+  grocery_convenience:'#2F8C8C', snacks:'#D0702A', apparel:'#6B4FA0', beauty:'#C4577A',
+  lifestyle_variety:'#2F5FA8', electronics:'#3C7A9A', home:'#7A8C3A' };
+const SECTOR_NAME = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
+  grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+const fmt = (n) => n.toLocaleString('en-US');
+const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDateString('en-US',
+  {day:'numeric', month:'short', year:'numeric'}); } catch(e){ return iso; } };
+
+(async function () {
+  let fc, centers, reg;
+  try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
+  const feats = fc.features;
+  // One canonical total, computed once by the exporter and shared with every page (meta.totals).
+  // Fall back to counting plotted features only if an older data file has no totals block.
+  const soon  = feats.filter(f => f.properties.status === 'coming_soon').length;
+  const T = (fc.meta && fc.meta.totals) || null;
+  const located = T ? T.outlets
+    : feats.filter(f => f.properties.status === 'open').length
+      + feats.filter(f => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
+  const announced = T ? T.announced : soon;
+
+  const chainOf = {}, sectorOf = {}, chainName = {};
+  for (const f of feats) {
+    const p = f.properties;
+    chainOf[p.chain] = (chainOf[p.chain]||0)+1; sectorOf[p.chain] = p.sector;
+    // Prefer an open outlet's display name as the brand label (same rule as the filter panel).
+    if (!chainName[p.chain] || p.status === 'open') chainName[p.chain] = p.name || p.chain;
+  }
+  const chains = Object.keys(chainOf);
+  const sectors = [...new Set(Object.values(sectorOf))];
+
+  // Hero numbers (the announced figure lives lower, in its own section, not up here)
+  document.getElementById('total-big').textContent = fmt(located);
+  document.getElementById('total-chains').textContent = fmt(chains.length);
+  document.getElementById('total-sectors').textContent = fmt(sectors.length);
+  const unmapped = T ? T.unmapped : 0;
+  const mapped = T ? T.mapped : located;
+  // "950 open · 940 on the map, 10 awaiting an address" — all three from the same build, so the
+  // map's "Loading 940 outlets…" message agrees with the hero.
+  document.getElementById('total-note').textContent = unmapped > 0
+    ? ` · ${fmt(mapped)} on the map, ${fmt(unmapped)} awaiting an address` : '';
+  const day = fc.meta && fc.meta.days, coll = fc.meta && fc.meta.collected;
+  document.getElementById('eyebrow').textContent =
+    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}, 06:00 UTC${day ? ' · Day ' + day : ''}`;
+
+  // Coming next: coming_soon features grouped by chain
+  const soonBy = {};
+  for (const f of feats) if (f.properties.status === 'coming_soon') soonBy[f.properties.chain] = (soonBy[f.properties.chain]||0)+1;
+  const soonRanked = Object.entries(soonBy).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  document.getElementById('pipe-count').textContent = fmt(announced);
+  const maxSoon = soonRanked.length ? soonRanked[0][1] : 1;
+  const nameFor = (id) => chainName[id] || id;
+  document.getElementById('pipe-bars').innerHTML = soonRanked.map(([id,n]) =>
+    `<div class="pbar"><span>${nameFor(id)}</span><span class="track"><span class="fill" style="width:${Math.max(6, n/maxSoon*100)}%"></span></span><span class="pnum">+${n}</span></div>`
+  ).join('') || '<p class="note">Nothing announced right now.</p>';
+
+  // Sector breakdown: chains per sector + located outlets per sector
+  const bySector = {};
+  for (const f of feats) {
+    const p = f.properties;
+    const isLocated = p.status === 'open' || (p.kind === 'sighting' && p.status !== 'coming_soon');
+    if (!isLocated) continue;
+    const s = bySector[p.sector] || (bySector[p.sector] = { outlets: 0, chains: new Set() });
+    s.outlets++; s.chains.add(p.chain);
+  }
+  const secRows = Object.entries(bySector).sort((a,b)=>b[1].outlets-a[1].outlets);
+  const topOutletSector = secRows[0];
+  const mostChainsSector = [...secRows].sort((a,b)=>b[1].chains.size-a[1].chains.size)[0];
+  if (topOutletSector && mostChainsSector) {
+    const chName = SECTOR_NAME[mostChainsSector[0]] || mostChainsSector[0];
+    const outName = SECTOR_NAME[topOutletSector[0]] || topOutletSector[0];
+    const sub = document.getElementById('sector-sub');
+    if (mostChainsSector[0] === topOutletSector[0]) {
+      sub.textContent = `${chName} leads on both counts, with ${mostChainsSector[1].chains.size} ` +
+        `chains and ${fmt(topOutletSector[1].outlets)} outlets.`;
+    } else {
+      sub.textContent = `There are more ${chName.toLowerCase()} chains (${mostChainsSector[1].chains.size}) ` +
+        `than any other kind, but a few large ${outName.toLowerCase()} retailers account for the most ` +
+        `outlets (${fmt(topOutletSector[1].outlets)}).`;
+    }
+  }
+  document.getElementById('sectorgrid').innerHTML =
+    '<table class="sectortable"><thead><tr><th>Sector</th><th>Outlets</th><th>Chains</th></tr></thead><tbody>' +
+    secRows.map(([s,v]) =>
+      `<tr><td class="snm"><span class="sdot" style="background:${SECTOR_COLOR[s]||'#6b7280'}"></span>${SECTOR_NAME[s]||s}</td>`+
+      `<td class="snum">${fmt(v.outlets)}</td>`+
+      `<td class="snum">${v.chains.size}</td></tr>`
+    ).join('') + '</tbody></table>';
+
+  // Nav card counts
+  document.getElementById('nc-chains').textContent = fmt(chains.length);
+  try { centers = await fetch('data/centers.json').then(r=>r.json());
+        document.getElementById('nc-cotenancy').textContent = fmt((centers.co_tenancy||[]).length); } catch(e){}
+  try { reg = await fetch('data/register.json').then(r=>r.json());
+        document.getElementById('nc-global').textContent = fmt(Object.keys(reg.markets||{}).length); } catch(e){}
+
+  // Demographics (derived / modeled). The section stays hidden unless the snapshot is present,
+  // so the measured part of the page never depends on this optional, slow-to-build file.
+  try {
+    const dm = await fetch('data/demographics.json').then(r=>r.json());
+    const a = dm.asian_density, me = dm.metro, u = dm.university;
+    const ratio = a.median_tract_pct / dm.national_pct_asian;
+    document.getElementById('demo-sub').textContent =
+      `Across ${fmt(dm.outlets_analyzed)} measured storefronts, the typical outlet sits in a census tract ` +
+      `about ${ratio.toFixed(1)}× as Asian as the country as a whole — and a majority are in tracts with at ` +
+      `least double the national share. They are almost entirely urban, metro-core and campus-adjacent.`;
+    document.getElementById('demostats').innerHTML =
+      `<div class="dcol">` +
+        `<div class="dbig">${a.median_tract_pct}%<span class="dx">${ratio.toFixed(1)}× national</span></div>` +
+        `<div class="dlab">Median host-tract Asian share</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${a.ge_2x}%</b> in a tract ≥2× the national share (${dm.national_pct_asian}%)</li>` +
+          `<li><b>${a.ge_5x}%</b> ≥5× national · <b>${a.ge_10x}%</b> ≥10×</li>` +
+          `<li><b>${a.ge_national}%</b> above the national share</li>` +
+        `</ul></div>` +
+      `<div class="dcol">` +
+        `<div class="dbig">${me.in_csa_pct}%<span class="dx">in a major metro</span></div>` +
+        `<div class="dlab">Metro &amp; urban setting</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${me.urban_pct}%</b> inside a Census urban area</li>` +
+          `<li><b>${me.in_csa_pct}%</b> in a combined statistical area</li>` +
+        `</ul></div>` +
+      `<div class="dcol">` +
+        `<div class="dbig">${u.within_1mi}%<span class="dx">within 1 mile</span></div>` +
+        `<div class="dlab">Near a college campus</div>` +
+        `<ul class="dlist">` +
+          `<li><b>${u.within_half_mi}%</b> within ½ mile of a campus</li>` +
+          `<li><b>${u.within_3mi}%</b> within 3 miles · median ${u.median_miles} mi</li>` +
+        `</ul></div>`;
+    const metros = (me.top || []).slice(0, 8).map(m =>
+      `<span class="dm">${m.name.split('-')[0]} <b>${m.n}</b></span>`).join('');
+    document.getElementById('demometros').innerHTML = `<span class="dmlab">Top metros</span>` + metros;
+    document.getElementById('demo-method').textContent =
+      `Derived, not measured — and kept out of the outlet count. ${dm.method} ` +
+      `Coverage: tract Asian share resolved for ${fmt(dm.with_tract_asian)} of ${fmt(dm.outlets_analyzed)} ` +
+      `outlets. Snapshot ${dm.generated}.`;
+    document.getElementById('demographics').hidden = false;
+  } catch (e) { /* no snapshot — section stays hidden */ }
+})();
+
+// The grouped search (Places / Shopping centers / Chains) and the place panel are wired in atlas.js,
+// where the map and data live.
+</script>
+<aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
+<script src="site.js?v=6"></script>
+</body>
+</html>
