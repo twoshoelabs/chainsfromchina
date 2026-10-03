@@ -2,7 +2,7 @@
   color-scheme: light;
   /* Oct 2026 newspaper redesign: cool pale-grey ground, near-black ink, one brick-red accent. */
   --paper:#E3E5E1; --surface:#E3E5E1; --band:#D7DAD5; --ink:#0E0F0E; --ink-2:#2E302D; --muted:#4F524E;
-  --rule:#0E0F0E; --rule-2:#C4C7C2; --land:#EDEFEB; --land-line:#C4C7C2;
+  --rule:#0E0F0E; --rule-2:#C4C7C2; --land:#EDEFEB; --land-line:#8C8F8A;
   --accent:#C94A35; --accent-ink:#B8301C; --open:#0E0F0E; --soon:#B8301C; --closed:#B8301C;
   --mixue:#C94A35; --chagee:#6E716C; --luckin:#4F524E; --miniso:#2E302D;
   --popmart:#A3A6A1; --haidilao:#6E716C; --other:#A3A6A1;
@@ -43,7 +43,7 @@ figure{margin:0; background:var(--surface); border:1px solid var(--rule); border
 figcaption{color:var(--muted); font-size:12.5px; padding:6px 6px 2px}
 svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cursor:grab}
 svg#map.drag{cursor:grabbing}
-.state{fill:var(--land); stroke:var(--land-line); stroke-width:.6}
+.state{fill:var(--land); stroke:var(--land-line); stroke-width:.8}
 /* No stroke-width here on purpose: a CSS declaration would override the per-dot
    stroke-width ATTRIBUTE that app.js scales with the view, and the announced-store rings
    would be drawn 1.6 metres wide, i.e. invisible. */
