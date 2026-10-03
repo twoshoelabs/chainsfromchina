@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="site.css?v=11">
+<link rel="stylesheet" href="site.css?v=12">
 <style>
   :root {
     --bg:#E3E5E1; --ink:#0E0F0E; --dim:#4F524E; --faint:#6E716C; --rule:#C4C7C2; --card:#E3E5E1;
@@ -431,11 +431,40 @@ async function resolveStyle() {
         protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
                      attribution: '© OpenStreetMap contributors' },
       },
-      layers: bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' }),
+      layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
     };
   } catch (e) {
     return BASEMAP.style;
   }
+}
+
+// Flatten the Protomaps light theme to the site's greyscale tokens (grey land, white water, grey
+// roads/borders, muted labels, no POIs) so only the brand logo pins carry colour.
+function recolorBasemap(layers) {
+  const GROUND = '#EDEFEB', WATER = '#FFFFFF', ROAD = '#C4C7C2', BORDER = '#B3B6B1',
+        BUILD = '#DADCD7', LANDUSE = '#E7E9E5', LABEL = '#4F524E', HALO = '#EDEFEB';
+  const out = [];
+  for (const l of layers) {
+    const id = l.id || '';
+    if (/poi/i.test(id)) continue;
+    const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (l.type === 'background') nl.paint['background-color'] = GROUND;
+    else if (id === 'earth') nl.paint['fill-color'] = GROUND;
+    else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = WATER;
+      if (l.type === 'line') nl.paint['line-color'] = WATER;
+    }
+    else if (/building/i.test(id)) { if (l.type === 'fill') { nl.paint['fill-color'] = BUILD; nl.paint['fill-opacity'] = 0.55; } }
+    else if (/boundar|border|admin/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = BORDER; }
+    else if (/road|transit|bridge|tunnel|highway|rail|path|pier|aeroway/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = ROAD; }
+    else if (/landuse|landcover|park|wood|forest|grass|sand|glacier|beach|pedestrian|scrub|farmland/i.test(id)) { if (l.type === 'fill') nl.paint['fill-color'] = LANDUSE; }
+    if (l.type === 'symbol') {
+      nl.paint['text-color'] = LABEL; nl.paint['text-halo-color'] = HALO; nl.paint['text-halo-width'] = 1.2;
+      if (nl.layout['icon-image']) delete nl.layout['icon-image'];
+    }
+    out.push(nl);
+  }
+  return out;
 }
 
 async function drawMap(feats, sector, id, name) {

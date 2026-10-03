@@ -151,8 +151,46 @@ async function resolveStyle() {
       protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
                    attribution: '© OpenStreetMap contributors' },
     },
-    layers: bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' }),
+    layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
   };
+}
+
+// Flatten the Protomaps light theme to the site's greyscale tokens: grey land, white water, grey
+// roads/borders, faint buildings, muted labels, and no POIs or colored fills — so only our brand
+// pins carry colour. The pins and logos are drawn separately and are untouched by this.
+function recolorBasemap(layers) {
+  const GROUND = '#EDEFEB', WATER = '#FFFFFF', ROAD = '#C4C7C2', BORDER = '#B3B6B1',
+        BUILD = '#DADCD7', LANDUSE = '#E7E9E5', LABEL = '#4F524E', HALO = '#EDEFEB';
+  const out = [];
+  for (const l of layers) {
+    const id = l.id || '';
+    if (/poi/i.test(id)) continue;                           // drop points of interest entirely
+    const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (l.type === 'background') nl.paint['background-color'] = GROUND;
+    else if (id === 'earth') nl.paint['fill-color'] = GROUND;
+    else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = WATER;
+      if (l.type === 'line') nl.paint['line-color'] = WATER;
+    }
+    else if (/building/i.test(id)) {
+      if (l.type === 'fill') { nl.paint['fill-color'] = BUILD; nl.paint['fill-opacity'] = 0.55; }
+    }
+    else if (/boundar|border|admin/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = BORDER; }
+    else if (/road|transit|bridge|tunnel|highway|rail|path|pier|aeroway/i.test(id)) {
+      if (l.type === 'line') nl.paint['line-color'] = ROAD;
+    }
+    else if (/landuse|landcover|park|wood|forest|grass|sand|glacier|beach|pedestrian|scrub|farmland/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = LANDUSE;
+    }
+    if (l.type === 'symbol') {
+      nl.paint['text-color'] = LABEL;
+      nl.paint['text-halo-color'] = HALO;
+      nl.paint['text-halo-width'] = 1.2;
+      if (nl.layout['icon-image']) delete nl.layout['icon-image'];   // no colored sprite icons
+    }
+    out.push(nl);
+  }
+  return out;
 }
 
 // US extents: the opening view frames the lower 48, and panning/zooming is clamped to the US and
@@ -247,22 +285,24 @@ async function init() {
       cluster: true, clusterRadius: 48, clusterMaxZoom: 14,
     });
 
+    // White disc, 1.5px ink outline. Diameter = 20 + 3.2·√n (radius = half of that).
     map.addLayer({
       id: 'clusters', type: 'circle', source: 'stores', filter: ['has', 'point_count'],
       paint: {
-        'circle-color': ['step', ['get', 'point_count'], '#f0a0a0', 10, '#e06666', 50, '#cc3333', 200, '#a11'],
-        'circle-opacity': 0.9,
-        'circle-radius': ['step', ['get', 'point_count'], 15, 10, 19, 50, 24, 200, 30],
-        'circle-stroke-width': 2, 'circle-stroke-color': '#fff',
+        'circle-color': '#FFFFFF',
+        'circle-radius': ['+', 10, ['*', 1.6, ['sqrt', ['get', 'point_count']]]],
+        'circle-stroke-width': 1.5, 'circle-stroke-color': '#0E0F0E',
       },
     });
     map.addLayer({
       id: 'cluster-count', type: 'symbol', source: 'stores', filter: ['has', 'point_count'],
       layout: {
         'text-field': ['get', 'point_count_abbreviated'],
-        'text-font': [GLYPH_FONT], 'text-size': 12, 'text-allow-overlap': true,
+        // 15px once the disc is wider than ~44px (point_count > 56), else 12px.
+        'text-font': [GLYPH_FONT], 'text-allow-overlap': true,
+        'text-size': ['step', ['get', 'point_count'], 12, 57, 15],
       },
-      paint: { 'text-color': '#fff' },
+      paint: { 'text-color': '#0E0F0E' },
     });
 
     // Individual outlets: a per-brand badge. Every outlet we draw is confirmed to exist, so they
