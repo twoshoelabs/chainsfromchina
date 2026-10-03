@@ -14,6 +14,7 @@ const BASEMAP = {
 };
 let GLYPH_FONT = 'Open Sans Regular';   // a font the active style's glyph server provides
 let LOGO_PRESENT = {};                   // chain -> whether a logo badge (vs monogram) was used
+let CHAIN_SECTOR = {};                   // chain -> sector (for the Alaska/Hawaii inset markers)
 let MAP_REF = null, FULL_FC = null;      // the map + full FeatureCollection, for the chain filter
 let HIDDEN = new Set();                  // chains currently hidden from the map
 let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sector
@@ -193,6 +194,75 @@ function recolorBasemap(layers) {
   return out;
 }
 
+// A US-silhouette mask: one polygon whose outer ring is the whole world and whose holes are the
+// lower-48 (+ Hawaii) state outlines, filled the water colour. It covers everything outside the US
+// so Cuba, the Bahamas, Mexico and Canada drop away and only the US reads. Inserted beneath the
+// basemap's labels. Alaska, Puerto Rico and Guam are left out (Alaska's Aleutians cross the
+// antimeridian and would tear the polygon; all three live off the lower-48 view and in their insets).
+function usMask(fc, includeIds) {
+  const world = [[-180, -84], [180, -84], [180, 84], [-180, 84], [-180, -84]];
+  const holes = [];
+  for (const f of fc.features) {
+    if (includeIds) { if (!includeIds.includes(f.id)) continue; }
+    else if (f.id === 'AK' || f.id === 'PR' || f.id === 'GU') continue;   // lower-48 + HI by default
+    const g = f.geometry;
+    const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+    for (const poly of polys) holes.push(poly[0]);
+  }
+  return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [world, ...holes] } };
+}
+
+// Small Alaska and Hawaii insets, pinned to the map's lower-left, because both fall outside the
+// lower-48 frame. Each is a tiny non-interactive map fitted to that state, masked to just its own
+// outline, with the brand logos drawn as DOM markers (so no per-map addImage is needed).
+const INSETS = [
+  { id: 'AK', label: 'Alaska', bounds: [[-170, 52], [-129, 71.5]] },
+  { id: 'HI', label: 'Hawaii', bounds: [[-160.6, 18.7], [-154.6, 22.4]] },
+];
+function sectorRingMarker(chain, soft) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin' + (soft ? ' soft' : '');
+  const color = SECTOR[CHAIN_SECTOR[chain]] || OTHER;
+  el.style.borderColor = color;
+  if (LOGO_PRESENT[chain]) {
+    const img = document.createElement('img');
+    img.src = 'icons/' + chain + '.png'; img.alt = '';
+    el.appendChild(img);
+  } else {
+    el.textContent = (MONOGRAM[chain] || chain.slice(0, 2)).toUpperCase();
+    el.style.background = color; el.style.color = '#fff';
+  }
+  return el;
+}
+function buildInsets(parent, style, statesFC, fc) {
+  const wrap = document.createElement('div'); wrap.className = 'map-insets';
+  parent.appendChild(wrap);
+  for (const ins of INSETS) {
+    const box = document.createElement('div'); box.className = 'map-inset';
+    const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
+    const md = document.createElement('div'); md.className = 'mi-map';
+    box.appendChild(md); box.appendChild(lbl); wrap.appendChild(box);
+    const im = new maplibregl.Map({ container: md, style: JSON.parse(JSON.stringify(style)), bounds: ins.bounds,
+      fitBoundsOptions: { padding: 8 }, interactive: false, attributionControl: false });
+    im.on('load', () => {
+      if (statesFC) {
+        const firstSymbol = im.getStyle().layers.find((l) => l.type === 'symbol');
+        im.addSource('m', { type: 'geojson', data: usMask(statesFC, [ins.id]) });
+        im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
+          firstSymbol && firstSymbol.id);
+      }
+      const [[w, s], [e, n]] = ins.bounds;
+      for (const f of fc.features) {
+        const [x, y] = f.geometry.coordinates;
+        if (x < w || x > e || y < s || y > n) continue;
+        const soft = f.properties.status === 'coming_soon';
+        new maplibregl.Marker({ element: sectorRingMarker(f.properties.chain, soft) })
+          .setLngLat(f.geometry.coordinates).addTo(im);
+      }
+    });
+  }
+}
+
 // US extents: the opening view frames the lower 48, and panning/zooming is clamped to the US and
 // its territories so a stray scroll never drifts into the empty grey world beyond the tiles.
 const US_BOUNDS = [[-125, 24.2], [-66.5, 49.6]];
@@ -238,8 +308,10 @@ async function init() {
   }
   const chainSector = {};
   for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
+  CHAIN_SECTOR = chainSector;
 
   const style = await resolveStyle();
+  const insetStyle = JSON.parse(JSON.stringify(style));   // a clean copy before MapLibre mutates `style`
   const map = new maplibregl.Map({
     container: 'map', style,
     bounds: US_BOUNDS, fitBoundsOptions: { padding: 40 },
@@ -251,7 +323,7 @@ async function init() {
   map.addControl(new maplibregl.GeolocateControl({
     positionOptions: { enableHighAccuracy: false }, trackUserLocation: false }), 'top-right');
   map.addControl(new FitUSControl(), 'top-right');
-  map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }));
+  map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
   // Named co-tenancy clusters feed the "Shopping centers" search group and the place panel.
@@ -262,6 +334,9 @@ async function init() {
   const chains = Object.keys(chainSector);
   const logos = await Promise.all(chains.map((c) => (LOGO_CHAINS.has(c) ? loadLogo(c) : Promise.resolve(null))));
   chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
+  // State outlines, for the US-silhouette mask and the Alaska/Hawaii insets.
+  const statesFC = await fetch('us-states.geojson').then((r) => r.json()).catch(() => null);
+  buildInsets(document.getElementById('map'), insetStyle, statesFC, fc);
 
   map.on('load', () => {
     // Register a per-brand badge (solid "open" + dashed "soft" variant). addImage requires the
@@ -278,6 +353,16 @@ async function init() {
       if (/poi|place.?of.?interest/i.test(l.id)) {
         try { map.setLayoutProperty(l.id, 'visibility', 'none'); } catch (e) { /* non-symbol layer */ }
       }
+    }
+
+    // US-silhouette mask: cover everything outside the US with the water colour, placed beneath the
+    // basemap's labels so the US keeps its place names but Cuba/Bahamas/Mexico/Canada fall away.
+    if (statesFC) {
+      const firstSymbol = map.getStyle().layers.find((l) => l.type === 'symbol');
+      map.addSource('usmask', { type: 'geojson', data: usMask(statesFC) });
+      map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
+        paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
+        firstSymbol && firstSymbol.id);
     }
 
     map.addSource('stores', {
