@@ -247,8 +247,8 @@
       "name": "Naixue",
       "name_zh": "奈雪的茶",
       "format": "tea",
-      "global": "HKEX 2150; rebranded from Nayuki to Naixue",
-      "name_us": "NaiSnow",
+      "global": "HKEX 2150; rebranded from Nayuki to Naixue. Trades overseas — US, Thailand, Malaysia, Singapore, Japan — as Naisnow (Tea & Bakery).",
+      "name_us": "Naisnow",
       "operating_model": "company_owned",
       "franchise_available_us": 0,
       "fdd_available": 0,
@@ -1901,7 +1901,8 @@
       "note": "The register's THIRD retreat-and-return, after CHAGEE in Singapore and HEYTEA in Hong Kong. Opened at VivoCity in December 2018; those outlets were later taken over by BreadTalk brands; the brand re-entered as Naixue at Jewel Changi Airport in July 2024. Same market, same company, two separate attempts.",
       "sources": [
         "https://danielfooddiary.com/2018/12/05/nayuki/",
-        "https://mothership.sg/2024/07/naixue-jewel-singapore-nayuki/"
+        "https://mothership.sg/2024/07/naixue-jewel-singapore-nayuki/",
+        "https://www.naisnow.com/storelocation"
       ]
     },
     {
@@ -6749,6 +6750,37 @@
       "note": "A Liège outlet at Rue de la Régence 19 (4000 Liège), open per its Google listing (4.3★, 114 reviews, Oct 2026); likely run by the same Benelux operator as the Dutch stores. No first-party Belgian site found.",
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=MOGE+TEE+Rue+de+la+R%C3%A9gence+19+Li%C3%A8ge"
+      ]
+    },
+    {
+      "chain": "nayuki",
+      "market": "TH",
+      "status": "present",
+      "locations": 7,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-03",
+      "note": "Trades as Naisnow (Tea & Bakery). Seven outlets on its own store locator — six in greater Bangkok (EMSphere, CentralWorld, One Bangkok, Central Rama 9, The Mall Bangkapi, and The Mall Lifestore Ngamwongwan in Nonthaburi) and one in Chiang Mai (Central Festival).",
+      "sources": [
+        "https://www.naisnow.com/storelocation"
+      ]
+    },
+    {
+      "chain": "nayuki",
+      "market": "MY",
+      "status": "present",
+      "locations": 2,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "Trades as Naisnow. First Malaysian store at The Exchange TRX, Kuala Lumpur (on its own locator); also listed at Pavilion Kuala Lumpur. Opening-day queues and sales were widely reported in the trade press.",
+      "sources": [
+        "https://www.naisnow.com/storelocation",
+        "https://www.pavilion-kl.com/store/naisnow-%E5%A5%88%E9%9B%AA/"
       ]
     }
   ]
