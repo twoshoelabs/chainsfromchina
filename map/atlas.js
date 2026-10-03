@@ -336,7 +336,8 @@ async function init() {
   chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
   // State outlines, for the US-silhouette mask and the Alaska/Hawaii insets.
   const statesFC = await fetch('us-states.geojson').then((r) => r.json()).catch(() => null);
-  buildInsets(document.getElementById('map'), insetStyle, statesFC, fc);
+  try { buildInsets(document.getElementById('map'), insetStyle, statesFC, fc); }
+  catch (e) { console.warn('AK/HI insets skipped', e && e.message); }
 
   map.on('load', () => {
     // Register a per-brand badge (solid "open" + dashed "soft" variant). addImage requires the
@@ -357,12 +358,16 @@ async function init() {
 
     // US-silhouette mask: cover everything outside the US with the water colour, placed beneath the
     // basemap's labels so the US keeps its place names but Cuba/Bahamas/Mexico/Canada fall away.
+    // Wrapped so a mask failure can NEVER abort the rest of this handler (the pins, clusters and the
+    // brand list are built below and must not depend on a cosmetic overlay).
     if (statesFC) {
-      const firstSymbol = map.getStyle().layers.find((l) => l.type === 'symbol');
-      map.addSource('usmask', { type: 'geojson', data: usMask(statesFC) });
-      map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
-        paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
-        firstSymbol && firstSymbol.id);
+      try {
+        const firstSymbol = map.getStyle().layers.find((l) => l.type === 'symbol');
+        map.addSource('usmask', { type: 'geojson', data: usMask(statesFC) });
+        map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
+          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
+          firstSymbol && firstSymbol.id);
+      } catch (e) { console.warn('US mask skipped', e && e.message); }
     }
 
     map.addSource('stores', {
