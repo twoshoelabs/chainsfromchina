@@ -369,13 +369,18 @@ across every tracked chain with US outlets, and is explicit about how much rests
 - **Universe:** the site's own outlet set — census `open` stores + confirmed (non-`coming_soon`) sightings,
   roboshops excluded — via `geojson.build` (so it matches the map). Currently **45 chains / 854 US outlets**.
 - **Per chain, best tier:** ANCHORED = a filing-derived `revenue_estimates` us_total (restaurant-AUV /
-  channel-retail / regional-apportionment); otherwise BENCHMARK = a rough US-industry revenue-per-store for
-  the chain's format × its outlet count (`BENCHMARK_AUV`, secondary, wide bands, low confidence).
+  channel-retail / regional-apportionment); otherwise BENCHMARK = a US-industry revenue-per-store for the
+  chain's format × its outlet count (`BENCHMARK_AUV`, secondary, low confidence). The benchmarks are
+  grounded in disclosed home-market per-store economics (§5.4 comparators) × a US premium (~2–3.5×),
+  not pure guesswork, so the bands are tighter than a blind estimate — but still meaningfully wide, since
+  the China→US translation (price, volume, format, maturity) is uncertain and a franchisor's reported
+  revenue ≠ store GMV.
 - **Two honest widths:** the headline **independent range** = mid ± √(Σ per-chain half-widths²) (errors are
   largely independent across brands/sectors/sources); plus a conservative **envelope** = [Σlow, Σhigh].
 - **Measured/modeled wall:** every figure MODELED and a range; the report states the anchored vs benchmark
   split and each chain's tier. DB-only / Pro tier — never written to the public site.
 
-**First run (2026-10-04):** grand total **≈US$1.23B** (likely **US$1.07–1.39B**), of which **US$881M (72%)**
-is filing-anchored (Miniso, Pop Mart, Haidilao — 518 outlets) and **US$345M** is the benchmark tail (42
-chains / 336 outlets). The total tightens as more chains move from benchmark to filing-anchored.
+**Run (2026-10-04, benchmarks grounded in disclosed economics):** grand total **≈US$1.22B** (likely
+**US$1.06–1.38B**; outer envelope US$876M–1.61B), of which **US$881M (72%)** is filing-anchored (Miniso,
+Pop Mart, Haidilao — 518 outlets) and **~US$337M** is the benchmark tail (42 chains / 336 outlets). The
+total tightens further as more chains move from benchmark to filing-anchored.

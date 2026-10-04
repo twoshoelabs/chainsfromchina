@@ -25,27 +25,36 @@ sightings), roboshops excluded. DB-only / Pro tier — never written to the publ
 import math
 from datetime import datetime, timezone
 
-# Rough US-industry annual revenue per storefront (USD) by format, for chains with NO filing anchor.
-# (low, mid, high). SECONDARY/estimated with deliberately WIDE bands. The anchored chains are NOT used to
-# set these — one premium chain (e.g. Haidilao at ~US$8M) would badly bias its sector's benchmark.
+# US-industry annual revenue per storefront (USD) by format, for chains with NO filing anchor. (low, mid,
+# high). Still SECONDARY/estimated, but REFINED 2026-10-04 using disclosed home-market per-store economics
+# as a comparator instead of pure guesswork, so the bands are tighter than before.
+#
+# METHOD: US per-store ~ China per-store GMV x a US premium. US menu prices run ~2.5-4x China, partly
+# offset by lower US store volumes (less footfall density), so net ~2-3.5x; cross-checked against US
+# industry norms. LIMITATIONS (why bands stay meaningfully wide): format/volume/maturity differ, US stores
+# are often larger, and a franchisor's *reported* revenue is not the same as store GMV. The anchored US
+# outliers (Haidilao ~US$8M, Pop Mart ~US$4.4M) are NOT used to set these.
+# Disclosed comparators (China unless noted): tea mass ~RMB1.37M/store (Auntea Jenny) ~US$190k; tea premium
+# ~US$390k (Nayuki self-op) / ~US$645k (Chagee); hotpot/full-service ~US$1.08M blended (Tai Er; overseas
+# ~2x higher); coffee US ~US$0.40-0.45M (Luckin US, new/ramping).
 BENCHMARK_AUV = {
-    "tea":          (350_000,   600_000,   950_000),
-    "coffee":       (450_000,   750_000, 1_150_000),
-    "hotpot":     (1_200_000, 2_500_000, 4_500_000),
-    "restaurant":   (900_000, 1_600_000, 2_800_000),
-    "fastfood":     (500_000,   900_000, 1_500_000),
-    "bakery":       (350_000,   650_000, 1_100_000),
-    "snack":        (300_000,   550_000,   950_000),
-    "toys":         (700_000, 1_500_000, 3_000_000),
-    "lifestyle":    (700_000, 1_500_000, 3_000_000),
-    "apparel":    (1_000_000, 2_200_000, 4_500_000),
-    "beauty":       (600_000, 1_200_000, 2_200_000),
-    "convenience":(1_000_000, 2_500_000, 5_000_000),
-    "supermarket":(2_000_000, 4_000_000, 8_000_000),
-    "grocery":    (1_000_000, 2_500_000, 5_000_000),
-    "electronics":(1_000_000, 2_500_000, 5_000_000),
+    "tea":          (440_000,   580_000,   820_000),   # 190k China x ~3 (premium tails higher); was 350-950
+    "coffee":       (400_000,   600_000,   850_000),   # Luckin US ~0.45M (ramping); was 450-1150
+    "hotpot":     (1_500_000, 2_600_000, 4_000_000),   # Tai Er overseas ~2x blended; was 1.2-4.5M
+    "restaurant": (1_000_000, 1_600_000, 2_400_000),   # Tai Er blended ~US$1.08M, US higher; was 900k-2.8M
+    "fastfood":     (600_000,   950_000, 1_400_000),   # QSR (Wallace/Zhengxin)
+    "bakery":       (400_000,   650_000,   950_000),
+    "snack":        (350_000,   550_000,   850_000),
+    "toys":         (800_000, 1_500_000, 2_800_000),
+    "lifestyle":    (800_000, 1_500_000, 2_800_000),
+    "apparel":    (1_200_000, 2_200_000, 4_000_000),   # flagship SoHo-type stores run high
+    "beauty":       (600_000, 1_200_000, 2_000_000),
+    "convenience":(1_000_000, 2_500_000, 4_500_000),
+    "supermarket":(2_000_000, 4_000_000, 7_000_000),
+    "grocery":    (1_000_000, 2_500_000, 4_500_000),
+    "electronics":(1_000_000, 2_500_000, 4_500_000),
 }
-DEFAULT_AUV = (500_000, 1_000_000, 2_000_000)   # unknown/other format
+DEFAULT_AUV = (500_000, 1_000_000, 1_800_000)   # unknown/other format
 BENCHMARK_METHODS = {"v1-benchmark"}            # method_versions that are NOT filing-anchored
 
 
