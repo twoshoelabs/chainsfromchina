@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_ICON_V="?v=5fbf29a93e";</script><!-- logo cache-bust; deploy.sh stamps 5fbf29a93e -->
+<title>Chains From China — the daily census of China-origin retail in the US</title>
+<meta name="description" content="A daily count of China-origin retail and F&B chains open across the United States — taken from each company's own store list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Serif+SC:wght@500&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root {
+    --ground:#E3E5E1; --ink:#0E0F0E; --ink-2:#2E302D; --muted:#4F524E;
+    --grey-mid:#6E716C; --grey-light:#A3A6A1; --grey-base:#B3B6B1;
+    --map-dot:#C4C7C2; --map-ground:#EDEFEB; --paper:#FFFFFF;
+    --accent:#C94A35; --accent-text:#B8301C;
+    --gutter:clamp(16px,3vw,44px);
+    --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --cond:'Archivo','Helvetica Neue',sans-serif;
+    --zh:'Noto Serif SC',serif;
+  }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--ground); color:var(--ink); font:400 15px/1.5 var(--sans);
+    font-variant-numeric:lining-nums tabular-nums; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3,p,figure,dl,dd,ol { margin:0; }
+  a { color:var(--ink); }
+  a:hover { color:var(--accent-text); }
+  input::placeholder { color:#6A6D68; }
+  .cond { font-family:var(--cond); font-stretch:62%; }
+  .wrap { max-width:1440px; margin:0 auto; padding:0 var(--gutter); position:relative; }
+
+  /* Vertical credit line on the right page edge (desktop) */
+  .vcredit { position:absolute; top:220px; right:2px; writing-mode:vertical-rl; font-size:11px;
+    letter-spacing:.02em; color:var(--muted); pointer-events:none; }
+
+  /* ---------- Masthead (nameplate) ---------- */
+  .mast { padding:14px 0 0; }
+  .issue { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 24px; font-size:12px;
+    color:var(--ink-2); padding-bottom:10px; border-bottom:1px solid var(--ink); }
+  .nameplate { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+    gap:10px 32px; padding:14px 0 12px; border-bottom:3px solid var(--ink); }
+  .wm { display:flex; align-items:baseline; gap:14px; text-decoration:none; }
+  .wm .mark { font-weight:900; font-size:clamp(40px,5vw,64px); letter-spacing:-0.01em; line-height:.9; }
+  .wm .zh { font-family:var(--zh); font-weight:500; font-size:18px; color:var(--muted); }
+  .mnav { display:flex; flex-wrap:wrap; gap:0 22px; font-size:15px; font-weight:500; }
+  .mnav a { padding:10px 0; text-decoration:none; }
+  .mnav a[aria-current="page"] { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:6px; }
+
+  /* ---------- Hero 8/4 ---------- */
+  .hero { display:flex; flex-wrap:wrap; gap:0; border-bottom:1px solid var(--ink); }
+  .hero-main { flex:999 1 640px; min-width:0; padding:22px 32px 26px 0; border-right:1px solid var(--ink); }
+  .hero-side { flex:1 1 320px; padding:22px 0 26px 28px; }
+  .seclabel { font-size:15px; font-weight:600; margin:0 0 6px; }
+  .seclabel.red { font-size:13px; color:var(--accent-text); }
+  .heronum { display:flex; align-items:flex-end; gap:18px; flex-wrap:wrap; }
+  .heronum .big { font-weight:800; font-size:clamp(170px,24vw,340px); line-height:.78; letter-spacing:-0.02em; margin-left:-0.03em; }
+  .heronum .unit { display:flex; flex-direction:column; padding-bottom:10px; font-size:22px; line-height:1.05; font-weight:500; }
+  .heronum .unit .sub { font-weight:400; color:var(--muted); }
+  .hero h1 { margin:22px 0 0; max-width:700px; font-size:26px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+  .hero .method { margin:10px 0 0; max-width:620px; font-size:15px; color:var(--ink-2); }
+  .ledger { width:100%; border-collapse:collapse; font-size:15px; }
+  .ledger td { padding:8px 0; }
+  .ledger tr { border-top:1px solid var(--ink); }
+  .ledger tr.sub { border-top:1px dotted var(--map-dot); }
+  .ledger td.k2 { padding-left:14px; color:var(--ink-2); }
+  .ledger td.v { text-align:right; }
+  .ledger td.v.tot { font-weight:700; }
+  .comingnext { margin-top:14px; border-top:3px solid var(--ink); padding-top:8px; }
+  .comingnext .lbl { font-size:12px; color:var(--muted); margin:0 0 4px; }
+  .cn-row { display:flex; align-items:baseline; gap:8px; padding:5px 0; font-size:14px; border-bottom:1px dotted var(--grey-mid); }
+  .cn-row .zh { font-family:var(--zh); font-size:13px; color:var(--muted); }
+  .cn-row .n { margin-left:auto; font-weight:700; }
+  sup { font-size:.62em; }
+
+  /* ---------- Section scaffolding ---------- */
+  .split { display:flex; flex-wrap:wrap; border-bottom:1px solid var(--ink); }
+  h2.find { font-size:clamp(24px,2.8vw,38px); font-weight:700; line-height:1.08; letter-spacing:-0.02em; }
+  h2.find.sm { font-size:clamp(24px,2.4vw,32px); }
+  .ctx { font-size:15px; line-height:1.5; color:var(--ink-2); }
+
+  /* ---------- Map ---------- */
+  #mapsec { padding:28px 0 32px; border-bottom:1px solid var(--ink); }
+  .maphead { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:12px 24px; margin-bottom:18px; }
+  .maphead h2 { font-size:clamp(30px,3vw,42px); font-weight:400; letter-spacing:-0.04em; line-height:1; }
+  .seg { display:inline-flex; border:1.5px solid var(--ink); }
+  .seg a, .seg button { font:inherit; font-size:14px; min-height:44px; padding:0 18px; border:0;
+    border-left:1.5px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer;
+    text-decoration:none; display:inline-flex; align-items:center; }
+  .seg a:first-child, .seg button:first-child { border-left:0; }
+  .seg [aria-pressed="true"], .seg a.on { background:var(--ink); color:var(--ground); }
+  .mapright { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+  .btn-sec { font:inherit; font-size:14px; min-height:44px; padding:0 16px; border:1.5px solid var(--ink);
+    background:transparent; color:var(--ink); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; }
+  .maplayout { display:flex; flex-wrap:wrap; gap:24px; }
+  .rail { flex:1 1 260px; max-width:320px; display:flex; flex-direction:column; gap:22px; }
+  .mapcol { flex:999 1 560px; min-width:0; }
+  .searchlbl { font-size:12px; color:var(--muted); margin:0 0 6px; }
+  .search { position:relative; }
+  .search input { width:100%; border:0; border-bottom:2px solid var(--ink); background:transparent;
+    font:inherit; font-size:16px; color:var(--ink); padding:10px 0; min-height:44px; }
+  .railhd { display:flex; justify-content:space-between; align-items:baseline; }
+  .railhd .lbl { font-size:12px; color:var(--muted); }
+  .pbtns { display:flex; gap:14px; font-size:13px; }
+  .pbtns button { font:inherit; background:none; border:0; padding:8px 0; color:var(--ink);
+    text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+  .pbtns #only-franchise { color:var(--accent-text); } .pbtns #only-franchise[aria-pressed="true"] { color:var(--ink); font-weight:700; }
+  .maptoggles { display:flex; flex-direction:column; border-top:2px solid var(--ink); margin-top:2px; }
+  .maptoggles label { display:flex; align-items:center; gap:10px; min-height:44px; font-size:14px; cursor:pointer; }
+  .maptoggles label + label { border-top:1px solid var(--ink); }
+  #map { width:100%; aspect-ratio:1.843; background:var(--map-ground); border:1px solid var(--ink); position:relative; }
+  @media (max-width:560px){ #map { aspect-ratio:auto; height:420px; } }
+  /* Alaska & Hawaii insets, pinned to the map's lower-left */
+  .map-insets { position:absolute; left:10px; bottom:10px; z-index:3; display:flex; gap:8px; }
+  .map-inset { position:relative; width:122px; height:92px; border:1.5px solid var(--ink); background:#fff; }
+  .map-inset .mi-map { width:100%; height:100%; }
+  .map-inset .mi-lbl { position:absolute; left:4px; top:3px; z-index:2; font:600 11px var(--sans);
+    color:var(--ink); background:var(--ground); padding:1px 5px; }
+  .inset-pin { width:18px; height:18px; border-radius:50%; border:2px solid; background:#fff;
+    display:flex; align-items:center; justify-content:center; overflow:hidden; font:700 8px var(--sans); box-sizing:border-box; }
+  .inset-pin img { width:82%; height:82%; object-fit:contain; }
+  .inset-pin.soft { border-style:dashed; opacity:.6; }
+  @media (max-width:560px){ .map-inset { width:96px; height:74px; } }
+  /* MapLibre controls + popup → page tokens (square, ink outline, ground fill) */
+  .maplibregl-ctrl-group { background:var(--ground); border:1.5px solid var(--ink); border-radius:0; box-shadow:none; }
+  .maplibregl-ctrl-group button { width:44px; height:44px; background:var(--ground); }
+  .maplibregl-ctrl-group button + button { border-top:1px solid var(--ink); }
+  .maplibregl-ctrl button:hover { background:#D7DAD5; }
+  .maplibregl-popup-content { background:var(--ground); color:var(--ink); border:1.5px solid var(--ink);
+    border-radius:0; box-shadow:none; font-family:var(--sans); padding:12px 14px; font-size:14px; }
+  .maplibregl-popup-tip { display:none; }
+  .maplibregl-popup-close-button { color:var(--muted); font-size:18px; }
+  .maplibregl-ctrl-scale { background:transparent; border:1.5px solid var(--ink); border-top:0; color:var(--ink); font:11px var(--sans); }
+  .maplibregl-ctrl-attrib { background:rgba(227,229,225,.82); font-size:10px; }
+  .maplibregl-ctrl-attrib a { color:var(--muted); }
+  .legendrow { display:flex; flex-wrap:wrap; gap:.5rem 1.2rem; font-size:12px; color:var(--ink-2); margin-top:12px; }
+  #method { margin-top:10px; font-size:12px; color:var(--muted); }
+  #method a { color:var(--accent-text); }
+
+  /* ---------- Photo placeholders ---------- */
+  .photohead { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:10px 32px; margin-bottom:14px; }
+  .photohead .ctx { font-size:13px; color:var(--muted); max-width:320px; line-height:1.45; }
+  .diptych { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); gap:12px; }
+  figure.ph { margin:0; }
+  .ph-frame { position:relative; background:var(--grey-base); display:flex; align-items:center;
+    justify-content:center; overflow:hidden; }
+  .ph-frame.r32 { aspect-ratio:3/2; } .ph-frame.r45 { aspect-ratio:4/5; }
+  .ph-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .ph-note { font-size:12px; color:var(--muted); background:var(--ground); padding:3px 9px; }
+  .ph-city, .sheet .num { z-index:2; }
+  .ph-city { position:absolute; left:12px; bottom:10px; background:var(--ground); padding:2px 8px; font-size:22px; }
+  .ph-city.zh { font-family:var(--zh); } .ph-city.us { font-weight:800; font-size:24px; }
+  figure.ph figcaption { display:flex; justify-content:space-between; gap:16px; padding-top:8px; font-size:13px; line-height:1.4; }
+  figure.ph figcaption .by { color:var(--muted); white-space:nowrap; }
+  .sheet { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:12px; padding:12px; background:var(--ink); }
+  .sheet figure { margin:0; display:flex; flex-direction:column; gap:6px; }
+  .sheet .num { position:absolute; left:6px; top:6px; font-weight:700; font-size:14px; color:#fff;
+    background:rgba(14,15,14,.6); padding:1px 5px; }
+  .sheet figcaption { font-size:12px; line-height:1.35; color:var(--ground); }
+  .sheet figcaption .meta { color:var(--grey-light); }
+
+  /* ---------- Sectors (unit chart + braces) ---------- */
+  .sectors { display:flex; flex-wrap:wrap; gap:24px 40px; padding:30px 0 34px; border-bottom:1px solid var(--ink); }
+  .sectors .lead { flex:1 1 280px; max-width:360px; }
+  .sectors .chartwrap { flex:999 1 600px; min-width:0; display:flex; gap:14px; align-items:stretch; }
+  .dotgrid { flex:1 1 auto; min-width:0; display:grid; grid-template-columns:repeat(47,minmax(0,1fr));
+    gap:3px; align-content:start; }
+  .dot { aspect-ratio:1; border-radius:50%; }
+  .d-lifestyle_variety { background:var(--accent); } .d-tea { background:var(--ink); }
+  .d-food_drink { background:var(--grey-mid); } .d-coffee { background:var(--grey-light); }
+  .d-ring { box-shadow:inset 0 0 0 1.5px var(--ink); }
+  .braces { flex:none; width:190px; display:flex; flex-direction:column; }
+  .brace { display:flex; gap:8px; min-height:22px; }
+  .brace .b { width:6px; flex:none; border:1px solid var(--ink); border-left:0; margin:2px 0; }
+  .brace .t { display:flex; flex-direction:column; justify-content:center; font-size:13px; line-height:1.25; }
+  .brace .t b { font-weight:700; } .brace .t span { color:var(--muted); }
+
+  /* ---------- Neighborhoods 5/7 ---------- */
+  .nb-left { flex:5 1 420px; min-width:0; padding:30px 32px 34px 0; border-right:1px solid var(--ink); }
+  .nb-right { flex:7 1 520px; min-width:0; padding:30px 0 34px 32px; }
+  .nbnum { display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap; }
+  .nbnum .n { font-weight:300; font-size:clamp(120px,13vw,190px); line-height:.8; letter-spacing:-0.02em; }
+  .nbnum .m { font-size:18px; line-height:1.2; max-width:220px; padding-bottom:6px; }
+  .twobar { margin-top:26px; display:flex; flex-direction:column; gap:8px; }
+  .twobar .row { display:grid; grid-template-columns:150px minmax(0,1fr); gap:12px; align-items:center; font-size:14px; }
+  .twobar .barwrap { display:flex; align-items:center; gap:8px; }
+  .twobar .barwrap i { display:block; height:18px; } .twobar .barwrap b { font-weight:700; }
+  .nb-left .after { margin:22px 0 0; font-size:14px; line-height:1.55; color:var(--ink-2); max-width:520px; }
+  .arcwrap { display:flex; flex-wrap:wrap; gap:20px 36px; align-items:flex-end; }
+  .arcwrap svg { flex:1 1 300px; max-width:400px; height:auto; }
+  .arcdl { flex:1 1 220px; margin:0; display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px 14px; align-items:baseline; }
+  .arcdl dt { font-weight:800; font-size:44px; line-height:.9; } .arcdl dd { margin:0; font-size:14px; }
+  .nb-right .after { margin:18px 0 0; padding-top:10px; border-top:1px solid var(--ink); font-size:13px; color:var(--ink-2); }
+
+  /* ---------- Metros 7/5 + drop-cap links ---------- */
+  .m-left { flex:7 1 520px; min-width:0; padding:30px 32px 34px 0; border-right:1px solid var(--ink); }
+  .m-right { flex:5 1 380px; min-width:0; padding:30px 0 34px 32px; display:flex; flex-direction:column; gap:22px; }
+  .mtable { width:100%; border-collapse:collapse; font-size:14px; }
+  .mtable th { font-size:12px; color:var(--muted); font-weight:400; padding:0 0 6px; text-align:right; }
+  .mtable th:first-child { text-align:left; }
+  .mtable td { border-top:1px solid var(--ink); padding:6px 0; }
+  .mtable td.nm { padding-right:12px; width:120px; } .mtable td.bar i { display:block; height:14px; background:var(--ink); }
+  .mtable td.v { text-align:right; font-weight:700; width:60px; } .mtable td.sh { text-align:right; color:var(--muted); width:60px; }
+  .dcap { display:block; text-decoration:none; }
+  .dcap + .dcap { clear:both; padding-top:18px; border-top:1px solid var(--ink); }
+  .dcap .num { font-size:96px; line-height:.8; float:left; margin:0 14px 0 0; }
+  .dcap .tx { font-size:17px; line-height:1.35; }
+  .dcap .tx u { text-decoration:underline; text-underline-offset:3px; }
+
+  /* ---------- Pro ---------- */
+  .pro { display:flex; flex-wrap:wrap; gap:20px 40px; padding:28px 0 30px; border-bottom:3px solid var(--ink); }
+  .pro .intro { flex:1 1 300px; max-width:420px; }
+  .pro .intro p.big { font-size:17px; line-height:1.45; }
+  .pro .links { margin-top:14px; font-size:15px; }
+  .pro .links a { text-underline-offset:3px; }
+  .pro dl { flex:999 1 520px; margin:0; display:grid; grid-template-columns:minmax(150px,220px) minmax(0,1fr); font-size:14px; line-height:1.45; }
+  .pro dt { padding:9px 12px 9px 0; border-top:1px solid var(--ink); font-weight:700; }
+  .pro dd { margin:0; padding:9px 0; border-top:1px solid var(--ink); }
+  .pro dl > :nth-last-child(-n+2) { border-bottom:1px solid var(--ink); }
+
+  /* ---------- Footer ---------- */
+  footer { display:flex; flex-wrap:wrap; gap:14px 40px; padding:16px 0 44px; font-size:12px; line-height:1.55; color:var(--ink-2); }
+  footer ol { flex:2 1 480px; margin:0; padding-left:16px; }
+  footer ol li.dag { list-style:none; margin-left:-16px; }
+  footer .colophon { flex:1 1 260px; }
+
+  :focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+
+  /* ---------- Map chrome (atlas.js-generated) — re-tokenized ---------- */
+  .tally { max-height:58vh; overflow-y:auto; margin:4px -4px 0; padding:0 4px; }
+  button.tallygroup { background:none; border:0; border-top:1px solid var(--ink); margin-top:6px;
+    padding:14px 0 6px; width:100%; text-align:left; cursor:pointer; font:600 12px var(--sans); color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+  button.tallygroup:first-child { border-top:0; margin-top:0; }
+  button.tallygroup.partial { opacity:.55; }
+  .chip { display:flex; align-items:center; gap:10px; padding:7px 2px; min-height:40px; cursor:pointer; }
+  .chip:hover { background:rgba(14,15,14,.05); }
+  .chip[aria-pressed="false"] { opacity:.4; }
+  .chip .chiplogo { width:24px; height:24px; border-radius:50%; border:2px solid; background:var(--paper);
+    display:inline-flex; align-items:center; justify-content:center; overflow:hidden; flex:0 0 auto; }
+  .chip .chiplogo img { width:82%; height:82%; object-fit:contain; display:block; }
+  .chip .chipnm { flex:1; font-size:14px; color:var(--ink-2); min-width:0; }
+  .frbox { border:1px solid var(--accent-text); padding:1px 5px; }
+  .frbox.page { border-style:dashed; }
+  .chip .n { font:700 14px var(--sans); color:var(--ink); }
+  .chip .prof { text-decoration:none; color:var(--muted); font-size:15px; padding:0 2px; }
+  .chip .prof:hover { color:var(--accent-text); }
+  .chip .only { font:500 11px var(--sans); border:1px solid var(--ink); background:var(--paper);
+    padding:2px 6px; cursor:pointer; color:var(--muted); opacity:0; }
+  .chip:hover .only { opacity:1; }
+  .legendrow .k { display:inline-flex; align-items:center; gap:.4rem; }
+  .legendrow .dot { width:12px; height:12px; border-radius:50%; display:inline-block; border:2px solid; }
+  .legendrow .hollow { background:var(--paper); }
+  .search .suggest { position:absolute; left:0; right:0; top:calc(100% + 6px); background:var(--ground);
+    color:var(--ink); border:1px solid var(--ink); z-index:60; max-height:60vh; overflow:auto; padding:4px; }
+  .suggest .grp { font:600 11px var(--sans); color:var(--muted); padding:11px 10px 6px; text-transform:uppercase; letter-spacing:.04em; }
+  .suggest .opt { display:flex; align-items:center; gap:10px; padding:9px 10px; cursor:pointer; font-size:15px; min-height:40px; }
+  .suggest .opt[aria-selected="true"], .suggest .opt:hover { background:rgba(201,74,53,.12); }
+  .suggest .opt .ring { width:16px; height:16px; border-radius:50%; border:2px solid; flex:0 0 auto; }
+  .suggest .opt .ring.sq { border-radius:0; }
+  .suggest .opt .nm { flex:1; } .suggest .opt .zh { color:var(--muted); font-size:.85em; margin-left:4px; }
+  .suggest .opt .meta { color:var(--muted); font-size:.8rem; }
+  .suggest .opt .ic { width:18px; text-align:center; opacity:.55; flex:0 0 auto; }
+  .suggest .none { padding:12px 10px; color:var(--muted); font-size:14px; } .suggest .none b { color:var(--ink); }
+  .place-panel { position:fixed; top:0; right:0; width:370px; max-width:92vw; height:100vh; z-index:1200;
+    background:var(--ground); border-left:1px solid var(--ink); display:flex; flex-direction:column; font-family:var(--sans); }
+  .place-panel[hidden] { display:none; }
+  .place-panel .pp-head { padding:22px 20px 16px; border-bottom:1px solid var(--ink); position:relative; }
+  .place-panel .pp-x { position:absolute; top:12px; right:12px; background:none; border:0; font-size:1.5rem; line-height:1; cursor:pointer; color:var(--muted); width:40px; height:40px; }
+  .place-panel h3 { font-weight:700; font-size:1.4rem; line-height:1.12; letter-spacing:-0.01em; margin:0 28px 3px 0; color:var(--ink); }
+  .place-panel .pp-owner { color:var(--muted); font-size:13px; }
+  .place-panel .pp-stats { display:flex; gap:20px; padding:14px 20px; border-bottom:1px solid var(--ink); }
+  .place-panel .pp-stats .s b { display:block; font-weight:800; font-family:var(--cond); font-stretch:62%; font-size:1.9rem; line-height:1; color:var(--ink); }
+  .place-panel .pp-stats .s span { font-size:12px; color:var(--muted); }
+  .place-panel .pp-btns { display:flex; gap:8px; padding:14px 20px; flex-wrap:wrap; }
+  .place-panel .pp-btns a, .place-panel .pp-btns button { font:500 14px var(--sans); padding:9px 13px;
+    border:1.5px solid var(--ink); background:transparent; cursor:pointer; text-decoration:none; color:var(--ink); min-height:40px; display:inline-flex; align-items:center; gap:6px; }
+  .place-panel .pp-btns .pro { background:var(--ink); color:var(--ground); }
+  .place-panel .pp-list { flex:1; overflow:auto; padding:8px 12px 18px; }
+  .place-panel .pp-list .lbl { font:600 11px var(--sans); color:var(--muted); padding:12px 8px 6px; text-transform:uppercase; letter-spacing:.04em; }
+  .place-panel .pp-row { display:flex; align-items:center; gap:10px; padding:10px 8px; text-decoration:none; color:inherit; border-top:1px solid rgba(14,15,14,.1); min-height:44px; }
+  .place-panel .pp-row:hover { background:rgba(14,15,14,.05); }
+  .place-panel .pp-row .ring { width:16px; height:16px; border-radius:50%; border:2px solid; flex:0 0 auto; }
+  .place-panel .pp-row .ring.sq { border-radius:0; }
+  .place-panel .pp-row .st { margin-left:auto; font-size:13px; color:var(--muted); }
+  @media (max-width:860px){ .place-panel { top:auto; bottom:0; left:0; right:0; width:100%; max-width:100%; height:72vh; border-left:0; border-top:2px solid var(--ink); } }
+
+  @media (max-width:1100px){ .vcredit { display:none; } }
+  @media (max-width:760px){
+    .dotgrid { grid-template-columns:repeat(32,minmax(0,1fr)); }
+    .hero-main, .nb-left, .m-left { border-right:0; padding-right:0; }
+    .hero-side, .nb-right, .m-right { padding-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="vcredit">Chains From China · a daily census by Twoshoe Labs · since 2 Sep 2026</div>
+
+  <!-- 1 · MASTHEAD (nameplate) -->
+  <header class="mast">
+    <div class="issue">
+      <span id="issue-line">The daily census of China-origin retail</span>
+      <span>The daily census of China-origin retail in the United States</span>
+    </div>
+    <div class="nameplate">
+      <a class="wm" href="index.html">
+        <span class="cond mark">Chains From China</span>
+        <span class="zh" lang="zh-Hant">中國連鎖在美門市</span>
+      </a>
+      <nav class="mnav" aria-label="Main">
+        <a href="index.html" aria-current="page">Map</a>
+        <a href="intro.html">Chains</a>
+        <a href="centers.html">Co-tenancy</a>
+        <a href="register.html">Global</a>
+        <a href="classic.html">Method</a>
+        <a href="#pro">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2 · HERO 8/4 -->
+  <div class="hero">
+    <section class="hero-main">
+      <p class="seclabel">Open in the US this morning</p>
+      <div class="heronum">
+        <span class="cond big" id="hero-num">846</span>
+        <span class="unit">outlets<span class="sub">of <span id="hero-chains">42</span> chains<sup>1</sup></span></span>
+      </div>
+      <h1>Where China's chains are open in America: bubble tea and hot pot, but also art toys, sportswear and more.</h1>
+      <p class="method">Every figure is taken each morning from the company's own store locator. Nothing is estimated unless marked with a dagger (†).</p>
+    </section>
+    <aside class="hero-side">
+      <h2 class="seclabel">Today's count</h2>
+      <table class="ledger">
+        <tbody>
+          <tr><td>Outlets open</td><td class="v tot" id="L-open">846</td></tr>
+          <tr class="sub"><td class="k2">on the map</td><td class="v" id="L-mapped">838</td></tr>
+          <tr class="sub"><td class="k2">awaiting an address</td><td class="v" id="L-unaddr">8</td></tr>
+          <tr><td>Chains tracked</td><td class="v tot" id="L-chains">42</td></tr>
+          <tr><td>Sectors</td><td class="v tot" id="L-sectors">7</td></tr>
+          <tr><td>Announced, not yet open<sup>2</sup></td><td class="v tot" id="L-ann">33</td></tr>
+        </tbody>
+      </table>
+      <div class="comingnext">
+        <p class="lbl">Coming next, by chain</p>
+        <div id="cn-rows"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 3 · US MAP (working tool — atlas.js, chrome re-tokenized) -->
+  <section id="mapsec">
+    <div class="maphead">
+      <h2>US map</h2>
+      <div class="mapright">
+        <div class="seg" role="group" aria-label="View">
+          <a href="#mapsec" class="on" aria-pressed="true">Map</a>
+          <a href="classic.html">By state</a>
+          <a href="classic.html">Table</a>
+        </div>
+        <button type="button" id="share-view" class="btn-sec" title="Copy a link to this exact view">Share view</button>
+      </div>
+    </div>
+    <div class="maplayout">
+      <div class="rail">
+        <div class="search">
+          <p class="searchlbl">Find a chain, city or shopping center</p>
+          <input id="hero-search" type="search" autocomplete="off" role="combobox" aria-expanded="false"
+                 aria-controls="search-suggest" aria-autocomplete="list" placeholder="MIXUE, Flushing, Westfield…"
+                 aria-label="Search chains, cities or shopping centers">
+          <div id="search-suggest" class="suggest" role="listbox" hidden></div>
+        </div>
+        <div>
+          <div class="railhd">
+            <span class="lbl">Show on map</span>
+            <span class="pbtns">
+              <button type="button" id="show-all">All</button>
+              <button type="button" id="show-none">None</button>
+              <button type="button" id="only-franchise" aria-pressed="false" title="Show only chains open to a US franchisee">Franchise</button>
+            </span>
+          </div>
+          <div class="tally" id="tally"></div>
+        </div>
+        <div class="maptoggles">
+          <label><input type="checkbox" id="show-announced" checked> <span id="announced-lbl">Show 33 announced</span></label>
+        </div>
+      </div>
+      <div class="mapcol">
+        <div id="map"></div>
+        <div class="legendrow" id="legend"></div>
+        <p id="method">National view. Zooming in replaces clusters with brand-logo pins. For a breakdown by state, the <a href="classic.html">by-state view</a> lists every state.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO · There and here (placeholder until images arrive) -->
+  <section style="padding:26px 0 30px;border-bottom:1px solid var(--ink)">
+    <div class="photohead">
+      <div>
+        <p class="seclabel red">There and here</p>
+        <h2 class="find">The same counter, half a world apart.</h2>
+      </div>
+      <p class="ctx">Each pair is shot from the same height and angle, so the eye compares the shops, not the photography.</p>
+    </div>
+    <div class="diptych">
+      <figure class="ph">
+        <div class="ph-frame r32">
+          <picture><source srcset="photos/pair-china-storefront.webp" type="image/webp">
+            <img src="photos/pair-china-storefront.jpg" alt="Illustration of a tea and ice cream shopfront in China with a red Chinese sign and people outside"></picture>
+          <span class="ph-city zh" lang="zh-Hant">鄭州</span></div>
+        <figcaption><span><b>Zhengzhou, Henan.</b> Where the chain began. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
+      </figure>
+      <figure class="ph">
+        <div class="ph-frame r32">
+          <picture><source srcset="photos/pair-us-storefront.webp" type="image/webp">
+            <img src="photos/pair-us-storefront.jpg" alt="Illustration of a tea and ice cream shopfront on a US street with a green sign"></picture>
+          <span class="ph-city us cond">[CITY, ST]</span></div>
+        <figcaption><span><b>[City, State].</b> The same chain, open in the US today. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 4 · SECTORS 4/8 -->
+  <section class="sectors">
+    <div class="lead">
+      <p class="seclabel red">Outlets by sector</p>
+      <h2 class="find" id="sec-head">Four lifestyle &amp; toys chains run 506 of the 846 stores.</h2>
+      <p class="ctx" id="sec-ctx" style="margin-top:14px"></p>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted)">Each dot is one outlet.</p>
+    </div>
+    <div class="chartwrap">
+      <div class="dotgrid" id="dotgrid" role="img" aria-label="One dot per open outlet, grouped by sector."></div>
+      <div class="braces" id="braces"></div>
+    </div>
+  </section>
+
+  <!-- 5 · HOST NEIGHBORHOODS 5/7 (modeled → dagger) -->
+  <div class="split">
+    <section class="nb-left">
+      <p class="seclabel red">Host neighborhoods†</p>
+      <div class="nbnum">
+        <span class="cond n" id="nb-ratio">2.3×</span>
+        <span class="m">as Asian as the US as a whole, for the typical outlet's census tract</span>
+      </div>
+      <div class="twobar" id="twobar"></div>
+      <p class="after" id="nb-after"></p>
+    </section>
+    <section class="nb-right">
+      <p class="seclabel" id="nb-right-lbl" style="font-weight:600;margin-bottom:14px">Urban, metro-core, near a campus · 871 storefronts measured†</p>
+      <div class="arcwrap">
+        <svg viewBox="0 0 320 172" id="arcs" role="img" aria-label="Urban, metro and campus shares"></svg>
+        <dl class="arcdl" id="arcdl"></dl>
+      </div>
+      <p class="after" id="nb-foot"></p>
+    </section>
+  </div>
+
+  <!-- 6 · TOP METROS + LINKS 7/5 -->
+  <div class="split">
+    <section class="m-left">
+      <p class="seclabel red">Top metros</p>
+      <h2 class="find sm" id="metro-head" style="margin-bottom:18px">New York and Los Angeles hold more than a third of the total.</h2>
+      <table class="mtable">
+        <thead><tr><th>Metro</th><th></th><th>Outlets</th><th>Share</th></tr></thead>
+        <tbody id="metro-rows"></tbody>
+      </table>
+    </section>
+    <section class="m-right">
+      <a class="dcap" href="centers.html"><span class="cond num" id="dc-cot">53</span>
+        <span class="tx">shopping centers and blocks host two or more of these chains side by side. <u>See the co-tenancy list</u></span></a>
+      <a class="dcap" href="register.html"><span class="cond num" id="dc-ctry" style="font-weight:300">25</span>
+        <span class="tx">countries outside China where these chains already trade, and which may come to the US next. <u>Open the register</u></span></a>
+    </section>
+  </div>
+
+  <!-- PHOTO · Sightings this week (placeholder) -->
+  <section style="padding:30px 0 32px;border-bottom:1px solid var(--ink)">
+    <div class="photohead">
+      <div>
+        <p class="seclabel red">Sightings this week</p>
+        <h2 class="find sm">Photographed by readers, checked against each chain's store list.</h2>
+      </div>
+      <a href="contribute.html" style="font-size:15px;font-weight:700;text-underline-offset:3px">Submit a sighting</a>
+    </div>
+    <div class="sheet" id="sheet"></div>
+  </section>
+
+  <!-- 7 · PRO (no cards) -->
+  <section class="pro">
+    <div class="intro">
+      <p class="seclabel red">Pro, in development</p>
+      <p class="big">The map and the daily counts stay free. Pro is for landlords and brokers, brand expansion teams, and analysts who follow these chains for a living.</p>
+      <p class="links"><a href="#pro" style="font-weight:700">Join the waitlist</a> &nbsp;or&nbsp; <a href="contribute.html">submit a sighting</a></p>
+    </div>
+    <dl>
+      <dt>History and alerts</dt><dd>The full daily archive; a note when a chain opens in a state, metro or center you follow.</dd>
+      <dt>Store-level exports</dt><dd>Every outlet with address, coordinates, status and first-seen date, as CSV or GeoJSON.</dd>
+      <dt>Co-tenancy and gaps</dt><dd>Which owners host these tenants, and which of their centers still have none.</dd>
+      <dt>Revenue and prices†</dt><dd>Per-outlet revenue ranges and tracked menu prices, with the method shown.</dd>
+    </dl>
+  </section>
+
+  <!-- 8 · FOOTER -->
+  <footer>
+    <ol>
+      <li>A chain is counted once it lists a US store on its own locator. Brand names identify the businesses measured; no affiliation.</li>
+      <li>Announced locations are held out of every total until the chain's own listing shows them open.</li>
+      <li class="dag" id="foot-dag">† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS.</li>
+    </ol>
+    <p class="colophon">Set in Schibsted Grotesk and Archivo. Collected daily since 2 September 2026. © 2026 Twoshoe Labs LLC.</p>
+  </footer>
+</div>
+
+<aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
+
+<script src="atlas.js?v=20261004c"></script>
+<script>
+// ---- Editorial homepage bindings (map engine is atlas.js, untouched) ----
+const SECTOR_NAME = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
+  grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+const SECTOR_LABEL_LC = { lifestyle_variety:'lifestyle & toys', tea:'tea', food_drink:'food & drink',
+  coffee:'coffee', apparel:'apparel', snacks:'snacks', bakery:'bakery' };
+const DOT_CLASS = { lifestyle_variety:'d-lifestyle_variety', tea:'d-tea', food_drink:'d-food_drink', coffee:'d-coffee' };
+const SWATCH = { lifestyle_variety:'var(--accent)', tea:'var(--ink)', food_drink:'var(--grey-mid)', coffee:'var(--grey-light)' };
+const WORD = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+const cap = s => s ? s[0].toUpperCase()+s.slice(1) : s;
+const fmt = n => (n==null?'—':n.toLocaleString('en-US'));
+const word = n => (n>=0 && n<=10) ? WORD[n] : String(n);
+const $ = id => document.getElementById(id);
+
+(async function () {
+  let fc, demo=null, centers=null, reg=null;
+  try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
+  try { demo = await fetch('data/demographics.json').then(r=>r.json()); } catch(e){}
+  try { centers = await fetch('data/centers.json').then(r=>r.json()); } catch(e){}
+  try { reg = await fetch('data/register.json').then(r=>r.json()); } catch(e){}
+  const feats = fc.features, meta = fc.meta||{}, T = meta.totals||{};
+  const zhOf = ch => (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || '';
+  const isLocated = f => f.properties.status==='open' || (f.properties.kind==='sighting' && f.properties.status!=='coming_soon');
+
+  // Masthead issue line: "No. 31 · Friday 2 October 2026 · counted 06:00 UTC"
+  if (meta.collected) {
+    const d = new Date(meta.collected+'T00:00:00');
+    const line = 'No. ' + (meta.days||'—') + ' · ' +
+      d.toLocaleDateString('en-US',{weekday:'long'}) + ' ' + d.getDate() + ' ' +
+      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear() + ' · counted 06:00 UTC';
+    $('issue-line').textContent = line;
+  }
+
+  // Hero + ledger
+  const outlets = (T.outlets!=null) ? T.outlets : feats.filter(f=>f.properties.status==='open').length;
+  const mapped = (T.mapped!=null) ? T.mapped : outlets;
+  const unaddr = (T.unmapped!=null) ? T.unmapped : 0;
+  const bySector = {}; const chainSet = new Set();
+  for (const f of feats) { if (!isLocated(f)) continue; const p=f.properties;
+    const s = bySector[p.sector] || (bySector[p.sector]={outlets:0,chains:new Set()});
+    s.outlets++; s.chains.add(p.chain); chainSet.add(p.chain); }
+  const secRows = Object.entries(bySector).sort((a,b)=>b[1].outlets-a[1].outlets);
+  const nChains = chainSet.size, nSectors = secRows.length;
+  $('hero-num').textContent = fmt(outlets);
+  $('hero-chains').textContent = fmt(nChains);
+  $('L-open').textContent = fmt(outlets); $('L-mapped').textContent = fmt(mapped);
+  $('L-unaddr').textContent = fmt(unaddr); $('L-chains').textContent = fmt(nChains);
+  $('L-sectors').textContent = fmt(nSectors);
+
+  // Announced
+  const annBy = {}; for (const f of feats) if (f.properties.status==='coming_soon') annBy[f.properties.chain]=(annBy[f.properties.chain]||0)+1;
+  const annRows = Object.entries(annBy).sort((a,b)=>b[1]-a[1]);
+  const annTotal = (T.announced!=null) ? T.announced : annRows.reduce((s,[,n])=>s+n,0);
+  $('L-ann').textContent = fmt(annTotal);
+  $('announced-lbl').textContent = 'Show ' + annTotal + ' announced';
+  const nameOf = ch => { const f = feats.find(x=>x.properties.chain===ch); return (f&&f.properties.name)||ch; };
+  $('cn-rows').innerHTML = annRows.slice(0,6).map(([ch,n]) =>
+    '<div class="cn-row"><span>'+nameOf(ch)+'</span><span class="zh" lang="zh-Hans">'+zhOf(ch)+'</span><span class="n">+'+n+'</span></div>').join('');
+
+  // Sectors: unit chart + braces
+  const total = secRows.reduce((s,[,v])=>s+v.outlets,0);
+  const cols = Math.max(1, Math.round(Math.sqrt(total*2.6)));
+  const dg = $('dotgrid'); dg.style.gridTemplateColumns = 'repeat('+cols+',minmax(0,1fr))';
+  let dots='';
+  for (const [sec,v] of secRows) { const cls = DOT_CLASS[sec]||'d-ring';
+    for (let i=0;i<v.outlets;i++) dots += '<span class="dot '+cls+'"></span>'; }
+  dg.innerHTML = dots;
+  dg.setAttribute('aria-label', total+' outlets, one dot each: '+secRows.map(([s,v])=>(SECTOR_NAME[s]||s)+' '+v.outlets).join(', ')+'.');
+  // braces: named sectors with a dot colour, rest grouped as "Other n"
+  const named = secRows.filter(([s])=>DOT_CLASS[s]);
+  const otherOutlets = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.outlets,0);
+  const otherChains = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.chains.size,0);
+  const braceItems = named.map(([s,v])=>({name:SECTOR_NAME[s]||s, n:v.outlets, c:v.chains.size}));
+  if (otherOutlets) braceItems.push({name:'Other', n:otherOutlets, c:otherChains});
+  $('braces').innerHTML = braceItems.map(b =>
+    '<div class="brace" style="flex-grow:'+b.n+'"><span class="b"></span>'+
+    '<span class="t"><b>'+b.name+' '+b.n+'</b><span>'+b.c+(b.c===1?' chain':' chains')+'</span></span></div>').join('');
+  // Sector headline + context
+  if (secRows.length) {
+    const [ts,tv] = secRows[0];
+    $('sec-head').innerHTML = cap(word(tv.chains.size))+' '+(SECTOR_LABEL_LC[ts]||SECTOR_NAME[ts]||ts)+
+      ' chains run '+tv.outlets+' of the '+total+' stores.';
+    const mostBrands = secRows.slice().sort((a,b)=>b[1].chains.size-a[1].chains.size)[0];
+    const tea = bySector['tea'];
+    let ctx = cap(SECTOR_LABEL_LC[mostBrands[0]]||SECTOR_NAME[mostBrands[0]])+' has the most brands, '+
+      mostBrands[1].chains.size+' of them, but they share just '+mostBrands[1].outlets+' outlets between them.';
+    if (tea) ctx += ' Tea is next: '+tea.chains.size+' chains, '+tea.outlets+' shops.';
+    $('sec-ctx').textContent = ctx;
+  }
+
+  // Neighborhoods
+  if (demo) {
+    const a=demo.asian_density, nat=demo.national_pct_asian, u=demo.university, m=demo.metro;
+    const ratio = a.median_tract_pct/nat;
+    $('nb-ratio').textContent = ratio.toFixed(1)+'×';
+    const host=a.median_tract_pct, usW = Math.round(usShareWidth(nat,host));
+    function usShareWidth(us,hostv){ return us/hostv*100; }
+    $('twobar').innerHTML =
+      '<div class="row"><span>US population</span><div class="barwrap"><i style="width:'+Math.round(nat/host*100)+'%;background:var(--grey-base)"></i><b>'+nat+'%</b></div></div>'+
+      '<div class="row"><span>Median host tract</span><div class="barwrap"><i style="width:100%;background:var(--accent)"></i><b>'+host+'%</b></div></div>';
+    $('nb-after').textContent = 'More than half the outlets, '+a.ge_2x+'%, sit in tracts at least twice the national share. '+
+      'A quarter ('+a.ge_5x+'%) are at five times; '+a.ge_10x+'% at ten times or more.';
+    $('nb-right-lbl').textContent = 'Urban, metro-core, near a campus · '+fmt(demo.outlets_analyzed)+' storefronts measured†';
+    // arcs
+    const arcs = [ {r:140,share:m.in_csa_pct,color:'var(--ink)'}, {r:110,share:a.ge_national,color:'var(--accent)'}, {r:80,share:u.within_1mi,color:'#8C8F8A'} ];
+    const cx=160, cy=160; let svg='';
+    for (const arc of arcs){ const len=Math.PI*arc.r; const dash=len*(arc.share/100);
+      const dl='M '+(cx-arc.r)+' '+cy+' A '+arc.r+' '+arc.r+' 0 0 1 '+(cx+arc.r)+' '+cy;
+      svg+='<path d="'+dl+'" fill="none" stroke="var(--paper)" stroke-width="16"/>';
+      svg+='<path d="'+dl+'" fill="none" stroke="'+arc.color+'" stroke-width="16" stroke-dasharray="'+dash.toFixed(1)+' 1000"/>';
+    }
+    svg+='<text x="160" y="150" text-anchor="middle" font-size="11" font-family="Schibsted Grotesk,sans-serif" fill="#2E302D">of '+fmt(demo.outlets_analyzed)+' storefronts</text>';
+    $('arcs').innerHTML = svg;
+    $('arcdl').innerHTML =
+      '<dt class="cond">'+m.in_csa_pct+'%</dt><dd>in a major metro <span style="color:var(--muted)">(outer ring)</span></dd>'+
+      '<dt class="cond" style="color:var(--accent)">'+a.ge_national+'%</dt><dd>above the national Asian share</dd>'+
+      '<dt class="cond">'+u.within_1mi+'%</dt><dd>within a mile of a college campus</dd>';
+    $('nb-foot').textContent = m.urban_pct+'% are inside a Census urban area. Nearly a third ('+u.within_half_mi+
+      '%) are within half a mile of a campus; the median distance is '+u.median_miles+' miles.';
+    $('foot-dag').textContent = '† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS. Tract share resolved for '+fmt(demo.with_tract_asian)+' of '+fmt(demo.outlets_analyzed)+' storefronts.';
+  }
+
+  // Top metros table + headline
+  if (demo && demo.metro && demo.metro.top && demo.metro.top.length) {
+    const top = demo.metro.top.slice(0,8), max = top[0].n;
+    $('metro-rows').innerHTML = top.map(mm => {
+      const w=(mm.n/max*100).toFixed(1), sh=Math.round(mm.n/outlets*100);
+      return '<tr><td class="nm">'+mm.name.split('-')[0]+'</td><td class="bar"><i style="width:'+w+'%"></i></td>'+
+        '<td class="v">'+mm.n+'</td><td class="sh">'+sh+'%</td></tr>';
+    }).join('');
+    if (top.length>=2) {
+      const two=(top[0].n+top[1].n)/outlets;
+      const frac = two>=0.33?'more than a third':(two>=0.3?'nearly a third':(two>=0.25?'a quarter':'a large share'));
+      $('metro-head').textContent = top[0].name.split('-')[0]+' and '+top[1].name.split('-')[0]+' hold '+frac+' of the total.';
+    }
+  }
+
+  // Drop-cap links
+  $('dc-cot').textContent = centers ? fmt((centers.co_tenancy||[]).length) : '—';
+  $('dc-ctry').textContent = reg ? fmt(Object.keys(reg.markets||{}).length) : '—';
+
+  // Sightings sheet — placeholder illustrations until readers' photos arrive
+  const SIGHTINGS = [
+    ['sighting-01-opening', 'Illustration of a shopfront on opening day with people outside'],
+    ['sighting-02-coming-soon', 'Illustration of a coming-soon hoarding inside a mall'],
+    ['sighting-03-night', 'Illustration of a lit shopfront at night'],
+    ['sighting-04-interior', 'Illustration of a shop interior with menu boards and a counter'],
+    ['sighting-05-strip-mall', 'Illustration of a strip-mall storefront with parked cars'],
+    ['sighting-06-closed', 'Illustration of a closed shop with its shutter down and sign still up'],
+  ];
+  $('sheet').innerHTML = SIGHTINGS.map(([f, alt], i) =>
+    '<figure><div class="ph-frame r45"><span class="num">' + (meta.days || '') + '-' + (i + 1) + '</span>' +
+    '<picture><source srcset="photos/' + f + '.webp" type="image/webp">' +
+    '<img src="photos/' + f + '.jpg" alt="' + alt + '"></picture></div>' +
+    '<figcaption><b>[Chain]</b>, [city]<br><span class="meta">[date · reader · status · placeholder]</span></figcaption></figure>').join('');
+})();
+</script>
+</body>
+</html>

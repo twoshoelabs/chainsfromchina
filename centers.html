@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — co-tenancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+<style>
+  #cot { border-collapse: collapse; width: 100%; margin-top: .5rem; font-family: "Libre Franklin", system-ui, sans-serif; }
+  #cot th, #cot td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--rule, #e5e0d8); vertical-align: top; }
+  #cot th { font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; color: var(--muted, #6b6459); }
+  #cot td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #cot tr.top td { background: rgba(180,140,60,.07); }
+  .place { font-weight: 600; }
+  .place small { font-weight: 400; color: var(--muted, #6b6459); }
+  .chip { display: inline-block; margin: .1rem .25rem .1rem 0; padding: .08rem .45rem; border: 1px solid var(--rule, #e5e0d8);
+          border-radius: 999px; font-size: .82rem; background: #fff; }
+  .chip b { font-weight: 600; }
+  .chip .sec { color: var(--muted, #6b6459); font-size: .72rem; }
+  .lede-note { max-width: 60ch; }
+</style>
+<link rel="stylesheet" href="site.css?v=12">
+</head>
+<body data-page="cotenancy">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink current" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>Where Chinese chains cluster</h1>
+  <p class="sub">Places where two or more China-origin chains trade in the same building, mall or
+     block. <span id="asof"></span></p>
+  <p class="coverline" id="summary"></p>
+</header>
+
+<div class="wrap">
+  <main>
+    <p class="note lede lede-note">
+      This is computed, not compiled. Every store and sighting on this site is geocoded, so a
+      <strong>cluster</strong> here is simply chains sitting at the same coordinates &mdash; the same
+      building, mall or block. It needs no mall directory: the evidence is the stores themselves, each
+      of which you can find on the <a href="index.html">US map</a>. Where we know the center by name
+      and its owner, that is shown; otherwise the cluster stands on its location alone. Only clusters
+      with two or more distinct brands are listed.
+    </p>
+    <figure style="margin:24px 0 8px">
+      <div style="position:relative;aspect-ratio:21/9;border:1px solid var(--ink);overflow:hidden;background:var(--grey-base)">
+        <picture><source srcset="photos/cotenancy-street.webp" type="image/webp">
+          <img src="photos/cotenancy-street.jpg" alt="Illustration of four neighbouring shopfronts: tea, hot pot, toys and coffee" style="width:100%;height:100%;object-fit:cover;display:block"></picture>
+      </div>
+      <figcaption style="display:flex;justify-content:space-between;gap:16px;padding-top:8px;font-size:13px;color:var(--muted)">
+        <span>A block where several China-origin chains trade side by side; a real photo will carry numbered markers tying each storefront to the list.</span>
+        <span style="white-space:nowrap">Placeholder</span>
+      </figcaption>
+    </figure>
+    <section id="landlordsec" hidden>
+      <h2>By landlord</h2>
+      <p class="note">Owners of the named centers above, ranked by how many host two or more Chinese
+        chains. It shows which of an owner&rsquo;s centers already have these tenants and which do not.</p>
+      <table id="reit"><thead><tr>
+        <th>Owner</th><th></th><th class="num">Centers</th><th class="num">Chinese brands</th>
+      </tr></thead><tbody></tbody></table>
+    </section>
+
+    <h2>Every cluster</h2>
+    <table id="cot"><thead><tr>
+      <th>#</th><th>Place</th><th class="num">Brands</th><th class="num">Sectors</th><th>Chains present</th>
+    </tr></thead><tbody></tbody></table>
+    <p class="note small" id="method"></p>
+  </main>
+</div>
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project. It is
+  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
+  site; brand names identify the businesses being measured and nothing more.</p>
+  <p>Clusters are computed from the geocoded coordinates of stores this project collects daily and
+  of hand-verified sightings; two chains within about 100&nbsp;m are treated as sharing a center.
+  Coordinates are derived from the US Census geocoder. Coastlines from
+  <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+<script src="centers.js?v=20261004033212"></script>
+<script src="site.js?v=7"></script>
+</body>
+</html>

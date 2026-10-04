@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — international register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  /* Global page: the market matrix is the centrepiece, so give it the full width and move the
+     supporting notes (largely a recap of other sections) into a row beneath it. */
+  .wrap { flex-direction: column; }
+  main { width: 100%; }
+  #matrix { overflow-x: auto; }
+  aside { flex: 1 1 auto; width: 100%;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 32px; }
+</style>
+</head>
+<body data-page="global">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink current" href="register.html">International register</a>
+      <a class="navlink" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>Which chains are going global</h1>
+  <p class="sub">This tracks which Chinese chains have expanded outside China, and which of them have
+     reached the United States. <span id="asof"></span></p>
+</header>
+
+<div class="wrap">
+  <main>
+    <p class="note lede">
+      This page is a <strong>register, not a census</strong>. Everything on the US map is
+      something the collector saw for itself and can show a raw capture for. This page is
+      different. The entries come from company filings, exchange announcements and the trade
+      press, compiled by hand, each with the date it was true and a note on how far to trust it.
+      Where a count has not been published we leave it blank instead of guessing.
+      &ldquo;No evidence&rdquo; means a search turned up nothing; it does not mean the chain is
+      absent.
+    </p>
+    <div id="matrix"></div>
+    <p class="matlegend note small">
+      In each cell: a <b>number</b> = published locations &middot; <b>Y</b> = present, count unpublished
+      &middot; <b>&#9733;</b> = collected daily by this project &middot; <b>&ndash;</b> = searched, none
+      found &middot; <b>&middot;</b> = not looked at. Confidence of a typed entry:
+      <span class="conf c-medium">?</span>&nbsp;medium, <span class="conf c-low">??</span>&nbsp;low; a
+      plain number or <b>Y</b> is high confidence. Hover any cell for the reasoning.
+    </p>
+    <!-- Secondary, below the table: US-reach summary and per-chain detail (largely a recap of other sections). -->
+    <div id="usview"></div>
+    <div id="detail"></div>
+  </main>
+
+  <aside>
+    <section>
+      <h2>Markets outside China &amp; the US</h2>
+      <table id="coverage"><tbody></tbody></table>
+      <p class="note small" id="covnote"></p>
+    </section>
+    <section>
+      <h2>How to read a cell</h2>
+      <ul class="legendlist">
+        <li><b>82</b> a published location count</li>
+        <li><b>46&#9733;</b> measured daily by this project's own collector, not compiled by hand</li>
+        <li><b>Y</b> present, but no count published</li>
+        <li><b>–</b> searched, no evidence of presence found</li>
+        <li><b>·</b> not looked at yet</li>
+        <li><span class="conf c-medium">?</span> medium confidence,
+            <span class="conf c-low">??</span> low — hover any cell for the reasoning</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Keeping it honest</h2>
+      <p class="note">Entries carry a review date and go stale. <code>register --stale</code> lists anything
+        untouched for 90 days, so an old entry can be found and re-checked before anyone relies on
+        it.</p>
+    </section>
+  </aside>
+</div>
+
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project. It is
+  <strong>not affiliated with, endorsed by or sponsored by</strong> any company named on this
+  site; brand names identify the businesses being measured and nothing more.</p>
+  <p>Store counts on the US map are collected daily from each chain's own public store locator.
+  The international register is compiled by hand from company filings, exchange announcements and
+  the trade press, and every row carries its source, its date and how far it should be trusted —
+  the two are never added together. Coastlines and boundaries from
+  <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+<div id="tip" hidden></div>
+<script src="register.js?v=20261004033212"></script>
+<script src="site.js?v=7"></script>
+</body>
+</html>

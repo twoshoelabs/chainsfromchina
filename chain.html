@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_ICON_V="?v=5fbf29a93e";</script><!-- logo cache-bust; deploy.sh stamps 5fbf29a93e -->
+<title>Chain — Chains From China</title>
+<meta name="description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  :root {
+    --bg:#E3E5E1; --ink:#0E0F0E; --dim:#4F524E; --faint:#6E716C; --rule:#C4C7C2; --card:#E3E5E1;
+    --dark:#E3E5E1; --dark-ink:#0E0F0E; --teal:#C94A35; --amber:#B8301C; --brass:#E3E5E1;
+    --serif:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif; --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'Schibsted Grotesk',sans-serif; --cond:'Archivo','Helvetica Neue',sans-serif; --zh:'Noto Serif SC',serif;
+    --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
+    --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
+    --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; }
+  a { color: var(--teal); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .crumb { font: 500 .8rem var(--sans); color: var(--dim); padding: 18px 0 0; }
+  .crumb a { color: var(--dim); text-decoration: none; } .crumb a:hover { color: var(--ink); }
+
+  .sectorbar { height: 6px; border-radius: 3px; margin: 18px 0 2px; }
+  .chero { display: flex; gap: 22px; align-items: flex-start; padding: 16px 0 10px; flex-wrap: wrap; }
+  .chero .logo { width: 112px; height: 112px; border-radius: 50%; border: 4px solid; background: #fff; flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
+  .chero .logo img { width: 80%; height: 80%; object-fit: contain; }
+  .chero .logo.mono { color: #fff; font: 700 2.4rem var(--sans); }
+  .chero .logo.mono::after { content: attr(data-m); }
+  .chero .cheromain { flex: 1 1 320px; }
+  .chero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2rem,4.5vw,3rem); line-height: 1.02; margin: 0; }
+  .chero .zh { font-family: var(--zh); color: var(--dim); font-size: 1.2rem; }
+  .chero .aka { color: var(--faint); font-size: .85rem; margin-top: 4px; }
+  .herobadges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .hb { font: 600 .72rem/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
+    border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
+  .hb.counted { color: var(--teal); border-color: var(--teal); }
+  /* Franchise badge in the hero — filled = US FDD on file, outline = first-party page only. */
+  .hb.fr { color: var(--teal); border-color: var(--teal); }
+  .hb.fr.fdd { background: var(--teal); color: #fff; }
+  .frline { margin: 16px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.55; }
+  .frline b { color: var(--teal); font-weight: 600; }
+  .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 22px; border-bottom: 1px solid var(--rule); }
+  .btn { font: 600 .88rem var(--sans); padding: 10px 16px; border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--card); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  .btn:hover { border-color: var(--ink); }
+  .btn.pro { background: var(--brass); border-color: #e4d2a4; }
+  .related { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 10px; }
+  .relcard { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 12px; text-decoration: none; color: inherit; }
+  .relcard:hover { border-color: var(--ink); }
+  .relcard .rring { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid; flex: 0 0 auto; }
+  .relcard .rn { margin-left: auto; font-family: var(--mono); color: var(--dim); }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 26px 36px; padding: 18px 0 24px; border-bottom: 1px solid var(--rule); }
+  .stats .s b { display: block; font-family: var(--serif); font-weight: 700; font-size: 2rem; line-height: 1; }
+  .stats .s .soon { color: var(--amber); font-size: 1.1rem; }
+  .stats .s span { font-size: .8rem; color: var(--dim); }
+
+  section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; margin: 0 0 14px; }
+  .lead { color: var(--dim); }
+  #map { width: 100%; height: 420px; border: 1px solid var(--rule); border-radius: 2px; }
+  .maplibregl-popup-content { font-family: var(--sans); font-size: .88rem; }
+
+  .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+  .kv { margin: 0; } .kv dt { font: 600 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--teal); margin-top: 12px; }
+  .kv dd { margin: 3px 0 0; }
+  .bystate2 { display: flex; flex-direction: column; gap: 7px; }
+  .bsrow { display: grid; grid-template-columns: 120px 1fr 54px; gap: 10px; align-items: center; font-size: .88rem; }
+  .bsname { color: var(--ink); }
+  .bsbar { display: flex; height: 10px; background: #e8e3d8; border-radius: 999px; overflow: hidden; }
+  .bsopen { display: block; height: 100%; }
+  .bssoon { display: block; height: 100%; background: repeating-linear-gradient(45deg, var(--amber), var(--amber) 3px, transparent 3px, transparent 6px); }
+  .bsnum { font-family: var(--mono); text-align: right; }
+  .bsnum em { font-style: normal; color: var(--amber); }
+  .nb { display: flex; flex-direction: column; gap: 8px; }
+  .nb a { display: flex; justify-content: space-between; gap: 10px; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 7px; padding: 10px 12px; text-decoration: none; color: inherit; }
+  .nb a:hover { border-color: var(--ink); }
+  .nb .meta { color: var(--faint); font-size: .82rem; }
+  .flags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .flag { font: 600 .72rem var(--mono); padding: 4px 8px; border: 1px solid var(--rule); border-radius: 5px; background: var(--card); }
+  .flag.hi { border-color: var(--teal); color: var(--teal); }
+  .flag.lo { opacity: .6; }
+  .flag.gone { text-decoration: line-through; color: var(--faint); opacity: .7; }
+
+  .promods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; }
+  .pmod { border: 1px dashed var(--rule); border-radius: 2px; padding: 18px; background: repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(0,0,0,.02) 10px, rgba(0,0,0,.02) 20px); }
+  .pmod .tag { font: 600 .66rem var(--mono); letter-spacing: .08em; color: var(--amber); }
+  .pmod h4 { margin: 8px 0 6px; } .pmod p { margin: 0; color: var(--dim); font-size: .86rem; }
+  .pmod .modeled { display: inline-block; font: 600 .6rem var(--mono); text-transform: uppercase; background: var(--brass); color: var(--ink); padding: 3px 6px; border-radius: 4px; margin-left: 6px; }
+
+  footer.sitefoot { background: var(--bg); color: var(--dim); padding: 28px 0 40px; font-size: .88rem;
+    margin-top: 10px; border-top: 3px solid var(--ink); }
+  footer.sitefoot b { color: var(--ink); }
+  .loading { padding: 80px 0; text-align: center; color: var(--dim); }
+  @media (max-width: 820px) { .cols { grid-template-columns: 1fr; } }
+
+  /* Oct 2026 redesign: Archivo-condensed numerals, square corners, flat surfaces */
+  .stats .s b { font-family: var(--cond); font-stretch: 62%; font-weight: 800; font-size: 2.4rem; letter-spacing: -0.02em; }
+  .sectorbar, .chero .logo, .hb, .btn, .relcard, .flag, .pmod, #map, input, button, select { border-radius: 0; }
+  .chero .logo, .relcard .rring { border-radius: 50%; }
+  .hb.fr.fdd { background: var(--teal); color: #fff; }
+  .hb.counted, .hb.fr { color: var(--teal); border-color: var(--teal); }
+  .pmod { background: transparent; }
+  .pmod .modeled { background: transparent; color: var(--accent-text, #B8301C); border: 1px solid var(--accent-text, #B8301C); border-radius: 0; }
+  .bsbar { border-radius: 0; background: #D7DAD5; }
+</style>
+</head>
+<body data-page="chains">
+
+<div class="wrap">
+  <nav class="crumb"><a href="intro.html">Chains</a> <span id="crumbsec"></span></nav>
+  <div id="profile"><p class="loading">Loading…</p></div>
+</div>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <p><b>Chains From China</b> is an independent measurement project — not affiliated with, endorsed by
+      or sponsored by any company named here. Store counts are collected daily from the chain's own
+      locator, or hand-verified where it publishes no usable one.</p>
+    <p>&copy; 2026 Twoshoe Labs LLC.</p>
+  </div>
+</footer>
+
+<script src="site.js?v=7"></script>
+<script>
+const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see index.html)
+const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
+  grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const secColor = s => getComputedStyle(document.documentElement).getPropertyValue('--sec-' + s).trim() || '#6b7280';
+const initials = n => (n||'?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
+const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming',DC:'D.C.' };
+
+(async function () {
+  const id = new URLSearchParams(location.search).get('c');
+  const box = document.getElementById('profile');
+  if (!id) { box.innerHTML = '<p class="loading">No chain selected. <a href="intro.html">Browse all chains →</a></p>'; return; }
+  let gj, sj, reg, cen;
+  try { [gj, sj, reg, cen] = await Promise.all([
+    fetch('data/stores.geojson').then(r=>r.json()),
+    fetch('data/stores.json').then(r=>r.json()),
+    fetch('data/register.json').then(r=>r.json()),
+    fetch('data/centers.json').then(r=>r.json()),
+  ]); } catch (e) { box.innerHTML = '<p class="loading">Could not load data.</p>'; return; }
+
+  const meta = sj.meta || {};
+  const companies = (meta.companies && meta.companies.companies) || {};
+  const collected = meta.chains || {};
+  const blocked = (meta.blocked || []).reduce((m, b) => (m[b.chain_id] = b, m), {});
+  const m = collected[id] || blocked[id];
+  if (!m) { box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return; }
+  const comp = companies[id] || {};
+  const isCollected = !!collected[id];
+  const regChain = (reg.chains && reg.chains[id]) || {};
+  const franchiseUS = regChain.franchise_available_us === 1;   // open to a US franchisee
+  const franchiseFDD = regChain.fdd_available === 1;           // ...backed by a registered US FDD
+  const franchiseNote = regChain.franchise_note || '';
+
+  const feats = gj.features.filter(f => f.properties.chain === id);
+  const open = feats.filter(f => f.properties.status === 'open').length;
+  const hand = feats.filter(f => f.properties.kind === 'sighting' && f.properties.status !== 'coming_soon').length;
+  const soon = feats.filter(f => f.properties.status === 'coming_soon').length;
+  const outlets = open + hand;
+  const sector = (feats[0] && feats[0].properties.sector) || m.format || 'other';
+  const states = new Set(feats.filter(f => f.properties.state).map(f => f.properties.state));
+  // Unstaffed machines (e.g. POP MART ROBO SHOPs) are tracked in the data but are not storefronts,
+  // so they are shown as a separate figure and never folded into the outlet count.
+  const robos = (sj.stores || []).filter(s => s.chain === id && s.format === 'vending_robo' && s.status === 'active').length;
+
+  // Abroad: register entries for this chain in markets other than the US. "Markets reached" counts
+  // only markets where the chain is actually PRESENT — never a cell marked "–" (searched, none
+  // found), nor one it has exited. Those are shown after, struck through, but not counted.
+  const markets = reg.markets || {};
+  const abroadAll = (reg.entries || []).filter(e => e.chain === id && e.market && e.market !== 'US')
+    .map(e => ({ code: e.market, name: (markets[e.market] || {}).name || e.market, conf: e.confidence, status: e.status }));
+  const abroad = abroadAll.filter(e => e.status === 'present');
+  const abroadOther = abroadAll.filter(e => e.status !== 'present');
+
+  // Neighbours: named co-tenancy clusters that include this chain, noting whether it's open or
+  // announced there (from its brand entry's statuses).
+  const nb = (cen.co_tenancy || []).filter(c => (c.brands || []).some(b => (b.chain_id || b.chain || b) === id))
+    .slice(0, 6).map(c => {
+      const b = (c.brands || []).find(x => (x.chain_id || x.chain || x) === id);
+      const sts = (b && b.statuses) || [];
+      const here = (sts.indexOf('pre_opening') >= 0 || sts.indexOf('coming_soon') >= 0) && sts.indexOf('active') < 0 && sts.indexOf('sighting') < 0
+        ? 'announced here' : 'open here';
+      return { c, here };
+    });
+
+  // First US city (from first_outlet), a one-sentence data summary, and related same-sector chains.
+  const firstCity = comp.first_outlet ? comp.first_outlet.split('—')[0].split(',')[0].trim() : '';
+  const sents = [];
+  if (comp.blurb) sents.push(comp.blurb.split(/(?<=\.)\s/)[0]);
+  let cs = '';
+  if (outlets) cs = `${outlets} outlet${outlets > 1 ? 's are' : ' is'} open in the US`;
+  if (soon) cs += cs ? ` and ${soon} more are announced` : `${soon} announced, none open yet`;
+  if (cs) sents.push(cs + '.');
+  if (firstCity && comp.us_since) sents.push(`Its first US store opened in ${firstCity} in ${comp.us_since}.`);
+  const summary = sents.join(' ');
+
+  const cnt = {};
+  for (const f of gj.features) { const p = f.properties; const c = cnt[p.chain] || (cnt[p.chain] = { n: 0, sector: p.sector, name: p.name });
+    if (p.status !== 'coming_soon') c.n++; }
+  const related = Object.keys(cnt).filter(k => cnt[k].sector === sector && k !== id)
+    .sort((a, b) => cnt[b].n - cnt[a].n).slice(0, 4);
+  const sectorTotal = Object.keys(cnt).filter(k => cnt[k].sector === sector).length;
+
+  document.title = `${m.name} ${m.name_zh || ''} in the US — Chains From China`.replace(/\s+/g, ' ');
+  var md = document.querySelector('meta[name="description"]');
+  if (md && summary) md.setAttribute('content', summary);
+  document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
+
+  const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
+    `<img src="icons/${esc(id)}.png${ICONV}" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
+  const aka = (m.aliases && m.aliases.length) ? `<div class="aka">Also: ${esc(m.aliases.join(', '))}</div>` : '';
+  const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
+
+  box.innerHTML =
+    `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
+    `<div class="chero">${logoHTML}<div class="cheromain">` +
+      `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
+      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
+        (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
+      `</div>` +
+      (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
+    `</div></div>` +
+    `<div class="actions">` +
+      `<a class="btn pro" href="index.html#pro">Follow</a>` +
+      `<button class="btn" type="button" onclick="cfcShare(this)">Share this page</button>` +
+      `<a class="btn" href="contribute.html?chain=${encodeURIComponent(m.name)}">Report a ${esc(m.name)} store</a>` +
+    `</div>` +
+    `<div class="stats">` +
+      `<div class="s"><b>${outlets}</b><span>open in the US</span></div>` +
+      (soon ? `<div class="s"><b class="soon">+${soon}</b><span>announced</span></div>` : '') +
+      `<div class="s"><b>${states.size}</b><span>state${states.size === 1 ? '' : 's'}</span></div>` +
+      `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
+      (robos ? `<div class="s"><b>${robos}</b><span>roboshops (not counted)</span></div>` : '') +
+      firstStore +
+    `</div>` +
+    (robos ? `<p class="frline"><b>Roboshops:</b> ${robos} unstaffed vending machine${robos === 1 ? '' : 's'} ` +
+      `are tracked in the data but counted separately from staffed storefronts, and are not shown on the map.</p>` : '') +
+    (franchiseUS ? `<p class="frline"><b>Franchising:</b> ` +
+      (franchiseFDD ? 'open to a qualifying US franchisee, backed by a registered US FDD.'
+                    : 'open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +
+      `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
+    `<section><h2>Where ${esc(m.name)} trades</h2>` +
+      (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
+      `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
+    `<section><h2>Photographs</h2>` +
+      `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
+      `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:20px">` +
+        `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">The first US storefront. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<div style="flex:1 1 200px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start">` +
+          ['thumb-night', 'thumb-interior', 'thumb-menu'].map((t) => `<div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${t}.webp" type="image/webp"><img src="photos/${t}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div>`).join('') +
+        `</div></div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hant">鄭州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+      `</div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">` +
+        [['specimen-menu-us', 'US menu board'], ['specimen-menu-china', 'Menu board in China'], ['specimen-sign', 'Bilingual sign'], ['specimen-cup', 'Takeaway cup']].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">Fig. ${i + 1}. ${cap}</figcaption></figure>`).join('') +
+      `</div>` +
+    `</section>` +
+    (comp.blurb ? `<section><h2>About</h2><p class="lead">${esc(comp.blurb)}</p>` +
+      `<dl class="kv">` +
+        (comp.first_outlet ? `<dt>First US store</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
+        (comp.site_us ? `<dt>US site</dt><dd><a href="${esc(comp.site_us)}" target="_blank" rel="noopener">${esc(comp.site_us.replace(/^https?:\/\//,''))}</a></dd>` : '') +
+        (comp.site_cn ? `<dt>Site in China</dt><dd><a href="${esc(comp.site_cn)}" target="_blank" rel="noopener">${esc(comp.site_cn.replace(/^https?:\/\//,''))}</a> <span style="color:var(--faint)">(untested)</span></dd>` : '') +
+      `</dl></section>` : '') +
+    `<section><div class="cols">` +
+      `<div><h2>By state</h2>${byStateHTML(feats, sector)}</div>` +
+      `<div>` +
+        `<h2>Abroad</h2>${abroadHTML(abroad, abroadOther)}` +
+        (nb.length ? `<h2 style="margin-top:22px">Neighbours</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
+      `</div>` +
+    `</div></section>` +
+    (related.length ? `<section><h2>Related ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains</h2>` +
+      `<div class="related">` + related.map(k =>
+        `<a class="relcard" href="chain.html?c=${esc(k)}"><span class="rring" style="border-color:${secColor(sector)}"></span>` +
+        `<span>${esc(cnt[k].name)}</span><span class="rn">${cnt[k].n}</span></a>`).join('') + `</div>` +
+      `<p class="lead" style="margin-top:12px"><a href="intro.html?sector=${esc(sector)}">All ${sectorTotal} ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains →</a></p></section>` : '') +
+    `<section style="border-bottom:0"><h2>More, with Pro</h2>` +
+      `<div class="promods">` +
+        `<div class="pmod"><div class="tag">PRO</div><h4>Daily history</h4><p>Open and announced counts for every day since the archive began.</p></div>` +
+        `<div class="pmod"><div class="tag">PRO</div><h4>Openings &amp; closings</h4><p>Every change for ${esc(m.name)}, dated, with address and center.</p></div>` +
+        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>Revenue estimate<span class="modeled">Modeled</span></h4><p>A per-outlet and US-total revenue range, with the method shown.</p></div>` +
+        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>Menu &amp; prices<span class="modeled">Modeled</span></h4><p>Tracked list prices for signature items, vs the same in China.</p></div>` +
+      `</div></section>`;
+
+  if (outlets + soon) drawMap(feats, sector, id, m.name);
+})();
+
+function byStateHTML(feats, sector) {
+  // Split each state into open (solid, sector colour) and announced (dashed amber). The open values
+  // add up to the chain's "open in the US" headline; announced is shown apart so the two never merge.
+  const by = {};
+  for (const f of feats) {
+    const s = f.properties.state; if (!s) continue;
+    const b = by[s] || (by[s] = { open: 0, soon: 0 });
+    if (f.properties.status === 'coming_soon') b.soon++; else b.open++;
+  }
+  const rows = Object.entries(by).sort((a, b) => (b[1].open + b[1].soon) - (a[1].open + a[1].soon));
+  if (!rows.length) return '<p class="lead">No located outlets yet.</p>';
+  const max = Math.max(...rows.map(([, v]) => v.open + v.soon)) || 1;
+  const color = secColor(sector);
+  return '<div class="bystate2">' + rows.map(([s, v]) =>
+    `<div class="bsrow"><span class="bsname">${esc(STATE_NAMES[s] || s)}</span>` +
+    `<span class="bsbar"><span class="bsopen" style="width:${v.open / max * 100}%;background:${color}"></span>` +
+    `<span class="bssoon" style="width:${v.soon / max * 100}%"></span></span>` +
+    `<span class="bsnum">${v.open}${v.soon ? ` <em>+${v.soon}</em>` : ''}</span></div>`).join('') +
+    '</div><p class="lead" style="font-size:.78rem;margin-top:8px">Solid = open · <span style="color:var(--amber)">dashed = announced</span></p>';
+}
+
+function abroadHTML(abroad, other) {
+  if (!abroad.length && !(other && other.length)) return '<p class="lead">No markets outside China recorded.</p>';
+  const present = abroad.map(a => {
+    const cls = a.conf === 'high' ? 'hi' : a.conf === 'low' ? 'lo' : '';
+    return `<span class="flag ${cls}" title="${esc(a.name)}${a.conf ? ' · ' + esc(a.conf) + ' confidence' : ''}">${esc(a.name)}</span>`;
+  }).join('');
+  const struck = (other || []).map(a => {
+    const label = a.status === 'announced' ? esc(a.name) + ' (announced)' : esc(a.name);
+    return `<span class="flag gone" title="${a.status === 'announced' ? 'Announced, not yet open' : 'Searched, none found'}">${label}</span>`;
+  }).join('');
+  return '<div class="flags">' + present + struck + '</div>';
+}
+
+function nbHTML(n) {
+  const c = n.c;
+  const name = (c.center && c.center.name) || [c.city, c.state].filter(Boolean).join(', ') || 'Cluster';
+  return `<a href="centers.html"><span>${esc(name)}<br><span class="meta">${esc(n.here)}</span></span>` +
+    `<span class="meta">${c.brand_count || (c.brands || []).length} brands</span></a>`;
+}
+
+// name: cfcShare | purpose: share the chain page | arguments: btn | returns: nothing
+// effects: Web Share sheet, or copies the URL and flashes "Link copied" | other: —
+function cfcShare(btn) {
+  const url = location.href, title = document.title;
+  if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
+  if (navigator.clipboard) navigator.clipboard.writeText(url).catch(function () {});
+  const o = btn.textContent; btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = o; }, 1400);
+}
+
+// ---- Map: Protomaps basemap + logo-badge pins (parity with the main US map) ------------------
+// The main map (atlas.js) draws each outlet as a canvas badge — the brand's logo in a sector-colored
+// ring — over a self-hosted Protomaps basemap. The chain page used plain circles on CARTO; this
+// brings it to the same look so a brand's own page matches how it reads on the full map.
+const BASEMAP = {
+  pmtiles: 'https://pub-7dec9caf8d7e4d4e9f4ab6dea7bb8005.r2.dev/us.pmtiles',  // self-hosted US Protomaps (R2)
+  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',     // fallback if PMTiles can't load
+};
+let GLYPH_FONT = 'Open Sans Regular';
+const DPR = 2, BADGE = 64;
+
+// Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null when there is none.
+function loadLogo(chain) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = 'icons/' + chain + '.png' + ICONV;
+  });
+}
+
+function roundRect(ctx, x, y, w, h, rad) {
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+
+// Compose a circular (census outlet) or rounded-square (hand-verified sighting) pin badge: a white
+// chip with the brand logo inside a sector-colored ring, or a solid sector disc with a monogram when
+// there is no logo. `soft` = announced / coming soon (dashed, faded). Mirrors atlas.js makeBadge.
+function makeBadge(logo, color, mono, soft, square) {
+  const S = BADGE * DPR;
+  const cv = document.createElement('canvas');
+  cv.width = S; cv.height = S;
+  const ctx = cv.getContext('2d');
+  const cx = S / 2, cy = S / 2;
+  const ring = Math.round(4 * DPR);
+  const r = cx - ring / 2 - DPR;
+  const corner = r * 0.42;
+  const trace = (rr) => {
+    ctx.beginPath();
+    if (square) roundRect(ctx, cx - rr, cy - rr, rr * 2, rr * 2, Math.min(corner, rr * 0.6));
+    else ctx.arc(cx, cy, rr, 0, 2 * Math.PI);
+  };
+  ctx.globalAlpha = soft ? 0.82 : 1;
+  if (logo) {
+    trace(r);
+    ctx.fillStyle = soft ? 'rgba(255,255,255,0.92)' : '#ffffff'; ctx.fill();
+    ctx.save();
+    trace(r - ring * 0.6); ctx.clip();
+    const inset = (r - ring) * 1.42;
+    const scale = Math.min(inset / logo.width, inset / logo.height);
+    const w = logo.width * scale, h = logo.height * scale;
+    ctx.drawImage(logo, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
+  } else {
+    trace(r);
+    ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
+    ctx.fillStyle = soft ? color : '#ffffff';
+    ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(mono || '•', cx, cy + S * 0.02);
+  }
+  trace(r);
+  ctx.lineWidth = ring; ctx.strokeStyle = color;
+  if (soft) ctx.setLineDash([ring * 1.4, ring * 1.1]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  return { width: S, height: S, data: ctx.getImageData(0, 0, S, S).data };
+}
+
+// Resolve the basemap: the project's self-hosted Protomaps light theme over US PMTiles, or the hosted
+// CARTO style if the PMTiles/protomaps modules can't load. Same path the main map takes.
+async function resolveStyle() {
+  if (!BASEMAP.pmtiles) return BASEMAP.style;
+  try {
+    const [pm, bm] = await Promise.all([
+      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm'),
+      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm'),
+    ]);
+    maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
+    GLYPH_FONT = 'Noto Sans Regular';
+    return {
+      version: 8,
+      glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+      sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
+      sources: {
+        protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
+                     attribution: '© OpenStreetMap contributors' },
+      },
+      layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
+    };
+  } catch (e) {
+    return BASEMAP.style;
+  }
+}
+
+// Flatten the Protomaps light theme to the site's greyscale tokens (grey land, white water, grey
+// roads/borders, muted labels, no POIs) so only the brand logo pins carry colour.
+function recolorBasemap(layers) {
+  const GROUND = '#EDEFEB', WATER = '#FFFFFF', ROAD = '#C4C7C2', BORDER = '#B3B6B1',
+        BUILD = '#DADCD7', LANDUSE = '#E7E9E5', LABEL = '#4F524E', HALO = '#EDEFEB';
+  const out = [];
+  for (const l of layers) {
+    const id = l.id || '';
+    if (/poi/i.test(id)) continue;
+    const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (l.type === 'background') nl.paint['background-color'] = GROUND;
+    else if (id === 'earth') nl.paint['fill-color'] = GROUND;
+    else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = WATER;
+      if (l.type === 'line') nl.paint['line-color'] = WATER;
+    }
+    else if (/building/i.test(id)) { if (l.type === 'fill') { nl.paint['fill-color'] = BUILD; nl.paint['fill-opacity'] = 0.55; } }
+    else if (/boundar|border|admin/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = BORDER; }
+    else if (/road|transit|bridge|tunnel|highway|rail|path|pier|aeroway/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = ROAD; }
+    else if (/landuse|landcover|park|wood|forest|grass|sand|glacier|beach|pedestrian|scrub|farmland/i.test(id)) { if (l.type === 'fill') nl.paint['fill-color'] = LANDUSE; }
+    if (l.type === 'symbol') {
+      nl.paint['text-color'] = LABEL; nl.paint['text-halo-color'] = HALO; nl.paint['text-halo-width'] = 1.2;
+      if (nl.layout['icon-image']) delete nl.layout['icon-image'];
+    }
+    out.push(nl);
+  }
+  return out;
+}
+
+async function drawMap(feats, sector, id, name) {
+  const color = secColor(sector);
+  const mono = initials(name);
+  const fc = { type: 'FeatureCollection', features: feats };
+  let minx = 180, miny = 90, maxx = -180, maxy = -90;
+  for (const f of feats) { const [x, y] = f.geometry.coordinates; minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); }
+
+  const [style, logo] = await Promise.all([resolveStyle(), loadLogo(id)]);
+  const map = new maplibregl.Map({
+    container: 'map', style,
+    bounds: (minx <= maxx) ? [[minx, miny], [maxx, maxy]] : [[-125, 24], [-66, 49]],
+    fitBoundsOptions: { padding: 60, maxZoom: 12 },
+    maxZoom: 17, cooperativeGestures: true, attributionControl: { compact: true },
+  });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
+  map.on('load', () => {
+    // Per-brand badges, one shape for every outlet: solid circle (open), dashed circle (announced).
+    if (!map.hasImage('pin'))    map.addImage('pin',    makeBadge(logo, color, mono, false, false), { pixelRatio: DPR });
+    if (!map.hasImage('pin-s'))  map.addImage('pin-s',  makeBadge(logo, color, mono, true,  false), { pixelRatio: DPR });
+
+    // Hide the basemap's own points of interest so only our outlets read as data.
+    for (const l of map.getStyle().layers) {
+      if (/poi|place.?of.?interest/i.test(l.id)) {
+        try { map.setLayoutProperty(l.id, 'visibility', 'none'); } catch (e) { /* non-symbol layer */ }
+      }
+    }
+
+    map.addSource('c', { type: 'geojson', data: fc });
+    const soft = ['==', ['get', 'status'], 'coming_soon'];
+    map.addLayer({
+      id: 'pins', type: 'symbol', source: 'c',
+      layout: {
+        'icon-image': ['case',
+          soft, 'pin-s',
+          'pin'],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      },
+    });
+    map.on('click', 'pins', (e) => {
+      const p = e.features[0].properties;
+      const st = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
+      const chip = logo
+        ? `<img src="icons/${esc(id)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        : '';
+      const addr = p.address ? `${esc(p.address)}<br>` : '';
+      new maplibregl.Popup({ closeButton: false }).setLngLat(e.features[0].geometry.coordinates)
+        .setHTML(`<div style="display:flex;gap:.55rem;align-items:center">${chip}<div>` +
+                 `<b>${esc(p.name)}</b><br>${addr}${esc([p.city, p.state].filter(Boolean).join(', '))}` +
+                 `<br><span style="color:#666">${st}</span></div></div>`)
+        .addTo(map);
+    });
+    map.on('mouseenter', 'pins', () => map.getCanvas().style.cursor = 'pointer');
+    map.on('mouseleave', 'pins', () => map.getCanvas().style.cursor = '');
+  });
+}
+</script>
+</body>
+</html>

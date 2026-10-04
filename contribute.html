@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — Submit Info</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="site.css?v=12">
+</head>
+<body data-page="submit">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink current" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>Help fill the map</h1>
+  <p class="sub">This project can only see what these chains publish, and most of them publish
+     nothing. If you know a store we're missing, a location that has <strong>closed</strong>, a chain
+     that has just <strong>arrived in the US</strong>, or one we should be following, tell us. Openings
+     and closings both help. We check every submission before anything reaches the map.</p>
+</header>
+
+<div class="introwrap">
+  <p class="note" id="okmsg" hidden></p>
+
+  <section class="tocfm" id="toconfirm">
+    <h2>To confirm</h2>
+    <p class="note">These US locations have been <strong>reported but not yet verified open</strong> — watch
+      items we track over time, not doubtful ones — so they are held out of the count for now. If you can
+      identify one — you've been, you've seen it open, or you have a photo, receipt or link — confirm it below.
+      Once checked (by you or any other reader) it joins the map and drops off this list.</p>
+    <ul class="tocfmlist" id="tocfmlist"><li class="empty">Loading…</li></ul>
+  </section>
+
+  <div class="cardgrid contribgrid">
+    <form class="ccard cform" id="locform">
+      <h2>Add or update a location</h2>
+      <p class="cblurb">A specific store you've seen or visited — newly open, or newly closed.</p>
+      <label>Chain <span class="req">*</span>
+        <input name="chain" required placeholder="e.g. HEYTEA, Cotti, Fish With You"></label>
+      <label>Street address <span class="req">*</span>
+        <input name="address" required placeholder="123 Main St"></label>
+      <label>City &amp; state <span class="req">*</span>
+        <input name="citystate" required placeholder="Flushing, NY"></label>
+      <label>How do you know it? <span class="req">*</span>
+        <select name="basis" required>
+          <option value="">Choose…</option>
+          <option>I've visited / seen it in person</option>
+          <option>It's open (saw it online, reviews, delivery apps)</option>
+          <option>Coming soon / under construction</option>
+          <option>It has closed</option>
+        </select></label>
+      <label>Anything else? (link, date, which name it trades under)
+        <textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
+      <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <button type="submit">Send this location</button>
+    </form>
+
+    <form class="ccard cform" id="chainform">
+      <h2>Suggest a chain</h2>
+      <p class="cblurb">A Chinese chain newly arrived in the US, or one you think we should follow.</p>
+      <label>Chain name <span class="req">*</span>
+        <input name="chain" required placeholder="English and/or Chinese name"></label>
+      <label>Where have you seen it in the US?
+        <input name="where" placeholder="City, or 'not yet — but expanding'"></label>
+      <label>Why follow it?
+        <textarea name="why" rows="2" placeholder="Optional — what it is, links, anything useful"></textarea></label>
+      <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <button type="submit">Suggest this chain</button>
+    </form>
+  </div>
+
+  <p class="note small">Submissions go to the project for review; nothing you send is published
+  automatically. The test is China origin. Chains that only sell Chinese products, or that come
+  from Hong Kong, are outside this project's scope.</p>
+</div>
+
+<footer class="sitefoot">
+  <p><strong>Chains From China</strong> is an independent measurement project, not affiliated with
+  any company named on it.</p>
+  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong>. &copy; 2026 Twoshoe Labs LLC.</p>
+</footer>
+
+<script>
+// Where submissions go. On deploy, set FORM_ENDPOINT to a form service (Formspree/Netlify/etc.)
+// that accepts a POST; until then, submissions fall back to opening the reader's email client.
+const FORM_ENDPOINT = null;                 // e.g. "https://formspree.io/f/xxxxxxx"
+const CONTACT_EMAIL = "hello@twoshoelabs.com";   // role mailbox to create on the domain
+
+function handle(form, kind) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.website_hp && form.website_hp.value) return;         // honeypot: silently drop bots
+    const data = Object.fromEntries(new FormData(form).entries());
+    delete data.website_hp;
+    data._kind = kind;
+
+    if (FORM_ENDPOINT) {
+      try {
+        const r = await fetch(FORM_ENDPOINT, {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data) });
+        if (r.ok) return done(form, kind);
+      } catch (_) { /* fall through to email */ }
+    }
+    // Fallback: compose an email with the submission prefilled.
+    const subject = encodeURIComponent(`[Chains From China] ${kind}: ${data.chain || ''}`.trim());
+    const body = encodeURIComponent(Object.entries(data)
+      .filter(([k]) => k !== '_kind').map(([k, v]) => `${k}: ${v}`).join('\n'));
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    done(form, kind);
+  });
+}
+function done(form, kind) {
+  form.reset();
+  const ok = document.getElementById('okmsg');
+  ok.hidden = false;
+  ok.textContent = kind === 'location'
+    ? 'Thank you — your location is on its way for review.'
+    : 'Thank you — your chain suggestion is on its way for review.';
+  ok.scrollIntoView({ block: 'center' });
+}
+handle(document.getElementById('locform'), 'location');
+handle(document.getElementById('chainform'), 'chain');
+
+// The "To confirm" queue: reported-but-unconfirmed locations, read live from the published data.
+// Confirming one pre-fills the location form; when the operator marks it confirmed in the data it
+// drops off this list on the next publish — so the queue clears itself as identifications arrive.
+async function loadToConfirm() {
+  const list = document.getElementById('tocfmlist');
+  let d;
+  try { d = await fetch('data/stores.json').then(r => r.json()); }
+  catch (_) { document.getElementById('toconfirm').hidden = true; return; }
+  const nameOf = {};
+  for (const [id, m] of Object.entries(d.meta.chains || {})) nameOf[id] = m.name_us || m.name || id;
+  for (const b of (d.meta.blocked || [])) nameOf[b.chain_id] = b.name_us || b.name || b.chain_id;
+
+  const pending = (d.meta.sightings || []).filter(g => g.confidence === 'uncertain');
+  if (!pending.length) {
+    list.innerHTML = '';
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'Nothing is awaiting confirmation right now — thank you.';
+    list.append(li);
+    return;
+  }
+  pending.sort((a, b) => (nameOf[a.chain] || a.chain).localeCompare(nameOf[b.chain] || b.chain));
+  list.innerHTML = '';
+  for (const g of pending) {
+    const chainName = nameOf[g.chain] || g.chain;
+    const who = (g.name && !g.name.toLowerCase().includes(chainName.toLowerCase()))
+      ? `${chainName} — ${g.name}` : (g.name || chainName);
+    const li = document.createElement('li');
+    const whoEl = document.createElement('span'); whoEl.className = 'who'; whoEl.textContent = who;
+    const addrEl = document.createElement('span'); addrEl.className = 'addr'; addrEl.textContent = g.address || '';
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'cfmbtn'; btn.textContent = 'I can confirm this';
+    li.append(whoEl, addrEl, btn);
+    const hint = g.verified_by || g.source;   // the concise "why it's still pending" note
+    if (hint) {
+      const srcEl = document.createElement('span'); srcEl.className = 'src';
+      srcEl.textContent = hint; li.append(srcEl);
+    }
+    btn.onclick = () => {
+      const f = document.getElementById('locform');
+      f.chain.value = chainName;
+      const parts = (g.address || '').split(',');
+      f.address.value = (parts.shift() || '').trim();
+      f.citystate.value = parts.join(',').trim();
+      f.notes.value = `Confirming a reported location: ${who}`;
+      f.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try { f.basis.focus({ preventScroll: true }); } catch (_) {}
+    };
+    list.append(li);
+  }
+}
+loadToConfirm();
+// Prefill the chain name when arriving from a chain page's "Report a … store" button.
+(function () {
+  var c = new URLSearchParams(location.search).get('chain');
+  if (!c) return;
+  var f = document.querySelector('#locform input[name="chain"], form input[name="chain"]');
+  if (f) { f.value = c; try { f.scrollIntoView({ block: 'center' }); } catch (e) {} }
+})();
+</script>
+<script src="site.js?v=7"></script>
+</body>
+</html>

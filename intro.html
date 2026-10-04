@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_ICON_V="?v=5fbf29a93e";</script><!-- logo cache-bust; deploy.sh stamps 5fbf29a93e -->
+<title>Chains From China — the chains</title>
+<meta name="description" content="Every Chinese retail and F&B chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  :root {
+    --bg:#E3E5E1; --ink:#0E0F0E; --dim:#4F524E; --faint:#6E716C; --rule:#C4C7C2; --card:#E3E5E1;
+    --dark:#E3E5E1; --dark-ink:#0E0F0E; --teal:#C94A35; --amber:#B8301C;
+    --serif:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif; --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'Schibsted Grotesk',sans-serif; --cond:'Archivo','Helvetica Neue',sans-serif; --zh:'Noto Serif SC',serif;
+    --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
+    --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
+    --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .phero { background: var(--dark); color: var(--dark-ink); padding: 40px 0 36px; }
+  .phero .eyebrow { font: 600 .82rem/1.4 var(--sans); letter-spacing: 0; color: #B8301C; margin: 0 0 14px; }
+  .phero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem,5vw,3.4rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 14px; }
+  .phero p { color: #b3ac9c; max-width: 56ch; margin: 0 0 24px; }
+  .psum { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
+  .psum .s b { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.7rem; }
+  .psum .s span { font-size: .8rem; color: #b3ac9c; }
+
+  .controls { display: flex; gap: 12px 16px; flex-wrap: wrap; align-items: center; margin: 26px 0 18px; }
+  .csearch { position: relative; flex: 1 1 260px; }
+  .csearch input { width: 100%; font: 1rem var(--sans); padding: 11px 14px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); }
+  .segmented { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  .segmented button { font: 500 .85rem var(--sans); padding: 9px 13px; border: 0; background: var(--card); cursor: pointer; border-left: 1px solid var(--rule); }
+  .segmented button:first-child { border-left: 0; }
+  .segmented button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .sortsel { font: 500 .85rem var(--sans); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); min-height: 40px; }
+  .secchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .secchip { display: inline-flex; align-items: center; gap: 7px; font: 500 .85rem var(--sans); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); cursor: pointer; }
+  .secchip .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .secchip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .secchip .n { color: var(--faint); font-family: var(--mono); font-size: .8rem; }
+  .secchip[aria-pressed="true"] .n { color: #cfc9bc; }
+
+  .cardgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 16px; margin-bottom: 40px; }
+  .ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 2px; padding: 18px; text-decoration: none;
+    color: inherit; display: flex; flex-direction: column; gap: 10px; transition: border-color .12s, transform .12s; }
+  .ccard:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .ccard .top { display: flex; align-items: center; gap: 12px; }
+  .clogo { width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid; background: #fff; flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
+  .clogo img { width: 80%; height: 80%; object-fit: contain; }
+  .clogo.mono { font: 700 1rem var(--sans); color: #fff; }
+  .clogo.mono::after { content: attr(data-m); }
+  .cname { font-weight: 700; font-size: 1.05rem; line-height: 1.15; }
+  .cname .zh { font-family: var(--zh); font-weight: 500; color: var(--dim); font-size: .9rem; display: block; }
+  .cfig { font-family: var(--serif); font-weight: 700; font-size: 2rem; line-height: 1; }
+  .cfig span { font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--dim); margin-left: 6px; }
+  .cfig em { font-style: normal; color: var(--amber); font-size: 1rem; margin-left: 8px; }
+  .cbadges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cbadge { font: 600 .66rem/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px; border: 1px solid var(--rule); color: var(--dim); }
+  .cbadge.counted { color: var(--teal); border-color: var(--teal); }
+  /* "Franchise" tag: a chain open to a US franchisee — matches the map's indicator. */
+  /* Marks a chain open to a US franchisee — filled = US FDD on file, outline = first-party page. */
+  .frtag { font: 600 .6rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
+    color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 3px 6px;
+    white-space: nowrap; vertical-align: middle; }
+  .frtag.fdd { background: var(--teal); color: #fff; }
+  /* "Open to franchise" filter toggle — teal when active, like the map's Franchise toggle. */
+  .frfilter { font: 500 .9rem var(--sans); padding: 10px 14px; border: 1px solid var(--rule);
+    border-radius: 3px; background: var(--card); cursor: pointer; white-space: nowrap; }
+  .frfilter:hover { border-color: var(--ink); }
+  .frfilter[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .csince { color: var(--faint); font-size: .82rem; margin-top: auto; }
+
+  table.ctable { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: .92rem; }
+  table.ctable th, table.ctable td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+  table.ctable th { font: 600 .7rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+  table.ctable td.num { font-family: var(--mono); text-align: right; }
+  table.ctable tr:hover td { background: rgba(0,0,0,.03); }
+  table.ctable a { text-decoration: none; font-weight: 600; }
+  .hidden { display: none !important; }
+  .emptymsg { color: var(--dim); padding: 24px 2px; }
+
+  footer.sitefoot { background: var(--bg); color: var(--dim); padding: 28px 0 40px; margin-top: 20px;
+    font-size: .9rem; border-top: 3px solid var(--ink); }
+  footer.sitefoot b { color: var(--ink); }
+  @media (max-width: 700px) { .psum { gap: 20px; } }
+
+  /* Oct 2026 redesign: Archivo-condensed numerals, square corners, flat surfaces */
+  .cfig, .psum .s b { font-family: var(--cond); font-stretch: 62%; font-weight: 800; letter-spacing: -0.02em; }
+  .csearch input, .segmented, .sortsel, .secchip, .ccard, .cbadge, .frtag, .srcfilter,
+    input, button, select { border-radius: 0; }
+  .ccard { box-shadow: none; }
+  .phero { padding: 26px 0 30px; }
+  .frtag.fdd { background: var(--teal); color: #fff; }
+  .cbadge.counted { color: var(--teal); border-color: var(--teal); }
+</style>
+</head>
+<body data-page="chains">
+
+<div class="phero">
+  <div class="wrap">
+    <p class="census-line" data-census style="margin:0 0 12px"></p>
+    <p class="eyebrow">The chains</p>
+    <h1>Every Chinese chain we track in America</h1>
+    <p>Chinese retail and food brands trading in the United States — how many outlets each has,
+      what it sells, and when it arrived. Tap any chain for its full page.</p>
+    <div class="psum" id="summary"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="csearch"><input id="q" type="search" autocomplete="off" placeholder="Search by name or 中文…" aria-label="Search chains"></div>
+    <select class="sortsel" id="sort" aria-label="Sort">
+      <option value="outlets">Most outlets</option>
+      <option value="newest">Newest arrival</option>
+      <option value="az">A–Z</option>
+    </select>
+    <div class="segmented" id="viewtoggle" role="group" aria-label="View">
+      <button type="button" data-view="cards" aria-pressed="true">Cards</button>
+      <button type="button" data-view="table" aria-pressed="false">Table</button>
+    </div>
+    <button type="button" id="frfilter" class="frfilter" aria-pressed="false"
+            title="Show only chains open to a US franchisee">Open to franchise</button>
+  </div>
+  <div class="secchips" id="secchips"></div>
+  <div id="cards" class="cardgrid"></div>
+  <div id="table" class="hidden"></div>
+  <p class="emptymsg hidden" id="empty"></p>
+</div>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <p><b>Chains From China</b> is an independent measurement project — not affiliated with, endorsed by
+      or sponsored by any company named here. Outlet counts are collected daily from each chain's own
+      locator, or hand-verified where a chain publishes no usable one.</p>
+    <p>&copy; 2026 Twoshoe Labs LLC.</p>
+  </div>
+</footer>
+
+<script src="site.js?v=7"></script>
+<script>
+const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
+  grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+const SEC_ORDER = Object.keys(SEC_LABEL);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const secColor = s => getComputedStyle(document.documentElement).getPropertyValue('--sec-' + s).trim() || '#6b7280';
+const yearOf = s => { const m = /\b(20\d{2})\b/.exec(s || ''); return m ? +m[1] : null; };
+const NY_RE = /\b(flushing|brooklyn|queens|manhattan|bronx|staten|new york|nyc|, ny\b|— .*, ny\b)/i;
+const initials = n => (n || '?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
+
+const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see <head>)
+const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set(), franchiseOnly: false };
+let CHAINS = [];
+
+(async function () {
+  let gj, sj;
+  try { [gj, sj] = await Promise.all([
+    fetch('data/stores.geojson').then(r=>r.json()),
+    fetch('data/stores.json').then(r=>r.json()),
+  ]); } catch (e) { document.getElementById('cards').innerHTML = '<p class="emptymsg">Could not load chain data.</p>'; return; }
+  const meta = sj.meta || {};
+  const companies = (meta.companies && meta.companies.companies) || {};
+
+  const cnt = {};
+  for (const f of gj.features) {
+    const p = f.properties;
+    const c = cnt[p.chain] || (cnt[p.chain] = { open: 0, hand: 0, soon: 0, sector: p.sector, name: p.name, fr: 0, fdd: 0 });
+    if (p.fr === 1) c.fr = 1;                   // chain is open to a US franchisee
+    if (p.fdd === 1) c.fdd = 1;                 // ...backed by a registered US FDD
+    if (p.status === 'coming_soon') c.soon++;
+    else if (p.kind === 'sighting') c.hand++;
+    else c.open++;
+  }
+
+  const seen = new Set();
+  const add = (id, source, m) => {
+    if (!id || seen.has(id)) return; seen.add(id);
+    const k = cnt[id] || { open: 0, hand: 0, soon: 0, sector: m.format, name: m.name };
+    const comp = companies[id] || {};
+    CHAINS.push({
+      id, name: m.name_us || m.name || id, rom: (m.name_us && m.name && m.name_us !== m.name) ? m.name : '',
+      zh: m.name_zh || '', sector: k.sector || m.format || 'other',
+      outlets: k.open + k.hand, announced: k.soon, source, franchise: k.fr || 0, fdd: k.fdd || 0,
+      since: comp.us_since || '', year: yearOf(comp.us_since),
+      ny: NY_RE.test(comp.first_outlet || ''), flushing: /flushing/i.test(comp.first_outlet || ''),
+    });
+  };
+  for (const [id, m] of Object.entries(meta.chains || {})) add(id, 'collected', m);
+  for (const b of (meta.blocked || [])) add(b.chain_id, 'hand', b);
+
+  renderSummary();
+  renderSectorChips();
+  render();
+  wire();
+})();
+
+function renderSummary() {
+  const n = CHAINS.length;
+  const ny = CHAINS.filter(c => c.ny).length;
+  const flush = CHAINS.filter(c => c.flushing).length;
+  const since23 = CHAINS.filter(c => c.year && c.year >= 2023).length;
+  const el = document.getElementById('summary');
+  el.innerHTML =
+    `<div class="s"><b>${n}</b><span>chains tracked</span></div>` +
+    `<div class="s"><b>${ny}</b><span>first opened in the NY area</span></div>` +
+    `<div class="s"><b>${flush}</b><span>of those in Flushing</span></div>` +
+    `<div class="s"><b>${since23}</b><span>arrived since 2023</span></div>`;
+}
+
+function renderSectorChips() {
+  const by = {};
+  for (const c of CHAINS) by[c.sector] = (by[c.sector] || 0) + 1;
+  const secs = [...SEC_ORDER.filter(s => by[s]), ...Object.keys(by).filter(s => !SEC_ORDER.includes(s))];
+  const el = document.getElementById('secchips');
+  el.innerHTML = secs.map(s =>
+    `<button type="button" class="secchip" data-sec="${esc(s)}" aria-pressed="false">` +
+    `<span class="dot" style="background:${secColor(s)}"></span>${esc(SEC_LABEL[s] || s)} <span class="n">${by[s]}</span></button>`
+  ).join('');
+  el.querySelectorAll('.secchip').forEach(ch => ch.addEventListener('click', () => {
+    const s = ch.dataset.sec;
+    if (state.sectors.has(s)) state.sectors.delete(s); else state.sectors.add(s);
+    ch.setAttribute('aria-pressed', String(state.sectors.has(s)));
+    render();
+  }));
+}
+
+function filtered() {
+  const q = state.q.trim().toLowerCase();
+  let list = CHAINS.filter(c => {
+    if (state.franchiseOnly && !c.franchise) return false;
+    if (state.sectors.size && !state.sectors.has(c.sector)) return false;
+    if (q && !(c.name.toLowerCase().includes(q) || (c.rom && c.rom.toLowerCase().includes(q)) || (c.zh && c.zh.includes(state.q.trim())))) return false;
+    return true;
+  });
+  list.sort((a, b) =>
+    state.sort === 'az' ? a.name.localeCompare(b.name) :
+    state.sort === 'newest' ? (b.year || 0) - (a.year || 0) || b.outlets - a.outlets :
+    b.outlets - a.outlets || a.name.localeCompare(b.name));
+  return list;
+}
+
+function cardHTML(c) {
+  const color = secColor(c.sector);
+  const logo = `<span class="clogo" style="border-color:${color}" data-m="${esc(initials(c.name))}">` +
+    `<img src="icons/${esc(c.id)}.png${ICONV}" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
+  return `<a class="ccard" href="chain.html?c=${esc(c.id)}">` +
+    `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
+    `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
+    `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>` +
+      (c.franchise ? `<span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
+    `</div>` +
+    `<div class="csince">${c.since ? 'In the US since ' + esc(c.since) : 'US arrival not dated'}</div></a>`;
+}
+
+function tableHTML(list) {
+  const rows = list.map(c =>
+    `<tr><td><a href="chain.html?c=${esc(c.id)}">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span>` +
+      (c.franchise ? ` <span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'US FDD on file' : 'First-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') + `</td>` +
+    `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
+    `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +
+    `<td>${esc(c.since || '—')}</td></tr>`).join('');
+  return `<table class="ctable"><thead><tr><th>Chain</th><th>Sector</th><th>Outlets</th><th>Announced</th>` +
+    `<th>In the US since</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function render() {
+  const list = filtered();
+  const cards = document.getElementById('cards'), table = document.getElementById('table'), empty = document.getElementById('empty');
+  const isCards = state.view === 'cards';
+  cards.classList.toggle('hidden', !isCards);
+  table.classList.toggle('hidden', isCards);
+  if (!list.length) {
+    empty.classList.remove('hidden'); empty.textContent = 'No chains match those filters.';
+    cards.innerHTML = ''; table.innerHTML = ''; return;
+  }
+  empty.classList.add('hidden');
+  if (isCards) { cards.innerHTML = list.map(cardHTML).join(''); table.innerHTML = ''; }
+  else { table.innerHTML = tableHTML(list); cards.innerHTML = ''; }
+}
+
+function wire() {
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => { state.q = q.value; render(); });
+  document.querySelectorAll('#viewtoggle button').forEach(b => b.addEventListener('click', () => {
+    state.view = b.dataset.view;
+    document.querySelectorAll('#viewtoggle button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  }));
+  document.getElementById('sort').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+  const fr = document.getElementById('frfilter');
+  fr.addEventListener('click', () => {
+    state.franchiseOnly = !state.franchiseOnly;
+    fr.setAttribute('aria-pressed', String(state.franchiseOnly));
+    render();
+  });
+}
+</script>
+</body>
+</html>
