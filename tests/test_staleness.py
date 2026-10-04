@@ -16,13 +16,14 @@ Run: CHAIN_ATLAS_DATA=$(mktemp -d) .venv/bin/python -m tests.test_staleness
 import os
 import sys
 import tempfile
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 os.environ.setdefault("CHAIN_ATLAS_DATA", tempfile.mkdtemp(prefix="uca_stale_"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from chain_atlas import db, sightings, closings   # noqa: E402
+from chain_atlas.config import TZ                  # noqa: E402  (feed_staleness measures in NY time)
 from chain_atlas.run import feed_staleness         # noqa: E402
 
 fails = []
@@ -42,7 +43,7 @@ def _run(con, chain, d, sha):
 
 def test_feed_staleness():
     con = db.connect()
-    today = date.today()
+    today = datetime.now(TZ).date()
     # FROZEN: byte-identical for 30 collected days.
     for i in range(30, -1, -1):
         _run(con, "frozen", (today - timedelta(days=i)).isoformat(), "AAAA")
@@ -66,11 +67,11 @@ def test_feed_staleness():
     check("frozen feed counted every collected run", st["frozen"][2] == 31, True)
     check("live feed is 0 days since last byte change", st["live"][0], 0)
     check("recently-moved feed is 2 days, not a fortnight", st["moved"][0], 2)
-    check("gappy feed: 30 days but only 2 collected runs", st["gappy"], (30, (date.today()-timedelta(days=30)).isoformat(), 2))
+    check("gappy feed: 30 days but only 2 collected runs", st["gappy"], (30, (datetime.now(TZ).date()-timedelta(days=30)).isoformat(), 2))
 
 
 def test_sightings_stale():
-    today = date.today()
+    today = datetime.now(TZ).date()
     d = {"sightings": [
         {"chain": "fresh", "reviewed": today.isoformat()},
         {"chain": "old", "reviewed": (today - timedelta(days=200)).isoformat()},
