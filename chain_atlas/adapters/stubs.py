@@ -882,3 +882,26 @@ class MeilleurMomentAdapter(Adapter):
                       " 2025 at 257 Elizabeth St, SoHo NYC, its only US outlet, with no national"
                       " locator. Tracked via sightings (30 Sep 2026)")
     RECHECK = ["https://www.eifini.com/"]
+
+
+class WallaceAdapter(Adapter):
+    """
+    Wallace (华莱士 / Wallace Burger & Chicken) — added 2026-10-04. A Western-style fast-food chain
+    (burgers, fried chicken, fries) under Fujian Wallace Food Co., founded in Fuzhou in 2001 by the
+    Hua brothers; ~20,000 outlets across China, widely billed as "China's KFC". Chinese origin, in
+    scope.
+
+    Its first store outside China opened 17 Nov 2024 at 18732 Amar Rd, Walnut, California, with a
+    second SoCal outlet in West Covina. A first-party US site (wallace-usa.com) exists but publishes
+    no readable national locator yet, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "wallace", "Wallace", "华莱士"
+    name_us = "Wallace Chicken"
+    aliases = ("Wallace Burger & Chicken", "Hualaishi", "华莱士炸鸡")
+    parent, format = "Fujian Wallace Food Co. (华莱士)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Western-style fast-food chain (华莱士, 'China's KFC'; ~20,000 China stores);"
+                      " first overseas store opened 17 Nov 2024 at 18732 Amar Rd, Walnut CA, with a"
+                      " second in West Covina. First-party US site but no readable national locator."
+                      " Tracked via sightings (4 Oct 2026)")
+    RECHECK = ["https://www.wallace-usa.com/"]

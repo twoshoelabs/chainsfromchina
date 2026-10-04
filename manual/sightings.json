@@ -1722,6 +1722,31 @@
      "lon": -122.403187
     }
    ]
+  },
+  {
+   "chain": "wallace",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Operator verification against Google listings + the brand's US site wallace-usa.com (4 Oct 2026).",
+   "scope": "Two US outlets of Wallace (华莱士 / Wallace Chicken) confirmed open by hand — both in Greater Los Angeles (Walnut, the first overseas store, and West Covina). First overseas market for a ~20,000-store China chain; no readable national US locator, so tracked via sightings.",
+   "locations": [
+    {
+     "name": "Walnut (first US store)",
+     "address": "18732 Amar Rd, Walnut, CA 91789",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 12 AM), 215 reviews; first overseas store, opened 17 Nov 2024 (4 Oct 2026)",
+     "lat": 34.027786,
+     "lon": -117.893759
+    },
+    {
+     "name": "West Covina",
+     "address": "555 S Glendora Ave, West Covina, CA 91790",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 12 AM), 70 reviews (4 Oct 2026)",
+     "lat": 34.06514,
+     "lon": -117.927844
+    }
+   ]
   }
  ]
 }
