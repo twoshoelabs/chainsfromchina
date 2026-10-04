@@ -200,6 +200,28 @@ CREATE TABLE IF NOT EXISTS financial_anchors (
     confidence   TEXT
 );
 
+-- Revenue estimates: MODELED outputs (anchors x store count). Always modeled, always a range,
+-- always traceable to the financial_anchors it used. See docs/phase2_revenue_spec.md §3.2.
+CREATE TABLE IF NOT EXISTS revenue_estimates (
+    estimate_id      INTEGER PRIMARY KEY AUTOINCREMENT,
+    brand_id         TEXT REFERENCES chains(chain_id),
+    scope            TEXT,                    -- us_total | outlet
+    store_id         INTEGER REFERENCES stores(store_id),   -- set for outlet scope, else NULL
+    period           TEXT,
+    low              REAL,
+    mid              REAL,
+    high             REAL,
+    unit             TEXT,                    -- USD
+    method_version   TEXT,
+    anchors_used     TEXT,                    -- JSON: anchor ids, weights, FX, apportionment
+    store_count_used INTEGER,
+    store_count_as_of TEXT,
+    modeled          INTEGER DEFAULT 1,       -- always 1
+    notes            TEXT,
+    generated_at     TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_revest_brand ON revenue_estimates(brand_id, scope, period);
+
 CREATE INDEX IF NOT EXISTS ix_obs_chain_date ON observations(chain_id, obs_date);
 CREATE INDEX IF NOT EXISTS ix_stores_country ON stores(country, status);
 CREATE INDEX IF NOT EXISTS ix_stores_chain_status ON stores(chain_id, status);

@@ -124,6 +124,12 @@ def main(argv=None):
         from . import demographics
         return demographics.run()
 
+    if cmd == "revenue":
+        from . import db, revenue
+        con = db.connect()
+        print(revenue.run(con))
+        return 0
+
     if cmd == "probe":
         from .adapters import by_id
         from . import capture
@@ -149,6 +155,7 @@ def main(argv=None):
     print("  centers [--min N]                               co-tenancy clusters (>=N China brands)")
     print("  export [--out DIR]                              write map/data/*.json")
     print("  demographics                                    DERIVED/MODELED: tract %Asian, metro, campus aggregates")
+    print("  revenue                                         MODELED: per-outlet + US-total revenue from filing anchors x store count")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
