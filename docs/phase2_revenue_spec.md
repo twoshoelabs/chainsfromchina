@@ -335,3 +335,22 @@ invented.
   none.
 - Show the **as-of** period of the anchor and the **as-of** date of the store count used.
 - A chain with no anchor shows "Not yet modeled", not a zero and not a guess.
+
+## 10. The grand total — aggregation (`chain_atlas/aggregate.py`, BUILT)
+
+`python -m chain_atlas aggregate` rolls the per-chain estimates into one modeled **US-revenue grand total**
+across every tracked chain with US outlets, and is explicit about how much rests on filings vs a benchmark.
+
+- **Universe:** the site's own outlet set — census `open` stores + confirmed (non-`coming_soon`) sightings,
+  roboshops excluded — via `geojson.build` (so it matches the map). Currently **45 chains / 854 US outlets**.
+- **Per chain, best tier:** ANCHORED = a filing-derived `revenue_estimates` us_total (restaurant-AUV /
+  channel-retail / regional-apportionment); otherwise BENCHMARK = a rough US-industry revenue-per-store for
+  the chain's format × its outlet count (`BENCHMARK_AUV`, secondary, wide bands, low confidence).
+- **Two honest widths:** the headline **independent range** = mid ± √(Σ per-chain half-widths²) (errors are
+  largely independent across brands/sectors/sources); plus a conservative **envelope** = [Σlow, Σhigh].
+- **Measured/modeled wall:** every figure MODELED and a range; the report states the anchored vs benchmark
+  split and each chain's tier. DB-only / Pro tier — never written to the public site.
+
+**First run (2026-10-04):** grand total **≈US$1.23B** (likely **US$1.07–1.39B**), of which **US$881M (72%)**
+is filing-anchored (Miniso, Pop Mart, Haidilao — 518 outlets) and **US$345M** is the benchmark tail (42
+chains / 336 outlets). The total tightens as more chains move from benchmark to filing-anchored.
