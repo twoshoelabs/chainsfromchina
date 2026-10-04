@@ -35,8 +35,8 @@ CNINFO_JSON = json.dumps({"announcements": [
     {"announcementTitle": "2025年年度报告", "adjunctUrl": "finalpage/2026-04-23/1225156279.PDF", "announcementTime": 1777000000000},
     {"announcementTitle": "2025年年度报告摘要", "adjunctUrl": "finalpage/2026-04-23/1225156329.PDF", "announcementTime": 1777000000000}]})
 
-HKEX_JSON = json.dumps({"result": json.dumps([
-    {"TITLE": "Annual Report 2025", "DATE_TIME": "2026-04-20 12:00",
+HKEX_JSON = json.dumps({"recordCnt": 2, "result": json.dumps([
+    {"TITLE": "ANNUAL REPORT 2025", "DATE_TIME": "20/04/2026 16:33", "STOCK_CODE": "09992",
      "FILE_LINK": "/listedco/listconews/sehk/2026/0420/2026042000123.pdf"}])})
 
 
@@ -66,8 +66,9 @@ def main():
     # --- HKEX: check-link without stockId; parsed with one ---
     h0 = filings.hkex_latest("9992")
     check("HKEX without stockId -> check-link", "manual" in h0, True)
-    h1 = filings.hkex_latest("9992", stockid="12345", fetch_fn=lambda: HKEX_JSON)
-    check("HKEX with stockId -> parsed title", h1["title"], "Annual Report 2025")
+    h1 = filings.hkex_latest("9992", stockid="1000068054", fetch_fn=lambda: HKEX_JSON)
+    check("HKEX with stockId -> parsed title", h1["title"], "ANNUAL REPORT 2025")
+    check("HKEX date dd/mm/yyyy -> ISO", h1["date"], "2026-04-20")
     check("HKEX with stockId -> absolute URL", h1["url"],
           "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0420/2026042000123.pdf")
 

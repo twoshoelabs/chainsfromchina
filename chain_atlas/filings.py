@@ -17,10 +17,15 @@ VENUES (all official filing portals — first-party, in posture):
   * cninfo (巨潮资讯) — the mainland CSRC-designated disclosure site. topSearch resolves a stock code to
     its orgId; hisAnnouncement lists the 年度报告 (annual reports). Automatable. Covers A-share filers
     with US presence (Juewei).
-  * HKEX (HKEXnews) — its filing search needs an internal `stockId` (not the 4-digit code) that its public
-    lookup will not hand out to a server. So HKEX is AUTOMATED only when a `stockid` is supplied in the
-    registry (titleSearchServlet then works); otherwise the collector emits a CHECK-LINK for a human. The
-    stockId-mapping is the one piece left to resolve to make Pop Mart/Mixue/Nayuki/etc. fully auto.
+  * HKEX (HKEXnews) — the hard case. Its filing search (titleSearchServlet) needs an internal `stockId`
+    (not the 4-digit code); we RESOLVED those from the public active-stock list
+    (/ncms/script/eds/activestock_sehk_e.json) and wired them into the registry, and the query returns the
+    right annual report from a fresh interactive browser session. BUT HKEXnews sits behind Akamai bot
+    protection that serves EMPTY results ("result":"null") to automated/headless requests (and rate-blocks
+    even a browser firing several in a row). Getting past that would mean defeating bot detection, which
+    this project does not do. So the HKEX path TRIES the servlet and, when Akamai returns nothing, falls
+    back to a CHECK-LINK for a human — it is not reliably headless. SEC and cninfo are the genuinely
+    automatic venues; for HKEX the value delivered is the resolved stockId map + the exact query.
 
 SCOPE. Only chains with a confirmed US presence AND a listing (the registry below). A private chain has no
 filing to pull; a listed chain with no US outlets is out of scope (handled elsewhere, e.g. the A-share
@@ -28,7 +33,7 @@ intelligence pull). DB-only / Pro tier.
 """
 import json
 import urllib.parse
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 # SEC's fair-access policy requires a UA with an EMAIL contact (it 403s otherwise); we use the project's
 # own domain, not a personal address. cninfo's WAF wants a browser UA (public content, not a challenge).
@@ -37,21 +42,25 @@ CN_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
          "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
 
 # US-present LISTED chains and where each files. venue drives the fetcher; the locator is the venue's key.
-# HKEX entries carry no stockId yet -> check-link until the stockId mapping is resolved (then add "stockid").
+# HKEX entries carry their resolved stockId, but HKEXnews' Akamai protection blocks headless queries, so
+# they fall back to a check-link at run time (see the HKEX note in the module docstring).
 FILERS = [
     {"brand_id": "miniso",      "venue": "SEC",    "cik": 1815846, "form": "20-F"},
     {"brand_id": "chagee",      "venue": "SEC",    "cik": 2013649, "form": "20-F"},
     {"brand_id": "luckin",      "venue": "SEC",    "cik": 1767582, "form": "20-F"},
     {"brand_id": "haidilao",    "venue": "SEC",    "cik": 1995306, "form": "20-F",
      "note": "Super Hi International (HDL) — Haidilao's overseas operator, the US-relevant filer"},
-    {"brand_id": "popmart",     "venue": "HKEX",   "stock": "9992"},
-    {"brand_id": "mixue",       "venue": "HKEX",   "stock": "2097"},
-    {"brand_id": "nayuki",      "venue": "HKEX",   "stock": "2150"},
-    {"brand_id": "aunteajenny", "venue": "HKEX",   "stock": "2589"},
-    {"brand_id": "chabaidao",   "venue": "HKEX",   "stock": "2555"},
-    {"brand_id": "taier",       "venue": "HKEX",   "stock": "9922", "note": "Jiumaojiu International (Tai Er's parent)"},
-    {"brand_id": "jnby",        "venue": "HKEX",   "stock": "3306"},
-    {"brand_id": "anta",        "venue": "HKEX",   "stock": "2020"},
+    # HKEX stockId is the HKEXnews-internal id (NOT the trading code). It is published in the active-stock
+    # list https://www1.hkexnews.hk/ncms/script/eds/activestock_sehk_e.json (fields: c=code, s=stockId,
+    # n=name) — the source for these, matched by code. Add new HKEX filers by looking them up there.
+    {"brand_id": "popmart",     "venue": "HKEX",   "stock": "9992", "stockid": "1000068054"},
+    {"brand_id": "mixue",       "venue": "HKEX",   "stock": "2097", "stockid": "1000249228"},
+    {"brand_id": "nayuki",      "venue": "HKEX",   "stock": "2150", "stockid": "1000100020"},
+    {"brand_id": "aunteajenny", "venue": "HKEX",   "stock": "2589", "stockid": "1000254488"},
+    {"brand_id": "chabaidao",   "venue": "HKEX",   "stock": "2555", "stockid": "1000219323"},
+    {"brand_id": "taier",       "venue": "HKEX",   "stock": "9922", "stockid": "1000018449", "note": "Jiumaojiu International (Tai Er's parent)"},
+    {"brand_id": "jnby",        "venue": "HKEX",   "stock": "3306", "stockid": "147079"},
+    {"brand_id": "anta",        "venue": "HKEX",   "stock": "2020", "stockid": "16111"},
     {"brand_id": "juewei",      "venue": "cninfo", "code": "603517", "column": "sse"},
 ]
 
@@ -158,22 +167,24 @@ def cninfo_latest(code: str, column: str = "sse", fetch_fn=None, orgid_fn=None):
     return {"date": when, "url": url, "title": (a.get("announcementTitle") or "").strip()}
 
 
-# --- HKEX (auto only when a stockId is supplied; else a check-link) -------------------------------
+# --- HKEX (stockId wired, but Akamai-gated -> falls back to a check-link) -------------------------
 
 def hkex_latest(stock: str, stockid: str | None = None, fetch_fn=None):
     """
     name:      hkex_latest
     purpose:   The latest annual report for an HKEX code — via titleSearchServlet IF a stockId is known.
-    returns:   {date, url, title} when a stockId resolves it; else {manual: <search url>} for a human.
-    other:     HKEXnews' code->stockId lookup is not available to a server, so without a stockId we return
-               a check-link. Supply "stockid" in the FILERS entry to switch this chain to auto.
+    returns:   {date, url, title} when the servlet returns data; else {manual: <search url>} for a human.
+    other:     The stockId is wired in and the query is correct, but HKEXnews' Akamai protection returns
+               empty results to automated/headless requests (it only answers a fresh interactive browser),
+               so in practice this falls back to a check-link. We do NOT defeat the bot protection.
     """
     search_url = f"https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en&searchType=1&t=rpt&SEHKcode={stock}"
     if not stockid:
         return {"manual": search_url, "title": None}
     import time
+    frm = (datetime.now(timezone.utc) - timedelta(days=800)).strftime("%Y%m%d")
     url = ("https://www1.hkexnews.hk/search/titleSearchServlet.do?sortDir=0&sortByOptions=DateTime"
-           f"&category=0&market=SEHK&stockId={stockid}&documentType=-1&fromDate=&toDate="
+           f"&category=0&market=SEHK&stockId={stockid}&documentType=-1&fromDate={frm}&toDate="
            f"&title=Annual%20Report&searchType=1&t={int(time.time()*1000)}&lang=en")
     raw = (fetch_fn or (lambda: _get(url, CN_UA, headers={"X-Requested-With": "XMLHttpRequest",
            "Referer": "https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en"})))()
@@ -183,10 +194,15 @@ def hkex_latest(stock: str, stockid: str | None = None, fetch_fn=None):
         rows = json.loads(raw).get("result")
         rows = json.loads(rows) if isinstance(rows, str) else rows
         if rows:
-            r = rows[0]
+            r = rows[0]                               # newest (sorted DateTime desc)
             doc = r.get("FILE_LINK") or r.get("fileLink") or ""
-            return {"date": (r.get("DATE_TIME") or "")[:10],
-                    "url": "https://www1.hkexnews.hk" + doc if doc.startswith("/") else doc,
+            dt = (r.get("DATE_TIME") or "")[:10]      # HKEX gives dd/mm/yyyy
+            try:
+                dt = datetime.strptime(dt, "%d/%m/%Y").strftime("%Y-%m-%d")
+            except ValueError:
+                pass
+            return {"date": dt,
+                    "url": ("https://www1.hkexnews.hk" + doc) if doc.startswith("/") else doc,
                     "title": (r.get("TITLE") or r.get("title") or "Annual Report").strip()}
     except Exception:                                            # noqa: BLE001
         pass
