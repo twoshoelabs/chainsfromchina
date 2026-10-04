@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
 <title>Chains From China — the chains</title>
 <meta name="description" content="Every Chinese retail and F&B chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,6 +158,7 @@ const yearOf = s => { const m = /\b(20\d{2})\b/.exec(s || ''); return m ? +m[1] 
 const NY_RE = /\b(flushing|brooklyn|queens|manhattan|bronx|staten|new york|nyc|, ny\b|— .*, ny\b)/i;
 const initials = n => (n || '?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
 
+const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see <head>)
 const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set(), franchiseOnly: false };
 let CHAINS = [];
 
@@ -250,7 +252,7 @@ function filtered() {
 function cardHTML(c) {
   const color = secColor(c.sector);
   const logo = `<span class="clogo" style="border-color:${color}" data-m="${esc(initials(c.name))}">` +
-    `<img src="icons/${esc(c.id)}.png" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
+    `<img src="icons/${esc(c.id)}.png${ICONV}" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
   return `<a class="ccard" href="chain.html?c=${esc(c.id)}">` +
     `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
     `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +

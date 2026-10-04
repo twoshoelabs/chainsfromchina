@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
 <title>Chain — Chains From China</title>
 <meta name="description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,6 +136,7 @@
 
 <script src="site.js?v=7"></script>
 <script>
+const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see index.html)
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
   grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
   lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
@@ -223,7 +225,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
 
   const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
-    `<img src="icons/${esc(id)}.png" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
+    `<img src="icons/${esc(id)}.png${ICONV}" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
   const aka = (m.aliases && m.aliases.length) ? `<div class="aka">Also: ${esc(m.aliases.join(', '))}</div>` : '';
   const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
 
@@ -372,7 +374,7 @@ function loadLogo(chain) {
     img.crossOrigin = 'anonymous';
     img.onload = () => resolve(img);
     img.onerror = () => resolve(null);
-    img.src = 'icons/' + chain + '.png';
+    img.src = 'icons/' + chain + '.png' + ICONV;
   });
 }
 
@@ -528,7 +530,7 @@ async function drawMap(feats, sector, id, name) {
       const p = e.features[0].properties;
       const st = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
       const chip = logo
-        ? `<img src="icons/${esc(id)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        ? `<img src="icons/${esc(id)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
       const addr = p.address ? `${esc(p.address)}<br>` : '';
       new maplibregl.Popup({ closeButton: false }).setLngLat(e.features[0].geometry.coordinates)

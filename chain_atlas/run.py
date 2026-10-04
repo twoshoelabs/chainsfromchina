@@ -324,7 +324,7 @@ def watch_launches(chain_id: str | None = None) -> int:
         locator = bool(re.search(r"store locator|find (a )?(store|location)|our (stores|locations)|"
                                  r"all locations|view (all )?(stores|locations)", body, re.I))
         return {"status": resp.status_code, "challenge": challenge,
-                "store_signal": addrs >= 2 or locator, "size": len(body)}
+                "store_signal": addrs >= 2 or locator, "size": len(body), "addrs": addrs}
 
     def launched(old, new):
         """A transition worth shouting about: blocked/private -> live, or stores appear."""
@@ -339,6 +339,11 @@ def watch_launches(chain_id: str | None = None) -> int:
             if new["store_signal"] and not old["store_signal"]:
                 return True
             if old["size"] and new["size"] > max(3000, old["size"] * 2):
+                return True
+            # A live first-party locator that gained an address (a new store opened). Guarded on the
+            # old baseline carrying an "addrs" count, so pre-existing baselines re-baseline silently
+            # once rather than firing on the field's introduction.
+            if "addrs" in old and new.get("addrs", 0) > old["addrs"]:
                 return True
             return False
         # Was NOT live and now is. A real HTTP "not-live" code (401 private, 403, 404, parked) going
@@ -377,14 +382,15 @@ def watch_launches(chain_id: str | None = None) -> int:
                 fired += 1
                 msg = (f"⚑ LAUNCH SIGNAL  {a.name} ({a.chain_id})  {url}\n"
                        f"    was: {old.get('status')} challenge={old.get('challenge')} "
-                       f"stores={old.get('store_signal')} {old.get('size')}B\n"
+                       f"stores={old.get('store_signal')} addrs={old.get('addrs')} {old.get('size')}B\n"
                        f"    now: {new.get('status')} challenge={new.get('challenge')} "
-                       f"stores={new.get('store_signal')} {new.get('size')}B")
+                       f"stores={new.get('store_signal')} addrs={new.get('addrs')} {new.get('size')}B")
                 print(msg, flush=True)
                 stamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
                 with open(config.DATA_DIR / "launch_alerts.log", "a") as f:
                     f.write(f"{stamp}  {a.chain_id}  {url}  {old.get('status')}->{new.get('status')}"
-                            f"  stores {old.get('store_signal')}->{new.get('store_signal')}\n")
+                            f"  stores {old.get('store_signal')}->{new.get('store_signal')}"
+                            f"  addrs {old.get('addrs')}->{new.get('addrs')}\n")
             new["checked"] = datetime.utcnow().strftime("%Y-%m-%d")
             state[url] = new
 

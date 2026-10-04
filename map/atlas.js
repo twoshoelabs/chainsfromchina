@@ -62,6 +62,10 @@ const LOGO_CHAINS = new Set([
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
 const BADGE = 64;         // logical badge diameter (px); device size = BADGE * DPR
+// Logo cache-bust suffix. Each page sets window.CFC_ICON_V to "?v=<hash>" at deploy time (the hash
+// changes only when an icon file changes), so a brand's new logo shows on a normal reload instead of
+// needing a hard refresh. Empty locally, which is fine (the query is just ignored).
+const ICONV = (typeof window !== 'undefined' && window.CFC_ICON_V) || '';
 
 // Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null if there is none.
 function loadLogo(chain) {
@@ -70,7 +74,7 @@ function loadLogo(chain) {
     img.crossOrigin = 'anonymous';
     img.onload = () => resolve(img);
     img.onerror = () => resolve(null);
-    img.src = 'icons/' + chain + '.png';
+    img.src = 'icons/' + chain + '.png' + ICONV;
   });
 }
 
@@ -226,7 +230,7 @@ function sectorRingMarker(chain, soft) {
   el.style.borderColor = color;
   if (LOGO_PRESENT[chain]) {
     const img = document.createElement('img');
-    img.src = 'icons/' + chain + '.png'; img.alt = '';
+    img.src = 'icons/' + chain + '.png' + ICONV; img.alt = '';
     el.appendChild(img);
   } else {
     el.textContent = (MONOGRAM[chain] || chain.slice(0, 2)).toUpperCase();
@@ -436,7 +440,7 @@ async function init() {
       const sec = SECTOR_LABEL[p.sector] || 'Other';
       const state = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
       const logo = LOGO_PRESENT[p.chain]
-        ? `<img src="icons/${esc(p.chain)}.png" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        ? `<img src="icons/${esc(p.chain)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
       const addr = p.address ? `${esc(p.address)}<br>` : '';
       const cityState = `${esc(p.city || '')}${p.city && p.state ? ', ' : ''}${esc(p.state || '')}`;
@@ -780,7 +784,7 @@ function buildTally(fc) {
       chip.setAttribute('role', 'button'); chip.tabIndex = 0;
       chip.title = 'Click to show or hide this chain on the map.';
       chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
-        `<img src="icons/${esc(id)}.png" alt="" loading="lazy"></span>` +
+        `<img src="icons/${esc(id)}.png${ICONV}" alt="" loading="lazy"></span>` +
         `<span class="chipnm">` +
         (m.fr
           ? `<span class="frbox${m.fdd ? '' : ' page'}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">${esc(m.name)}</span>`

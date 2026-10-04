@@ -29,8 +29,12 @@ touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as
 # reference. Without this the CDN and browsers keep serving a stale stylesheet, so a redesign
 # sits invisible until a manual hard refresh. perl -pi is used (not sed -i) to stay portable.
 STAMP="$(date -u +%Y%m%d%H%M%S)"
+# Logo cache-bust: a short content hash of all icon files. It changes only when an icon changes, so
+# brand logos are cached normally but a swapped logo appears on a plain reload (no hard refresh). Each
+# page carries window.CFC_ICON_V="?v=__ICONV__"; the JS appends it to every icons/<id>.png request.
+ICONV="$(cat "$TMP"/icons/*.png 2>/dev/null | shasum | cut -c1-10)"
 find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
-  "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g"
+  "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g; s{__ICONV__}{$ICONV}g"
 (
   cd "$TMP"
   git init -q

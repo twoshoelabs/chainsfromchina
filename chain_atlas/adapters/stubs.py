@@ -904,4 +904,6 @@ class WallaceAdapter(Adapter):
                       " first overseas store opened 17 Nov 2024 at 18732 Amar Rd, Walnut CA, with a"
                       " second in West Covina. First-party US site but no readable national locator."
                       " Tracked via sightings (4 Oct 2026)")
-    RECHECK = ["https://www.wallace-usa.com/"]
+    # The locator lists its 2 US stores as static HTML (no API). Watch it: launch-watch fires when
+    # the address count on this live page rises, i.e. when Wallace opens a third US store.
+    RECHECK = ["https://www.wallace-usa.com/locations-order"]
