@@ -1697,6 +1697,31 @@
      "lon": -76.817671
     }
    ]
+  },
+  {
+   "chain": "heytea",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Daily lead-discovery routine follow-up (4 Oct 2026); operator-verified against each store's Google listing (open, with reviews).",
+   "scope": "Two more HEYTEA (喜茶) US outlets confirmed open by hand — both in San Francisco (Stonestown Galleria and Metreon). Not a complete roster.",
+   "locations": [
+    {
+     "name": "HEYTEA (Stonestown Galleria)",
+     "address": "3251 20th Ave, San Francisco, CA 94132",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 9 PM), 98 reviews (4 Oct 2026)",
+     "lat": 37.728101,
+     "lon": -122.475667
+    },
+    {
+     "name": "HEYTEA (Metreon)",
+     "address": "165 4th St, San Francisco, CA 94103",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 8 PM), 730 reviews (4 Oct 2026)",
+     "lat": 37.783714,
+     "lon": -122.403187
+    }
+   ]
   }
  ]
 }

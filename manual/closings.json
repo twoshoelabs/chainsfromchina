@@ -209,6 +209,18 @@
    "closed_note": "Closed per Yelp ('Yelpers report this location has closed'), observed 4 Oct 2026.",
    "confidence": "confirmed",
    "source": "Yelp listing; surfaced by the daily lead-discovery routine's open/closed check (4 Oct 2026)."
+  },
+  {
+   "chain": "malubianbian",
+   "name": "Duluth (Gwinnett Place)",
+   "address": "3500 Gwinnett Pl Dr NW #10, Duluth, GA 30096",
+   "city": "Duluth",
+   "state": "GA",
+   "opened": null,
+   "closed_on": "2026-10-04",
+   "closed_note": "Permanently closed per Google, observed 4 Oct 2026.",
+   "confidence": "confirmed",
+   "source": "Google listing ('Permanently closed'); surfaced during lead verification (4 Oct 2026)."
   }
  ]
 }
