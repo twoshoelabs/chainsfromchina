@@ -19,7 +19,8 @@ def fresh():
     con = sqlite3.connect(":memory:")
     con.executescript("""
     CREATE TABLE stores(store_id INTEGER PRIMARY KEY AUTOINCREMENT, chain_id TEXT, country TEXT,
-                        status TEXT, last_seen TEXT, square_footage REAL, occupant_load INTEGER);
+                        status TEXT, last_seen TEXT, square_footage REAL, occupant_load INTEGER,
+                        format TEXT);
     CREATE TABLE financial_anchors(anchor_id INTEGER PRIMARY KEY AUTOINCREMENT, brand_id TEXT,
                         period TEXT, metric TEXT, value REAL, unit TEXT, page_ref TEXT, source TEXT,
                         source_url TEXT, retrieved_at TEXT, confidence TEXT);
@@ -38,10 +39,10 @@ def anchors(con, brand, rows):
     con.commit()
 
 
-def stores(con, brand, n, sqft=None):
+def stores(con, brand, n, sqft=None, fmt=None):
     for _ in range(n):
-        con.execute("INSERT INTO stores(chain_id,country,status,last_seen,square_footage) VALUES(?,?,?,?,?)",
-                    (brand, "US", "active", "2026-10-01", sqft))
+        con.execute("INSERT INTO stores(chain_id,country,status,last_seen,square_footage,format) "
+                    "VALUES(?,?,?,?,?,?)", (brand, "US", "active", "2026-10-01", sqft, fmt))
     con.commit()
 
 
@@ -114,6 +115,56 @@ def main():
     r = revenue.estimate(con, "z", "2025")
     check("no anchor -> skipped", "skipped" in r, True)
     check("no rows written", rows(con, "z"), 0)
+
+    # ---- Retail model (channel-isolated) ----
+    fx = revenue.FX_RMB_PER_USD["2025"]
+    auv = round(2003799.0 * 1000 / fx / 64)   # Americas retail-store rev / count, USD
+
+    # Case R1 — the Pop Mart shape: isolate the retail-store channel, divide by disclosed count.
+    con = fresh()
+    anchors(con, "pm", [("americas_retail_store_rev", 2003799.0, "RMB_thousands"),
+                        ("americas_retail_store_count", 64.0, "retail_stores"),
+                        ("group_retail_store_rev", 17254326.0, "RMB_thousands")])
+    stores(con, "pm", 75, fmt="standard")
+    stores(con, "pm", 106, fmt="vending_robo")   # roboshops: not storefronts for this model
+    r = revenue.retail_estimate(con, "pm", "2025")
+    check("retail AUV = channel rev / count / fx", r["per_outlet_usd_mid"], auv)
+    check("AUV ~ US$4.36M", 4_000_000 < r["auv_usd"] < 4_800_000, True)
+    check("roboshops excluded -> 75 storefronts", r["us_outlets"], 75)
+    check("US total = AUV x 75", r["us_total_usd_mid"], round(2003799.0 * 1000 / fx / 64 * 75))
+    check("retail band 0.25", r["band"], 0.25)
+    check("run-rate flagged (75 > 64)", r["footprint_run_rate"], True)
+    check("1 us_total + 75 outlet rows (no roboshop rows)", rows(con, "pm"), 76)
+    revenue.retail_estimate(con, "pm", "2025")
+    check("retail idempotent (still 76)", rows(con, "pm"), 76)
+
+    # Case R2 — missing the channel split: skip, never fall back to all-Americas / stores.
+    con = fresh()
+    anchors(con, "pm2", [("americas_revenue", 6806189.0, "RMB_thousands"),
+                         ("americas_retail_store_count", 64.0, "retail_stores")])
+    stores(con, "pm2", 75, fmt="standard")
+    r = revenue.retail_estimate(con, "pm2", "2025")
+    check("no channel split -> skipped", "skipped" in r, True)
+    check("skip writes nothing", rows(con, "pm2"), 0)
+
+    # Case R3 — US total above GROUP retail-store revenue is impossible: flag, write nothing.
+    con = fresh()
+    anchors(con, "pm3", [("americas_retail_store_rev", 2003799.0, "RMB_thousands"),
+                         ("americas_retail_store_count", 64.0, "retail_stores"),
+                         ("group_retail_store_rev", 100000.0, "RMB_thousands")])  # tiny cap
+    stores(con, "pm3", 75, fmt="standard")
+    r = revenue.retail_estimate(con, "pm3", "2025")
+    check("exceeds group cap -> flagged", "flagged" in r, True)
+    check("group-cap flag writes nothing", rows(con, "pm3"), 0)
+
+    # Case R4 — an implausible per-store AUV (tiny store count) is flagged, not written.
+    con = fresh()
+    anchors(con, "pm4", [("americas_retail_store_rev", 2003799.0, "RMB_thousands"),
+                         ("americas_retail_store_count", 1.0, "retail_stores")])  # ~US$279M/store
+    stores(con, "pm4", 75, fmt="standard")
+    r = revenue.retail_estimate(con, "pm4", "2025")
+    check("implausible retail AUV -> flagged", "flagged" in r, True)
+    check("implausible retail AUV -> nothing written", rows(con, "pm4"), 0)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0

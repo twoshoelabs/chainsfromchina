@@ -24,12 +24,25 @@ import json
 from datetime import datetime, timezone
 
 METHOD_VERSION = "v1-auv-flat"      # flat per-chain AUV; format/metro/maturity modifiers are v2
+RETAIL_METHOD_VERSION = "v1-retail-channel"   # channel-isolated store AUV x our store count
 OPERATING_DAYS = 365                # the disclosed daily average is revenue / (restaurants x calendar days)
 
-# Unit-economics reality-check envelope.
+# Unit-economics reality-check envelope (restaurant model).
 PARTY_SIZE  = 3.5                   # assumed average party; informational only — peak-seated is party-free
 SEATS_MIN, SEATS_MAX = 15, 800      # a sit-down restaurant's plausible simultaneous-seating range
 SQFT_PER_SEAT = 15                  # ~IBC net dining area per person, for an optional square-footage cross-check
+
+# Retail model reality-check envelope: a plausible annual per-store sales range (USD) for a mall/
+# flagship specialty retailer. Pop Mart's modeled AUV must land inside this or the estimate is flagged.
+RETAIL_AUV_MIN_USD, RETAIL_AUV_MAX_USD = 300_000, 25_000_000
+RETAIL_BAND = 0.25                  # channel rev + store count both disclosed, but a regional average
+                                    # applied to US + FX + store-maturity mix -> wider than a direct AUV
+
+# RMB -> USD. Pop Mart reports only in RMB and states no translation rate, so we apply an external
+# period-average and record it in `anchors_used` for reproducibility. 2025 average per FRED AEXCHUS
+# (annual average 7.1875); the IRS yearly average agrees to ~7.19.
+FX_RMB_PER_USD = {"2025": 7.187}
+FX_SOURCE = "FRED AEXCHUS 2025 annual average (7.1875); company states no rate"
 
 
 def _utcnow() -> str:
@@ -57,22 +70,29 @@ SUPERHI_FY2025 = {
     ],
 }
 
-# Pop Mart (HKEX 9992). RETAIL, and multi-channel: its Americas revenue folds in e-commerce, roboshops
-# and wholesale, so it is NOT a store AUV — dividing by stores would imply ~US$14M/store, nonsense.
-# Anchors captured for the record; the ESTIMATE waits for a retail model (chain-level US revenue,
-# channel-aware, with matched store definitions: our 75 'standard' US stores, not the 106 roboshops).
-# Figures are from the FY2025 annual results (primary PDF did not extract as text; secondary sources
-# citing the results agree on RMB6,806.2M), so confidence is medium pending a clean primary read.
+# Pop Mart (HKEX 9992). RETAIL and multi-channel — and the channel mix is the whole point: dividing
+# ALL Americas revenue by stores implied ~US$14M/store, nonsense, because in the Americas ONLINE is
+# 64% of revenue and offline retail stores are only 29.4%. The FY2025 announcement discloses the
+# Americas channel split verbatim (p.31), so we isolate the offline retail-store channel and divide
+# by the disclosed Americas store count to get a real per-store AUV (~US$4.4M), then apply it to our
+# own US standard-store census (roboshops excluded, matching the filing's "retail stores"). All
+# figures are primary from the HKEXnews announcement (text-extracted from the PDF), so confidence is
+# high; the only modeled inputs are the RMB->USD rate and the Americas-average-applied-to-US step.
 POPMART_FY2025 = {
     "brand_id": "popmart",
     "period": "2025",
-    "model": "retail_regional",   # estimate deferred — see note above
-    "source": "Pop Mart FY2025 annual results (HKEX, year ended 31 Dec 2025)",
-    "source_url": "https://prod-out-res.popmart.com/cms/ANNUAL_RESULTS_ANNOUNCEMENT_FOR_THE_YEAR_ENDED_31_DECEMBER_2025_AND_CHANGE_IN_USE_OF_PROCEEDS_d210fe53f0.pdf",
+    "model": "retail_channel",
+    "source": "Pop Mart FY2025 annual results announcement (HKEXnews, 25 Mar 2026; year ended 31 Dec 2025)",
+    "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500285.pdf",
+    # Revenue figures are RMB '000 exactly as the filing reports them; FX is applied in the model.
     "anchors": [
-        ("overseas_segment", 37120.1, "RMB_millions", "FY2025 total group revenue RMB37,120.1M (+184.7% YoY)", "medium"),
-        ("americas_revenue",  6806.2, "RMB_millions", "FY2025 Americas revenue RMB6,806.2M (+748.4% YoY; 18.3% of total; ALL channels)", "medium"),
-        ("store_count",         64.0, "retail_stores", "Americas retail stores at 31 Dec 2025 (excl. roboshops)", "medium"),
+        ("group_revenue",               37120052.0, "RMB_thousands", "Revenue by regions, p.27 (= Note 3/4 group total); +184.7% YoY", "high"),
+        ("americas_revenue",             6806189.0, "RMB_thousands", "Revenue by regions — Americas, p.27 (18.3% of group, +748.4% YoY; ALL channels)", "high"),
+        ("americas_retail_store_rev",    2003799.0, "RMB_thousands", "Americas channel split — offline retail stores, p.31 (29.4% of Americas)", "high"),
+        ("americas_roboshop_rev",         231730.0, "RMB_thousands", "Americas channel split — roboshops, p.31 (3.4%)", "high"),
+        ("americas_online_rev",          4353581.0, "RMB_thousands", "Americas channel split — online, p.31 (64.0%)", "high"),
+        ("group_retail_store_rev",      17254326.0, "RMB_thousands", "Note 4 business lines — retail store sales, PRC+Overseas summed, p.10-11", "high"),
+        ("americas_retail_store_count",       64.0, "retail_stores", "Offline channels store count @31 Dec 2025, p.24/p.31 (US not split out)", "high"),
     ],
 }
 
@@ -112,11 +132,24 @@ def collect_all(con, now: str | None = None) -> int:
     return sum(collect(con, p, now) for p in PARENTS)
 
 
-def us_store_count(con, brand_id: str) -> int:
-    """Our census count of open ('active') US outlets for a brand — the model's denominator."""
-    return con.execute(
-        "SELECT COUNT(*) FROM stores WHERE chain_id=? AND country='US' AND status='active'",
-        (brand_id,)).fetchone()[0]
+def us_store_count(con, brand_id: str, exclude_formats: tuple = ()) -> int:
+    """Our census count of open ('active') US outlets for a brand — the model's denominator.
+    `exclude_formats` drops formats that are not storefronts for this model: the retail model passes
+    ('vending_robo',) so Pop Mart roboshops are not counted as stores (they are a separate channel,
+    and the filing's 'retail stores' count excludes them too)."""
+    q = "SELECT COUNT(*) FROM stores WHERE chain_id=? AND country='US' AND status='active'"
+    args = [brand_id]
+    for fmt in exclude_formats:
+        q += " AND COALESCE(format,'')!=?"; args.append(fmt)
+    return con.execute(q, args).fetchone()[0]
+
+
+def _us_store_ids(con, brand_id: str, exclude_formats: tuple = ()):
+    q = "SELECT store_id FROM stores WHERE chain_id=? AND country='US' AND status='active'"
+    args = [brand_id]
+    for fmt in exclude_formats:
+        q += " AND COALESCE(format,'')!=?"; args.append(fmt)
+    return [r[0] for r in con.execute(q, args)]
 
 
 def _median_sqft(con, brand_id: str):
@@ -252,12 +285,109 @@ def estimate(con, brand_id: str, period: str = "2025", now: str | None = None) -
             "unit_economics": econ, "checked": status}
 
 
+# Formats in our census that are NOT storefronts for the retail revenue model. Pop Mart roboshops
+# (vending_robo) are a separate disclosed channel and are excluded from the filing's store count too.
+RETAIL_STORE_FORMATS_EXCLUDED = ("vending_robo",)
+
+
+def retail_estimate(con, brand_id: str, period: str = "2025", now: str | None = None) -> dict:
+    """
+    name:      retail_estimate
+    purpose:   MODELED per-outlet + US-total revenue for a multi-channel RETAIL chain, by ISOLATING the
+               offline retail-store channel from a disclosed regional channel split and dividing by the
+               disclosed regional store count to get a real per-store AUV — then applying it to our own
+               US standard-store census. This is the channel-aware answer to "dividing all Americas
+               revenue by stores is nonsense" (online is most of it).
+    arguments: con; brand_id; period; now.
+    returns:   a summary dict. Flags (and writes NOTHING) if the per-store AUV is implausible for the
+               format, or if the modeled US total would exceed disclosed GROUP retail-store revenue.
+    effects:   Replaces this brand/period/method's estimate rows, then INSERTs fresh ones.
+    other:     Needs the channel split (americas_retail_store_rev + americas_retail_store_count) and an
+               FX rate; without them it SKIPS, never guessing. Roboshops are excluded from both the
+               numerator (channel) and the denominator (store count).
+    """
+    now = now or _utcnow()
+    anc = _anchors(con, brand_id, period)
+    fx = FX_RMB_PER_USD.get(period)
+    need = ("americas_retail_store_rev", "americas_retail_store_count")
+    if not all(k in anc for k in need) or not fx:
+        return {"brand": brand_id, "period": period,
+                "skipped": "need Americas retail-store channel revenue + store count and an FX rate"}
+    count = anc["americas_retail_store_count"]["value"]
+    if not count or count <= 0:
+        return {"brand": brand_id, "period": period, "skipped": "no disclosed store count to divide by"}
+
+    # 1) Channel-isolated regional retail-store revenue in USD, and the Americas-average per-store AUV.
+    region_store_rev_usd = anc["americas_retail_store_rev"]["value"] * 1000 / fx
+    auv_usd = region_store_rev_usd / count
+
+    # 2) Reality check — the per-store number must be plausible for a retail storefront. Flag if not.
+    if not (RETAIL_AUV_MIN_USD <= auv_usd <= RETAIL_AUV_MAX_USD):
+        return {"brand": brand_id, "period": period,
+                "flagged": "per-store AUV implausible for retail format — not written",
+                "auv_usd": round(auv_usd), "envelope": [RETAIL_AUV_MIN_USD, RETAIL_AUV_MAX_USD]}
+
+    # 3) Our US storefront census (roboshops excluded, matching the filing's 'retail stores').
+    n = us_store_count(con, brand_id, exclude_formats=RETAIL_STORE_FORMATS_EXCLUDED)
+    as_of = con.execute(
+        "SELECT MAX(last_seen) FROM stores WHERE chain_id=? AND country='US' AND status='active'",
+        (brand_id,)).fetchone()[0]
+    per_mid, tot_mid = auv_usd, auv_usd * n
+
+    # 4) Hard guardrail — a US store-channel total above GROUP (worldwide) retail-store revenue is
+    #    impossible, so flag and write nothing.
+    if "group_retail_store_rev" in anc:
+        group_cap_usd = anc["group_retail_store_rev"]["value"] * 1000 / fx
+        if tot_mid > group_cap_usd:
+            return {"brand": brand_id, "period": period,
+                    "flagged": "modeled US total exceeds disclosed GROUP retail-store revenue — not written",
+                    "us_total_usd": round(tot_mid), "group_cap_usd": round(group_cap_usd)}
+
+    # Our current US count will usually exceed the filing's 31 Dec 2025 Americas count: the footprint
+    # grew. That makes the US total a current-footprint annualized RUN-RATE, not a FY2025 actual.
+    run_rate = n > count
+
+    used = [v["id"] for k, v in anc.items()
+            if k in ("americas_retail_store_rev", "americas_retail_store_count",
+                     "americas_revenue", "group_retail_store_rev")]
+    meta = {"anchors": used, "fx_rmb_per_usd": fx, "fx_source": FX_SOURCE,
+            "channel": "offline retail stores (online/roboshop/wholesale excluded)",
+            "region_basis": "Americas", "method": RETAIL_METHOD_VERSION,
+            "auv_usd": round(auv_usd), "region_store_rev_usd": round(region_store_rev_usd)}
+    note = (f"Modeled v1 (retail, channel-isolated): Americas offline retail-store revenue "
+            f"US${region_store_rev_usd/1e6:.1f}M / {int(count)} disclosed Americas stores = AUV "
+            f"US${auv_usd/1e6:.2f}M; x {n} US standard stores (roboshops excluded) = US${tot_mid/1e6:.0f}M.")
+    if run_rate:
+        note += (f" Our US count ({n}) exceeds the filing's Americas count ({int(count)}, 31 Dec 2025), "
+                 f"so the total is a current-footprint annualized run-rate, not a FY2025 actual.")
+
+    con.execute("DELETE FROM revenue_estimates WHERE brand_id=? AND period=? AND method_version=?",
+                (brand_id, period, RETAIL_METHOD_VERSION))
+
+    def _ins(scope, store_id, mid):
+        con.execute(
+            "INSERT INTO revenue_estimates(brand_id,scope,store_id,period,low,mid,high,unit,"
+            "method_version,anchors_used,store_count_used,store_count_as_of,modeled,notes,generated_at)"
+            " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,1,?,?)",
+            (brand_id, scope, store_id, period, mid * (1 - RETAIL_BAND), mid, mid * (1 + RETAIL_BAND),
+             "USD", RETAIL_METHOD_VERSION, json.dumps(meta), n, as_of, note, now))
+
+    _ins("us_total", None, tot_mid)
+    for sid in _us_store_ids(con, brand_id, exclude_formats=RETAIL_STORE_FORMATS_EXCLUDED):
+        _ins("outlet", sid, per_mid)
+    con.commit()
+    return {"brand": brand_id, "period": period, "us_outlets": n, "band": RETAIL_BAND,
+            "per_outlet_usd_mid": round(per_mid), "us_total_usd_mid": round(tot_mid),
+            "auv_usd": round(auv_usd), "channel": "offline_retail_stores",
+            "footprint_run_rate": run_rate, "fx_rmb_per_usd": fx}
+
+
 def run(con, now: str | None = None) -> dict:
     """
     name:      run
-    purpose:   The revenue pass. Collect every parent's anchors, and compute estimates for the parents
-               whose model the restaurant-AUV engine fits. Retail parents have their anchors captured
-               but no estimate yet — a channel-aware retail revenue model is the next build.
+    purpose:   The revenue pass. Collect every parent's anchors, then compute each parent's estimate
+               with the engine its model names: restaurant-AUV for Super Hi, channel-isolated retail
+               for Pop Mart. A parent whose model has no engine yet is reported as pending.
     returns:   a dict summary.
     effects:   INSERTs into financial_anchors + revenue_estimates (both idempotent).
     """
@@ -267,6 +397,8 @@ def run(con, now: str | None = None) -> dict:
     for p in PARENTS:
         if p["model"] == "restaurant_auv":
             estimates[p["brand_id"]] = estimate(con, p["brand_id"], p["period"], now)
+        elif p["model"] == "retail_channel":
+            estimates[p["brand_id"]] = retail_estimate(con, p["brand_id"], p["period"], now)
         else:
             pending[p["brand_id"]] = f"anchors captured; estimate pending the {p['model']} model"
     return {"anchors_written": wrote, "estimates": estimates, "pending": pending}

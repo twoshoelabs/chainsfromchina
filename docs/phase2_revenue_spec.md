@@ -207,6 +207,32 @@ Writes: occupant load → `stores.occupant_load`; every probe outcome → `pipel
 monthly refresh appends one row and re-running a month adds nothing. CLI: `python -m chain_atlas
 capacity [--chain X]`.
 
+### 5.2 The retail model — channel-isolated (`revenue.retail_estimate`, BUILT)
+
+A restaurant's store revenue *is* its sales, so AUV × count works. A multi-channel retailer's regional
+revenue is **not** a store number: for Pop Mart's **Americas**, online is **64.0%** of revenue and
+offline retail stores only **29.4%** (FY2025, HKEXnews announcement p.31). Dividing all Americas
+revenue by stores implied ~US$14M/store — nonsense. The retail model fixes this by **isolating the
+offline retail-store channel** before it divides:
+
+1. **Channel-isolate.** Take the disclosed Americas *offline retail-store* revenue (RMB 2,003,799k),
+   not total Americas revenue.
+2. **FX.** → USD at the period average (`FX_RMB_PER_USD`; 2025 = 7.187, FRED AEXCHUS — Pop Mart states
+   no rate, so the rate is recorded in `anchors_used`). = US$278.8M.
+3. **Per-store AUV.** ÷ the disclosed Americas retail-store count (64) = **US$4.36M/store** — a plausible
+   toy-flagship AUV.
+4. **US total.** AUV × **our** US standard-store census (75), **roboshops excluded** (format
+   `vending_robo`) to match the filing's "retail stores" definition. = **~US$327M**, band ±25%.
+5. **Guardrails.** The per-store AUV must sit in a retail envelope (US$0.3M–25M) or it is flagged and
+   nothing is written; and the modeled US total may not exceed disclosed **group** retail-store revenue
+   (worldwide) — if it does, flagged, nothing written.
+6. **Run-rate honesty.** Our current US count (75) exceeds the filing's 31 Dec 2025 Americas count (64)
+   because the footprint grew (+748% YoY), so the US total is labeled a **current-footprint annualized
+   run-rate**, not a FY2025 actual — stated in the estimate's `notes`.
+
+What is deliberately *not* modeled: roboshop and online revenue (roboshops have no disclosed Americas
+unit count; online is not a storefront). CLI: `python -m chain_atlas revenue` runs both engines.
+
 ## 6. First collector + model — the Super Hi / Haidilao pilot
 
 Build **one source (EDGAR 20-F/6-K + HKEX 9658) and the model end to end on Super Hi International**,
@@ -233,8 +259,9 @@ line, and the filing citation.
 
 1. `revenue_estimates` table + the `method_version` model scaffold (empty, provenance-carrying).
 2. The **EDGAR collector**, proven end to end on **Super Hi** (§6), writing anchors + estimates.
-3. Add **HKEX** for the other listed parents (Mixue, Pop Mart, Miniso, Chagee, Nayuki, ChaPanda,
-   Auntea Jenny, Anta, JNBY).
+3. Add **HKEX** for the other listed parents. **Pop Mart done** (§5.2, channel-isolated retail model,
+   primary FY2025 announcement). Remaining: Mixue, Miniso, Chagee, Nayuki, ChaPanda, Auntea Jenny,
+   Anta, JNBY.
 4. Add **FDD Item 19** for the US franchisors (YGF, Fish With You).
 5. Sector-format **benchmark fallback** for anchored-less chains (lowest confidence, clearly marked).
 5a. **Capacity / official-receipts reality-check probe** (§5.1) — *built*: `stores.occupant_load`,
