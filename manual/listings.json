@@ -1,0 +1,1450 @@
+{
+ "_readme": [
+  "Per-brand stock-listing intelligence for the Chains tab. For each brand: whether the brand OR a parent/controlling group is publicly listed, the exchange + exact ticker, the relationship, sister brands sharing the same portfolio, and whether its shares are mainland A-shares (SSE/SZSE/BSE) whose filings are rarely accessible to US investors. Tickers verified against exchange/IR/HKEXnews/SEC sources as of as_of; private = no verifiable listing. This is public-knowledge listing data, not the paywalled revenue analytics."
+ ],
+ "as_of": "2026-10-04",
+ "brands": {
+  "anta": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2020"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "https://ir.anta.com",
+   "note": "Also RMB counter HKEX:82020; HSI constituent.",
+   "sisters": []
+  },
+  "aunteajenny": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2589"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "H-share IPO 8 May 2025.",
+   "sisters": []
+  },
+  "bestore": {
+   "status": "listed",
+   "tickers": [
+    "SSE:603719"
+   ],
+   "exchange": "SSE",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": true,
+   "us_inaccessible": true,
+   "disclosure": "http://www.cninfo.com.cn",
+   "ir": "",
+   "note": "Hubei Bestore 良品铺子; Shanghai A-share, listed 24 Feb 2020.",
+   "sisters": []
+  },
+  "bosideng": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:3998"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "",
+   "sisters": []
+  },
+  "cabbeen": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2030"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "2018 privatization attempt did not complete; still trading.",
+   "sisters": []
+  },
+  "chabaidao": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2555"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Sichuan Baicha Baidao 四川百茶百道; IPO 23 Apr 2024.",
+   "sisters": []
+  },
+  "chagee": {
+   "status": "listed",
+   "tickers": [
+    "NASDAQ:CHA"
+   ],
+   "exchange": "NASDAQ",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany",
+   "ir": "https://investor.chagee.com",
+   "note": "ADS debut 17 Apr 2025.",
+   "sisters": []
+  },
+  "greentea": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:6831"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Green Tea Group; IPO 16 May 2025.",
+   "sisters": []
+  },
+  "haidilao": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:6862",
+    "NASDAQ:HDL",
+    "HKEX:9658"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "https://ir.superhiinternational.com",
+   "note": "HKEX:6862 = Haidilao Intl (Greater China). The US outlets are run by the overseas operator Super Hi International 特海国际 (NASDAQ:HDL / HKEX:9658) — that is the entity whose filings back our revenue model.",
+   "sisters": []
+  },
+  "jnby": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:3306"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Multi-brand house (JNBY, CROQUIS, less…); listed 2016.",
+   "sisters": []
+  },
+  "juewei": {
+   "status": "listed",
+   "tickers": [
+    "SSE:603517"
+   ],
+   "exchange": "SSE",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": true,
+   "us_inaccessible": true,
+   "disclosure": "http://www.cninfo.com.cn",
+   "ir": "",
+   "note": "Juewei Food 绝味食品; Shanghai main board.",
+   "sisters": []
+  },
+  "laopu": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:6181"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Laopu Gold 老铺黄金; IPO 28 Jun 2024.",
+   "sisters": []
+  },
+  "lining": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2331"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "",
+   "sisters": []
+  },
+  "maogeping": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:1318"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "IPO Dec 2024.",
+   "sisters": []
+  },
+  "miniso": {
+   "status": "listed",
+   "tickers": [
+    "NYSE:MNSO",
+    "HKEX:9896"
+   ],
+   "exchange": "NYSE",
+   "relationship": "brand-is-listco",
+   "group": "MINISO Group",
+   "group_zh": "名创优品集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany",
+   "ir": "https://ir.miniso.com",
+   "note": "Dual primary: NYSE ADS since 2020, HK since Jul 2022. 1 ADS = 4 ordinary shares.",
+   "sisters": [
+    "toptoy"
+   ]
+  },
+  "mixue": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2097"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": "Mixue Group",
+   "group_zh": "蜜雪集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "HK IPO 3 Mar 2025.",
+   "sisters": [
+    "luckycup"
+   ]
+  },
+  "nayuki": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2150"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Nayuki/Naixue 奈雪的茶; listed 2021. Holds ~43.6% of Lelecha.",
+   "sisters": []
+  },
+  "popmart": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:9992"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Pop Mart Intl 泡泡玛特; IPO 11 Dec 2020.",
+   "sisters": []
+  },
+  "semir": {
+   "status": "listed",
+   "tickers": [
+    "SZSE:002563"
+   ],
+   "exchange": "SZSE",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": true,
+   "us_inaccessible": true,
+   "disclosure": "http://www.cninfo.com.cn",
+   "ir": "",
+   "note": "Zhejiang Semir 浙江森马服饰; Shenzhen A-share (also owns Balabala 巴拉巴拉).",
+   "sisters": []
+  },
+  "xiabu": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:0520"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": "Xiabu Xiabu",
+   "group_zh": "呷哺呷哺",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Listed 2014; owns Coucou 湊湊.",
+   "sisters": [
+    "coucou"
+   ]
+  },
+  "xiaocaiyuan": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:0999"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Xiaocaiyuan Intl 小菜园国际控股; listed 20 Dec 2024.",
+   "sisters": []
+  },
+  "xiaomi": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:1810"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Xiaomi Corp 小米集团 (weighted-voting shares).",
+   "sisters": []
+  },
+  "xtep": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:1368"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Listed 2008.",
+   "sisters": []
+  },
+  "yujianxiaomian": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:2408"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Yu Jian Xiao Mian 遇见小面; listed 5 Dec 2025.",
+   "sisters": []
+  },
+  "zhouheiya": {
+   "status": "listed",
+   "tickers": [
+    "HKEX:1458"
+   ],
+   "exchange": "HKEX",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Listed 2016.",
+   "sisters": []
+  },
+  "luckin": {
+   "status": "listed",
+   "tickers": [
+    "OTC:LKNCY"
+   ],
+   "exchange": "OTC",
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany",
+   "ir": "",
+   "note": "NASDAQ (LK) delisted 29 Jun 2020; now trades OTC Pink (ADS). Files 6-K with the SEC.",
+   "sisters": []
+  },
+  "miniso_ae": {
+   "status": "listed",
+   "tickers": [
+    "NYSE:MNSO",
+    "HKEX:9896"
+   ],
+   "exchange": "NYSE",
+   "relationship": "same-as-miniso",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany",
+   "ir": "",
+   "note": "UAE market of MINISO — same issuer, not a separate listing.",
+   "sisters": []
+  },
+  "toptoy": {
+   "status": "parent_listed",
+   "tickers": [
+    "NYSE:MNSO",
+    "HKEX:9896"
+   ],
+   "exchange": "NYSE",
+   "relationship": "segment-of",
+   "group": "MINISO Group",
+   "group_zh": "名创优品集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany",
+   "ir": "",
+   "note": "TOP TOY is a reporting segment of MINISO Group.",
+   "sisters": [
+    "miniso"
+   ]
+  },
+  "luckycup": {
+   "status": "parent_listed",
+   "tickers": [
+    "HKEX:2097"
+   ],
+   "exchange": "HKEX",
+   "relationship": "segment-of",
+   "group": "Mixue Group",
+   "group_zh": "蜜雪集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Lucky Cup 幸运咖 is Mixue's coffee brand.",
+   "sisters": [
+    "mixue"
+   ]
+  },
+  "coucou": {
+   "status": "parent_listed",
+   "tickers": [
+    "HKEX:0520"
+   ],
+   "exchange": "HKEX",
+   "relationship": "segment-of",
+   "group": "Xiabu Xiabu",
+   "group_zh": "呷哺呷哺",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Coucou 湊湊 is a Xiabu Xiabu brand.",
+   "sisters": [
+    "xiabu"
+   ]
+  },
+  "taier": {
+   "status": "parent_listed",
+   "tickers": [
+    "HKEX:9922"
+   ],
+   "exchange": "HKEX",
+   "relationship": "segment-of",
+   "group": "Jiumaojiu International",
+   "group_zh": "九毛九国际",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "https://www.hkexnews.hk",
+   "ir": "",
+   "note": "Tai Er 太二酸菜鱼 is the largest brand of Jiumaojiu; not separately listed.",
+   "sisters": []
+  },
+  "mglife": {
+   "status": "parent_listed",
+   "tickers": [
+    "SSE:603899"
+   ],
+   "exchange": "SSE",
+   "relationship": "segment-of",
+   "group": "Shanghai M&G",
+   "group_zh": "晨光股份",
+   "mainland": true,
+   "us_inaccessible": true,
+   "disclosure": "http://www.cninfo.com.cn",
+   "ir": "",
+   "note": "M&G LIFE / 九木杂物社 is a retail brand of listed Shanghai M&G Stationery 晨光股份 (Shanghai A-share since 2015).",
+   "sisters": []
+  },
+  "lelecha": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "associate-of",
+   "group": "Nayuki",
+   "group_zh": "奈雪的茶",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "~43.6% associate of listed Nayuki (HKEX:2150) since Dec 2022, but kept independent and not consolidated — Lelecha itself is not listed.",
+   "sisters": []
+  },
+  "banu": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Banu 巴奴毛肚火锅; HKEX prospectus filed 16 Jun 2025 — not yet trading.",
+   "sisters": []
+  },
+  "toys52": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "52TOYS 乐自天成; HKEX A1 filed 22 May 2025. ('810758' on data sites is a pre-list placeholder, NOT a ticker.)",
+   "sisters": []
+  },
+  "laoxiangji": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "LXJ Intl 老乡鸡; HKEX refiled Jan 2026 after 3 failed A-share attempts — no confirmed ticker.",
+   "sisters": []
+  },
+  "qiandama": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "钱大妈; HKEX prospectus filed 21 Aug 2026 (earlier filing lapsed) — not yet trading.",
+   "sisters": []
+  },
+  "kkv": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": "KK Group",
+   "group_zh": "KK集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "KKV is a KK Group brand; KK Group is a serial HKEX applicant (filings 2021–2024), no confirmed listing. (Code 0100 belongs to MiniMax, NOT KK Group.)",
+   "sisters": [
+    "colorist",
+    "x11"
+   ]
+  },
+  "x11": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": "KK Group",
+   "group_zh": "KK集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "X11 is a KK Group brand; see KKV — KK Group IPO unconfirmed.",
+   "sisters": [
+    "colorist",
+    "kkv"
+   ]
+  },
+  "colorist": {
+   "status": "ipo_pending",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": "KK Group",
+   "group_zh": "KK集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "The Colorist 调色师 is a KK Group brand; KK Group IPO unconfirmed.",
+   "sisters": [
+    "kkv",
+    "x11"
+   ]
+  },
+  "wallace": {
+   "status": "delisted",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-listco",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Parent Fujian Huashi Food 华士食品 was on NEEQ/新三板 (836475); terminated 12 Feb 2026 — now unlisted. NEEQ is an OTC-type board, not SSE/SZSE/BSE.",
+   "sisters": []
+  },
+  "heytea": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "喜茶; Meituan/Hillhouse/Sequoia-backed; no listing or live filing.",
+   "sisters": []
+  },
+  "hibake": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Hi Bake 嗨呗可; no listing/filing found.",
+   "sisters": []
+  },
+  "hotmaxx": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Shanghai Xinguo",
+   "group_zh": "上海芯果科技",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "好特卖; VC-backed (~954 stores), no IPO.",
+   "sisters": []
+  },
+  "huawei": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "华为; employee/union-owned, explicitly not publicly listed.",
+   "sisters": []
+  },
+  "icicle": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Icicle Fashion Group",
+   "group_zh": "之禾",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Shanghai Icicle 之禾 (owns Carven); private.",
+   "sisters": []
+  },
+  "joocyee": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "JOY GROUP",
+   "group_zh": "橘宜集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "酵色; brand of private JOY GROUP (GA/Tencent/Shunwei-backed).",
+   "sisters": [
+    "judydoll"
+   ]
+  },
+  "judydoll": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "JOY GROUP",
+   "group_zh": "橘宜集团",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "橘朵; same parent as Joocyee — private JOY GROUP.",
+   "sisters": [
+    "joocyee"
+   ]
+  },
+  "linlee": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "LINLEE 林里 手打柠檬茶; private.",
+   "sisters": []
+  },
+  "liuyishou": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "刘一手火锅; private franchise group.",
+   "sisters": []
+  },
+  "malubianbian": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "马路边边 串串香; private.",
+   "sisters": []
+  },
+  "manling": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "曼玲粥店; private.",
+   "sisters": []
+  },
+  "manner": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Manner 曼然; Temasek/Meituan/Coatue-backed; private.",
+   "sisters": []
+  },
+  "meilleurmoment": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Eifini",
+   "group_zh": "伊芙丽",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Meilleur Moment/麦檬 is a line of private Eifini 伊芙丽.",
+   "sisters": []
+  },
+  "meiyijia": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "美宜佳 (东莞糖酒集团美宜佳); China's largest c-store chain; private.",
+   "sisters": []
+  },
+  "meizhoudongpo": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "眉州东坡; private.",
+   "sisters": []
+  },
+  "micun": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "米村拌饭; HK operating entity, no prospectus — private.",
+   "sisters": []
+  },
+  "moco": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "EPO Fashion Group",
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "MO&Co. 摩安珂 is a brand of private EPO Fashion Group (Guangzhou).",
+   "sisters": []
+  },
+  "moge": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Möge Tee 愿茶; private (distinct from Molly Tea and More Yogurt).",
+   "sisters": []
+  },
+  "mollytea": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Molly Tea 茉莉奶白; private (distinct from Möge Tee and More Yogurt).",
+   "sisters": []
+  },
+  "moreyogurt": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "More Yogurt 茉酸奶; Junlebao 君乐宝 invested but itself private.",
+   "sisters": []
+  },
+  "mstand": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "M Stand; VC-funded (CMC, Xiaohongshu); private.",
+   "sisters": []
+  },
+  "muwu": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Shenzhen Zhengjun",
+   "group_zh": "深圳正君餐饮",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Muwu BBQ 木屋烧烤; ~400 direct stores; private.",
+   "sisters": []
+  },
+  "nanjingimpressions": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Dahui Enterprise",
+   "group_zh": "大惠企业",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "南京大牌档; brand of private Dahui — explicitly non-listed.",
+   "sisters": []
+  },
+  "nonggengji": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "农耕记; private.",
+   "sisters": []
+  },
+  "nowwa": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "挪瓦咖啡; Series C (Legend Capital) Jan 2026; private.",
+   "sisters": []
+  },
+  "peijie": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "珮姐 Chongqing hotpot; VC-backed; private.",
+   "sisters": []
+  },
+  "shudaxia": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Xiaolongkan Group",
+   "group_zh": "小龙坎",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Shu Da Xia 蜀大侠; wholly owned by the private Xiaolongkan group.",
+   "sisters": [
+    "xiaolongkan"
+   ]
+  },
+  "shuyi": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "书亦烧仙草 (~6,000 stores); private.",
+   "sisters": []
+  },
+  "steelpipe": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "钢管厂五区小郡肝串串香; private.",
+   "sisters": []
+  },
+  "tanyu": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "探鱼; mulled a HK IPO (2024) but not filed; private.",
+   "sisters": []
+  },
+  "tianlala": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "甜啦啦; said Jan 2025 it would delay IPO 3+ yrs; private.",
+   "sisters": []
+  },
+  "urbanrevivo": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Fashion Momentum Group",
+   "group_zh": "赢尚时装",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "UR; parent FMG weighing a HK IPO (not filed); private.",
+   "sisters": []
+  },
+  "xiaogujiejie": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "小谷姐姐 (~1,000 stores); private.",
+   "sisters": []
+  },
+  "xiaolongkan": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "Xiaolongkan Group",
+   "group_zh": "小龙坎",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Shoo Loong Kan 小龙坎; private (also owns Shu Da Xia).",
+   "sisters": [
+    "shudaxia"
+   ]
+  },
+  "xibei": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "西贝莜面村; founder voiced IPO aspiration, not filed; private.",
+   "sisters": []
+  },
+  "xijiade": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "喜家德水饺 (~835 stores); private.",
+   "sisters": []
+  },
+  "yangguofu": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "杨国福麻辣烫; HKEX A1 filed 2022 but lapsed — currently private.",
+   "sisters": []
+  },
+  "yangs": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "杨铭宇黄焖鸡 (~6,000 stores); private.",
+   "sisters": []
+  },
+  "yihetang": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "益禾堂; private.",
+   "sisters": []
+  },
+  "yuanji": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "袁记串串香; private. CAUTION: the HKEX-bound 袁记云饺/袁记食品 is a DIFFERENT dumpling brand.",
+   "sisters": []
+  },
+  "zhangliang": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "张亮麻辣烫 (~6,000 stores); private.",
+   "sisters": []
+  },
+  "zhengxin": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "正新鸡排; reportedly exploring a HK IPO (2026), not yet filed; private.",
+   "sisters": []
+  },
+  "chahalo": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "茶话弄; private.",
+   "sisters": []
+  },
+  "cooltoy": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "酷乐潮玩; private.",
+   "sisters": []
+  },
+  "cotti": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "Cotti Coffee 库迪咖啡; private (ex-Luckin founders).",
+   "sisters": []
+  },
+  "crvanguard": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "segment-of",
+   "group": "China Resources Holdings",
+   "group_zh": "华润(集团)",
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "华润万家; held by state-owned, UNLISTED China Resources Holdings. NOT ticker 0291 (that is China Resources Beer).",
+   "sisters": []
+  },
+  "dalongyi": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "大龙燚; private Chengdu hotpot.",
+   "sisters": []
+  },
+  "dezhuang": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "德庄 (Chongqing Dezhuang Group); private.",
+   "sisters": []
+  },
+  "feidachu": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "费大厨 (Shenzhen); ~100+ direct stores; private.",
+   "sisters": []
+  },
+  "fishwithyou": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "鱼你在一起 (~1,000+ stores); private.",
+   "sisters": []
+  },
+  "florasis": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "花西子 (Hangzhou); founder-controlled; private.",
+   "sisters": []
+  },
+  "grandmashome": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "外婆家 (Hangzhou); private.",
+   "sisters": []
+  },
+  "hefu": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "和府捞面; HK IPO rumored 2024 but denied; private.",
+   "sisters": []
+  },
+  "laowang": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "捞王 (粤式火锅); HKEX prospectuses 2021 & 2022 both lapsed; private.",
+   "sisters": []
+  },
+  "baospastry": {
+   "status": "private",
+   "tickers": [],
+   "exchange": null,
+   "relationship": "brand-is-operator",
+   "group": null,
+   "group_zh": null,
+   "mainland": false,
+   "us_inaccessible": false,
+   "disclosure": "",
+   "ir": "",
+   "note": "鲍师傅糕点 (Beijing); private, no listing.",
+   "sisters": []
+  }
+ }
+}

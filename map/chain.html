@@ -44,6 +44,8 @@
   .hb { font: 600 .72rem/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px;
     border-radius: 5px; border: 1px solid var(--rule); color: var(--dim); }
   .hb.counted { color: var(--teal); border-color: var(--teal); }
+  /* Stock-listing badge in the hero — the exchange:ticker, monospaced so codes read cleanly. */
+  .hb.listed { font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace); text-transform: none; letter-spacing: 0; color: var(--ink); border-color: var(--ink); }
   /* Franchise badge in the hero — filled = US FDD on file, outline = first-party page only. */
   .hb.fr { color: var(--teal); border-color: var(--teal); }
   .hb.fr.fdd { background: var(--teal); color: #fff; }
@@ -166,6 +168,10 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const m = collected[id] || blocked[id];
   if (!m) { box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return; }
   const comp = companies[id] || {};
+  // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, mainland A-share flag).
+  const lst = (meta.listings && meta.listings.brands && meta.listings.brands[id]) || null;
+  const nameOf = (sid) => (companies[sid] && companies[sid].name) || (collected[sid] && collected[sid].name) ||
+    ((reg.chains && reg.chains[sid]) ? (reg.chains[sid].name_us || reg.chains[sid].name) : null) || sid;
   const isCollected = !!collected[id];
   const regChain = (reg.chains && reg.chains[id]) || {};
   const franchiseUS = regChain.franchise_available_us === 1;   // open to a US franchisee
@@ -231,12 +237,38 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const aka = (m.aliases && m.aliases.length) ? `<div class="aka">Also: ${esc(m.aliases.join(', '))}</div>` : '';
   const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
 
+  // Stock-listing badge (in the hero) + a full "Ownership & stock listing" section.
+  const STAT = { listed: 'Publicly listed', parent_listed: 'Listed via parent group',
+    ipo_pending: 'IPO filed (pending)', delisted: 'Delisted', private: 'Privately held' };
+  let listingBadge = '', listingSec = '';
+  if (lst) {
+    if (lst.tickers && lst.tickers.length)
+      listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.mainland ? ' · mainland A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
+    else if (lst.status === 'ipo_pending') listingBadge = `<span class="hb">IPO filed</span>`;
+
+    const rows = [`<dt>Status</dt><dd>${STAT[lst.status] || lst.status}</dd>`];
+    if (lst.group && lst.relationship !== 'brand-is-listco' && lst.relationship !== 'brand-is-operator') {
+      const rel = lst.relationship === 'associate-of' ? 'Associate of' : lst.status === 'private' ? 'Part of' : 'Listed parent';
+      rows.push(`<dt>${rel}</dt><dd>${esc(lst.group)}${lst.group_zh ? ' <span class="zh" lang="zh-Hans">' + esc(lst.group_zh) + '</span>' : ''}</dd>`);
+    }
+    if (lst.tickers && lst.tickers.length)
+      rows.push(`<dt>${lst.tickers.length > 1 ? 'Tickers' : 'Ticker'}</dt><dd>${lst.tickers.map(t => `<b>${esc(t)}</b>`).join(' &middot; ')}` +
+        `${lst.disclosure ? ` &mdash; <a href="${esc(lst.disclosure)}" target="_blank" rel="noopener">filings</a>` : ''}</dd>`);
+    if (lst.sisters && lst.sisters.length)
+      rows.push(`<dt>Sister brand${lst.sisters.length > 1 ? 's' : ''}</dt><dd>${lst.sisters.map(s => `<a href="chain.html?c=${esc(s)}">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
+    if (lst.note) rows.push(`<dt>Note</dt><dd>${esc(lst.note)}</dd>`);
+    const mainland = lst.us_inaccessible
+      ? `<p class="frline"><b>Mainland A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} inside mainland China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.</p>` : '';
+    listingSec = `<section><h2>Ownership &amp; stock listing</h2>${mainland}<dl class="kv">${rows.join('')}</dl></section>`;
+  }
+
   box.innerHTML =
     `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
     `<div class="chero">${logoHTML}<div class="cheromain">` +
       `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
       `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
         (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
+        listingBadge +
       `</div>` +
       (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
     `</div></div>` +
@@ -285,6 +317,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
         (comp.site_us ? `<dt>US site</dt><dd><a href="${esc(comp.site_us)}" target="_blank" rel="noopener">${esc(comp.site_us.replace(/^https?:\/\//,''))}</a></dd>` : '') +
         (comp.site_cn ? `<dt>Site in China</dt><dd><a href="${esc(comp.site_cn)}" target="_blank" rel="noopener">${esc(comp.site_cn.replace(/^https?:\/\//,''))}</a> <span style="color:var(--faint)">(untested)</span></dd>` : '') +
       `</dl></section>` : '') +
+    listingSec +
     `<section><div class="cols">` +
       `<div><h2>By state</h2>${byStateHTML(feats, sector)}</div>` +
       `<div>` +
