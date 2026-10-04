@@ -415,6 +415,46 @@
     "markets": "",
     "note": "Largest baozi/mantou chain; A-share listed",
     "source": ""
+   },
+   {
+    "name": "Wallace",
+    "name_zh": "华莱士",
+    "hq": "Fuzhou, Fujian",
+    "china_stores": "~20,000",
+    "status": "tracked",
+    "markets": "US: Walnut + West Covina CA",
+    "note": "Added to the site 2026-10-04 (blocked adapter + sightings).",
+    "source": "https://www.wallace-usa.com/"
+   },
+   {
+    "name": "Zhengxin Chicken Steak",
+    "name_zh": "正新鸡排",
+    "hq": "Fujian",
+    "china_stores": "20,000+",
+    "status": "tracked",
+    "markets": "US: San Diego, Milpitas, SF, Flushing, Brooklyn x2 (Chicago closed)",
+    "note": "Added to the site 2026-10-04 (blocked adapter + sightings).",
+    "source": "https://www.zhengxinca.com/"
+   },
+   {
+    "name": "Tastien",
+    "name_zh": "塔斯汀",
+    "hq": "Fuzhou, Fujian",
+    "china_stores": "~7,250",
+    "status": "china",
+    "markets": "China only; no overseas found (4 Oct 2026)",
+    "note": "Chinese-burger chain; watch for a first overseas/US move.",
+    "source": "https://en.wikipedia.org/wiki/Tastien"
+   },
+   {
+    "name": "Bingz",
+    "name_zh": "西少爷",
+    "hq": "Beijing",
+    "china_stores": "n/a",
+    "status": "registered",
+    "markets": "Canada, Singapore; US planned (Times Sq billboard 2024, $50M US raise) but no US store yet (4 Oct 2026)",
+    "note": "Roujiamo/Chinese-burger chain; abroad but NOT yet in our register — candidate to register (SG) + watch for US entry.",
+    "source": "https://www.bingz.com/"
    }
   ],
   "Regional-cuisine sit-down": [
@@ -641,6 +681,16 @@
     "markets": "",
     "note": "Cake-delivery chain",
     "source": ""
+   },
+   {
+    "name": "Hi Bake",
+    "name_zh": "嗨焙",
+    "hq": "Chengdu (founded Hong Kong 2012)",
+    "china_stores": "~60",
+    "status": "held",
+    "markets": "US: Beverly Hills (235 N Canon Dr, opened ~Jul 2025)",
+    "note": "BORDERLINE scope: founded in Hong Kong, now Chengdu-based. Mainland-origin call pending (cf. Tao Tao Ju excluded, Happy Lemon held).",
+    "source": "https://hibakebakery.com/"
    }
   ],
   "Ice cream / frozen": [
