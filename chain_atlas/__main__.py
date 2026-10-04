@@ -139,6 +139,13 @@ def main(argv=None):
         print(_json.dumps(capacity.run(con, brand_id=opt("--chain", "haidilao")), indent=2))
         return 0
 
+    if cmd == "fdd":
+        from . import db, fdd
+        con = db.connect()
+        import json as _json
+        print(_json.dumps(fdd.run(con), indent=2, default=str))
+        return 0
+
     if cmd == "probe":
         from .adapters import by_id
         from . import capture
@@ -166,6 +173,7 @@ def main(argv=None):
     print("  demographics                                    DERIVED/MODELED: tract %Asian, metro, campus aggregates")
     print("  revenue                                         MODELED: per-outlet + US-total revenue from filing anchors x store count")
     print("  capacity [--chain X]                             official occupant-load + TX alcohol receipts; reality-checks the revenue AUV")
+    print("  fdd                                              FDD Item 19 (US per-outlet AUV) + Item 20 outlet counts, from MN franchise registry")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")

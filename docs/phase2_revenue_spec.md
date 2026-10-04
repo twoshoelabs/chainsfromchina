@@ -152,6 +152,22 @@ Rules:
   self-selected reporting subset — treat as a soft AUV with medium/low confidence, and never mistake
   it for total chain revenue.
 
+**BUILT (`chain_atlas/fdd.py`, `python -m chain_atlas fdd`).** Source = **Minnesota CARDS** — a public
+GET search (franchisor / franchise-name / year) + public document download; the one registration state
+with clean programmatic access. (**Wisconsin DFI is Cloudflare bot-blocked** — not automatable, pull by
+hand; **CA DOCQNET** is a future add.) CARDS' WAF 403s a bot UA, so the collector sends a browser UA —
+public content served to any browser, not a challenge. It picks the newest *Clean/Final FDD*, archives
+the raw PDF, extracts the text (`pypdf`), and parses **Item 19** + **Item 20**:
+- Writes `pipeline_signals` (`signal_type='fdd'`, idempotent on the FDD download URL): status +
+  Item 20 outlet counts + state/year.
+- Writes a `financial_anchors` row (`metric='fdd_item19_auv'`, US per-outlet, confidence medium, raw
+  excerpt in `page_ref`) **only when Item 19 actually discloses a figure**.
+- **Reality:** most of these franchisors (new/foreign entrants) **opt out of Item 19** ("we do not make
+  any representations"); that opt-out is recorded, and no AUV is invented. Verified live 2026-10-04:
+  Miniso, Cotti, Yangguofu all filed in MN and all **opt out** (so no AUV yet); Mixue/Möge/Yang's not in
+  MN. The value today is the opt-out record + Item 20 census cross-check; AUVs will land when a
+  disclosing franchisor (or a CA/WI pull) is added.
+
 ## 5. The model (anchor → estimate)
 
 Deterministic, versioned (`method_version`), and auditable. v1:
@@ -262,7 +278,9 @@ line, and the filing citation.
 3. Add **HKEX** for the other listed parents. **Pop Mart done** (§5.2, channel-isolated retail model,
    primary FY2025 announcement). Remaining: Mixue, Miniso, Chagee, Nayuki, ChaPanda, Auntea Jenny,
    Anta, JNBY.
-4. Add **FDD Item 19** for the US franchisors (YGF, Fish With You).
+4. Add **FDD Item 19** for the US franchisors — *built* (§4.3, `fdd.py`, MN CARDS; most file opt-outs so
+   far). Extend to CA DOCQNET / manual WI for franchisors not in MN, and wire `fdd_item19_auv` into
+   `estimate()` as the top-priority US per-outlet AUV once a disclosing filing lands.
 5. Sector-format **benchmark fallback** for anchored-less chains (lowest confidence, clearly marked).
 5a. **Capacity / official-receipts reality-check probe** (§5.1) — *built*: `stores.occupant_load`,
     `capacity.py` (TX mixed-beverage receipts live; occupant-load registry ready for the first

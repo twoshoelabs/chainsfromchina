@@ -1,2 +1,3 @@
 requests
 certifi
+pypdf          # FDD PDF text extraction (chain_atlas/fdd.py); collector skips cleanly if absent
