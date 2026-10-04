@@ -277,6 +277,31 @@ teahouses at end-2025, China-only per-store GMV) are captured; the US estimate i
 Westfield Century City LA (May 2025), company-owned, ~5,000 cups opening day — but none is revenue-grade,
 so it stays out of the published estimate.
 
+### 5.4 The listed "tail" — checked, and why it can't be filing-anchored (verified 2026-10-04)
+
+To shrink the benchmark tail we pulled the PRIMARY filings of every listed chain in it. **Finding: none
+discloses a US / North America / Americas revenue** — the US is <0.2% of their revenue, below segment
+thresholds (or the US sub is not even consolidated), so they report a single geography or bundle the US
+into an overseas line that excludes it. **None is filing-anchorable to a US figure; all remain
+sector-benchmark in the aggregate.** US outlet counts come from our own census, never these filings.
+
+| Chain | Ticker | Group revenue (filing) | US revenue? | Source |
+|---|---|---|---|---|
+| Luckin | OTC:LKNCY | RMB 49,288M (FY2025, ~US$7.03bn) | No — single "PRC segment"; one bundled "All other revenues" RMB 284M (US+SG store sales + o/s franchise fees); US stores = 9 | SEC 20-F acc 0001104659-26-035712 |
+| Mixue | HKEX:2097 | RMB 33,560M (FY2025) | No — single-geography; B2B supply/franchise model; no US count | HKEXnews 2026032400179 |
+| Jiumaojiu (Tai Er) | HKEX:9922 | RMB 5,233M group / 3,720M Tai Er (FY2025) | No — segmented by brand, ">90% China"; "3 US cities", no US count. (Discloses overseas spend/customer RMB 155 vs 67 mainland) | HKEXnews 2026032703108 |
+| ChaPanda | HKEX:2555 | RMB 4,918M (FY2024) | No — single PRC segment; overseas 14 stores, US 0 in the filing | HKEXnews 2025042800813 |
+| Auntea Jenny | HKEX:2589 | RMB 3,285M (FY2024) | No — single segment; "overseas" = 1 KL store (RMB 6.3M). (Avg GMV/store RMB 1,370k China) | HKEXnews 2025042800055 |
+| Juewei | SSE:603517 | RMB 6,257M (2024) | No — 境外 overseas RMB 102M bundles SG+Canada+HK/Macau, US excluded; no store counts | cninfo 2025-04-10 |
+| Nayuki | HKEX:2150 | RMB 4,331M (FY2025) | No — no geographic info (segments by business line); US (NaiSnow) only a no-profit tax-note sub. (Avg daily sales/teahouse RMB 7.7k self-op) | HKEXnews 2026032601584 |
+
+**Implication for the tail:** the listed tail is only ~US$40M of the ~US$345M benchmark tail, and it can't
+be converted via filings; the large tail chains (moge, yangguofu, zhangliang, liuyishou, heytea,
+fishwithyou, cotti) are **private**. So the levers to improve the tail are (a) better benchmarks — the
+disclosed home-market per-store figures above (e.g. Auntea Jenny ~RMB 1.37M ≈ US$190k/store China; tea US
+~3× that) broadly VALIDATE the current sector benchmarks; (b) FDD Item 19 as more franchisors file; (c)
+waiting for these chains to disclose the US as it grows. Not more filing pulls.
+
 ## 6. First collector + model — the Super Hi / Haidilao pilot
 
 Build **one source (EDGAR 20-F/6-K + HKEX 9658) and the model end to end on Super Hi International**,

@@ -143,6 +143,13 @@ CHAGEE_FY2025 = {
     ],
 }
 
+# Listed "tail" chains verified 2026-10-04 (SEC / HKEXnews / cninfo primary filings) — NONE discloses a
+# US / North America / Americas revenue, so none can be filing-anchored to a US figure. They are NOT added
+# as PARENTS (several are sightings-only and not in the `chains` table; and no anchor would drive an
+# estimate). Their verified group financials + the "no US disclosure" finding are recorded in
+# docs/phase2_revenue_spec.md §5.4; in the aggregate they remain sector-benchmark. The US outlet counts
+# come from our own census, never these filings. Re-encode a chain here only if it later breaks out the US.
+
 PARENTS = [SUPERHI_FY2025, POPMART_FY2025, MINISO_FY2025, CHAGEE_FY2025]
 
 
