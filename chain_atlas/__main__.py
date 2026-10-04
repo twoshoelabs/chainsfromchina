@@ -110,12 +110,14 @@ def main(argv=None):
 
     if cmd == "export":
         from .mapdata import export
-        from . import register, centers, geojson, db, demographics
+        from . import register, geojson, db, demographics
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
         con = db.connect()
         print(export(out), "->", out)
         print(register.export(out), "-> register.json")
-        print(centers.export(con, out), "-> centers.json")
+        # NOTE: co-tenancy (centers.json) is a PAID/Pro tier — deliberately NOT written to the public
+        # data dir. The generator stays available via `python -m chain_atlas centers` and will feed the
+        # access-controlled Pro export; it must never be emitted here. See cfc-analytics-paywall.
         print(geojson.export(con, out), "-> stores.geojson")
         print(demographics.export(out), "-> demographics.json")
         return 0

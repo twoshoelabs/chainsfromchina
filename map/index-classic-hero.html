@@ -417,10 +417,10 @@
       <div class="ncarrow">Explore chains &rarr;</div>
     </a>
     <a class="ncard" href="centers.html">
-      <div class="ncnum" id="nc-cotenancy">&mdash;</div>
+      <div class="ncnum" id="nc-cotenancy" style="font-weight:300">Pro</div>
       <div class="nctitle">Co-tenancy</div>
-      <div class="ncsub">Places where two or more Chinese chains trade in the same center or block.</div>
-      <div class="ncarrow">See the clusters &rarr;</div>
+      <div class="ncsub">Places where two or more Chinese chains trade in the same center or block &mdash; a Pro feature.</div>
+      <div class="ncarrow">See what&rsquo;s inside &rarr;</div>
     </a>
     <a class="ncard" href="register.html">
       <div class="ncnum" id="nc-global">&mdash;</div>
@@ -495,7 +495,7 @@
   </div>
 </footer>
 
-<script src="atlas.js?v=20261003d"></script>
+<script src="atlas.js?v=20261004f"></script>
 <script>
 // ---- Hero + section data bindings (independent of the map engine) --------------------------
 const SECTOR_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',
@@ -509,7 +509,7 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   {day:'numeric', month:'short', year:'numeric'}); } catch(e){ return iso; } };
 
 (async function () {
-  let fc, centers, reg;
+  let fc, reg;
   try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
   const feats = fc.features;
   // One canonical total, computed once by the exporter and shared with every page (meta.totals).
@@ -595,8 +595,7 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 
   // Nav card counts
   document.getElementById('nc-chains').textContent = fmt(chains.length);
-  try { centers = await fetch('data/centers.json').then(r=>r.json());
-        document.getElementById('nc-cotenancy').textContent = fmt((centers.co_tenancy||[]).length); } catch(e){}
+  // Co-tenancy count is a Pro feature — not fetched or shown on the free homepage.
   try { reg = await fetch('data/register.json').then(r=>r.json());
         document.getElementById('nc-global').textContent = fmt(Object.keys(reg.markets||{}).length); } catch(e){}
 
@@ -648,6 +647,6 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 // where the map and data live.
 </script>
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
-<script src="site.js?v=8"></script>
+<script src="site.js?v=9"></script>
 </body>
 </html>

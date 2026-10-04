@@ -470,8 +470,8 @@
       </table>
     </section>
     <section class="m-right">
-      <a class="dcap" href="centers.html"><span class="cond num" id="dc-cot">53</span>
-        <span class="tx">shopping centers and blocks host two or more of these chains side by side. <u>See the co-tenancy list</u></span></a>
+      <a class="dcap" href="centers.html"><span class="cond num" id="dc-cot" style="font-weight:300">Pro</span>
+        <span class="tx">Where two or more of these chains cluster in the same center or block — a Pro feature. <u>See what&rsquo;s inside</u></span></a>
       <a class="dcap" href="register.html"><span class="cond num" id="dc-ctry" style="font-weight:300">25</span>
         <span class="tx">countries outside China where these chains already trade, and which may come to the US next. <u>Open the register</u></span></a>
     </section>
@@ -517,7 +517,7 @@
 
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
 
-<script src="atlas.js?v=20261004e"></script>
+<script src="atlas.js?v=20261004f"></script>
 <script>
 // ---- Editorial homepage bindings (map engine is atlas.js, untouched) ----
 const SECTOR_NAME = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
@@ -534,10 +534,9 @@ const word = n => (n>=0 && n<=10) ? WORD[n] : String(n);
 const $ = id => document.getElementById(id);
 
 (async function () {
-  let fc, demo=null, centers=null, reg=null;
+  let fc, demo=null, reg=null;
   try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
   try { demo = await fetch('data/demographics.json').then(r=>r.json()); } catch(e){}
-  try { centers = await fetch('data/centers.json').then(r=>r.json()); } catch(e){}
   try { reg = await fetch('data/register.json').then(r=>r.json()); } catch(e){}
   const feats = fc.features, meta = fc.meta||{}, T = meta.totals||{};
   const zhOf = ch => (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || '';
@@ -657,8 +656,7 @@ const $ = id => document.getElementById(id);
     }
   }
 
-  // Drop-cap links
-  $('dc-cot').textContent = centers ? fmt((centers.co_tenancy||[]).length) : '—';
+  // Drop-cap links (co-tenancy count is Pro — not shown here)
   $('dc-ctry').textContent = reg ? fmt(Object.keys(reg.markets||{}).length) : '—';
 
   // Sightings sheet — placeholder illustrations until readers' photos arrive

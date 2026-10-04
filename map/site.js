@@ -114,7 +114,8 @@
     if (idxP) return idxP;
     idxP = Promise.all([
       fetch('data/stores.geojson').then(function (r) { return r.json(); }),
-      fetch('data/centers.json').then(function (r) { return r.json(); }).catch(function () { return { co_tenancy: [] }; }),
+      // Co-tenancy is a Pro feature — centers.json is not published publicly, so don't request it.
+      Promise.resolve({ co_tenancy: [] }),
     ]).then(function (res) {
       var gj = res[0], cen = res[1];
       var chainMap = {}, cityMap = {};

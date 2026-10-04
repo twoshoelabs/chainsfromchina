@@ -134,7 +134,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=8"></script>
+<script src="site.js?v=9"></script>
 <script>
 const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see index.html)
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
@@ -154,7 +154,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     fetch('data/stores.geojson').then(r=>r.json()),
     fetch('data/stores.json').then(r=>r.json()),
     fetch('data/register.json').then(r=>r.json()),
-    fetch('data/centers.json').then(r=>r.json()),
+    // Co-tenancy is a Pro feature: centers.json is not published publicly, so tolerate its absence.
+    // The "Neighbours" block is guarded on nb.length and simply hides when there is no cluster data.
+    fetch('data/centers.json').then(r=>r.json()).catch(()=>({co_tenancy:[]})),
   ]); } catch (e) { box.innerHTML = '<p class="loading">Could not load data.</p>'; return; }
 
   const meta = sj.meta || {};

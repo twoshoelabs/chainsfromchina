@@ -338,7 +338,9 @@ async function init() {
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
   MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
   // Named co-tenancy clusters feed the "Shopping centers" search group and the place panel.
-  fetch('data/centers.json').then((r) => r.json()).then((d) => { CO_TENANCY = d.co_tenancy || []; }).catch(() => {});
+  // Co-tenancy (named clusters) is a Pro feature: centers.json is not published publicly, so the
+  // map does not fetch it. CO_TENANCY stays [] — the "Shopping centers" search group is empty and
+  // place panels fall back to address/city. See cfc-analytics-paywall.
 
   // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
   // every icon-image reference resolves to either a logo badge or a monogram badge.
