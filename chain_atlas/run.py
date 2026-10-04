@@ -13,7 +13,7 @@ from pathlib import Path
 
 from . import capture, db
 from .adapters import REGISTRY, by_id
-from .config import TZ
+from .config import TZ, now_ny, today_ny
 from .events import diff
 from .identity import store_key, norm_addr
 
@@ -386,12 +386,12 @@ def watch_launches(chain_id: str | None = None) -> int:
                        f"    now: {new.get('status')} challenge={new.get('challenge')} "
                        f"stores={new.get('store_signal')} addrs={new.get('addrs')} {new.get('size')}B")
                 print(msg, flush=True)
-                stamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+                stamp = now_ny()
                 with open(config.DATA_DIR / "launch_alerts.log", "a") as f:
                     f.write(f"{stamp}  {a.chain_id}  {url}  {old.get('status')}->{new.get('status')}"
                             f"  stores {old.get('store_signal')}->{new.get('store_signal')}"
                             f"  addrs {old.get('addrs')}->{new.get('addrs')}\n")
-            new["checked"] = datetime.utcnow().strftime("%Y-%m-%d")
+            new["checked"] = today_ny()
             state[url] = new
 
     path.write_text(json.dumps(state, indent=1))
@@ -420,7 +420,7 @@ def feed_staleness(con) -> dict:
     rows = con.execute(
         "SELECT chain_id, obs_date, raw_sha256 FROM runs WHERE status='ok' AND raw_sha256 IS NOT NULL"
         " ORDER BY chain_id, obs_date, run_id").fetchall()
-    today = date.today()
+    today = datetime.now(TZ).date()     # NY day, to match obs_date (also NY)
     out = {}
     for cid, grp in groupby(rows, key=lambda r: r["chain_id"]):
         g = list(grp)

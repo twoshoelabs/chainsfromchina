@@ -5,12 +5,31 @@ Single rule, inherited from the sibling project store_atlas: every byte of colle
 lives under DATA_DIR. Code lives in git. Moving machines = copy DATA_DIR + clone repo.
 """
 import os
+from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 # The footprint is American; the collection day is therefore an American day. US/Eastern is
 # chosen over UTC so that "stores as of the 14th" means what a US reader assumes it means.
+# SITE-WIDE RULE: every date or time the site presents, and every date this pipeline generates for
+# it, is New York time — never the host's clock (the publishing Mac runs on Asia/Taipei, so a bare
+# date.today()/time.strftime() would stamp the wrong day). Use today_ny()/now_ny() below, not the
+# stdlib's local-time helpers. The only sanctioned exception is a genuinely other-zone fact — a
+# China-dated company announcement, or a late-night Honolulu opening already on tomorrow's NY date —
+# where the event's own zone IS the fact; those are carried explicitly, not by accident of the host.
+# (Machine provenance — financial_anchors/pipeline_signals `retrieved_at` — stays UTC-with-Z: it is
+# never shown on the site, and a stable 'Z' keeps existing rows lexically sortable.)
 TZ = ZoneInfo("America/New_York")
+
+
+def today_ny() -> str:
+    """Today's calendar date (YYYY-MM-DD) in New York time — the site's default zone."""
+    return datetime.now(TZ).date().isoformat()
+
+
+def now_ny(timespec: str = "seconds") -> str:
+    """Current timestamp in New York time, ISO-8601 with offset (e.g. ...-04:00). Unambiguous NY."""
+    return datetime.now(TZ).isoformat(timespec=timespec)
 
 DATA_DIR = Path(os.environ.get("CHAIN_ATLAS_DATA", Path.home() / "chain_atlas_data")).expanduser()
 DB_PATH = DATA_DIR / "chain_atlas.sqlite"

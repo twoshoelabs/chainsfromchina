@@ -25,12 +25,11 @@ noise against the Census Bureau, and would let a service outage silently unplace
 was placed yesterday.
 """
 import json
-import time
 import urllib.parse
 from pathlib import Path
 
 from . import capture
-from .config import DATA_DIR
+from .config import DATA_DIR, today_ny
 from .identity import norm_addr
 
 ENDPOINT = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
@@ -102,7 +101,7 @@ def geocode_one(addr: str, cache: dict | None = None) -> dict | None:
             c = matches[0]["coordinates"]
             out = {"lat": round(float(c["y"]), 6), "lon": round(float(c["x"]), 6),
                    "matched": matches[0].get("matchedAddress"),
-                   "as_of": time.strftime("%Y-%m-%d")}
+                   "as_of": today_ny()}
     except Exception:                                           # noqa: BLE001
         return None            # a failure is NOT cached: the address may be fine, the service not
     if cache is not None:

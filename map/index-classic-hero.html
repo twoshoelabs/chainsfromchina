@@ -542,8 +542,12 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   document.getElementById('total-note').textContent = unmapped > 0
     ? ` · ${fmt(mapped)} on the map, ${fmt(unmapped)} awaiting an address` : '';
   const day = fc.meta && fc.meta.days, coll = fc.meta && fc.meta.collected;
+  // All site times are New York time: show the census finish time in ET from meta.generated.
+  let etc = '';
+  try { if (fc.meta && fc.meta.generated) etc = new Date(fc.meta.generated)
+    .toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET'; } catch (e) {}
   document.getElementById('eyebrow').textContent =
-    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}, 06:00 UTC${day ? ' · Day ' + day : ''}`;
+    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}${etc ? ', ' + etc : ', New York time'}${day ? ' · Day ' + day : ''}`;
 
   // Coming next: coming_soon features grouped by chain
   const soonBy = {};
@@ -644,6 +648,6 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 // where the map and data live.
 </script>
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
-<script src="site.js?v=7"></script>
+<script src="site.js?v=8"></script>
 </body>
 </html>

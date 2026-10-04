@@ -47,20 +47,32 @@
   // Search icon, reused by the ⌘K overlay below (the nameplate itself carries no search button).
   var searchIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
 
+  // All site times are New York time. Render the census's finish time in ET from meta.generated
+  // (an ISO stamp the pipeline writes in NY time); if absent, fall back to a plain zone tag.
+  function etClock(iso) {
+    if (!iso) return '';
+    try {
+      return new Date(iso).toLocaleTimeString('en-US',
+        { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET';
+    } catch (e) { return ''; }
+  }
+
   // ---- Census meta: fill the nameplate issue line + any [data-census] eyebrow -----------------
   fetch('data/meta.json').then(function (r) { return r.json(); }).then(function (m) {
     if (!m) return;
-    var d = m.last_collected, shortLabel = d, issue = '';
+    var d = m.last_collected, shortLabel = d, issue = '', et = etClock(m.generated);
     try {
       var dt = new Date(d + 'T00:00:00');
       shortLabel = dt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
       issue = 'No. ' + (m.days_collected || '—') + ' · ' +
         dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
-        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear() + ' · counted 06:00 UTC';
+        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear() +
+        ' · ' + (et ? 'counted ' + et : 'New York time');
     } catch (e) {}
     var issueEl = document.getElementById('cfc-issue');
     if (issueEl && issue) issueEl.textContent = issue;
-    var text = 'Daily census · Updated ' + shortLabel + ', 06:00 UTC' + (m.days_collected ? ' · Day ' + m.days_collected : '');
+    var text = 'Daily census · Updated ' + shortLabel + (et ? ', ' + et : ', New York time') +
+      (m.days_collected ? ' · Day ' + m.days_collected : '');
     document.querySelectorAll('[data-census]').forEach(function (el) { el.textContent = text; });
   }).catch(function () {});
 

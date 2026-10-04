@@ -23,10 +23,9 @@ import time
 import urllib.request
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from datetime import date
 from pathlib import Path
 
-from .config import TZ  # noqa: F401  (kept for parity with the rest of the package's date handling)
+from .config import today_ny
 
 _CTX = ssl.create_default_context()
 
@@ -225,7 +224,7 @@ def build(geojson_path: Path, progress=None) -> dict:
                      "univ_miles": (round(um, 1) if um is not None else None)})
 
     snap = summarize(rows, nat)
-    snap["generated"] = date.today().isoformat()
+    snap["generated"] = today_ny()      # New York time — the site's zone, not the host's (Taipei)
     snap["source"] = "stores.geojson (measured storefronts; roboshops and unconfirmed sightings excluded)"
     snap["method"] = ("Each located storefront joined to public, key-free sources: tract %Asian from "
                       "US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, "

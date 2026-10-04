@@ -22,8 +22,10 @@ locations of a chain that is not counted. A sighting graduates by being deleted:
 locator is found, its adapter supersedes this file.
 """
 import json
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
+
+from .config import TZ
 
 SIGHTINGS_PATH = Path(__file__).resolve().parents[1] / "manual" / "sightings.json"
 
@@ -53,7 +55,8 @@ def stale(d: dict | None = None, days: int = REVIEW_STALE_DAYS) -> list[tuple[st
                the top and cannot hide.
     """
     d = d or load()
-    cutoff = date.today() - timedelta(days=days)
+    today = datetime.now(TZ).date()     # NY day (site-wide zone)
+    cutoff = today - timedelta(days=days)
     out = []
     for g in d.get("sightings", []):
         r = reviewed_on(g)
@@ -63,7 +66,7 @@ def stale(d: dict | None = None, days: int = REVIEW_STALE_DAYS) -> list[tuple[st
         rd = date.fromisoformat(r)
         if rd < cutoff:
             out.append((g["chain"], g.get("complete_scope") or g.get("scope") or r,
-                        (date.today() - rd).days))
+                        (today - rd).days))
     # Undated groups (age -1) are the most urgent — we cannot know when they were last checked —
     # so they sort to the top; the rest follow by descending age (longest overdue first).
     return sorted(out, key=lambda t: (t[2] >= 0, -t[2] if t[2] >= 0 else 0))

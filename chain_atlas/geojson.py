@@ -138,10 +138,12 @@ def build(con, d: dict | None = None) -> dict:
     ).fetchone()
     # `days` is how many distinct days the census has actually run — the homepage's "DAY N".
     days = con.execute("SELECT COUNT(DISTINCT obs_date) AS n FROM runs WHERE status='ok'").fetchone()
+    gen = con.execute("SELECT MAX(finished) AS f FROM runs").fetchone()   # NY-time finish (run.py uses TZ)
     from .mapdata import us_totals            # one canonical total, shared with stores.json
     return {"type": "FeatureCollection", "features": feats,
             "meta": {"collected": last["d"] if last else None,
                      "days": days["n"] if days else None,
+                     "generated": gen["f"] if gen else None,
                      "totals": us_totals(con)}}
 
 

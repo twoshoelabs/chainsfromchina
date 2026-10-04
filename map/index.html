@@ -543,12 +543,13 @@ const $ = id => document.getElementById(id);
   const zhOf = ch => (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || '';
   const isLocated = f => f.properties.status==='open' || (f.properties.kind==='sighting' && f.properties.status!=='coming_soon');
 
-  // Masthead issue line: "No. 31 · Friday 2 October 2026 · counted 06:00 UTC"
+  // Masthead issue line: "No. 31 · Friday 2 October 2026 · counted 6:00 PM ET" (all times New York)
   if (meta.collected) {
     const d = new Date(meta.collected+'T00:00:00');
     const line = 'No. ' + (meta.days||'—') + ' · ' +
       d.toLocaleDateString('en-US',{weekday:'long'}) + ' ' + d.getDate() + ' ' +
-      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear() + ' · counted 06:00 UTC';
+      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear() + ' · ' +
+      (meta.generated ? 'counted ' + new Date(meta.generated).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}) + ' ET' : 'New York time');
     $('issue-line').textContent = line;
   }
 

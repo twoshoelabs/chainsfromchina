@@ -31,8 +31,10 @@ Three rules keep it honest:
 """
 import json
 from collections import defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
+
+from .config import TZ
 
 REGISTER_PATH = Path(__file__).resolve().parents[1] / "register.json"
 STALE_DAYS = 90
@@ -226,12 +228,13 @@ def stale(d: dict, days: int = STALE_DAYS) -> list[tuple[str, str, int]]:
                a periodic human pass, which is the right cadence for facts that come from press
                releases rather than from locators.
     """
-    cutoff = date.today() - timedelta(days=days)
+    today = datetime.now(TZ).date()     # NY day (site-wide zone)
+    cutoff = today - timedelta(days=days)
     out = []
     for e in d["entries"]:
         r = date.fromisoformat(e["reviewed"])
         if r < cutoff:
-            out.append((e["chain"], e["market"], (date.today() - r).days))
+            out.append((e["chain"], e["market"], (today - r).days))
     return sorted(out, key=lambda t: -t[2])
 
 
