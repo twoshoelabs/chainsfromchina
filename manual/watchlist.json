@@ -684,12 +684,12 @@
    },
    {
     "name": "Hi Bake",
-    "name_zh": "嗨焙",
-    "hq": "Chengdu (founded Hong Kong 2012)",
-    "china_stores": "~60",
-    "status": "held",
-    "markets": "US: Beverly Hills (235 N Canon Dr, opened ~Jul 2025)",
-    "note": "BORDERLINE scope: founded in Hong Kong, now Chengdu-based. Mainland-origin call pending (cf. Tao Tao Ju excluded, Happy Lemon held).",
+    "name_zh": "嗨呗可",
+    "hq": "Chengdu (founder of Taiwanese baking lineage; HK investor)",
+    "china_stores": "~50 (all Chengdu)",
+    "status": "tracked",
+    "markets": "US: Beverly Hills (235 N Canon Dr, opened Aug 2025, via Chubby Group licensee)",
+    "note": "Added to the site 2026-10-04. Mixed lineage (Taiwanese-descent founder + HK investor) but a mainland-born/-run Chengdu brand; counted in scope. Trade press frames it as 中国烘焙出海.",
     "source": "https://hibakebakery.com/"
    }
   ],

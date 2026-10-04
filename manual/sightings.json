@@ -1804,6 +1804,23 @@
      "lon": -73.99048
     }
    ]
+  },
+  {
+   "chain": "hibake",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Chinese trade press (赢商网/CEO品牌观察, 23 Sep 2025) + operator verification of the Google listing (4 Oct 2026).",
+   "scope": "Hi Bake (嗨呗可), a Chengdu handmade-bakery chain (~50 stores, all in Chengdu), opened its first overseas store Aug 2025 in Beverly Hills, run with US licensee Chubby Group. Its only US outlet so far; tracked via sightings.",
+   "locations": [
+    {
+     "name": "Beverly Hills",
+     "address": "235 N Canon Dr, Beverly Hills, CA 90210",
+     "confidence": "confirmed",
+     "verified_by": "Chinese trade press (Aug 2025 opening) + Google/Infatuation listings; US store via Chubby Group (4 Oct 2026)",
+     "lat": 34.068292,
+     "lon": -118.398646
+    }
+   ]
   }
  ]
 }

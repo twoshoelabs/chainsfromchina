@@ -930,3 +930,29 @@ class ZhengxinAdapter(Adapter):
                       " Milpitas, San Francisco) and NY (Flushing + two Brooklyn), Chicago closed."
                       " No single national locator. Tracked via sightings (4 Oct 2026)")
     RECHECK = ["https://www.zhengxinca.com/"]
+
+
+class HiBakeAdapter(Adapter):
+    """
+    Hi Bake (嗨呗可) — added 2026-10-04. A premium handmade-bakery chain founded in Chengdu in 2012
+    (~50 stores, all in Chengdu — IFS, 天府大悦城, 环贸ICD, etc.; a leading Southwest-China bakery).
+    Mixed lineage that the Chains tab should note: the founder comes from a Taiwanese baking family
+    and a Hong Kong firm (Champs) invested, but the BRAND itself was created and is run in mainland
+    Chengdu, and China's trade press counts it as a mainland brand going abroad (中国烘焙出海) — so it
+    is treated as in scope (the operator's call, 4 Oct 2026; cf. Happy Lemon held as Taiwanese-origin).
+
+    First overseas store opened Aug 2025 at 235 N Canon Dr, Beverly Hills, run in partnership with the
+    US Chubby Group (The X Pot / Wagyu House / Niku X); IG @HibakeUSA, mascot the rescue dog '大麦'.
+    Its only US outlet so far, no national locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "hibake", "Hi Bake", "嗨呗可"
+    name_us = "Hi Bake"
+    aliases = ("Hibake",)
+    parent, format = "Hibake (嗨呗可, Chengdu)", "bakery"
+    ENABLED = False
+    BLOCKED_REASON = ("Chengdu handmade-bakery chain (嗨呗可, 2012; ~50 stores, all in Chengdu);"
+                      " Taiwanese-lineage founder + HK investor but a mainland-born/-run brand, in"
+                      " scope per the operator. First US store opened Aug 2025 at 235 N Canon Dr,"
+                      " Beverly Hills via US licensee Chubby Group; its only US outlet, no national"
+                      " locator. Tracked via sightings (4 Oct 2026)")
+    RECHECK = ["https://hibakebakery.com/"]

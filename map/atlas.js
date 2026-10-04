@@ -47,7 +47,7 @@ const MONOGRAM = {
   toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
   xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
   jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
-  moge: 'MG', moreyogurt: 'MG', baospastry: 'BP', wallace: 'WA', zhengxin: 'ZX',
+  moge: 'MG', moreyogurt: 'MG', baospastry: 'BP', wallace: 'WA', zhengxin: 'ZX', hibake: 'HB',
 };
 
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
@@ -57,7 +57,7 @@ const LOGO_CHAINS = new Set([
   'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
   'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
-  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin',
+  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
