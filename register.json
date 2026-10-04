@@ -1216,8 +1216,8 @@
       "first_opened": null,
       "precision": null,
       "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "An earlier report placed Chagee in Sydney, Melbourne and Brisbane, but Chagee's own 2025 year-end review lists eight countries without Australia and no Australian store could be confirmed; treated as no evidence pending a citable store.",
+      "reviewed": "2026-10-02",
+      "note": "Re-checked: still no first-party or credible press confirms an open Australian store. Hits are TikTok hashtag pages with no address/date attached. Australia is absent from Chagee's Q2 2026 official 8-market overseas list.",
       "sources": [
         "https://www.nasdaq.com/press-release/chagee-releases-2025-year-end-tea-friends-review-global-stores-span-8-countries"
       ]
@@ -1245,9 +1245,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "medium",
-      "reviewed": "2026-09-21",
-      "note": "Searched and found nothing. Luckin's overseas footprint is Singapore, Malaysia and the US. Absence of evidence, not evidence of absence.",
-      "sources": []
+      "reviewed": "2026-10-02",
+      "note": "Re-verified: Luckin's confirmed overseas footprint (Q2 2026, ~223 stores) is Singapore, the US and, newly, the Middle East. A 2019 Japan/Korea plan was shelved after the 2020 fraud scandal and has not resurfaced. Note: it is Cotti Coffee — a different, Luckin-founder-spinoff company — that actually trades in Japan; easy to conflate.",
+      "sources": [
+        "https://insideretail.asia/2026/06/10/luckin-coffee-passes-35000-store-milestone/"
+      ]
     },
     {
       "chain": "luckin",
@@ -1257,8 +1259,8 @@
       "first_opened": null,
       "precision": null,
       "confidence": "medium",
-      "reviewed": "2026-09-21",
-      "note": "As above.",
+      "reviewed": "2026-10-02",
+      "note": "Re-verified: same picture as Japan — Luckin's overseas markets are Singapore, Malaysia, the US and Gulf states. The Korea overseas-debut stories that surface (Gangnam, Seoul, Aug 2023) belong to Cotti Coffee, which has reportedly since exited Korea — not Luckin.",
       "sources": []
     },
     {
@@ -1500,30 +1502,33 @@
       "chain": "popmart",
       "market": "GB",
       "status": "present",
-      "locations": 7,
-      "locations_as_of": "2026-01",
+      "locations": 19,
+      "locations_as_of": "2026-09",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
-      "reviewed": "2026-09-21",
-      "note": "Aggregator count; see JP note.",
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Grew from 7 (Jan 2026). Sources disagree on the exact current count: Retail Gazette (Apr 2026) called the new Charing Cross Road store the \"16th\" UK store; a later-2026 report describes \"near 20 stores\" after a wave including an Oxford Street flagship, Birmingham and Cardiff. The Soho store closed end of Aug 2026, but two larger nearby stores (Charing Cross Road, Oxford Street) opened instead — read as consolidation, not a pullback. 19 used as a mid-range estimate.",
       "sources": [
-        "https://smartbuy.alibaba.com/popmart/where's-pop-mart"
+        "https://www.retailgazette.co.uk/blog/2026/04/inside-pop-marts-biggest-london-store-yet-as-charing-cross-road-site-opens-doors/",
+        "https://www.rli.uk.com/pop-mart-plots-2026-growth/",
+        "https://retailtechinnovationhub.com/home/2026/8/16/chinese-collectibles-giant-pop-mart-set-to-shutter-soho-london-store-at-end-of-this-month"
       ]
     },
     {
       "chain": "popmart",
       "market": "FR",
       "status": "present",
-      "locations": 5,
-      "locations_as_of": "2026-01",
-      "first_opened": "2023",
-      "precision": "year",
-      "confidence": "low",
-      "reviewed": "2026-09-21",
-      "note": "Paris opening reported as 2023; count from an aggregator.",
+      "locations": 11,
+      "locations_as_of": "2026-09",
+      "first_opened": "2023-02",
+      "precision": "month",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Grew from 5 (Jan 2026) to 11. Pop Mart opened its flagship European store on Boulevard Haussmann, Paris (800 sqm, opposite Printemps) on 12 Sept 2026; multiple French trade outlets state this is the 11th Pop Mart location in France since the brand's arrival in Feb 2023.",
       "sources": [
-        "https://smartbuy.alibaba.com/popmart/where's-pop-mart"
+        "https://dlgaming.fr/pop-mart-paris-haussmann-le-flagship-ouvre-le-12-septembre-2026-idA5143.html",
+        "https://www.lsa-conso.fr/pop-mart-le-fabricant-du-celebre-labubu-va-enfin-ouvrir-son-magasin-flagship-a-paris.466891"
       ]
     },
     {
@@ -3300,10 +3305,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "One of Mixue's two largest overseas markets (~1,300 stores reported early 2025).",
+      "reviewed": "2026-10-02",
+      "note": "One of Mixue's two largest overseas markets (~1,300 stores reported early 2025). Mixue closed 89 overseas stores in H1 2026, concentrated in Vietnam and Indonesia, alongside a 15% YoY net-profit drop (reported Sept 2026) — the chain remains present but is contracting, not expanding, here.",
       "sources": [
-        "https://e.vnexpress.net/news/business/companies/world-s-largest-beverage-chain-mixue-shuts-428-stores-many-in-vietnam-indonesia-5065261.html"
+        "https://e.vnexpress.net/news/business/companies/world-s-largest-beverage-chain-mixue-shuts-428-stores-many-in-vietnam-indonesia-5065261.html",
+        "https://retailnews.asia/mixue-closes-89-overseas-stores-as-first-half-profit-drops-15"
       ]
     },
     {
@@ -3314,10 +3320,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "Mixue's largest overseas market (~2,600 stores reported early 2025).",
+      "reviewed": "2026-10-02",
+      "note": "Mixue's largest overseas market (~2,600 stores reported early 2025). Mixue closed 89 overseas stores in H1 2026, concentrated in Vietnam and Indonesia, alongside a 15% YoY net-profit drop (reported Sept 2026) — the chain remains present but is contracting, not expanding, here.",
       "sources": [
-        "https://e.vnexpress.net/news/business/companies/world-s-largest-beverage-chain-mixue-shuts-428-stores-many-in-vietnam-indonesia-5065261.html"
+        "https://e.vnexpress.net/news/business/companies/world-s-largest-beverage-chain-mixue-shuts-428-stores-many-in-vietnam-indonesia-5065261.html",
+        "https://retailnews.asia/mixue-closes-89-overseas-stores-as-first-half-profit-drops-15"
       ]
     },
     {
@@ -3398,10 +3405,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "No official Mixue store found; cross-strait franchise rules apply and Taiwan sightings appear to be namesake/copycat outlets.",
+      "reviewed": "2026-10-02",
+      "note": "No official Mixue store found; cross-strait franchise rules apply and Taiwan sightings appear to be namesake/copycat outlets. Mixue is currently contracting overseas (closed 89 stores in H1 2026, 15% YoY profit drop), which cuts against an imminent Taiwan launch.",
       "sources": [
-        "https://www.rli.uk.com/mixue-tea-chain-ready-to-expand/"
+        "https://www.rli.uk.com/mixue-tea-chain-ready-to-expand/",
+        "https://retailnews.asia/mixue-closes-89-overseas-stores-as-first-half-profit-drops-15"
       ]
     },
     {
@@ -3538,10 +3546,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "Entry via a local proxy (順昱控股); first Taipei store targeted Dec 2025 but not open pending Taiwan's approval of the China investment.",
+      "reviewed": "2026-10-02",
+      "note": "Entry via a local proxy (順昱控股); first Taipei store targeted Dec 2025 did not happen. In early Sept 2026, boxes bearing the Luckin logo were spotted at the planned Nanjing-Fuxing Taipei site, reviving entry rumours, but Taiwan's Ministry of Economic Affairs again said it has not approved any Luckin investment application. Still no store open as of Oct 2026.",
       "sources": [
-        "https://www.bnext.com.tw/article/85255"
+        "https://www.bnext.com.tw/article/85255",
+        "https://www.ctee.com.tw/news/20260908700763-430503"
       ]
     },
     {
@@ -3692,10 +3701,11 @@
       "first_opened": null,
       "precision": null,
       "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "Announced for Italy; not confirmed open.",
+      "reviewed": "2026-10-02",
+      "note": "\"Cotti Coffee Italia Srl\" is registered with HQ in Milan and has run an Italian Instagram account since Dec 2024, but an Apr 2026 roundup still lists Italy only among \"planned\" markets (with Portugal/Netherlands), with no address or opening date. No sign the deal has fallen through either.",
       "sources": [
-        "https://www.comunicaffe.com/"
+        "https://www.comunicaffe.com/the-chinese-chain-cotti-coffee-is-now-a-global-giant-with-a-growing-presence-in-europe/",
+        "https://lexpress-franchise.com/it/ultime-notizie/cotti-coffee-sbarca-sul-mercato-italiano/"
       ]
     },
     {
@@ -4010,15 +4020,18 @@
       "chain": "popmart",
       "market": "DE",
       "status": "present",
-      "locations": null,
-      "first_opened": "2025",
-      "precision": "year",
-      "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "Berlin stores (Alexa and Kurfürstendamm, Nov 2025) and Munich.",
+      "locations": 4,
+      "first_opened": "2025-11-15",
+      "precision": "day",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "Brand-operated flagship stores: Berlin, Kurfurstendamm 217 (opened 15 Nov 2025); Munich, Maximilianstrasse 32 (opened 4 Feb 2026); Hamburg, Jungfernstieg 14 (opened 22 Mar 2026); plus a Cologne location. Also sells via popmart.de and 30+ authorized third-party retailers (Galeria, Saturn) — not counted toward this figure, which covers brand-operated stores only.",
       "sources": [
-        "https://www.popmart.com/"
-      ]
+        "https://english.news.cn/20250726/89ae022ffeb046cba6568a3833c07cc4/c.html",
+        "https://europa-center-berlin.de/en/europe-centre-shops/popmart/",
+        "https://chainstoreage.com/pop-mart-plots-2026-growth-heres-where"
+      ],
+      "locations_as_of": "2026-10"
     },
     {
       "chain": "popmart",
@@ -4207,15 +4220,18 @@
       "chain": "urbanrevivo",
       "market": "GB",
       "status": "present",
-      "locations": null,
-      "first_opened": null,
-      "precision": null,
+      "locations": 3,
+      "first_opened": "2018",
+      "precision": "year",
       "confidence": "medium",
-      "reviewed": "2026-09-30",
-      "note": "Westfield London (2018), Covent Garden and Stratford (2025).",
+      "reviewed": "2026-10-02",
+      "note": "Three UK stores: Westfield London (2018), Covent Garden/Neal Street (opened May 2025, ~5,500 sq ft) and Westfield Stratford City (opened 2025). No evidence of any closure.",
       "sources": [
-        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
-      ]
+        "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027",
+        "https://uk.fashionnetwork.com/news/Urban-revivo-debuts-in-london-s-covent-garden,1727440.html",
+        "https://www.westfield.com/en/united-kingdom/stratfordcity/retailers/urban-revivo/83520"
+      ],
+      "locations_as_of": "2026-10"
     },
     {
       "chain": "jnby",
@@ -6832,6 +6848,366 @@
         "https://www.naisnow.com/storelocation",
         "https://www.pavilion-kl.com/store/naisnow-%E5%A5%88%E9%9B%AA/"
       ]
+    },
+    {
+      "chain": "mixue",
+      "market": "CA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "A Richmond, BC food blog reported an unconfirmed rumour that Mixue would take over a closed Binggo unit at Richmond's Union Square (8368 Capstan Way); as of Sept 2026 Mixue had not confirmed it and no signage was up. Not a verified open store.",
+      "sources": [
+        "https://nomsmagazine.com/mixue-richmond-rumour/"
+      ]
+    },
+    {
+      "chain": "mixue",
+      "market": "GB",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "\"Mixue (UK) Co., Ltd\" was incorporated 14 Mar 2025 (Companies House #16316814) — a holding entity, not a store. Chinese trade press (Apr 2025) still describes UK entry as pending with no opening date confirmed. Note: AI search summaries invented specific UK store names/dates (Gravesend, Canary Wharf, etc.) that do not appear in any underlying source — disregarded.",
+      "sources": [
+        "https://find-and-update.company-information.service.gov.uk/company/16316814",
+        "https://www.dealmoon.co.uk/mixue-ice-cream-teas-uk-entry-progress-bar-at-99-urgent-announcement-snow-king-applying-to-enter-the-uk-bubble-tea-scene-stay-tuned-for-updates/908323.html"
+      ]
+    },
+    {
+      "chain": "mixue",
+      "market": "FR",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable. Only a vague, unsourced claim that fundraising would fund \"Paris and Cannes\" projects.",
+      "sources": []
+    },
+    {
+      "chain": "mixue",
+      "market": "DE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Germany is absent from Mixue's own published market lists (IPO prospectus and 2025/2026 roundups). Searched and found nothing.",
+      "sources": []
+    },
+    {
+      "chain": "mixue",
+      "market": "ES",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing. One Chinese trade article mentions a Madrid trademark filing — an IP registration, not a store.",
+      "sources": []
+    },
+    {
+      "chain": "mixue",
+      "market": "IT",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing; Italy absent from all published Mixue market lists.",
+      "sources": []
+    },
+    {
+      "chain": "mixue",
+      "market": "NL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing; hits were an unrelated grocery chain (\"Mix Markt\").",
+      "sources": []
+    },
+    {
+      "chain": "mixue",
+      "market": "BE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing; hits were unrelated Belgian venues.",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "JP",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Chagee's CMO publicly named Japan (and South Korea) as expansion targets (QSR Media interview, 2026) — no store, address or date given, and Japan is absent from Chagee's own Q2 2026 official 8-market overseas list.",
+      "sources": [
+        "https://qsrmedia.com/executive-insights/exclusive/chagee-targets-japan-and-south-korea-in-asia-expansion-push"
+      ]
+    },
+    {
+      "chain": "chagee",
+      "market": "CA",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "MX",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "DE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "ES",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "IT",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "BE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing citable; absent from Chagee's own Q2 2026 official 8-market overseas list (Singapore, Malaysia, Thailand, Indonesia, Philippines, Vietnam, US, South Korea).",
+      "sources": []
+    },
+    {
+      "chain": "chagee",
+      "market": "GB",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "No UK trade or consumer press confirms an open store; Chinese trade press says Chagee \"has yet to establish a presence in Europe.\" \"Chagee Holdings (UK) Limited\" (Companies House #15294488, holding-company SIC only) shows corporate intent, not a store. A separate \"Chagee Tea Limited\" was dissolved Jul 2026 with no retail footprint. An online claim of a Soho store (Aug 2025) could not be traced to any real source — rejected.",
+      "sources": [
+        "https://find-and-update.company-information.service.gov.uk/company/15294488"
+      ]
+    },
+    {
+      "chain": "chagee",
+      "market": "FR",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Chagee ran a temporary 20-day pop-up \"Tea Bar\" at Gare Saint-Lazare, Paris (22 Jul-11 Aug 2024) timed to the Olympics; it ended and no permanent French store has followed. Chinese trade press (2026) still describes Europe as \"pop-up/marketing exploration only.\" Absent from Chagee's Q2 2026 official market list.",
+      "sources": [
+        "https://www.brainsonic.com/actualites/chagee-leader-mondial-the-a-gare-saint-lazare-de-paris/",
+        "https://kr-asia.com/chagee-and-heyteas-paris-pop-ups-drew-crowds-amid-olympic-buzz"
+      ]
+    },
+    {
+      "chain": "chagee",
+      "market": "NL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "The only claim of an Amsterdam store (opened \"July 2026\") traces to a low-quality SEO page whose actual fetched content was an unrelated Spanish campsite listing — fabricated/templated content, rejected. No Dutch outlet corroborates it; absent from Chagee's Q2 2026 official market list.",
+      "sources": []
+    },
+    {
+      "chain": "miniso",
+      "market": "BE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "\"Miniso Belgium SRL\" was registered 1 Aug 2024 and dissolved 28 Nov 2025 with no store ever opened; trade press reports Miniso \"crossed Belgium off\" its expansion plans.",
+      "sources": [
+        "https://www.gondola.be/nl/news/lifestylewinkel-miniso-maakt-kruis-over-belgie"
+      ]
+    },
+    {
+      "chain": "popmart",
+      "market": "MX",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Pop Mart runs an online store for Mexico (since ~Sept 2025) and has nearshoring/supply chain activity there, but as of 2026 sources explicitly say there is no brick-and-mortar store yet. E-commerce does not count as presence under this register's rules.",
+      "sources": [
+        "https://equalocean.com/briefing/20250925230148622"
+      ]
+    },
+    {
+      "chain": "popmart",
+      "market": "BE",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Pop Mart's international president named Belgium (with Germany and Denmark) as a planned first-store market (Mar 2025 earnings call). Germany and Denmark have since opened, but no Belgium store is confirmed through Oct 2026 — the nearest store is Lille, France, explicitly marketed as convenient for Belgian shoppers. Pop Mart's official store list shows no Belgium entries.",
+      "sources": [
+        "https://www.popmart.com/en-FR/store-list"
+      ]
+    },
+    {
+      "chain": "cotti",
+      "market": "MX",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Searched and found nothing; Mexico is absent from Cotti's reported market list.",
+      "sources": []
+    },
+    {
+      "chain": "cotti",
+      "market": "BE",
+      "status": "present",
+      "locations": 6,
+      "first_opened": "2026-05",
+      "precision": "month",
+      "confidence": "high",
+      "reviewed": "2026-10-02",
+      "note": "First Belgian store opened May 2026 on Boulevard Charlemagne in Brussels' EU quarter, facing the Berlaymont. Six outlets confirmed: 2 Brussels, 2 Antwerp, 1 Ghent, 1 Namur; entry promo was EUR1 drinks.",
+      "sources": [
+        "https://www.retaildetail.eu/news/food/chinese-coffee-discounter-cotti-coffee-unveils-first-belgian-branches/",
+        "https://www.gondolafoodservice.be/en/post/chinese-coffee-giant-cotti-is-expanding-into-belgium"
+      ],
+      "locations_as_of": "2026-10"
+    },
+    {
+      "chain": "cotti",
+      "market": "TW",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Taiwan is absent from every published list of Cotti's ~28 operating countries; consistent with mainland Chinese chains generally not entering Taiwan directly.",
+      "sources": []
+    },
+    {
+      "chain": "cotti",
+      "market": "MO",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-02",
+      "note": "Generic company descriptions list Macau alongside Hong Kong/mainland China in Cotti's nominal business scope, but no specific Macau address or opening article was found — treated as unverified boilerplate, not a confirmed store.",
+      "sources": []
+    },
+    {
+      "chain": "haidilao",
+      "market": "MX",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Super Hi International (Haidilao's overseas operator) reports 127-129 self-operated overseas restaurants across exactly 14 countries (Q2 2026); Mexico is not among them. Only packaged soup-base products are sold via a Mexico City grocer — not a restaurant.",
+      "sources": [
+        "https://www.investing.com/news/transcripts/earnings-call-transcript-super-hi-international-posts-stronger-q2-2026-operating-profit-93CH-4877213"
+      ]
+    },
+    {
+      "chain": "haidilao",
+      "market": "FR",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "France is absent from Super Hi's confirmed 14-country list; a 2024 Chinese report says France is only \"being considered.\" A \"Hai Di Lao, Avenue Sillery, Paris\" listing was found but rejected — that street does not exist in Paris, indicating a mislabeled or non-genuine listing.",
+      "sources": []
+    },
+    {
+      "chain": "haidilao",
+      "market": "DE",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-02",
+      "note": "Germany is absent from Super Hi's confirmed 14-country list. Haidilao's only Germany-linked activity is cross-border delivery from its London restaurant and packaged condiments sold via a German Asian grocer — neither is a brand-operated German store.",
+      "sources": []
     }
   ]
 }
