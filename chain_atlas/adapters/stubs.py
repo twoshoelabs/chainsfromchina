@@ -907,3 +907,26 @@ class WallaceAdapter(Adapter):
     # The locator lists its 2 US stores as static HTML (no API). Watch it: launch-watch fires when
     # the address count on this live page rises, i.e. when Wallace opens a third US store.
     RECHECK = ["https://www.wallace-usa.com/locations-order"]
+
+
+class ZhengxinAdapter(Adapter):
+    """
+    Zhengxin Chicken Steak (正新鸡排) — added 2026-10-04. A fried-chicken-steak fast-food chain under
+    Zhengxin Food (Fujian), founded 2000; its store count passed 20,000 worldwide by 2019, one of
+    China's largest F&B chains. Chinese origin, in scope.
+
+    In the US since at least 2024 under its own English name, run by separate regional operators (a
+    West-Coast arm at zhengxinca.com; East-Coast NYC stores order via MealKeyway). Open outlets in
+    California (San Diego, Milpitas, San Francisco) and New York (Flushing + two in Brooklyn); the
+    Chicago store is closed. No single national US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "zhengxin", "Zhengxin Chicken Steak", "正新鸡排"
+    name_us = "Zhengxin Chicken Steak"
+    aliases = ("Zheng Xin Chicken Steak", "Zhengxin Chicken", "正新鸡排")
+    parent, format = "Zhengxin Food (正新食品, Fujian)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("fried-chicken-steak chain (正新鸡排, Fujian, 2000; 20,000+ stores worldwide);"
+                      " in the US under its own name via regional operators — open in CA (San Diego,"
+                      " Milpitas, San Francisco) and NY (Flushing + two Brooklyn), Chicago closed."
+                      " No single national locator. Tracked via sightings (4 Oct 2026)")
+    RECHECK = ["https://www.zhengxinca.com/"]

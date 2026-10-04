@@ -1747,6 +1747,63 @@
      "lon": -117.927844
     }
    ]
+  },
+  {
+   "chain": "zhengxin",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Operator verification against each store's Google listing (open, with reviews) + the brand's US ordering pages (4 Oct 2026).",
+   "scope": "Six open US outlets of Zhengxin Chicken Steak (正新鸡排) confirmed by hand — three in California (San Diego, Milpitas, San Francisco) and three in New York (Flushing + two in Brooklyn). ~20,000-store China chain run in the US by regional operators; no single national locator, so tracked via sightings. The Chicago store is closed (see closings).",
+   "locations": [
+    {
+     "name": "San Diego (Kearny Mesa)",
+     "address": "4609 Convoy St Ste C, San Diego, CA 92111",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 9:40 PM), 177 reviews; opened 16 Jul 2024 (first SoCal) (4 Oct 2026)",
+     "lat": 32.823825,
+     "lon": -117.155119
+    },
+    {
+     "name": "Milpitas (City Square Center)",
+     "address": "1710 N Milpitas Blvd, Milpitas, CA 95035",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 97 reviews (4 Oct 2026)",
+     "lat": 37.454918,
+     "lon": -121.910818
+    },
+    {
+     "name": "San Francisco (Mission)",
+     "address": "3234 22nd St, San Francisco, CA 94110",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 28 reviews (4 Oct 2026)",
+     "lat": 37.755446,
+     "lon": -122.41951
+    },
+    {
+     "name": "Flushing",
+     "address": "40-33 Main St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 314 reviews (4 Oct 2026)",
+     "lat": 40.758705,
+     "lon": -73.829637
+    },
+    {
+     "name": "Brooklyn (8th Ave)",
+     "address": "6315 8th Ave, Brooklyn, NY 11220",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 4 AM), 132 reviews (4 Oct 2026)",
+     "lat": 40.633647,
+     "lon": -74.011383
+    },
+    {
+     "name": "Brooklyn (86th St)",
+     "address": "2343 86th St, Brooklyn, NY 11214",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 284 reviews (4 Oct 2026)",
+     "lat": 40.599976,
+     "lon": -73.99048
+    }
+   ]
   }
  ]
 }

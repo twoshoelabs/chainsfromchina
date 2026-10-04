@@ -221,6 +221,18 @@
    "closed_note": "Permanently closed per Google, observed 4 Oct 2026.",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed'); surfaced during lead verification (4 Oct 2026)."
+  },
+  {
+   "chain": "zhengxin",
+   "name": "Chicago (Chinatown)",
+   "address": "2002 S Wentworth Ave Ste B6, Chicago, IL 60616",
+   "city": "Chicago",
+   "state": "IL",
+   "opened": null,
+   "closed_on": "2026-10-04",
+   "closed_note": "Permanently closed per Google, observed 4 Oct 2026.",
+   "confidence": "confirmed",
+   "source": "Google listing ('Permanently closed') (4 Oct 2026)."
   }
  ]
 }
