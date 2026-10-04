@@ -34,6 +34,12 @@ MAX_RETRIES = 3
 USPTO_API_KEY = os.environ.get("USPTO_API_KEY", "").strip()
 USPTO_API_BASE = os.environ.get("USPTO_API_BASE", "https://api.uspto.gov").rstrip("/")
 
+# Capacity / official-receipts probe (Phase-2 revenue reality check). All sources are official
+# open-data portals (TX Comptroller, city building/fire departments) read through their public
+# Socrata/ArcGIS APIs — no third-party scraping. A Socrata "app token" is OPTIONAL: it only lifts
+# the anonymous rate limit. Without one the probe still runs (just throttled); it never invents data.
+SOCRATA_APP_TOKEN = os.environ.get("SOCRATA_APP_TOKEN", "").strip()
+
 
 def ensure_dirs():
     """

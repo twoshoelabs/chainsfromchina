@@ -129,6 +129,18 @@ def _median_sqft(con, brand_id: str):
     return vals[n // 2] if n % 2 else (vals[n // 2 - 1] + vals[n // 2]) / 2
 
 
+def _median_occupant_load(con, brand_id: str):
+    """Median OFFICIAL occupant load across active US stores that carry one (the capacity probe fills
+    it). None when no store has an official number yet — the check then falls back to square footage."""
+    vals = [r[0] for r in con.execute(
+        "SELECT occupant_load FROM stores WHERE chain_id=? AND country='US' AND status='active' "
+        "AND occupant_load IS NOT NULL AND occupant_load>0", (brand_id,))]
+    if not vals:
+        return None
+    vals.sort(); n = len(vals)
+    return vals[n // 2] if n % 2 else (vals[n // 2 - 1] + vals[n // 2]) / 2
+
+
 def _anchors(con, brand_id: str, period: str) -> dict:
     rows = con.execute(
         "SELECT anchor_id,metric,value,unit FROM financial_anchors WHERE brand_id=? AND period=?",
@@ -136,7 +148,7 @@ def _anchors(con, brand_id: str, period: str) -> dict:
     return {r[1]: {"id": r[0], "value": r[2], "unit": r[3]} for r in rows}
 
 
-def unit_economics(auv_daily_usd: float, anc: dict, sqft=None):
+def unit_economics(auv_daily_usd: float, anc: dict, sqft=None, occupant_load=None):
     """
     name:      unit_economics
     purpose:   The reality check. From the disclosed spend-per-guest and table-turnover, work out the
@@ -144,8 +156,11 @@ def unit_economics(auv_daily_usd: float, anc: dict, sqft=None):
     returns:   (status, detail). status True = reconciles; False = implausible (caller must FLAG and
                NOT write); None = cannot check (no spend/turnover anchor) — caller writes but marks it.
     other:     peak_seated = guests/day / turnover is a full-house snapshot and is party-size-free; it
-               is what must sit under real seating / the fire-code occupant load. When a store carries
-               square_footage, also require peak_seated <= ~ occupant load (sqft / SQFT_PER_SEAT).
+               is what must sit under real seating / the fire-code occupant load. The occupant-load cap
+               is applied in priority order: an OFFICIAL occupant_load (from the capacity probe's CO /
+               assembly permit) when we have one, else a square-footage estimate (sqft / SQFT_PER_SEAT).
+               The official number is a hard cap (no slack); the sqft estimate keeps a 10% cushion since
+               it is itself modeled.
     """
     if "spend_per_guest" not in anc or "table_turnover" not in anc:
         return None, {"reason": "no spend/guest or turnover anchor; unit economics unchecked"}
@@ -157,9 +172,14 @@ def unit_economics(auv_daily_usd: float, anc: dict, sqft=None):
     detail = {"guests_per_day": round(guests_day), "peak_seated": round(peak_seated),
               "implied_tables": round(peak_seated / PARTY_SIZE), "seats_envelope": [SEATS_MIN, SEATS_MAX]}
     ok = SEATS_MIN <= peak_seated <= SEATS_MAX
-    if sqft:
+    if occupant_load:
+        detail["occupant_load"] = int(occupant_load)
+        detail["occupant_load_src"] = "official"
+        ok = ok and peak_seated <= occupant_load
+    elif sqft:
         occ = sqft / SQFT_PER_SEAT
         detail["occupant_load_est"] = round(occ)
+        detail["occupant_load_src"] = "sqft_estimate"
         ok = ok and peak_seated <= occ * 1.1
     return ok, detail
 
@@ -188,8 +208,10 @@ def estimate(con, brand_id: str, period: str = "2025", now: str | None = None) -
         return {"brand": brand_id, "period": period, "skipped": "no AUV anchor and none derivable"}
 
     # 2) Reality check — implied customers must fit a plausible house. Flag (don't publish) if not.
+    #    Prefer an official occupant load (capacity probe) over the square-footage estimate.
     sqft = _median_sqft(con, brand_id)
-    status, econ = unit_economics(auv_annual / OPERATING_DAYS, anc, sqft)
+    occ = _median_occupant_load(con, brand_id)
+    status, econ = unit_economics(auv_annual / OPERATING_DAYS, anc, sqft, occupant_load=occ)
     if status is False:
         return {"brand": brand_id, "period": period, "flagged": "unit economics implausible — not written",
                 "auv_usd": round(auv_annual), "unit_economics": econ}

@@ -130,6 +130,13 @@ def main(argv=None):
         print(revenue.run(con))
         return 0
 
+    if cmd == "capacity":
+        from . import db, capacity
+        con = db.connect()
+        import json as _json
+        print(_json.dumps(capacity.run(con, brand_id=opt("--chain", "haidilao")), indent=2))
+        return 0
+
     if cmd == "probe":
         from .adapters import by_id
         from . import capture
@@ -156,6 +163,7 @@ def main(argv=None):
     print("  export [--out DIR]                              write map/data/*.json")
     print("  demographics                                    DERIVED/MODELED: tract %Asian, metro, campus aggregates")
     print("  revenue                                         MODELED: per-outlet + US-total revenue from filing anchors x store count")
+    print("  capacity [--chain X]                             official occupant-load + TX alcohol receipts; reality-checks the revenue AUV")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")

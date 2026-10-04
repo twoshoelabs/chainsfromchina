@@ -19,7 +19,7 @@ def fresh():
     con = sqlite3.connect(":memory:")
     con.executescript("""
     CREATE TABLE stores(store_id INTEGER PRIMARY KEY AUTOINCREMENT, chain_id TEXT, country TEXT,
-                        status TEXT, last_seen TEXT, square_footage REAL);
+                        status TEXT, last_seen TEXT, square_footage REAL, occupant_load INTEGER);
     CREATE TABLE financial_anchors(anchor_id INTEGER PRIMARY KEY AUTOINCREMENT, brand_id TEXT,
                         period TEXT, metric TEXT, value REAL, unit TEXT, page_ref TEXT, source TEXT,
                         source_url TEXT, retrieved_at TEXT, confidence TEXT);

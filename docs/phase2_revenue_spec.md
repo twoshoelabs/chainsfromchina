@@ -179,6 +179,34 @@ Square flagship ≠ a suburban strip-mall unit), and **maturity** (ramp curve fo
 months). v2 refines per-outlet spread while the chain total stays anchored to the same disclosed
 envelope.
 
+### 5.1 The reality check — official capacity & receipts (`chain_atlas/capacity.py`, BUILT)
+
+Before any estimate is written, `revenue.unit_economics` turns the modeled AUV, via the chain's own
+disclosed **spend-per-guest** and **table-turnover**, into an implied **peak simultaneous-seated**
+count. That peak must fit a real house. The `capacity` probe pulls the official facts that bound it —
+all first-party open data, no scraping:
+
+- **Occupant load** — the fire-code maximum on a store's Certificate of Occupancy / Place-of-Assembly
+  permit. Stored on `stores.occupant_load`; when present it is the **hard cap** (no slack) the check
+  uses, ahead of the square-footage estimate. *Coverage is the honest limit here:* probing found
+  occupant load is **not** in the queryable city open-data APIs — NYC's CO datasets (`bs8b-p36w`,
+  `pkdm-hqz6`) carry only residential dwelling-unit counts, and "place of assembly" in the catalog is
+  political districts. The real number lives on the CO PDF, behind a records request. So `OCC_SOURCES`
+  is a registry that is **empty until a jurisdiction's feed is confirmed**; stores with no feed are
+  reported `unavailable`, never guessed.
+- **Alcohol receipts** — Texas publishes every mixed-beverage permittee's monthly beer/wine/liquor
+  sales (TX Comptroller, Socrata `naix-2893`). For a licensed restaurant this is a hard, official
+  **revenue floor**. `reconcile()` divides the official trailing-12-month receipts by the modeled
+  annual AUV and checks the **implied alcohol share** against a plausible band (0.3%–40%): a sane share
+  corroborates the AUV, an absurd one (e.g. a 50× overestimate drives the share to a fraction of a
+  percent) flags the pair. Verified live on the two Texas Haidilao stores — Frisco (~$88k trailing,
+  implied ~1.07%) and Katy (~$86k, ~1.04%) — both inside the band, so the pilot AUV is not flagged.
+
+Writes: occupant load → `stores.occupant_load`; every probe outcome → `pipeline_signals`
+(`signal_type='capacity'`, `location_id`), idempotent on a per-store-per-period `source_url`, so a
+monthly refresh appends one row and re-running a month adds nothing. CLI: `python -m chain_atlas
+capacity [--chain X]`.
+
 ## 6. First collector + model — the Super Hi / Haidilao pilot
 
 Build **one source (EDGAR 20-F/6-K + HKEX 9658) and the model end to end on Super Hi International**,
@@ -186,13 +214,16 @@ then fan out. It is the gold case:
 
 - Super Hi (Haidilao's overseas operator) discloses, by segment, **overseas revenue**, **restaurant
   count by region (incl. North America)**, and an **average daily revenue per restaurant** plus
-  table-turnover — so a US per-outlet figure falls out almost directly and can be **cross-checked
-  two independent ways**:
-  1. `US per-outlet ≈ (overseas revenue × US-restaurants/overseas-restaurants) ÷ US restaurants`.
-  2. `US per-outlet ≈ disclosed average daily revenue per restaurant × operating days`.
-- Agreement between (1) and (2) validates the whole pipeline (collector → anchors → model →
-  `revenue_estimates`) on a case where we can check our work, before trusting it on chains that only
-  give a segment total.
+  spend-per-guest and table-turnover — so a US per-outlet figure falls out almost directly from
+  `disclosed average daily revenue per restaurant × operating days`.
+- **Caution (learned the hard way):** an apparent second method —
+  `(overseas revenue × US-restaurants/overseas-restaurants) ÷ US restaurants` — looks independent but
+  is **circular** when the regional split is itself built from the same per-restaurant daily rate, so
+  its "agreement" validates nothing. The real validation is external: the **unit-economics + official
+  capacity/receipts** reality check in §5.1 (implied peak-seated vs occupant load; implied alcohol
+  share vs TX receipts), which can actually contradict a wrong AUV. Only an anchor that appears in the
+  primary filing is recorded — a figure seen only in a search summary is not (that error is what
+  removed the unverified "NA segment revenue" anchor).
 
 Deliverable: `financial_anchors` rows for Super Hi, a `revenue_estimates` row for US-total + each US
 Haidilao outlet, both rendered in the chain page's Pro module with the **Modeled** badge, the method
@@ -206,6 +237,9 @@ line, and the filing citation.
    Auntea Jenny, Anta, JNBY).
 4. Add **FDD Item 19** for the US franchisors (YGF, Fish With You).
 5. Sector-format **benchmark fallback** for anchored-less chains (lowest confidence, clearly marked).
+5a. **Capacity / official-receipts reality-check probe** (§5.1) — *built*: `stores.occupant_load`,
+    `capacity.py` (TX mixed-beverage receipts live; occupant-load registry ready for the first
+    confirmed city feed), wired into `revenue.unit_economics`.
 6. Wire `revenue_estimates` into the Pro "Revenue & prices" module + the Pro CSV/GeoJSON export.
 7. (Later) v2 per-outlet modifiers; Phase 2b prices.
 

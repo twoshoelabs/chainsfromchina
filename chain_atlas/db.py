@@ -71,6 +71,8 @@ CREATE TABLE IF NOT EXISTS stores (
     format              TEXT,      -- flagship|standard|mall_inline|street|food_hall|kiosk|pop_up|
                                    -- shop_in_shop|vending_robo|showroom
     square_footage      INTEGER,
+    occupant_load       INTEGER,   -- fire-code max occupancy from an official CO / assembly permit;
+                                   -- the hard cap the revenue reality-check tests peak-seated against
     operator_entity_id  TEXT,      -- soft FK -> entities.id (the US LLC/franchisee that runs it)
     closed_on           TEXT,      -- mirrors opened_on
     popup_start         TEXT,      -- required when format='pop_up'
@@ -279,6 +281,7 @@ def _migrate(con):
         ("stores", "center_id", "TEXT"),
         ("stores", "format", "TEXT"),
         ("stores", "square_footage", "INTEGER"),
+        ("stores", "occupant_load", "INTEGER"),
         ("stores", "operator_entity_id", "TEXT"),
         ("stores", "closed_on", "TEXT"),
         ("stores", "popup_start", "TEXT"),
