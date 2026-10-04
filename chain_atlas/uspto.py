@@ -33,7 +33,7 @@ import json
 from datetime import datetime, timezone
 
 from . import register
-from .config import USPTO_API_KEY, USPTO_API_BASE, REQUEST_TIMEOUT
+from .config import USPTO_API_KEY, USPTO_API_BASE
 
 # Nice classes that signal retail intent. 35 (retail-store services) is the strongest "opening a US
 # retail operation" tell; the rest are the goods classes for the sectors we track.
@@ -220,8 +220,7 @@ def _fetch(term: str, api_key: str, base: str):
     try:
         resp = capture.fetch(url, method="GET",
                              params={"query": term, "rows": 100},
-                             headers={"X-API-KEY": api_key, "Accept": "application/json"},
-                             timeout=REQUEST_TIMEOUT)
+                             headers={"X-API-KEY": api_key, "Accept": "application/json"})  # capture sets timeout
         return resp.text
     except Exception:                                            # noqa: BLE001
         return None
