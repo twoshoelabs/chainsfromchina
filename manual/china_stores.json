@@ -1,0 +1,321 @@
+{
+ "_readme": [
+  "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with mainland/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
+ ],
+ "as_of": "2026-10-05",
+ "brands": {
+  "mixue": {
+   "china": 55356,
+   "overseas": 4467,
+   "total": 59823,
+   "as_of": "2025-12-31",
+   "source": "Mixue Group FY2025 annual results (HKEX:2097)",
+   "confidence": "high"
+  },
+  "miniso": {
+   "china": 4568,
+   "overseas": 3583,
+   "total": 8151,
+   "as_of": "2025-12-31",
+   "source": "MINISO FY2025 Form 20-F (NYSE:MNSO / HKEX:9896)",
+   "confidence": "high",
+   "note": "MINISO brand; TOP TOY +334 -> group 8,485"
+  },
+  "popmart": {
+   "china": 445,
+   "overseas": 185,
+   "total": 630,
+   "as_of": "2025-12-31",
+   "source": "Pop Mart FY2025 annual results (HKEX:9992)",
+   "confidence": "high",
+   "note": "retail stores (PRC 445 + overseas 185); excludes 2,637 roboshops"
+  },
+  "chagee": {
+   "china": 7108,
+   "overseas": 345,
+   "total": 7453,
+   "as_of": "2025-12-31",
+   "source": "Chagee FY2025 Form 20-F (NASDAQ:CHA)",
+   "confidence": "high"
+  },
+  "luckin": {
+   "china": 30888,
+   "overseas": 160,
+   "total": 31048,
+   "as_of": "2025-12-31",
+   "source": "Luckin FY2025 Form 20-F (OTC:LKNCY)",
+   "confidence": "high",
+   "note": "overseas: SG 81, US 9, MY 70"
+  },
+  "nayuki": {
+   "total": 1646,
+   "as_of": "2025-12-31",
+   "source": "Nayuki FY2025 annual results (HKEX:2150)",
+   "confidence": "high",
+   "note": "1,288 self-op + 358 franchise; China-focused, overseas not split out"
+  },
+  "chabaidao": {
+   "china": 8395,
+   "overseas": 14,
+   "total": 8409,
+   "as_of": "2024-12-31",
+   "source": "ChaPanda FY2024 annual report (HKEX:2555)",
+   "confidence": "high"
+  },
+  "aunteajenny": {
+   "overseas": 1,
+   "total": 9176,
+   "as_of": "2024-12-31",
+   "source": "Auntea Jenny IPO prospectus FY2024 (HKEX:2589)",
+   "confidence": "high",
+   "note": "9,152 franchise + 24 self-op; overseas = 1 (Kuala Lumpur)"
+  },
+  "taier": {
+   "china": 465,
+   "overseas": 34,
+   "total": 499,
+   "as_of": "2025-12-31",
+   "source": "Jiumaojiu FY2025 annual results (HKEX:9922)",
+   "confidence": "high",
+   "note": "Tai Er brand; Jiumaojiu group 644 restaurants"
+  },
+  "semir": {
+   "total": 8325,
+   "as_of": "2024-12-31",
+   "source": "Semir FY2024 annual report (SZSE:002563)",
+   "confidence": "high",
+   "note": "980 direct + 7,260 franchise + 85 concession; 100+ HK/overseas; incl. Balabala"
+  },
+  "bestore": {
+   "china": 2704,
+   "as_of": "2024-12-31",
+   "source": "Bestore FY2024 annual report (SSE:603719)",
+   "confidence": "high",
+   "note": "1,033 direct + 1,671 franchise; all China"
+  },
+  "mglife": {
+   "china": 741,
+   "as_of": "2024-12-31",
+   "source": "M&G FY2024 annual report (SSE:603899)",
+   "confidence": "high",
+   "note": "九木杂物社; +38 晨光生活馆; franchise model"
+  },
+  "anta": {
+   "total": 9900,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~9,900 stores (Anta + sub-brands); overseas target ~1,000 by 2028"
+  },
+  "cotti": {
+   "total": 18000,
+   "as_of": "2026-04",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "18,000+ stores in 28 countries"
+  },
+  "heytea": {
+   "total": 4000,
+   "as_of": "2026",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~4,000 stores, 100+ overseas"
+  },
+  "hefu": {
+   "total": 632,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "632 stores across 80+ Chinese cities"
+  },
+  "hotmaxx": {
+   "total": 950,
+   "as_of": "2026",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~950 stores"
+  },
+  "jnby": {
+   "total": 2118,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~2,118 across JNBY + sister brands (listed HKEX:3306)"
+  },
+  "juewei": {
+   "total": 16000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "16,000+ outlets (franchise; braised snacks)"
+  },
+  "laoxiangji": {
+   "total": 1900,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~1,900 stores, China-only"
+  },
+  "luckycup": {
+   "total": 10000,
+   "as_of": "2025-11",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "Mixue's coffee arm; ~10,000, almost all China"
+  },
+  "malubianbian": {
+   "total": 1000,
+   "as_of": "2026",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "1,000+ outlets in/outside China"
+  },
+  "manner": {
+   "total": 1000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~1,000 stores in China"
+  },
+  "meilleurmoment": {
+   "total": 600,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "Eifini group-wide 600+ stores"
+  },
+  "mstand": {
+   "total": 500,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~500 stores in China"
+  },
+  "nowwa": {
+   "total": 10000,
+   "as_of": "2025-12",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~10,000 across 300+ cities"
+  },
+  "steelpipe": {
+   "total": 853,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "853 stores incl. some overseas"
+  },
+  "xiabu": {
+   "total": 1000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~1,000+ outlets (Xiabu + Coucou)"
+  },
+  "xiaogujiejie": {
+   "total": 1000,
+   "as_of": "2026-08",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "1,000+ stores"
+  },
+  "xtep": {
+   "total": 8100,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~8,100 stores globally"
+  },
+  "yihetang": {
+   "total": 8000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "8,000+ franchises, China + SE Asia"
+  },
+  "yujianxiaomian": {
+   "total": 500,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~500+ stores (listed HKEX:2408)"
+  },
+  "zhangliang": {
+   "total": 6000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~6,000 outlets (malatang)"
+  },
+  "chahalo": {
+   "total": 1000,
+   "as_of": "2026",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~1,000 stores across China"
+  },
+  "cooltoy": {
+   "total": 300,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~300 stores in 60+ Chinese cities"
+  },
+  "banu": {
+   "total": 162,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "162 stores, all self-operated"
+  },
+  "shuyi": {
+   "total": 6000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~5,000-6,000 China stores (书亦烧仙草)"
+  },
+  "wallace": {
+   "total": 20000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~20,000 China stores (华莱士, 'China's KFC')"
+  },
+  "zhengxin": {
+   "total": 20000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "20,000+ stores worldwide (正新鸡排)"
+  },
+  "yangs": {
+   "total": 6000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~6,000 stores (杨铭宇黄焖鸡)"
+  },
+  "fishwithyou": {
+   "total": 2700,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "2,700+ (鱼你在一起)"
+  },
+  "xijiade": {
+   "total": 835,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "~835 stores (喜家德 / Dumpling Xi)"
+  },
+  "tianlala": {
+   "total": 8000,
+   "as_of": "2025",
+   "source": "company/press, via register global blurb",
+   "confidence": "medium",
+   "note": "8,000+ stores (甜啦啦)"
+  }
+ }
+}

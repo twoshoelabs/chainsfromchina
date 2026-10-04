@@ -152,6 +152,18 @@ def main(argv=None):
         aggregate.report(con)
         return 0
 
+    if cmd == "china-stores":
+        from . import db, china_stores
+        con = db.connect()
+        errs = china_stores.validate()
+        if errs:
+            print("china_stores.json invalid:")
+            for e in errs:
+                print("  " + e)
+            return 2
+        china_stores.report(con)
+        return 0
+
     if cmd == "filings":
         from . import db, filings
         con = db.connect()
@@ -194,6 +206,7 @@ def main(argv=None):
     print("  fdd                                              FDD Item 19 (US per-outlet AUV) + Item 20 outlet counts, from MN franchise registry")
     print("  aggregate                                        MODELED grand total: banded US revenue across all chains (anchored + benchmark)")
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
+    print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
