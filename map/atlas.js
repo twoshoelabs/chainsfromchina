@@ -246,14 +246,21 @@ function buildInsets(parent, style, statesFC, fc) {
     const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
     const md = document.createElement('div'); md.className = 'mi-map';
     box.appendChild(md); box.appendChild(lbl); wrap.appendChild(box);
+    // The inset is a non-interactive thumbnail; click it to fly the MAIN map to that state so it can
+    // be zoomed and explored there (Alaska and Hawaii are now part of the main silhouette mask).
+    box.style.cursor = 'zoom-in';
+    box.title = 'Zoom to ' + ins.label + ' on the map';
+    box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0');
+    const flyTo = () => { if (MAP_REF) MAP_REF.fitBounds(ins.bounds, { padding: 30 }); };
+    box.addEventListener('click', flyTo);
+    box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flyTo(); } });
     const im = new maplibregl.Map({ container: md, style: JSON.parse(JSON.stringify(style)), bounds: ins.bounds,
       fitBoundsOptions: { padding: 8 }, interactive: false, attributionControl: false });
     im.on('load', () => {
       if (statesFC) {
-        const firstSymbol = im.getStyle().layers.find((l) => l.type === 'symbol');
+        // mask above the inset's labels too, so neighbouring Russia/Canada/Mexico names don't show
         im.addSource('m', { type: 'geojson', data: usMask(statesFC, [ins.id]) });
-        im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
-          firstSymbol && firstSymbol.id);
+        im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
       }
       const [[w, s], [e, n]] = ins.bounds;
       for (const f of fc.features) {
@@ -363,17 +370,16 @@ async function init() {
       }
     }
 
-    // US-silhouette mask: cover everything outside the US with the water colour, placed beneath the
-    // basemap's labels so the US keeps its place names but Cuba/Bahamas/Mexico/Canada fall away.
-    // Wrapped so a mask failure can NEVER abort the rest of this handler (the pins, clusters and the
-    // brand list are built below and must not depend on a cosmetic overlay).
+    // US-silhouette mask: cover everything outside the US with the water colour. Placed ABOVE the
+    // basemap's labels (not beneath) so foreign place names — Cuba, the Bahamas, Bermuda, Mexico,
+    // Canada, Toronto… — are painted over too, while US labels still show through the silhouette
+    // holes. It is added before the clusters and pins below, so our own data always sits on top.
+    // Wrapped so a mask failure can NEVER abort the rest of this handler.
     if (outlineFC || statesFC) {
       try {
-        const firstSymbol = map.getStyle().layers.find((l) => l.type === 'symbol');
         map.addSource('usmask', { type: 'geojson', data: outlineFC ? usMask(outlineFC) : usMask(statesFC) });
         map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
-          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } },
-          firstSymbol && firstSymbol.id);
+          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
       } catch (e) { console.warn('US mask skipped', e && e.message); }
     }
 
