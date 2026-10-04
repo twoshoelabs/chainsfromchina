@@ -166,6 +166,32 @@ def main():
     check("implausible retail AUV -> flagged", "flagged" in r, True)
     check("implausible retail AUV -> nothing written", rows(con, "pm4"), 0)
 
+    # Case R5 — regional apportionment (Miniso shape): NA revenue / NA stores -> per-store x our US stores.
+    con = fresh()
+    anchors(con, "mn", [("north_america_revenue", 3342918.0, "RMB_thousands"),
+                        ("north_america_store_count", 536.0, "stores"),
+                        ("group_revenue", 21443827.0, "RMB_thousands")])
+    stores(con, "mn", 100, fmt="standard")
+    r = revenue.region_estimate(con, "mn", "2025")
+    check("region AUV = NA rev / NA count / fx", r["per_outlet_usd_mid"], round(3342918.0 * 1000 / fx / 536))
+    check("region US total = AUV x 100", r["us_total_usd_mid"], round(3342918.0 * 1000 / fx / 536 * 100))
+    check("region band 0.30", r["band"], 0.30)
+    check("1 us_total + 100 outlet rows", rows(con, "mn"), 101)
+
+    # Case R6 — our US count exceeds the region's store count -> capped at the region revenue.
+    con = fresh()
+    anchors(con, "mn2", [("north_america_revenue", 3342918.0, "RMB_thousands"),
+                         ("north_america_store_count", 50.0, "stores")])
+    stores(con, "mn2", 80, fmt="standard")
+    r = revenue.region_estimate(con, "mn2", "2025")
+    check("capped US total == full region revenue", r["us_total_usd_mid"], round(3342918.0 * 1000 / fx))
+
+    # Case R7 — no regional anchors -> skip.
+    con = fresh()
+    anchors(con, "mn3", [("group_revenue", 21443827.0, "RMB_thousands")])
+    stores(con, "mn3", 10, fmt="standard")
+    check("no NA anchors -> skipped", "skipped" in revenue.region_estimate(con, "mn3", "2025"), True)
+
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
 

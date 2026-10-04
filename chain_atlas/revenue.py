@@ -25,6 +25,7 @@ from datetime import datetime, timezone
 
 METHOD_VERSION = "v1-auv-flat"      # flat per-chain AUV; format/metro/maturity modifiers are v2
 RETAIL_METHOD_VERSION = "v1-retail-channel"   # channel-isolated store AUV x our store count
+REGION_METHOD_VERSION = "v1-region-apportion"  # disclosed regional revenue / region stores, US by share
 OPERATING_DAYS = 365                # the disclosed daily average is revenue / (restaurants x calendar days)
 
 # Unit-economics reality-check envelope (restaurant model).
@@ -35,6 +36,8 @@ SQFT_PER_SEAT = 15                  # ~IBC net dining area per person, for an op
 # Retail model reality-check envelope: a plausible annual per-store sales range (USD) for a mall/
 # flagship specialty retailer. Pop Mart's modeled AUV must land inside this or the estimate is flagged.
 RETAIL_AUV_MIN_USD, RETAIL_AUV_MAX_USD = 300_000, 25_000_000
+REGION_BAND = 0.30                  # regional revenue disclosed, but US apportioned by store share +
+                                    # US/Canada mix + period-vs-count mismatch -> wider than channel
 RETAIL_BAND = 0.25                  # channel rev + store count both disclosed, but a regional average
                                     # applied to US + FX + store-maturity mix -> wider than a direct AUV
 
@@ -97,7 +100,50 @@ POPMART_FY2025 = {
 }
 
 # Fan-out order; add more parents here as data, not code.
-PARENTS = [SUPERHI_FY2025, POPMART_FY2025]
+# MINISO (NYSE 9896-equivalent; NYSE:MNSO / HKEX:9896). RETAIL, part-franchised. Its FY2025 20-F
+# discloses a NORTH AMERICA region revenue (US+Canada) but NO US-only figure and NO NA channel split, so
+# the channel-isolation retail model (Pop Mart's) does not apply; we use regional apportionment instead.
+# Important: MINISO's reported revenue books FULL sales only for directly-operated stores and WHOLESALE
+# for its "Retail Partner" (franchised) stores, so revenue-per-store here is the chain's REPORTED revenue
+# per outlet, not gross consumer retail sales (which the filing does not disclose). All figures primary.
+MINISO_FY2025 = {
+    "brand_id": "miniso",
+    "period": "2025",
+    "model": "retail_region",
+    "source": "MINISO Group FY2025 Form 20-F (SEC EDGAR, filed 24 Apr 2026; acc 0001104659-26-048172)",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1815846/000110465926048172/mnso-20251231x20f.htm",
+    "anchors": [
+        ("group_revenue",            21443827.0, "RMB_thousands", "Consolidated revenue FY2025 (income statement / revenue note)", "high"),
+        ("north_america_revenue",     3342918.0, "RMB_thousands", "Segment geographic note — North America (US+Canada) revenue FY2025 (R86)", "high"),
+        ("north_america_store_count",     461.0, "stores", "MINISO FY2025 results release (ir.miniso.com, 31 Mar 2026) — North America stores at 31 Dec 2025 (up from 350); period-consistent with FY2025 revenue", "high"),
+        ("miniso_brand_revenue",     19524901.0, "RMB_thousands", "Segment note — MINISO brand external revenue FY2025 (R84)", "high"),
+        ("toptoy_revenue",            1915618.0, "RMB_thousands", "Segment note — TOP TOY brand external revenue FY2025 (R84)", "high"),
+    ],
+}
+
+# Chagee (NASDAQ:CHA). SINGLE reportable segment — the FY2025 20-F states "no geographical revenue
+# information is presented", so there is NO US/North America revenue to model. US appears only as a store
+# count (3 teahouses at 31 Dec 2025; our census now ~11) and the one per-store metric (avg monthly GMV)
+# is explicitly CHINA-ONLY. Anchors captured for the record; the US estimate is deferred — applying a
+# China GMV to US stores would be a Tier-5 benchmark at best, not written here.
+CHAGEE_FY2025 = {
+    "brand_id": "chagee",
+    "period": "2025",
+    "model": "single_segment_no_us",
+    "source": "Chagee Holdings FY2025 Form 20-F (SEC EDGAR, filed 29 Apr 2026; acc 0001104659-26-050766)",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2013649/000110465926050766/cha-20251231x20f.htm",
+    "anchors": [
+        ("group_revenue",             12907407.0, "RMB_thousands", "Total net revenues FY2025 (Results of Operations, Item 5.A)", "high"),
+        ("company_owned_rev",          1490316.0, "RMB_thousands", "Net revenues — company-owned teahouses FY2025 (11.5%)", "high"),
+        ("franchised_rev",            11417091.0, "RMB_thousands", "Net revenues — franchised teahouses FY2025 (88.5%; mostly product sales to franchisees)", "high"),
+        ("total_gmv",                    31582.3, "RMB_millions", "Total GMV (China + overseas) FY2025 (Item 4.B)", "high"),
+        ("store_count_total",             7453.0, "stores", "Total teahouses at 31 Dec 2025 (Item 4.B)", "high"),
+        ("us_store_count",                   3.0, "stores", "US teahouses at 31 Dec 2025 (Item 4.B geographic table; 0 in 2023/2024)", "high"),
+        ("china_monthly_gmv_per_store",    387.0, "RMB_thousands_per_month", "Avg monthly GMV per teahouse — China only (Key Operating Data, Item 5.A)", "high"),
+    ],
+}
+
+PARENTS = [SUPERHI_FY2025, POPMART_FY2025, MINISO_FY2025, CHAGEE_FY2025]
 
 
 def collect(con, parent: dict, now: str | None = None) -> int:
@@ -382,6 +428,84 @@ def retail_estimate(con, brand_id: str, period: str = "2025", now: str | None = 
             "footprint_run_rate": run_rate, "fx_rmb_per_usd": fx}
 
 
+def region_estimate(con, brand_id: str, period: str = "2025", now: str | None = None) -> dict:
+    """
+    name:      region_estimate
+    purpose:   MODELED US revenue for a chain that discloses a REGIONAL revenue (e.g. North America, which
+               includes the US) but NO US-only figure and NO channel split. Per-outlet = region revenue
+               (FX->USD) / region store count = the chain's REPORTED revenue per store; US total = that x
+               our US store count, which apportions the region to the US by store share (so the US total
+               stays within the disclosed region revenue).
+    arguments: con; brand_id; period; now.
+    returns:   a summary dict; flags (writes nothing) if the per-store figure is implausible.
+    effects:   Replaces this brand/period/method's estimate rows, then INSERTs fresh ones.
+    other:     CAVEAT (in notes): for a part-franchised retailer this is the chain's reported revenue per
+               outlet — FULL sales for directly-operated stores, WHOLESALE for franchised ("Retail
+               Partner") stores — NOT gross consumer retail sales, which the filing does not disclose. The
+               region (e.g. US+Canada) is apportioned to the US by store share; the region store count may
+               be a slightly different date than the revenue, which the band absorbs.
+    """
+    now = now or _utcnow()
+    anc = _anchors(con, brand_id, period)
+    fx = FX_RMB_PER_USD.get(period)
+    need = ("north_america_revenue", "north_america_store_count")
+    if not all(k in anc for k in need) or not fx:
+        return {"brand": brand_id, "period": period,
+                "skipped": "need north_america_revenue + north_america_store_count and an FX rate"}
+    region_count = anc["north_america_store_count"]["value"]
+    if not region_count or region_count <= 0:
+        return {"brand": brand_id, "period": period, "skipped": "no region store count"}
+
+    region_rev_usd = anc["north_america_revenue"]["value"] * 1000 / fx
+    auv_usd = region_rev_usd / region_count          # region revenue per store (company-reported basis)
+    if not (RETAIL_AUV_MIN_USD <= auv_usd <= RETAIL_AUV_MAX_USD):
+        return {"brand": brand_id, "period": period,
+                "flagged": "per-store revenue implausible for a retail storefront — not written",
+                "auv_usd": round(auv_usd), "envelope": [RETAIL_AUV_MIN_USD, RETAIL_AUV_MAX_USD]}
+
+    n = us_store_count(con, brand_id, exclude_formats=RETAIL_STORE_FORMATS_EXCLUDED)
+    as_of = con.execute(
+        "SELECT MAX(last_seen) FROM stores WHERE chain_id=? AND country='US' AND status='active'",
+        (brand_id,)).fetchone()[0]
+    # US is a subset of the region: cap the apportioned count at the region's store count.
+    n_eff = min(n, int(region_count))
+    capped = n > region_count
+    per_mid, tot_mid = auv_usd, auv_usd * n_eff
+
+    used = [v["id"] for k, v in anc.items()
+            if k in ("north_america_revenue", "north_america_store_count", "group_revenue")]
+    meta = {"anchors": used, "fx_rmb_per_usd": fx, "fx_source": FX_SOURCE,
+            "basis": "North America region revenue apportioned to US by store share",
+            "region_store_count": region_count, "method": REGION_METHOD_VERSION,
+            "auv_usd": round(auv_usd), "region_rev_usd": round(region_rev_usd)}
+    note = (f"Modeled v1 (regional apportionment): North America revenue US${region_rev_usd/1e6:.0f}M / "
+            f"{int(region_count)} NA stores = US${auv_usd/1e6:.2f}M per store; x {n_eff} US stores = "
+            f"US${tot_mid/1e6:.0f}M. This is the chain's REPORTED revenue per store (full sales for "
+            f"directly-operated stores, wholesale for franchised 'Retail Partner' stores), NOT gross "
+            f"consumer retail sales; North America includes Canada, apportioned by store share.")
+    if capped:
+        note += f" NOTE: our US count ({n}) exceeds the region's store count ({int(region_count)}); capped."
+
+    con.execute("DELETE FROM revenue_estimates WHERE brand_id=? AND period=? AND method_version=?",
+                (brand_id, period, REGION_METHOD_VERSION))
+
+    def _ins(scope, store_id, mid):
+        con.execute(
+            "INSERT INTO revenue_estimates(brand_id,scope,store_id,period,low,mid,high,unit,"
+            "method_version,anchors_used,store_count_used,store_count_as_of,modeled,notes,generated_at)"
+            " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,1,?,?)",
+            (brand_id, scope, store_id, period, mid * (1 - REGION_BAND), mid, mid * (1 + REGION_BAND),
+             "USD", REGION_METHOD_VERSION, json.dumps(meta), n, as_of, note, now))
+
+    _ins("us_total", None, tot_mid)
+    for sid in _us_store_ids(con, brand_id, exclude_formats=RETAIL_STORE_FORMATS_EXCLUDED):
+        _ins("outlet", sid, per_mid)
+    con.commit()
+    return {"brand": brand_id, "period": period, "us_outlets": n, "band": REGION_BAND,
+            "per_outlet_usd_mid": round(per_mid), "us_total_usd_mid": round(tot_mid),
+            "auv_usd": round(auv_usd), "basis": "na_region_apportioned", "fx_rmb_per_usd": fx}
+
+
 def run(con, now: str | None = None) -> dict:
     """
     name:      run
@@ -399,6 +523,8 @@ def run(con, now: str | None = None) -> dict:
             estimates[p["brand_id"]] = estimate(con, p["brand_id"], p["period"], now)
         elif p["model"] == "retail_channel":
             estimates[p["brand_id"]] = retail_estimate(con, p["brand_id"], p["period"], now)
+        elif p["model"] == "retail_region":
+            estimates[p["brand_id"]] = region_estimate(con, p["brand_id"], p["period"], now)
         else:
             pending[p["brand_id"]] = f"anchors captured; estimate pending the {p['model']} model"
     return {"anchors_written": wrote, "estimates": estimates, "pending": pending}

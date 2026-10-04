@@ -249,6 +249,34 @@ offline retail-store channel** before it divides:
 What is deliberately *not* modeled: roboshop and online revenue (roboshops have no disclosed Americas
 unit count; online is not a storefront). CLI: `python -m chain_atlas revenue` runs both engines.
 
+### 5.3 The regional-apportionment model (`revenue.region_estimate`, BUILT)
+
+Some chains disclose a **regional** revenue that includes the US but give no US-only figure and no channel
+split — so neither the restaurant-AUV nor the channel-isolation model applies. **MINISO** is the case: its
+FY2025 20-F (SEC EDGAR) breaks out **North America revenue RMB 3,342.9M (≈US$465M)** but not US-only, and
+its own FY2025 results release gives **North America stores = 461 at 31 Dec 2025**. The model:
+
+1. **FX** the regional revenue to USD (`FX_RMB_PER_USD`, 2025 = 7.187).
+2. **Per-store** = region revenue ÷ region store count = **US$1.01M** (MINISO's *reported* revenue per
+   store).
+3. **US total** = per-store × our US store count (427), which **apportions the region to the US by store
+   share** and caps the US total within the disclosed region revenue → **≈US$431M (±30%)**.
+
+**Two caveats, stated in every estimate's `notes`:** (a) for a part-franchised retailer this is the
+chain's *reported* revenue per outlet — full sales for directly-operated stores, **wholesale** for
+franchised ("Retail Partner") stores — **not** gross consumer retail sales, which the filing does not
+disclose; (b) "North America" includes Canada, so the US is apportioned by store share. Band ±30% (wider
+than the channel model: apportionment + US/Canada + any period-vs-count mismatch). China-side sources
+(HK filings, earnings calls, 新华/36氪/界面) corroborate and refine — e.g. the 461 NA count and
+"NA revenue +37% H1 2026" came from MINISO's own results release/call, not the 20-F.
+
+**Chagee** (also EDGAR, FY2025 20-F) is the counter-case: a **single reportable segment**, "no geographical
+revenue information is presented" — **no US revenue to model**. Its anchors (group revenue, GMV, 3 US
+teahouses at end-2025, China-only per-store GMV) are captured; the US estimate is **deferred**, not forced
+(a China GMV on US stores would be Tier-5 at best). China-side press adds US color — first US store
+Westfield Century City LA (May 2025), company-owned, ~5,000 cups opening day — but none is revenue-grade,
+so it stays out of the published estimate.
+
 ## 6. First collector + model — the Super Hi / Haidilao pilot
 
 Build **one source (EDGAR 20-F/6-K + HKEX 9658) and the model end to end on Super Hi International**,
@@ -275,9 +303,10 @@ line, and the filing citation.
 
 1. `revenue_estimates` table + the `method_version` model scaffold (empty, provenance-carrying).
 2. The **EDGAR collector**, proven end to end on **Super Hi** (§6), writing anchors + estimates.
-3. Add **HKEX** for the other listed parents. **Pop Mart done** (§5.2, channel-isolated retail model,
-   primary FY2025 announcement). Remaining: Mixue, Miniso, Chagee, Nayuki, ChaPanda, Auntea Jenny,
-   Anta, JNBY.
+3. Add **issuer filings** for the other listed parents. **Done:** Pop Mart (§5.2, HKEX, channel-isolated),
+   **Miniso** (§5.3, SEC 20-F, regional apportionment → ~US$431M US), **Chagee** (SEC 20-F — single
+   segment, US not disclosed, captured + deferred). Remaining: Mixue, Nayuki, ChaPanda, Auntea Jenny,
+   Anta, JNBY, and the mainland A-share filers (Juewei, Bestore, Semir) via cninfo.
 4. Add **FDD Item 19** for the US franchisors — *built* (§4.3, `fdd.py`, MN CARDS; most file opt-outs so
    far). Extend to CA DOCQNET / manual WI for franchisors not in MN, and wire `fdd_item19_auv` into
    `estimate()` as the top-priority US per-outlet AUV once a disclosing filing lands.
