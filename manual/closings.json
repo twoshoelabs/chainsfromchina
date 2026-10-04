@@ -55,14 +55,14 @@
   {
    "chain": "malubianbian",
    "name": "Tustin (MLBB AYCE)",
-   "address": null,
+   "address": "1056 Walnut Ave, Tustin, CA 92780",
    "city": "Tustin",
    "state": "CA",
    "opened": null,
    "closed_on": "2026-09-29",
-   "closed_note": "Rebranded 'MLBB AYCE'; permanently closed per Google, observed 29 Sep 2026. Street address not recorded.",
+   "closed_note": "Rebranded 'MLBB AYCE'; closed per Yelp ('this location has closed') and Google, re-confirmed 4 Oct 2026. Address now recorded.",
    "confidence": "confirmed",
-   "source": "Google listing; recorded in manual/sightings.json malubianbian scope."
+   "source": "Yelp + Google listings; recorded in manual/sightings.json malubianbian scope."
   },
   {
    "chain": "dalongyi",
@@ -197,6 +197,18 @@
    "closed_note": "Field audit 2026-10-02: Google shows permanently closed (4.7★, 36 reviews — it did operate). Had been a discovery-routine lead (reported prepping to open); likely the Nevada outlet the FDD noted as opening and closing. Never mapped (held as uncertain); removed from sightings.",
    "confidence": "confirmed",
    "source": "Google Maps (permanently closed); YGF field audit 2026-10-02."
+  },
+  {
+   "chain": "malubianbian",
+   "name": "Rowland Heights",
+   "address": "18194 Colima Rd Ste A, Rowland Heights, CA 91748",
+   "city": "Rowland Heights",
+   "state": "CA",
+   "opened": null,
+   "closed_on": "2026-10-04",
+   "closed_note": "Closed per Yelp ('Yelpers report this location has closed'), observed 4 Oct 2026.",
+   "confidence": "confirmed",
+   "source": "Yelp listing; surfaced by the daily lead-discovery routine's open/closed check (4 Oct 2026)."
   }
  ]
 }

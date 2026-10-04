@@ -56,6 +56,10 @@
       "name": "Australia",
       "region": "Oceania"
     },
+    "NZ": {
+      "name": "New Zealand",
+      "region": "Oceania"
+    },
     "CA": {
       "name": "Canada",
       "region": "North America"
@@ -294,7 +298,7 @@
       "name": "ChaHalo",
       "name_zh": "茶话弄",
       "format": "tea",
-      "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US and Canada",
+      "global": "premium modern-Chinese-tea chain founded in Xi'an in 2016, ~1,000 stores across China; began overseas expansion in 2024, now in the US, Canada, Australia, New Zealand and the UK",
       "operating_model": "company_owned",
       "franchise_note": "Entered the US in 2025 as company-driven expansion (NY/CA/TX/MD); its 'Join ChaHalo' page is China-market. No open US franchise offer found."
     },
@@ -949,6 +953,52 @@
       "note": "Reported in the Toronto area as part of ChaHalo's overseas expansion; the brand's own site lists Canada, but no Canadian count or firm opening date is published.",
       "sources": [
         "https://www.chahalo.com/"
+      ]
+    },
+    {
+      "chain": "chahalo",
+      "market": "AU",
+      "status": "present",
+      "locations": 2,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "First-party Australian site (chahalo.com.au) with outlets in Sydney (54 Dixon St, Haymarket) and Melbourne (Shop 7, 481 Swanston St, CBD); both trade with the 茶话弄 storefront and rabbit mark.",
+      "sources": [
+        "https://www.chahalo.com.au/"
+      ]
+    },
+    {
+      "chain": "chahalo",
+      "market": "NZ",
+      "status": "present",
+      "locations": 3,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "Three New Zealand outlets under its own ChaHalo NZ account — Auckland (55B High St, CBD), Christchurch (Westfield Riccarton, 119 Riccarton Rd) and Wellington (Level 1, 80 Cuba St).",
+      "sources": [
+        "https://www.instagram.com/chahalo_nz/",
+        "https://www.aucklandnz.com/explore/chahalo"
+      ]
+    },
+    {
+      "chain": "chahalo",
+      "market": "GB",
+      "status": "present",
+      "locations": 2,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-03",
+      "note": "Two UK outlets trading with the 茶话弄 storefront and rabbit mark — London Soho (52–53 Dean St) and Edinburgh (15 Bread St).",
+      "sources": [
+        "https://www.instagram.com/chahalo_london/"
       ]
     },
     {

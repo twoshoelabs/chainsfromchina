@@ -1639,6 +1639,64 @@
      "verified_by": "The Maine Mall directory (mainemall.com/en/directory/10993) lists Miniso (Accessories); operator pull 2026-10-02. Not yet in Miniso’s own locator. Census has no range for 364 Maine Mall Rd, so the coordinate is the mall’s published building location (multiple mapping sources agree). Retires automatically when the census covers the spot."
     }
    ]
+  },
+  {
+   "chain": "heytea",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Daily lead-discovery routine (4 Oct 2026); each operator-verified against its Google Business listing (open, with reviews).",
+   "scope": "Four more HEYTEA (喜茶) US outlets confirmed open by hand — three in Greater Boston (Allston, Back Bay, Natick Mall) and one in Philadelphia Chinatown. Not a complete roster.",
+   "locations": [
+    {
+     "name": "HEYTEA (Allston)",
+     "address": "162 Harvard Ave, Allston, MA 02134",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 10 PM), 968 reviews (4 Oct 2026)",
+     "lat": 42.35159,
+     "lon": -71.131576
+    },
+    {
+     "name": "HEYTEA (Back Bay)",
+     "address": "223 Newbury St, Boston, MA 02116",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 665 reviews (4 Oct 2026)",
+     "lat": 42.34998,
+     "lon": -71.081296
+    },
+    {
+     "name": "HEYTEA (Natick Mall)",
+     "address": "1245 Worcester St, Natick, MA 01760",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Natick Mall), 180 reviews; @heytea.usa opening confirmed 6 Feb 2026 (4 Oct 2026)",
+     "lat": 42.299224,
+     "lon": -71.387071
+    },
+    {
+     "name": "HEYTEA (Philadelphia Chinatown)",
+     "address": "1001 Arch St, Philadelphia, PA 19107",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open (Closes 10 PM), 112 reviews; opened Aug 2026 per Philly Grub (4 Oct 2026)",
+     "lat": 39.953612,
+     "lon": -75.156352
+    }
+   ]
+  },
+  {
+   "chain": "shuyi",
+   "supplied_on": "2026-10-04",
+   "reviewed": "2026-10-04",
+   "source": "Daily lead-discovery routine (4 Oct 2026); operator-verified against the store's Google listing and live Chowbus ordering.",
+   "scope": "One more Shuyi (书亦烧仙草) US outlet confirmed open by hand — Columbia, Maryland. Adds to the three previously recorded (Falls Church VA, Cupertino CA, Fremont CA).",
+   "locations": [
+    {
+     "name": "Columbia (Lakeside Office)",
+     "address": "8865 Stanford Blvd Ste 127, Columbia, MD 21045",
+     "confidence": "confirmed",
+     "verified_by": "Google listing open, 66 reviews + live Chowbus ordering (4 Oct 2026)",
+     "lat": 39.188521,
+     "lon": -76.817671
+    }
+   ]
   }
  ]
 }

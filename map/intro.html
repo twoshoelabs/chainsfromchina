@@ -186,7 +186,8 @@ let CHAINS = [];
     const k = cnt[id] || { open: 0, hand: 0, soon: 0, sector: m.format, name: m.name };
     const comp = companies[id] || {};
     CHAINS.push({
-      id, name: m.name || id, zh: m.name_zh || '', sector: k.sector || m.format || 'other',
+      id, name: m.name_us || m.name || id, rom: (m.name_us && m.name && m.name_us !== m.name) ? m.name : '',
+      zh: m.name_zh || '', sector: k.sector || m.format || 'other',
       outlets: k.open + k.hand, announced: k.soon, source, franchise: k.fr || 0, fdd: k.fdd || 0,
       since: comp.us_since || '', year: yearOf(comp.us_since),
       ny: NY_RE.test(comp.first_outlet || ''), flushing: /flushing/i.test(comp.first_outlet || ''),
@@ -236,7 +237,7 @@ function filtered() {
   let list = CHAINS.filter(c => {
     if (state.franchiseOnly && !c.franchise) return false;
     if (state.sectors.size && !state.sectors.has(c.sector)) return false;
-    if (q && !(c.name.toLowerCase().includes(q) || (c.zh && c.zh.includes(state.q.trim())))) return false;
+    if (q && !(c.name.toLowerCase().includes(q) || (c.rom && c.rom.toLowerCase().includes(q)) || (c.zh && c.zh.includes(state.q.trim())))) return false;
     return true;
   });
   list.sort((a, b) =>

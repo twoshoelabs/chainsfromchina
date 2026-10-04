@@ -230,7 +230,7 @@ class NaixueAdapter(Adapter):
     West Side, alongside the American Dream store in East Rutherford.
     """
     chain_id, name, name_zh = "nayuki", "Naixue", "奈雪的茶"
-    name_us = "NaiSnow"
+    name_us = "Naisnow"
     parent, format = "Nayuki Holdings (HKEX 2150)", "tea"
     ENABLED = False
     BLOCKED_REASON = ("trades as NaiSnow in the US; at least two stores (American Dream NJ, Upper"
