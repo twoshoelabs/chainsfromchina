@@ -302,6 +302,26 @@ disclosed home-market per-store figures above (e.g. Auntea Jenny ~RMB 1.37M ≈ 
 ~3× that) broadly VALIDATE the current sector benchmarks; (b) FDD Item 19 as more franchisors file; (c)
 waiting for these chains to disclose the US as it grows. Not more filing pulls.
 
+### 5.5 Mainland A-share filers — China giants without US retail (verified 2026-10-04)
+
+Extending the "within-China" sourcing into the mainland **CSRC / cninfo** corpus (our least-tapped, least
+US-accessible vein), we pulled the FY2024 annual reports of the four mainland A-share filers we track. All
+report only in RMB; **none discloses a US revenue line, and three operate ZERO US retail stores** — their
+US reach is export / cross-border e-commerce / a non-operating holding entity — so none is
+revenue-model-relevant (they are correctly `not_established` in our US census). Captured for the
+intelligence layer — the China scale and the mainland disclosures US stakeholders rarely see:
+
+| Company (brand) | Ticker | Group revenue FY2024 | China retail stores | US presence | Source (cninfo/SSE/SZSE) |
+|---|---|---|---|---|---|
+| Bestore 良品铺子 | SSE:603719 | RMB 7,159M (−11%; net loss) | 2,704 snack stores (1,033 direct / 1,671 franchise), all China | none in filing; export/e-commerce only; **zero overseas assets** | FY2024, 2025-04-29 (1223379529.PDF) |
+| Semir 森马服饰 (+ Balabala) | SZSE:002563 | RMB 14,626M (+7%) | 8,325 apparel stores (980 direct / 7,260 franchise / 85 concession); 100+ HK/overseas | 境外 aggregate RMB 80M (0.55%, HK+overseas bundled); US entity non-operating; no US stores | FY2024, 2025-04-01 (SZSE 002563) |
+| M&G 晨光股份 (九木杂物社 / M&G LIFE) | SSE:603899 | RMB 24,228M (+4%) | 九木杂物社 741 + 晨光生活馆 38 = 779 big-format stores (franchise), all China; 九木 rev RMB 1,407M (~RMB 1.9M/store, loss-making) | 其他地区/overseas RMB 1,039M (~4.3%), not by country; US entity negligible; no US stores | FY2024, 2025-03-26 (1222895351.PDF) |
+
+With **Juewei** (§5.4, SSE:603517) that is all four identified mainland A-share filers pulled. Finding:
+these are large China retailers whose US footprint is distribution/e-commerce, not stores — so they enter
+the revenue model only if/when they open US retail. The pull also establishes the mainland
+cninfo/SSE/SZSE path (Chinese-language annual reports, direct 巨潮 PDF URLs) for future A-share filers.
+
 ## 6. First collector + model — the Super Hi / Haidilao pilot
 
 Build **one source (EDGAR 20-F/6-K + HKEX 9658) and the model end to end on Super Hi International**,
