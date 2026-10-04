@@ -114,15 +114,15 @@
   },
   {
    "chain": "jnby",
-   "name": "SoHo NYC (AGoodFun)",
-   "address": null,
+   "name": "SoHo NYC (AGoodFun / JNBY USA)",
+   "address": "75 Greene St Fl 5, New York, NY 10012",
    "city": "New York",
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Earlier AGoodFun store, now closed; close date unknown. Street address not recorded.",
+   "closed_note": "AGoodFun / JNBY USA SoHo store at 75 Greene St (5th floor); permanently closed (close date unknown).",
    "confidence": "confirmed",
-   "source": "companies.json jnby blurb."
+   "source": "companies.json jnby blurb; Google Maps listing 'JNBY USA' marked Permanently closed (75 Greene St Fl 5), seen 5 Oct 2026."
   },
   {
    "chain": "yangs",
