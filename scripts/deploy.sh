@@ -22,6 +22,10 @@ fi
 TMP="$(mktemp -d)"
 cp -R map/. "$TMP"/
 rm -f "$TMP"/img/README.md                        # a dev note, not part of the site
+# Co-tenancy is a PAID/Pro feature: never publish its data or its renderer. export already omits
+# centers.json; this removes the leftover renderer and guards the data file belt-and-suspenders.
+# (centers.html stays — it is the public Pro gate.) See cfc-analytics-paywall.
+rm -f "$TMP"/centers.js "$TMP"/data/centers.json
 echo "chainsfromchina.com" > "$TMP"/CNAME         # custom domain
 touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as-is
 
