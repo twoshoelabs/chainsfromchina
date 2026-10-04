@@ -44,6 +44,7 @@ def _utcnow() -> str:
 SUPERHI_FY2025 = {
     "brand_id": "haidilao",
     "period": "2025",
+    "model": "restaurant_auv",   # store revenue == restaurant sales; AUV x count is clean
     "source": "Super Hi International FY2025 results (SEC Form 6-K / press release, 31 Mar 2026)",
     "source_url": "https://www.globenewswire.com/news-release/2026/03/31/3265236/0/en/super-hi-reports-unaudited-financial-results-for-the-fourth-quarter-and-full-year-2025.html",
     # (metric, value, unit, page_ref, confidence)
@@ -56,31 +57,59 @@ SUPERHI_FY2025 = {
     ],
 }
 
+# Pop Mart (HKEX 9992). RETAIL, and multi-channel: its Americas revenue folds in e-commerce, roboshops
+# and wholesale, so it is NOT a store AUV — dividing by stores would imply ~US$14M/store, nonsense.
+# Anchors captured for the record; the ESTIMATE waits for a retail model (chain-level US revenue,
+# channel-aware, with matched store definitions: our 75 'standard' US stores, not the 106 roboshops).
+# Figures are from the FY2025 annual results (primary PDF did not extract as text; secondary sources
+# citing the results agree on RMB6,806.2M), so confidence is medium pending a clean primary read.
+POPMART_FY2025 = {
+    "brand_id": "popmart",
+    "period": "2025",
+    "model": "retail_regional",   # estimate deferred — see note above
+    "source": "Pop Mart FY2025 annual results (HKEX, year ended 31 Dec 2025)",
+    "source_url": "https://prod-out-res.popmart.com/cms/ANNUAL_RESULTS_ANNOUNCEMENT_FOR_THE_YEAR_ENDED_31_DECEMBER_2025_AND_CHANGE_IN_USE_OF_PROCEEDS_d210fe53f0.pdf",
+    "anchors": [
+        ("overseas_segment", 37120.1, "RMB_millions", "FY2025 total group revenue RMB37,120.1M (+184.7% YoY)", "medium"),
+        ("americas_revenue",  6806.2, "RMB_millions", "FY2025 Americas revenue RMB6,806.2M (+748.4% YoY; 18.3% of total; ALL channels)", "medium"),
+        ("store_count",         64.0, "retail_stores", "Americas retail stores at 31 Dec 2025 (excl. roboshops)", "medium"),
+    ],
+}
 
-def collect_superhi(con, now: str | None = None) -> int:
+# Fan-out order; add more parents here as data, not code.
+PARENTS = [SUPERHI_FY2025, POPMART_FY2025]
+
+
+def collect(con, parent: dict, now: str | None = None) -> int:
     """
-    name:      collect_superhi
-    purpose:   Record Super Hi / Haidilao's disclosed, primary-verified FY2025 anchors.
-    arguments: con — DB connection; now — UTC stamp (defaults to real now).
+    name:      collect
+    purpose:   Record one parent's disclosed, primary-verified financial anchors.
+    arguments: con; parent — a PARENTS entry; now — UTC stamp.
     returns:   number of NEW anchor rows written.
     effects:   INSERTs into financial_anchors. Idempotent: dedupe on (brand_id, period, metric).
-    other:     Hand-read from the cited release (manual fallback); the EDGAR/HKEX auto-parser is next.
     """
     now = now or _utcnow()
-    a = SUPERHI_FY2025
     have = {r[0] for r in con.execute(
-        "SELECT metric FROM financial_anchors WHERE brand_id=? AND period=?", (a["brand_id"], a["period"]))}
+        "SELECT metric FROM financial_anchors WHERE brand_id=? AND period=?",
+        (parent["brand_id"], parent["period"]))}
     n = 0
-    for metric, value, unit, page_ref, conf in a["anchors"]:
+    for metric, value, unit, page_ref, conf in parent["anchors"]:
         if metric in have:
             continue
         con.execute(
             "INSERT INTO financial_anchors(brand_id,period,metric,value,unit,page_ref,source,"
             "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?)",
-            (a["brand_id"], a["period"], metric, value, unit, page_ref, a["source"], a["source_url"], now, conf))
+            (parent["brand_id"], parent["period"], metric, value, unit, page_ref,
+             parent["source"], parent["source_url"], now, conf))
         n += 1
     con.commit()
     return n
+
+
+def collect_all(con, now: str | None = None) -> int:
+    """Ingest every PARENTS entry's anchors. Returns total new rows written."""
+    now = now or _utcnow()
+    return sum(collect(con, p, now) for p in PARENTS)
 
 
 def us_store_count(con, brand_id: str) -> int:
@@ -202,7 +231,20 @@ def estimate(con, brand_id: str, period: str = "2025", now: str | None = None) -
 
 
 def run(con, now: str | None = None) -> dict:
-    """The revenue pass: collect the pilot anchors (Super Hi) and model Haidilao's US revenue."""
+    """
+    name:      run
+    purpose:   The revenue pass. Collect every parent's anchors, and compute estimates for the parents
+               whose model the restaurant-AUV engine fits. Retail parents have their anchors captured
+               but no estimate yet — a channel-aware retail revenue model is the next build.
+    returns:   a dict summary.
+    effects:   INSERTs into financial_anchors + revenue_estimates (both idempotent).
+    """
     now = now or _utcnow()
-    wrote = collect_superhi(con, now)
-    return {"anchors_written": wrote, "estimate": estimate(con, "haidilao", "2025", now)}
+    wrote = collect_all(con, now)
+    estimates, pending = {}, {}
+    for p in PARENTS:
+        if p["model"] == "restaurant_auv":
+            estimates[p["brand_id"]] = estimate(con, p["brand_id"], p["period"], now)
+        else:
+            pending[p["brand_id"]] = f"anchors captured; estimate pending the {p['model']} model"
+    return {"anchors_written": wrote, "estimates": estimates, "pending": pending}
