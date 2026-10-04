@@ -152,6 +152,18 @@ def main(argv=None):
         aggregate.report(con)
         return 0
 
+    if cmd == "filings":
+        from . import db, filings
+        con = db.connect()
+        s = filings.run(con)
+        print(f"checked {s['checked']} filers — {s['new']} new, {s['duplicate']} current, "
+              f"{s['manual']} check-link, {s['skipped']} unavailable")
+        for r in s["rows"]:
+            tag = r["status"]
+            extra = r.get("title") or r.get("url") or ""
+            print(f"  {r['brand']:12} {r['venue']:7} {tag:10} {str(r.get('date') or ''):12} {extra[:70]}")
+        return 0
+
     if cmd == "probe":
         from .adapters import by_id
         from . import capture
@@ -181,6 +193,7 @@ def main(argv=None):
     print("  capacity [--chain X]                             official occupant-load + TX alcohol receipts; reality-checks the revenue AUV")
     print("  fdd                                              FDD Item 19 (US per-outlet AUV) + Item 20 outlet counts, from MN franchise registry")
     print("  aggregate                                        MODELED grand total: banded US revenue across all chains (anchored + benchmark)")
+    print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")
