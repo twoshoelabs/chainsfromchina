@@ -28,6 +28,34 @@
    "lat": 33.7273,
    "lon": -117.986,
    "note": "Census returns no match for this Beach Blvd (CA-39) block and OSM has no house-number or POI for 16310. Anchored to the nearest real OSM house-number match on the same corridor, 16400 Beach Blvd = Target (33.72598, -117.98575), nudged ~north toward 16310's lower house number. Approximate (~150 m), same Beach Blvd retail corridor; marked manual. 5 Oct 2026."
+  },
+  {
+   "chain": "moge",
+   "address": "157-08 Northern Boulevard, Queens, NY",
+   "lat": 40.763702,
+   "lon": -73.808131,
+   "note": "Census match for 157-08 Northern Blvd, Flushing (Queens) NY 11354 (the locator records the city as 'Queens' and omits the ZIP). 5 Oct 2026."
+  },
+  {
+   "chain": "moge",
+   "address": "8051 Tysons Corner Center, McLean, VA 22102",
+   "lat": 38.91854,
+   "lon": -77.22327,
+   "note": "Storefront inside Tysons Corner Center (an indoor mall), so the mall-unit address does not geocode; anchored to the mall itself (OSM). Approximate. 5 Oct 2026."
+  },
+  {
+   "chain": "moge",
+   "address": "29040 US-290 suite a01, Cypress, TX 77433",
+   "lat": 29.984416,
+   "lon": -95.731097,
+   "note": "Fairfield Town Center on US-290 (Cypress TX); Census has no match for this US-290 suite and OSM no POI, so anchored to the US-290 / Northwest Fwy frontage at Fairfield. Approximate. 5 Oct 2026."
+  },
+  {
+   "chain": "moge",
+   "address": "14410 Shoreside Way, Winter Garden, FL 34787",
+   "lat": 28.468446,
+   "lon": -81.63319,
+   "note": "Hamlin / Horizon West (Winter Garden FL); Census has no match for Shoreside Way and OSM no house number, so anchored to the Hamlin Town Center development. Approximate. 5 Oct 2026."
   }
  ]
 }

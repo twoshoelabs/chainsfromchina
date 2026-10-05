@@ -33,6 +33,15 @@ INDEX = "https://www.mogeteeusa.com/store-locations"
 ORIGIN = "https://www.mogeteeusa.com"
 EXPECTED_MIN = 45
 
+# Stores Möge Tee's own locator still lists but that are permanently closed on the ground (verified
+# by hand against Google's "Permanently closed" banner). We drop them rather than count a dead store
+# until the brand updates its locator; the keys are the cleaned address lowercased. Prune an entry
+# once the locator drops it.
+PERMANENTLY_CLOSED = {
+    "140 little cypress drive ste 102, st johns, fl 32259",   # St Johns FL — Google: permanently closed (5 Oct 2026)
+    "678 market st, lynnfield, ma 01940",                     # Lynnfield MA — Google: permanently closed (5 Oct 2026)
+}
+
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
 _STATE_LINK = re.compile(r'/store-locations-1/([a-z]{2})\b', re.I)
 _ADDR = re.compile(r'^\d{1,6}\b.*,\s*[A-Za-z][A-Za-z .]*,\s*[A-Z]{2}(?:,|\s+\d{5})')
@@ -129,6 +138,8 @@ class MogeTeeAdapter(Adapter):
         for doc in pages.values():
             for s in _stores_from_page(doc):
                 addr = re.sub(r",?\s*USA\.?\s*$", "", s["addr"]).strip()
+                if re.sub(r"\s+", " ", addr).lower() in PERMANENTLY_CLOSED:
+                    continue                                  # listed on the locator but closed on the ground
                 city, st, zc = split_tail(addr)
                 out.append(StoreRecord(store_code=None, name=s["name"], addr_raw=addr,
                                        city=city, state=st, zip=zc, trading=s["trading"]))
