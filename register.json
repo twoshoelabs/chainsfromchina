@@ -369,6 +369,16 @@
       "fdd_available": 0,
       "franchise_note": "Inner Mongolian hot pot from the Little Sheep founder. The US estate (29 outlets across 11 states) is collected on the map and run from Houston; no registered US franchise offering found in state registries."
     },
+    "bingz": {
+      "name": "Bingz",
+      "name_zh": "西少爷",
+      "format": "restaurant",
+      "global": "Shaanxi roujiamo (肉夹馍) fast-food chain — the 'crispy 'wich' — founded Beijing 2014; stores across Beijing, Tianjin, Xi'an, Zhengzhou and more. Launched its international 'Bingz' brand in 2018; entered Canada 2021 (first Chinese fast-food brand to operate directly in North America, ~7 GTA stores) and Singapore, and opened its first US store (San Gabriel CA) on 2 Oct 2026.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Beijing roujiamo fast-food chain. US entry Oct 2026 (San Gabriel); the US estate is tracked on the map via sightings (chain_id 'bingz'). A $50M US raise and a 300-US-store plan have been reported."
+    },
     "hefu": {
       "name": "Hefu Noodle",
       "name_zh": "和府捞面",
@@ -7520,6 +7530,48 @@
       "confidence": "low",
       "reviewed": "2026-10-05",
       "note": "Luckin's markets are China, Hong Kong, Singapore, Malaysia and the US; no Poland presence found (2026-10-05)."
+    },
+    {
+      "chain": "bingz",
+      "market": "CA",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2021",
+      "precision": "year",
+      "confidence": "high",
+      "note": "First Chinese fast-food brand to operate directly in North America (2021). ~7 stores in the Greater Toronto Area — e.g. Yonge St, Union Station, Fairview Mall, Markville Mall.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://www.globenewswire.com/news-release/2021/08/19/2283920/0/en/massively-popular-chinese-fast-food-chain-bingz-crispy-burger-announces-opening-of-first-store-in-north-america-unveils-big-plans-for-expansion.html"
+      ]
+    },
+    {
+      "chain": "bingz",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "note": "Open in Singapore (e.g. Westgate/Jurong East, AMK Hub) with a first-party Singapore site (sg.bingz.com).",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "http://sg.bingz.com/"
+      ]
+    },
+    {
+      "chain": "yangs",
+      "market": "ID",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "Open in Indonesia — e.g. Tanjungpinang, Kepulauan Riau (Jl. Merdeka No. 26), listed as a Shandong restaurant and trading, observed 5 Oct 2026.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://www.google.com/maps/search/Yang's+Braised+Chicken+Rice+Tanjungpinang"
+      ]
     }
   ]
 }

@@ -1837,6 +1837,23 @@
      "lon": -118.398646
     }
    ]
+  },
+  {
+   "chain": "bingz",
+   "supplied_on": "2026-10-05",
+   "reviewed": "2026-10-05",
+   "source": "Brand channels (Instagram @bingzusa, bingz.com) + TAWA Gateway tenant page + Google; field screenshot.",
+   "scope": "Bingz (西少爷 / Bingz Crispy 'Wich), a Shaanxi roujiamo fast-food chain founded in Beijing in 2014 (also in Canada and Singapore), opened its first US store 2 Oct 2026 at TAWA Gateway, San Gabriel. Its only US outlet so far; tracked via sightings.",
+   "locations": [
+    {
+     "name": "San Gabriel (TAWA Gateway)",
+     "address": "140 W Valley Blvd Ste 118C, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "Grand opening 2 Oct 2026 per Instagram @bingzusa and the TAWA Gateway tenant page; Google lists 'Bingz Crispy 'Wich - San Gabriel' at 140 W Valley Blvd #118C (5 Oct 2026).",
+     "lat": 34.079584,
+     "lon": -118.101611
+    }
+   ]
   }
  ]
 }

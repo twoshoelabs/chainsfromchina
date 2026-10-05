@@ -37,7 +37,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     XibeiAdapter, GrandmasHomeAdapter, XijiadeAdapter, MalubianbianAdapter,
                     FeidachuAdapter, DalongyiAdapter, ShuyiAdapter, MoreYogurtAdapter,
                     AntaAdapter, UrbanRevivoAdapter, JnbyAdapter, MeilleurMomentAdapter,
-                    WallaceAdapter, ZhengxinAdapter, HiBakeAdapter)
+                    WallaceAdapter, ZhengxinAdapter, HiBakeAdapter, BingzAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -81,6 +81,7 @@ REGISTRY: list[Adapter] = [
     WallaceAdapter(), # fast food 华莱士 / Wallace Chicken; Walnut + West Covina CA — see stubs.py
     ZhengxinAdapter(), # fried chicken 正新鸡排 / Zhengxin Chicken Steak; CA + NYC — see stubs.py
     HiBakeAdapter(), # bakery 嗨呗可 / Hi Bake (Chengdu); Beverly Hills via Chubby Group — see stubs.py
+    BingzAdapter(), # roujiamo fast food 西少爷 / Bingz Crispy 'Wich (Beijing); San Gabriel CA — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

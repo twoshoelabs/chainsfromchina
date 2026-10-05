@@ -956,3 +956,28 @@ class HiBakeAdapter(Adapter):
                       " Beverly Hills via US licensee Chubby Group; its only US outlet, no national"
                       " locator. Tracked via sightings (4 Oct 2026)")
     RECHECK = ["https://hibakebakery.com/"]
+
+
+class BingzAdapter(Adapter):
+    """
+    Bingz (西少爷 / Bingz Crispy 'Wich) — added 2026-10-05. A Chinese fast-food chain founded 2014 in
+    Beijing (Wudaokou) by former tech engineers (Luo Gaojing, Meng Bing, Yuan Zelu); its signature is
+    the "crispy 'wich," a modern take on Shaanxi rou jia mo (肉夹馍), plus hot-and-sour hand-pulled
+    noodles. Stores across Beijing, Tianjin, Xi'an, Zhengzhou and more; launched its international
+    "Bingz" brand in 2018 and entered North America (Canada) in 2021. Mainland-China origin, in scope.
+
+    First US store opened 2 Oct 2026 at 140 W Valley Blvd Ste 118C (TAWA Gateway), San Gabriel CA —
+    its only US outlet so far. bingz.com carries the brand but publishes no readable national US
+    locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "bingz", "Bingz", "西少爷"
+    name_us = "Bingz Crispy 'Wich"
+    aliases = ("Bingz Crispy Burger", "Xishaoye", "西少爷肉夹馍")
+    parent, format = "Bingz (西少爷, Beijing)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Shaanxi roujiamo fast-food chain (西少爷, founded Beijing 2014; the 'crispy"
+                      " 'wich'); entered North America via Canada in 2021 (~7 stores). First US store"
+                      " opened 2 Oct 2026 at 140 W Valley Blvd, San Gabriel CA (TAWA Gateway), its only"
+                      " US outlet; bingz.com has no readable national US locator. Tracked via sightings"
+                      " (5 Oct 2026)")
+    RECHECK = ["https://www.bingz.com/"]

@@ -33,9 +33,9 @@
     "name_zh": "快乐柠檬",
     "hq": "Shanghai",
     "china_stores": "~2,000 global (~47 China)",
-    "status": "held",
+    "status": "excluded",
     "markets": "US: 115+ (NY, LA, Seattle, Boston, Houston), Canada, UK, France, Dubai",
-    "note": "HELD 2026-09-29 pending scope call: Taiwanese founder (Wu Bochao) and Taiwan parent (RBT/雅茗天地); brand built in Shanghai 2006. Do not add without explicit go. VERIFY origin: Shanghai-founded but 雅茗天地 ties to Taiwan brands — confirm Chinese origin before tracking",
+    "note": "EXCLUDED 2026-10-05 (owner decision): Happy Lemon describes itself as a Taiwanese company (Taiwanese founder Wu Bochao, Taiwan parent RBT/雅茗天地), so it is out of scope despite the Shanghai-built brand. Do not track.",
     "source": "https://www.happylemonusa.com/about/"
    },
    {
@@ -93,9 +93,9 @@
     "name_zh": "茉酸奶",
     "hq": "Shanghai",
     "china_stores": "~1,600",
-    "status": "us",
+    "status": "tracked",
     "markets": "Abroad: HK, Malaysia, Singapore. US: Tustin CA (first US store, ~Jun 2026)",
-    "note": "Added to the international register AND US map 2026-09-29 (overseas audit). English name \"More Yogurt\"",
+    "note": "Tracked (chain_id 'moreyogurt'), added 2026-09-29. Trades in the US as \"More Yogurt\" (name_us) — confirmed 2026-10-05 to keep that US name; a different US identity from the China name is the norm here (cf. ChaPanda=TeaByDo, Naixue=NaiSnow, Juewei=Juewei Yabo).",
     "source": "https://news.qq.com/rain/a/20240228A066SU00"
    }
   ],

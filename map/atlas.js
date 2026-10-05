@@ -53,7 +53,7 @@ const MONOGRAM = {
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
 // to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
 const LOGO_CHAINS = new Set([
-  'anta', 'aunteajenny', 'baospastry', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
+  'anta', 'aunteajenny', 'baospastry', 'bingz', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
   'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
   'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
