@@ -124,6 +124,10 @@
       "name": "Uzbekistan",
       "region": "Central Asia"
     },
+    "KZ": {
+      "name": "Kazakhstan",
+      "region": "Central Asia"
+    },
     "TW": {
       "name": "Taiwan",
       "region": "East Asia"
@@ -7361,6 +7365,83 @@
       "sources": [
         "https://happylambhotpot.com/"
       ]
+    },
+    {
+      "chain": "mixue",
+      "market": "KZ",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2025-04",
+      "precision": "month",
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "First store in Central Asia — Almaty (Forum Mall), April 2025; ¥430K first-month sales reported. Since expanded across Almaty (~15 outlets on delivery platforms) and into Astana (Mega Silk Way, Damu Mall). No official Kazakhstan total published.",
+      "sources": [
+        "https://www.foodtalks.cn/en/news/57961",
+        "https://5g.dahe.cn/en/202506181949366"
+      ]
+    },
+    {
+      "chain": "miniso",
+      "market": "KZ",
+      "status": "present",
+      "locations": 38,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "~38 stores across 16 cities (Almaty 13, plus Astana, Shymkent and others) per MINISO Kazakhstan's own channels; operated locally (Mechatronics) and sold on Kaspi.kz. First-party store list at miniso.kz.",
+      "sources": [
+        "https://miniso.kz/en/"
+      ]
+    },
+    {
+      "chain": "chagee",
+      "market": "KZ",
+      "status": "announced",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Trade press reports Chagee pushing into Central Asia with a first Kazakhstan store; open status and date not independently confirmed, so held as announced pending a first-party or dated confirmation.",
+      "sources": [
+        "https://kr-asia.com/brewing-success-abroad-chinese-tea-brands-set-sights-on-southeast-asia"
+      ]
+    },
+    {
+      "chain": "cotti",
+      "market": "KZ",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Searched by English, Chinese (库迪咖啡) and Russian names (2026-10-05); no Kazakhstan store found. A 'The Coffee' café that opened on Almaty's Nazarbayev Ave in Jan 2026 is an unrelated Vietnamese brand, not Cotti."
+    },
+    {
+      "chain": "luckin",
+      "market": "KZ",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Luckin's markets are China, Hong Kong, Singapore, Malaysia and the US; no Kazakhstan presence found (2026-10-05). Its stated next overseas frontier is the Middle East, not Central Asia."
+    },
+    {
+      "chain": "popmart",
+      "market": "KZ",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Searched for a Kazakhstan store (2026-10-05); none found. POP MART's overseas estate is the Americas, Europe, Southeast Asia, Oceania and East Asia."
     }
   ]
 }
