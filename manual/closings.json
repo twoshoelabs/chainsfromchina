@@ -257,6 +257,30 @@
    "closed_note": "Yang's Braised Chicken Rice Anaheim (near Anaheim GardenWalk); permanently closed per Google, observed 5 Oct 2026 (close date unknown). Part of Yang's continued US churn.",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (5 Oct 2026)."
+  },
+  {
+   "chain": "moge",
+   "name": "St Johns (Little Cypress Dr)",
+   "address": "140 Little Cypress Dr Ste 102, St Johns, FL 32259",
+   "city": "St Johns",
+   "state": "FL",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. A collected-chain closure the census cannot catch by absence (the brand keeps listing it), so it is held closed via an adapter-level filter (moge PERMANENTLY_CLOSED) and recorded here. This brand-locator-vs-reality gap is exactly the 'open loudly, close quietly' story the project documents. Retire this row once Möge Tee drops it from the locator.",
+   "confidence": "confirmed",
+   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day."
+  },
+  {
+   "chain": "moge",
+   "name": "Lynnfield (MarketStreet)",
+   "address": "678 Market St, Lynnfield, MA 01940",
+   "city": "Lynnfield",
+   "state": "MA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "MarketStreet Lynnfield outlet; permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing. Retire this row once Möge Tee drops it from the locator.",
+   "confidence": "confirmed",
+   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day."
   }
  ]
 }
