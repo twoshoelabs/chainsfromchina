@@ -533,16 +533,10 @@ const fmt = n => (n==null?'—':n.toLocaleString('en-US'));
 const word = n => (n>=0 && n<=10) ? WORD[n] : String(n);
 const $ = id => document.getElementById(id);
 
-// Grand-total count-up. On a first visit — or after a while away — the headline total spins
-// upward to today's figure instead of just appearing: from the number the visitor last saw when
-// we have it (so a returning reader watches the growth since their last visit), otherwise from a
-// base below the total. A recent repeat visit, or a reader who prefers reduced motion, just sees
-// the number. This is a per-viewer flourish kept in localStorage; it never blocks or changes the
-// real figure, and degrades to "just show it" if storage is unavailable.
-const REVISIT_MS = 7*24*60*60*1000;             // "a while" = 7 days
-const lsGet = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
-const lsSet = (k,v) => { try { localStorage.setItem(k,v); } catch(e){} };
-
+// Grand-total count-up. On every page load the headline total spins up to today's figure instead
+// of just appearing — backing up to the count as of about a week ago (prevTotal, from the data) and
+// climbing. It never blocks or changes the real figure: reduced motion, or a value with no sane
+// backup, just shows the number; a hidden tab shows the true figure and spins once it is viewed.
 function countUp(els, to, from, dur){
   els = els.filter(Boolean);
   if (!els.length) return;
@@ -572,28 +566,17 @@ function countUp(els, to, from, dur){
   }
 }
 
-// Decide whether to spin, pick the start value, and remember this visit. The spin backs up only to
-// about a week or two ago — the count as of ~a week back (prevTotal, from the data), or the number
-// this viewer last saw if that was more recent, whichever is higher — never further, and never from
-// zero. A recent repeat visit just shows the number.
+// Pick the start value and spin, on every load. Backs up only to about a week ago (prevTotal) —
+// never from zero, never further — so the climb is short and always seen.
 function animateGrandTotal(outlets, prevTotal){
   const els = [$('hero-num'), $('L-open')];
-  const lastVisit = parseInt(lsGet('cfc_last_visit')||'0', 10);
-  const lastTotal = parseInt(lsGet('cfc_last_total')||'0', 10);
-  const now = Date.now();
-  const away = !lastVisit || (now - lastVisit) > REVISIT_MS;
-  const cands = [];
-  if (prevTotal>0 && prevTotal<outlets) cands.push(prevTotal);
-  if (lastVisit && lastTotal>0 && lastTotal<outlets) cands.push(lastTotal);
-  const from = cands.length ? Math.max(...cands) : 0;
-  if (away && from>0){
+  const from = (prevTotal>0 && prevTotal<outlets) ? prevTotal : 0;
+  if (from>0){
     const dur = Math.min(900, Math.max(650, (outlets-from)*16));   // quick, but long enough to read as a spin
     countUp(els, outlets, from, dur);
   } else {
-    els.forEach(el=> el && (el.textContent = fmt(outlets)));        // recent visit, or no sane backup -> just show it
+    els.forEach(el=> el && (el.textContent = fmt(outlets)));        // no sane backup figure -> just show it
   }
-  lsSet('cfc_last_visit', String(now));
-  lsSet('cfc_last_total', String(outlets));
 }
 
 (async function () {
