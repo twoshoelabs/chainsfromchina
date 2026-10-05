@@ -25,6 +25,7 @@ from .haidilao_us import HaidilaoUSAdapter
 from .popmart import PopMartUSAdapter
 from .xiaolongkan import XiaolongkanAdapter
 from .liuyishou import LiuyishouAdapter
+from .happylamb import HappyLambAdapter
 from .aunteajenny import AunteaJennyAdapter
 from .mollytea import MollyTeaAdapter
 from .moge import MogeTeeAdapter
@@ -82,6 +83,7 @@ REGISTRY: list[Adapter] = [
     HiBakeAdapter(), # bakery 嗨呗可 / Hi Bake (Chengdu); Beverly Hills via Chubby Group — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
+    HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py
     AunteaJennyAdapter(), # collected daily from aunteajenny.us CMS feed — see aunteajenny.py
     MollyTeaAdapter(), # collected daily from usa.mollytea.com ASL feed (US rows) — see mollytea.py
     MogeTeeAdapter(), # collected daily from mogeteeusa.com Wix state pages (愿茶) — see moge.py

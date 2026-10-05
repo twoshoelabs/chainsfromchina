@@ -345,11 +345,21 @@
       "name": "Yu Jian Xiao Mian",
       "name_zh": "遇见小面",
       "format": "restaurant",
-      "global": "~500+ stores worldwide (Chongqing noodles, HKEX-listed Dec 2025); overseas new and small — Singapore and Hong Kong since Dec 2025",
+      "global": "~500+ stores worldwide (Chongqing noodles, HKEX-listed Dec 2025); overseas since Dec 2025 and scaling in Hong Kong (19 stores by Oct 2026) plus 4 in Singapore",
       "operating_model": "company_owned",
       "franchise_available_us": 0,
       "fdd_available": 0,
       "franchise_note": "China/HK chain; no US locations (the DC 'Yu Noodles' is an unrelated US brand)."
+    },
+    "happylamb": {
+      "name": "Happy Lamb Hot Pot",
+      "name_zh": "快乐小羊",
+      "format": "hotpot",
+      "global": "~100+ Inner-Mongolian-style hot pot restaurants across ~11 countries. Re-founded 2017 by Zhang Gang (张钢), the founder of Little Sheep (小肥羊), after Yum! Brands acquired Little Sheep; first store Baotou (Inner Mongolia) Dec 2017, then Hohhot and Shijiazhuang. North American operations are run from a Houston, TX base.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Inner Mongolian hot pot from the Little Sheep founder. The US estate (29 outlets across 11 states) is collected on the map and run from Houston; no registered US franchise offering found in state registries."
     },
     "hefu": {
       "name": "Hefu Noodle",
@@ -2142,29 +2152,31 @@
       "chain": "yujianxiaomian",
       "market": "SG",
       "status": "present",
-      "locations": 2,
-      "locations_as_of": "2026-07",
+      "locations": 4,
+      "locations_as_of": "2026-10",
       "first_opened": "2025-12-29",
       "precision": "day",
       "confidence": "high",
-      "reviewed": "2026-09-29",
-      "note": "First overseas flagship 313@Somerset (its global 500th store) Dec 2025; 2nd at Tampines ~Jul 2026.",
+      "reviewed": "2026-10-05",
+      "note": "First overseas flagship 313@Somerset (its global 500th store) Dec 2025. The brand's own store locator lists 4 Singapore outlets by Oct 2026: 313@Somerset, Tampines MRT, Pasir Ris Mall, City Square Mall.",
       "sources": [
-        "https://insideretail.asia/2026/01/07/xiao-noodles-opens-first-overseas-flagship-in-singapore/"
+        "https://insideretail.asia/2026/01/07/xiao-noodles-opens-first-overseas-flagship-in-singapore/",
+        "https://www.xiaonoodles.com/zh-tw/shop"
       ]
     },
     {
       "chain": "yujianxiaomian",
       "market": "HK",
       "status": "present",
-      "locations": null,
+      "locations": 19,
+      "locations_as_of": "2026-10",
       "first_opened": "2026",
       "precision": "year",
-      "confidence": "medium",
-      "reviewed": "2026-09-29",
-      "note": "~2 stores at high-speed-rail stations (e.g. West Kowloon); count from press, no dated first-party total.",
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "The brand's own store locator lists 19 Hong Kong outlets by Oct 2026 (across Kowloon/HK Island — e.g. Whampoa, MOKO Mongkok, Tsuen Wan, Tai Wo Hau, West Kowloon). A fast scale-up from the ~2 HSR-station stores press reported earlier in 2026.",
       "sources": [
-        "https://www.xiaonoodles.com/"
+        "https://www.xiaonoodles.com/zh-tw/shop"
       ]
     },
     {
@@ -3184,15 +3196,16 @@
     {
       "chain": "meiyijia",
       "market": "MY",
-      "status": "announced",
+      "status": "present",
       "locations": null,
-      "first_opened": null,
-      "precision": null,
-      "confidence": "low",
-      "reviewed": "2026-09-29",
-      "note": "Reported to be expanding into Malaysia; no store location or date confirmed.",
+      "first_opened": "2026-04",
+      "precision": "month",
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "Open in Penang under the 'Ohmee' brand; Momentum Works reports 12+ Penang stores by early Sept 2026, a localized ready-meal format (Malay/Chinese/Indian) with aggressive pricing. Store observed at G33 GF Jalan Terbilang, Taman Terbilang, Bagan Ajam, 13000 Butterworth (Google Maps listing, 5 Oct 2026). Upgraded from 'announced' once stores were confirmed open.",
       "sources": [
-        "https://theinvestor.vn/chinas-retail-giant-meiyijia-enters-southeast-asia-with-first-stores-in-vietnam-malaysia-d18990.html"
+        "https://theinvestor.vn/chinas-retail-giant-meiyijia-enters-southeast-asia-with-first-stores-in-vietnam-malaysia-d18990.html",
+        "https://thelowdown.momentum.asia/chinas-largest-convenience-store-chain-expands-to-southeast-asia/"
       ]
     },
     {
@@ -7208,6 +7221,146 @@
       "reviewed": "2026-10-02",
       "note": "Germany is absent from Super Hi's confirmed 14-country list. Haidilao's only Germany-linked activity is cross-border delivery from its London restaurant and packaged condiments sold via a German Asian grocer — neither is a brand-operated German store.",
       "sources": []
+    },
+    {
+      "chain": "happylamb",
+      "market": "HK",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2018",
+      "precision": "year",
+      "confidence": "high",
+      "note": "Entered Hong Kong 2018; operating outlets include Causeway Bay.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "CA",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "First-party Canada site (happylambhotpotca.com); operating outlets include Toronto (421 Dundas St W; 2543 Warden Ave) and Vancouver (1788 W Broadway).",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpotca.com/locations.html"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "First-party UK site (happylambuk.com) lists several outlets — Holborn and Bayswater (London), Birmingham, Edinburgh.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambuk.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "AU",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "First-party Australia site (happylamb.com.au); operating outlet in Melbourne (173 Exhibition St).",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylamb.com.au/about-us/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "SG",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "note": "First-party Singapore site (happylambhotpot.sg) presents a Singapore operation; specific outlet count not pinned here.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://www.happylambhotpot.sg/en/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "JP",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "Brand lists Japan among its operating countries; a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "MY",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "Brand lists Kuala Lumpur among its markets; a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "PH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "Brand lists Manila among its markets; a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "KH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "Brand lists Cambodia among its markets; a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
+    },
+    {
+      "chain": "happylamb",
+      "market": "TW",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "Brand lists Taiwan among its markets; a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-05",
+      "sources": [
+        "https://happylambhotpot.com/"
+      ]
     }
   ]
 }

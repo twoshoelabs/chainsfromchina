@@ -1455,12 +1455,28 @@
      "name": "Rockville",
      "confidence": "uncertain",
      "verified_by": "announced, not yet open (routine discovery 2026-10-01) — https://mocoshow.com/2026/06/11/update-on-marylands-first-chahalo/"
+    },
+    {
+     "address": "37-06 Prince St, Flushing, NY 11354",
+     "name": "Flushing (Prince St)",
+     "confidence": "confirmed",
+     "verified_by": "Field screenshot 2026-10-05: Google lists ChaHalo 茶话弄 operating at 37-06 Prince St (1,337 reviews, Open · closes 11 PM). Distinct from Nayuki/NaiSnow at 39-07 Prince St on the same block.",
+     "lat": 40.760586,
+     "lon": -73.832925
+    },
+    {
+     "address": "26-23 Jackson Ave, Long Island City, NY 11101",
+     "name": "Long Island City",
+     "confidence": "confirmed",
+     "verified_by": "Field screenshot 2026-10-05: Yelp lists ChaHalo 茶话弄 at 26-23 Jackson Ave (18 reviews, 26 photos), bubble tea, operating. Distinct from Nayuki/NaiSnow at 27-53 Jackson Ave on the same corridor.",
+     "lat": 40.74747,
+     "lon": -73.941599
     }
    ],
-   "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
-   "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
+   "scope": "New US locations from the project's discovery routine (2026-10-01) and later field screenshots, source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
+   "source": "Discovery routine 2026-10-01 web-search leads plus 2026-10-05 field screenshots; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
-   "reviewed": "2026-10-01"
+   "reviewed": "2026-10-05"
   },
   {
    "chain": "cotti",
