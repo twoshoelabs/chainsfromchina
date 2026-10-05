@@ -70,31 +70,35 @@
     },
     "GB": {
       "name": "United Kingdom",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "FR": {
       "name": "France",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "DE": {
       "name": "Germany",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "ES": {
       "name": "Spain",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "IT": {
       "name": "Italy",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "NL": {
       "name": "Netherlands",
-      "region": "Western Europe"
+      "region": "Europe"
     },
     "BE": {
       "name": "Belgium",
-      "region": "Western Europe"
+      "region": "Europe"
+    },
+    "PL": {
+      "name": "Poland",
+      "region": "Europe"
     },
     "VN": {
       "name": "Vietnam",
@@ -910,7 +914,7 @@
       "name": "Xiaomi",
       "name_zh": "小米",
       "format": "electronics",
-      "global": "Consumer-electronics giant; 100+ own/franchised Mi Stores across Western Europe, plus India, SE Asia and the Middle East. No US retail.",
+      "global": "Consumer-electronics giant; 100+ own/franchised Mi Stores across Europe (incl. Poland), plus India, SE Asia and the Middle East. No US retail.",
       "sector": "electronics",
       "sub_category": "consumer electronics",
       "tickers": [
@@ -7442,6 +7446,80 @@
       "confidence": "low",
       "reviewed": "2026-10-05",
       "note": "Searched for a Kazakhstan store (2026-10-05); none found. POP MART's overseas estate is the Americas, Europe, Southeast Asia, Oceania and East Asia."
+    },
+    {
+      "chain": "miniso",
+      "market": "PL",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2025",
+      "precision": "year",
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "First Polish store a Collectible Toy Store at Warsaw's Złote Tarasy (Złota 59) in Aug 2025, followed by a full flagship at the same mall (opened 19 Dec); also open in Kraków. First-party store list on MINISO's site.",
+      "sources": [
+        "https://www.miniso.com/brand/news_181.html",
+        "https://www.licenseglobal.com/retail-news-trends/miniso-opens-poland-s-first-collectible-toy-store"
+      ]
+    },
+    {
+      "chain": "xiaomi",
+      "market": "PL",
+      "status": "present",
+      "locations": null,
+      "first_opened": "2020",
+      "precision": "year",
+      "confidence": "high",
+      "reviewed": "2026-10-05",
+      "note": "Official brand retail via Xiaomi Poland: Mi/Xiaomi Stores in Warsaw (Westfield Arkadia, Promenada/Ostrobramska, and the Wołoska store billed as the largest Mi Store in Central & Eastern Europe when it opened Dec 2020) plus Kraków. Some locations are partner-operated under the brand.",
+      "sources": [
+        "https://www.gizmochina.com/2020/12/24/xiaomi-largest-mi-store-central-eastern-europe-warsaw/",
+        "https://www.westfield.com/en/poland/arkadia/shops/xiaomi-store/73101"
+      ]
+    },
+    {
+      "chain": "mixue",
+      "market": "PL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Searched by English and Chinese names (2026-10-05); no Poland store found. Mixue's European footprint so far is France; Poland is not among its stated markets."
+    },
+    {
+      "chain": "popmart",
+      "market": "PL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "No official POP MART store found in Poland (2026-10-05); its figures appear only through third-party resellers (e.g. KXM Store, Warsaw) and an aggregator listing, not a brand-operated store."
+    },
+    {
+      "chain": "cotti",
+      "market": "PL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Searched by English and Chinese (库迪咖啡) names (2026-10-05); no Poland store found."
+    },
+    {
+      "chain": "luckin",
+      "market": "PL",
+      "status": "no_evidence",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-05",
+      "note": "Luckin's markets are China, Hong Kong, Singapore, Malaysia and the US; no Poland presence found (2026-10-05)."
     }
   ]
 }

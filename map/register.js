@@ -12,7 +12,7 @@ const chainLabel = (c, opts = {}) => {
   return `${esc(trading)}${zh}${also}`;
 };
 
-const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Western Europe'];
+const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Europe'];
 // The same retail-type buckets the landing page groups its chains by, so the matrix reads the
 // same way — tea with tea, toys with toys — and every chain (US or only-abroad) lands in its type.
 const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Snacks & Delis', 'Bakery',
@@ -36,7 +36,7 @@ async function main() {
   const chains = Object.keys(D.chains).sort((a, b) =>
     (D.derived.markets_present[b] || 0) - (D.derived.markets_present[a] || 0) || a.localeCompare(b));
 
-  // Region headers span their markets, so Western Europe reads as one block.
+  // Region headers span their markets, so Europe reads as one block.
   const spans = [];
   for (const m of markets) {
     const r = D.markets[m].region;

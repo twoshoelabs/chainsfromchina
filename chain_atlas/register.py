@@ -141,12 +141,12 @@ def matrix(d: dict) -> tuple[list[str], list[str], dict]:
     arguments: d
     returns:   (chain_ids, market_codes, {(chain, market): entry})
     effects:   None
-    other:     Markets are ordered by region so Western Europe reads as a block.
+    other:     Markets are ordered by region so Europe reads as a block.
     """
     cells = {(e["chain"], e["market"]): e for e in d["entries"]}
     chains = sorted(d["chains"], key=lambda c: (-sum(1 for k in cells if k[0] == c), c))
     order = ["East Asia", "Southeast Asia", "Central Asia", "Gulf", "Oceania",
-             "North America", "Western Europe"]
+             "North America", "Europe"]
     markets = sorted(d["markets"],
                      key=lambda m: (order.index(d["markets"][m]["region"])
                                     if d["markets"][m]["region"] in order else 99, m))
