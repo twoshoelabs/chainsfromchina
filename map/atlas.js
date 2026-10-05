@@ -238,6 +238,17 @@ function sectorRingMarker(chain, soft) {
   }
   return el;
 }
+// A count pin for the insets: when several outlets sit on top of one another in the tiny thumbnail
+// (e.g. a handful of stores on one Hawaiian island), they collapse to one ringed number instead of
+// stacking into an unreadable blob. Click the inset to open that state on the main map for detail.
+function insetClusterMarker(n) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin';
+  el.textContent = String(n);
+  el.style.borderColor = 'var(--ink)';
+  el.style.color = 'var(--ink)';
+  return el;
+}
 function buildInsets(parent, style, statesFC, fc) {
   const wrap = document.createElement('div'); wrap.className = 'map-insets';
   parent.appendChild(wrap);
@@ -263,12 +274,27 @@ function buildInsets(parent, style, statesFC, fc) {
         im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
       }
       const [[w, s], [e, n]] = ins.bounds;
-      for (const f of fc.features) {
+      const here = fc.features.filter((f) => {
         const [x, y] = f.geometry.coordinates;
-        if (x < w || x > e || y < s || y > n) continue;
-        const soft = f.properties.status === 'coming_soon';
-        new maplibregl.Marker({ element: sectorRingMarker(f.properties.chain, soft) })
-          .setLngLat(f.geometry.coordinates).addTo(im);
+        return x >= w && x <= e && y >= s && y <= n;
+      });
+      // Group outlets that would overlap in this tiny thumbnail (project each to inset pixels and
+      // merge those within GROUP_PX), so coincident pins don't stack into a blob. One ring per group;
+      // a group of more than one shows its count.
+      const GROUP_PX = 20;
+      const groups = [];
+      for (const f of here) {
+        const pt = im.project(f.geometry.coordinates);
+        const g = groups.find((gr) => Math.hypot(gr.x - pt.x, gr.y - pt.y) < GROUP_PX);
+        if (g) g.feats.push(f);
+        else groups.push({ x: pt.x, y: pt.y, feats: [f] });
+      }
+      for (const g of groups) {
+        const f0 = g.feats[0];
+        const soft = g.feats.every((f) => f.properties.status === 'coming_soon');
+        const el = g.feats.length > 1 ? insetClusterMarker(g.feats.length)
+                                      : sectorRingMarker(f0.properties.chain, soft);
+        new maplibregl.Marker({ element: el }).setLngLat(f0.geometry.coordinates).addTo(im);
       }
     });
   }
@@ -320,6 +346,13 @@ async function init() {
   const chainSector = {};
   for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
   CHAIN_SECTOR = chainSector;
+
+  // Build the brand list and legend from the data NOW, before the basemap. They need only the
+  // fetched GeoJSON, not the map, so a slow or failed basemap (resolveStyle awaits CDN modules)
+  // no longer leaves the left-hand chain list empty — the cause of its intermittent absence.
+  // applyFilter() inside buildTally safely skips the map until MAP_REF/FULL_FC are set below.
+  buildLegend();
+  buildTally(fc);
 
   const style = await resolveStyle();
   const insetStyle = JSON.parse(JSON.stringify(style));   // a clean copy before MapLibre mutates `style`
@@ -380,8 +413,14 @@ async function init() {
     if (outlineFC || statesFC) {
       try {
         map.addSource('usmask', { type: 'geojson', data: outlineFC ? usMask(outlineFC) : usMask(statesFC) });
+        // The mask is a national-view device (it drops Mexico/Canada/Cuba so the US reads as one
+        // silhouette). Our state outlines are coarse — Oahu is a 7-point polygon that doesn't even
+        // contain Honolulu — so at close zoom the mask whites out real coastline and strands a pin
+        // "in the ocean." Since you can't see a neighbouring country once zoomed into one city, fade
+        // the mask out as you zoom in and let the real basemap coastline show.
         map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
-          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
+          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false,
+            'fill-opacity': ['interpolate', ['linear'], ['zoom'], 5.5, 1, 7.5, 0] } });
       } catch (e) { console.warn('US mask skipped', e && e.message); }
     }
 
@@ -464,8 +503,7 @@ async function init() {
       map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
     }
 
-    buildLegend();
-    buildTally(fc);
+    applyFilter();               // list + legend were built pre-load; now sync the map source to it
     setupSearch(map);
     setupToolbar(map);
     restoreFromURL(map);
