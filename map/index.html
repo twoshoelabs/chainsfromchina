@@ -533,6 +533,63 @@ const fmt = n => (n==null?'—':n.toLocaleString('en-US'));
 const word = n => (n>=0 && n<=10) ? WORD[n] : String(n);
 const $ = id => document.getElementById(id);
 
+// Grand-total count-up. On a first visit — or after a while away — the headline total spins
+// upward to today's figure instead of just appearing: from the number the visitor last saw when
+// we have it (so a returning reader watches the growth since their last visit), otherwise from a
+// base below the total. A recent repeat visit, or a reader who prefers reduced motion, just sees
+// the number. This is a per-viewer flourish kept in localStorage; it never blocks or changes the
+// real figure, and degrades to "just show it" if storage is unavailable.
+const REVISIT_MS = 7*24*60*60*1000;             // "a while" = 7 days
+const lsGet = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
+const lsSet = (k,v) => { try { localStorage.setItem(k,v); } catch(e){} };
+
+function countUp(els, to, from, dur){
+  els = els.filter(Boolean);
+  if (!els.length) return;
+  const set = v => els.forEach(el => el.textContent = fmt(v));
+  els.forEach(el => el.setAttribute('aria-label', fmt(to)));   // AT always reads the true figure
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !(to>0) || !(from<to) || dur<=0){ set(to); return; }
+  const play = () => {
+    set(from);                                                 // start point, shown as the spin begins
+    const t0 = performance.now();
+    requestAnimationFrame(function frame(now){
+      const p = Math.min(1,(now-t0)/dur), e = 1-Math.pow(1-p,3);  // easeOutCubic
+      set(p<1 ? Math.round(from+(to-from)*e) : to);
+      if (p<1) requestAnimationFrame(frame);
+    });
+  };
+  // A hidden/background tab throttles requestAnimationFrame, which would otherwise freeze the number
+  // at the start value. So show the true figure while unseen, and run the spin the moment the reader
+  // actually looks — even a link opened in a background tab still gets the effect, once.
+  if (document.hidden){
+    set(to);
+    const onShow = () => { if (!document.hidden){ document.removeEventListener('visibilitychange', onShow); play(); } };
+    document.addEventListener('visibilitychange', onShow);
+  } else {
+    play();
+  }
+}
+
+// Decide whether to spin, pick the start value, and remember this visit.
+function animateGrandTotal(outlets){
+  const els = [$('hero-num'), $('L-open')];
+  const lastVisit = parseInt(lsGet('cfc_last_visit')||'0', 10);
+  const lastTotal = parseInt(lsGet('cfc_last_total')||'0', 10);
+  const now = Date.now();
+  const away = !lastVisit || (now - lastVisit) > REVISIT_MS;
+  if (away){
+    const from = (lastVisit && lastTotal>0 && lastTotal<outlets)   // returning: grow from last seen
+      ? lastTotal
+      : (lastVisit ? Math.round(outlets*0.85) : 0);                // else a gentle spin (0 on first ever)
+    countUp(els, outlets, from, 1600);
+  } else {
+    els.forEach(el=> el && (el.textContent = fmt(outlets)));
+  }
+  lsSet('cfc_last_visit', String(now));
+  lsSet('cfc_last_total', String(outlets));
+}
+
 (async function () {
   let fc, demo=null, reg=null;
   try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
@@ -562,9 +619,9 @@ const $ = id => document.getElementById(id);
     s.outlets++; s.chains.add(p.chain); chainSet.add(p.chain); }
   const secRows = Object.entries(bySector).sort((a,b)=>b[1].outlets-a[1].outlets);
   const nChains = chainSet.size, nSectors = secRows.length;
-  $('hero-num').textContent = fmt(outlets);
+  animateGrandTotal(outlets);                 // hero-num + L-open: spin up on a first/after-a-while visit
   $('hero-chains').textContent = fmt(nChains);
-  $('L-open').textContent = fmt(outlets); $('L-mapped').textContent = fmt(mapped);
+  $('L-mapped').textContent = fmt(mapped);
   $('L-unaddr').textContent = fmt(unaddr); $('L-chains').textContent = fmt(nChains);
   $('L-sectors').textContent = fmt(nSectors);
 

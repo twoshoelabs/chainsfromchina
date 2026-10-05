@@ -7,6 +7,27 @@
    "lat": 37.303585,
    "lon": -122.032251,
    "note": "Census has no TIGER range for the odd side of this S De Anza Blvd block, so 1199 is interpolated between the Census matches for 1180 (37.304869) and 1210 (37.302841) S De Anza Blvd on the same segment. 29 Sep 2026."
+  },
+  {
+   "chain": "happylamb",
+   "address": "13343 N Hwy 183 #290, Austin TX 78750",
+   "lat": 30.446077,
+   "lon": -97.786142,
+   "note": "Census returns no match for this US-183 / Research Blvd frontage address (the whole frontage is a TIGER gap). Coordinate is the OpenStreetMap POI for the same store, 'Happy Lamb Hot Pot, 13343 Research Boulevard, Austin' (Research Blvd is the frontage name for US-183 here). 5 Oct 2026."
+  },
+  {
+   "chain": "happylamb",
+   "address": "4068 Grafton St, Dublin, CA 94568",
+   "lat": 37.703407,
+   "lon": -121.865957,
+   "note": "Census has no TIGER range for Grafton St in the Grafton Station development, Dublin (no match for any house number on the segment). Coordinate is the OpenStreetMap POI for the same store, 'Happy Lamb Hot Pot, Grafton Street, Grafton Station, Dublin'. 5 Oct 2026."
+  },
+  {
+   "chain": "happylamb",
+   "address": "16310 Beach Blvd, Westminster CA 92683",
+   "lat": 33.7273,
+   "lon": -117.986,
+   "note": "Census returns no match for this Beach Blvd (CA-39) block and OSM has no house-number or POI for 16310. Anchored to the nearest real OSM house-number match on the same corridor, 16400 Beach Blvd = Target (33.72598, -117.98575), nudged ~north toward 16310's lower house number. Approximate (~150 m), same Beach Blvd retail corridor; marked manual. 5 Oct 2026."
   }
  ]
 }
