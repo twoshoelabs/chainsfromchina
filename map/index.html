@@ -571,20 +571,25 @@ function countUp(els, to, from, dur){
   }
 }
 
-// Decide whether to spin, pick the start value, and remember this visit.
-function animateGrandTotal(outlets){
+// Decide whether to spin, pick the start value, and remember this visit. The spin backs up only to
+// about a week or two ago — the count as of ~a week back (prevTotal, from the data), or the number
+// this viewer last saw if that was more recent, whichever is higher — never further, and never from
+// zero. A recent repeat visit just shows the number.
+function animateGrandTotal(outlets, prevTotal){
   const els = [$('hero-num'), $('L-open')];
   const lastVisit = parseInt(lsGet('cfc_last_visit')||'0', 10);
   const lastTotal = parseInt(lsGet('cfc_last_total')||'0', 10);
   const now = Date.now();
   const away = !lastVisit || (now - lastVisit) > REVISIT_MS;
-  if (away){
-    const from = (lastVisit && lastTotal>0 && lastTotal<outlets)   // returning: grow from last seen
-      ? lastTotal
-      : (lastVisit ? Math.round(outlets*0.85) : 0);                // else a gentle spin (0 on first ever)
-    countUp(els, outlets, from, 1600);
+  const cands = [];
+  if (prevTotal>0 && prevTotal<outlets) cands.push(prevTotal);
+  if (lastVisit && lastTotal>0 && lastTotal<outlets) cands.push(lastTotal);
+  const from = cands.length ? Math.max(...cands) : 0;
+  if (away && from>0){
+    const dur = Math.min(800, Math.max(350, (outlets-from)*6));    // brief; a little longer for a bigger gap
+    countUp(els, outlets, from, dur);
   } else {
-    els.forEach(el=> el && (el.textContent = fmt(outlets)));
+    els.forEach(el=> el && (el.textContent = fmt(outlets)));        // recent visit, or no sane backup -> just show it
   }
   lsSet('cfc_last_visit', String(now));
   lsSet('cfc_last_total', String(outlets));
@@ -619,7 +624,7 @@ function animateGrandTotal(outlets){
     s.outlets++; s.chains.add(p.chain); chainSet.add(p.chain); }
   const secRows = Object.entries(bySector).sort((a,b)=>b[1].outlets-a[1].outlets);
   const nChains = chainSet.size, nSectors = secRows.length;
-  animateGrandTotal(outlets);                 // hero-num + L-open: spin up on a first/after-a-while visit
+  animateGrandTotal(outlets, T.prev);         // hero-num + L-open: spin up on a first/after-a-while visit
   $('hero-chains').textContent = fmt(nChains);
   $('L-mapped').textContent = fmt(mapped);
   $('L-unaddr').textContent = fmt(unaddr); $('L-chains').textContent = fmt(nChains);

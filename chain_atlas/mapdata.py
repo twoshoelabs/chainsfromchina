@@ -139,6 +139,41 @@ def us_totals(con) -> dict:
             "roboshops": roboshops}
 
 
+def outlets_asof(con, days_ago: int = 7) -> dict:
+    """
+    name:      outlets_asof
+    purpose:   The headline outlet total as the project tracked it roughly `days_ago` days back, so
+               the homepage can spin the counter up from the figure a week or two ago rather than 0.
+    arguments: con; days_ago — lookback window
+    returns:   {"outlets": int, "as_of": "YYYY-MM-DD"}
+    effects:   None
+    other:     Approximate, and the same shape as us_totals' `outlets`: a collected store counts if
+               it had been seen by then and was not closed by then; a confirmed sighting counts if it
+               had been supplied by then. 'uncertain' sightings, graduated sightings and robo machines
+               are excluded, matching us_totals. Never exceeds today's total.
+    """
+    from datetime import date, timedelta
+    from .sightings import geocoded as _sightings
+    from .config import today_ny
+    d = (date.fromisoformat(str(today_ny())[:10]) - timedelta(days=days_ago)).isoformat()
+    collected = con.execute(
+        "SELECT COUNT(*) n FROM stores WHERE country='US' AND status='active'"
+        " AND COALESCE(format,'')<>'vending_robo'"
+        " AND first_seen IS NOT NULL AND substr(first_seen,1,10) <= ?"
+        " AND (closed_on IS NULL OR substr(closed_on,1,10) > ?)", (d, d)).fetchone()["n"] or 0
+    cpts = census_points(con)
+    hand = 0
+    for s in _sightings(cache_only=True):
+        if s.get("confidence") == "uncertain" or not s.get("state"):
+            continue
+        if (s.get("supplied_on") or "9999") > d:
+            continue
+        if census_covers(cpts.get(s["chain"], []), s.get("lon"), s.get("lat")):
+            continue
+        hand += 1
+    return {"outlets": collected + hand, "as_of": d}
+
+
 def export(out_dir: Path) -> dict:
     """
     name:      export
