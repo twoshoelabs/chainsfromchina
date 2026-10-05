@@ -552,9 +552,10 @@ function countUp(els, to, from, dur){
   if (reduce || !(to>0) || !(from<to) || dur<=0){ set(to); return; }
   const play = () => {
     set(from);                                                 // start point, shown as the spin begins
-    const t0 = performance.now();
-    requestAnimationFrame(function frame(now){
-      const p = Math.min(1,(now-t0)/dur), e = 1-Math.pow(1-p,3);  // easeOutCubic
+    let t0 = null;                                             // clock starts on the FIRST painted frame,
+    requestAnimationFrame(function frame(now){                 // so load-time jank can't skip the spin ahead
+      if (t0 === null) t0 = now;
+      const p = Math.min(1,(now-t0)/dur), e = 1-(1-p)*(1-p);     // easeOutQuad: counting stays visible
       set(p<1 ? Math.round(from+(to-from)*e) : to);
       if (p<1) requestAnimationFrame(frame);
     });
@@ -586,7 +587,7 @@ function animateGrandTotal(outlets, prevTotal){
   if (lastVisit && lastTotal>0 && lastTotal<outlets) cands.push(lastTotal);
   const from = cands.length ? Math.max(...cands) : 0;
   if (away && from>0){
-    const dur = Math.min(800, Math.max(350, (outlets-from)*6));    // brief; a little longer for a bigger gap
+    const dur = Math.min(900, Math.max(650, (outlets-from)*16));   // quick, but long enough to read as a spin
     countUp(els, outlets, from, dur);
   } else {
     els.forEach(el=> el && (el.textContent = fmt(outlets)));        // recent visit, or no sane backup -> just show it
