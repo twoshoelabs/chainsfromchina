@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — by state</title>
+<meta name="description" content="Where China-origin retail and F&B chains are open across the United States, listed by state and sortable by outlet count.">
+<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  .statewrap { flex-direction: column; }
+  .statewrap main { width: 100%; }
+
+  .sortbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 4px 0 20px; }
+  .sortbar .sortlbl { font: 600 13px var(--sans); color: var(--muted); margin-right: 2px; }
+  .sortbtn { font: 600 13px var(--sans); padding: 6px 13px; border: 1.5px solid var(--ink);
+    background: transparent; color: var(--ink); cursor: pointer; border-radius: 2px; }
+  .sortbtn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .sortbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .statelist { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px 28px; }
+  .statecard { border-top: 2px solid var(--ink); padding: 9px 0 14px; }
+  .statecard.empty { opacity: .5; }
+  .st-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 11px; }
+  .st-name { font: 700 19px/1.1 var(--serif); }
+  .st-abbr { font: 600 11px var(--sans); color: var(--muted); margin-left: 7px; letter-spacing: .05em; vertical-align: middle; }
+  .st-total { font: 700 16px var(--sans); white-space: nowrap; text-align: right; }
+  .st-unit { font-weight: 500; color: var(--muted); font-size: 13px; }
+  .st-soon { display: block; font: 500 11px var(--sans); color: var(--soon); margin-top: 1px; }
+  .st-none { font: 500 13px var(--sans); color: var(--muted); }
+
+  .st-chains { display: flex; flex-wrap: wrap; gap: 7px 11px; align-items: center; }
+  .bchip { display: inline-flex; align-items: center; gap: 5px; }
+  .bchip[hidden] { display: none; }
+  .blogo { width: 27px; height: 27px; border-radius: 50%; border: 2px solid; background: #fff;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+    font: 700 9px var(--sans); box-sizing: border-box; flex: none; }
+  .blogo img { width: 80%; height: 80%; object-fit: contain; }
+  .bn { font: 700 13px var(--sans); color: var(--ink); }
+  .st-more { font: 600 12px var(--sans); color: var(--accent-ink); background: none; border: none;
+    cursor: pointer; padding: 2px 2px; text-decoration: underline; }
+  .st-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 560px) { .statelist { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="states">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink current" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>By state</h1>
+  <p class="sub" id="intro">Loading the by-state breakdown…</p>
+</header>
+
+<div class="wrap statewrap">
+  <main>
+    <div class="sortbar" role="group" aria-label="Order the states">
+      <span class="sortlbl">Order by</span>
+      <button type="button" class="sortbtn" data-sort="most" aria-pressed="true">Most outlets</button>
+      <button type="button" class="sortbtn" data-sort="fewest" aria-pressed="false">Fewest outlets</button>
+      <button type="button" class="sortbtn" data-sort="alpha" aria-pressed="false">A&ndash;Z</button>
+    </div>
+    <div id="statelist" class="statelist"></div>
+    <p class="note" style="margin-top:20px">Each outlet is counted under the state it sits in &mdash; open outlets taken from each chain&rsquo;s own store locator plus hand-verified sightings. The long tail of chains in a state opens with &ldquo;+N more.&rdquo; For the map itself, see the <a href="index.html">US store map</a>.</p>
+  </main>
+</div>
+
+<script src="site.js?v=9"></script>
+<script src="states.js?v=1"></script>
+</body>
+</html>
