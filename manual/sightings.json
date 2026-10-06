@@ -1858,6 +1858,71 @@
      "lon": -118.101611
     }
    ]
+  },
+  {
+   "chain": "teapulse",
+   "supplied_on": "2026-10-06",
+   "reviewed": "2026-10-06",
+   "source": "Google listings (addresses + operating hours/reviews) + brand press (悸动烧仙草 overseas news; amNY, citybiz). teapulseusa.com/locations is a dynamic Wix widget with no readable feed, so collected by hand.",
+   "scope": "Known US Teapulse (悸动烧仙草 / 'Jidong') outlets — the US brand of a Shanghai new-tea/grass-jelly chain. All in New York City; first US store Flushing ~2022, with a Manhattan expansion through 2026. Not a complete roster (Bayside and Fresh Meadows are reported but not yet pinned).",
+   "locations": [
+    {
+     "name": "Flushing (Prince St)",
+     "address": "37-17 Prince St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Google (1.1K reviews, operating) + brand press (悸动烧仙草 Flushing first store) (6 Oct 2026). Distinct from ChaHalo (37-06) and Nayuki (39-07) on the same block.",
+     "lat": 40.76073,
+     "lon": -73.832841
+    },
+    {
+     "name": "Doyers St (Chinatown)",
+     "address": "18 Doyers St, New York, NY 10013",
+     "confidence": "confirmed",
+     "verified_by": "Google (281 reviews, operating) (6 Oct 2026).",
+     "lat": 40.714177,
+     "lon": -73.997687
+    },
+    {
+     "name": "Canal St (Chinatown)",
+     "address": "167 Canal St, New York, NY 10013",
+     "confidence": "confirmed",
+     "verified_by": "Google (198 reviews, operating) (6 Oct 2026).",
+     "lat": 40.716617,
+     "lon": -73.997021
+    },
+    {
+     "name": "Koreatown (W 30th St)",
+     "address": "65 W 30th St, New York, NY 10001",
+     "confidence": "confirmed",
+     "verified_by": "Google (167 reviews, operating) + citybiz/amNY (Koreatown flagship) (6 Oct 2026).",
+     "lat": 40.747054,
+     "lon": -73.988929
+    },
+    {
+     "name": "Madison Square (E 23rd St)",
+     "address": "111 E 23rd St, New York, NY 10010",
+     "confidence": "confirmed",
+     "verified_by": "Google (148 reviews, operating) (6 Oct 2026).",
+     "lat": 40.740014,
+     "lon": -73.985799
+    },
+    {
+     "name": "Sixth Ave (1029)",
+     "address": "1029 6th Ave, New York, NY 10018",
+     "confidence": "confirmed",
+     "verified_by": "Google (185 reviews, operating) (6 Oct 2026).",
+     "lat": 40.752583,
+     "lon": -73.985836
+    },
+    {
+     "name": "Sixth Ave (1375, Plaza District)",
+     "address": "1375 6th Ave, New York, NY 10019",
+     "confidence": "confirmed",
+     "verified_by": "Google (76 reviews, operating) + citybiz (1375B Sixth Ave, Plaza District) (6 Oct 2026).",
+     "lat": 40.763507,
+     "lon": -73.977873
+    }
+   ]
   }
  ]
 }

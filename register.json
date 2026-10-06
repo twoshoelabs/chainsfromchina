@@ -379,6 +379,16 @@
       "fdd_available": 0,
       "franchise_note": "Beijing roujiamo fast-food chain. US entry Oct 2026 (San Gabriel); the US estate is tracked on the map via sightings (chain_id 'bingz'). US-EXPANSION WATCH: with a $50M US raise and a 300-US-store plan announced, this is a chain to watch for rapid US growth — the daily lead-discovery routine checks for new Bingz US outlets (as a tracked chain) and launch-watch monitors bingz.com for a US store locator / rising store count."
     },
+    "teapulse": {
+      "name": "Teapulse",
+      "name_zh": "悸动烧仙草",
+      "format": "tea",
+      "global": "悸动烧仙草 (Jidong), a Shanghai new-tea / grass-jelly (烧仙草) chain ~19 years old with 2,000+ locations; began expanding abroad in 2019 (UK, Japan, Philippines, Laos, South Korea). Trades in the US as 'Teapulse' (first store Flushing NY ~2022, then a Manhattan expansion through 2026) and abroad as 'Jidong' / 'Jidong Herbal Jelly'.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Shanghai grass-jelly / new-tea chain. US estate (~7 NYC outlets) trades as Teapulse and is tracked on the map via sightings (chain_id 'teapulse'); teapulseusa.com/locations is a dynamic Wix widget with no readable store feed."
+    },
     "hefu": {
       "name": "Hefu Noodle",
       "name_zh": "和府捞面",
@@ -7572,6 +7582,58 @@
       "sources": [
         "https://www.google.com/maps/search/Yang's+Braised+Chicken+Rice+Tanjungpinang"
       ]
+    },
+    {
+      "chain": "teapulse",
+      "market": "GB",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "Trades as 'Jidong'; operating in Liverpool (149 Chatham St, L7 7AZ) per Google (open, 253 reviews).",
+      "reviewed": "2026-10-06",
+      "sources": [
+        "https://www.google.com/maps/search/Jidong+Chatham+St+Liverpool"
+      ]
+    },
+    {
+      "chain": "teapulse",
+      "market": "JP",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "high",
+      "note": "Trades as 'Jidong Herbal Jelly'; operating in Tokyo (1 Chome-52-7 Kitasenzoku, Ota City) per Google.",
+      "reviewed": "2026-10-06",
+      "sources": [
+        "https://www.google.com/maps/search/Jidong+Herbal+Jelly+Ota+Tokyo"
+      ]
+    },
+    {
+      "chain": "teapulse",
+      "market": "PH",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "悸动烧仙草's own overseas news lists the Philippines among its markets (expansion begun 2019); a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-06",
+      "sources": []
+    },
+    {
+      "chain": "teapulse",
+      "market": "KR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "note": "悸动烧仙草's own overseas news lists South Korea among its markets (expansion begun 2019); a specific outlet was not independently pinned.",
+      "reviewed": "2026-10-06",
+      "sources": []
     }
   ]
 }

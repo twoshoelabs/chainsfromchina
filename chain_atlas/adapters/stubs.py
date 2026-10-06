@@ -981,3 +981,28 @@ class BingzAdapter(Adapter):
                       " US outlet; bingz.com has no readable national US locator. Tracked via sightings"
                       " (5 Oct 2026)")
     RECHECK = ["https://www.bingz.com/"]
+
+
+class TeapulseAdapter(Adapter):
+    """
+    Teapulse (悸动烧仙草 / 悸动 "Jidong") — added 2026-10-06. The US brand of 悸动烧仙草 (Jidong
+    Shaoxiancao), a Shanghai-rooted new-tea / grass-jelly (烧仙草) chain ~19 years old with 2,000+
+    locations that began expanding abroad in 2019 (UK, Japan, Philippines, Laos, South Korea).
+    Mainland-China origin, in scope. The US arm trades as "Teapulse" (first US store Flushing NY
+    ~2022; US HQ Great Neck NY); abroad it trades as "Jidong" / "Jidong Herbal Jelly".
+
+    ~7 NYC outlets (Flushing flagship 37-17 Prince St, plus Doyers St and Canal St in Chinatown,
+    Koreatown/65 W 30th, Madison Sq/111 E 23rd, and 1029 & 1375 Sixth Ave), with more announced.
+    teapulseusa.com/locations is a dynamic Wix widget whose store list is not in the page HTML (no
+    readable feed) — so, like Heytea/Cotti, it is tracked via sightings rather than collected.
+    """
+    chain_id, name, name_zh = "teapulse", "Teapulse", "悸动烧仙草"
+    name_us = "Teapulse"
+    aliases = ("悸动", "Jidong", "Jidong Herbal Jelly", "Teapulse 悸动")
+    parent, format = "Jidong (悸动烧仙草, Shanghai)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("US brand of 悸动烧仙草 (Jidong, Shanghai; ~2,000 stores, ~19 yrs) — a grass-jelly"
+                      " / new-tea chain. ~7 NYC outlets (Flushing flagship + Manhattan), more announced."
+                      " teapulseusa.com/locations is a dynamic Wix widget with no readable store feed,"
+                      " so tracked via sightings (6 Oct 2026)")
+    RECHECK = ["https://www.teapulseusa.com/locations"]

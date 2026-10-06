@@ -56,7 +56,7 @@ const LOGO_CHAINS = new Set([
   'anta', 'aunteajenny', 'baospastry', 'bingz', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
   'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
   'luckin', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
-  'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
+  'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'teapulse', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
   'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake',
 ]);
 
