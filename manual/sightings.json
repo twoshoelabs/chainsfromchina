@@ -1864,7 +1864,7 @@
    "supplied_on": "2026-10-06",
    "reviewed": "2026-10-06",
    "source": "Google listings (addresses + operating hours/reviews) + brand press (悸动烧仙草 overseas news; amNY, citybiz). teapulseusa.com/locations is a dynamic Wix widget with no readable feed, so collected by hand.",
-   "scope": "Known US Teapulse (悸动烧仙草 / 'Jidong') outlets — the US brand of a Shanghai new-tea/grass-jelly chain. All in New York City; first US store Flushing ~2022, with a Manhattan expansion through 2026. Not a complete roster (Bayside and Fresh Meadows are reported but not yet pinned).",
+   "scope": "Known US Teapulse (悸动烧仙草 / 'Jidong') outlets — the US brand of a Shanghai new-tea/grass-jelly chain. All in the New York City area; first US store Flushing ~2022, with a Manhattan expansion through 2026. Not a complete roster (more Manhattan openings announced).",
    "locations": [
     {
      "name": "Flushing (Prince St)",
@@ -1921,6 +1921,22 @@
      "verified_by": "Google (76 reviews, operating) + citybiz (1375B Sixth Ave, Plaza District) (6 Oct 2026).",
      "lat": 40.763507,
      "lon": -73.977873
+    },
+    {
+     "name": "Bayside (Northern Blvd)",
+     "address": "212-12 Northern Blvd, Bayside, NY 11361",
+     "confidence": "confirmed",
+     "verified_by": "Google (664 reviews, operating) + brand press (悸动烧仙草 Bayside store) (6 Oct 2026).",
+     "lat": 40.759985,
+     "lon": -73.770428
+    },
+    {
+     "name": "Fresh Meadows (190th St)",
+     "address": "61-18 190th St, Fresh Meadows, NY 11365",
+     "confidence": "confirmed",
+     "verified_by": "Google (445 reviews, operating; Fresh Meadows Place) (6 Oct 2026).",
+     "lat": 40.740547,
+     "lon": -73.784531
     }
    ]
   }
