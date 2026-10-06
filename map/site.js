@@ -15,7 +15,7 @@
     ['chains', 'intro.html', 'Chains'],
     ['cotenancy', 'centers.html', 'Co-tenancy'],
     ['global', 'register.html', 'Global'],
-    ['method', 'classic.html', 'Method'],
+    ['method', 'method.html', 'Method'],
     ['pro', 'index.html#pro', 'Pro'],
   ];
   var cur = (document.body.getAttribute('data-page') || '').trim();
