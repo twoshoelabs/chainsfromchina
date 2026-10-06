@@ -28,14 +28,15 @@ const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
   (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const plural = (n) => (n === 1 ? 'outlet' : 'outlets');
 
-// One brand chip: a sector-ringed logo + the outlet count, with the chain name on hover. The logo
-// falls back to a sector-colored monogram when a chain has no icon file.
+// One brand chip: a sector-ringed logo, the chain NAME and its outlet count — the whole chip links to
+// that chain's "Who they are" profile, so a reader never has to guess what a logo is or hover to find
+// out. The logo falls back to a sector-colored monogram when a chain has no icon file.
 function chip(c, extra) {
   const col = SECTOR[c.sector] || OTHER;
-  return `<span class="bchip${extra ? ' extra' : ''}"${extra ? ' hidden' : ''} title="${esc(c.name)} — ${c.n} ${plural(c.n)}">` +
+  return `<a class="bchip${extra ? ' extra' : ''}"${extra ? ' hidden' : ''} href="chain.html?c=${esc(c.chain)}" title="${esc(c.name)} — ${c.n} ${plural(c.n)}; who they are">` +
     `<span class="blogo" data-chain="${esc(c.chain)}" data-col="${col}" style="border-color:${col}">` +
     `<img src="icons/${esc(c.chain)}.png${ICONV}" alt="" loading="lazy"></span>` +
-    `<span class="bn">${c.n}</span></span>`;
+    `<span class="bnm">${esc(c.name)}</span><span class="bn">${c.n}</span></a>`;
 }
 
 function render() {

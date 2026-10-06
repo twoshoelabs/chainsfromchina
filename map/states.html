@@ -33,14 +33,20 @@
   .st-soon { display: block; font: 500 11px var(--sans); color: var(--soon); margin-top: 1px; }
   .st-none { font: 500 13px var(--sans); color: var(--muted); }
 
-  .st-chains { display: flex; flex-wrap: wrap; gap: 7px 11px; align-items: center; }
-  .bchip { display: inline-flex; align-items: center; gap: 5px; }
+  .st-chains { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+  /* Each chip is a link to that chain's profile: logo + name + count, so nothing has to be guessed. */
+  .bchip { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--ink);
+    border: 1.5px solid var(--rule-2); border-radius: 999px; padding: 3px 11px 3px 4px; background: var(--paper); }
+  .bchip:hover { border-color: var(--ink); }
+  .bchip:hover .bnm { text-decoration: underline; }
+  .bchip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .bchip[hidden] { display: none; }
-  .blogo { width: 27px; height: 27px; border-radius: 50%; border: 2px solid; background: #fff;
+  .blogo { width: 24px; height: 24px; border-radius: 50%; border: 2px solid; background: #fff;
     display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
-    font: 700 9px var(--sans); box-sizing: border-box; flex: none; }
+    font: 700 8px var(--sans); box-sizing: border-box; flex: none; }
   .blogo img { width: 80%; height: 80%; object-fit: contain; }
-  .bn { font: 700 13px var(--sans); color: var(--ink); }
+  .bnm { font: 600 13px var(--sans); white-space: nowrap; }
+  .bn { font: 700 13px var(--sans); color: var(--muted); }
   .st-more { font: 600 12px var(--sans); color: var(--accent-ink); background: none; border: none;
     cursor: pointer; padding: 2px 2px; text-decoration: underline; }
   .st-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -79,6 +85,6 @@
 </div>
 
 <script src="site.js?v=10"></script>
-<script src="states.js?v=1"></script>
+<script src="states.js?v=2"></script>
 </body>
 </html>
