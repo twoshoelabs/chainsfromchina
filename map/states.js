@@ -52,7 +52,7 @@ function render() {
     const restChips = rest.map((c) => chip(c, true)).join('');
     const more = rest.length
       ? `<button type="button" class="st-more" aria-expanded="false">+${rest.length} more</button>` : '';
-    const soon = s.soon ? `<span class="st-soon">+${s.soon} opening soon</span>` : '';
+    const soon = s.soon ? `<span class="st-soon">${s.soon} opening soon</span>` : '';
     const total = s.total
       ? `${s.total.toLocaleString()} <span class="st-unit">${plural(s.total)}</span>`
       : '<span class="st-none">No outlets yet</span>';
