@@ -37,8 +37,8 @@ async function initMethod() {
   const note = document.getElementById('covnote');
   if (note) {
     note.textContent = 'Coverage assessed ' + (cov.as_of || '') +
-      '. “Reality” is a company or press figure for a chain’s US footprint, shown only where one exists; ' +
-      'it is a check on our hand count, not part of the headline total.';
+      '. The reported figure is a company or trade-press statement of a chain’s US footprint, shown only ' +
+      'where one exists — a cross-check on our hand count, not our own measurement and not part of the headline total.';
   }
 }
 initMethod();
