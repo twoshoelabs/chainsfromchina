@@ -1,12 +1,12 @@
 """
 Reported CHINA store counts — a Pro-tier intelligence dimension. For each tracked chain, how big it is in
-its HOME market (mainland China store count, and total/overseas where the split is reported), set beside
+its HOME market (China store count, and total/overseas where the split is reported), set beside
 its US footprint from our own census. That home-market scale and the resulting US-penetration picture is
 exactly what a Pro reader (landlord, broker, brand-expansion team, analyst) wants next to the US map.
 
 PROVENANCE. Every figure is "reported": from a PRIMARY filing (HKEX/SEC/cninfo annual report —
-confidence 'high', usually with a clean mainland/overseas split) or a company statement / reputable press
-figure (confidence 'medium', often a worldwide total rather than a mainland-only count). Every entry
+confidence 'high', usually with a clean China/overseas split) or a company statement / reputable press
+figure (confidence 'medium', often a worldwide total rather than a China-only count). Every entry
 carries an `as_of` and a `source`. No third-party review/delivery/aggregator platforms (Dianping, Meituan,
 窄门餐眼, …) — same posture as the rest of the project.
 
@@ -43,7 +43,7 @@ def validate(d: dict | None = None) -> list:
 
 
 def best_count(v: dict):
-    """The mainland count if reported, else the total — the single number to compare against US outlets."""
+    """The China store count if reported, else the total — the single number to compare against US outlets."""
     return v.get("china") if v.get("china") is not None else v.get("total")
 
 

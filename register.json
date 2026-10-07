@@ -683,7 +683,7 @@
       "operating_model": "company_owned",
       "franchise_available_us": 0,
       "fdd_available": 0,
-      "franchise_note": "State-owned supermarket (China Resources); operates in mainland China + HK only."
+      "franchise_note": "State-owned supermarket (China Resources); operates in China and Hong Kong only."
     },
     "qiandama": {
       "name": "Qiandama",
@@ -983,33 +983,33 @@
       "name_us": "Makkee Dessert",
       "format": "dessert",
       "sector": "food_drink",
-      "global": "麦记牛奶 (Mak Kee Milk Company), a mainland dessert-soup (糖水/炖奶) chain founded 2021 in Huzhou, Zhejiang (founder Xu Kang) — milk-based takes on traditional Chinese tong sui. China's largest Chinese-dessert-soup chain by store count, ~1,000 outlets (up from ~53 at the start of 2025). Began expanding abroad in 2025: the United States (CA/NY/WA, trading as 'Makkee Dessert') and Australia (Sydney). Despite the Cantonese-style 'Mak Kee' branding it is Zhejiang-born, not Hong Kong.",
+      "global": "麦记牛奶 (Mak Kee Milk Company), a Chinese dessert-soup (糖水/炖奶) chain founded 2021 in Huzhou, Zhejiang (founder Xu Kang) — milk-based takes on traditional Chinese tong sui. China's largest Chinese-dessert-soup chain by store count, ~1,000 outlets (up from ~53 at the start of 2025). Began expanding abroad in 2025: the United States (CA/NY/WA, trading as 'Makkee Dessert') and Australia (Sydney). Despite the Cantonese-style 'Mak Kee' branding it is Zhejiang-born, not Hong Kong.",
       "operating_model": "franchise",
       "franchise_available_us": 0,
       "fdd_available": 0,
-      "franchise_note": "Mainland dessert-soup chain. US estate (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing NY, Bellevue WA; Irvine CA, San Jose CA, Brooklyn NY announced) trades as Makkee Dessert and is tracked on the map via sightings (chain_id 'makkee') — no readable US locator (Chowbus orders). No US FDD found and US franchising not advertised (0 = none found)."
+      "franchise_note": "Chinese dessert-soup chain. US estate (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing NY, Bellevue WA; Irvine CA, San Jose CA, Brooklyn NY announced) trades as Makkee Dessert and is tracked on the map via sightings (chain_id 'makkee') — no readable US locator (Chowbus orders). No US FDD found and US franchising not advertised (0 = none found)."
     },
     "guoquan": {
       "name": "Guoquan",
       "name_zh": "锅圈食汇",
       "format": "grocery",
       "sector": "grocery_convenience",
-      "global": "Mainland home-dining-ingredients retailer (锅圈食汇 / GQ Homepot; HKEX 2517) — hot pot and BBQ ingredient packs, ready-to-cook and ready-to-eat meals; ~10,000 stores in China. Opened its first store outside mainland China on 19 Aug 2026, a Wan Chai flagship in Hong Kong with in-store dining, and set up its international regional HQ there as the launchpad for Southeast Asia, Europe and North America.",
+      "global": "Chinese home-dining-ingredients retailer (锅圈食汇 / GQ Homepot; HKEX 2517) — hot pot and BBQ ingredient packs, ready-to-cook and ready-to-eat meals; ~10,000 stores in China. Opened its first store outside its home market on 19 Aug 2026, a Wan Chai flagship in Hong Kong with in-store dining, and set up its international regional HQ there as the launchpad for Southeast Asia, Europe and North America.",
       "operating_model": "franchise",
       "franchise_available_us": 0,
       "fdd_available": 0,
-      "franchise_note": "Mainland hot-pot/BBQ home-ingredient retail chain (HKEX 2517). International expansion began Aug 2026 from a Hong Kong flagship + regional HQ; no US presence yet."
+      "franchise_note": "Chinese hot-pot/BBQ home-ingredient retail chain (HKEX 2517). International expansion began Aug 2026 from a Hong Kong flagship + regional HQ; no US presence yet."
     },
     "commune": {
       "name": "COMMUNE",
       "name_zh": "幻师",
       "format": "restaurant",
       "sector": "food_drink",
-      "global": "Mainland restaurant-bar ('dining bar') chain (COMMUNE / 幻师), founded 2016 in Wuhan, HQ Zhuhai, Guangdong (Jiwu Siwei / Zhuhai Tangqi Shengtao) — a 'super bar + self-serve drinks + dining' format; ~112 directly-operated stores across 40 Chinese cities (Sep 2025). Opened its first store outside mainland China on 24 Jul 2026, a Causeway Bay flagship (Lee Garden 3) in Hong Kong, branded COMMUNE MAISON.",
+      "global": "Chinese restaurant-bar ('dining bar') chain (COMMUNE / 幻师), founded 2016 in Wuhan, HQ Zhuhai, Guangdong (Jiwu Siwei / Zhuhai Tangqi Shengtao) — a 'super bar + self-serve drinks + dining' format; ~112 directly-operated stores across 40 Chinese cities (Sep 2025). Opened its first store outside its home market on 24 Jul 2026, a Causeway Bay flagship (Lee Garden 3) in Hong Kong, branded COMMUNE MAISON.",
       "operating_model": "company_owned",
       "franchise_available_us": 0,
       "fdd_available": 0,
-      "franchise_note": "Mainland dining-bar chain, company-operated (直营). First overseas store Hong Kong (Causeway Bay) Jul 2026; no US presence."
+      "franchise_note": "Chinese dining-bar chain, company-operated (直营). First overseas store Hong Kong (Causeway Bay) Jul 2026; no US presence."
     },
     "dusu": {
       "name": "Dusu Bakery",
@@ -7255,7 +7255,7 @@
       "precision": null,
       "confidence": "medium",
       "reviewed": "2026-10-02",
-      "note": "Taiwan is absent from every published list of Cotti's ~28 operating countries; consistent with mainland Chinese chains generally not entering Taiwan directly.",
+      "note": "Taiwan is absent from every published list of Cotti's ~28 operating countries; consistent with Chinese chains generally not entering Taiwan directly.",
       "sources": []
     },
     {
@@ -7267,7 +7267,7 @@
       "precision": null,
       "confidence": "low",
       "reviewed": "2026-10-02",
-      "note": "Generic company descriptions list Macau alongside Hong Kong/mainland China in Cotti's nominal business scope, but no specific Macau address or opening article was found — treated as unverified boilerplate, not a confirmed store.",
+      "note": "Generic company descriptions list Macau alongside Hong Kong/China in Cotti's nominal business scope, but no specific Macau address or opening article was found — treated as unverified boilerplate, not a confirmed store.",
       "sources": []
     },
     {
@@ -7717,7 +7717,7 @@
       "precision": "day",
       "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "First retail store outside mainland China — a Wan Chai flagship (338 Hennessy Rd, North Sea Centre, G/F Shop D) with in-store dining, opened 19 Aug 2026; also Guoquan's international regional HQ.",
+      "note": "First retail store outside its home market — a Wan Chai flagship (338 Hennessy Rd, North Sea Centre, G/F Shop D) with in-store dining, opened 19 Aug 2026; also Guoquan's international regional HQ.",
       "sources": [
         "https://www.investhk.gov.hk/en/news/mainland-home-dining-ingredient-brand-gq-homepot-opens-hong-kong-flagship-store-to-expand-international-business/"
       ],
@@ -7732,7 +7732,7 @@
       "precision": "day",
       "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "First store outside mainland China — COMMUNE MAISON flagship at Shop G11-G15, G/F, Lee Garden 3, 1 Sunning Rd, Causeway Bay; grand opening 24 Jul 2026.",
+      "note": "First store outside its home market — COMMUNE MAISON flagship at Shop G11-G15, G/F, Lee Garden 3, 1 Sunning Rd, Causeway Bay; grand opening 24 Jul 2026.",
       "sources": [
         "https://www.instagram.com/commune_hongkong/",
         "https://macaubusiness.com/頭部餐酒吧品牌commune幻師首度進駐香港，全時段運營落地國際都會-37/"

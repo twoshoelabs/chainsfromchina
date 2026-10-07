@@ -289,7 +289,7 @@ sector-benchmark in the aggregate.** US outlet counts come from our own census, 
 |---|---|---|---|---|
 | Luckin | OTC:LKNCY | RMB 49,288M (FY2025, ~US$7.03bn) | No — single "PRC segment"; one bundled "All other revenues" RMB 284M (US+SG store sales + o/s franchise fees); US stores = 9 | SEC 20-F acc 0001104659-26-035712 |
 | Mixue | HKEX:2097 | RMB 33,560M (FY2025) | No — single-geography; B2B supply/franchise model; no US count | HKEXnews 2026032400179 |
-| Jiumaojiu (Tai Er) | HKEX:9922 | RMB 5,233M group / 3,720M Tai Er (FY2025) | No — segmented by brand, ">90% China"; "3 US cities", no US count. (Discloses overseas spend/customer RMB 155 vs 67 mainland) | HKEXnews 2026032703108 |
+| Jiumaojiu (Tai Er) | HKEX:9922 | RMB 5,233M group / 3,720M Tai Er (FY2025) | No — segmented by brand, ">90% China"; "3 US cities", no US count. (Discloses overseas spend/customer RMB 155 vs 67 in China) | HKEXnews 2026032703108 |
 | ChaPanda | HKEX:2555 | RMB 4,918M (FY2024) | No — single PRC segment; overseas 14 stores, US 0 in the filing | HKEXnews 2025042800813 |
 | Auntea Jenny | HKEX:2589 | RMB 3,285M (FY2024) | No — single segment; "overseas" = 1 KL store (RMB 6.3M). (Avg GMV/store RMB 1,370k China) | HKEXnews 2025042800055 |
 | Juewei | SSE:603517 | RMB 6,257M (2024) | No — 境外 overseas RMB 102M bundles SG+Canada+HK/Macau, US excluded; no store counts | cninfo 2025-04-10 |
@@ -302,14 +302,14 @@ disclosed home-market per-store figures above (e.g. Auntea Jenny ~RMB 1.37M ≈ 
 ~3× that) broadly VALIDATE the current sector benchmarks; (b) FDD Item 19 as more franchisors file; (c)
 waiting for these chains to disclose the US as it grows. Not more filing pulls.
 
-### 5.5 Mainland A-share filers — China giants without US retail (verified 2026-10-04)
+### 5.5 China A-share filers — China giants without US retail (verified 2026-10-04)
 
-Extending the "within-China" sourcing into the mainland **CSRC / cninfo** corpus (our least-tapped, least
-US-accessible vein), we pulled the FY2024 annual reports of the four mainland A-share filers we track. All
+Extending the "within-China" sourcing into the **CSRC / cninfo** corpus (our least-tapped, least
+US-accessible vein), we pulled the FY2024 annual reports of the four China A-share filers we track. All
 report only in RMB; **none discloses a US revenue line, and three operate ZERO US retail stores** — their
 US reach is export / cross-border e-commerce / a non-operating holding entity — so none is
 revenue-model-relevant (they are correctly `not_established` in our US census). Captured for the
-intelligence layer — the China scale and the mainland disclosures US stakeholders rarely see:
+intelligence layer — the China scale and the China-exchange disclosures US stakeholders rarely see:
 
 | Company (brand) | Ticker | Group revenue FY2024 | China retail stores | US presence | Source (cninfo/SSE/SZSE) |
 |---|---|---|---|---|---|
@@ -317,9 +317,9 @@ intelligence layer — the China scale and the mainland disclosures US stakehold
 | Semir 森马服饰 (+ Balabala) | SZSE:002563 | RMB 14,626M (+7%) | 8,325 apparel stores (980 direct / 7,260 franchise / 85 concession); 100+ HK/overseas | 境外 aggregate RMB 80M (0.55%, HK+overseas bundled); US entity non-operating; no US stores | FY2024, 2025-04-01 (SZSE 002563) |
 | M&G 晨光股份 (九木杂物社 / M&G LIFE) | SSE:603899 | RMB 24,228M (+4%) | 九木杂物社 741 + 晨光生活馆 38 = 779 big-format stores (franchise), all China; 九木 rev RMB 1,407M (~RMB 1.9M/store, loss-making) | 其他地区/overseas RMB 1,039M (~4.3%), not by country; US entity negligible; no US stores | FY2024, 2025-03-26 (1222895351.PDF) |
 
-With **Juewei** (§5.4, SSE:603517) that is all four identified mainland A-share filers pulled. Finding:
+With **Juewei** (§5.4, SSE:603517) that is all four identified China A-share filers pulled. Finding:
 these are large China retailers whose US footprint is distribution/e-commerce, not stores — so they enter
-the revenue model only if/when they open US retail. The pull also establishes the mainland
+the revenue model only if/when they open US retail. The pull also establishes the China-exchange
 cninfo/SSE/SZSE path (Chinese-language annual reports, direct 巨潮 PDF URLs) for future A-share filers.
 
 ## 6. First collector + model — the Super Hi / Haidilao pilot
@@ -351,7 +351,7 @@ line, and the filing citation.
 3. Add **issuer filings** for the other listed parents. **Done:** Pop Mart (§5.2, HKEX, channel-isolated),
    **Miniso** (§5.3, SEC 20-F, regional apportionment → ~US$431M US), **Chagee** (SEC 20-F — single
    segment, US not disclosed, captured + deferred). Remaining: Mixue, Nayuki, ChaPanda, Auntea Jenny,
-   Anta, JNBY, and the mainland A-share filers (Juewei, Bestore, Semir) via cninfo.
+   Anta, JNBY, and the China A-share filers (Juewei, Bestore, Semir) via cninfo.
 4. Add **FDD Item 19** for the US franchisors — *built* (§4.3, `fdd.py`, MN CARDS; most file opt-outs so
    far). Extend to CA DOCQNET / manual WI for franchisors not in MN, and wire `fdd_item19_auv` into
    `estimate()` as the top-priority US per-outlet AUV once a disclosing filing lands.

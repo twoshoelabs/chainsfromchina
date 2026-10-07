@@ -14,7 +14,7 @@ VENUES (all official filing portals — first-party, in posture):
   * SEC EDGAR — the submissions JSON API (data.sec.gov) gives every filing with its accession, date and
     primary document; we pick the latest 20-F and build the document URL. Clean and fully automatable.
     Covers the US-listed Chinese issuers: Miniso, Chagee, Luckin, and Super Hi (Haidilao's US operator).
-  * cninfo (巨潮资讯) — the mainland CSRC-designated disclosure site. topSearch resolves a stock code to
+  * cninfo (巨潮资讯) — the CSRC-designated disclosure site. topSearch resolves a stock code to
     its orgId; hisAnnouncement lists the 年度报告 (annual reports). Automatable. Covers A-share filers
     with US presence (Juewei).
   * HKEX (HKEXnews) — the hard case. Its filing search (titleSearchServlet) needs an internal `stockId`
@@ -109,7 +109,7 @@ def sec_latest(cik: int, form: str = "20-F", fetch_fn=None):
     return None
 
 
-# --- cninfo (mainland A-shares) ------------------------------------------------------------------
+# --- cninfo (China A-shares) ------------------------------------------------------------------
 
 def _cninfo_orgid(code: str, fetch_fn=None):
     raw = (fetch_fn or (lambda: _get(
@@ -131,7 +131,7 @@ def _cninfo_orgid(code: str, fetch_fn=None):
 def cninfo_latest(code: str, column: str = "sse", fetch_fn=None, orgid_fn=None):
     """
     name:      cninfo_latest
-    purpose:   The latest annual report (年度报告) for a mainland A-share code, from cninfo.
+    purpose:   The latest annual report (年度报告) for a China A-share code, from cninfo.
     returns:   {date, url, title} or None. url is the static.cninfo.com.cn PDF.
     other:     Prefers the full report over the 摘要 (summary). orgId is resolved first via topSearch.
     """

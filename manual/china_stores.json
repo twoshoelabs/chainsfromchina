@@ -1,6 +1,6 @@
 {
  "_readme": [
-  "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with mainland/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
+  "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with China/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
  ],
  "as_of": "2026-10-05",
  "brands": {

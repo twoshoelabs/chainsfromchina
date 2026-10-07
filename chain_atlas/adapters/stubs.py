@@ -937,8 +937,7 @@ class HiBakeAdapter(Adapter):
     Hi Bake (嗨呗可) — added 2026-10-04. A premium handmade-bakery chain founded in Chengdu in 2012
     (~50 stores, all in Chengdu — IFS, 天府大悦城, 环贸ICD, etc.; a leading Southwest-China bakery).
     Mixed lineage that the Chains tab should note: the founder comes from a Taiwanese baking family
-    and a Hong Kong firm (Champs) invested, but the BRAND itself was created and is run in mainland
-    Chengdu, and China's trade press counts it as a mainland brand going abroad (中国烘焙出海) — so it
+    and a Hong Kong firm (Champs) invested, but the BRAND itself was created and is run in Chengdu, China, and China's trade press counts it as a Chinese brand going abroad (中国烘焙出海) — so it
     is treated as in scope (the operator's call, 4 Oct 2026; cf. Happy Lemon held as Taiwanese-origin).
 
     First overseas store opened Aug 2025 at 235 N Canon Dr, Beverly Hills, run in partnership with the
@@ -951,7 +950,7 @@ class HiBakeAdapter(Adapter):
     parent, format = "Hibake (嗨呗可, Chengdu)", "bakery"
     ENABLED = False
     BLOCKED_REASON = ("Chengdu handmade-bakery chain (嗨呗可, 2012; ~50 stores, all in Chengdu);"
-                      " Taiwanese-lineage founder + HK investor but a mainland-born/-run brand, in"
+                      " Taiwanese-lineage founder + HK investor but a brand created and run in China, in"
                       " scope per the operator. First US store opened Aug 2025 at 235 N Canon Dr,"
                       " Beverly Hills via US licensee Chubby Group; its only US outlet, no national"
                       " locator. Tracked via sightings (4 Oct 2026)")
@@ -964,7 +963,7 @@ class BingzAdapter(Adapter):
     Beijing (Wudaokou) by former tech engineers (Luo Gaojing, Meng Bing, Yuan Zelu); its signature is
     the "crispy 'wich," a modern take on Shaanxi rou jia mo (肉夹馍), plus hot-and-sour hand-pulled
     noodles. Stores across Beijing, Tianjin, Xi'an, Zhengzhou and more; launched its international
-    "Bingz" brand in 2018 and entered North America (Canada) in 2021. Mainland-China origin, in scope.
+    "Bingz" brand in 2018 and entered North America (Canada) in 2021. China origin, in scope.
 
     First US store opened 2 Oct 2026 at 140 W Valley Blvd Ste 118C (TAWA Gateway), San Gabriel CA —
     its only US outlet so far. bingz.com carries the brand but publishes no readable national US
@@ -988,7 +987,7 @@ class TeapulseAdapter(Adapter):
     Teapulse (悸动烧仙草 / 悸动 "Jidong") — added 2026-10-06. The US brand of 悸动烧仙草 (Jidong
     Shaoxiancao), a Shanghai-rooted new-tea / grass-jelly (烧仙草) chain ~19 years old with 2,000+
     locations that began expanding abroad in 2019 (UK, Japan, Philippines, Laos, South Korea).
-    Mainland-China origin, in scope. The US arm trades as "Teapulse" (first US store Flushing NY
+    China origin, in scope. The US arm trades as "Teapulse" (first US store Flushing NY
     ~2022; US HQ Great Neck NY); abroad it trades as "Jidong" / "Jidong Herbal Jelly".
 
     ~7 NYC outlets (Flushing flagship 37-17 Prince St, plus Doyers St and Canal St in Chinatown,
@@ -1010,10 +1009,10 @@ class TeapulseAdapter(Adapter):
 
 class MakkeeAdapter(Adapter):
     """
-    Makkee Dessert (麦记牛奶 / Mak Kee Milk Company) — added 2026-10-07. A mainland-China dessert-soup
+    Makkee Dessert (麦记牛奶 / Mak Kee Milk Company) — added 2026-10-07. A Chinese dessert-soup
     (糖水/炖奶) chain founded 2021 in Huzhou, Zhejiang by Xu Kang, built on milk-based takes on
     traditional Chinese tong sui. Despite the Cantonese-style "Mak Kee" branding it is Zhejiang-born,
-    not Hong Kong — mainland origin, in scope. It is now China's largest Chinese dessert-soup chain by
+    not Hong Kong — China origin, in scope. It is now China's largest Chinese dessert-soup chain by
     store count (~1,000 outlets, up from ~53 at the start of 2025) and has begun expanding abroad
     (United States and Australia/Sydney).
 
@@ -1027,7 +1026,7 @@ class MakkeeAdapter(Adapter):
     aliases = ("Makkee", "Mak Kee", "Mak Kee Milk Company", "麦记", "麦记牛奶公司", "Maiji Milk")
     parent, format = "Makkee (麦记牛奶, Huzhou, Zhejiang)", "dessert"
     ENABLED = False
-    BLOCKED_REASON = ("mainland dessert-soup chain (麦记牛奶, Huzhou Zhejiang 2021; China's largest"
+    BLOCKED_REASON = ("Chinese dessert-soup chain (麦记牛奶, Huzhou Zhejiang 2021; China's largest"
                       " Chinese-dessert-soup chain, ~1,000 stores). US arm trades as Makkee Dessert"
                       " (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing"
                       " NY, Bellevue WA; Irvine / San Jose / Brooklyn announced). No readable US"
@@ -1038,7 +1037,7 @@ class MakkeeAdapter(Adapter):
 class DusuAdapter(Adapter):
     """
     Dusu Bakery (读酥世家) — added 2026-10-07. A Shanghai bakery chain (mochi pudding, butter rice
-    cakes, egg tarts, burnt cheesecake, sweet/savory buns). Mainland-China origin, in scope.
+    cakes, egg tarts, burnt cheesecake, sweet/savory buns). China origin, in scope.
 
     First US location opened 2026 as a SHOP-IN-SHOP counter inside Duo Duo Snacks (a Chinese snack
     market) at 5585 Rosemead Blvd, Temple City CA — its only US outlet, no standalone locator. (The

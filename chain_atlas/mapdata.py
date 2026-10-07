@@ -306,7 +306,7 @@ def export(out_dir: Path) -> dict:
         _companies = _json.loads((Path(__file__).resolve().parents[1] / "manual" / "companies.json").read_text(encoding="utf-8"))
     except Exception:                                           # noqa: BLE001
         _companies = {}
-    # Per-brand stock-listing intelligence (exchange + ticker, listed parent, sister brands, mainland
+    # Per-brand stock-listing intelligence (exchange + ticker, listed parent, sister brands, China
     # A-share flag). Public-knowledge listing data, surfaced on the Chains tab. See manual/listings.json.
     try:
         import json as _json

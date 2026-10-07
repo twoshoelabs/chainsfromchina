@@ -136,7 +136,7 @@ li b{color:var(--ink); font-weight:600}
   cursor:pointer; text-decoration:underline;
 }
 
-/* Alaska and Hawaii insets: framed and captioned, because their scale is not the mainland's. */
+/* Alaska and Hawaii insets: framed and captioned, because their scale is not the lower-48's. */
 .insetframe{fill:none; stroke:var(--rule); stroke-dasharray:none}
 .inset .state{stroke-width:0}
 #offmap.warn{

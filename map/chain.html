@@ -168,7 +168,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const m = collected[id] || blocked[id];
   if (!m) { box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return; }
   const comp = companies[id] || {};
-  // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, mainland A-share flag).
+  // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, China A-share flag).
   const lst = (meta.listings && meta.listings.brands && meta.listings.brands[id]) || null;
   const nameOf = (sid) => (companies[sid] && companies[sid].name) || (collected[sid] && collected[sid].name) ||
     ((reg.chains && reg.chains[sid]) ? (reg.chains[sid].name_us || reg.chains[sid].name) : null) || sid;
@@ -243,7 +243,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   let listingBadge = '', listingSec = '';
   if (lst) {
     if (lst.tickers && lst.tickers.length)
-      listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.mainland ? ' · mainland A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
+      listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.mainland ? ' · China A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
     else if (lst.status === 'ipo_pending') listingBadge = `<span class="hb">IPO filed</span>`;
 
     const rows = [`<dt>Status</dt><dd>${STAT[lst.status] || lst.status}</dd>`];
@@ -257,9 +257,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     if (lst.sisters && lst.sisters.length)
       rows.push(`<dt>Sister brand${lst.sisters.length > 1 ? 's' : ''}</dt><dd>${lst.sisters.map(s => `<a href="chain.html?c=${esc(s)}">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
     if (lst.note) rows.push(`<dt>Note</dt><dd>${esc(lst.note)}</dd>`);
-    const mainland = lst.us_inaccessible
-      ? `<p class="frline"><b>Mainland A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} inside mainland China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.</p>` : '';
-    listingSec = `<section><h2>Ownership &amp; stock listing</h2>${mainland}<dl class="kv">${rows.join('')}</dl></section>`;
+    const ashare = lst.us_inaccessible
+      ? `<p class="frline"><b>China A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} in China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.</p>` : '';
+    listingSec = `<section><h2>Ownership &amp; stock listing</h2>${ashare}<dl class="kv">${rows.join('')}</dl></section>`;
   }
 
   box.innerHTML =

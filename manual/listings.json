@@ -1,6 +1,6 @@
 {
  "_readme": [
-  "Per-brand stock-listing intelligence for the Chains tab. For each brand: whether the brand OR a parent/controlling group is publicly listed, the exchange + exact ticker, the relationship, sister brands sharing the same portfolio, and whether its shares are mainland A-shares (SSE/SZSE/BSE) whose filings are rarely accessible to US investors. Tickers verified against exchange/IR/HKEXnews/SEC sources as of as_of; private = no verifiable listing. This is public-knowledge listing data, not the paywalled revenue analytics."
+  "Per-brand stock-listing intelligence for the Chains tab. For each brand: whether the brand OR a parent/controlling group is publicly listed, the exchange + exact ticker, the relationship, sister brands sharing the same portfolio, and whether its shares are China A-shares (SSE/SZSE/BSE) whose filings are rarely accessible to US investors. Tickers verified against exchange/IR/HKEXnews/SEC sources as of as_of; private = no verifiable listing. This is public-knowledge listing data, not the paywalled revenue analytics."
  ],
  "as_of": "2026-10-04",
  "brands": {
