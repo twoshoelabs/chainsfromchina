@@ -34,9 +34,10 @@
   .st-none { font: 500 13px var(--sans); color: var(--muted); }
 
   .st-chains { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
-  /* Each chip is a link to that chain's profile: logo + name + count, so nothing has to be guessed. */
+  /* Each chip is a button that opens its chain's addresses in this state: logo + name + count. */
   .bchip { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--ink);
-    border: 1.5px solid var(--rule-2); border-radius: 999px; padding: 3px 11px 3px 4px; background: var(--paper); }
+    border: 1.5px solid var(--rule-2); border-radius: 999px; padding: 3px 11px 3px 4px; background: var(--paper);
+    cursor: pointer; font: inherit; }
   .bchip:hover { border-color: var(--ink); }
   .bchip:hover .bnm { text-decoration: underline; }
   .bchip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -52,6 +53,29 @@
   .st-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   @media (max-width: 560px) { .statelist { grid-template-columns: 1fr; } }
+
+  /* Address modal: a chain's outlets in one state. */
+  body.modal-open { overflow: hidden; }
+  .smodal[hidden] { display: none; }
+  .smodal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .smodal-backdrop { position: absolute; inset: 0; background: rgba(14,15,14,.45); }
+  .smodal-panel { position: relative; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 6px;
+    width: min(560px, 100%); max-height: min(82vh, 740px); display: flex; flex-direction: column; box-shadow: 0 18px 60px rgba(0,0,0,.28); }
+  .smodal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 18px 12px; border-bottom: 1px solid var(--rule-2); }
+  .smodal-head h2 { font: 700 20px/1.25 var(--serif); margin: 0; }
+  .smodal-head .m-count { display: block; font: 600 13px var(--sans); color: var(--muted); margin-top: 3px; }
+  .smodal-x { font: 400 26px/1 var(--sans); background: none; border: none; cursor: pointer; color: var(--muted); padding: 0 2px; }
+  .smodal-x:hover { color: var(--ink); }
+  .smodal-actions { display: flex; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--rule-2); flex-wrap: wrap; }
+  .smodal-btn { font: 600 13px var(--sans); padding: 7px 14px; border-radius: 2px; text-decoration: none; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .smodal-btn.ghost { background: transparent; color: var(--ink); }
+  .smodal-btn:hover { opacity: .9; }
+  .smodal-list { list-style: none; margin: 0; padding: 6px 18px 18px; overflow-y: auto; }
+  .smodal-list li { padding: 9px 0; border-bottom: 1px solid var(--rule-2); display: flex; flex-direction: column; gap: 1px; }
+  .smodal-list li:last-child { border-bottom: none; }
+  .m-addr { font: 500 15px var(--serif); color: var(--ink); }
+  .m-city { font: 500 12px var(--sans); color: var(--muted); }
+  .m-empty { color: var(--muted); font: 500 14px var(--sans); padding: 6px 0; }
 </style>
 </head>
 <body data-page="states">
@@ -84,7 +108,22 @@
   </main>
 </div>
 
+<div id="smodal" class="smodal" hidden>
+  <div class="smodal-backdrop" data-close></div>
+  <div class="smodal-panel" role="dialog" aria-modal="true" aria-labelledby="smodal-title">
+    <div class="smodal-head">
+      <h2 id="smodal-title"></h2>
+      <button type="button" id="smodal-close" class="smodal-x" aria-label="Close" data-close>&times;</button>
+    </div>
+    <div class="smodal-actions">
+      <a id="smodal-map" class="smodal-btn">Show on map</a>
+      <a id="smodal-profile" class="smodal-btn ghost">Who they are &rarr;</a>
+    </div>
+    <ul id="smodal-list" class="smodal-list"></ul>
+  </div>
+</div>
+
 <script src="site.js?v=10"></script>
-<script src="states.js?v=3"></script>
+<script src="states.js?v=4"></script>
 </body>
 </html>

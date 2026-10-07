@@ -730,8 +730,12 @@ function restoreFromURL(map) {
   const h = location.hash.replace(/^#/, ''); if (!h) return;
   const p = new URLSearchParams(h);
   if (p.get('hide')) HIDDEN = new Set(p.get('hide').split(',').filter(Boolean));
+  // only=<chain>: show just this brand (used by the by-state page's "Show on map"). ALL_CHAINS is
+  // already populated by buildTally, which runs before the map's load event calls this.
+  const only = p.get('only');
+  if (only) HIDDEN = ALL_CHAINS.length ? new Set(ALL_CHAINS.filter((c) => c !== only)) : new Set();
   if (p.get('open') === '1') { SHOW_ANNOUNCED = false; const ann = document.getElementById('show-announced'); if (ann) ann.checked = false; }
-  if (p.get('hide') || p.get('open')) applyFilter();
+  if (p.get('hide') || p.get('open') || only) applyFilter();
   const c = p.get('c'), z = p.get('z');
   if (c) { const [lng, lat] = c.split(',').map(Number); if (isFinite(lng) && isFinite(lat)) map.jumpTo({ center: [lng, lat], zoom: z ? parseFloat(z) : 11 }); }
 }
