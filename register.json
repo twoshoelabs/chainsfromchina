@@ -7743,15 +7743,16 @@
       "chain": "chabaidao",
       "market": "FR",
       "status": "present",
-      "locations": null,
+      "locations": 5,
       "first_opened": null,
       "precision": null,
-      "confidence": "medium",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "Trading as ChaPanda (茶百道) in Paris — at least four named outlets (Rue des Petits Champs; Lafayette / Rue de la Chaussée d'Antin; Rue Réaumur; Rue de Tolbiac), with ~5 pins on the map. Count from Google listings, not a first-party roster.",
+      "note": "At least 5 operating ChaPanda (茶百道) outlets in Paris on Google Maps (Rue des Petits Champs, Lafayette / Chaussée d'Antin, Rue Réaumur, Rue de Tolbiac, + others on the map) — each with reviews, photos and current hours. Count is a floor.",
       "sources": [
-        "https://www.chapanda.com/"
-      ]
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
+      ],
+      "locations_as_of": "2026-10"
     },
     {
       "chain": "aunteajenny",
@@ -7761,11 +7762,11 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "~11 Kuala Lumpur / Klang Valley outlets observed (MyTown, Sri Petaling, Lot 10, Ombak KLCC, Setapak, Kepong, Pavilion Bukit Jalil, TARUMT Arena, Taman Connaught, Sunway Velocity, Ativo Plaza). The chain's first overseas market.",
+      "note": "At least 11 operating outlets on Google Maps, all in Kuala Lumpur / Klang Valley (MyTown, Sri Petaling, Lot 10, Ombak KLCC, Setapak, Kepong, Pavilion Bukit Jalil, TARUMT Arena, Taman Connaught, Sunway Velocity, Ativo Plaza). The chain's first overseas market.",
       "sources": [
-        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
       ]
     },
     {
@@ -7776,11 +7777,11 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "Sydney — Chinatown/Haymarket, Eastgardens and Hornsby (a 4th pin visible on the map); 3+ observed.",
+      "note": "At least 3 operating outlets on Google Maps in Sydney — Chinatown/Haymarket, Eastgardens and Hornsby (a 4th pin is visible on the map).",
       "sources": [
-        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
       ]
     },
     {
@@ -7791,11 +7792,11 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "London — Soho and White City; 2+ observed.",
+      "note": "At least 2 operating outlets on Google Maps in London — Soho and White City.",
       "sources": [
-        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
       ]
     },
     {
@@ -7806,11 +7807,11 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "Seoul — Hongdae (Mapo) and Konkuk University (건대); entered Seoul in 2026; 2 observed.",
+      "note": "At least 2 operating outlets on Google Maps in Seoul — Hongdae (Mapo) and Konkuk University (건대); entered Seoul in 2026.",
       "sources": [
-        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
       ]
     },
     {
@@ -7821,11 +7822,11 @@
       "locations_as_of": "2026-10",
       "first_opened": null,
       "precision": null,
-      "confidence": "low",
+      "confidence": "high",
       "reviewed": "2026-10-07",
-      "note": "Jakarta — Emporium Pluit Mall; 1+ observed.",
+      "note": "At least 1 operating outlet on Google Maps in Jakarta — Emporium Pluit Mall.",
       "sources": [
-        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+        "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
       ]
     }
   ]
