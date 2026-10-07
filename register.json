@@ -988,6 +988,40 @@
       "franchise_available_us": 0,
       "fdd_available": 0,
       "franchise_note": "Mainland dessert-soup chain. US estate (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing NY, Bellevue WA; Irvine CA, San Jose CA, Brooklyn NY announced) trades as Makkee Dessert and is tracked on the map via sightings (chain_id 'makkee') — no readable US locator (Chowbus orders). No US FDD found and US franchising not advertised (0 = none found)."
+    },
+    "guoquan": {
+      "name": "Guoquan",
+      "name_zh": "锅圈食汇",
+      "format": "grocery",
+      "sector": "grocery_convenience",
+      "global": "Mainland home-dining-ingredients retailer (锅圈食汇 / GQ Homepot; HKEX 2517) — hot pot and BBQ ingredient packs, ready-to-cook and ready-to-eat meals; ~10,000 stores in China. Opened its first store outside mainland China on 19 Aug 2026, a Wan Chai flagship in Hong Kong with in-store dining, and set up its international regional HQ there as the launchpad for Southeast Asia, Europe and North America.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Mainland hot-pot/BBQ home-ingredient retail chain (HKEX 2517). International expansion began Aug 2026 from a Hong Kong flagship + regional HQ; no US presence yet."
+    },
+    "commune": {
+      "name": "COMMUNE",
+      "name_zh": "幻师",
+      "format": "restaurant",
+      "sector": "food_drink",
+      "global": "Mainland restaurant-bar ('dining bar') chain (COMMUNE / 幻师), founded 2016 in Wuhan, HQ Zhuhai, Guangdong (Jiwu Siwei / Zhuhai Tangqi Shengtao) — a 'super bar + self-serve drinks + dining' format; ~112 directly-operated stores across 40 Chinese cities (Sep 2025). Opened its first store outside mainland China on 24 Jul 2026, a Causeway Bay flagship (Lee Garden 3) in Hong Kong, branded COMMUNE MAISON.",
+      "operating_model": "company_owned",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Mainland dining-bar chain, company-operated (直营). First overseas store Hong Kong (Causeway Bay) Jul 2026; no US presence."
+    },
+    "dusu": {
+      "name": "Dusu Bakery",
+      "name_zh": "读酥世家",
+      "name_us": "Dusu Bakery",
+      "format": "bakery",
+      "sector": "bakery",
+      "global": "Shanghai bakery chain (读酥世家) — mochi pudding, butter rice cakes, egg tarts, burnt cheesecake and sweet/savory buns. Opened its first US location in 2026 as a shop-in-shop counter inside Duo Duo Snacks (a Chinese snack market) at 5585 Rosemead Blvd, Temple City CA.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Shanghai bakery chain; first US outlet is a shop-in-shop counter inside Duo Duo Snacks, Temple City CA, tracked on the map via sightings (chain_id 'dusu'). No standalone US locator."
     }
   },
   "entries": [
@@ -7660,6 +7694,51 @@
       "note": "First Australian store in Sydney (Chinatown/Haymarket), reported as one of China's fastest-growing dessert chains landing in Sydney; count unpublished, at least one open.",
       "sources": [
         "https://www.broadsheet.com.au/sydney/food-and-drink/article/makkee-dessert-chinatown-haymarket-open"
+      ]
+    },
+    {
+      "chain": "guoquan",
+      "market": "HK",
+      "status": "present",
+      "locations": 1,
+      "first_opened": "2026-08-19",
+      "precision": "day",
+      "confidence": "high",
+      "reviewed": "2026-10-07",
+      "note": "First retail store outside mainland China — a Wan Chai flagship (338 Hennessy Rd, North Sea Centre, G/F Shop D) with in-store dining, opened 19 Aug 2026; also Guoquan's international regional HQ.",
+      "sources": [
+        "https://www.investhk.gov.hk/en/news/mainland-home-dining-ingredient-brand-gq-homepot-opens-hong-kong-flagship-store-to-expand-international-business/"
+      ],
+      "locations_as_of": "2026-10"
+    },
+    {
+      "chain": "commune",
+      "market": "HK",
+      "status": "present",
+      "locations": 1,
+      "first_opened": "2026-07-24",
+      "precision": "day",
+      "confidence": "high",
+      "reviewed": "2026-10-07",
+      "note": "First store outside mainland China — COMMUNE MAISON flagship at Shop G11-G15, G/F, Lee Garden 3, 1 Sunning Rd, Causeway Bay; grand opening 24 Jul 2026.",
+      "sources": [
+        "https://www.instagram.com/commune_hongkong/",
+        "https://macaubusiness.com/頭部餐酒吧品牌commune幻師首度進駐香港，全時段運營落地國際都會-37/"
+      ],
+      "locations_as_of": "2026-10"
+    },
+    {
+      "chain": "chabaidao",
+      "market": "FR",
+      "status": "present",
+      "locations": null,
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-07",
+      "note": "Trading as ChaPanda (茶百道) in Paris — at least four named outlets (Rue des Petits Champs; Lafayette / Rue de la Chaussée d'Antin; Rue Réaumur; Rue de Tolbiac), with ~5 pins on the map. Count from Google listings, not a first-party roster.",
+      "sources": [
+        "https://www.chapanda.com/"
       ]
     }
   ]

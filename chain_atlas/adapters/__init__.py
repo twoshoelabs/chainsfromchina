@@ -38,7 +38,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     FeidachuAdapter, DalongyiAdapter, ShuyiAdapter, MoreYogurtAdapter,
                     AntaAdapter, UrbanRevivoAdapter, JnbyAdapter, MeilleurMomentAdapter,
                     WallaceAdapter, ZhengxinAdapter, HiBakeAdapter, BingzAdapter, TeapulseAdapter,
-                    MakkeeAdapter)
+                    MakkeeAdapter, DusuAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -85,6 +85,7 @@ REGISTRY: list[Adapter] = [
     BingzAdapter(), # roujiamo fast food 西少爷 / Bingz Crispy 'Wich (Beijing); San Gabriel CA — see stubs.py
     TeapulseAdapter(), # grass-jelly tea 悸动烧仙草 / Teapulse (Shanghai); ~7 NYC outlets, Wix locator — see stubs.py
     MakkeeAdapter(), # dessert soups 麦记牛奶 / Makkee Dessert (Huzhou); CA/NY/WA, Chowbus only — see stubs.py
+    DusuAdapter(), # bakery 读酥世家 / Dusu Bakery (Shanghai); shop-in-shop in Temple City CA — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

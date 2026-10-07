@@ -1973,6 +1973,23 @@
      "lon": -122.196289
     }
    ]
+  },
+  {
+   "chain": "dusu",
+   "supplied_on": "2026-10-07",
+   "reviewed": "2026-10-07",
+   "source": "Press (The Infatuation LA: a Shanghai bakery opened its first US location inside Duo Duo Snacks, Temple City); Google listing (Dusu Bakery 读酥世家, 5585 Rosemead Blvd), address hand-noted from screenshot.",
+   "scope": "First US outlet of Dusu Bakery (读酥世家, Shanghai) — a SHOP-IN-SHOP bakery counter inside Duo Duo Snacks (a Chinese snack market) in Temple City CA (host is Duo Duo Snacks, not GW Supermarket). Single US location, tracked via sightings; not monitored.",
+   "locations": [
+    {
+     "name": "Temple City (inside Duo Duo Snacks)",
+     "address": "5585 Rosemead Blvd, Temple City, CA 91780",
+     "confidence": "confirmed",
+     "verified_by": "Press (The Infatuation LA, first US location) + Google listing (333 reviews, operating); shop-in-shop counter inside Duo Duo Snacks (7 Oct 2026).",
+     "lat": 34.100934,
+     "lon": -118.073663
+    }
+   ]
   }
  ]
 }

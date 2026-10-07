@@ -1033,3 +1033,23 @@ class MakkeeAdapter(Adapter):
                       " NY, Bellevue WA; Irvine / San Jose / Brooklyn announced). No readable US"
                       " locator (Chowbus orders), so tracked via sightings (7 Oct 2026)")
     RECHECK = ["https://www.instagram.com/makkeedessert_usa/"]
+
+
+class DusuAdapter(Adapter):
+    """
+    Dusu Bakery (读酥世家) — added 2026-10-07. A Shanghai bakery chain (mochi pudding, butter rice
+    cakes, egg tarts, burnt cheesecake, sweet/savory buns). Mainland-China origin, in scope.
+
+    First US location opened 2026 as a SHOP-IN-SHOP counter inside Duo Duo Snacks (a Chinese snack
+    market) at 5585 Rosemead Blvd, Temple City CA — its only US outlet, no standalone locator. (The
+    host is Duo Duo Snacks, not GW Supermarket.) Tracked via sightings.
+    """
+    chain_id, name, name_zh = "dusu", "Dusu Bakery", "读酥世家"
+    name_us = "Dusu Bakery"
+    aliases = ("Dusu", "读酥世家")
+    parent, format = "Dusu (读酥世家, Shanghai)", "bakery"
+    ENABLED = False
+    BLOCKED_REASON = ("Shanghai bakery chain (读酥世家); first US outlet is a shop-in-shop counter"
+                      " inside Duo Duo Snacks, 5585 Rosemead Blvd, Temple City CA — its only US"
+                      " location, no standalone locator. Tracked via sightings (7 Oct 2026)")
+    RECHECK = ["https://www.theinfatuation.com/los-angeles/reviews/dusu-bakery"]
