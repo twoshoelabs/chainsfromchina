@@ -86,7 +86,7 @@
    "state": "CA",
    "opened": "2019",
    "closed_on": null,
-   "closed_note": "First US store, opened 2019; now closed, close date unknown.",
+   "closed_note": "First US store, opened 2019; now closed, close date unknown. NOTE: the discovery routine re-surfaced this closed store as a new 'open' sighting on 2026-10-01 (false positive from a stale listing); that sighting was removed 2026-10-07 — do not re-add.",
    "confidence": "confirmed",
    "source": "companies.json dalongyi first_outlet '(now closed)'."
   },
@@ -112,7 +112,7 @@
    "closed_on": null,
    "closed_note": "First US store, opened ~late 2023; now closed, close date unknown.",
    "confidence": "confirmed",
-   "source": "companies.json shuyi first_outlet '(now closed)'."
+   "source": "companies.json shuyi first_outlet '(now closed)'. Re-confirmed via Yelp ('Shuyi Grass Jelly & Tea' San Mateo, 'Yelpers report this location has closed', updated Sep 2026), hand-noted from screenshot (7 Oct 2026)."
   },
   {
    "chain": "jnby",
@@ -345,6 +345,30 @@
      "note": "The operator's own store locator still presented this as an open location that day."
     }
    ]
+  },
+  {
+   "chain": "dalongyi",
+   "name": "Seattle (Woodlawn Ave NE)",
+   "address": "7119 Woodlawn Ave NE, Seattle, WA 98115",
+   "city": "Seattle",
+   "state": "WA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Seattle (Green Lake / Woodlawn) outlet, now permanently closed. Confirms the dalongyi scope note that the Seattle store has closed; no open dalongyi outlet remains in WA.",
+   "confidence": "confirmed",
+   "source": "Yelp ('DALONGYI HOT POT 大龙燚 - CLOSED', 7119 Woodlawn Ave NE, Seattle), hand-noted from screenshot (7 Oct 2026)."
+  },
+  {
+   "chain": "bobobaba",
+   "name": "Glendale (Brand Blvd) — only US store",
+   "address": "251 N Brand Blvd, Glendale, CA 91203",
+   "city": "Glendale",
+   "state": "CA",
+   "opened": "2026-04",
+   "closed_on": null,
+   "closed_note": "US entry-and-exit. Bobobaba is the US-customized bubble-tea line of Amanda Wang, founder of Ningji Lemon Tea (柠季, Changsha, Hunan; 3,000+ China stores; Tencent/ByteDance-backed) — mainland-China origin, in scope. This Glendale shop was her first and ONLY US outlet, opened mid-April 2026, and closed within months: Yelp lists it CLOSED (updated Sep 2026) while Google and Apple Maps show 'Temporarily closed' (observed 7 Oct 2026). With no US outlet operating, the chain is closed in the US for now — a clean enter-and-exit example. Revisit if it reopens.",
+   "confidence": "confirmed",
+   "source": "Yelp ('BOBOBABA - CLOSED', updated Sep 2026) + Google & Apple Maps ('Temporarily closed'), hand-noted from screenshots (7 Oct 2026); press — Chinese-tea-brands-in-US coverage (Ningji's Amanda Wang; first overseas outlet opened in LA as Bobobaba, mid-April 2026)."
   }
  ]
 }

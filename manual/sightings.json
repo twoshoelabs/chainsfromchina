@@ -1516,21 +1516,6 @@
    "reviewed": "2026-10-01"
   },
   {
-   "chain": "dalongyi",
-   "locations": [
-    {
-     "address": "250 W Valley Blvd, San Gabriel, CA 91776",
-     "name": "San Gabriel",
-     "confidence": "confirmed",
-     "verified_by": "opened 6 Jun 2026 — routine discovery 2026-10-01 — https://www.eastwestbank.com/ReachFurther/en/News/Article/Hang-Eat-Battle-of-the-Hot-Pots"
-    }
-   ],
-   "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
-   "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
-   "supplied_on": "2026-10-01",
-   "reviewed": "2026-10-01"
-  },
-  {
    "chain": "fishwithyou",
    "locations": [
     {
