@@ -54,7 +54,7 @@ const MONOGRAM = {
 // to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
 const LOGO_CHAINS = new Set([
   'anta', 'aunteajenny', 'baospastry', 'bingz', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
-  'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
+  'dusu', 'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
   'luckin', 'makkee', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'teapulse', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
   'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake',
