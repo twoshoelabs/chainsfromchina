@@ -76,7 +76,7 @@ async function main() {
   usView(chains, markets, cells);
   detail(chains, markets, cells);
   coverage(chains);
-  document.getElementById('asof').textContent = `Compiled ${D.as_of}.`;
+  document.getElementById('asof').textContent = `Last updated ${D.as_of}.`;
 }
 
 /*

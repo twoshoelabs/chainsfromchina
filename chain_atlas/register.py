@@ -371,6 +371,11 @@ def export(out_dir: Path) -> dict:
     d = load()
     superseded = apply_collected(d)
     out_dir.mkdir(parents=True, exist_ok=True)
+    # The register is continuously updated, not compiled once. Stamp `as_of` with the most recent
+    # entry review so the page shows a true "last updated" date rather than a frozen one.
+    latest = max((e.get("reviewed") for e in d["entries"] if e.get("reviewed")), default=None)
+    if latest:
+        d["as_of"] = latest
     by_chain = defaultdict(int)
     for e in d["entries"]:
         if e["status"] == "present":
