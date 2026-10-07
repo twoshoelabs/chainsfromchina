@@ -25,7 +25,21 @@
   "international register's prose — they are out of scope for the US map and are never shown.",
   "",
   "A closing graduates the other way from a sighting: once a chain's live locator covers the",
-  "site, the census owns its open/closed state and the hand record here can be retired."
+  "site, the census owns its open/closed state and the hand record here can be retired.",
+  "",
+  "DISCREPANCY EVIDENCE (collected chains that keep listing a closed store). When a closure cannot be",
+  "caught by absence because the brand's own locator still lists the site, the row carries structured",
+  "evidence: `known_closed_on` (first date we had a closure signal), `still_listed` / `still_listed_",
+  "through` (that the operator still showed it open, and through what date), and `observations` — each a",
+  "dated, sourced signal with a `method`. A third-party listing (e.g. a Google 'Permanently closed'",
+  "banner) is recorded ONLY from a screenshot a person captured by hand (method 'manual_screenshot'),",
+  "never an automated query or scrape, to stay within that platform's terms; the screenshot is filed to",
+  "the internal evidence store and referenced by `evidence_ref`.",
+  "",
+  "Each such discrepancy is stamped into the tamper-evident ledger manual/provenance_ledger.jsonl, so we",
+  "can later prove we knew a store was closed on a date its operator still listed it open. Verify the",
+  "chain with `python -m chain_atlas provenance`. Per-location discrepancy detail built on this is",
+  "Pro-tier and is exported only to the access-controlled location, never to the public map/data."
  ],
  "closings": [
   {
@@ -268,7 +282,32 @@
    "closed_on": null,
    "closed_note": "Permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. A collected-chain closure the census cannot catch by absence (the brand keeps listing it), so it is held closed via an adapter-level filter (moge PERMANENTLY_CLOSED) and recorded here. This brand-locator-vs-reality gap is exactly the 'open loudly, close quietly' story the project documents. Retire this row once Möge Tee drops it from the locator.",
    "confidence": "confirmed",
-   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day."
+   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day.",
+   "known_closed_on": "2026-10-05",
+   "still_listed": true,
+   "still_listed_through": "2026-10-05",
+   "observations": [
+    {
+     "date": "2026-10-05",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "pending",
+     "evidence_ref": null,
+     "note": "Hand-observed 'Permanently closed' banner. An aggregator status is recorded ONLY from a manually captured screenshot, never an automated query or scrape (platform ToS). Screenshot to be filed to the internal evidence store."
+    },
+    {
+     "date": "2026-10-05",
+     "signal": "listed_active",
+     "source": "mogeteeusa.com store locator",
+     "source_type": "first_party_locator",
+     "method": "manual_check",
+     "evidence_status": "pending",
+     "evidence_ref": null,
+     "note": "The operator's own store locator still presented this as an open location that day."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -280,7 +319,32 @@
    "closed_on": null,
    "closed_note": "MarketStreet Lynnfield outlet; permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing. Retire this row once Möge Tee drops it from the locator.",
    "confidence": "confirmed",
-   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day."
+   "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day.",
+   "known_closed_on": "2026-10-05",
+   "still_listed": true,
+   "still_listed_through": "2026-10-05",
+   "observations": [
+    {
+     "date": "2026-10-05",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "pending",
+     "evidence_ref": null,
+     "note": "Hand-observed 'Permanently closed' banner. An aggregator status is recorded ONLY from a manually captured screenshot, never an automated query or scrape (platform ToS). Screenshot to be filed to the internal evidence store."
+    },
+    {
+     "date": "2026-10-05",
+     "signal": "listed_active",
+     "source": "mogeteeusa.com store locator",
+     "source_type": "first_party_locator",
+     "method": "manual_check",
+     "evidence_status": "pending",
+     "evidence_ref": null,
+     "note": "The operator's own store locator still presented this as an open location that day."
+    }
+   ]
   }
  ]
 }

@@ -83,6 +83,22 @@ def main(argv=None):
             print(f"  {r['chain']:13} {where:40}  {when}{mark}")
         return 0
 
+    if cmd == "provenance":
+        from . import provenance
+        s = provenance.summary()
+        state = "intact" if s["ok"] else "BROKEN"
+        print(f"{s['entries']} provenance entr(y/ies) — hash chain {state}. "
+              f"head={s['head'][:16]}…")
+        if not s["ok"]:
+            for prob in s["problems"]:
+                print("  !", prob)
+            return 1
+        if "--show" in argv:
+            for e in provenance.load():
+                print(f"  #{e['seq']:>3} {e['ts']}  {e['record_id']}  [{e['event']}]")
+                print(f"       {e['statement']}")
+        return 0
+
     if cmd == "geocode":
         from . import db, geocode
         con = db.connect()
