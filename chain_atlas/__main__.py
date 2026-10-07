@@ -180,6 +180,23 @@ def main(argv=None):
         china_stores.report(con)
         return 0
 
+    if cmd == "openings":
+        from . import db, openings
+        con = db.connect()
+        openings.report(con)
+        return 0
+
+    if cmd == "dossiers":
+        from . import dossiers
+        errs = dossiers.validate()
+        if errs:
+            print("dossiers.json invalid:")
+            for e in errs:
+                print("  " + e)
+            return 2
+        dossiers.report()
+        return 0
+
     if cmd == "filings":
         from . import db, filings
         con = db.connect()
@@ -223,6 +240,8 @@ def main(argv=None):
     print("  aggregate                                        MODELED grand total: banded US revenue across all chains (anchored + benchmark)")
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
+    print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  dossiers                                         Pro: qualitative per-chain dossiers (history, popular items, flagships)")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
     print("  register [--chain X] [--market XX] [--stale] [--gaps]   international register")

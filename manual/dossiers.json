@@ -1,0 +1,43 @@
+{
+ "_readme": [
+  "QUALITATIVE per-chain dossier — the intelligence that filings and store counts do NOT carry:",
+  "a chain's HISTORY, its most POPULAR ITEMS, its FLAGSHIP / best-known OUTLETS, and loose NOTES.",
+  "A Pro-tier dimension that sits beside the measured numbers (store counts, financial_anchors,",
+  "opening pace). PRO ONLY — never written to the public map/data.",
+  "",
+  "PROVENANCE, same posture as the rest of the project. Every item carries `as_of` + `source`",
+  "(a `source_url` where there is one) and a `confidence`: 'high' for a primary filing / company",
+  "statement, 'medium' for reputable press, 'low' for a single weak mention. NEVER fabricate; an",
+  "unknown field is simply absent. First-party / official / filings / reputable press / licensed",
+  "sources only — NO review/delivery/aggregator platforms (Dianping, Meituan, 窄门餐眼, …).",
+  "",
+  "SHAPE. brands[<chain_id>] may hold any of:",
+  "  history         {text, as_of, source, source_url?, confidence}",
+  "  popular_items   [ {name, note?, as_of, source, source_url?, confidence}, … ]",
+  "  flagship_outlets[ {name, city?, note?, as_of, source, source_url?, confidence}, … ]",
+  "  notes           [ {text, as_of, source, source_url?, confidence}, … ]",
+  "Measured figures (avg store area, orders/day, AUV, store counts) do NOT live here — they go to",
+  "the `financial_anchors` table (measured) and `china_stores.json` (counts). This file is prose.",
+  "Validate with `python -m chain_atlas dossiers`."
+ ],
+ "as_of": "2026-10-07",
+ "brands": {
+  "mixue": {
+   "history": {
+    "text": "Founded 1997 in Zhengzhou, Henan by Zhang Hongchao (张红超) as a cold-drinks and shaved-ice stand; grew into an ultra-low-price bubble-tea and soft-serve franchise and by 2025 was the world's largest F&B chain by store count. Listed on the Hong Kong Stock Exchange (2097.HK) in March 2025.",
+    "as_of": "2025-03",
+    "confidence": "high",
+    "source": "Mixue Group HKEX listing / global offering prospectus (2097.HK, 2025)",
+    "source_url": "https://www.hkexnews.hk/"
+   },
+   "popular_items": [
+    {"name": "Fresh ice cream cone (冰淇淋)", "note": "The brand's best-known draw — a ~¥2-4 soft-serve cone.", "as_of": "2025", "confidence": "medium", "source": "Mixue prospectus product mix and reputable press"},
+    {"name": "Lemonade (柠檬水)", "note": "~¥4 fresh lemonade, a flagship high-volume SKU.", "as_of": "2025", "confidence": "medium", "source": "Mixue prospectus / reputable press"}
+   ],
+   "flagship_outlets": [],
+   "notes": [
+    {"text": "The 'Snow King' (雪王) mascot is central to the brand's marketing and recognition.", "as_of": "2025", "confidence": "medium", "source": "company marketing / reputable press"}
+   ]
+  }
+ }
+}

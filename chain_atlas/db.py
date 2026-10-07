@@ -193,7 +193,8 @@ CREATE TABLE IF NOT EXISTS financial_anchors (
     brand_id     TEXT REFERENCES chains(chain_id),
     period       TEXT,
     metric       TEXT,                       -- us_revenue|americas_revenue|auv|store_count|sss|
-                                             -- overseas_segment|spend_per_guest|table_turnover
+                                             -- overseas_segment|spend_per_guest|table_turnover|
+                                             -- avg_store_area (unit sqm)|orders_per_store (unit orders/day)
     value        REAL,
     unit         TEXT,
     page_ref     TEXT,
