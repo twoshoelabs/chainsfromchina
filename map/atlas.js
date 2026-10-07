@@ -249,6 +249,13 @@ function insetClusterMarker(n) {
   el.style.color = 'var(--ink)';
   return el;
 }
+// Show or hide the Alaska/Hawaii inset thumbnails. They belong to the national view; a single-state
+// focus deep-linked from the by-state page hides them, and the "US" (fit-nation) button brings them back.
+function setInsetsVisible(show) {
+  const el = document.querySelector('.map-insets');
+  if (el) el.style.display = show ? '' : 'none';
+}
+
 function buildInsets(parent, style, statesFC, fc) {
   const wrap = document.createElement('div'); wrap.className = 'map-insets';
   parent.appendChild(wrap);
@@ -316,7 +323,7 @@ class FitUSControl {
     b.setAttribute('aria-label', 'Fit the United States');
     b.style.cssText = 'font:700 11px/29px "Libre Franklin",system-ui,sans-serif';
     b.textContent = 'US';
-    b.onclick = () => map.fitBounds(US_BOUNDS, { padding: 40 });
+    b.onclick = () => { map.fitBounds(US_BOUNDS, { padding: 40 }); setInsetsVisible(true); };  // back to the national view — insets useful again
     d.appendChild(b); this._c = d; return d;
   }
   onRemove() { this._c.remove(); this._map = undefined; }
@@ -733,7 +740,10 @@ function restoreFromURL(map) {
   // only=<chain>: show just this brand (used by the by-state page's "Show on map"). ALL_CHAINS is
   // already populated by buildTally, which runs before the map's load event calls this.
   const only = p.get('only');
-  if (only) HIDDEN = ALL_CHAINS.length ? new Set(ALL_CHAINS.filter((c) => c !== only)) : new Set();
+  if (only) {
+    HIDDEN = ALL_CHAINS.length ? new Set(ALL_CHAINS.filter((c) => c !== only)) : new Set();
+    setInsetsVisible(false);   // a single-state focus (from the by-state view) — AK/HI insets are just noise
+  }
   if (p.get('open') === '1') { SHOW_ANNOUNCED = false; const ann = document.getElementById('show-announced'); if (ann) ann.checked = false; }
   if (p.get('hide') || p.get('open') || only) applyFilter();
   const c = p.get('c'), z = p.get('z');
