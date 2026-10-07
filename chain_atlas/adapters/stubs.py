@@ -1006,3 +1006,30 @@ class TeapulseAdapter(Adapter):
                       " teapulseusa.com/locations is a dynamic Wix widget with no readable store feed,"
                       " so tracked via sightings (6 Oct 2026)")
     RECHECK = ["https://www.teapulseusa.com/locations"]
+
+
+class MakkeeAdapter(Adapter):
+    """
+    Makkee Dessert (麦记牛奶 / Mak Kee Milk Company) — added 2026-10-07. A mainland-China dessert-soup
+    (糖水/炖奶) chain founded 2021 in Huzhou, Zhejiang by Xu Kang, built on milk-based takes on
+    traditional Chinese tong sui. Despite the Cantonese-style "Mak Kee" branding it is Zhejiang-born,
+    not Hong Kong — mainland origin, in scope. It is now China's largest Chinese dessert-soup chain by
+    store count (~1,000 outlets, up from ~53 at the start of 2025) and has begun expanding abroad
+    (United States and Australia/Sydney).
+
+    US arm trades as "Makkee Dessert" (IG @makkeedessert_usa). ~6 US outlets open — Rowland Heights,
+    San Gabriel, Mountain View and (coming via) downtown LA in CA; Flushing NY; Bellevue WA (Seattle
+    metro) — with Irvine CA, San Jose CA and Brooklyn NY announced. No readable national US locator
+    (orders run through Chowbus), so tracked via sightings.
+    """
+    chain_id, name, name_zh = "makkee", "Makkee Dessert", "麦记牛奶"
+    name_us = "Makkee Dessert"
+    aliases = ("Makkee", "Mak Kee", "Mak Kee Milk Company", "麦记", "麦记牛奶公司", "Maiji Milk")
+    parent, format = "Makkee (麦记牛奶, Huzhou, Zhejiang)", "dessert"
+    ENABLED = False
+    BLOCKED_REASON = ("mainland dessert-soup chain (麦记牛奶, Huzhou Zhejiang 2021; China's largest"
+                      " Chinese-dessert-soup chain, ~1,000 stores). US arm trades as Makkee Dessert"
+                      " (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing"
+                      " NY, Bellevue WA; Irvine / San Jose / Brooklyn announced). No readable US"
+                      " locator (Chowbus orders), so tracked via sightings (7 Oct 2026)")
+    RECHECK = ["https://www.instagram.com/makkeedessert_usa/"]

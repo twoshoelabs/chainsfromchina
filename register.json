@@ -976,6 +976,18 @@
       "global": "Chengdu skewer-style (chuàn-chuàn) hot pot chain founded 2015 (2016 per some sources); more than 1,000 outlets in and outside China by 2021. In the US since 2019 (Los Angeles / Rowland Heights), trading as MLBB / Ma Lu Bian Bian.",
       "operating_model": "franchise",
       "franchise_note": "Heavily franchised (1,000+); ~5 US restaurants (Houston, Tustin, Orlando, Philadelphia) but no US FDD or open first-party US franchise application found; US units likely area-developer/licensed, unconfirmed."
+    },
+    "makkee": {
+      "name": "Makkee Dessert",
+      "name_zh": "麦记牛奶",
+      "name_us": "Makkee Dessert",
+      "format": "dessert",
+      "sector": "food_drink",
+      "global": "麦记牛奶 (Mak Kee Milk Company), a mainland dessert-soup (糖水/炖奶) chain founded 2021 in Huzhou, Zhejiang (founder Xu Kang) — milk-based takes on traditional Chinese tong sui. China's largest Chinese-dessert-soup chain by store count, ~1,000 outlets (up from ~53 at the start of 2025). Began expanding abroad in 2025: the United States (CA/NY/WA, trading as 'Makkee Dessert') and Australia (Sydney). Despite the Cantonese-style 'Mak Kee' branding it is Zhejiang-born, not Hong Kong.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Mainland dessert-soup chain. US estate (~6 outlets: Rowland Heights / San Gabriel / Mountain View / DTLA CA, Flushing NY, Bellevue WA; Irvine CA, San Jose CA, Brooklyn NY announced) trades as Makkee Dessert and is tracked on the map via sightings (chain_id 'makkee') — no readable US locator (Chowbus orders). No US FDD found and US franchising not advertised (0 = none found)."
     }
   },
   "entries": [
@@ -7634,6 +7646,21 @@
       "note": "悸动烧仙草's own overseas news lists South Korea among its markets (expansion begun 2019); a specific outlet was not independently pinned.",
       "reviewed": "2026-10-06",
       "sources": []
+    },
+    {
+      "chain": "makkee",
+      "market": "AU",
+      "status": "present",
+      "locations": 1,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "medium",
+      "reviewed": "2026-10-07",
+      "note": "First Australian store in Sydney (Chinatown/Haymarket), reported as one of China's fastest-growing dessert chains landing in Sydney; count unpublished, at least one open.",
+      "sources": [
+        "https://www.broadsheet.com.au/sydney/food-and-drink/article/makkee-dessert-chinatown-haymarket-open"
+      ]
     }
   ]
 }

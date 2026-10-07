@@ -1939,6 +1939,55 @@
      "lon": -73.784531
     }
    ]
+  },
+  {
+   "chain": "makkee",
+   "supplied_on": "2026-10-07",
+   "reviewed": "2026-10-07",
+   "source": "Brand's own US account (Instagram @makkeedessert_usa) location list; per-store Google listings for the street addresses (hand-noted from screenshots, not scraped); local press (Mountain View Voice/Almanac; 425 Business, Bellevue).",
+   "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). The 5 outlets with a confirmed street address are mapped here. The brand's IG also lists a downtown-LA (DTLA) store as open, address not yet confirmed, so it is not mapped; Irvine CA, San Jose CA and Brooklyn NY are announced (coming soon), not yet open. Not monitored.",
+   "locations": [
+    {
+     "name": "Rowland Heights (Diamond Plaza)",
+     "address": "1390 Fullerton Rd #104, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG + Google listing (Diamond Plaza, 241 reviews, operating); address hand-noted from screenshot (7 Oct 2026).",
+     "lat": 33.992769,
+     "lon": -117.905179
+    },
+    {
+     "name": "San Gabriel (Prospect Plaza)",
+     "address": "301 W Valley Blvd Ste 110, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG + Google listing (Prospect Plaza, operating); address hand-noted from screenshot (7 Oct 2026).",
+     "lat": 34.079582,
+     "lon": -118.103991
+    },
+    {
+     "name": "Mountain View (Castro St)",
+     "address": "134 Castro St, Mountain View, CA 94041",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG + Google listing (196 reviews) + press (Mountain View Voice/Almanac, opened Jul 2026); address hand-noted from screenshot (7 Oct 2026).",
+     "lat": 37.394502,
+     "lon": -122.078628
+    },
+    {
+     "name": "Flushing (Tangram)",
+     "address": "133-36 37th Ave Unit F11, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG + Google listing (Tangram, 159 reviews, operating); address hand-noted from screenshot (7 Oct 2026).",
+     "lat": 40.760428,
+     "lon": -73.834166
+    },
+    {
+     "name": "Bellevue (downtown)",
+     "address": "10797 Main St, Bellevue, WA 98004",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG ('Seattle, WA') + Google listing (61 reviews) + press (425 Business, downtown Bellevue); address hand-noted from screenshot (7 Oct 2026). Seattle metro.",
+     "lat": 47.610047,
+     "lon": -122.196289
+    }
+   ]
   }
  ]
 }
