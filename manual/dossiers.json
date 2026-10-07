@@ -31,12 +31,63 @@
     "source_url": "https://www.hkexnews.hk/"
    },
    "popular_items": [
-    {"name": "Fresh ice cream cone (冰淇淋)", "note": "The brand's best-known draw — a ~¥2-4 soft-serve cone.", "as_of": "2025", "confidence": "medium", "source": "Mixue prospectus product mix and reputable press"},
-    {"name": "Lemonade (柠檬水)", "note": "~¥4 fresh lemonade, a flagship high-volume SKU.", "as_of": "2025", "confidence": "medium", "source": "Mixue prospectus / reputable press"}
+    {
+     "name": "Fresh ice cream cone (冰淇淋)",
+     "note": "The brand's best-known draw — a ~¥2-4 soft-serve cone.",
+     "as_of": "2025",
+     "confidence": "medium",
+     "source": "Mixue prospectus product mix and reputable press"
+    },
+    {
+     "name": "Lemonade (柠檬水)",
+     "note": "~¥4 fresh lemonade, a flagship high-volume SKU.",
+     "as_of": "2025",
+     "confidence": "medium",
+     "source": "Mixue prospectus / reputable press"
+    }
    ],
    "flagship_outlets": [],
    "notes": [
-    {"text": "The 'Snow King' (雪王) mascot is central to the brand's marketing and recognition.", "as_of": "2025", "confidence": "medium", "source": "company marketing / reputable press"}
+    {
+     "text": "The 'Snow King' (雪王) mascot is central to the brand's marketing and recognition.",
+     "as_of": "2025",
+     "confidence": "medium",
+     "source": "company marketing / reputable press"
+    }
+   ]
+  },
+  "aunteajenny": {
+   "history": {
+    "text": "Auntea Jenny (沪上阿姨, 'Shanghai Auntie') is a Shanghai mid-priced freshly-made tea chain founded in 2013, known for grain-forward '五谷' milk teas and fruit teas. It franchises aggressively — ~9,000+ stores, overwhelmingly franchised — and listed on the Hong Kong Stock Exchange (2589.HK) in December 2024, after which it accelerated an overseas push (Malaysia first, then Australia, the UK, South Korea and Indonesia).",
+    "as_of": "2024-12",
+    "confidence": "high",
+    "source": "Auntea Jenny IPO prospectus / HKEX listing (2589.HK, Dec 2024)",
+    "source_url": "https://www.hkexnews.hk/"
+   },
+   "popular_items": [
+    {
+     "name": "Grain milk tea (五谷/杂粮奶茶)",
+     "note": "The brand's signature grain-forward milk tea — its best-known positioning.",
+     "as_of": "2026",
+     "confidence": "medium",
+     "source": "Auntea Jenny brand positioning / reputable press"
+    },
+    {
+     "name": "Royal Fruit Tea (XL)",
+     "note": "A viral oversized fruit tea (watermelon/orange/mango/lemon) reported at the Seoul launch; served with a spork to eat the fruit.",
+     "as_of": "2026-05",
+     "confidence": "low",
+     "source": "Korean food blog (chingumobile free board), weak single source",
+     "source_url": "https://chingumobile.com/free_board/885559"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Trades under its Chinese identity 沪上阿姨 ('Shanghai Auntie') across its overseas markets; romanized 'Hu Shang Ayi'.",
+     "as_of": "2026",
+     "confidence": "high",
+     "source": "brand storefronts / HKEX filing"
+    }
    ]
   }
  }

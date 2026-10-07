@@ -1022,6 +1022,18 @@
       "franchise_available_us": 0,
       "fdd_available": 0,
       "franchise_note": "Shanghai bakery chain; first US outlet is a shop-in-shop counter inside Duo Duo Snacks, Temple City CA, tracked on the map via sightings (chain_id 'dusu'). No standalone US locator."
+    },
+    "aunteajenny": {
+      "name": "Auntea Jenny",
+      "name_zh": "沪上阿姨",
+      "name_us": "Auntea Jenny",
+      "format": "tea",
+      "sector": "tea",
+      "global": "Shanghai freshly-made tea chain (沪上阿姨 'Shanghai Auntie', founded 2013; HKEX 2589, listed Dec 2024) — grain-forward / 五谷 milk teas, overwhelmingly franchised, ~9,000+ stores almost all in China. Fast overseas push from 2025-26: Malaysia (a dozen+ KL outlets), Australia (Sydney), the UK (London), South Korea (Seoul) and Indonesia (Jakarta). Collected daily on the US map; its international markets are tracked here.",
+      "operating_model": "franchise",
+      "franchise_available_us": 0,
+      "fdd_available": 0,
+      "franchise_note": "Shanghai tea chain (HKEX 2589); overwhelmingly franchised. US estate collected daily (chain_id 'aunteajenny'); overseas markets compiled here. The IPO prospectus (end-2024) showed only 1 overseas store (KL) — the footprint below has grown far beyond that since."
     }
   },
   "entries": [
@@ -7739,6 +7751,81 @@
       "note": "Trading as ChaPanda (茶百道) in Paris — at least four named outlets (Rue des Petits Champs; Lafayette / Rue de la Chaussée d'Antin; Rue Réaumur; Rue de Tolbiac), with ~5 pins on the map. Count from Google listings, not a first-party roster.",
       "sources": [
         "https://www.chapanda.com/"
+      ]
+    },
+    {
+      "chain": "aunteajenny",
+      "market": "MY",
+      "status": "present",
+      "locations": 11,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-07",
+      "note": "~11 Kuala Lumpur / Klang Valley outlets observed (MyTown, Sri Petaling, Lot 10, Ombak KLCC, Setapak, Kepong, Pavilion Bukit Jalil, TARUMT Arena, Taman Connaught, Sunway Velocity, Ativo Plaza). The chain's first overseas market.",
+      "sources": [
+        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+      ]
+    },
+    {
+      "chain": "aunteajenny",
+      "market": "AU",
+      "status": "present",
+      "locations": 3,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-07",
+      "note": "Sydney — Chinatown/Haymarket, Eastgardens and Hornsby (a 4th pin visible on the map); 3+ observed.",
+      "sources": [
+        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+      ]
+    },
+    {
+      "chain": "aunteajenny",
+      "market": "GB",
+      "status": "present",
+      "locations": 2,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-07",
+      "note": "London — Soho and White City; 2+ observed.",
+      "sources": [
+        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+      ]
+    },
+    {
+      "chain": "aunteajenny",
+      "market": "KR",
+      "status": "present",
+      "locations": 2,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-07",
+      "note": "Seoul — Hongdae (Mapo) and Konkuk University (건대); entered Seoul in 2026; 2 observed.",
+      "sources": [
+        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
+      ]
+    },
+    {
+      "chain": "aunteajenny",
+      "market": "ID",
+      "status": "present",
+      "locations": 1,
+      "locations_as_of": "2026-10",
+      "first_opened": null,
+      "precision": null,
+      "confidence": "low",
+      "reviewed": "2026-10-07",
+      "note": "Jakarta — Emporium Pluit Mall; 1+ observed.",
+      "sources": [
+        "Per-market Auntea Jenny (沪上阿姨) store listings, hand-noted 7 Oct 2026 (observed, not a first-party roster)"
       ]
     }
   ]
