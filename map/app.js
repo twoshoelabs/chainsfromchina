@@ -48,11 +48,18 @@ const el = (n, a = {}) => { const e = document.createElementNS(SVG, n); for (con
  * decoration: it is how a reader connects what is on the shopfront here to the company that
  * owns it, and how the next person searching avoids the mistake of hunting the wrong name.
  */
+const HAS_CJK = /[㐀-鿿豈-﫿]/;   // Han ideographs (incl. Ext-A + compatibility)
 const chainLabel = (c, opts = {}) => {
   const trading = c.name_us || c.name;
   const alias = c.name_us && c.name_us !== c.name ? c.name : null;
-  const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
-  const also = alias && !opts.short ? `<span class="zh">(${esc(alias)})</span>` : '';
+  // Only show the Chinese name when it really is Chinese — some chains carry a name_zh that is just
+  // their Latin name (e.g. "52TOYS", "KKV"), which would only repeat the trading name.
+  const zh = (c.name_zh && HAS_CJK.test(c.name_zh)) ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
+  // Alternate romanization in parentheses, only when it is genuinely different (not just a shorter
+  // form of the trading name) and in the label's own font, not the Hans face.
+  const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const redundant = alias && (norm(trading).includes(norm(alias)) || norm(alias).includes(norm(trading)));
+  const also = alias && !redundant && !opts.short ? ` (${esc(alias)})` : '';
   // Extra US trading names for the same shops (Fish With You also trades as Wei's Fish, YONNY).
   const aka = (c.aliases && c.aliases.length && !opts.short)
     ? `<span class="zh">also: ${c.aliases.map(esc).join(', ')}</span>` : '';
@@ -775,7 +782,8 @@ function drawProfiles(data) {
     const d = document.createElement('details');
     d.innerHTML =
       `<summary><span class="dot" style="background:${collected.has(id) ? colorOf(id) : 'var(--muted)'}"></span>` +
-      `<span class="nm">${esc(p.name)}</span><span class="zh">${esc(p.name_zh)}</span>` +
+      `<span class="nm">${esc(p.name)}</span>` +
+      (p.name_zh && HAS_CJK.test(p.name_zh) ? `<span class="zh">${esc(p.name_zh)}</span>` : '') +
       `</summary>` +
       `<p>${esc(p.blurb)}</p>` +
       `<p class="why"><b>Why it is in this archive.</b> ${esc(p.why_watch)}</p>` +

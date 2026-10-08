@@ -227,7 +227,10 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     .sort((a, b) => cnt[b].n - cnt[a].n).slice(0, 4);
   const sectorTotal = Object.keys(cnt).filter(k => cnt[k].sector === sector).length;
 
-  document.title = `${m.name} ${m.name_zh || ''} in the US — Chains From China`.replace(/\s+/g, ' ');
+  // Only include a Chinese name that really is Chinese — a name_zh that is just the Latin name
+  // (e.g. "52TOYS") would only repeat it.
+  const zhName = (m.name_zh && /[㐀-鿿豈-﫿]/.test(m.name_zh)) ? m.name_zh : '';
+  document.title = `${m.name} ${zhName} in the US — Chains From China`.replace(/\s+/g, ' ');
   var md = document.querySelector('meta[name="description"]');
   if (md && summary) md.setAttribute('content', summary);
   document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
@@ -265,7 +268,8 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   box.innerHTML =
     `<div class="sectorbar" style="background:${secColor(sector)}"></div>` +
     `<div class="chero">${logoHTML}<div class="cheromain">` +
-      `<h1>${esc(m.name)} <span class="zh" lang="zh-Hans">${esc(m.name_zh || '')}</span></h1>${aka}` +
+      `<h1>${esc(m.name)}` +
+        (zhName ? ` <span class="zh" lang="zh-Hans">${esc(zhName)}</span>` : '') + `</h1>${aka}` +
       `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
         (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
         listingBadge +

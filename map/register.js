@@ -4,10 +4,13 @@
  */
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const HAS_CJK = /[㐀-鿿豈-﫿]/;   // Han ideographs (incl. Ext-A + compatibility)
 const chainLabel = (c, opts = {}) => {
   const trading = c.name_us || c.name;
   const alias = c.name_us && c.name_us !== c.name ? c.name : null;
-  const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
+  // Only show the Chinese name when it actually IS Chinese. Some chains carry a name_zh that is just
+  // their Latin name (e.g. "52TOYS", "KKV"); repeating it adds nothing, so suppress a non-CJK one.
+  const zh = (c.name_zh && HAS_CJK.test(c.name_zh)) ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
   // Only show the alternate romanization when it is a genuinely different name used elsewhere
   // (e.g. "ChaPanda" for the US "TeaByDo"), not when it is merely a shorter form of the trading
   // name ("Tai Er" within "Tai Er Sichuan Cuisine"). When shown, it reads in the same font as the

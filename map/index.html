@@ -585,7 +585,9 @@ function animateGrandTotal(outlets, prevTotal){
   try { demo = await fetch('data/demographics.json').then(r=>r.json()); } catch(e){}
   try { reg = await fetch('data/register.json').then(r=>r.json()); } catch(e){}
   const feats = fc.features, meta = fc.meta||{}, T = meta.totals||{};
-  const zhOf = ch => (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || '';
+  // Show a Chinese name only when it really is Chinese; a name_zh that is just the Latin name
+  // (e.g. "52TOYS") would only repeat the English name beside it.
+  const zhOf = ch => { const z = (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || ''; return /[㐀-鿿豈-﫿]/.test(z) ? z : ''; };
   const isLocated = f => f.properties.status==='open' || (f.properties.kind==='sighting' && f.properties.status!=='coming_soon');
 
   // Masthead issue line: "No. 31 · Friday 2 October 2026 · counted 6:00 PM ET" (all times New York)
