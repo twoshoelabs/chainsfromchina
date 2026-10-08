@@ -19,6 +19,26 @@ fi
 
 "$PY" -m chain_atlas export >/dev/null           # fresh data into map/data
 
+# The demographics snapshot (map/data/demographics.json) is a SLOW periodic job — a Census tract
+# lookup per outlet — not part of the daily census, so it drifts behind the live roster between runs.
+# Refresh it here AT MOST WEEKLY, from the fresh stores.geojson export just wrote, so the published
+# section can't lag far. Throttled on the snapshot's own `generated` date; never fails the deploy.
+STALE="$("$PY" - <<'PYEOF' 2>/dev/null || echo yes
+import json, datetime as dt
+try:
+    g = json.load(open("demographics.json")).get("generated", "")
+    print("yes" if (not g or (dt.date.today() - dt.date.fromisoformat(g)).days >= 7) else "no")
+except Exception:
+    print("yes")
+PYEOF
+)"
+if [ "$STALE" = "yes" ]; then
+  echo "refreshing demographics snapshot (>= 7 days old)…"
+  "$PY" -m chain_atlas demographics >/dev/null 2>&1 \
+    && "$PY" -c "from pathlib import Path; from chain_atlas import demographics as d; d.export(Path('map/data'))" >/dev/null 2>&1 \
+    || echo "  demographics refresh skipped (error) — keeping the previous snapshot"
+fi
+
 TMP="$(mktemp -d)"
 cp -R map/. "$TMP"/
 rm -f "$TMP"/img/README.md                        # a dev note, not part of the site

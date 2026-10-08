@@ -684,7 +684,7 @@
   {
    "chain": "chahalo",
    "supplied_on": "2026-09-27",
-   "reviewed": "2026-09-27",
+   "reviewed": "2026-10-08",
    "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
    "scope": "Known US ChaHalo (茶话弄) outlets for a Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
    "locations": [
@@ -705,6 +705,14 @@
      "address": "79 Mott St, New York, NY 10013",
      "confidence": "confirmed",
      "verified_by": "Yelp (37 reviews) (27 Sep 2026)"
+    },
+    {
+     "name": "East Village (St Marks Pl)",
+     "address": "23 St Marks Pl, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "Google (ChaHalo 茶话弄 - East Village, 177 reviews, operating), hand-noted from screenshot (8 Oct 2026).",
+     "lat": 40.729026,
+     "lon": -73.988516
     }
    ]
   },
@@ -1756,7 +1764,7 @@
   {
    "chain": "zhengxin",
    "supplied_on": "2026-10-04",
-   "reviewed": "2026-10-04",
+   "reviewed": "2026-10-08",
    "source": "Operator verification against each store's Google listing (open, with reviews) + the brand's US ordering pages (4 Oct 2026).",
    "scope": "Six open US outlets of Zhengxin Chicken Steak (正新鸡排) confirmed by hand — three in California (San Diego, Milpitas, San Francisco) and three in New York (Flushing + two in Brooklyn). ~20,000-store China chain run in the US by regional operators; no single national locator, so tracked via sightings. The Chicago store is closed (see closings).",
    "locations": [
@@ -1807,6 +1815,14 @@
      "verified_by": "Google listing open, 284 reviews (4 Oct 2026)",
      "lat": 40.599976,
      "lon": -73.99048
+    },
+    {
+     "name": "Allston (Brighton Ave)",
+     "address": "122 Brighton Ave #2, Allston, MA 02134",
+     "confidence": "confirmed",
+     "verified_by": "Google (ZhengXin Chicken Steak, 160 reviews, operating), hand-noted from screenshot (8 Oct 2026).",
+     "lat": 42.352768,
+     "lon": -71.13107
     }
    ]
   },
