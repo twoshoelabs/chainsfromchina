@@ -79,15 +79,18 @@ async function main() {
     td.addEventListener('pointerleave', () => { document.getElementById('tip').hidden = true; });
   }
 
-  // Per-chain US store counts, taken from the SAME stores.geojson the map draws and tallied the
-  // same way the map's chain list is (one per feature), so the register's "In the US" column is
-  // identical to the US tab by construction — and updates with every deploy. See atlas.js buildTally.
+  // Per-chain US store counts, taken from the SAME stores.geojson the map draws and tallied by the
+  // SAME rule the map uses: OPEN outlets only (open + hand-verified sighting), with announced /
+  // coming-soon held out — the governing US count for the whole site. So the register's "In the US"
+  // column is identical to the US tab by construction, and updates with every deploy. See atlas.js
+  // buildTally and the homepage isLocated predicate.
   const usCount = {};
   try {
     const sg = await fetch('data/stores.geojson').then(r => r.json());
     for (const f of (sg.features || [])) {
-      const c = f.properties && f.properties.chain;
-      if (c) usCount[c] = (usCount[c] || 0) + 1;
+      const p = f.properties || {};
+      if (p.chain && (p.status === 'open' || (p.kind === 'sighting' && p.status !== 'coming_soon')))
+        usCount[p.chain] = (usCount[p.chain] || 0) + 1;
     }
   } catch (e) { /* no map data: US column falls back to em-dashes */ }
 

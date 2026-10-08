@@ -834,7 +834,12 @@ function buildTally(fc) {
   for (const f of fc.features) {
     const p = f.properties;
     const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0, fr: 0, fdd: 0 });
-    m.n++;
+    // Count OPEN outlets only (open + hand-verified sighting) — announced / coming-soon are held
+    // OUT of the count, the same basis as the homepage hero total and the method page. This is the
+    // one US count that governs the whole site, so the per-chain chip numbers sum to that total
+    // rather than inflating four chains with their announced pins. Announced still draw as dashed
+    // pins and appear in the homepage "announced" ledger.
+    if (p.status === 'open' || (p.kind === 'sighting' && p.status !== 'coming_soon')) m.n++;
     if (p.fr === 1) m.fr = 1;                   // chain is open to a US franchisee
     if (p.fdd === 1) m.fdd = 1;                 // ...backed by a registered US FDD (stronger tier)
     if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
