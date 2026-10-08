@@ -170,11 +170,25 @@ function recolorBasemap(layers) {
   for (const l of layers) {
     const id = l.id || '';
     if (/poi/i.test(id)) continue;                           // drop points of interest entirely
-    if (id === 'places_country') continue;                   // drop ALL country labels (Cuba, the
-    // Bahamas, Bermuda, Mexico, Canada, "UNITED STATES"): this is a US map, and the island-nation
-    // names just clutter the water. The basemap has no per-feature country field on region/locality
-    // labels, so foreign provinces (Ontario) and cities are hidden by the US silhouette mask instead.
+    // Labels: the surrounding landmasses (Canada, Mexico, Cuba, the Bahamas…) stay on the map, but
+    // their NAMES do not. Drop every country name and ocean/sea/island name; show city names only
+    // once you zoom into a metro (not at the national/regional view, where they are just noise); and
+    // label US STATES only — the basemap has no per-feature country field, so foreign provinces
+    // (Ontario, etc.) are excluded with a US-postal-code allowlist on the region layer.
+    if (id === 'places_country') continue;
+    if (/water_label|earth_label_islands/.test(id)) continue;
     const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (id === 'places_locality') nl.minzoom = Math.max(l.minzoom || 0, 9);  // no city names until metro zoom
+    if (id === 'places_subplace') nl.minzoom = Math.max(l.minzoom || 0, 10); // neighbourhoods deeper still
+    if (id === 'places_region') {
+      nl.filter = ['all', ['==', ['get', 'kind'], 'region'],
+        ['match', ['coalesce', ['get', 'ref:en'], ['get', 'ref'], ''],
+          ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA',
+            'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+            'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
+            'VA', 'WA', 'WV', 'WI', 'WY', 'DC'],
+          true, false]];
+    }
     if (l.type === 'background') nl.paint['background-color'] = GROUND;
     else if (id === 'earth') nl.paint['fill-color'] = GROUND;
     else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
@@ -391,11 +405,8 @@ async function init() {
   const chains = Object.keys(chainSector);
   const logos = await Promise.all(chains.map((c) => (LOGO_CHAINS.has(c) ? loadLogo(c) : Promise.resolve(null))));
   chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
-  // State outlines (for the Alaska/Hawaii insets) and a pre-dissolved lower-48+HI outline
-  // (for the main-map silhouette mask — one clean boundary with no shared state borders, so the
-  // mask's hole tessellation can't throw off the white wedges that per-state rings produced).
+  // State outlines power the Alaska/Hawaii insets (each masked to its own shape).
   const statesFC = await fetch('us-states.geojson').then((r) => r.json()).catch(() => null);
-  const outlineFC = await fetch('us-outline.geojson').then((r) => r.json()).catch(() => null);
   try { buildInsets(document.getElementById('map'), insetStyle, statesFC, fc); }
   catch (e) { console.warn('AK/HI insets skipped', e && e.message); }
 
@@ -416,28 +427,10 @@ async function init() {
       }
     }
 
-    // US-silhouette mask: cover everything outside the US with the water colour. Placed ABOVE the
-    // basemap's labels (not beneath) so foreign place names — Cuba, the Bahamas, Bermuda, Mexico,
-    // Canada, Toronto… — are painted over too, while US labels still show through the silhouette
-    // holes. It is added before the clusters and pins below, so our own data always sits on top.
-    // Wrapped so a mask failure can NEVER abort the rest of this handler.
-    if (outlineFC || statesFC) {
-      try {
-        map.addSource('usmask', { type: 'geojson', data: outlineFC ? usMask(outlineFC) : usMask(statesFC) });
-        // The mask is a national-view device (it drops Mexico/Canada/Cuba so the US reads as one
-        // silhouette). Our state outlines are coarse — Oahu is a 7-point polygon that doesn't even
-        // contain Honolulu — so at close zoom the mask whites out real coastline and strands a pin
-        // "in the ocean." Since you can't see a neighbouring country once zoomed into one city, fade
-        // the mask out as you zoom in and let the real basemap coastline show.
-        map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
-          paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false,
-            // Opaque across the national AND regional views (so foreign land + labels stay hidden on
-            // wide desktop monitors, which fit the US at a higher zoom than a narrow pane), fading out
-            // only at metro/city zoom where you're inside one area and the real coastline should show.
-            // Pins draw above the mask, so a store is never covered.
-            'fill-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0] } });
-      } catch (e) { console.warn('US mask skipped', e && e.message); }
-    }
+    // No US-silhouette mask: the surrounding landmasses (Canada, Mexico, Cuba, the Bahamas…) are
+    // kept on the map as plain land — the viewer likes the geographic context. Foreign CLUTTER is
+    // handled at the label level instead (recolorBasemap: no country/ocean/island names, US-state
+    // labels only, city names only at metro zoom), so the neighbours show without their names.
 
     map.addSource('stores', {
       type: 'geojson', data: fc,
