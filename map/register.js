@@ -8,7 +8,13 @@ const chainLabel = (c, opts = {}) => {
   const trading = c.name_us || c.name;
   const alias = c.name_us && c.name_us !== c.name ? c.name : null;
   const zh = c.name_zh ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
-  const also = alias && !opts.short ? `<span class="zh">(${esc(alias)})</span>` : '';
+  // Only show the alternate romanization when it is a genuinely different name used elsewhere
+  // (e.g. "ChaPanda" for the US "TeaByDo"), not when it is merely a shorter form of the trading
+  // name ("Tai Er" within "Tai Er Sichuan Cuisine"). When shown, it reads in the same font as the
+  // rest of the label — not the Hans face the Chinese name uses.
+  const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const redundant = alias && (norm(trading).includes(norm(alias)) || norm(alias).includes(norm(trading)));
+  const also = alias && !redundant && !opts.short ? ` (${esc(alias)})` : '';
   return `${esc(trading)}${zh}${also}`;
 };
 
