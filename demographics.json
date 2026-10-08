@@ -1,59 +1,59 @@
 {
- "outlets_analyzed": 871,
- "with_tract_asian": 767,
+ "outlets_analyzed": 939,
+ "with_tract_asian": 889,
  "national_pct_asian": 6.2,
  "asian_density": {
-  "median_tract_pct": 14.4,
-  "ge_national": 72.9,
-  "ge_2x": 53.6,
-  "ge_5x": 26.2,
-  "ge_10x": 8.7
+  "median_tract_pct": 15.7,
+  "ge_national": 73.9,
+  "ge_2x": 56.0,
+  "ge_5x": 28.9,
+  "ge_10x": 10.9
  },
  "metro": {
-  "urban_pct": 99.8,
-  "in_csa_pct": 89.9,
+  "urban_pct": 99.7,
+  "in_csa_pct": 90.4,
   "top": [
    {
     "name": "New York-Newark, NY-NJ-CT-PA CSA",
-    "n": 163
+    "n": 181
    },
    {
     "name": "Los Angeles-Long Beach, CA CSA",
-    "n": 138
+    "n": 148
    },
    {
     "name": "San Jose-San Francisco-Oakland, CA CSA",
-    "n": 69
+    "n": 79
    },
    {
     "name": "Seattle-Tacoma, WA CSA",
-    "n": 33
+    "n": 36
    },
    {
     "name": "Chicago-Naperville, IL-IN-WI CSA",
-    "n": 31
+    "n": 35
    },
    {
     "name": "Houston-The Woodlands, TX CSA",
+    "n": 32
+   },
+   {
+    "name": "Boston-Worcester-Providence, MA-RI-NH-CT CSA",
     "n": 29
    },
    {
     "name": "Dallas-Fort Worth, TX-OK CSA",
-    "n": 24
-   },
-   {
-    "name": "Washington-Baltimore-Arlington, DC-MD-VA-WV-PA CSA",
-    "n": 23
+    "n": 26
    }
   ]
  },
  "university": {
-  "within_half_mi": 32.4,
-  "within_1mi": 48.2,
-  "within_3mi": 87.6,
+  "within_half_mi": 33.0,
+  "within_1mi": 49.5,
+  "within_3mi": 87.8,
   "median_miles": 1.1
  },
- "generated": "2026-10-03",
+ "generated": "2026-10-07",
  "source": "stores.geojson (measured storefronts; roboshops and unconfirmed sightings excluded)",
  "method": "Each located storefront joined to public, key-free sources: tract %Asian from US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, metro/urban from the US Census geographies endpoint, nearest campus from the Urban Institute IPEDS directory. Aggregates only; modeled, not measured."
 }
