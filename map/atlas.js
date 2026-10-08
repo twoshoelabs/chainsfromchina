@@ -170,6 +170,10 @@ function recolorBasemap(layers) {
   for (const l of layers) {
     const id = l.id || '';
     if (/poi/i.test(id)) continue;                           // drop points of interest entirely
+    if (id === 'places_country') continue;                   // drop ALL country labels (Cuba, the
+    // Bahamas, Bermuda, Mexico, Canada, "UNITED STATES"): this is a US map, and the island-nation
+    // names just clutter the water. The basemap has no per-feature country field on region/locality
+    // labels, so foreign provinces (Ontario) and cities are hidden by the US silhouette mask instead.
     const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
     if (l.type === 'background') nl.paint['background-color'] = GROUND;
     else if (id === 'earth') nl.paint['fill-color'] = GROUND;
@@ -427,7 +431,11 @@ async function init() {
         // the mask out as you zoom in and let the real basemap coastline show.
         map.addLayer({ id: 'usmask', type: 'fill', source: 'usmask',
           paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false,
-            'fill-opacity': ['interpolate', ['linear'], ['zoom'], 5.5, 1, 7.5, 0] } });
+            // Opaque across the national AND regional views (so foreign land + labels stay hidden on
+            // wide desktop monitors, which fit the US at a higher zoom than a narrow pane), fading out
+            // only at metro/city zoom where you're inside one area and the real coastline should show.
+            // Pins draw above the mask, so a store is never covered.
+            'fill-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0] } });
       } catch (e) { console.warn('US mask skipped', e && e.message); }
     }
 
