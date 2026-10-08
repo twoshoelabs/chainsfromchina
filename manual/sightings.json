@@ -1944,9 +1944,9 @@
   {
    "chain": "makkee",
    "supplied_on": "2026-10-07",
-   "reviewed": "2026-10-07",
+   "reviewed": "2026-10-08",
    "source": "Brand's own US account (Instagram @makkeedessert_usa) location list; per-store Google listings for the street addresses (hand-noted from screenshots, not scraped); local press (Mountain View Voice/Almanac; 425 Business, Bellevue).",
-   "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). The 5 outlets with a confirmed street address are mapped here. The brand's IG also lists a downtown-LA (DTLA) store as open, address not yet confirmed, so it is not mapped; Irvine CA, San Jose CA and Brooklyn NY are announced (coming soon), not yet open. Not monitored.",
+   "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). All 6 open outlets are mapped (incl. the DTLA / K-town store at 3450 W 6th St, which the brand runs as @makkeedessert_dtla). Irvine CA, San Jose CA and Brooklyn NY are announced (coming soon), not yet open. Not monitored.",
    "locations": [
     {
      "name": "Rowland Heights (Diamond Plaza)",
@@ -1987,6 +1987,15 @@
      "verified_by": "Brand IG ('Seattle, WA') + Google listing (61 reviews) + press (425 Business, downtown Bellevue); address hand-noted from screenshot (7 Oct 2026). Seattle metro.",
      "lat": 47.610047,
      "lon": -122.196289
+    },
+    {
+     "name": "Los Angeles (DTLA / K-town)",
+     "address": "3450 W 6th St Ste 108, Los Angeles, CA 90020",
+     "confidence": "confirmed",
+     "verified_by": "Brand IG (@makkeedessert_dtla / @makkeedessert_usa — the brand's own 'DTLA' store) + Google listing (Makkee Dessert Ktown 麦记牛奶公司, 28 reviews, operating); hand-noted 8 Oct 2026.",
+     "lat": 34.063165,
+     "lon": -118.297156,
+     "coord_src": "manual"
     }
    ]
   },
