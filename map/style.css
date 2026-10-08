@@ -45,7 +45,7 @@ svg#map{width:100%; height:min(60vh,540px); display:block; touch-action:none; cu
 svg#map.drag{cursor:grabbing}
 .state{fill:var(--land); stroke:var(--land-line); stroke-width:.8}
 /* No stroke-width here on purpose: a CSS declaration would override the per-dot
-   stroke-width ATTRIBUTE that app.js scales with the view, and the announced-store rings
+   stroke-width ATTRIBUTE that the map script scales with the view, and the announced-store rings
    would be drawn 1.6 metres wide, i.e. invisible. */
 .store{cursor:pointer}
 
