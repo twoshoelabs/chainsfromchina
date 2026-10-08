@@ -79,8 +79,19 @@ async function main() {
     td.addEventListener('pointerleave', () => { document.getElementById('tip').hidden = true; });
   }
 
-  usView(chains, markets, cells);
-  detail(chains, markets, cells);
+  // Per-chain US store counts, taken from the SAME stores.geojson the map draws and tallied the
+  // same way the map's chain list is (one per feature), so the register's "In the US" column is
+  // identical to the US tab by construction — and updates with every deploy. See atlas.js buildTally.
+  const usCount = {};
+  try {
+    const sg = await fetch('data/stores.geojson').then(r => r.json());
+    for (const f of (sg.features || [])) {
+      const c = f.properties && f.properties.chain;
+      if (c) usCount[c] = (usCount[c] || 0) + 1;
+    }
+  } catch (e) { /* no map data: US column falls back to em-dashes */ }
+
+  usView(chains, markets, cells, usCount);
   coverage(chains);
   document.getElementById('asof').textContent = `Last updated ${D.as_of}.`;
 }
@@ -90,9 +101,9 @@ async function main() {
  * Chains already trading in the US sit above the ones that have only gone elsewhere — the
  * second group being the actual watchlist.
  */
-function usView(chains, markets, cells) {
+function usView(chains, markets, cells, usCount) {
   const us = D.derived.us_status || {};
-  const abroad = c => markets.filter(m => (cells[c + '/' + m] || {}).status === 'present').length;
+  const ww = (D.derived && D.derived.worldwide) || {};
   const metaOf = c => D.chains[c] || us[c] || { name: c };
   // "Here" is every chain that trades in the US, drawn from us_status (which now covers all US
   // adapters), not just the register's own international chains — so the map's US chains all show.
@@ -103,23 +114,39 @@ function usView(chains, markets, cells) {
     .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
   const notHere = Object.keys(D.chains).filter(c => (us[c] || {}).status === 'not_established')
     .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
-  const row = c => {
-    const na = abroad(c);
-    // No "how it's counted" badge — if a chain is tracked here, it's tracked; whether the count
-    // comes from a daily locator read or is entered by hand is a map-side data-quality detail,
-    // not something to label every chain with.
-    return `<li><b>${chainLabel(metaOf(c))}</b>` +
-      (na ? `<span class="abroad">in ${na} other market${na === 1 ? '' : 's'} outside China</span>` : '') +
-      `</li>`;
+
+  const num = n => (n != null ? Number(n).toLocaleString('en-US') : null);
+  // US cell: the live count from the map (em-dash when a chain has no mapped US outlet).
+  const usCell = c => {
+    const n = usCount[c];
+    return n ? `<td class="num">${num(n)}</td>` : `<td class="num dash">&mdash;</td>`;
   };
+  // Worldwide cell: latest reported company-wide total + its as-of (blank where unknown). China
+  // and overseas splits are Pro-only and never reach this page.
+  const wwCell = c => {
+    const w = ww[c];
+    if (!w || w.n == null) return `<td class="num dash">&mdash;</td>`;
+    return `<td class="num">${num(w.n)}` +
+      (w.as_of ? `<span class="asof">as of ${esc(w.as_of)}</span>` : '') + `</td>`;
+  };
+  const body = list => list.map(c =>
+    `<tr><td class="name"><b>${chainLabel(metaOf(c))}</b></td>${usCell(c)}${wwCell(c)}</tr>`).join('');
+  const table = list =>
+    `<table class="ustable"><thead><tr><th>Chain</th>` +
+    `<th class="num">In the US</th><th class="num">Worldwide</th></tr></thead>` +
+    `<tbody>${body(list)}</tbody></table>`;
+
   document.getElementById('usview').innerHTML =
     `<section class="usbox"><h2>Already in the United States</h2>` +
-    `<p class="note small">Every Chinese chain this project tracks on the US map, A–Z.</p>` +
-    `<ul class="uslist">${here.map(row).join('')}</ul></section>` +
+    `<p class="note small">Every Chinese chain this project tracks on the US map, A&ndash;Z. ` +
+    `The <strong>In the US</strong> column is collected daily and matches the ` +
+    `<a href="index.html">US map</a> exactly; <strong>Worldwide</strong> is the latest company-wide ` +
+    `store total reported in filings or the press, with the date it was reported.</p>` +
+    table(here) + `</section>` +
     (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, not yet in the US</h2>` +
-      `<p class="note small">The watchlist — Chinese chains that have opened outside China but that ` +
-      `we have not found in the United States. If one reaches America, it moves up to the list above.</p>` +
-      `<ul class="uslist">${notHere.map(row).join('')}</ul></section>` : '');
+      `<p class="note small">The watchlist &mdash; Chinese chains that have opened outside China but ` +
+      `that we have not found in the United States. If one reaches America, it moves up to the list ` +
+      `above.</p>` + table(notHere) + `</section>` : '');
 }
 
 function cellClass(e) {
@@ -160,31 +187,6 @@ function tip(ev, e, key) {
   t.hidden = false;
   t.style.left = Math.min(ev.clientX + 14, innerWidth - 320) + 'px';
   t.style.top = (ev.clientY + 14) + 'px';
-}
-
-function detail(chains, markets, cells) {
-  let h = '';
-  for (const c of chains) {
-    const rows = markets.filter(m => cells[c + '/' + m]).map(m => [m, cells[c + '/' + m]]);
-    if (!rows.length) continue;
-    h += `<section class="chainblock"><h3>${chainLabel(D.chains[c])}</h3>` +
-      `<p class="note small">${esc(D.chains[c].global)}</p><dl class="rows">`;
-    for (const [m, e] of rows) {
-      const bits = [];
-      if (e.first_opened) bits.push(`first ${esc(e.first_opened)}`);
-      if (e.locations != null) bits.push(`${e.locations} locations (${esc(e.locations_as_of)})`);
-      h += `<dt>${esc(D.markets[m].name)}</dt><dd>` +
-        `<span class="status s-${esc(e.status)}">${esc(e.status.replace('_', ' '))}</span> ` +
-        (e.collected ? '<span class="status s-collected">collected</span> ' : '') +
-        bits.join(' · ') +
-        (e.note ? `<div class="rnote">${esc(e.note)}</div>` : '') +
-        (e.sources || []).map(u =>
-          `<a class="src" href="${esc(u)}" target="_blank" rel="noopener">source</a>`).join(' ') +
-        `</dd>`;
-    }
-    h += '</dl></section>';
-  }
-  document.getElementById('detail').innerHTML = h;
 }
 
 function coverage(chains) {

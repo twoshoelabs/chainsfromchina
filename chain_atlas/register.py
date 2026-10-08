@@ -398,9 +398,23 @@ def export(out_dir: Path) -> dict:
         if "sector" not in info:
             info["sector"] = (sector_of(d["chains"][c]) if c in d["chains"]
                               else SECTOR_BY_FORMAT.get(info.get("format")))
+    # Worldwide store totals for the register's public "Worldwide" column. We lift ONLY the
+    # worldwide `total` and its as-of out of the Pro-tier china_stores.json — never the China or
+    # overseas split, which stay Pro (owner decision 2026-10-08). The worldwide total is already a
+    # public fact (it appears in each chain's `global` note); exposing it as a column just keeps the
+    # page in step with the filings behind china_stores. Best-effort: absent file -> no column data.
+    worldwide: dict[str, dict] = {}
+    try:
+        cs_path = Path(__file__).resolve().parents[1] / "manual" / "china_stores.json"
+        for cid, b in (json.loads(cs_path.read_text(encoding="utf-8")).get("brands") or {}).items():
+            if b.get("total") is not None:
+                worldwide[cid] = {"n": b["total"], "as_of": b.get("as_of")}
+    except Exception:                                           # noqa: BLE001
+        worldwide = {}
     d["derived"] = {
         "us_status": us_derived,
         "markets_present": dict(by_chain),
+        "worldwide": worldwide,
         "entries": len(d["entries"]),
         "gaps": len(gaps(d)),
         "stale": len(stale(d)),
