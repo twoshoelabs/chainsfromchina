@@ -432,6 +432,23 @@ async function init() {
     // handled at the label level instead (recolorBasemap: no country/ocean/island names, US-state
     // labels only, city names only at metro zoom), so the neighbours show without their names.
 
+    // A FEW major Canadian/Mexican cities, hand-placed and subtly styled, for geographic context at
+    // the national/regional view. The basemap's city labels are off until metro zoom and carry no
+    // country field (so foreign ones can't be filtered from it); these stand in, then hand off to the
+    // basemap's own labels at zoom 9. Kept deliberately short — not a gazetteer.
+    try {
+      map.addSource('intl-cities', { type: 'geojson', data: { type: 'FeatureCollection', features:
+        [['Toronto', -79.383, 43.653], ['Montreal', -73.567, 45.501], ['Vancouver', -123.116, 49.283],
+         ['Mexico City', -99.133, 19.433], ['Monterrey', -100.317, 25.667], ['Guadalajara', -103.350, 20.659]]
+          .map(([n, lon, lat]) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [lon, lat] },
+                                     properties: { name: n } })) } });
+      map.addLayer({ id: 'intl-cities', type: 'symbol', source: 'intl-cities', maxzoom: 9,
+        layout: { 'text-field': ['get', 'name'], 'text-font': [GLYPH_FONT], 'text-size': 11,
+                  'text-anchor': 'center', 'text-padding': 4 },
+        paint: { 'text-color': '#4F524E', 'text-halo-color': '#EDEFEB', 'text-halo-width': 1.2,
+                 'text-opacity': 0.9 } });
+    } catch (e) { console.warn('intl cities skipped', e && e.message); }
+
     map.addSource('stores', {
       type: 'geojson', data: fc,
       cluster: true, clusterRadius: 48, clusterMaxZoom: 14,
