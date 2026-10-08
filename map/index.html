@@ -649,11 +649,21 @@ function animateGrandTotal(outlets, prevTotal){
     const [ts,tv] = secRows[0];
     $('sec-head').innerHTML = cap(word(tv.chains.size))+' '+(SECTOR_LABEL_LC[ts]||SECTOR_NAME[ts]||ts)+
       ' chains run '+tv.outlets+' of the '+total+' stores.';
-    const mostBrands = secRows.slice().sort((a,b)=>b[1].chains.size-a[1].chains.size)[0];
-    const tea = bySector['tea'];
-    let ctx = cap(SECTOR_LABEL_LC[mostBrands[0]]||SECTOR_NAME[mostBrands[0]])+' has the most brands, '+
-      mostBrands[1].chains.size+' of them, but they share just '+mostBrands[1].outlets+' outlets between them.';
-    if (tea) ctx += ' Tea is next: '+tea.chains.size+' chains, '+tea.outlets+' shops.';
+    // Ranked by number of brands (chains), tie-broken by outlets, so #1 and #2 always follow the
+    // live stats — if toys overtakes food & drink for most brands, the sentence says so, and the
+    // "next" sector is whichever is genuinely second, not a hard-coded tea.
+    const byBrands = secRows.slice().sort((a,b)=>
+      b[1].chains.size-a[1].chains.size || b[1].outlets-a[1].outlets);
+    const secName = s => cap(SECTOR_LABEL_LC[s]||SECTOR_NAME[s]||s);
+    const plur = (n,w) => n+' '+w+(n===1?'':'s');
+    const [s1,v1] = byBrands[0];
+    let ctx = secName(s1)+' has the most brands ('+v1.chains.size+') but with only '+
+      plur(v1.outlets,'outlet')+' between them.';
+    if (byBrands[1]) {
+      const [s2,v2] = byBrands[1];
+      ctx += ' '+secName(s2)+' is next with '+plur(v2.chains.size,'chain')+' and '+
+        plur(v2.outlets,'shop')+'.';
+    }
     $('sec-ctx').textContent = ctx;
   }
 
