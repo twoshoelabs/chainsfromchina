@@ -632,7 +632,7 @@ function animateGrandTotal(outlets, prevTotal){
     for (let i=0;i<v.outlets;i++) dots += '<span class="dot '+cls+'"></span>'; }
   dg.innerHTML = dots;
   dg.setAttribute('aria-label', total+' outlets, one dot each: '+secRows.map(([s,v])=>(SECTOR_NAME[s]||s)+' '+v.outlets).join(', ')+'.');
-  // braces: named sectors with a dot colour, rest grouped as "Other n"
+  // braces: named sectors with a dot color, rest grouped as "Other n"
   const named = secRows.filter(([s])=>DOT_CLASS[s]);
   const otherOutlets = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.outlets,0);
   const otherChains = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.chains.size,0);
