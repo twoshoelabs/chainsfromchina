@@ -142,22 +142,42 @@ function makeBadge(logo, color, mono, soft, square) {
 async function resolveStyle() {
   if (!BASEMAP.pmtiles) return BASEMAP.style;      // a style URL string
   // Protomaps path: register the pmtiles:// protocol and build the light theme over our US file.
-  const [pm, bm] = await Promise.all([
-    import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm'),
-    import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm'),
-  ]);
-  maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
-  GLYPH_FONT = 'Noto Sans Regular';                // Protomaps' glyph server provides this
-  return {
-    version: 8,
-    glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
-    sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
-    sources: {
-      protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
-                   attribution: '© OpenStreetMap contributors' },
-    },
-    layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
-  };
+  // The two modules are fetched from a CDN at RUNTIME. A transient CDN failure — or, worse, a cached
+  // bad/partial response — used to throw here and leave the map BLANK until the visitor happened to
+  // hard-refresh (the one thing that evicts the poisoned cache). So: build it, retry once with a
+  // cache-buster to get past a poisoned entry, then fall back to the hosted CARTO style so the map
+  // ALWAYS renders a basemap rather than nothing. Pins are added on 'load' regardless of which style
+  // wins, so they appear either way; the default GLYPH_FONT (Open Sans) matches CARTO's glyphs.
+  async function buildProtomaps(bust) {
+    const q = bust ? ('?cb=' + Date.now()) : '';
+    const [pm, bm] = await Promise.all([
+      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm' + q),
+      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm' + q),
+    ]);
+    maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
+    GLYPH_FONT = 'Noto Sans Regular';                // Protomaps' glyph server provides this
+    return {
+      version: 8,
+      glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+      sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
+      sources: {
+        protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
+                     attribution: '© OpenStreetMap contributors' },
+      },
+      layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
+    };
+  }
+  try {
+    return await buildProtomaps(false);
+  } catch (e1) {
+    console.warn('basemap modules failed to load; retrying with a cache-buster', e1 && e1.message);
+    try {
+      return await buildProtomaps(true);
+    } catch (e2) {
+      console.warn('basemap modules still failing; using the hosted CARTO fallback style', e2 && e2.message);
+      return BASEMAP.style;      // hosted keyless light style — the map renders instead of going blank
+    }
+  }
 }
 
 // Flatten the Protomaps light theme to the site's greyscale tokens: grey land, white water, grey
