@@ -10,13 +10,11 @@
 <link rel="stylesheet" href="style.css?v=6">
 <link rel="stylesheet" href="site.css?v=12">
 <style>
-  /* Global page: the market matrix is the centrepiece, so give it the full width and move the
-     supporting notes (largely a recap of other sections) into a row beneath it. */
+  /* Global page: the market matrix is the centrepiece, so give it the full width, with the
+     US-reach summary tables stacked beneath it. */
   .wrap { flex-direction: column; }
   main { width: 100%; }
   #matrix { overflow-x: auto; }
-  aside { flex: 1 1 auto; width: 100%;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 32px; }
 </style>
 </head>
 <body data-page="global">
@@ -55,32 +53,6 @@
     <!-- Secondary, below the table: US-reach summary with live US + worldwide store counts. -->
     <div id="usview"></div>
   </main>
-
-  <aside>
-    <section>
-      <h2>Markets outside China &amp; the US</h2>
-      <table id="coverage"><tbody></tbody></table>
-      <p class="note small" id="covnote"></p>
-    </section>
-    <section>
-      <h2>How to read a cell</h2>
-      <ul class="legendlist">
-        <li><b>82</b> a published location count</li>
-        <li><b>46&#9733;</b> measured daily by this project's own collector, not compiled by hand</li>
-        <li><b>Y</b> present, but no count published</li>
-        <li><b>–</b> searched, no evidence of presence found</li>
-        <li><b>·</b> not looked at yet</li>
-        <li><span class="conf c-medium">?</span> medium confidence,
-            <span class="conf c-low">??</span> low — hover any cell for the reasoning</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Keeping it honest</h2>
-      <p class="note">Entries carry a review date and go stale. <code>register --stale</code> lists anything
-        untouched for 90 days, so an old entry can be found and re-checked before anyone relies on
-        it.</p>
-    </section>
-  </aside>
 </div>
 
 

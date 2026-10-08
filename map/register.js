@@ -95,7 +95,6 @@ async function main() {
   } catch (e) { /* no map data: US column falls back to em-dashes */ }
 
   usView(chains, markets, cells, usCount);
-  coverage(chains);
   document.getElementById('asof').textContent = `Last updated ${D.as_of}.`;
 }
 
@@ -190,21 +189,6 @@ function tip(ev, e, key) {
   t.hidden = false;
   t.style.left = Math.min(ev.clientX + 14, innerWidth - 320) + 'px';
   t.style.top = (ev.clientY + 14) + 'px';
-}
-
-function coverage(chains) {
-  const tb = document.querySelector('#coverage tbody');
-  for (const c of chains) {
-    const n = D.derived.markets_present[c] || 0;
-    tb.insertAdjacentHTML('beforeend',
-      `<tr><td>${chainLabel(D.chains[c], { short: true })}</td><td class="n">${n}</td></tr>`);
-  }
-  document.getElementById('covnote').textContent =
-    `For each chain, the number of markets outside China and the US where this register ` +
-    `records it present — not how many it actually trades in. The register covers only a ` +
-    `hand-picked set of markets and is far from every country. A low number here usually means we ` +
-    `have not looked, not that a chain is small — MIXUE alone has more stores abroad than everyone ` +
-    `in this table combined.`;
 }
 
 main();
