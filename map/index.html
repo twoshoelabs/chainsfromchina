@@ -112,7 +112,8 @@
   .maptoggles label { display:flex; align-items:center; gap:10px; min-height:44px; font-size:14px; cursor:pointer; }
   .maptoggles label + label { border-top:1px solid var(--ink); }
   #map { width:100%; aspect-ratio:1.843; background:var(--map-ground); border:1px solid var(--ink); position:relative; }
-  @media (max-width:560px){ #map { aspect-ratio:auto; height:420px; } }
+  @media (max-width:840px){ .maplayout { flex-direction:column; } .mapcol { order:-1; } }
+  @media (max-width:560px){ #map { aspect-ratio:auto; height:clamp(420px, 72vh, 620px); } }
   /* Alaska & Hawaii insets, pinned to the map's lower-left */
   .map-insets { position:absolute; left:10px; bottom:10px; z-index:3; display:flex; gap:8px; }
   .map-inset { position:relative; width:122px; height:92px; border:1.5px solid var(--ink); background:#fff; }
