@@ -148,9 +148,17 @@ function openAddresses(abbr, chain) {
 
   M_TITLE.innerHTML = `<span class="m-name">${esc(c.name)}</span> in ${esc(s.name)}` +
     ` <span class="m-count">${c.n} ${plural(c.n)}</span>`;
+  // City leads (the readable line), with the street address below it and lighter. The panel header
+  // already says which state, so the row shows the city name alone, not "City, ST".
   M_LIST.innerHTML = items.length
-    ? items.map((i) => `<li><span class="m-addr">${esc(i.address || '—')}</span>` +
-        `<span class="m-city">${esc([i.city, s.abbr].filter(Boolean).join(', '))}</span></li>`).join('')
+    ? items.map((i) => {
+        const city = i.city ? esc(i.city) : '';
+        const addr = i.address ? esc(i.address) : '';
+        const head = city || addr || '—';      // city leads; fall back to the address, then a dash
+        const sub = city ? addr : '';           // the street address sits beneath, in the muted style
+        return `<li><span class="m-city">${head}</span>` +
+          (sub ? `<span class="m-addr">${sub}</span>` : '') + `</li>`;
+      }).join('')
     : '<li class="m-empty">No street addresses on file for these outlets.</li>';
 
   const pts = items.filter((i) => isFinite(i.lat) && isFinite(i.lon));
