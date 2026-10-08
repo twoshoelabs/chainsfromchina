@@ -184,7 +184,7 @@ function tip(ev, e, key) {
     if (e.locations != null) bits.push(`${e.locations} locations as of ${esc(e.locations_as_of)}`);
     bits.push(e.collected ? 'collected daily, not typed' : `${esc(e.confidence)} confidence`);
     t.innerHTML = `<b>${chainLabel(D.chains[c], { short: true })} · ${esc(D.markets[m].name)}</b>` +
-      `${esc(e.status)}: ${bits.join('; ')}` +
+      `${esc(e.status.replace('_', ' '))}: ${bits.join('; ')}` +
       (e.note ? `<div class="meta">${esc(e.note)}</div>` : '') +
       (e.sources && e.sources.length ? `<div class="meta">${e.sources.length} source(s)</div>`
         : `<div class="meta">no source cited</div>`);
