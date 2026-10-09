@@ -504,16 +504,32 @@ async function resolveStyle() {
   }
 }
 
-// Flatten the Protomaps light theme to the site's greyscale tokens (grey land, white water, grey
-// roads/borders, muted labels, no POIs) so only the brand logo pins carry colour.
+// Flatten the Protomaps light theme to the site's greyscale tokens and treat labels exactly as the
+// landing-page map does (atlas.js): keep the surrounding landmasses but drop their NAMES — no country
+// or ocean/island labels — show city names only at metro zoom, and label US states only (a
+// US-postal-code allowlist on the region layer, since the basemap has no per-feature country field).
+// Kept identical to atlas.js so the two maps read the same.
 function recolorBasemap(layers) {
   const GROUND = '#EDEFEB', WATER = '#FFFFFF', ROAD = '#C4C7C2', BORDER = '#B3B6B1',
         BUILD = '#DADCD7', LANDUSE = '#E7E9E5', LABEL = '#4F524E', HALO = '#EDEFEB';
   const out = [];
   for (const l of layers) {
     const id = l.id || '';
-    if (/poi/i.test(id)) continue;
+    if (/poi/i.test(id)) continue;                           // drop points of interest entirely
+    if (id === 'places_country') continue;                   // no country names (UNITED STATES, MEXICO…)
+    if (/water_label|earth_label_islands/.test(id)) continue;
     const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (id === 'places_locality') nl.minzoom = Math.max(l.minzoom || 0, 9);  // no city names until metro zoom
+    if (id === 'places_subplace') nl.minzoom = Math.max(l.minzoom || 0, 10); // neighbourhoods deeper still
+    if (id === 'places_region') {
+      nl.filter = ['all', ['==', ['get', 'kind'], 'region'],
+        ['match', ['coalesce', ['get', 'ref:en'], ['get', 'ref'], ''],
+          ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA',
+            'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+            'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
+            'VA', 'WA', 'WV', 'WI', 'WY', 'DC'],
+          true, false]];
+    }
     if (l.type === 'background') nl.paint['background-color'] = GROUND;
     else if (id === 'earth') nl.paint['fill-color'] = GROUND;
     else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
@@ -560,6 +576,22 @@ async function drawMap(feats, sector, id, name) {
         try { map.setLayoutProperty(l.id, 'visibility', 'none'); } catch (e) { /* non-symbol layer */ }
       }
     }
+
+    // A FEW major Canadian/Mexican cities, hand-placed and subtly styled — identical to the landing
+    // map. The basemap's city labels are off until metro zoom and carry no country field, so these
+    // stand in for geographic context at the national/regional view, then hand off at zoom 9.
+    try {
+      map.addSource('intl-cities', { type: 'geojson', data: { type: 'FeatureCollection', features:
+        [['Toronto', -79.383, 43.653], ['Montreal', -73.567, 45.501], ['Vancouver', -123.116, 49.283],
+         ['Mexico City', -99.133, 19.433], ['Monterrey', -100.317, 25.667], ['Guadalajara', -103.350, 20.659]]
+          .map(([n, lon, lat]) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [lon, lat] },
+                                     properties: { name: n } })) } });
+      map.addLayer({ id: 'intl-cities', type: 'symbol', source: 'intl-cities', maxzoom: 9,
+        layout: { 'text-field': ['get', 'name'], 'text-font': [GLYPH_FONT], 'text-size': 11,
+                  'text-anchor': 'center', 'text-padding': 4 },
+        paint: { 'text-color': '#4F524E', 'text-halo-color': '#EDEFEB', 'text-halo-width': 1.2,
+                 'text-opacity': 0.9 } });
+    } catch (e) { console.warn('intl cities skipped', e && e.message); }
 
     map.addSource('c', { type: 'geojson', data: fc });
     const soft = ['==', ['get', 'status'], 'coming_soon'];
