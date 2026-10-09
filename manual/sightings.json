@@ -1629,6 +1629,14 @@
      "name": "Champaign (UIUC)",
      "confidence": "confirmed",
      "verified_by": "first-party store site — routine discovery 2026-10-01 — https://zhangliangmalatanguiuc.com/"
+    },
+    {
+     "address": "2002 S Wentworth Ave Ste 102, Chicago, IL 60616",
+     "name": "Chicago (Chinatown)",
+     "confidence": "confirmed",
+     "lat": 41.855279,
+     "lon": -87.631923,
+     "verified_by": "Google listing (4.3★, 220 reviews), operating — observed 9 Oct 2026. HeungSeng Square, Chinatown; same building as our Juewei at 2002 S Wentworth (coordinate from that building, Census rate-limited at add time)."
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
