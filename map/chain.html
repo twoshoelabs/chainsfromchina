@@ -561,7 +561,8 @@ function recolorBasemap(layers) {
 }
 
 // ---- Alaska/Hawaii insets: small non-interactive thumbnails pinned lower-left, matching the landing
-// map. Built only for the states where THIS chain actually has an outlet, so most profiles show none.
+// map. ALWAYS shown on every profile — a US map shouldn't omit two states just because this chain has
+// no outlet there yet — with brand pins appearing only in the states where it does.
 const INSETS = [
   { id: 'AK', label: 'Alaska', bounds: [[-170, 52], [-129, 71.5]] },
   { id: 'HI', label: 'Hawaii', bounds: [[-160.6, 18.7], [-154.6, 22.4]] },
@@ -595,13 +596,11 @@ function insetCount(n) {
 }
 async function buildChainInsets(parent, mainMap, style, fc, logo, color, mono) {
   const inBounds = (f, b) => { const [[w, s], [e, n]] = b; const [x, y] = f.geometry.coordinates; return x >= w && x <= e && y >= s && y <= n; };
-  const present = INSETS.filter(ins => fc.features.some(f => inBounds(f, ins.bounds)));
-  if (!present.length) return;
   let statesFC = null;
   try { statesFC = await fetch('us-states.geojson').then(r => r.json()); } catch (e) { /* mask is optional */ }
   const wrap = document.createElement('div'); wrap.className = 'map-insets';
   parent.appendChild(wrap);
-  for (const ins of present) {
+  for (const ins of INSETS) {
     const box = document.createElement('div'); box.className = 'map-inset';
     const md = document.createElement('div'); md.className = 'mi-map';
     const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
@@ -658,7 +657,7 @@ async function drawMap(feats, sector, id, name) {
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
-  // Alaska/Hawaii insets (only appear when this chain has outlets there), matching the landing map.
+  // Alaska/Hawaii insets, always shown (matching the landing map); pins only where the chain trades.
   buildChainInsets(document.getElementById('map'), map, insetStyle, fc, logo, color, mono)
     .catch((e) => console.warn('insets skipped', e && e.message));
   map.on('load', () => {
