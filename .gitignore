@@ -9,3 +9,4 @@ map/data/*.json
 # R2 basemap credentials (local only)
 .r2.env
 scripts/.r2.env
+manual/demographics_cache.json

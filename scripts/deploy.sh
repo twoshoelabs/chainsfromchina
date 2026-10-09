@@ -21,22 +21,36 @@ fi
 
 # The demographics snapshot (map/data/demographics.json) is a SLOW periodic job — a Census tract
 # lookup per outlet — not part of the daily census, so it drifts behind the live roster between runs.
-# Refresh it here AT MOST WEEKLY, from the fresh stores.geojson export just wrote, so the published
-# section can't lag far. Throttled on the snapshot's own `generated` date; never fails the deploy.
+# Refresh it ONCE PER NY DAY (the census cadence), from the fresh stores.geojson export just wrote, so
+# its "N of M storefronts" tracks the live open-outlet count rather than going stale. The first deploy
+# of each NY day regenerates it; later deploys that day skip it. Never fails the deploy.
 STALE="$("$PY" - <<'PYEOF' 2>/dev/null || echo yes
-import json, datetime as dt
+import json
 try:
+    from chain_atlas.config import today_ny
     g = json.load(open("demographics.json")).get("generated", "")
-    print("yes" if (not g or (dt.date.today() - dt.date.fromisoformat(g)).days >= 7) else "no")
+    print("no" if g and g == today_ny() else "yes")
 except Exception:
     print("yes")
 PYEOF
 )"
 if [ "$STALE" = "yes" ]; then
-  echo "refreshing demographics snapshot (>= 7 days old)…"
-  "$PY" -m chain_atlas demographics >/dev/null 2>&1 \
-    && "$PY" -c "from pathlib import Path; from chain_atlas import demographics as d; d.export(Path('map/data'))" >/dev/null 2>&1 \
-    || echo "  demographics refresh skipped (error) — keeping the previous snapshot"
+  echo "refreshing demographics snapshot (not yet generated today, NY)…"
+  # The Census pass can be very slow on a bad day, so CAP it — it must never hang the deploy. The
+  # pass caches its coord/tract lookups as it goes, so a capped run still makes progress and the next
+  # run resumes; the snapshot updates once the cache is warm enough to finish within the cap. (macOS
+  # has no `timeout`, so a background job + a watchdog kill does the same portably.)
+  "$PY" -m chain_atlas demographics >/dev/null 2>&1 &
+  DEMO_PID=$!
+  ( sleep 900; kill "$DEMO_PID" ) >/dev/null 2>&1 &
+  WATCH_PID=$!
+  if wait "$DEMO_PID" 2>/dev/null; then
+    "$PY" -c "from pathlib import Path; from chain_atlas import demographics as d; d.export(Path('map/data'))" >/dev/null 2>&1 \
+      && echo "  demographics refreshed" || echo "  demographics export skipped (error)"
+  else
+    echo "  demographics pass capped or failed — keeping previous snapshot (cache progress saved)"
+  fi
+  kill "$WATCH_PID" >/dev/null 2>&1 || true
 fi
 
 TMP="$(mktemp -d)"

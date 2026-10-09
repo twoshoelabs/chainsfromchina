@@ -66,8 +66,10 @@ def _miles(a_lat, a_lon, b_lat, b_lon):
 
 
 def _outlets(geojson_path: Path):
-    """The located storefronts to analyse. stores.geojson already excludes roboshops and the
-    low-confidence sightings, so this is exactly the measured footprint the map draws."""
+    """The located storefronts to analyse: the OPEN outlets the site actually counts. stores.geojson
+    already excludes roboshops and low-confidence sightings; we also drop `coming_soon` (announced,
+    not yet open) here, so this set matches the governing open-outlet count the homepage shows rather
+    than inflating the denominator with announced stores."""
     fc = json.loads(Path(geojson_path).read_text(encoding="utf-8"))
     out = []
     for f in fc.get("features", []):
@@ -75,14 +77,53 @@ def _outlets(geojson_path: Path):
         if not c:
             continue
         p = f.get("properties", {})
+        if p.get("status") == "coming_soon":        # announced, not yet open — held out of every count
+            continue
         out.append({"chain": p.get("chain"), "lon": round(c[0], 6), "lat": round(c[1], 6),
                     "state": p.get("state"), "sector": p.get("sector")})
     return out
 
 
-def _geographies(uniq_keys, progress=None):
+# A lookup cache so the pass can run OFTEN (daily) without re-querying the Census for coordinates and
+# tracts it already resolved. Coordinate->geography is effectively permanent and tract %Asian changes
+# only with a new ACS vintage (~yearly), so cached hits stay valid for a long time; a daily run then
+# only hits the network for the handful of NEW outlets. Only SUCCESSFUL lookups are cached — never a
+# miss/None — so a transient empty response can't poison the cache (see the Census empty-200 gotcha).
+# Local to the publish host; delete manual/demographics_cache.json to force a full re-fetch (e.g. for
+# a new ACS vintage). The published snapshot still carries aggregates only — the cache is never shipped.
+_CACHE_PATH = Path(__file__).resolve().parents[1] / "manual" / "demographics_cache.json"
+
+
+def _load_cache() -> dict:
+    try:
+        return json.loads(_CACHE_PATH.read_text(encoding="utf-8"))
+    except Exception:                                       # noqa: BLE001 — absent/corrupt → start fresh
+        return {}
+
+
+def _save_cache(cache: dict) -> None:
+    try:
+        _CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _CACHE_PATH.write_text(json.dumps(cache), encoding="utf-8")
+    except Exception:                                       # noqa: BLE001 — caching is best-effort
+        pass
+
+
+def _geographies(uniq_keys, progress=None, geo_cache=None, save=None):
     """{(lon4,lat4): {tract, metro, urban, place}} from the Census geographies endpoint, one call per
-    unique rounded coordinate (≈11 m), six at a time."""
+    unique rounded coordinate (≈11 m), six at a time. Coordinates already in `geo_cache` are not
+    re-fetched; new successful lookups are written back into it, and `save()` (if given) persists the
+    cache every 120 new lookups — so even a slow run that is cut short leaves progress to resume from."""
+    geo_cache = geo_cache if geo_cache is not None else {}
+    ckey = lambda key: f"{key[0]},{key[1]}"
+    out, todo = {}, []
+    for key in uniq_keys:
+        hit = geo_cache.get(ckey(key))
+        if hit is not None:
+            out[key] = hit
+        else:
+            todo.append(key)
+
     def one(key):
         lon, lat = key
         try:
@@ -97,23 +138,40 @@ def _geographies(uniq_keys, progress=None):
                          "place": (place[0].get("NAME") if place and place[0] else None)}
         except Exception:                                   # noqa: BLE001 — a miss, not a failure
             return key, None
-    out, done = {}, 0
+    done = 0
     with ThreadPoolExecutor(max_workers=6) as ex:
-        for key, val in ex.map(one, uniq_keys):
+        for key, val in ex.map(one, todo):
             out[key] = val
+            if val is not None:                             # cache hits only, never a miss
+                geo_cache[ckey(key)] = val
             done += 1
-            if progress and done % 120 == 0:
-                progress(f"  geo {done}/{len(uniq_keys)}")
+            if done % 120 == 0:
+                if progress:
+                    progress(f"  geo {done}/{len(todo)} (new)")
+                if save:
+                    save()                                  # persist partial progress for the next run
+    if save and todo:
+        save()
+    if progress and not todo:
+        progress(f"  geo: all {len(uniq_keys)} coords cached")
     return out
 
 
-def _pct_asian(tracts):
+def _pct_asian(tracts, cache=None):
     """(%Asian by tract GEOID, national %Asian). B03002_006 (non-Hispanic Asian alone) over the
-    tract total, from CensusReporter — the ACS without the api.census.gov key requirement."""
+    tract total, from CensusReporter — the ACS without the api.census.gov key requirement. Tracts
+    already in `cache` are served from it; new resolved values are written back."""
+    cache = cache if cache is not None else {}
     nat_j = json.loads(_get(_CR_URL.format(ids="01000US")))
     e = nat_j["data"]["01000US"]["B03002"]["estimate"]
     nat = e["B03002006"] / e["B03002001"] * 100
-    pct, geoids = {}, ["14000US" + t for t in tracts]
+    pct, todo = {}, []
+    for t in tracts:
+        if t in cache:
+            pct[t] = cache[t]
+        else:
+            todo.append(t)
+    geoids = ["14000US" + t for t in todo]
     for i in range(0, len(geoids), 40):
         batch = geoids[i:i + 40]
         try:
@@ -121,7 +179,10 @@ def _pct_asian(tracts):
             for gid, tab in d.items():
                 est = tab["B03002"]["estimate"]
                 tot = est.get("B03002001") or 0
-                pct[gid[7:]] = (est.get("B03002006", 0) / tot * 100) if tot else None
+                v = (est.get("B03002006", 0) / tot * 100) if tot else None
+                pct[gid[7:]] = v
+                if v is not None:                           # cache resolved values only
+                    cache[gid[7:]] = v
         except Exception:                                   # noqa: BLE001 — a dropped batch, noted by coverage
             pass
         time.sleep(0.2)
@@ -197,15 +258,19 @@ def build(geojson_path: Path, progress=None) -> dict:
     effects:   Network I/O to the Census geocoder, CensusReporter and the IPEDS directory.
     """
     say = progress or (lambda _m: None)
+    cache = _load_cache()
     outlets = _outlets(geojson_path)
     say(f"outlets with coords: {len(outlets)}")
 
     uniq = {(round(o["lon"], 4), round(o["lat"], 4)): None for o in outlets}
-    say(f"unique coords (4dp): {len(uniq)} — fetching geographies...")
-    geo = _geographies(list(uniq), progress=progress)
+    say(f"unique coords (4dp): {len(uniq)} — fetching geographies "
+        f"({len(cache.get('geo', {}))} cached)...")
+    geo = _geographies(list(uniq), progress=progress, geo_cache=cache.setdefault("geo", {}),
+                       save=lambda: _save_cache(cache))
 
     tracts = sorted({v["tract"] for v in geo.values() if v and v["tract"]})
-    pct, nat = _pct_asian(tracts)
+    pct, nat = _pct_asian(tracts, cache=cache.setdefault("pct", {}))
+    _save_cache(cache)
     say(f"national %Asian (NH alone): {nat:.2f}; tracts with %Asian: "
         f"{sum(1 for v in pct.values() if v is not None)}/{len(tracts)}")
 
@@ -225,7 +290,8 @@ def build(geojson_path: Path, progress=None) -> dict:
 
     snap = summarize(rows, nat)
     snap["generated"] = today_ny()      # New York time — the site's zone, not the host's (Taipei)
-    snap["source"] = "stores.geojson (measured storefronts; roboshops and unconfirmed sightings excluded)"
+    snap["source"] = ("stores.geojson (open storefronts the site counts; roboshops, "
+                       "announced-not-yet-open and unconfirmed sightings excluded)")
     snap["method"] = ("Each located storefront joined to public, key-free sources: tract %Asian from "
                       "US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, "
                       "metro/urban from the US Census geographies endpoint, nearest campus from the "
