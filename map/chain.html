@@ -225,7 +225,8 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const sents = [];
   if (comp.blurb) sents.push(comp.blurb.split(/(?<=\.)\s/)[0]);
   let cs = '';
-  if (outlets) cs = `${outlets} outlet${outlets > 1 ? 's are' : ' is'} open in the US`;
+  // "staffed" only where it needs disambiguating from unstaffed Robo Shop kiosks (chains with robos).
+  if (outlets) cs = `${outlets} ${robos ? 'staffed ' : ''}outlet${outlets > 1 ? 's are' : ' is'} open in the US`;
   if (soon) cs += cs ? ` and ${soon} more are announced` : `${soon} announced, none open yet`;
   if (cs) sents.push(cs + '.');
   if (firstCity && comp.us_since) sents.push(`Its first US store opened in ${firstCity} in ${comp.us_since}.`);
