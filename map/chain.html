@@ -72,7 +72,18 @@
   section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
   h2 { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; margin: 0 0 14px; }
   .lead { color: var(--dim); }
-  #map { width: 100%; height: 420px; border: 1px solid var(--rule); border-radius: 2px; }
+  #map { position: relative; width: 100%; height: 420px; border: 1px solid var(--rule); border-radius: 2px; }
+  /* Alaska/Hawaii insets, matching the landing map — only shown when this chain has outlets there. */
+  .map-insets { position: absolute; left: 10px; bottom: 10px; z-index: 3; display: flex; gap: 8px; }
+  .map-inset { position: relative; width: 122px; height: 92px; border: 1.5px solid var(--ink); background: #fff; cursor: zoom-in; }
+  .map-inset .mi-map { width: 100%; height: 100%; }
+  .map-inset .mi-lbl { position: absolute; left: 4px; top: 3px; z-index: 2; font: 600 11px var(--sans);
+    color: var(--ink); background: #EDEFEB; padding: 1px 5px; }
+  .inset-pin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid; background: #fff;
+    display: flex; align-items: center; justify-content: center; overflow: hidden; font: 700 8px var(--sans); box-sizing: border-box; }
+  .inset-pin img { width: 82%; height: 82%; object-fit: contain; }
+  .inset-pin.soft { border-style: dashed; opacity: .6; }
+  @media (max-width:560px){ .map-inset { width: 96px; height: 74px; } }
   .maplibregl-popup-content { font-family: var(--sans); font-size: .88rem; }
 
   .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
@@ -185,15 +196,6 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const outlets = open + hand;
   const sector = (feats[0] && feats[0].properties.sector) || m.format || 'other';
   const states = new Set(feats.filter(f => f.properties.state).map(f => f.properties.state));
-  // Alaska/Hawaii outlets are kept OFF the continental fit below (they would stretch the map across
-  // the Pacific); a short note names them instead. Only open outlets are summarised here.
-  const offshore = {};
-  for (const f of feats) { const st = f.properties.state;
-    if ((st === 'AK' || st === 'HI') && f.properties.status !== 'coming_soon') offshore[st] = (offshore[st] || 0) + 1; }
-  const offshoreNote = Object.keys(offshore).length
-    ? 'Plus ' + Object.entries(offshore).map(([st, n]) => `${n} in ${STATE_NAMES[st] || st}`).join(' and ')
-      + ' &mdash; off the frame above.'
-    : '';
   // Unstaffed machines (e.g. POP MART ROBO SHOPs) are tracked in the data but are not storefronts,
   // so they are shown as a separate figure and never folded into the outlet count.
   const robos = (sj.stores || []).filter(s => s.chain === id && s.format === 'vending_robo' && s.status === 'active').length;
@@ -306,7 +308,6 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
-      (offshoreNote ? `<p class="lead" style="margin-top:10px;font-size:.85rem;color:var(--dim)">${offshoreNote}</p>` : '') +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
     `<section><h2>Photographs</h2>` +
       `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
@@ -559,6 +560,81 @@ function recolorBasemap(layers) {
   return out;
 }
 
+// ---- Alaska/Hawaii insets: small non-interactive thumbnails pinned lower-left, matching the landing
+// map. Built only for the states where THIS chain actually has an outlet, so most profiles show none.
+const INSETS = [
+  { id: 'AK', label: 'Alaska', bounds: [[-170, 52], [-129, 71.5]] },
+  { id: 'HI', label: 'Hawaii', bounds: [[-160.6, 18.7], [-154.6, 22.4]] },
+];
+// World polygon with the state's outline punched out, filled the water colour, so neighbouring
+// Russia/Canada/Mexico drop away in the thumbnail and only the state reads.
+function usMask(fc, includeIds) {
+  const world = [[-180, -84], [180, -84], [180, 84], [-180, 84], [-180, -84]];
+  const holes = [];
+  for (const f of fc.features) {
+    if (includeIds && !includeIds.includes(f.id)) continue;
+    const g = f.geometry;
+    const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+    for (const poly of polys) holes.push(poly[0]);
+  }
+  return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [world, ...holes] } };
+}
+function insetPin(logo, color, mono, soft) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin' + (soft ? ' soft' : '');
+  el.style.borderColor = color;
+  if (logo) { const img = document.createElement('img'); img.src = logo.src; img.alt = ''; el.appendChild(img); }
+  else { el.textContent = mono; el.style.background = color; el.style.color = '#fff'; }
+  return el;
+}
+function insetCount(n) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin'; el.textContent = String(n);
+  el.style.borderColor = 'var(--ink)'; el.style.color = 'var(--ink)';
+  return el;
+}
+async function buildChainInsets(parent, mainMap, style, fc, logo, color, mono) {
+  const inBounds = (f, b) => { const [[w, s], [e, n]] = b; const [x, y] = f.geometry.coordinates; return x >= w && x <= e && y >= s && y <= n; };
+  const present = INSETS.filter(ins => fc.features.some(f => inBounds(f, ins.bounds)));
+  if (!present.length) return;
+  let statesFC = null;
+  try { statesFC = await fetch('us-states.geojson').then(r => r.json()); } catch (e) { /* mask is optional */ }
+  const wrap = document.createElement('div'); wrap.className = 'map-insets';
+  parent.appendChild(wrap);
+  for (const ins of present) {
+    const box = document.createElement('div'); box.className = 'map-inset';
+    const md = document.createElement('div'); md.className = 'mi-map';
+    const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
+    box.appendChild(md); box.appendChild(lbl); wrap.appendChild(box);
+    box.title = 'Zoom to ' + ins.label + ' on the map';
+    box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0');
+    const flyTo = () => mainMap.fitBounds(ins.bounds, { padding: 30 });
+    box.addEventListener('click', flyTo);
+    box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flyTo(); } });
+    const im = new maplibregl.Map({ container: md,
+      style: (typeof style === 'string') ? style : JSON.parse(JSON.stringify(style)),
+      bounds: ins.bounds, fitBoundsOptions: { padding: 8 }, interactive: false, attributionControl: false });
+    im.on('load', () => {
+      if (statesFC) {
+        im.addSource('m', { type: 'geojson', data: usMask(statesFC, [ins.id]) });
+        im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
+      }
+      const here = fc.features.filter(f => inBounds(f, ins.bounds));
+      const GROUP_PX = 20, groups = [];
+      for (const f of here) {
+        const pt = im.project(f.geometry.coordinates);
+        const g = groups.find(gr => Math.hypot(gr.x - pt.x, gr.y - pt.y) < GROUP_PX);
+        if (g) g.feats.push(f); else groups.push({ x: pt.x, y: pt.y, feats: [f] });
+      }
+      for (const g of groups) {
+        const soft = g.feats.every(f => f.properties.status === 'coming_soon');
+        const el = g.feats.length > 1 ? insetCount(g.feats.length) : insetPin(logo, color, mono, soft);
+        new maplibregl.Marker({ element: el }).setLngLat(g.feats[0].geometry.coordinates).addTo(im);
+      }
+    });
+  }
+}
+
 async function drawMap(feats, sector, id, name) {
   const color = secColor(sector);
   const mono = initials(name);
@@ -572,6 +648,8 @@ async function drawMap(feats, sector, id, name) {
   }
 
   const [style, logo] = await Promise.all([resolveStyle(), loadLogo(id)]);
+  // Clone the style for the insets BEFORE MapLibre mutates it on the main map.
+  const insetStyle = (typeof style === 'string') ? style : JSON.parse(JSON.stringify(style));
   const map = new maplibregl.Map({
     container: 'map', style,
     bounds: (minx <= maxx) ? [[minx, miny], [maxx, maxy]] : [[-125, 24], [-66, 49]],
@@ -580,6 +658,9 @@ async function drawMap(feats, sector, id, name) {
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
+  // Alaska/Hawaii insets (only appear when this chain has outlets there), matching the landing map.
+  buildChainInsets(document.getElementById('map'), map, insetStyle, fc, logo, color, mono)
+    .catch((e) => console.warn('insets skipped', e && e.message));
   map.on('load', () => {
     // Per-brand badges, one shape for every outlet: solid circle (open), dashed circle (announced).
     if (!map.hasImage('pin'))    map.addImage('pin',    makeBadge(logo, color, mono, false, false), { pixelRatio: DPR });
