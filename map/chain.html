@@ -648,21 +648,19 @@ async function drawMap(feats, sector, id, name) {
   const color = secColor(sector);
   const mono = initials(name);
   const fc = { type: 'FeatureCollection', features: feats };
-  let minx = 180, miny = 90, maxx = -180, maxy = -90;
-  for (const f of feats) {
-    const st = f.properties.state;
-    if (st === 'AK' || st === 'HI') continue;   // off the continental fit — they would stretch it into the Pacific
-    const [x, y] = f.geometry.coordinates;
-    minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y);
-  }
+  // Always frame the whole continental US — the SAME view on every chain page and the landing map —
+  // rather than fitting tightly to one chain's outlets. A tight per-chain fit reframes the map from
+  // page to page and pulls the AK/HI insets over the mainland pins; a fixed frame keeps the insets
+  // clear in the lower-left ocean and every chain map consistent. AK/HI outlets fall outside this
+  // frame and are shown in the insets.
+  const US_BOUNDS = [[-125, 24.2], [-66.5, 49.6]];
 
   const [style, logo] = await Promise.all([resolveStyle(), loadLogo(id)]);
   // Clone the style for the insets BEFORE MapLibre mutates it on the main map.
   const insetStyle = (typeof style === 'string') ? style : JSON.parse(JSON.stringify(style));
   const map = new maplibregl.Map({
     container: 'map', style,
-    bounds: (minx <= maxx) ? [[minx, miny], [maxx, maxy]] : [[-125, 24], [-66, 49]],
-    fitBoundsOptions: { padding: 60, maxZoom: 12 },
+    bounds: US_BOUNDS, fitBoundsOptions: { padding: 20 },
     maxZoom: 17, cooperativeGestures: true, attributionControl: { compact: true },
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
