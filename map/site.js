@@ -36,7 +36,7 @@
     '<div class="np-row">' +
       '<a class="np-wm" href="index.html">' +
         '<span class="np-mark">Chains From China</span>' +
-        '<span class="np-zh" lang="zh-Hant">中國連鎖在美門市</span></a>' +
+        '<span class="np-zh" lang="zh-Hans">中国连锁在美门市</span></a>' +
       '<nav class="np-nav" aria-label="Primary">' + nav + '</nav>' +
     '</div>';
 

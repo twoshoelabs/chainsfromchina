@@ -8,7 +8,7 @@
 <meta name="description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Serif+SC:wght@500&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <link rel="stylesheet" href="site.css?v=12">
@@ -136,7 +136,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=10"></script>
+<script src="site.js?v=11"></script>
 <script>
 const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see index.html)
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
@@ -157,7 +157,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     fetch('data/stores.json').then(r=>r.json()),
     fetch('data/register.json').then(r=>r.json()),
     // Co-tenancy is a Pro feature: centers.json is not published publicly, so tolerate its absence.
-    // The "Neighbours" block is guarded on nb.length and simply hides when there is no cluster data.
+    // The "Neighbors" block is guarded on nb.length and simply hides when there is no cluster data.
     fetch('data/centers.json').then(r=>r.json()).catch(()=>({co_tenancy:[]})),
   ]); } catch (e) { box.innerHTML = '<p class="loading">Could not load data.</p>'; return; }
 
@@ -198,7 +198,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const abroad = abroadAll.filter(e => e.status === 'present');
   const abroadOther = abroadAll.filter(e => e.status !== 'present');
 
-  // Neighbours: named co-tenancy clusters that include this chain, noting whether it's open or
+  // Neighbors: named co-tenancy clusters that include this chain, noting whether it's open or
   // announced there (from its brand entry's statuses).
   const nb = (cen.co_tenancy || []).filter(c => (c.brands || []).some(b => (b.chain_id || b.chain || b) === id))
     .slice(0, 6).map(c => {
@@ -307,7 +307,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
         `</div></div>` +
       `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
       `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
-        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hant">鄭州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hans">郑州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
         `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
       `</div>` +
       `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
@@ -326,7 +326,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<div><h2>By state</h2>${byStateHTML(feats, sector)}</div>` +
       `<div>` +
         `<h2>Abroad</h2>${abroadHTML(abroad, abroadOther)}` +
-        (nb.length ? `<h2 style="margin-top:22px">Neighbours</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
+        (nb.length ? `<h2 style="margin-top:22px">Neighbors</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
       `</div>` +
     `</div></section>` +
     (related.length ? `<section><h2>Related ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains</h2>` +
@@ -458,7 +458,7 @@ function makeBadge(logo, color, mono, soft, square) {
     trace(r);
     ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
     ctx.fillStyle = soft ? color : '#ffffff';
-    ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
+    ctx.font = `600 ${Math.round(S * 0.34)}px "Schibsted Grotesk", system-ui, sans-serif`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText(mono || '•', cx, cy + S * 0.02);
   }
@@ -474,10 +474,15 @@ function makeBadge(logo, color, mono, soft, square) {
 // CARTO style if the PMTiles/protomaps modules can't load. Same path the main map takes.
 async function resolveStyle() {
   if (!BASEMAP.pmtiles) return BASEMAP.style;
-  try {
+  // The pmtiles/protomaps modules load from a CDN at runtime; a transient failure or a cached bad
+  // response would otherwise force this map onto the fallback until a hard refresh. Try, retry once
+  // with a cache-buster to clear a poisoned cache, then fall back to the hosted CARTO style. Same
+  // path the main map (atlas.js) takes.
+  async function buildProtomaps(bust) {
+    const q = bust ? ('?cb=' + Date.now()) : '';
     const [pm, bm] = await Promise.all([
-      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm'),
-      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm'),
+      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm' + q),
+      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm' + q),
     ]);
     maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
     GLYPH_FONT = 'Noto Sans Regular';
@@ -491,8 +496,11 @@ async function resolveStyle() {
       },
       layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
     };
-  } catch (e) {
-    return BASEMAP.style;
+  }
+  try { return await buildProtomaps(false); }
+  catch (e1) {
+    try { return await buildProtomaps(true); }
+    catch (e2) { return BASEMAP.style; }
   }
 }
 
