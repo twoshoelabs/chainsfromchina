@@ -139,7 +139,9 @@ def _geographies(uniq_keys, progress=None, geo_cache=None, save=None):
         except Exception:                                   # noqa: BLE001 — a miss, not a failure
             return key, None
     done = 0
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    # Three workers, not six: the Census geocoder rate-limits bursts, and a higher concurrency makes
+    # requests stall into 40s timeouts (slower overall). With the cache, repeat runs query few coords.
+    with ThreadPoolExecutor(max_workers=3) as ex:
         for key, val in ex.map(one, todo):
             out[key] = val
             if val is not None:                             # cache hits only, never a miss
