@@ -561,6 +561,12 @@
      "verified_by": "YGF Atlanta franchisee site (ygfatlanta.com), listed operating with hours (26 Sep 2026)"
     },
     {
+     "name": "Squirrel Hill (Pittsburgh)",
+     "address": "5870 Forbes Ave, Pittsburgh, PA 15217",
+     "confidence": "uncertain",
+     "verified_by": "Announced, under construction — not yet open (routine discovery 2026-10-09) — https://www.pennsylvasia.com/2025/11/yangguofu-mala-tang-coming-to-squirrel.html"
+    },
+    {
      "name": "Sunrise",
      "address": "2430 N University Dr, Sunrise, FL 33322",
      "confidence": "confirmed",
@@ -743,6 +749,12 @@
      "address": "135-15 37th Ave, Queens, NY 11354",
      "confidence": "confirmed",
      "verified_by": "Yelp (15 reviews) + local press (MyMCMedia) (28 Sep 2026)"
+    },
+    {
+     "name": "Manhattan (W 46th St)",
+     "address": "365 W 46th St, New York, NY 10036",
+     "confidence": "uncertain",
+     "verified_by": "Lease signed, pre-opening — not yet trading (routine discovery 2026-10-09) — https://commercialobserver.com/?p=581740"
     }
    ]
   },
