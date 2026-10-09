@@ -23,19 +23,27 @@ fi
 # lookup per outlet — not part of the daily census, so it drifts behind the live roster between runs.
 # Refresh it ONCE PER NY DAY (the census cadence), from the fresh stores.geojson export just wrote, so
 # its "N of M storefronts" tracks the live open-outlet count rather than going stale. The first deploy
-# of each NY day regenerates it; later deploys that day skip it. Never fails the deploy.
+# of each NY day regenerates it; later deploys that day skip it. If an attempt is cut short (the Census
+# endpoint rate-limits bursts), it BACKS OFF ~4h before retrying, so repeated deploys don't hammer a
+# throttled endpoint and keep it from recovering — the cache means each attempt still makes progress.
+# Never fails the deploy.
 STALE="$("$PY" - <<'PYEOF' 2>/dev/null || echo yes
-import json
+import json, os, time
 try:
     from chain_atlas.config import today_ny
     g = json.load(open("demographics.json")).get("generated", "")
-    print("no" if g and g == today_ny() else "yes")
+    if g and g == today_ny():
+        print("no")                                       # already fresh today
+    else:
+        last = os.path.getmtime(".demo_attempt") if os.path.exists(".demo_attempt") else 0
+        print("no" if (time.time() - last) < 4 * 3600 else "yes")   # back off 4h after an attempt
 except Exception:
     print("yes")
 PYEOF
 )"
 if [ "$STALE" = "yes" ]; then
   echo "refreshing demographics snapshot (not yet generated today, NY)…"
+  touch .demo_attempt                                     # record the attempt for the 4h back-off
   # The Census pass can be very slow on a bad day, so CAP it — it must never hang the deploy. The
   # pass caches its coord/tract lookups as it goes, so a capped run still makes progress and the next
   # run resumes; the snapshot updates once the cache is warm enough to finish within the cap. (macOS

@@ -10,3 +10,4 @@ map/data/*.json
 .r2.env
 scripts/.r2.env
 manual/demographics_cache.json
+.demo_attempt
