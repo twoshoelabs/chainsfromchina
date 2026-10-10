@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chains From China — by state</title>
+<meta name="description" content="Where China-origin retail and F&B chains are open across the United States, listed by state and sortable by outlet count.">
+<script>window.CFC_ICON_V="?v=179e00d2af";window.CFC_DATA_V="?v=6378e9418d";</script><!-- logo cache-bust; deploy.sh stamps 179e00d2af -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  .statewrap { flex-direction: column; }
+  .statewrap main { width: 100%; }
+
+  .sortbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 4px 0 20px; }
+  .sortbar .sortlbl { font: 600 13px var(--sans); color: var(--muted); margin-right: 2px; }
+  .sortbtn { font: 600 13px var(--sans); padding: 6px 13px; border: 1.5px solid var(--ink);
+    background: transparent; color: var(--ink); cursor: pointer; border-radius: 2px; }
+  .sortbtn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .sortbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .statelist { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px 28px; }
+  .statecard { border-top: 2px solid var(--ink); padding: 9px 0 14px; }
+  .statecard.empty { opacity: .5; }
+  .st-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 11px; }
+  .st-name { font: 700 19px/1.1 var(--serif); }
+  .st-abbr { font: 600 11px var(--sans); color: var(--muted); margin-left: 7px; letter-spacing: .05em; vertical-align: middle; }
+  .st-total { font: 700 16px var(--sans); white-space: nowrap; text-align: right; }
+  .st-unit { font-weight: 500; color: var(--muted); font-size: 13px; }
+  .st-soon { display: block; font: 500 11px var(--sans); color: var(--soon); margin-top: 1px; }
+  .st-none { font: 500 13px var(--sans); color: var(--muted); }
+
+  .st-chains { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+  /* Each chip is a button that opens its chain's addresses in this state: logo + name + count. */
+  .bchip { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--ink);
+    border: 1.5px solid var(--rule-2); border-radius: 999px; padding: 3px 11px 3px 4px; background: var(--paper);
+    cursor: pointer; font: inherit; }
+  .bchip:hover { border-color: var(--ink); }
+  .bchip:hover .bnm { text-decoration: underline; }
+  .bchip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .bchip[hidden] { display: none; }
+  .blogo { width: 24px; height: 24px; border-radius: 50%; border: 2px solid; background: #fff;
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+    font: 700 8px var(--sans); box-sizing: border-box; flex: none; }
+  .blogo img { width: 80%; height: 80%; object-fit: contain; }
+  .bnm { font: 600 13px var(--sans); white-space: nowrap; }
+  .bn { font: 700 13px var(--sans); color: var(--muted); }
+  .st-more { font: 600 12px var(--sans); color: var(--accent-ink); background: none; border: none;
+    cursor: pointer; padding: 2px 2px; text-decoration: underline; }
+  .st-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 560px) { .statelist { grid-template-columns: 1fr; } }
+
+  /* Address modal: a chain's outlets in one state. */
+  body.modal-open { overflow: hidden; }
+  .smodal[hidden] { display: none; }
+  .smodal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .smodal-backdrop { position: absolute; inset: 0; background: rgba(14,15,14,.45); }
+  .smodal-panel { position: relative; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 6px;
+    width: min(560px, 100%); max-height: min(82vh, 740px); display: flex; flex-direction: column; box-shadow: 0 18px 60px rgba(0,0,0,.28); }
+  .smodal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 18px 12px; border-bottom: 1px solid var(--rule-2); }
+  .smodal-head h2 { font: 700 20px/1.25 var(--serif); margin: 0; }
+  .smodal-head .m-count { display: block; font: 600 13px var(--sans); color: var(--muted); margin-top: 3px; }
+  .smodal-x { font: 400 26px/1 var(--sans); background: none; border: none; cursor: pointer; color: var(--muted); padding: 0 2px; }
+  .smodal-x:hover { color: var(--ink); }
+  .smodal-actions { display: flex; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--rule-2); flex-wrap: wrap; }
+  .smodal-btn { font: 600 13px var(--sans); padding: 7px 14px; border-radius: 2px; text-decoration: none; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .smodal-btn.ghost { background: transparent; color: var(--ink); }
+  .smodal-btn:hover { opacity: .9; }
+  .smodal-list { list-style: none; margin: 0; padding: 6px 18px 18px; overflow-y: auto; }
+  .smodal-list li { padding: 9px 0; border-bottom: 1px solid var(--rule-2); display: flex; flex-direction: column; gap: 1px; }
+  .smodal-list li:last-child { border-bottom: none; }
+  .m-city { font: 600 15px var(--serif); color: var(--ink); }
+  .m-addr { font: 500 12.5px var(--sans); color: var(--muted); }
+  .m-empty { color: var(--muted); font: 500 14px var(--sans); padding: 6px 0; }
+</style>
+</head>
+<body data-page="states">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink current" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>By state</h1>
+  <p class="sub" id="intro">Loading the by-state breakdown…</p>
+</header>
+
+<div class="wrap statewrap">
+  <main>
+    <div class="sortbar" role="group" aria-label="Order the states">
+      <span class="sortlbl">Order by</span>
+      <button type="button" class="sortbtn" data-sort="most" aria-pressed="true">Most outlets</button>
+      <button type="button" class="sortbtn" data-sort="fewest" aria-pressed="false">Fewest outlets</button>
+      <button type="button" class="sortbtn" data-sort="alpha" aria-pressed="false">A&ndash;Z</button>
+    </div>
+    <div id="statelist" class="statelist"></div>
+    <p class="note" style="margin-top:20px">Each outlet is counted under the state it sits in &mdash; open outlets taken from each chain&rsquo;s own store locator plus hand-verified sightings. The long tail of chains in a state opens with &ldquo;+N more.&rdquo; For the map itself, see the <a href="index.html">US store map</a>.</p>
+  </main>
+</div>
+
+<div id="smodal" class="smodal" hidden>
+  <div class="smodal-backdrop" data-close></div>
+  <div class="smodal-panel" role="dialog" aria-modal="true" aria-labelledby="smodal-title">
+    <div class="smodal-head">
+      <h2 id="smodal-title"></h2>
+      <button type="button" id="smodal-close" class="smodal-x" aria-label="Close" data-close>&times;</button>
+    </div>
+    <div class="smodal-actions">
+      <a id="smodal-map" class="smodal-btn">Show on map</a>
+      <a id="smodal-profile" class="smodal-btn ghost">Who they are &rarr;</a>
+    </div>
+    <ul id="smodal-list" class="smodal-list"></ul>
+  </div>
+</div>
+
+<script src="site.js?v=12"></script>
+<script src="states.js?v=6"></script>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ceecfc08f1ba44dc97d6d4edb056ee61"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

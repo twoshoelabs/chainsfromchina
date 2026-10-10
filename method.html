@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.CFC_DATA_V="?v=6378e9418d";</script><!-- data cache-bust; deploy.sh stamps 6378e9418d -->
+<title>Chains From China — method</title>
+<meta name="description" content="How Chains From China counts China-origin retail and F&B chains open in the US: what's measured, what's in scope, and where the figures come from.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="site.css?v=12">
+<style>
+  .methodwrap { flex-direction: column; }
+  .methodwrap main { width: 100%; max-width: 760px; }
+  .method-sec { border-top: 2px solid var(--ink); padding: 16px 0 6px; margin: 0; }
+  .method-sec h2 { font: 700 20px/1.15 var(--serif); margin: 0 0 8px; }
+  .method-sec p { font: 400 15.5px/1.6 var(--serif); color: var(--ink-2); margin: 0 0 12px; }
+  .method-sec p .zh { font-family: var(--hans); }
+  .legendrow { display: flex; flex-wrap: wrap; gap: 14px 22px; margin: 2px 0 14px; }
+  .legendrow .k { display: inline-flex; align-items: center; gap: 7px; font: 500 13.5px var(--sans); color: var(--ink-2); }
+  .legendrow .m { width: 15px; height: 15px; border: 2px solid var(--ink); flex: none; box-sizing: border-box; }
+  .legendrow .m.dot { border-radius: 50%; background: var(--ink); }
+  .legendrow .m.ring { border-radius: 50%; border-style: dashed; }
+  .legendrow .m.sq { background: var(--ink); }
+
+  .dagger { color: var(--accent-ink); }
+</style>
+</head>
+<body data-page="method">
+<header>
+  <div class="masthead">
+    <a class="brand" href="index.html">Chains From China</a><span class="beta" title="This site is in beta — coverage is still being built and figures may change.">beta</span>
+    <nav>
+      <a class="navlink" href="index.html">US store map</a>
+      <a class="navlink" href="register.html">International register</a>
+      <a class="navlink" href="centers.html">Co-tenancy</a>
+      <a class="navlink" href="intro.html">Who they are</a>
+      <a class="navlink" href="contribute.html">Submit Info</a>
+    </nav>
+  </div>
+  <p class="census-line" data-census style="margin:0 0 10px"></p>
+  <h1>Method</h1>
+  <p class="sub">How this site counts China-origin retail and food &amp; beverage chains open in the United States: what is measured, what is in scope, and where the figures come from.</p>
+</header>
+
+<div class="wrap methodwrap">
+  <main>
+
+    <section class="method-sec">
+      <h2>What this is</h2>
+      <p>A daily census of China-origin retail and F&amp;B chains with storefronts open in the United States. The headline is a <em>count of real, open outlets</em>.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>How a store gets counted</h2>
+      <p>A chain enters the platform when it adds a confirmed US store on <em>its own</em> locator or when we hand-verify an outlet. Each outlet is counted just once, under the state it sits in. We count storefronts people can walk into, so an unstaffed vending machine (like a POP MART &ldquo;roboshop&rdquo;) is stored for the record but won&rsquo;t be added to the count.</p>
+      <div class="legendrow">
+        <span class="k"><span class="m dot"></span>Open &mdash; trading now</span>
+        <span class="k"><span class="m ring"></span>Announced &mdash; not yet open, held out of the count</span>
+        <span class="k"><span class="m sq"></span>Hand-verified sighting &mdash; counted, not collected daily</span>
+      </div>
+      <p>We read a company&rsquo;s own locator every day if it has one. Otherwise, a <strong>sighting</strong> is confirmed by hand. In both cases, we&rsquo;re only counting real outlets. If an outlet closes, we capture that as soon as possible and it is reflected in the counts.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>What&rsquo;s in scope</h2>
+      <p>Chains that <em>originated in China</em>. Hong-Kong-origin brands are out of scope (brands built in China are counted regardless of ownership). We track storefront chains, not products sold via other retailers or one-off flagship showrooms that are meant for brand promotion.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>When a store closes</h2>
+      <p>A verified closure is removed from the list and the count. It is also logged. For chains we read daily, a closure is caught when an outlet disappears from the locator. Closures are also found manually or by user reports. Even if a chain&rsquo;s locator lists as open an outlet that we&rsquo;ve confirmed is closed, we ensure it remains logged as closed. We also note that there is a gap, since this could suggest that a brand is overstating its US footprint.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>Mapping outlets</h2>
+      <p>Addresses are mapped using the US Census Bureau&rsquo;s geocoder. In special cases, such as shopping malls or newly-added blocks, we place a coordinate by hand using a neighboring match or the chain&rsquo;s own listing, and mark it so the map draws it as a derived point.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>The international register</h2>
+      <p>The <a href="register.html">international register</a> is researched to record which China-origin chains have opened outside China. Its sources are company filings, exchange announcements and the trade press; each row is typed in by hand and carries the date it was true and our confidence level. &ldquo;No evidence&rdquo; means searches have not yet turned up a presence in that market, not definitive proof that a chain is absent.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>Sources</h2>
+      <p>Figures come from first-party and official sources, namely: chains&rsquo; store locators, company filings and press, franchise disclosure documents, government permits, and locations verified by hand. We do not scrape third-party review sites, food delivery services or online marketplace platforms to gather counts. Any modeled or estimated figure is clearly marked with a dagger (<span class="dagger">&dagger;</span>) for awareness. Coastlines and boundaries on the map are from <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>Pro</h2>
+      <p>The map, directory, international register and counts are free. Deeper analysis including revenue models, co-tenancy clusters, and capacity checks are part of our paid <a href="index.html#pro">Pro services</a>.</p>
+    </section>
+
+    <section class="method-sec">
+      <h2>Who we are</h2>
+      <p>Chains From China is a project of Twoshoe Labs LLC. Corrections, additions and a store we&rsquo;ve missed are welcome &mdash; <a href="contribute.html">submit info</a> or write to <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="site.js?v=12"></script>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ceecfc08f1ba44dc97d6d4edb056ee61"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

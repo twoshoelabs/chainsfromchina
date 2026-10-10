@@ -1,0 +1,964 @@
+// Vector map (MapLibre GL JS). Our pins come from data/stores.geojson; the basemap is a separate,
+// swappable style. 'use strict' kept off so top-level await is not needed.
+
+// ---- Basemap config -------------------------------------------------------------------------
+// TWO ways to supply a clean, keyless basemap — set BASEMAP.pmtiles to switch:
+//   • pmtiles: ''  (default) -> CARTO Positron, a hosted keyless light style. Renders immediately.
+//   • pmtiles: 'https://<your-r2-bucket>/us.pmtiles'  -> the project's self-hosted Protomaps basemap
+//        (no tile server, no API fees). Build/upload it with scripts/build_basemap.sh, which prints
+//        exactly this URL. When set, the Protomaps light theme loads from a US PMTiles file on R2.
+// (To use MapTiler instead, set BASEMAP.style to a MapTiler style URL with your key.)
+const BASEMAP = {
+  pmtiles: 'https://pub-7dec9caf8d7e4d4e9f4ab6dea7bb8005.r2.dev/us.pmtiles',  // self-hosted US Protomaps (R2)
+  style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',     // fallback if pmtiles is cleared
+};
+let GLYPH_FONT = 'Open Sans Regular';   // a font the active style's glyph server provides
+let LOGO_PRESENT = {};                   // chain -> whether a logo badge (vs monogram) was used
+let CHAIN_SECTOR = {};                   // chain -> sector (for the Alaska/Hawaii inset markers)
+let MAP_REF = null, FULL_FC = null;      // the map + full FeatureCollection, for the chain filter
+let HIDDEN = new Set();                  // chains currently hidden from the map
+let ALL_CHAINS = [], GROUP_CHAINS = {};  // all chain ids; chains grouped by sector
+let CO_TENANCY = [];                     // named co-tenancy clusters, for search + place panel
+let SHOW_ANNOUNCED = true;               // the map toolbar's "show announced" status toggle
+let FRANCHISE_ONLY = false;              // "Franchise" filter: show only chains open to a US franchisee
+let FRANCHISERS = new Set();             // chains with franchise_available_us === 1 (from feature .fr)
+
+// Sector → color. Keep in sync with the register's sectors.
+const SECTOR = {
+  tea: '#5E8C3A', coffee: '#7A4E2D', food_drink: '#B5462E', bakery: '#C08A2B',
+  grocery_convenience: '#2F8C8C', snacks: '#D0702A', apparel: '#6B4FA0', beauty: '#C4577A',
+  lifestyle_variety: '#2F5FA8', electronics: '#3C7A9A', home: '#7A8C3A',
+};
+const OTHER = '#6b7280';
+const SECTOR_LABEL = {
+  tea: 'Tea', coffee: 'Coffee', food_drink: 'Food & drink', bakery: 'Bakery',
+  grocery_convenience: 'Grocery', snacks: 'Snacks', apparel: 'Apparel', beauty: 'Beauty',
+  lifestyle_variety: 'Lifestyle / toys', electronics: 'Electronics', home: 'Home',
+};
+const sectorColor = ['match', ['get', 'sector'],
+  ...Object.entries(SECTOR).flatMap(([k, v]) => [k, v]), OTHER];
+
+// Short monograms, used for the pin badge ONLY when a brand has no logo file in icons/.
+const MONOGRAM = {
+  mixue: 'MX', chagee: 'CG', luckin: 'LK', miniso: 'MO', popmart: 'PM', haidilao: 'HD',
+  heytea: 'HT', cotti: 'CT', taier: 'TE', chabaidao: 'CB', nayuki: 'NX', juewei: 'JW',
+  yangguofu: 'YG', fishwithyou: 'FW', yangs: 'YS', zhangliang: 'ZL', chahalo: 'CH',
+  xiaolongkan: 'XL', liuyishou: 'LY', aunteajenny: 'AJ', mollytea: 'MT', lelecha: 'LL',
+  toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
+  xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
+  jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
+  moge: 'MG', moreyogurt: 'MG', baospastry: 'BP', wallace: 'WA', zhengxin: 'ZX', hibake: 'HB',
+  nanshan: 'NS', juqi: 'JQ', leebai: 'LB', quanjude: 'QJ', mamaxita: 'XT', shanchenglameizi: 'SL',
+};
+
+// Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
+// to a sector-colored monogram badge. Keep in sync with the files in map/icons/.
+const LOGO_CHAINS = new Set([
+  'anta', 'aunteajenny', 'baospastry', 'bingz', 'chabaidao', 'chagee', 'chahalo', 'cotti', 'dalongyi', 'dezhuang',
+  'dusu', 'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
+  'luckin', 'makkee', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
+  'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'teapulse', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
+  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake', 'nanshan', 'leebai', 'juqi', 'quanjude', 'shanchenglameizi',
+]);
+
+const DPR = 2;            // render badges at 2× for crisp icons on retina
+const BADGE = 64;         // logical badge diameter (px); device size = BADGE * DPR
+// Logo cache-bust suffix. Each page sets window.CFC_ICON_V to "?v=<hash>" at deploy time (the hash
+// changes only when an icon file changes), so a brand's new logo shows on a normal reload instead of
+// needing a hard refresh. Empty locally, which is fine (the query is just ignored).
+const ICONV = (typeof window !== 'undefined' && window.CFC_ICON_V) || '';
+// Data cache-bust suffix, same idea for the JSON/GeoJSON the page fetches: deploy.sh stamps a hash
+// of the data files, so a fresh census (or a new register alias) loads on a normal reload. Empty
+// locally. Appended to every data fetch below.
+const DATAV = (typeof window !== 'undefined' && window.CFC_DATA_V) || '';
+
+// Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null if there is none.
+function loadLogo(chain) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = 'icons/' + chain + '.png' + ICONV;
+  });
+}
+
+// Compose a circular pin badge. With a logo: a white chip + sector-colored ring + the logo inside.
+// Without one: a solid sector-colored disc with the brand's monogram. `soft` (announced / coming
+// soon, not yet open) draws a dashed ring and a hollow, faded treatment, matching the legend.
+function roundRect(ctx, x, y, w, h, rad) {
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+
+// A circular pin badge: the brand's logo in a sector-colored ring. `soft` = announced / coming soon
+// (dashed, faded). `square` renders a rounded-square variant — retained but unused; every outlet we
+// draw now shares one shape, since all are confirmed to exist.
+function makeBadge(logo, color, mono, soft, square) {
+  const S = BADGE * DPR;
+  const cv = document.createElement('canvas');
+  cv.width = S; cv.height = S;
+  const ctx = cv.getContext('2d');
+  const cx = S / 2, cy = S / 2;
+  const ring = Math.round(4 * DPR);
+  const r = cx - ring / 2 - DPR;          // ring centerline "radius" (half-side for the square)
+  const corner = r * 0.42;
+  const trace = (rr) => {
+    ctx.beginPath();
+    if (square) roundRect(ctx, cx - rr, cy - rr, rr * 2, rr * 2, Math.min(corner, rr * 0.6));
+    else ctx.arc(cx, cy, rr, 0, 2 * Math.PI);
+  };
+
+  ctx.globalAlpha = soft ? 0.82 : 1;
+
+  if (logo) {
+    trace(r);
+    ctx.fillStyle = soft ? 'rgba(255,255,255,0.92)' : '#ffffff'; ctx.fill();
+    ctx.save();
+    trace(r - ring * 0.6); ctx.clip();
+    const inset = (r - ring) * 1.42;
+    const scale = Math.min(inset / logo.width, inset / logo.height);
+    const w = logo.width * scale, h = logo.height * scale;
+    ctx.drawImage(logo, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
+  } else {
+    trace(r);
+    ctx.fillStyle = soft ? '#ffffff' : color; ctx.fill();
+    ctx.fillStyle = soft ? color : '#ffffff';
+    ctx.font = `600 ${Math.round(S * 0.34)}px "Libre Franklin", system-ui, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(mono || '•', cx, cy + S * 0.02);
+  }
+
+  trace(r);
+  ctx.lineWidth = ring; ctx.strokeStyle = color;
+  if (soft) ctx.setLineDash([ring * 1.4, ring * 1.1]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  return { width: S, height: S, data: ctx.getImageData(0, 0, S, S).data };
+}
+
+// Resolve the basemap style: a hosted URL (CARTO/MapTiler) or a built Protomaps style over PMTiles.
+async function resolveStyle() {
+  if (!BASEMAP.pmtiles) return BASEMAP.style;      // a style URL string
+  // Protomaps path: register the pmtiles:// protocol and build the light theme over our US file.
+  // The two modules are fetched from a CDN at RUNTIME. A transient CDN failure — or, worse, a cached
+  // bad/partial response — used to throw here and leave the map BLANK until the visitor happened to
+  // hard-refresh (the one thing that evicts the poisoned cache). So: build it, retry once with a
+  // cache-buster to get past a poisoned entry, then fall back to the hosted CARTO style so the map
+  // ALWAYS renders a basemap rather than nothing. Pins are added on 'load' regardless of which style
+  // wins, so they appear either way; the default GLYPH_FONT (Open Sans) matches CARTO's glyphs.
+  async function buildProtomaps(bust) {
+    const q = bust ? ('?cb=' + Date.now()) : '';
+    const [pm, bm] = await Promise.all([
+      import('https://cdn.jsdelivr.net/npm/pmtiles@4/+esm' + q),
+      import('https://cdn.jsdelivr.net/npm/@protomaps/basemaps@5/+esm' + q),
+    ]);
+    maplibregl.addProtocol('pmtiles', new pm.Protocol().tile);
+    GLYPH_FONT = 'Noto Sans Regular';                // Protomaps' glyph server provides this
+    return {
+      version: 8,
+      glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+      sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
+      sources: {
+        protomaps: { type: 'vector', url: 'pmtiles://' + BASEMAP.pmtiles,
+                     attribution: '© OpenStreetMap contributors' },
+      },
+      layers: recolorBasemap(bm.layers('protomaps', bm.namedFlavor('light'), { lang: 'en' })),
+    };
+  }
+  try {
+    return await buildProtomaps(false);
+  } catch (e1) {
+    console.warn('basemap modules failed to load; retrying with a cache-buster', e1 && e1.message);
+    try {
+      return await buildProtomaps(true);
+    } catch (e2) {
+      console.warn('basemap modules still failing; using the hosted CARTO fallback style', e2 && e2.message);
+      return BASEMAP.style;      // hosted keyless light style — the map renders instead of going blank
+    }
+  }
+}
+
+// Flatten the Protomaps light theme to the site's greyscale tokens: grey land, white water, grey
+// roads/borders, faint buildings, muted labels, and no POIs or colored fills — so only our brand
+// pins carry colour. The pins and logos are drawn separately and are untouched by this.
+function recolorBasemap(layers) {
+  const GROUND = '#EDEFEB', WATER = '#FFFFFF', ROAD = '#C4C7C2', BORDER = '#B3B6B1',
+        BUILD = '#DADCD7', LANDUSE = '#E7E9E5', LABEL = '#4F524E', HALO = '#EDEFEB';
+  const out = [];
+  for (const l of layers) {
+    const id = l.id || '';
+    if (/poi/i.test(id)) continue;                           // drop points of interest entirely
+    // Labels: the surrounding landmasses (Canada, Mexico, Cuba, the Bahamas…) stay on the map, but
+    // their NAMES do not. Drop every country name and ocean/sea/island name; show city names only
+    // once you zoom into a metro (not at the national/regional view, where they are just noise); and
+    // label US STATES only — the basemap has no per-feature country field, so foreign provinces
+    // (Ontario, etc.) are excluded with a US-postal-code allowlist on the region layer.
+    if (id === 'places_country') continue;
+    if (/water_label|earth_label_islands/.test(id)) continue;
+    const nl = { ...l, paint: { ...(l.paint || {}) }, layout: { ...(l.layout || {}) } };
+    if (id === 'places_locality') nl.minzoom = Math.max(l.minzoom || 0, 9);  // no city names until metro zoom
+    if (id === 'places_subplace') nl.minzoom = Math.max(l.minzoom || 0, 10); // neighbourhoods deeper still
+    if (id === 'places_region') {
+      nl.filter = ['all', ['==', ['get', 'kind'], 'region'],
+        ['match', ['coalesce', ['get', 'ref:en'], ['get', 'ref'], ''],
+          ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA',
+            'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+            'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
+            'VA', 'WA', 'WV', 'WI', 'WY', 'DC'],
+          true, false]];
+    }
+    if (l.type === 'background') nl.paint['background-color'] = GROUND;
+    else if (id === 'earth') nl.paint['fill-color'] = GROUND;
+    else if (/water|ocean|lake|river|bay|sea/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = WATER;
+      if (l.type === 'line') nl.paint['line-color'] = WATER;
+    }
+    else if (/building/i.test(id)) {
+      if (l.type === 'fill') { nl.paint['fill-color'] = BUILD; nl.paint['fill-opacity'] = 0.55; }
+    }
+    else if (/boundar|border|admin/i.test(id)) { if (l.type === 'line') nl.paint['line-color'] = BORDER; }
+    else if (/road|transit|bridge|tunnel|highway|rail|path|pier|aeroway/i.test(id)) {
+      if (l.type === 'line') nl.paint['line-color'] = ROAD;
+    }
+    else if (/landuse|landcover|park|wood|forest|grass|sand|glacier|beach|pedestrian|scrub|farmland/i.test(id)) {
+      if (l.type === 'fill') nl.paint['fill-color'] = LANDUSE;
+    }
+    if (l.type === 'symbol') {
+      nl.paint['text-color'] = LABEL;
+      nl.paint['text-halo-color'] = HALO;
+      nl.paint['text-halo-width'] = 1.2;
+      if (nl.layout['icon-image']) delete nl.layout['icon-image'];   // no colored sprite icons
+    }
+    out.push(nl);
+  }
+  return out;
+}
+
+// A US-silhouette mask: one polygon whose outer ring is the whole world and whose holes are the
+// lower-48 (+ Hawaii) state outlines, filled the water colour. It covers everything outside the US
+// so Cuba, the Bahamas, Mexico and Canada drop away and only the US reads. Inserted beneath the
+// basemap's labels. Alaska, Puerto Rico and Guam are left out (Alaska's Aleutians cross the
+// antimeridian and would tear the polygon; all three live off the lower-48 view and in their insets).
+function usMask(fc, includeIds) {
+  const world = [[-180, -84], [180, -84], [180, 84], [-180, 84], [-180, -84]];
+  const holes = [];
+  for (const f of fc.features) {
+    if (includeIds) { if (!includeIds.includes(f.id)) continue; }
+    else if (f.id === 'AK' || f.id === 'PR' || f.id === 'GU') continue;   // lower-48 + HI by default
+    const g = f.geometry;
+    const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+    for (const poly of polys) holes.push(poly[0]);
+  }
+  return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [world, ...holes] } };
+}
+
+// Small Alaska and Hawaii insets, pinned to the map's lower-left, because both fall outside the
+// lower-48 frame. Each is a tiny non-interactive map fitted to that state, masked to just its own
+// outline, with the brand logos drawn as DOM markers (so no per-map addImage is needed).
+const INSETS = [
+  { id: 'AK', label: 'Alaska', bounds: [[-170, 52], [-129, 71.5]] },
+  { id: 'HI', label: 'Hawaii', bounds: [[-160.6, 18.7], [-154.6, 22.4]] },
+];
+function sectorRingMarker(chain, soft) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin' + (soft ? ' soft' : '');
+  const color = SECTOR[CHAIN_SECTOR[chain]] || OTHER;
+  el.style.borderColor = color;
+  if (LOGO_PRESENT[chain]) {
+    const img = document.createElement('img');
+    img.src = 'icons/' + chain + '.png' + ICONV; img.alt = '';
+    el.appendChild(img);
+  } else {
+    el.textContent = (MONOGRAM[chain] || chain.slice(0, 2)).toUpperCase();
+    el.style.background = color; el.style.color = '#fff';
+  }
+  return el;
+}
+// A count pin for the insets: when several outlets sit on top of one another in the tiny thumbnail
+// (e.g. a handful of stores on one Hawaiian island), they collapse to one ringed number instead of
+// stacking into an unreadable blob. Click the inset to open that state on the main map for detail.
+function insetClusterMarker(n) {
+  const el = document.createElement('div');
+  el.className = 'inset-pin';
+  el.textContent = String(n);
+  el.style.borderColor = 'var(--ink)';
+  el.style.color = 'var(--ink)';
+  return el;
+}
+// Show or hide the Alaska/Hawaii inset thumbnails. They belong to the national view; a single-state
+// focus deep-linked from the by-state page hides them, and the "US" (fit-nation) button brings them back.
+function setInsetsVisible(show) {
+  const el = document.querySelector('.map-insets');
+  if (el) el.style.display = show ? '' : 'none';
+}
+
+function buildInsets(parent, style, statesFC, fc) {
+  const wrap = document.createElement('div'); wrap.className = 'map-insets';
+  parent.appendChild(wrap);
+  for (const ins of INSETS) {
+    const box = document.createElement('div'); box.className = 'map-inset';
+    const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
+    const md = document.createElement('div'); md.className = 'mi-map';
+    box.appendChild(md); box.appendChild(lbl); wrap.appendChild(box);
+    // The inset is a non-interactive thumbnail; click it to fly the MAIN map to that state so it can
+    // be zoomed and explored there (Alaska and Hawaii are now part of the main silhouette mask).
+    box.style.cursor = 'zoom-in';
+    box.title = 'Zoom to ' + ins.label + ' on the map';
+    box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0');
+    const flyTo = () => { if (MAP_REF) MAP_REF.fitBounds(ins.bounds, { padding: 30 }); };
+    box.addEventListener('click', flyTo);
+    box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flyTo(); } });
+    const im = new maplibregl.Map({ container: md, style: JSON.parse(JSON.stringify(style)), bounds: ins.bounds,
+      fitBoundsOptions: { padding: 8 }, interactive: false, attributionControl: false });
+    im.on('load', () => {
+      if (statesFC) {
+        // mask above the inset's labels too, so neighbouring Russia/Canada/Mexico names don't show
+        im.addSource('m', { type: 'geojson', data: usMask(statesFC, [ins.id]) });
+        im.addLayer({ id: 'm', type: 'fill', source: 'm', paint: { 'fill-color': '#FFFFFF', 'fill-antialias': false } });
+      }
+      const [[w, s], [e, n]] = ins.bounds;
+      const here = fc.features.filter((f) => {
+        const [x, y] = f.geometry.coordinates;
+        return x >= w && x <= e && y >= s && y <= n;
+      });
+      // Group outlets that would overlap in this tiny thumbnail (project each to inset pixels and
+      // merge those within GROUP_PX), so coincident pins don't stack into a blob. One ring per group;
+      // a group of more than one shows its count.
+      const GROUP_PX = 20;
+      const groups = [];
+      for (const f of here) {
+        const pt = im.project(f.geometry.coordinates);
+        const g = groups.find((gr) => Math.hypot(gr.x - pt.x, gr.y - pt.y) < GROUP_PX);
+        if (g) g.feats.push(f);
+        else groups.push({ x: pt.x, y: pt.y, feats: [f] });
+      }
+      for (const g of groups) {
+        const f0 = g.feats[0];
+        const soft = g.feats.every((f) => f.properties.status === 'coming_soon');
+        const el = g.feats.length > 1 ? insetClusterMarker(g.feats.length)
+                                      : sectorRingMarker(f0.properties.chain, soft);
+        new maplibregl.Marker({ element: el }).setLngLat(f0.geometry.coordinates).addTo(im);
+      }
+    });
+  }
+}
+
+// US extents: the opening view frames the lower 48, and panning/zooming is clamped to the US and
+// its territories so a stray scroll never drifts into the empty grey world beyond the tiles.
+const US_BOUNDS = [[-125, 24.2], [-66.5, 49.6]];
+const MAX_BOUNDS = [[-179.5, 13], [-63, 72]];
+
+// A one-tap "frame the United States" button, sitting under the zoom control.
+class FitUSControl {
+  onAdd(map) {
+    this._map = map;
+    const d = document.createElement('div');
+    d.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    const b = document.createElement('button');
+    b.type = 'button'; b.title = 'Fit the United States';
+    b.setAttribute('aria-label', 'Fit the United States');
+    b.style.cssText = 'font:700 11px/29px "Libre Franklin",system-ui,sans-serif';
+    b.textContent = 'US';
+    b.onclick = () => { map.fitBounds(US_BOUNDS, { padding: 40 }); setInsetsVisible(true); };  // back to the national view — insets useful again
+    d.appendChild(b); this._c = d; return d;
+  }
+  onRemove() { this._c.remove(); this._map = undefined; }
+}
+
+async function init() {
+  // Loading state: the basemap and the badge icons take a moment, so the map and the brand list get
+  // a skeleton instead of sitting blank and grey.
+  const mapEl = document.getElementById('map');
+  let loadingEl = null;
+  if (mapEl) {
+    mapEl.style.position = 'relative';
+    loadingEl = document.createElement('div');
+    loadingEl.className = 'map-loading';
+    loadingEl.textContent = 'Loading the map…';
+    mapEl.appendChild(loadingEl);
+  }
+  const tallyEl = document.getElementById('tally');
+  if (tallyEl) tallyEl.innerHTML = '<div class="tally-skel">' + '<div class="skelrow"></div>'.repeat(7) + '</div>';
+
+  // Fetch our data once; we reuse it for the source, the per-brand icons, and the count line.
+  const fc = await fetch('data/stores.geojson' + DATAV).then((r) => r.json());
+  // Alternate search terms per chain (Chinese name, in-market names, aliases like "Shanghai Auntie")
+  // so the hero search finds a brand by more than its display name — the register filter's twin.
+  window.CHAIN_ALIASES = (fc.meta && fc.meta.aliases) || {};
+  if (loadingEl) {
+    const n = (fc.meta && fc.meta.totals && fc.meta.totals.mapped) || fc.features.length;
+    loadingEl.textContent = `Loading ${n.toLocaleString()} outlets…`;
+  }
+  const chainSector = {};
+  for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
+  CHAIN_SECTOR = chainSector;
+
+  // Build the brand list and legend from the data NOW, before the basemap. They need only the
+  // fetched GeoJSON, not the map, so a slow or failed basemap (resolveStyle awaits CDN modules)
+  // no longer leaves the left-hand chain list empty — the cause of its intermittent absence.
+  // applyFilter() inside buildTally safely skips the map until MAP_REF/FULL_FC are set below.
+  buildLegend();
+  buildTally(fc);
+
+  const style = await resolveStyle();
+  const insetStyle = JSON.parse(JSON.stringify(style));   // a clean copy before MapLibre mutates `style`
+  const map = new maplibregl.Map({
+    container: 'map', style,
+    bounds: US_BOUNDS, fitBoundsOptions: { padding: 40 },
+    maxBounds: MAX_BOUNDS, minZoom: 2.6, maxZoom: 17,
+    cooperativeGestures: true,          // page scroll no longer zooms the map; ⌘/Ctrl+scroll or two fingers does
+    attributionControl: { compact: true },
+  });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.addControl(new maplibregl.GeolocateControl({
+    positionOptions: { enableHighAccuracy: false }, trackUserLocation: false }), 'top-right');
+  map.addControl(new FitUSControl(), 'top-right');
+  map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
+  map.on('error', (e) => console.warn('map error', e && e.error && e.error.message));
+  MAP_REF = map; FULL_FC = fc;            // for the chain-filter panel
+  // Named co-tenancy clusters feed the "Shopping centers" search group and the place panel.
+  // Co-tenancy (named clusters) is a Pro feature: centers.json is not published publicly, so the
+  // map does not fetch it. CO_TENANCY stays [] — the "Shopping centers" search group is empty and
+  // place panels fall back to address/city. See cfc-analytics-paywall.
+
+  // Load each brand's logo (icons/<chain>.png; null when absent) before the layer is built so
+  // every icon-image reference resolves to either a logo badge or a monogram badge.
+  const chains = Object.keys(chainSector);
+  const logos = await Promise.all(chains.map((c) => (LOGO_CHAINS.has(c) ? loadLogo(c) : Promise.resolve(null))));
+  chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
+  // State outlines power the Alaska/Hawaii insets (each masked to its own shape).
+  const statesFC = await fetch('us-states.geojson' + DATAV).then((r) => r.json()).catch(() => null);
+  try { buildInsets(document.getElementById('map'), insetStyle, statesFC, fc); }
+  catch (e) { console.warn('AK/HI insets skipped', e && e.message); }
+
+  const onMapLoad = () => {
+    // Register a per-brand badge (solid "open" + dashed "soft" variant). addImage requires the
+    // style to be loaded, so it happens here, not before.
+    chains.forEach((c, i) => {
+      const color = SECTOR[chainSector[c]] || OTHER;
+      const mono = MONOGRAM[c] || c.slice(0, 2).toUpperCase();
+      if (!map.hasImage('ic-' + c)) map.addImage('ic-' + c, makeBadge(logos[i], color, mono, false, false), { pixelRatio: DPR });
+      if (!map.hasImage('ic-' + c + '-s')) map.addImage('ic-' + c + '-s', makeBadge(logos[i], color, mono, true, false), { pixelRatio: DPR });
+    });
+
+    // Turn OFF the basemap's own points of interest, so only our pins read as data.
+    for (const l of map.getStyle().layers) {
+      if (/poi|place.?of.?interest/i.test(l.id)) {
+        try { map.setLayoutProperty(l.id, 'visibility', 'none'); } catch (e) { /* non-symbol layer */ }
+      }
+    }
+
+    // No US-silhouette mask: the surrounding landmasses (Canada, Mexico, Cuba, the Bahamas…) are
+    // kept on the map as plain land — the viewer likes the geographic context. Foreign CLUTTER is
+    // handled at the label level instead (recolorBasemap: no country/ocean/island names, US-state
+    // labels only, city names only at metro zoom), so the neighbours show without their names.
+
+    // No city labels at the national/regional view — neither US nor foreign. The basemap's own city
+    // names switch on at metro zoom (places_locality, minzoom 9), where showing nearby cities of any
+    // country alongside US ones is fine; above that we show no city names at all, so there is no
+    // reason to hand-place Canadian/Mexican ones either.
+
+    map.addSource('stores', {
+      type: 'geojson', data: fc,
+      cluster: true, clusterRadius: 48, clusterMaxZoom: 14,
+    });
+
+    // White disc, 1.5px ink outline. Diameter = 20 + 3.2·√n (radius = half of that).
+    map.addLayer({
+      id: 'clusters', type: 'circle', source: 'stores', filter: ['has', 'point_count'],
+      paint: {
+        'circle-color': '#FFFFFF',
+        'circle-radius': ['+', 10, ['*', 1.6, ['sqrt', ['get', 'point_count']]]],
+        'circle-stroke-width': 1.5, 'circle-stroke-color': '#0E0F0E',
+      },
+    });
+    map.addLayer({
+      id: 'cluster-count', type: 'symbol', source: 'stores', filter: ['has', 'point_count'],
+      layout: {
+        'text-field': ['get', 'point_count_abbreviated'],
+        // 15px once the disc is wider than ~44px (point_count > 56), else 12px.
+        'text-font': [GLYPH_FONT], 'text-allow-overlap': true,
+        'text-size': ['step', ['get', 'point_count'], 12, 57, 15],
+      },
+      paint: { 'text-color': '#0E0F0E' },
+    });
+
+    // Individual outlets: a per-brand badge. Every outlet we draw is confirmed to exist, so they
+    // share one shape (a circle) — the only variation is solid (open) vs dashed ("soft", announced
+    // / coming soon). We do not distinguish how we learned of a store on the map.
+    const soft = ['==', ['get', 'status'], 'coming_soon'];
+    map.addLayer({
+      id: 'pts', type: 'symbol', source: 'stores', filter: ['!', ['has', 'point_count']],
+      layout: {
+        'icon-image': ['case',
+          soft, ['concat', 'ic-', ['get', 'chain'], '-s'],
+          ['concat', 'ic-', ['get', 'chain']]],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.5, 12, 0.72],
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      },
+    });
+
+    map.on('click', 'clusters', (e) => {
+      const f = map.queryRenderedFeatures(e.point, { layers: ['clusters'] })[0];
+      const src = map.getSource('stores');
+      const id = f.properties.cluster_id;
+      src.getClusterExpansionZoom(id).then((z) => {
+        // A cluster that only breaks apart beyond the clustering max is effectively one place —
+        // the outlets share an address (Tangram's nine). Don't zoom into nothing; list them so
+        // every outlet at a shared address is one click away. Otherwise jump in hard (at least a
+        // couple of levels) so the US view reaches street level in two clicks, not six.
+        if (z > 14) {
+          src.getClusterLeaves(id, 100, 0, (err, leaves) => {
+            if (!err && leaves) openPlacePanel(f.geometry.coordinates, leaves);
+          });
+        } else {
+          map.easeTo({ center: f.geometry.coordinates, zoom: Math.max(z, map.getZoom() + 2.5) });
+        }
+      });
+    });
+    map.on('click', 'pts', (e) => {
+      const p = e.features[0].properties;
+      const sec = SECTOR_LABEL[p.sector] || 'Other';
+      const state = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
+      const logo = LOGO_PRESENT[p.chain]
+        ? `<img src="icons/${esc(p.chain)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
+        : '';
+      const addr = p.address ? `${esc(p.address)}<br>` : '';
+      const cityState = `${esc(p.city || '')}${p.city && p.state ? ', ' : ''}${esc(p.state || '')}`;
+      new maplibregl.Popup({ closeButton: false })
+        .setLngLat(e.features[0].geometry.coordinates)
+        .setHTML(`<div style="display:flex;gap:.55rem;align-items:center">${logo}<div>` +
+                 `<b>${esc(p.name)}</b><br>${addr}${cityState}` +
+                 `<br><span style="color:#666">${sec} · ${state}</span></div></div>`)
+        .addTo(map);
+    });
+    for (const id of ['clusters', 'pts']) {
+      map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+    }
+
+    applyFilter();               // list + legend were built pre-load; now sync the map source to it
+    setupSearch(map);
+    setupToolbar(map);
+    restoreFromURL(map);
+    map.once('idle', () => { if (loadingEl) { loadingEl.remove(); loadingEl = null; } });
+  };
+  // Guard against a MISSED 'load' event. The awaits above (brand logos, us-states.geojson) can let
+  // the map finish loading BEFORE this point is reached, in which case on('load') would attach too
+  // late and never fire — the 'stores' source is never added and the map renders the basemap with
+  // no pins (intermittent: it only blanks when the basemap wins the race against the logo fetches).
+  // So run the setup now if the map is already loaded, otherwise wait for load. (The AK/HI insets
+  // were never affected because each registers its load handler synchronously at creation.)
+  if (map.loaded()) onMapLoad(); else map.on('load', onMapLoad);
+}
+
+// ---- Place panel ----------------------------------------------------------------------------
+// Opened from a same-address cluster (or a center search result): the brands at one spot, with its
+// center name/owner when known, directions and a copy-link. Every outlet here is one click away.
+function closePlacePanel() {
+  const el = document.getElementById('place-panel');
+  if (el) { el.hidden = true; el.innerHTML = ''; }
+}
+
+// The named co-tenancy center within ~250 m of a point, so a cluster can show its name and owner.
+function nearestCenter(lng, lat) {
+  let best = null, bestD = 0.0035;
+  for (const c of CO_TENANCY) {
+    if (c.lat == null || c.lon == null || !c.center || !c.center.name) continue;
+    const d = Math.hypot(c.lon - lng, c.lat - lat);
+    if (d < bestD) { bestD = d; best = c; }
+  }
+  return best;
+}
+
+function openPlacePanel(coords, leaves) {
+  const el = document.getElementById('place-panel');
+  if (!el || !leaves || !leaves.length) return;
+  const [lng, lat] = coords;
+  const center = nearestCenter(lng, lat);
+  const brands = new Set(leaves.map((l) => l.properties.chain));
+  const sectors = new Set(leaves.map((l) => l.properties.sector));
+  const addr = (leaves.find((l) => l.properties.address) || { properties: {} }).properties.address;
+  const title = center ? center.center.name : (addr || 'This location');
+  const owner = center && center.center.owner_reit ? center.center.owner_reit
+    : center ? [center.city, center.state].filter(Boolean).join(', ') : '';
+  const dest = encodeURIComponent(lat + ',' + lng);
+  const rows = leaves.slice().sort((a, b) => a.properties.name.localeCompare(b.properties.name)).map((l) => {
+    const p = l.properties;
+    const sq = '';                              // one shape for every outlet (no counted/hand split)
+    const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
+    return `<a class="pp-row" href="chain.html?c=${esc(p.chain)}">` +
+      `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
+      `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
+  }).join('');
+  // Nearby named clusters, by rough distance, so a reader can hop between centers.
+  const near = CO_TENANCY
+    .filter((c) => c.center && c.center.name && c.lat != null && Math.hypot(c.lon - lng, c.lat - lat) > 0.0006)
+    .map((c) => ({ c, d: milesBetween(lat, lng, c.lat, c.lon) }))
+    .sort((a, b) => a.d - b.d).slice(0, 3);
+  const nearHtml = near.length
+    ? '<div class="pp-list" style="flex:0 0 auto;border-top:1px solid var(--rule)"><div class="lbl">Nearby clusters</div>' +
+      near.map((n) => `<a class="pp-row" href="#" onclick="cfcGoCenter('${esc(n.c.key)}');return false;">` +
+        `<span>${esc(n.c.center.name)}</span><span class="st">${n.d < 10 ? n.d.toFixed(1) : Math.round(n.d)} mi</span></a>`).join('') +
+      '</div>'
+    : '';
+  el.dataset.lng = lng; el.dataset.lat = lat;
+  el.innerHTML =
+    '<div class="pp-head"><button class="pp-x" aria-label="Close place panel" onclick="closePlacePanel()">×</button>' +
+    `<h3>${esc(title)}</h3>` + (owner ? `<div class="pp-owner">${esc(owner)}</div>` : '') + '</div>' +
+    '<div class="pp-stats">' +
+      `<div class="s"><b>${brands.size}</b><span>brand${brands.size > 1 ? 's' : ''}</span></div>` +
+      `<div class="s"><b>${leaves.length}</b><span>outlets</span></div>` +
+      `<div class="s"><b>${sectors.size}</b><span>sector${sectors.size > 1 ? 's' : ''}</span></div></div>` +
+    '<div class="pp-btns">' +
+      `<a href="https://www.google.com/maps/dir/?api=1&destination=${dest}" target="_blank" rel="noopener">Directions</a>` +
+      '<button type="button" onclick="cfcCopyPlace(this)">Copy link</button>' +
+      '<button type="button" class="pro" title="Follow this place — Pro, in development">Follow</button></div>' +
+    `<div class="pp-list"><div class="lbl">Chinese brands here</div>${rows}</div>` + nearHtml;
+  el.hidden = false;
+}
+
+function milesBetween(lat1, lng1, lat2, lng2) {
+  const dy = (lat2 - lat1) * 69;
+  const dx = (lng2 - lng1) * 69 * Math.cos(lat1 * Math.PI / 180);
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function cfcGoCenter(key) {
+  const c = CO_TENANCY.find((x) => x.key === key);
+  if (!c || !MAP_REF) return;
+  MAP_REF.flyTo({ center: [c.lon, c.lat], zoom: 15 });
+  openCenterPanel(c);
+}
+
+function cfcCopyPlace(btn) {
+  const el = document.getElementById('place-panel');
+  if (!el) return;
+  const u = location.origin + location.pathname + '#c=' + (+el.dataset.lng).toFixed(4) +
+    ',' + (+el.dataset.lat).toFixed(4) + '&z=15';
+  if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
+  const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = o; }, 1200);
+}
+
+// ---- Search: grouped suggestions (Places / Shopping centers / Chains) ------------------------
+function buildSearchIndex() {
+  const meta = window.CHAIN_META || {};
+  const alt = window.CHAIN_ALIASES || {};
+  const chains = Object.keys(meta).map((id) => ({ type: 'chain', id, name: meta[id].name, sector: meta[id].sector,
+    alt: (alt[id] || []).join(' ') }));
+  const cityMap = {};
+  for (const f of FULL_FC.features) {
+    const p = f.properties; if (!p.city || !p.state) continue;
+    const k = p.city + ', ' + p.state;
+    const c = cityMap[k] || (cityMap[k] = { name: p.city, state: p.state, n: 0, x: 0, y: 0 });
+    c.n++; c.x += f.geometry.coordinates[0]; c.y += f.geometry.coordinates[1];
+  }
+  const places = Object.values(cityMap).map((c) => ({ type: 'place', name: c.name, state: c.state, n: c.n, lng: c.x / c.n, lat: c.y / c.n }));
+  const centers = CO_TENANCY.filter((c) => c.center && c.center.name && c.lat != null)
+    .map((c) => ({ type: 'center', name: c.center.name, city: c.city, state: c.state, lng: c.lon, lat: c.lat, cluster: c }));
+  return { chains, places, centers };
+}
+
+function fitChain(id) {
+  const pts = FULL_FC.features.filter((f) => f.properties.chain === id &&
+    (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon'));
+  if (!pts.length || !MAP_REF) return;
+  let minx = 180, miny = 90, maxx = -180, maxy = -90;
+  for (const f of pts) { const [x, y] = f.geometry.coordinates; minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); }
+  if (minx === maxx && miny === maxy) MAP_REF.flyTo({ center: [minx, miny], zoom: 13 });
+  else MAP_REF.fitBounds([[minx, miny], [maxx, maxy]], { padding: 70, maxZoom: 13 });
+}
+
+function openCenterPanel(cluster) {
+  const lng = cluster.lon, lat = cluster.lat;
+  const leaves = FULL_FC.features.filter((f) => {
+    const [x, y] = f.geometry.coordinates; return Math.hypot(x - lng, y - lat) < 0.004;
+  });
+  if (leaves.length) openPlacePanel([lng, lat], leaves);
+}
+
+function setupSearch(map) {
+  const box = document.getElementById('hero-search');
+  const panel = document.getElementById('search-suggest');
+  if (!box || !panel) return;
+  let opts = [], sel = -1;
+
+  const close = () => { panel.hidden = true; box.setAttribute('aria-expanded', 'false'); sel = -1; };
+  // Match a chain by its display name OR its alternate terms (Chinese name, in-market names,
+  // aliases). Rank by the earliest position the query appears across either, so a name hit still
+  // sorts ahead of an alias-only hit.
+  const pos = (o, q) => {
+    const idxs = [o.name.toLowerCase().indexOf(q), o.alt ? o.alt.toLowerCase().indexOf(q) : -1].filter((i) => i >= 0);
+    return idxs.length ? Math.min(...idxs) : 999;
+  };
+  const matchIn = (arr, q) => arr.filter((o) => o.name.toLowerCase().includes(q) || (o.alt && o.alt.toLowerCase().includes(q)))
+    .sort((a, b) => pos(a, q) - pos(b, q));
+
+  function render(raw) {
+    const q = raw.trim().toLowerCase();
+    if (!q) { close(); return; }
+    const idx = buildSearchIndex();
+    const places = matchIn(idx.places, q).slice(0, 5);
+    const centers = matchIn(idx.centers, q).slice(0, 5);
+    const chains = matchIn(idx.chains, q).slice(0, 6);
+    opts = [];
+    let html = '';
+    const grp = (label, arr, make) => {
+      if (!arr.length) return;
+      html += `<div class="grp">${label}</div>`;
+      for (const o of arr) { const i = opts.length; opts.push(o); html += `<div class="opt" role="option" data-i="${i}">${make(o)}</div>`; }
+    };
+    if (!chains.length && (places.length || centers.length)) {
+      html += `<div class="none">No chain names match <b>${esc(raw.trim())}</b> — try a place or center:</div>`;
+    }
+    grp('Places', places, (o) => `<span class="ic">◉</span><span class="nm">${esc(o.name)}, ${esc(o.state)}</span><span class="meta">${o.n} outlet${o.n > 1 ? 's' : ''}</span>`);
+    grp('Shopping centers', centers, (o) => `<span class="ic">▣</span><span class="nm">${esc(o.name)}</span><span class="meta">${esc([o.city, o.state].filter(Boolean).join(', '))}</span>`);
+    grp('Chains', chains, (o) => `<span class="ring" style="border-color:${SECTOR[o.sector] || OTHER}"></span><span class="nm">${esc(o.name)}</span><span class="meta">${esc(SECTOR_LABEL[o.sector] || '')}</span>`);
+    if (!opts.length) html = `<div class="none">No matches for <b>${esc(raw.trim())}</b> on the US map.</div>`;
+    // A link to the international register: some China-origin chains trade only abroad and so never
+    // appear on the US map or in this index. When no map chain matched, carry the query so the
+    // register opens pre-filtered to it; otherwise offer a plain browse link.
+    // When NOTHING on the map matched, the query is probably a chain that trades only abroad: carry
+    // it so the register opens pre-filtered. When something matched (a chain, place or center), just
+    // offer a plain browse link rather than pre-filtering the register by a US place name.
+    const regQ = raw.trim();
+    const regHref = opts.length ? 'register.html' : `register.html?q=${encodeURIComponent(regQ)}`;
+    const regText = opts.length
+      ? 'Browse the international register &rarr;'
+      : `Not on the US map? Search the <b>international register</b> for &ldquo;${esc(regQ)}&rdquo; &rarr;`;
+    html += `<a class="reg-link" href="${regHref}" style="display:block;padding:.55rem .7rem;border-top:1px solid var(--line,#e5e3dc);font-size:.85em;line-height:1.3;color:var(--ink,#0E0F0E);text-decoration:none">${regText}</a>`;
+    panel.innerHTML = html; panel.hidden = false; box.setAttribute('aria-expanded', 'true'); sel = -1;
+    panel.querySelectorAll('.opt').forEach((elt) => {
+      elt.addEventListener('mousedown', (e) => { e.preventDefault(); choose(+elt.dataset.i); });
+    });
+  }
+
+  function highlight() {
+    panel.querySelectorAll('.opt').forEach((elt, i) => elt.setAttribute('aria-selected', String(i === sel)));
+    const cur = panel.querySelector('.opt[aria-selected="true"]');
+    if (cur) cur.scrollIntoView({ block: 'nearest' });
+  }
+
+  function choose(i) {
+    const o = opts[i]; if (!o) return;
+    close(); box.value = o.name;
+    if (o.type === 'chain') { onlyChain(o.id); fitChain(o.id); }
+    else if (o.type === 'place') { map.flyTo({ center: [o.lng, o.lat], zoom: 10 }); }
+    else if (o.type === 'center') { map.flyTo({ center: [o.lng, o.lat], zoom: 15 }); openCenterPanel(o.cluster); }
+  }
+
+  box.addEventListener('input', () => render(box.value));
+  box.addEventListener('focus', () => { if (box.value.trim()) render(box.value); });
+  box.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (opts.length) { sel = Math.min(sel + 1, opts.length - 1); highlight(); } }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); if (opts.length) { sel = Math.max(sel - 1, 0); highlight(); } }
+    else if (e.key === 'Enter') { if (sel >= 0) { e.preventDefault(); choose(sel); } }
+    else if (e.key === 'Escape') { close(); box.blur(); }
+  });
+  document.addEventListener('click', (e) => { if (!panel.contains(e.target) && e.target !== box) close(); });
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); box.focus(); box.select(); }
+  });
+}
+
+// ---- Toolbar: status toggle + Share view ----------------------------------------------------
+function shareURL(map) {
+  const c = map.getCenter();
+  const parts = ['c=' + c.lng.toFixed(4) + ',' + c.lat.toFixed(4), 'z=' + map.getZoom().toFixed(2)];
+  const hide = [...HIDDEN]; if (hide.length) parts.push('hide=' + hide.join(','));
+  if (!SHOW_ANNOUNCED) parts.push('open=1');
+  return location.origin + location.pathname + '#' + parts.join('&');
+}
+
+function setupToolbar(map) {
+  const share = document.getElementById('share-view');
+  if (share) share.addEventListener('click', () => {
+    const u = shareURL(map);
+    if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
+    share.classList.add('copied'); const o = share.textContent; share.textContent = 'Link copied';
+    setTimeout(() => { share.classList.remove('copied'); share.textContent = o; }, 1400);
+  });
+  const ann = document.getElementById('show-announced');
+  if (ann) ann.addEventListener('change', () => { SHOW_ANNOUNCED = ann.checked; applyFilter(); });
+  const fr = document.getElementById('only-franchise');
+  if (fr) fr.addEventListener('click', () => {
+    FRANCHISE_ONLY = !FRANCHISE_ONLY;
+    fr.setAttribute('aria-pressed', String(FRANCHISE_ONLY));
+    applyFilter();
+  });
+}
+
+function restoreFromURL(map) {
+  const h = location.hash.replace(/^#/, ''); if (!h) return;
+  const p = new URLSearchParams(h);
+  if (p.get('hide')) HIDDEN = new Set(p.get('hide').split(',').filter(Boolean));
+  // only=<chain>: show just this brand (used by the by-state page's "Show on map"). ALL_CHAINS is
+  // already populated by buildTally, which runs before the map's load event calls this.
+  const only = p.get('only');
+  if (only) {
+    HIDDEN = ALL_CHAINS.length ? new Set(ALL_CHAINS.filter((c) => c !== only)) : new Set();
+    setInsetsVisible(false);   // a single-state focus (from the by-state view) — AK/HI insets are just noise
+  }
+  if (p.get('open') === '1') { SHOW_ANNOUNCED = false; const ann = document.getElementById('show-announced'); if (ann) ann.checked = false; }
+  if (p.get('hide') || p.get('open') || only) applyFilter();
+  const c = p.get('c'), z = p.get('z');
+  if (c) { const [lng, lat] = c.split(',').map(Number); if (isFinite(lng) && isFinite(lat)) map.jumpTo({ center: [lng, lat], zoom: z ? parseFloat(z) : 11 }); }
+}
+
+// ---- Chain filter panel ---------------------------------------------------------------------
+// The homepage lists every brand on the map, grouped by sector, and lets a reader show/hide a brand,
+// a whole group, or all of them — and jump to each one's "Who they are" profile. Toggling re-sets the
+// GeoJSON source so clusters recount from only the visible brands.
+function applyFilter() {
+  if (MAP_REF && FULL_FC) {
+    const src = MAP_REF.getSource('stores');
+    if (src) src.setData({ type: 'FeatureCollection',
+      features: FULL_FC.features.filter((f) =>
+        !HIDDEN.has(f.properties.chain) &&
+        (SHOW_ANNOUNCED || f.properties.status !== 'coming_soon') &&
+        (!FRANCHISE_ONLY || FRANCHISERS.has(f.properties.chain))) });
+  }
+  for (const chip of document.querySelectorAll('.chip[data-chain]')) {
+    const id = chip.dataset.chain;
+    chip.setAttribute('aria-pressed', String(!HIDDEN.has(id)));
+    chip.style.display = (FRANCHISE_ONLY && !FRANCHISERS.has(id)) ? 'none' : '';
+  }
+  for (const h of document.querySelectorAll('button.tallygroup[data-sector]')) {
+    const chains = GROUP_CHAINS[h.dataset.sector] || [];
+    const on = chains.filter((c) => !HIDDEN.has(c)).length;
+    h.setAttribute('aria-pressed', String(on > 0));
+    h.classList.toggle('partial', on > 0 && on < chains.length);
+    h.style.opacity = on ? '' : '.5';
+    h.style.display = (FRANCHISE_ONLY && !chains.some((c) => FRANCHISERS.has(c))) ? 'none' : '';
+  }
+}
+function toggleChain(id) { HIDDEN.has(id) ? HIDDEN.delete(id) : HIDDEN.add(id); applyFilter(); }
+function setAllChains(show) {
+  HIDDEN = show ? new Set() : new Set(ALL_CHAINS);
+  FRANCHISE_ONLY = false;                                  // "All"/"None" also clear the franchise filter
+  const fr = document.getElementById('only-franchise');
+  if (fr) fr.setAttribute('aria-pressed', 'false');
+  applyFilter();
+}
+function toggleGroup(sector) {
+  const chains = GROUP_CHAINS[sector] || [];
+  const anyOn = chains.some((c) => !HIDDEN.has(c));
+  for (const c of chains) { if (anyOn) HIDDEN.add(c); else HIDDEN.delete(c); }
+  applyFilter();
+}
+function onlyChain(id) { HIDDEN = new Set(ALL_CHAINS); HIDDEN.delete(id); applyFilter(); }
+
+// Free-text search over brand names, for the hero search box. Empty query restores every brand.
+// It also shows/hides the matching chips so the panel and the map stay in step.
+window.filterChains = function (q) {
+  q = (q || '').toLowerCase().trim();
+  const names = window.CHAIN_META || {};
+  HIDDEN = !q ? new Set() : new Set(ALL_CHAINS.filter((c) => {
+    const nm = (names[c] && names[c].name ? names[c].name : c).toLowerCase();
+    return !(nm.includes(q) || c.includes(q));
+  }));
+  applyFilter();
+  for (const chip of document.querySelectorAll('.chip[data-chain]')) {
+    const nm = (chip.querySelector('.chipnm')?.textContent || '').toLowerCase();
+    chip.style.display = (!q || nm.includes(q) || chip.dataset.chain.includes(q)) ? '' : 'none';
+  }
+};
+
+function buildTally(fc) {
+  const box = document.getElementById('tally');
+  if (!box) return;
+  const meta = {};
+  for (const f of fc.features) {
+    const p = f.properties;
+    const m = meta[p.chain] || (meta[p.chain] = { name: p.name, sector: p.sector, n: 0, fr: 0, fdd: 0 });
+    // Count OPEN outlets only (open + hand-verified sighting) — announced / coming-soon are held
+    // OUT of the count, the same basis as the homepage hero total and the method page. This is the
+    // one US count that governs the whole site, so the per-chain chip numbers sum to that total
+    // rather than inflating four chains with their announced pins. Announced still draw as dashed
+    // pins and appear in the homepage "announced" ledger.
+    if (p.status === 'open' || (p.kind === 'sighting' && p.status !== 'coming_soon')) m.n++;
+    if (p.fr === 1) m.fr = 1;                   // chain is open to a US franchisee
+    if (p.fdd === 1) m.fdd = 1;                 // ...backed by a registered US FDD (stronger tier)
+    if (p.status === 'open') m.name = p.name;   // prefer an open outlet's display name
+  }
+  ALL_CHAINS = Object.keys(meta);
+  FRANCHISERS = new Set(ALL_CHAINS.filter((id) => meta[id].fr));
+  window.CHAIN_META = meta;                // let the hero search map chain id -> display name
+  GROUP_CHAINS = {};
+  for (const id of ALL_CHAINS) (GROUP_CHAINS[meta[id].sector] || (GROUP_CHAINS[meta[id].sector] = [])).push(id);
+  const order = Object.keys(SECTOR);
+  const sectors = [...order.filter((s) => GROUP_CHAINS[s]),
+                   ...Object.keys(GROUP_CHAINS).filter((s) => !order.includes(s))];
+  box.innerHTML = '';
+  for (const s of sectors) {
+    const head = document.createElement('button');
+    head.type = 'button'; head.className = 'tallygroup'; head.dataset.sector = s;
+    head.textContent = SECTOR_LABEL[s] || 'Other';
+    head.title = 'Show or hide this whole group';
+    head.addEventListener('click', () => toggleGroup(s));
+    box.append(head);
+    for (const id of GROUP_CHAINS[s].sort((a, b) => meta[b].n - meta[a].n)) {
+      const m = meta[id];
+      const chip = document.createElement('span');
+      chip.className = 'chip'; chip.dataset.chain = id;
+      chip.setAttribute('role', 'button'); chip.tabIndex = 0;
+      chip.title = 'Click to show or hide this chain on the map.';
+      chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
+        `<img src="icons/${esc(id)}.png${ICONV}" alt="" loading="lazy"></span>` +
+        `<span class="chipnm">` +
+        (m.fr
+          ? `<span class="frbox${m.fdd ? '' : ' page'}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">${esc(m.name)}</span>`
+          : esc(m.name)) +
+        `</span><span class="n">${m.n}</span>`;
+      const prof = document.createElement('a');
+      prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
+      prof.title = 'Who they are — about this chain';
+      prof.setAttribute('aria-label', 'About this chain (Who they are)');
+      prof.addEventListener('click', (e) => e.stopPropagation());
+      const only = document.createElement('button');
+      only.type = 'button'; only.className = 'only'; only.textContent = 'only';
+      only.title = 'Show only this chain (click others to add them back)';
+      only.addEventListener('click', (e) => { e.stopPropagation(); onlyChain(id); });
+      chip.append(prof, only);
+      const isCtl = (t) => t.closest('.prof') || t.closest('.only');
+      chip.addEventListener('click', (e) => { if (!isCtl(e.target)) toggleChain(id); });
+      chip.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && !isCtl(e.target)) { e.preventDefault(); toggleChain(id); }
+      });
+      box.append(chip);
+    }
+  }
+  const sa = document.getElementById('show-all'), sn = document.getElementById('show-none');
+  if (sa) sa.onclick = () => setAllChains(true);
+  if (sn) sn.onclick = () => setAllChains(false);
+  applyFilter();
+}
+
+init().catch((e) => {
+  console.error('map init failed', e);
+  const el = document.getElementById('method');
+  if (el) el.textContent = 'The map could not load its basemap. ' + (el.textContent || '');
+});
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+function buildLegend() {
+  const el = document.getElementById('legend');
+  const sectors = Object.keys(SECTOR).map((k) =>
+    `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
+  el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
+    '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>open</span>' +
+    '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>' +
+    '<span class="k" style="margin-left:.4rem"><span class="frbox">name</span> franchise (US FDD)</span>' +
+    '<span class="k"><span class="frbox page">name</span> franchise (first-party page)</span>';
+}

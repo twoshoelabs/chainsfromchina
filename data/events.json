@@ -1,0 +1,52 @@
+{
+ "meta": {
+  "generated": "2026-10-10T01:36:37.737228-04:00"
+ },
+ "events": [
+  {
+   "chain": "mixue",
+   "date": "2026-09-21",
+   "type": "withdrawn",
+   "name": "Azusa",
+   "lat": 34.1283398,
+   "lon": -117.8881054,
+   "state": "CA"
+  },
+  {
+   "chain": "mixue",
+   "date": "2026-09-21",
+   "type": "withdrawn",
+   "name": "Newark",
+   "lat": 37.5479675,
+   "lon": -122.0472326,
+   "state": "CA"
+  },
+  {
+   "chain": "mixue",
+   "date": "2026-10-03",
+   "type": "relocation",
+   "name": "Allston",
+   "lat": 42.3511786,
+   "lon": -71.1311906,
+   "state": "MA"
+  },
+  {
+   "chain": "mixue",
+   "date": "2026-10-07",
+   "type": "announced",
+   "name": "San Francisco",
+   "lat": 37.7241333,
+   "lon": -122.4583869,
+   "state": "CA"
+  },
+  {
+   "chain": "mixue",
+   "date": "2026-10-07",
+   "type": "withdrawn",
+   "name": "San Francisco",
+   "lat": 37.7241333,
+   "lon": -122.4583869,
+   "state": "CA"
+  }
+ ]
+}

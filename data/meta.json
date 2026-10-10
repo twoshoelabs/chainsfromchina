@@ -1,0 +1,14 @@
+{
+ "generated": "2026-10-10T01:36:37.737228-04:00",
+ "last_collected": "2026-10-10",
+ "days_collected": 38,
+ "totals": {
+  "open": 698,
+  "hand": 227,
+  "announced": 33,
+  "outlets": 925,
+  "mapped": 925,
+  "unmapped": 0,
+  "roboshops": 106
+ }
+}
