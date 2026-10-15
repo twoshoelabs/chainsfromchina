@@ -130,6 +130,35 @@ FRANCHISEE'S OBLIGATIONS
 FDD_ITEM8_OPEN = ("ITEM 8 RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES "
                   "We do not currently restrict the suppliers you may use. ITEM 9")
 
+# Items 1-4: parent/affiliates, business experience, and clean litigation/bankruptcy.
+FDD_ITEM1234 = """
+ITEM 1
+THE FRANCHISOR, AND ANY PARENTS, PREDECESSORS, AND AFFILIATES
+We are TEST FRANCHISOR LLC, a limited liability company organized under the laws of Delaware. We are
+a wholly-owned subsidiary of Test Global Holdings Group. Our parent conducts business in China.
+ITEM 2
+BUSINESS EXPERIENCE
+Wei Zhang, Chief Executive Officer. Mr. Zhang has served since 2018.
+John Smith, Chief Financial Officer. Mr. Smith has served since 2020.
+ITEM 3
+LITIGATION
+No litigation is required to be disclosed in this Item.
+ITEM 4
+BANKRUPTCY
+No bankruptcy is required to be disclosed in this Item.
+ITEM 5
+INITIAL FEES
+"""
+
+# Items 3/4 with disclosed litigation and a prior bankruptcy.
+FDD_ITEM34_POS = ("ITEM 3 LITIGATION Smith v. Test Franchisor LLC, filed in the Superior Court; the "
+                  "plaintiff alleges breach of contract. ITEM 4 BANKRUPTCY In 2019, the predecessor "
+                  "filed a petition under Chapter 11 of the Bankruptcy Code. ITEM 5 INITIAL FEES")
+
+# An older filer (earliest FDD is 2019/2020) — the new-entrant watch should NOT flag it.
+RESULTS_OLD = "<table>" + row("{OLD-1}", "11111-202003-19", "OLD FRANCHISOR LLC", "Clean FDD", "2020") + \
+    row("{OLD-2}", "11111-201903-19", "OLD FRANCHISOR LLC", "Clean FDD", "2019") + "</table>"
+
 # A rich Item 20: Table 1 (3-year series), Table 3 (status -> churn), Table 4 (by state), Table 5 (projected).
 FDD_ITEM20_FULL = """
 ITEM 20
@@ -386,6 +415,54 @@ def main():
     check("item8: franchisor_is_supplier in extract json", '"franchisor_is_supplier": true' in ij, True)
     check("item8: supply note in summary", "Item 8: " in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='u'").fetchone()[0], True)
     check("item8: rebates named in summary", "supplier rebates" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='u'").fetchone()[0], True)
+
+    # --- parse_item1/2/3/4: lineage, principals, risk flags ---
+    i1 = fdd.parse_item1(fdd.item_section(FDD_ITEM1234, 1))
+    check("item1 parent captured", (i1["parent"] or "").startswith("Test Global Holdings"), True)
+    check("item1 state of organization", i1["incorporated_in"], "Delaware")
+    i2 = fdd.parse_item2(fdd.item_section(FDD_ITEM1234, 2))
+    names = [p["name"] for p in i2["principals"]]
+    check("item2 CEO captured", "Wei Zhang" in names, True)
+    check("item2 CFO captured", "John Smith" in names, True)
+    check("item2 title captured", i2["principals"][0]["title"], "Chief Executive Officer")
+    i3 = fdd.parse_item3(fdd.item_section(FDD_ITEM1234, 3))
+    check("item3 no litigation disclosed", i3["has_litigation"], False)
+    i4 = fdd.parse_item4(fdd.item_section(FDD_ITEM1234, 4))
+    check("item4 no bankruptcy disclosed", i4["has_bankruptcy"], False)
+    i3p = fdd.parse_item3(fdd.item_section(FDD_ITEM34_POS, 3))
+    check("item3 litigation detected", i3p["has_litigation"], True)
+    check("item3 case counted", i3p["case_count"] >= 1, True)
+    i4p = fdd.parse_item4(fdd.item_section(FDD_ITEM34_POS, 4))
+    check("item4 bankruptcy detected", i4p["has_bankruptcy"], True)
+
+    # --- collect_one: Items 1-4 in the extract + new-entrant watch (recent vs old first filing) ---
+    con = fresh()
+    def fetch_1234(url, raw=False):
+        return RESULTS_HTML if "franchise-registrations" in url else b"%PDF-fake"
+    fdd.extract_text = lambda b: FDD_ITEM1234
+    try:
+        rnf = fdd.collect_one(con, {"brand_id": "nf", "franchisor": "TEST FRANCHISOR"},
+                              now="2026-10-15T00:00:00Z", fetch_fn=fetch_1234)
+    finally:
+        fdd.extract_text = orig
+    ij = con.execute("SELECT items_json FROM fdd_extracts WHERE brand_id='nf'").fetchone()[0]
+    check("item1: parent in extract json", '"parent": "Test Global Holdings' in ij, True)
+    check("item1: incorporated_in Delaware", '"incorporated_in": "Delaware"' in ij, True)
+    check("item2: principal in extract json", '"Wei Zhang"' in ij, True)
+    check("new-entrant: recent first filing flagged", rnf["first_filing"], True)
+    check("new-entrant: marker in summary", "new US franchise entrant" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='nf'").fetchone()[0], True)
+    # an old filer must NOT be flagged as a new entrant
+    con = fresh()
+    def fetch_old(url, raw=False):
+        return RESULTS_OLD if "franchise-registrations" in url else b"%PDF-fake"
+    fdd.extract_text = lambda b: FDD_OPTOUT
+    try:
+        rold = fdd.collect_one(con, {"brand_id": "old", "franchisor": "OLD FRANCHISOR"},
+                               now="2026-10-15T00:00:00Z", fetch_fn=fetch_old)
+    finally:
+        fdd.extract_text = orig
+    check("new-entrant: old filer not flagged", rold["first_filing"], False)
+    check("new-entrant: no marker for old filer", "new US franchise entrant" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='old'").fetchone()[0], False)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0

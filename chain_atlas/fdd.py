@@ -37,9 +37,11 @@ WHAT IT WRITES.
     and 'fdd_item21_us_revenue', the audited US-entity revenue from the Item 21 financial statements: a
     MEASURED US figure (not a model), which the revenue model can prefer over an overseas-derived anchor.
   * fdd_extracts: one row per filed FDD (keyed on its document number), with each parsed Item stored as
-    JSON — Item 7 (initial investment), Item 8 (supply-chain restriction flags), Item 20 (outlet tables:
-    series, churn, projected openings, by-state), Item 19 (AUV) and Item 21 (audited financials) — plus
-    needs_human_read when a section was ambiguous. The per-vintage store behind the series and Pro exports.
+    JSON — Items 1/2 (parent + principals), 3/4 (litigation/bankruptcy flags), 7 (initial investment),
+    8 (supply-chain flags), 19 (AUV), 20 (outlet tables: series, churn, projected openings, by-state) and
+    21 (audited financials) — plus needs_human_read when a quantitative section was ambiguous. The
+    per-vintage store behind the longitudinal series and Pro exports. A franchisor whose EARLIEST filing
+    is this year or last is also tagged in the signal summary as a possible new US franchise entrant.
 
 NOTE. parse_results() (the CARDS HTML shape) and the Item-19/20 text heuristics are the only pieces tied
 to a source's exact format; they are isolated and tested offline against fixtures. With no network, no
@@ -571,6 +573,120 @@ def parse_item8(sec: str) -> dict:
             "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
 
 
+# A corporate-entity name tail, for the Item 1 parent/affiliate parse.
+_CORP_SUFFIX = (r"(?:LLC|L\.L\.C\.|Inc\.?|Incorporated|Corp\.?|Corporation|Co\.?|Company|Limited|"
+                r"Ltd\.?|Holdings?|Group|Industrial|Industries)")
+_I1_PARENT = [re.compile(p, re.I) for p in (
+    r"wholly[\s-]?owned\s+subsidiary\s+of\s+([A-Z][\w .,&'\-]{2,70}?" + _CORP_SUFFIX + r")",
+    r"\bsubsidiary\s+of\s+([A-Z][\w .,&'\-]{2,70}?" + _CORP_SUFFIX + r")",
+    r"\bparent(?:\s+company)?\s*(?:,|is|company\s+is)?\s*([A-Z][\w .,&'\-]{2,70}?" + _CORP_SUFFIX + r")",
+)]
+_I1_INC = re.compile(r"(?:incorporated|organized|formed)\s+(?:in|under\s+the\s+laws\s+of)\s+"
+                     r"(?:the\s+State\s+of\s+)?([A-Z][a-z]+(?:\s[A-Z][a-z]+)?)", re.I)
+
+
+def parse_item1(sec: str) -> dict:
+    """
+    name:      parse_item1
+    purpose:   Pull the named parent/holding company and state of organization from Item 1.
+    arguments: sec — the Item 1 text.
+    returns:   {present, parent, incorporated_in, needs_human_read, excerpt}.
+    other:     Item 1 discloses the franchisor's parents and affiliates — the corporate lineage that
+               confirms a US entity's China parent and strengthens identity resolution. Best-effort:
+               parent/incorporated_in are None when not cleanly stated (the excerpt is kept either way).
+    """
+    sec = sec or ""
+    parent = None
+    for pat in _I1_PARENT:
+        m = pat.search(sec)
+        if m:
+            parent = re.sub(r"\s+", " ", m.group(1)).strip().rstrip(".,")
+            break
+    mi = _I1_INC.search(sec)
+    return {"present": bool(sec.strip()), "parent": parent,
+            "incorporated_in": mi.group(1) if mi else None,
+            "needs_human_read": False, "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
+_I2_PRINCIPAL = re.compile(
+    r"\b([A-Z][a-z]+(?:\s+[A-Z]\.?)?(?:\s+[A-Z][a-z]+){1,2}),?\s+"
+    r"((?:Chief\s+[A-Za-z]+\s+Officer|Chief\s+Executive\s+Officer|Vice\s+President|President|"
+    r"Chair(?:man|woman|person)|Director|Secretary|Treasurer|Founder|General\s+Manager|"
+    r"Managing\s+Member|CEO|CFO|COO))\b")
+
+
+def parse_item2(sec: str) -> dict:
+    """
+    name:      parse_item2
+    purpose:   Pull the franchisor's principals (name + title) from Item 2 business experience.
+    arguments: sec — the Item 2 text.
+    returns:   {present, principals: [{name, title}], needs_human_read, excerpt}.
+    other:     Item 2 names the officers/directors — often the China principals, which help confirm the
+               brand's lineage. Conservative: a capitalised multi-word name immediately followed by a
+               recognised officer title; empty when none match (prose names are not guessed at).
+    """
+    sec = sec or ""
+    seen = {}
+    for name, title in _I2_PRINCIPAL.findall(sec):
+        seen.setdefault(re.sub(r"\s+", " ", name).strip(), re.sub(r"\s+", " ", title).strip())
+    return {"present": bool(sec.strip()),
+            "principals": [{"name": n, "title": t} for n, t in list(seen.items())[:12]],
+            "needs_human_read": False, "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
+def parse_item3(sec: str) -> dict:
+    """
+    name:      parse_item3
+    purpose:   Flag disclosed litigation in Item 3, with a rough case count.
+    arguments: sec — the Item 3 text.
+    returns:   {present, has_litigation, case_count, needs_human_read, excerpt}.
+    other:     A risk flag. Most FDDs disclose none ("No litigation is required to be disclosed"); a case
+               caption ('X v. Y') or litigation language flips has_litigation True. None + needs_human_read
+               only when a present section is genuinely ambiguous.
+    """
+    sec = sec or ""
+    present = bool(sec.strip())
+    case_count = len(re.findall(r"\bv[s]?\.\s+[A-Z]", sec))
+    neg = bool(re.search(r"no\s+(?:litigation|pending\s+(?:or\s+prior\s+)?litigation|legal\s+proceedings?|"
+                         r"material\s+(?:litigation|legal))|not\s+applicable|there\s+(?:is|are)\s+no\s+"
+                         r"litigation|no\s+litigation\s+is\s+required", sec, re.I))
+    pos = case_count > 0 or bool(re.search(
+        r"\bplaintiff\b|\bcomplaint\b|\balleg(?:es|ed|ations?)\b|\binjunction\b|\bsettlement\b", sec, re.I))
+    if not present:
+        has = None
+    elif pos:
+        has = True
+    else:
+        has = False                           # present + boilerplate, no case -> none disclosed
+    return {"present": present, "has_litigation": has, "case_count": case_count if has else 0,
+            "needs_human_read": present and has is None,
+            "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
+def parse_item4(sec: str) -> dict:
+    """
+    name:      parse_item4
+    purpose:   Flag disclosed bankruptcy in Item 4.
+    arguments: sec — the Item 4 text.
+    returns:   {present, has_bankruptcy, needs_human_read, excerpt}.
+    other:     A risk flag. Most FDDs disclose none; a Chapter filing / petition / debtor reference flips
+               has_bankruptcy True.
+    """
+    sec = sec or ""
+    present = bool(sec.strip())
+    pos = bool(re.search(r"chapter\s+(?:7|11|13)\b|filed[^.]{0,30}bankruptc|bankruptcy\s+petition|"
+                         r"\bdebtor\b|\binsolven", sec, re.I))
+    if not present:
+        has = None
+    elif pos:
+        has = True
+    else:
+        has = False
+    return {"present": present, "has_bankruptcy": has,
+            "needs_human_read": present and has is None,
+            "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
 # --- Collector -----------------------------------------------------------------------------------
 
 def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None,
@@ -597,6 +713,12 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     if not row:
         return {"brand": bid, "skipped": f"no FDD on file in {reg.name}"}
 
+    # New-entrant watch: the franchisor's EARLIEST FDD on file is this year or last — it only started
+    # franchising in the US recently (established brands have an older first filing).
+    fdd_years = [r.get("year") for r in rows if r.get("doc_type") in reg.doc_types and r.get("year")]
+    first_year = min(fdd_years) if fdd_years else None
+    first_filing = bool(first_year and first_year >= int(now[:4]) - 1)
+
     url = reg.doc_url(row)
     seen = {r[0] for r in con.execute(
         "SELECT source_url FROM pipeline_signals WHERE signal_type='fdd' AND source_url IS NOT NULL")}
@@ -616,6 +738,10 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     i20 = parse_item20(item_section(text, 20))
     i7 = parse_item7(item_section(text, 7))
     i8 = parse_item8(item_section(text, 8))
+    i1 = parse_item1(item_section(text, 1))
+    i2 = parse_item2(item_section(text, 2))
+    i3 = parse_item3(item_section(text, 3))
+    i4 = parse_item4(item_section(text, 4))
     i21 = parse_item21(item21_scope(text))
 
     if i19["auv"] is not None:
@@ -641,8 +767,15 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
                                ("rebates", "supplier rebates"),
                                ("proprietary", "proprietary goods")) if i8[key]]
     supply = f"; Item 8: {', '.join(f8)}" if f8 else ""
+    risk = ""
+    if i3["has_litigation"]:
+        risk += (f"; litigation disclosed ({i3['case_count']} case"
+                 f"{'s' if i3['case_count'] != 1 else ''})" if i3["case_count"] else "; litigation disclosed")
+    if i4["has_bankruptcy"]:
+        risk += "; prior bankruptcy"
+    entrant = "; first US FDD on file (possible new US franchise entrant)" if first_filing else ""
     summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} ({reg.name}) — "
-               f"{status}{outlets}{invest}{fin}{supply}")
+               f"{status}{outlets}{invest}{fin}{supply}{risk}{entrant}")
 
     con.execute(
         "INSERT INTO pipeline_signals(signal_type,brand_id,location_id,filed_date,summary,raw_ref,"
@@ -664,7 +797,8 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
 
     # The per-Item extract (a vintage). doc_number is the dedupe key; fall back to guid/url if blank.
     doc_key = row["doc_number"] or row["guid"] or url
-    items = {"item7": i7,
+    items = {"item1": i1, "item2": i2, "item3": i3, "item4": i4,
+             "item7": i7,
              "item8": i8,
              "item19": {"present": i19["present"], "opt_out": i19["opt_out"],
                         "auv": i19["auv"], "figures": i19["figures"]},
@@ -704,7 +838,9 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     return {"brand": bid, "year": row["year"], "doc_type": row["doc_type"], "status": status,
             "auv": i19["auv"], "opt_out": i19["opt_out"], "outlets": i20,
             "invest": (i7["low"], i7["high"]), "us_revenue": i21["revenue"],
-            "going_concern": i21["going_concern"], "source_url": url}
+            "going_concern": i21["going_concern"], "parent": i1["parent"],
+            "litigation": i3["has_litigation"], "bankruptcy": i4["has_bankruptcy"],
+            "first_filing": first_filing, "source_url": url}
 
 
 def run(con, now: str | None = None) -> dict:
