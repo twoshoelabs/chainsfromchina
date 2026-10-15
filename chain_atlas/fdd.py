@@ -4,13 +4,15 @@ China-origin chains that are REGISTERED US FRANCHISORS. This is the best per-out
 revenue anchor in the whole model: Item 19 is a franchisor's own, legally-filed statement of what its
 US units gross. See docs/phase2_revenue_spec.md (Tier-2 anchor).
 
-SOURCE. State franchise registries. Of the registration states, **Minnesota CARDS** is the clean,
-programmatic one: a public GET search (franchisor / franchise-name / year / document-type) and a public
-document download, both plain HTTP. (Wisconsin DFI — the other big free library — sits behind a
-Cloudflare bot challenge that hard-blocks automated clients; it is NOT usable here and must be pulled by
-hand. California DFPI DOCQNET is a possible future add.) CARDS serves normal browsers but its WAF 403s a
-bot-ish User-Agent, so we send a browser UA — this is public content served to any browser, not a
-CAPTCHA or an access control, and nothing here forges a login or solves a challenge.
+SOURCE. State franchise registries, one `Registry` subclass each (see the Registries section). Of the
+registration states, **Minnesota CARDS** (MinnesotaCARDS) is the clean, programmatic one: a public GET
+search (franchisor / franchise-name / year / document-type) and a public document download, both plain
+HTTP, and the only ENABLED registry. CARDS serves normal browsers but its WAF 403s a bot-ish User-Agent,
+so we send a browser UA — public content served to any browser, not a CAPTCHA or an access control, and
+nothing here forges a login or solves a challenge. The other two known libraries are disabled registries
+carrying their reason: **Wisconsin DFI** (Cloudflare bot challenge) and **California DFPI** (no free
+public FDD library — Cloudflare-challenged site, an account-based ASP.NET VIEWSTATE portal, and franchise
+filing moved to the FRANSES submission site; probed 2026-10-15). Both are pulled by hand.
 
 LEGAL POSTURE. FDDs are public records filed with state regulators — first-party/official, squarely in
 posture. We archive the raw PDF (the evidence) before parsing a figure from it.
@@ -57,7 +59,8 @@ SEARCH = CARDS + "/franchise-registrations"
 FDD_DOC_TYPES = ("Clean FDD", "Final FDD", "Revised FDD - Clean")
 
 # Our registered US franchisors (register.franchise_note). search by franchisor entity when known
-# (precise), else by franchise name. Add a brand here once an FDD filing is confirmed.
+# (precise), else by franchise name; an optional "registry" names the state library (default "MN").
+# Add a brand here once an FDD filing is confirmed.
 TARGETS = [
     {"brand_id": "miniso",    "franchisor": "MINISO DEPOT FRANCHISOR"},
     {"brand_id": "cotti",     "franchisor": "COTTI PARTNERS"},
@@ -66,9 +69,10 @@ TARGETS = [
     {"brand_id": "yangguofu", "franchise_name": "Yangguofu", "franchisor": "CAPTAIN BUSINESS MANAGEMENT"},
     {"brand_id": "mixue",     "franchise_name": "MIXUE",   "franchisor": "SNOW KING"},
     {"brand_id": "moge",      "franchise_name": "MOGE TEE"},
-    # NOTE: Yang's Braised Chicken (杨铭宇) is NOT in MN CARDS (searched BRAISED / Yang's / HUANG MEN -> 0);
-    # it is registered elsewhere — add via CA DOCQNET or a manual WI pull later. Never search it by the
-    # broad token "YANG", which matches Yangguofu.
+    # Yang's Braised Chicken (杨铭宇) is NOT in MN CARDS (searched BRAISED / Yang's / HUANG MEN -> 0); it is
+    # registered in CA. CA DFPI has no free public FDD library (see CaliforniaDOCQNET), so this target
+    # records the skip reason and is pulled by hand. Never search it by the broad token "YANG" (= Yangguofu).
+    {"brand_id": "yangs", "franchise_name": "Yang's Braised Chicken", "registry": "CA"},
 ]
 
 
@@ -76,80 +80,160 @@ def _utcnow() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-# --- CARDS source (the only transport-bound piece besides the parsers) ---------------------------
+# --- Registries (the transport-bound pieces: how to search a state, read results, download a doc) -----
+#
+# One Registry per state franchise library. `latest_fdd` and `fetch` are shared; each subclass carries
+# the source-specific URL shapes and HTML parse. A DISABLED registry (ENABLED=False) records WHY a state
+# cannot be collected programmatically — the same convention as a blocked store adapter — so the roster
+# shows the shape of the category, not just what happened to be scriptable.
 
+class Registry:
+    name = ""                        # short code, stored on the extract (fdd_extracts.state)
+    source = ""                      # human label for pipeline_signals.source
+    ua = UA_BROWSER
+    doc_types = FDD_DOC_TYPES
+    ENABLED = True
+    BLOCKED_REASON = ""
+
+    def search_url(self, franchisor: str = "", franchise_name: str = "", year: str = "") -> str:
+        raise NotImplementedError
+
+    def doc_url(self, row) -> str:
+        raise NotImplementedError
+
+    def parse_results(self, html: str) -> list[dict]:
+        raise NotImplementedError
+
+    def latest_fdd(self, rows: list[dict], franchisor: str = "") -> dict | None:
+        """Most recent complete FDD (Clean > Final > Revised-Clean), optionally for one franchisor. Shared."""
+        pref = {t: i for i, t in enumerate(self.doc_types)}
+        cands = [r for r in rows if r.get("doc_type") in pref]
+        if franchisor:
+            fu = franchisor.upper()
+            cands = [r for r in cands if fu in (r.get("franchisor") or "").upper()] or cands
+        if not cands:
+            return None
+        cands.sort(key=lambda r: (r.get("year") or 0, -pref[r["doc_type"]]), reverse=True)
+        return cands[0]
+
+    def fetch(self, url: str, raw: bool = False):
+        """One polite, robots-checked request with a browser UA. Returns text, or bytes if raw."""
+        from . import capture
+        r = capture.fetch(url, method="GET",
+                          headers={"User-Agent": self.ua, "Accept": "*/*",
+                                   "Accept-Language": "en-US,en;q=0.9"})
+        return r.content if raw else r.text
+
+
+class MinnesotaCARDS(Registry):
+    """
+    Minnesota CARDS — the clean, programmatic state library: a public GET search and a public document
+    download, both plain HTTP. Its WAF 403s a bot-ish User-Agent, so we send a browser UA (public
+    content served to any browser, not a CAPTCHA or an access control).
+    """
+    name = "MN"
+    source = "Minnesota CARDS (franchise registrations)"
+    base = CARDS
+
+    def search_url(self, franchisor="", franchise_name="", year=""):
+        from urllib.parse import urlencode
+        q = {"doSearch": "true"}
+        if franchisor:
+            q["franchisor"] = franchisor
+        if franchise_name:
+            q["franchiseName"] = franchise_name
+        if year:
+            q["year"] = year
+        return f"{self.base}/franchise-registrations?" + urlencode(q)
+
+    def doc_url(self, row):
+        guid = row["guid"] if isinstance(row, dict) else row
+        return (f"{self.base}/documents/{quote(guid)}/download"
+                "?documentClass=FRANCHISE_REGISTRATIONS&contentSequence=0")
+
+    def parse_results(self, html):
+        """
+        Turn a CARDS search-results page into filing rows (one {guid, doc_number, franchisor, doc_type,
+        year} per document). The ONLY piece tied to CARDS' HTML: a row is a <tr> carrying a
+        /documents/<guid>/download link; we read its visible text for franchisor, type and year.
+        "No documents found" -> [].
+        """
+        if "No documents found" in html:
+            return []
+        out = []
+        for tr in re.findall(r"<tr>[\s\S]*?</tr>", html):
+            g = re.search(r"/documents/([^/\"']+)/download", tr)
+            if not g:
+                continue
+            text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", tr)).strip()
+            doc_type = next((d for d in ("Clean FDD", "Final FDD", "Revised FDD - Clean",
+                                         "Marked FDD", "Revised FDD - Marked Up") if d in text), None)
+            yr = re.search(r"\b(19|20)\d\d\b", text)
+            num = re.search(r"\b(\d{4,6}-\d{6}-\d{2})\b", text)
+            # franchisor = the first uppercase entity token ending in a company suffix
+            fr = re.search(r"\b([A-Z][A-Z0-9 ,\.\&'\-]{2,60}?"
+                           r"(?:LLC|L\.L\.C\.|INC|INCORPORATED|CORP|CORPORATION|CO\.|COMPANY|LIMITED|LTD))\b", text)
+            out.append({"guid": unquote(g.group(1)), "doc_number": num.group(1) if num else "",
+                        "franchisor": (fr.group(1).strip() if fr else ""),
+                        "doc_type": doc_type, "year": int(yr.group(0)) if yr else 0, "text": text[:120]})
+        return out
+
+
+class CaliforniaDOCQNET(Registry):
+    """
+    California DFPI — NOT programmatically collectable as a free FDD library (probed 2026-10-15):
+      * dfpi.ca.gov sits behind a Cloudflare bot challenge ("Performing security verification").
+      * The DOCQNET self-service portal (docqnet.dfpi.ca.gov) is an account-based ASP.NET WebForms app
+        whose search posts back an ENCRYPTED __VIEWSTATE (__VIEWSTATEENCRYPTED) — stateful, not a GET.
+      * Its public "Online Filings Available" page lists license types (escrow, CDDTL, CFL), not
+        franchise FDDs; franchise filing moved to the FRANSES submission site (franses.dfpi.ca.gov),
+        which is for SUBMITTING, not public download.
+      * California offers no free public FDD download library (unlike MN); FDDs are obtained by request.
+    So CA is a disabled registry carrying this reason, pulled by hand until a usable public endpoint
+    appears. Targets registered only in CA (e.g. Yang's Braised Chicken) are collected manually.
+    """
+    name = "CA"
+    source = "California DFPI (DOCQNET / FRANSES)"
+    ENABLED = False
+    BLOCKED_REASON = ("California DFPI has no free public FDD library: dfpi.ca.gov is Cloudflare-"
+                      "challenged, DOCQNET is an account-based ASP.NET VIEWSTATE portal, and franchise "
+                      "filing moved to the FRANSES submission site. Pull by hand (probed 15 Oct 2026).")
+
+
+class WisconsinDFI(Registry):
+    """Wisconsin DFI — the other free library, but behind a Cloudflare bot challenge that hard-blocks
+    automated clients. Disabled; pull by hand."""
+    name = "WI"
+    source = "Wisconsin DFI"
+    ENABLED = False
+    BLOCKED_REASON = "Wisconsin DFI sits behind a Cloudflare bot challenge; pull by hand."
+
+
+# The default (and only enabled) registry, plus the roster of all known state libraries.
+MN = MinnesotaCARDS()
+REGISTRIES = {r.name: r for r in (MN, CaliforniaDOCQNET(), WisconsinDFI())}
+
+
+# Module-level delegates to the default registry, so callers/tests can use fdd.parse_results(...),
+# fdd.latest_fdd(...), fdd.doc_url("{GUID}"), fdd.search_url(...) without a registry in hand.
 def _fetch(url: str, raw: bool = False):
-    """One polite, robots-checked CARDS request with a browser UA. Returns text, or bytes if raw."""
-    from . import capture
-    r = capture.fetch(url, method="GET",
-                      headers={"User-Agent": UA_BROWSER, "Accept": "*/*",
-                               "Accept-Language": "en-US,en;q=0.9"})
-    return r.content if raw else r.text
+    return MN.fetch(url, raw=raw)
 
 
 def search_url(franchisor: str = "", franchise_name: str = "", year: str = "") -> str:
-    """The CARDS franchise-registration search URL (a plain GET form)."""
-    from urllib.parse import urlencode
-    q = {"doSearch": "true"}
-    if franchisor:
-        q["franchisor"] = franchisor
-    if franchise_name:
-        q["franchiseName"] = franchise_name
-    if year:
-        q["year"] = year
-    return SEARCH + "?" + urlencode(q)
+    return MN.search_url(franchisor, franchise_name, year)
 
 
 def doc_url(guid: str) -> str:
-    """The public download URL for a CARDS document GUID (e.g. '{A07A...}')."""
-    return f"{CARDS}/documents/{quote(guid)}/download?documentClass=FRANCHISE_REGISTRATIONS&contentSequence=0"
+    return MN.doc_url({"guid": guid})
 
 
 def parse_results(html: str) -> list[dict]:
-    """
-    name:      parse_results
-    purpose:   Turn a CARDS search-results page into filing rows.
-    arguments: html — the search page HTML.
-    returns:   list of {guid, doc_number, franchisor, doc_type, year} (one per document row).
-    effects:   None.
-    other:     The ONLY piece tied to CARDS' HTML. A row is a <tr> carrying a /documents/<guid>/download
-               link; we read its visible text for franchisor, document type and year. "No documents
-               found" -> [].
-    """
-    if "No documents found" in html:
-        return []
-    out = []
-    for tr in re.findall(r"<tr>[\s\S]*?</tr>", html):
-        g = re.search(r"/documents/([^/\"']+)/download", tr)
-        if not g:
-            continue
-        text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", tr)).strip()
-        doc_type = next((d for d in ("Clean FDD", "Final FDD", "Revised FDD - Clean",
-                                     "Marked FDD", "Revised FDD - Marked Up") if d in text), None)
-        yr = re.search(r"\b(19|20)\d\d\b", text)
-        num = re.search(r"\b(\d{4,6}-\d{6}-\d{2})\b", text)
-        # franchisor = the first uppercase entity token ending in a company suffix
-        fr = re.search(r"\b([A-Z][A-Z0-9 ,\.\&'\-]{2,60}?"
-                       r"(?:LLC|L\.L\.C\.|INC|INCORPORATED|CORP|CORPORATION|CO\.|COMPANY|LIMITED|LTD))\b", text)
-        out.append({"guid": unquote(g.group(1)), "doc_number": num.group(1) if num else "",
-                    "franchisor": (fr.group(1).strip() if fr else ""),
-                    "doc_type": doc_type, "year": int(yr.group(0)) if yr else 0, "text": text[:120]})
-    return out
+    return MN.parse_results(html)
 
 
 def latest_fdd(rows: list[dict], franchisor: str = "") -> dict | None:
-    """Pick the most recent complete FDD (Clean > Final > Revised-Clean), optionally for one franchisor."""
-    pref = {t: i for i, t in enumerate(FDD_DOC_TYPES)}
-    cands = [r for r in rows if r["doc_type"] in pref]
-    if franchisor:
-        fu = franchisor.upper()
-        narrowed = [r for r in cands if fu in r["franchisor"].upper()]
-        cands = narrowed or cands
-    if not cands:
-        return None
-    # newest year, then most-preferred doc type
-    cands.sort(key=lambda r: (r["year"], -pref[r["doc_type"]]), reverse=True)
-    return cands[0]
+    return MN.latest_fdd(rows, franchisor)
 
 
 # --- PDF text + Item 19 / Item 20 parsers (isolated, tested against fixtures) ---------------------
@@ -443,26 +527,31 @@ def parse_item21(sec: str) -> dict:
 
 # --- Collector -----------------------------------------------------------------------------------
 
-def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None) -> dict:
+def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None,
+                registry: "Registry | None" = None) -> dict:
     """
     name:      collect_one
-    purpose:   Find one franchisor's latest FDD, archive it, parse Item 19/20, and persist findings.
-    arguments: con; target — a TARGETS entry; now; fetch_fn/raw_fn — injectable IO for tests.
+    purpose:   Find one franchisor's latest FDD, archive it, parse Items 7/19/20/21, and persist findings.
+    arguments: con; target — a TARGETS entry; now; fetch_fn/raw_fn — injectable IO for tests;
+               registry — the state library to search (defaults to Minnesota CARDS).
     returns:   a summary dict (status, auv, outlets, ...).
-    effects:   pipeline_signals INSERT (signal_type='fdd', idempotent on the FDD's download URL) and,
-               when Item 19 discloses a figure, a financial_anchors INSERT (metric 'fdd_item19_auv').
+    effects:   pipeline_signals INSERT (signal_type='fdd', idempotent on the FDD's download URL),
+               an fdd_extracts row, and financial_anchors INSERTs for any disclosed figures.
     """
     now = now or _utcnow()
     bid = target["brand_id"]
-    fetch = fetch_fn or _fetch
-    html = fetch(search_url(franchisor=target.get("franchisor", ""),
-                            franchise_name=target.get("franchise_name", "")))
-    rows = parse_results(html if isinstance(html, str) else html.decode("utf-8", "ignore"))
-    row = latest_fdd(rows, franchisor=target.get("franchisor", ""))
+    reg = registry or MN
+    if not reg.ENABLED:
+        return {"brand": bid, "skipped": f"{reg.name}: {reg.BLOCKED_REASON}"}
+    fetch = fetch_fn or reg.fetch
+    html = fetch(reg.search_url(franchisor=target.get("franchisor", ""),
+                                franchise_name=target.get("franchise_name", "")))
+    rows = reg.parse_results(html if isinstance(html, str) else html.decode("utf-8", "ignore"))
+    row = reg.latest_fdd(rows, franchisor=target.get("franchisor", ""))
     if not row:
-        return {"brand": bid, "skipped": "no FDD on file in MN CARDS"}
+        return {"brand": bid, "skipped": f"no FDD on file in {reg.name}"}
 
-    url = doc_url(row["guid"])
+    url = reg.doc_url(row)
     seen = {r[0] for r in con.execute(
         "SELECT source_url FROM pipeline_signals WHERE signal_type='fdd' AND source_url IS NOT NULL")}
     if url in seen:
@@ -500,14 +589,14 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     fin = (f"; Item 21 US revenue ~${i21['revenue']:,}" if i21["revenue"] is not None else "")
     if i21["going_concern"]:
         fin += " (going-concern doubt)"
-    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} (MN) — {status}{outlets}{invest}{fin}")
+    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} ({reg.name}) — "
+               f"{status}{outlets}{invest}{fin}")
 
     con.execute(
         "INSERT INTO pipeline_signals(signal_type,brand_id,location_id,filed_date,summary,raw_ref,"
         "source,source_url,retrieved_at,confidence) VALUES('fdd',?,?,?,?,?,?,?,?,?)",
         (bid, None, str(row["year"]) or None, summary, row["doc_number"] or None,
-         "Minnesota CARDS (franchise registrations)", url, now,
-         "high" if i19["auv"] is not None else "medium"))
+         reg.source, url, now, "high" if i19["auv"] is not None else "medium"))
 
     if i19["auv"] is not None:
         have = {r[0] for r in con.execute(
@@ -519,7 +608,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
                 "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?)",
                 (bid, str(row["year"]), "fdd_item19_auv", round(i19["auv"], 2), "USD",
                  tag + " — " + i19["excerpt"][:180],
-                 "FDD Item 19 (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
+                 f"FDD Item 19 ({reg.name}, " + row["franchisor"] + ")", url, now, "medium"))
 
     # The per-Item extract (a vintage). doc_number is the dedupe key; fall back to guid/url if blank.
     doc_key = row["doc_number"] or row["guid"] or url
@@ -531,7 +620,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     con.execute(
         "INSERT OR REPLACE INTO fdd_extracts(doc_number,brand_id,franchisor,year,state,items_json,"
         "needs_human_read,source_url,retrieved_at) VALUES(?,?,?,?,?,?,?,?,?)",
-        (doc_key, bid, row["franchisor"], row["year"] or None, "MN",
+        (doc_key, bid, row["franchisor"], row["year"] or None, reg.name,
          json.dumps(items, ensure_ascii=False),
          1 if (i7["needs_human_read"] or i21["needs_human_read"]
                or i20["needs_human_read"]) else 0, url, now))
@@ -551,7 +640,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
                 "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?)",
                 (bid, str(row["year"]), metric, float(value), "USD",
                  vtag + " — " + (excerpt or "")[:180],
-                 f"FDD {item_label} (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
+                 f"FDD {item_label} ({reg.name}, " + row["franchisor"] + ")", url, now, "medium"))
 
     # Item 7 initial-investment range (factual, filed; build-out cost for CRE/investors).
     add_anchor("fdd_item7_invest_low", i7["low"], i7["excerpt"], "Item 7")
@@ -566,16 +655,21 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
 
 
 def run(con, now: str | None = None) -> dict:
-    """Pass over every TARGETS franchisor. Returns a per-brand summary. Idempotent."""
+    """
+    Pass over every TARGETS franchisor, each against the registry named in its 'registry' key
+    (default 'MN'). A target on a disabled registry (CA/WI) records the skip reason rather than
+    hitting the network. Returns a per-brand summary. Idempotent.
+    """
     now = now or _utcnow()
     from . import capture
     capture.set_delay(2, 4)              # be gentle with the state registry
     out = {}
     for t in TARGETS:
+        reg = REGISTRIES.get(t.get("registry", "MN"), MN)
         try:
             from . import capture as _c
             raw_fn = lambda bid, d, payload: _c.save_raw("fdd_" + bid, d, payload, ext="pdf")  # noqa: E731
-            out[t["brand_id"]] = collect_one(con, t, now=now, raw_fn=raw_fn)
+            out[t["brand_id"]] = collect_one(con, t, now=now, raw_fn=raw_fn, registry=reg)
         except Exception as e:                                   # noqa: BLE001
             out[t["brand_id"]] = {"brand": t["brand_id"], "error": f"{type(e).__name__}: {e}"}
     return out

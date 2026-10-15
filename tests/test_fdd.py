@@ -148,6 +148,20 @@ def main():
         if not ok:
             fails.append(label)
 
+    # --- Registry abstraction: MN enabled & scriptable; CA/WI disabled with reasons ---
+    check("MN registry enabled", fdd.MN.ENABLED, True)
+    check("MN search_url hits franchise-registrations", "franchise-registrations" in fdd.MN.search_url(franchisor="X"), True)
+    check("MN doc_url from a row", fdd.MN.doc_url({"guid": "{AAA-1}"}).endswith("contentSequence=0"), True)
+    check("CA registry disabled", fdd.REGISTRIES["CA"].ENABLED, False)
+    check("CA carries a reason", bool(fdd.REGISTRIES["CA"].BLOCKED_REASON), True)
+    check("WI registry disabled", fdd.REGISTRIES["WI"].ENABLED, False)
+    # collect_one on a disabled registry: skip with the reason, no network, no rows written
+    conx = fresh()
+    rskip = fdd.collect_one(conx, {"brand_id": "yangs", "franchise_name": "Yang's Braised Chicken"},
+                            now="2026-10-15T00:00:00Z", registry=fdd.REGISTRIES["CA"])
+    check("disabled registry -> skipped", "skipped" in rskip, True)
+    check("disabled registry -> no signal written", conx.execute("SELECT COUNT(*) FROM pipeline_signals").fetchone()[0], 0)
+
     # --- parse_results + latest_fdd ---
     rows = fdd.parse_results(RESULTS_HTML)
     check("parsed 3 rows", len(rows), 3)
