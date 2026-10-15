@@ -24,6 +24,8 @@ def fresh():
     CREATE TABLE financial_anchors(anchor_id INTEGER PRIMARY KEY AUTOINCREMENT, brand_id TEXT,
         period TEXT, metric TEXT, value REAL, unit TEXT, page_ref TEXT, source TEXT, source_url TEXT,
         retrieved_at TEXT, confidence TEXT);
+    CREATE TABLE fdd_extracts(doc_number TEXT PRIMARY KEY, brand_id TEXT, franchisor TEXT, year INTEGER,
+        state TEXT, items_json TEXT, needs_human_read INTEGER DEFAULT 0, source_url TEXT, retrieved_at TEXT);
     """)
     return con
 
@@ -69,6 +71,23 @@ Franchised 2023 5 10 5 2024 10 20 10 2025 20 24 4
 Company Owned 2023 0 0 0 2024 0 0 0 2025 0 0 0
 ITEM 21
 """
+
+# Item 7 estimated initial investment (a low–high total + line items).
+FDD_ITEM7 = """
+ITEM 7
+ESTIMATED INITIAL INVESTMENT
+Type of Expenditure Amount Method of Payment When Due To Whom Payment Is To Be Made
+Initial Franchise Fee $45,000 Lump Sum Before Opening Us
+Leasehold Improvements $120,000 to $350,000 As Incurred Before Opening Suppliers
+Equipment and Fixtures $80,000 to $160,000 As Incurred Before Opening Suppliers
+Opening Inventory $15,000 to $30,000 Before Opening Suppliers
+TOTAL ESTIMATED INITIAL INVESTMENT $300,000 to $675,000
+ITEM 8
+RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES
+"""
+
+# A full FDD carrying Item 7 + an Item 19 with figures + Item 20 — for the end-to-end collector test.
+FDD_FULL = FDD_ITEM7 + FDD_FIGURES
 
 
 def main():
@@ -156,6 +175,46 @@ def main():
     check("figures: AUV returned", r["auv"], 1250000.0)
     check("figures: anchor written", con.execute("SELECT value FROM financial_anchors WHERE brand_id='y' AND metric='fdd_item19_auv'").fetchone()[0], 1250000.0)
     check("figures: anchor confidence medium", con.execute("SELECT confidence FROM financial_anchors WHERE brand_id='y'").fetchone()[0], "medium")
+
+    # --- parse_item7: total low-high + line items, None-on-ambiguity ---
+    i7 = fdd.parse_item7(fdd.item_section(FDD_ITEM7, 7))
+    check("item7 total low = 300000", i7["low"], 300000)
+    check("item7 total high = 675000", i7["high"], 675000)
+    check("item7 franchise-fee line", i7["lines"].get("Initial Franchise Fee"), [45000, 45000])
+    check("item7 leasehold range line", i7["lines"].get("Leasehold Improvements"), [120000, 350000])
+    check("item7 TOTAL not a line item", any("TOTAL" in k.upper() for k in i7["lines"]), False)
+    check("item7 clean parse not flagged", i7["needs_human_read"], False)
+    check("empty item7 -> no total", fdd.parse_item7("")["low"], None)
+    check("empty item7 -> not flagged", fdd.parse_item7("")["needs_human_read"], False)
+    amb = fdd.parse_item7("ITEM 7 ESTIMATED INITIAL INVESTMENT See the chart in Exhibit C.")
+    check("ambiguous item7 flagged for human", amb["needs_human_read"], True)
+
+    # --- collect_one: Item 7 -> fdd_extracts row + item7 anchors ---
+    con = fresh()
+    def fetch_full(url, raw=False):
+        return RESULTS_HTML if "franchise-registrations" in url else b"%PDF-fake"
+    fdd.extract_text = lambda b: FDD_FULL
+    try:
+        r = fdd.collect_one(con, {"brand_id": "z", "franchisor": "TEST FRANCHISOR"},
+                            now="2026-10-14T00:00:00Z", fetch_fn=fetch_full)
+    finally:
+        fdd.extract_text = orig
+    check("item7: invest range returned", r["invest"], (300000, 675000))
+    check("item7: one fdd_extracts row", con.execute("SELECT COUNT(*) FROM fdd_extracts").fetchone()[0], 1)
+    check("item7: extract keyed on doc_number", con.execute("SELECT doc_number FROM fdd_extracts").fetchone()[0], "35686-202603-19")
+    check("item7: extract holds item7 json", '"item7"' in con.execute("SELECT items_json FROM fdd_extracts").fetchone()[0], True)
+    check("item7: low anchor written", con.execute("SELECT value FROM financial_anchors WHERE brand_id='z' AND metric='fdd_item7_invest_low'").fetchone()[0], 300000.0)
+    check("item7: high anchor written", con.execute("SELECT value FROM financial_anchors WHERE brand_id='z' AND metric='fdd_item7_invest_high'").fetchone()[0], 675000.0)
+    check("item7: Item 7 in summary", "Item 7 invest" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='z'").fetchone()[0], True)
+    # idempotent: re-running the same FDD adds no new extract row or anchors
+    fdd.extract_text = lambda b: FDD_FULL
+    try:
+        fdd.collect_one(con, {"brand_id": "z", "franchisor": "TEST FRANCHISOR"},
+                        now="2026-10-15T00:00:00Z", fetch_fn=fetch_full)
+    finally:
+        fdd.extract_text = orig
+    check("item7: re-run still 1 extract row", con.execute("SELECT COUNT(*) FROM fdd_extracts").fetchone()[0], 1)
+    check("item7: re-run still 1 low anchor", con.execute("SELECT COUNT(*) FROM financial_anchors WHERE brand_id='z' AND metric='fdd_item7_invest_low'").fetchone()[0], 1)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0

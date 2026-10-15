@@ -28,13 +28,18 @@ WHAT IT WRITES.
   * financial_anchors (metric 'fdd_item19_auv'): ONLY when Item 19 discloses a per-unit average/median
     gross-sales figure — a US, per-outlet AUV the revenue model can prefer over an overseas-derived one.
     Parsed figures are confidence 'medium' with the raw excerpt in page_ref, for human verification
-    before they feed an estimate (Item 19 formats vary wildly).
+    before they feed an estimate (Item 19 formats vary wildly). Also 'fdd_item7_invest_low'/'_high' — the
+    estimated initial investment range from Item 7, which (unlike Item 19) is almost always disclosed.
+  * fdd_extracts: one row per filed FDD (keyed on its document number), with each parsed Item stored as
+    JSON — Item 7 (initial investment) today, more Items as parsers are added — plus needs_human_read
+    when a section was ambiguous. The per-vintage store behind the longitudinal series and Pro exports.
 
 NOTE. parse_results() (the CARDS HTML shape) and the Item-19/20 text heuristics are the only pieces tied
 to a source's exact format; they are isolated and tested offline against fixtures. With no network, no
 pypdf, or no registration, the collector SKIPS cleanly and records nothing fabricated.
 """
 import io
+import json
 import re
 from datetime import datetime, timezone
 from urllib.parse import quote, unquote
@@ -242,6 +247,66 @@ def parse_item20(sec: str) -> dict:
     return out
 
 
+# A dollar amount: "$1,234" or "$ 45,000.00" — at least three digits, so page numbers don't match.
+_I7_AMT = r"\$\s?(\d[\d,]{2,}(?:\.\d\d)?)"
+# The grand-total row, preferred when it is explicitly labelled (not a subtotal).
+_I7_TOTAL_LABELED = re.compile(
+    r"TOTAL\s+(?:ESTIMATED\s+)?(?:INITIAL\s+)?INVESTMENT[^\n$]*?" + _I7_AMT
+    + r"(?:[^\d$\n]{0,15}" + _I7_AMT + r")?", re.I)
+# Any TOTAL row carrying a dollar figure — the fallback when no labelled grand total is found.
+_I7_TOTAL_ANY = re.compile(
+    r"\bTOTAL\b[^\n$]{0,40}?" + _I7_AMT + r"(?:[^\d$\n]{0,15}" + _I7_AMT + r")?", re.I)
+# A single expenditure row: "Leasehold Improvements $120,000 to $350,000" (one figure or a low-high range).
+_I7_LINE = re.compile(
+    r"([A-Za-z][A-Za-z/ &'\-\(\),]{2,58}?)\s*" + _I7_AMT
+    + r"(?:\s*(?:to|through|[-–—])\s*" + _I7_AMT + r")?")
+
+
+def _usd(s: str):
+    """'1,234,567.00' -> 1234567 (int). None if it will not parse."""
+    try:
+        return int(round(float(s.replace(",", ""))))
+    except (ValueError, AttributeError):
+        return None
+
+
+def parse_item7(sec: str) -> dict:
+    """
+    name:      parse_item7
+    purpose:   Pull the estimated initial investment (low–high total + named line items) from Item 7.
+    arguments: sec — the Item 7 text.
+    returns:   {low, high, currency, lines:{label:[low,high]}, needs_human_read, excerpt}.
+    other:     Item 7 is mandatory (franchisors rarely opt out, unlike Item 19), so it gives a build-out
+               cost even where no AUV is disclosed. Best-effort and heuristic, in the house style: the
+               grand-total low/high is the figure that matters (it feeds the anchors); `lines` is a
+               secondary convenience. Returns low=high=None — and flags needs_human_read — rather than a
+               guess when the total will not parse, so a human reads the excerpt.
+    """
+    sec = sec or ""
+    low = high = None
+    m = _I7_TOTAL_LABELED.search(sec)
+    if not m:                                   # no labelled grand total — take the TOTAL row with the largest figure
+        cands = list(_I7_TOTAL_ANY.finditer(sec))
+        m = max(cands, key=lambda x: _usd(x.group(2) or x.group(1)) or 0) if cands else None
+    if m:
+        low = _usd(m.group(1))
+        high = _usd(m.group(2)) if m.group(2) else low
+        if low is not None and high is not None and high < low:
+            low, high = high, low
+    lines = {}
+    for lm in _I7_LINE.finditer(sec):
+        label = re.sub(r"\s+", " ", lm.group(1)).strip()
+        if "TOTAL" in label.upper():            # the grand/subtotal rows are captured above, not as line items
+            continue
+        lo = _usd(lm.group(2))
+        hi = _usd(lm.group(3)) if lm.group(3) else lo
+        if lo is not None and label not in lines:
+            lines[label] = [lo, hi]
+    return {"low": low, "high": high, "currency": "USD", "lines": lines,
+            "needs_human_read": bool(sec.strip()) and low is None,
+            "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
 # --- Collector -----------------------------------------------------------------------------------
 
 def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None) -> dict:
@@ -280,6 +345,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     text = extract_text(pdf)
     i19 = parse_item19(item_section(text, 19))
     i20 = parse_item20(item_section(text, 20))
+    i7 = parse_item7(item_section(text, 7))
 
     if i19["auv"] is not None:
         status = f"Item 19 AUV ~${i19['auv']:,.0f}"
@@ -292,7 +358,9 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     outlets = (f"; Item 20 {row['year']}: {i20['total_end']} US outlets "
                f"({i20['franchised_end']} franchised / {i20['company_end']} company)"
                if i20["total_end"] is not None else "")
-    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} (MN) — {status}{outlets}")
+    invest = (f"; Item 7 invest ${i7['low']:,}-${i7['high']:,}"
+              if i7["low"] is not None else "")
+    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} (MN) — {status}{outlets}{invest}")
 
     con.execute(
         "INSERT INTO pipeline_signals(signal_type,brand_id,location_id,filed_date,summary,raw_ref,"
@@ -312,9 +380,37 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
                 (bid, str(row["year"]), "fdd_item19_auv", round(i19["auv"], 2), "USD",
                  tag + " — " + i19["excerpt"][:180],
                  "FDD Item 19 (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
+
+    # The per-Item extract (a vintage). doc_number is the dedupe key; fall back to guid/url if blank.
+    doc_key = row["doc_number"] or row["guid"] or url
+    items = {"item7": i7,
+             "item19": {"present": i19["present"], "opt_out": i19["opt_out"],
+                        "auv": i19["auv"], "figures": i19["figures"]},
+             "item20": i20}
+    con.execute(
+        "INSERT OR REPLACE INTO fdd_extracts(doc_number,brand_id,franchisor,year,state,items_json,"
+        "needs_human_read,source_url,retrieved_at) VALUES(?,?,?,?,?,?,?,?,?)",
+        (doc_key, bid, row["franchisor"], row["year"] or None, "MN",
+         json.dumps(items, ensure_ascii=False), 1 if i7["needs_human_read"] else 0, url, now))
+
+    # Item 7 initial-investment range -> anchors (factual, filed; build-out cost for CRE/investors).
+    i7tag = f"{row['doc_number']} ({row['year']})"
+    for metric, val in (("fdd_item7_invest_low", i7["low"]), ("fdd_item7_invest_high", i7["high"])):
+        if val is None:
+            continue
+        have = {r[0] for r in con.execute(
+            "SELECT page_ref FROM financial_anchors WHERE brand_id=? AND metric=?", (bid, metric))}
+        if not any((p or "").startswith(i7tag) for p in have):
+            con.execute(
+                "INSERT INTO financial_anchors(brand_id,period,metric,value,unit,page_ref,source,"
+                "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                (bid, str(row["year"]), metric, float(val), "USD",
+                 i7tag + " — " + i7["excerpt"][:180],
+                 "FDD Item 7 (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
     con.commit()
     return {"brand": bid, "year": row["year"], "doc_type": row["doc_type"], "status": status,
-            "auv": i19["auv"], "opt_out": i19["opt_out"], "outlets": i20, "source_url": url}
+            "auv": i19["auv"], "opt_out": i19["opt_out"], "outlets": i20,
+            "invest": (i7["low"], i7["high"]), "source_url": url}
 
 
 def run(con, now: str | None = None) -> dict:

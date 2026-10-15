@@ -204,6 +204,24 @@ CREATE TABLE IF NOT EXISTS financial_anchors (
     confidence   TEXT
 );
 
+-- FDD structured extracts: one row per filed FDD document (a vintage), holding each parsed Item as
+-- JSON plus the identifying fields. The headline Item 19 AUV still goes to financial_anchors; this is
+-- the fuller per-Item store (Item 7 initial investment, and, as parsers are added, Items 20/21/8/…),
+-- and the home for the longitudinal series (a single FDD carries 3 years of tables; each re-filing is
+-- a new doc_number row). Measured/estimated financials — Pro-walled, never the public map. §phase2.
+CREATE TABLE IF NOT EXISTS fdd_extracts (
+    doc_number       TEXT PRIMARY KEY,        -- FDD document number (dedupe key / vintage id); guid/url if absent
+    brand_id         TEXT REFERENCES chains(chain_id),
+    franchisor       TEXT,
+    year             INTEGER,
+    state            TEXT,                     -- registry state the document came from (e.g. 'MN')
+    items_json       TEXT,                     -- {"item7": {...}, "item19": {...}, "item20": {...}, ...}
+    needs_human_read INTEGER DEFAULT 0,        -- 1 when any parsed Item was ambiguous (excerpt kept for a human)
+    source_url       TEXT,
+    retrieved_at     TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_fdd_extracts_brand ON fdd_extracts(brand_id, year);
+
 -- Revenue estimates: MODELED outputs (anchors x store count). Always modeled, always a range,
 -- always traceable to the financial_anchors it used. See docs/phase2_revenue_spec.md §3.2.
 CREATE TABLE IF NOT EXISTS revenue_estimates (
