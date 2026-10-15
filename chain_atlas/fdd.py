@@ -29,7 +29,9 @@ WHAT IT WRITES.
     gross-sales figure — a US, per-outlet AUV the revenue model can prefer over an overseas-derived one.
     Parsed figures are confidence 'medium' with the raw excerpt in page_ref, for human verification
     before they feed an estimate (Item 19 formats vary wildly). Also 'fdd_item7_invest_low'/'_high' — the
-    estimated initial investment range from Item 7, which (unlike Item 19) is almost always disclosed.
+    estimated initial investment range from Item 7, which (unlike Item 19) is almost always disclosed —
+    and 'fdd_item21_us_revenue', the audited US-entity revenue from the Item 21 financial statements: a
+    MEASURED US figure (not a model), which the revenue model can prefer over an overseas-derived anchor.
   * fdd_extracts: one row per filed FDD (keyed on its document number), with each parsed Item stored as
     JSON — Item 7 (initial investment) today, more Items as parsers are added — plus needs_human_read
     when a section was ambiguous. The per-vintage store behind the longitudinal series and Pro exports.
@@ -307,6 +309,72 @@ def parse_item7(sec: str) -> dict:
             "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
 
 
+# A financial-statement figure: "$ 12,500,000", "1,234,567", or a parenthesised negative "(1,350,000)".
+_STMT_NUM = re.compile(r"(\()?\s*\$?\s*(\d{1,3}(?:,\d{3})+|\d{4,})(?:\.\d+)?\s*(\))?")
+
+
+def item21_scope(text: str) -> str:
+    """
+    name:      item21_scope
+    purpose:   The Item 21 text AND everything after it, to end of document.
+    arguments: text — full FDD text.
+    returns:   the slice from the last 'ITEM 21' header onward ('' if not found).
+    other:     Unlike other items, Item 21's audited statements almost always sit in an EXHIBIT after
+               the item body (the body just says 'attached as Exhibit E'), so we read to the end rather
+               than to 'ITEM 22'. Items 7/19 — with their own dollar figures — are BEFORE Item 21, so
+               this scope never pulls them in.
+    """
+    starts = [m.start() for m in re.finditer(r"ITEM\s*21\b", text, re.I)]
+    return text[starts[-1]:] if starts else ""
+
+
+def parse_item21(sec: str) -> dict:
+    """
+    name:      parse_item21
+    purpose:   Pull measured US-entity figures from the Item 21 audited financial statements.
+    arguments: sec — the Item 21-onward text (see item21_scope).
+    returns:   {present, revenue, net_income, total_assets, going_concern, needs_human_read, excerpt}.
+    other:     THE measured anchor — audited US revenue, not a model (the one number that steps around
+               the modeled/measured wall). Still a heuristic parse of varied statement layouts, so the
+               anchor it feeds stays confidence 'medium' pending a human read; what makes it 'measured'
+               is the SOURCE (audited statements) and the metric name, not the parse. The leftmost column
+               of an audited statement is the most recent year, so we take the first figure after each
+               label; parentheses mean a negative; a bare year token (e.g. a '2025' column header) is
+               skipped. Returns None + needs_human_read rather than a guess when a figure won't parse —
+               common when the statements are an image exhibit or sit outside this scope.
+    """
+    sec = sec or ""
+
+    def val(label_pat: str):
+        m = re.search(label_pat, sec, re.I)
+        if not m:
+            return None
+        win = sec[m.end(): m.end() + 120]
+        for nm in _STMT_NUM.finditer(win):
+            digits = nm.group(2)
+            n = int(digits.replace(",", ""))
+            if "," not in digits and 1900 <= n <= 2099:
+                continue                       # a bare year column header, not a figure
+            if nm.group(1) == "(" and nm.group(3) == ")":
+                n = -n
+            return n
+        return None
+
+    def coalesce(*vs):
+        return next((v for v in vs if v is not None), None)
+
+    revenue = coalesce(val(r"\bTotal\s+revenues?\b"), val(r"\bNet\s+sales\b"), val(r"\bRevenues?\b"))
+    net_income = coalesce(val(r"\bNet\s+income\s*\(loss\)"), val(r"\bNet\s+income\b"),
+                          val(r"\bNet\s+loss\b"))
+    total_assets = val(r"\bTotal\s+assets\b")
+    going_concern = bool(re.search(r"substantial doubt|going concern", sec, re.I))
+    present = bool(sec.strip())
+    return {"present": present, "revenue": revenue, "net_income": net_income,
+            "total_assets": total_assets, "going_concern": going_concern,
+            "needs_human_read": present and revenue is None,
+            "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
 # --- Collector -----------------------------------------------------------------------------------
 
 def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None) -> dict:
@@ -346,6 +414,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     i19 = parse_item19(item_section(text, 19))
     i20 = parse_item20(item_section(text, 20))
     i7 = parse_item7(item_section(text, 7))
+    i21 = parse_item21(item21_scope(text))
 
     if i19["auv"] is not None:
         status = f"Item 19 AUV ~${i19['auv']:,.0f}"
@@ -360,7 +429,10 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
                if i20["total_end"] is not None else "")
     invest = (f"; Item 7 invest ${i7['low']:,}-${i7['high']:,}"
               if i7["low"] is not None else "")
-    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} (MN) — {status}{outlets}{invest}")
+    fin = (f"; Item 21 US revenue ~${i21['revenue']:,}" if i21["revenue"] is not None else "")
+    if i21["going_concern"]:
+        fin += " (going-concern doubt)"
+    summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} (MN) — {status}{outlets}{invest}{fin}")
 
     con.execute(
         "INSERT INTO pipeline_signals(signal_type,brand_id,location_id,filed_date,summary,raw_ref,"
@@ -386,31 +458,42 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     items = {"item7": i7,
              "item19": {"present": i19["present"], "opt_out": i19["opt_out"],
                         "auv": i19["auv"], "figures": i19["figures"]},
-             "item20": i20}
+             "item20": i20,
+             "item21": i21}
     con.execute(
         "INSERT OR REPLACE INTO fdd_extracts(doc_number,brand_id,franchisor,year,state,items_json,"
         "needs_human_read,source_url,retrieved_at) VALUES(?,?,?,?,?,?,?,?,?)",
         (doc_key, bid, row["franchisor"], row["year"] or None, "MN",
-         json.dumps(items, ensure_ascii=False), 1 if i7["needs_human_read"] else 0, url, now))
+         json.dumps(items, ensure_ascii=False),
+         1 if (i7["needs_human_read"] or i21["needs_human_read"]) else 0, url, now))
 
-    # Item 7 initial-investment range -> anchors (factual, filed; build-out cost for CRE/investors).
-    i7tag = f"{row['doc_number']} ({row['year']})"
-    for metric, val in (("fdd_item7_invest_low", i7["low"]), ("fdd_item7_invest_high", i7["high"])):
-        if val is None:
-            continue
+    # Filed/measured figures -> anchors. Idempotent on the (brand, metric) page_ref tag. All confidence
+    # 'medium' (heuristic parse pending a human read); Item 21 is measured US revenue, flagged by metric.
+    vtag = f"{row['doc_number']} ({row['year']})"
+
+    def add_anchor(metric, value, excerpt, item_label):
+        if value is None:
+            return
         have = {r[0] for r in con.execute(
             "SELECT page_ref FROM financial_anchors WHERE brand_id=? AND metric=?", (bid, metric))}
-        if not any((p or "").startswith(i7tag) for p in have):
+        if not any((p or "").startswith(vtag) for p in have):
             con.execute(
                 "INSERT INTO financial_anchors(brand_id,period,metric,value,unit,page_ref,source,"
                 "source_url,retrieved_at,confidence) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                (bid, str(row["year"]), metric, float(val), "USD",
-                 i7tag + " — " + i7["excerpt"][:180],
-                 "FDD Item 7 (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
+                (bid, str(row["year"]), metric, float(value), "USD",
+                 vtag + " — " + (excerpt or "")[:180],
+                 f"FDD {item_label} (MN CARDS, " + row["franchisor"] + ")", url, now, "medium"))
+
+    # Item 7 initial-investment range (factual, filed; build-out cost for CRE/investors).
+    add_anchor("fdd_item7_invest_low", i7["low"], i7["excerpt"], "Item 7")
+    add_anchor("fdd_item7_invest_high", i7["high"], i7["excerpt"], "Item 7")
+    # Item 21 audited US revenue — the measured anchor the revenue model can prefer over a model.
+    add_anchor("fdd_item21_us_revenue", i21["revenue"], i21["excerpt"], "Item 21")
     con.commit()
     return {"brand": bid, "year": row["year"], "doc_type": row["doc_type"], "status": status,
             "auv": i19["auv"], "opt_out": i19["opt_out"], "outlets": i20,
-            "invest": (i7["low"], i7["high"]), "source_url": url}
+            "invest": (i7["low"], i7["high"]), "us_revenue": i21["revenue"],
+            "going_concern": i21["going_concern"], "source_url": url}
 
 
 def run(con, now: str | None = None) -> dict:

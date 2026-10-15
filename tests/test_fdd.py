@@ -89,6 +89,30 @@ RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES
 # A full FDD carrying Item 7 + an Item 19 with figures + Item 20 — for the end-to-end collector test.
 FDD_FULL = FDD_ITEM7 + FDD_FIGURES
 
+# Item 21: the body points to an exhibit, and the audited statements follow after Items 22/23. The most
+# recent fiscal year is the LEFT column; net income is a parenthesised negative; a going-concern note.
+FDD_ITEM21 = """
+ITEM 21
+FINANCIAL STATEMENTS
+Our audited financial statements for the years ended December 31, 2025 and 2024 are attached as
+Exhibit E.
+ITEM 22 CONTRACTS
+ITEM 23 RECEIPTS
+EXHIBIT E
+TEST FRANCHISOR LLC STATEMENTS OF OPERATIONS
+Years Ended December 31, 2025 2024
+Total revenues $ 12,500,000 $ 8,200,000
+Cost of revenues 7,100,000 4,900,000
+Net income (loss) (1,350,000) (2,100,000)
+BALANCE SHEETS
+Total assets $ 6,400,000 $ 4,200,000
+Total stockholders' equity 2,100,000 1,000,000
+The accompanying notes raise substantial doubt about the Company's ability to continue as a going concern.
+"""
+
+# A full FDD that also carries audited statements (two ITEM 21 headers; item21_scope takes the last).
+FDD_FULL21 = FDD_FULL + FDD_ITEM21
+
 
 def main():
     fails = []
@@ -215,6 +239,36 @@ def main():
         fdd.extract_text = orig
     check("item7: re-run still 1 extract row", con.execute("SELECT COUNT(*) FROM fdd_extracts").fetchone()[0], 1)
     check("item7: re-run still 1 low anchor", con.execute("SELECT COUNT(*) FROM financial_anchors WHERE brand_id='z' AND metric='fdd_item7_invest_low'").fetchone()[0], 1)
+
+    # --- parse_item21: measured figures from the audited statements (most-recent/left column) ---
+    i21 = fdd.parse_item21(fdd.item21_scope(FDD_ITEM21))
+    check("item21 revenue = 12.5M (left column)", i21["revenue"], 12500000)
+    check("item21 net income = -1.35M (parens negative)", i21["net_income"], -1350000)
+    check("item21 total assets = 6.4M", i21["total_assets"], 6400000)
+    check("item21 going-concern flagged", i21["going_concern"], True)
+    check("item21 clean parse not flagged", i21["needs_human_read"], False)
+    check("item21 skips the year column header", i21["revenue"] != 2025, True)
+    # pointer-only Item 21 (statements are an image exhibit we can't read) -> None, flagged
+    ptr = fdd.parse_item21("ITEM 21 FINANCIAL STATEMENTS Audited statements are attached as Exhibit E.")
+    check("item21 pointer -> no revenue", ptr["revenue"], None)
+    check("item21 pointer flagged for human", ptr["needs_human_read"], True)
+    check("item21 empty -> not flagged", fdd.parse_item21("")["needs_human_read"], False)
+
+    # --- collect_one: Item 21 -> measured us_revenue anchor + extract + going-concern in summary ---
+    con = fresh()
+    fdd.extract_text = lambda b: FDD_FULL21
+    try:
+        r = fdd.collect_one(con, {"brand_id": "w", "franchisor": "TEST FRANCHISOR"},
+                            now="2026-10-14T00:00:00Z", fetch_fn=fetch_full)
+    finally:
+        fdd.extract_text = orig
+    check("item21: us_revenue returned", r["us_revenue"], 12500000)
+    check("item21: going_concern returned", r["going_concern"], True)
+    check("item21: us_revenue anchor written", con.execute("SELECT value FROM financial_anchors WHERE brand_id='w' AND metric='fdd_item21_us_revenue'").fetchone()[0], 12500000.0)
+    check("item21: anchor source names Item 21", "Item 21" in con.execute("SELECT source FROM financial_anchors WHERE brand_id='w' AND metric='fdd_item21_us_revenue'").fetchone()[0], True)
+    check("item21: revenue in extract json", '"revenue": 12500000' in con.execute("SELECT items_json FROM fdd_extracts WHERE brand_id='w'").fetchone()[0], True)
+    check("item21: going-concern in summary", "going-concern" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='w'").fetchone()[0], True)
+    check("item21: still gets Item 7 anchor too", con.execute("SELECT value FROM financial_anchors WHERE brand_id='w' AND metric='fdd_item7_invest_high'").fetchone()[0], 675000.0)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
