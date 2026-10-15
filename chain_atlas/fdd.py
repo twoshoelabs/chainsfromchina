@@ -37,8 +37,9 @@ WHAT IT WRITES.
     and 'fdd_item21_us_revenue', the audited US-entity revenue from the Item 21 financial statements: a
     MEASURED US figure (not a model), which the revenue model can prefer over an overseas-derived anchor.
   * fdd_extracts: one row per filed FDD (keyed on its document number), with each parsed Item stored as
-    JSON — Item 7 (initial investment) today, more Items as parsers are added — plus needs_human_read
-    when a section was ambiguous. The per-vintage store behind the longitudinal series and Pro exports.
+    JSON — Item 7 (initial investment), Item 8 (supply-chain restriction flags), Item 20 (outlet tables:
+    series, churn, projected openings, by-state), Item 19 (AUV) and Item 21 (audited financials) — plus
+    needs_human_read when a section was ambiguous. The per-vintage store behind the series and Pro exports.
 
 NOTE. parse_results() (the CARDS HTML shape) and the Item-19/20 text heuristics are the only pieces tied
 to a source's exact format; they are isolated and tested offline against fixtures. With no network, no
@@ -525,6 +526,51 @@ def parse_item21(sec: str) -> dict:
             "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
 
 
+# Item 8 supply-chain flags (qualitative, for the supplier/distributor segment).
+_I8 = {
+    # A franchisor-controlled supplier roster the franchisee must use.
+    "required_suppliers": re.compile(
+        r"\b(?:required|approved|designated|authorized)\s+(?:suppliers?|sources?|vendors?|distributors?)\b"
+        r"|\bsuppliers?\s+(?:we|that we)\b[^.]{0,20}(?:approve|designate|require|authoriz)", re.I),
+    # The franchisor (or its affiliate) is itself a required/sole source — captive supply.
+    "franchisor_is_supplier": re.compile(
+        r"\bsole\s+(?:approved\s+)?(?:source|supplier)\b"
+        r"|(?:purchase|buy|obtain|order)[^.]{0,80}\bfrom\s+(?:us|the\s+franchisor|our\s+affiliates?|an?\s+affiliate)\b"
+        r"|\bwe\s+(?:are|will be)\s+(?:the\s+)?(?:sole|only|exclusive)\s+(?:approved\s+)?(?:source|supplier)\b", re.I),
+    # The franchisor takes rebates/allowances/payments from suppliers on franchisee purchases.
+    "rebates": re.compile(
+        r"\brebates?\b|\ballowances?\b"
+        r"|(?:receive|derive|earn|retain|collect)[^.]{0,60}\bfrom\b[^.]{0,30}suppliers?"
+        r"|suppliers?[^.]{0,40}(?:rebate|allowance|payment|commission)", re.I),
+    # Proprietary / private-label / secret-recipe goods the franchisee is required to buy.
+    "proprietary": re.compile(
+        r"\bproprietary\b|\bprivate[\s-]?label\b|\bsecret\s+(?:recipe|formula)\b"
+        r"|\btrademarked\s+(?:products?|ingredients?)\b", re.I),
+}
+
+
+def parse_item8(sec: str) -> dict:
+    """
+    name:      parse_item8
+    purpose:   Flag Item 8 supply-chain restrictions — required suppliers, captive (franchisor) supply,
+               supplier rebates, and proprietary goods.
+    arguments: sec — the Item 8 text.
+    returns:   {present, required_suppliers, franchisor_is_supplier, rebates, proprietary,
+                needs_human_read, excerpt}.
+    other:     Item 8 is prose, so these are best-effort booleans (absence = "not detected", not a parse
+               failure) — the supplier/distributor segment's signal: does a supplier have an opening, or
+               has a franchisor-controlled or captive supply chain already closed it? The excerpt is kept
+               for verification; needs_human_read trips only when a present section yielded no flag, so a
+               human confirms an unrestrictive Item 8 rather than the model assuming one.
+    """
+    sec = sec or ""
+    present = bool(sec.strip())
+    flags = {k: bool(p.search(sec)) for k, p in _I8.items()}
+    return {"present": present, **flags,
+            "needs_human_read": present and not any(flags.values()),
+            "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
+
+
 # --- Collector -----------------------------------------------------------------------------------
 
 def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn=None,
@@ -569,6 +615,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     i19 = parse_item19(item_section(text, 19))
     i20 = parse_item20(item_section(text, 20))
     i7 = parse_item7(item_section(text, 7))
+    i8 = parse_item8(item_section(text, 8))
     i21 = parse_item21(item21_scope(text))
 
     if i19["auv"] is not None:
@@ -589,8 +636,13 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     fin = (f"; Item 21 US revenue ~${i21['revenue']:,}" if i21["revenue"] is not None else "")
     if i21["going_concern"]:
         fin += " (going-concern doubt)"
+    f8 = [lbl for key, lbl in (("required_suppliers", "required suppliers"),
+                               ("franchisor_is_supplier", "franchisor-supplied"),
+                               ("rebates", "supplier rebates"),
+                               ("proprietary", "proprietary goods")) if i8[key]]
+    supply = f"; Item 8: {', '.join(f8)}" if f8 else ""
     summary = (f"{row['franchisor']} {row['year']} {row['doc_type']} ({reg.name}) — "
-               f"{status}{outlets}{invest}{fin}")
+               f"{status}{outlets}{invest}{fin}{supply}")
 
     con.execute(
         "INSERT INTO pipeline_signals(signal_type,brand_id,location_id,filed_date,summary,raw_ref,"
@@ -613,6 +665,7 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     # The per-Item extract (a vintage). doc_number is the dedupe key; fall back to guid/url if blank.
     doc_key = row["doc_number"] or row["guid"] or url
     items = {"item7": i7,
+             "item8": i8,
              "item19": {"present": i19["present"], "opt_out": i19["opt_out"],
                         "auv": i19["auv"], "figures": i19["figures"]},
              "item20": i20,

@@ -113,6 +113,23 @@ The accompanying notes raise substantial doubt about the Company's ability to co
 # A full FDD that also carries audited statements (two ITEM 21 headers; item21_scope takes the last).
 FDD_FULL21 = FDD_FULL + FDD_ITEM21
 
+# Item 8: a restrictive supply chain — required/approved suppliers, franchisor as sole source,
+# proprietary goods, and supplier rebates (the four flags all present).
+FDD_ITEM8 = """
+ITEM 8
+RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES
+You must purchase all food ingredients, packaging and proprietary sauces only from us or from
+suppliers we have approved and designated. We are the sole supplier of our secret recipe seasoning.
+We and our affiliates may receive rebates and allowances from approved suppliers based on the
+purchases made by franchisees in the system.
+ITEM 9
+FRANCHISEE'S OBLIGATIONS
+"""
+
+# An unrestrictive Item 8 (no flags should fire).
+FDD_ITEM8_OPEN = ("ITEM 8 RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES "
+                  "We do not currently restrict the suppliers you may use. ITEM 9")
+
 # A rich Item 20: Table 1 (3-year series), Table 3 (status -> churn), Table 4 (by state), Table 5 (projected).
 FDD_ITEM20_FULL = """
 ITEM 20
@@ -341,6 +358,34 @@ def main():
     check("item20: projected in extract json", '"projected_new_franchised": 11' in ij, True)
     check("item20: by_state in extract json", '"CA": 6' in ij, True)
     check("item20: projected in summary", "+11 projected next FY" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='v'").fetchone()[0], True)
+
+    # --- parse_item8: supply-chain flags (restrictive vs open) ---
+    i8 = fdd.parse_item8(fdd.item_section(FDD_ITEM8, 8))
+    check("item8 required suppliers", i8["required_suppliers"], True)
+    check("item8 franchisor is supplier", i8["franchisor_is_supplier"], True)
+    check("item8 rebates", i8["rebates"], True)
+    check("item8 proprietary goods", i8["proprietary"], True)
+    check("item8 restrictive not flagged", i8["needs_human_read"], False)
+    u8 = fdd.parse_item8(fdd.item_section(FDD_ITEM8_OPEN, 8))
+    check("item8 open: no flags fire", any([u8["required_suppliers"], u8["franchisor_is_supplier"], u8["rebates"], u8["proprietary"]]), False)
+    check("item8 open: flagged for human", u8["needs_human_read"], True)
+    check("item8 empty: not flagged", fdd.parse_item8("")["needs_human_read"], False)
+
+    # --- collect_one: Item 8 flags -> extract json + supply note in summary ---
+    con = fresh()
+    def fetch_i8(url, raw=False):
+        return RESULTS_HTML if "franchise-registrations" in url else b"%PDF-fake"
+    fdd.extract_text = lambda b: FDD_ITEM8
+    try:
+        fdd.collect_one(con, {"brand_id": "u", "franchisor": "TEST FRANCHISOR"},
+                        now="2026-10-15T00:00:00Z", fetch_fn=fetch_i8)
+    finally:
+        fdd.extract_text = orig
+    ij = con.execute("SELECT items_json FROM fdd_extracts WHERE brand_id='u'").fetchone()[0]
+    check("item8: rebates flag in extract json", '"rebates": true' in ij, True)
+    check("item8: franchisor_is_supplier in extract json", '"franchisor_is_supplier": true' in ij, True)
+    check("item8: supply note in summary", "Item 8: " in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='u'").fetchone()[0], True)
+    check("item8: rebates named in summary", "supplier rebates" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='u'").fetchone()[0], True)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
