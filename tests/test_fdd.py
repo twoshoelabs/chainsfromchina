@@ -113,6 +113,31 @@ The accompanying notes raise substantial doubt about the Company's ability to co
 # A full FDD that also carries audited statements (two ITEM 21 headers; item21_scope takes the last).
 FDD_FULL21 = FDD_FULL + FDD_ITEM21
 
+# A rich Item 20: Table 1 (3-year series), Table 3 (status -> churn), Table 4 (by state), Table 5 (projected).
+FDD_ITEM20_FULL = """
+ITEM 20
+OUTLETS AND FRANCHISEE INFORMATION
+Table No. 1 Systemwide Outlet Summary
+Franchised 2023 8 9 1 2024 9 13 4 2025 13 15 2
+Company Owned 2023 2 2 0 2024 2 3 1 2025 3 4 1
+Total Outlets 2023 10 11 1 2024 11 16 5 2025 16 19 3
+Table No. 3 Status of Franchised Outlets
+Year Start Opened Terminations Non-Renewals Reacquired Ceased-Other End
+2023 8 2 0 0 0 1 9
+2024 9 5 1 0 0 0 13
+2025 13 4 1 1 0 0 15
+Table No. 4 Outlets by State
+California 6 1 7
+New York 5 0 5
+Texas 4 0 4
+Table No. 5 Projected Openings
+State Signed Not Opened Projected New Franchised Projected New Company
+California 3 5 1
+New York 2 4 0
+Totals 6 11 1
+ITEM 21
+"""
+
 
 def main():
     fails = []
@@ -269,6 +294,39 @@ def main():
     check("item21: revenue in extract json", '"revenue": 12500000' in con.execute("SELECT items_json FROM fdd_extracts WHERE brand_id='w'").fetchone()[0], True)
     check("item21: going-concern in summary", "going-concern" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='w'").fetchone()[0], True)
     check("item21: still gets Item 7 anchor too", con.execute("SELECT value FROM financial_anchors WHERE brand_id='w' AND metric='fdd_item7_invest_high'").fetchone()[0], 675000.0)
+
+    # --- parse_item20 (full): series, churn, projected, by-state (backward-compatible keys intact) ---
+    t = fdd.parse_item20(fdd.item_section(FDD_ITEM20_FULL, 20))
+    check("item20 latest ends unchanged (15/4/19)", (t["franchised_end"], t["company_end"], t["total_end"]), (15, 4, 19))
+    check("item20 franchised 3-year series", t["franchised_series"], [(2023, 9), (2024, 13), (2025, 15)])
+    check("item20 company 3-year series", t["company_series"], [(2023, 2), (2024, 3), (2025, 4)])
+    check("item20 latest-year status row", (t["franchised_status_latest"]["start"], t["franchised_status_latest"]["opened"], t["franchised_status_latest"]["end"]), (13, 4, 15))
+    check("item20 gross departures = start+opened-end = 2", t["franchised_status_latest"]["left_system"], 2)
+    check("item20 projected signed-not-open = 6", t["projected"]["signed_not_open"], 6)
+    check("item20 projected new franchised = 11", t["projected"]["projected_new_franchised"], 11)
+    check("item20 by-state parsed", t["by_state"], {"CA": 6, "NY": 5, "TX": 4})
+    check("item20 full not flagged", t["needs_human_read"], False)
+    # a bare Table 1 (no Table 3/5/state) -> series only, projected/status None, no false by-state
+    t1 = fdd.parse_item20(fdd.item_section(FDD_OPTOUT, 20))
+    check("item20 bare: projected None", t1["projected"], None)
+    check("item20 bare: status None", t1["franchised_status_latest"], None)
+    check("item20 bare: by_state empty", t1["by_state"], {})
+    check("item20 bare: series still parsed", t1["franchised_series"], [(2023, 9), (2024, 13), (2025, 15)])
+
+    # --- collect_one: Item 20-full stored in extract + projected in summary ---
+    con = fresh()
+    def fetch_i20(url, raw=False):
+        return RESULTS_HTML if "franchise-registrations" in url else b"%PDF-fake"
+    fdd.extract_text = lambda b: FDD_ITEM20_FULL
+    try:
+        fdd.collect_one(con, {"brand_id": "v", "franchisor": "TEST FRANCHISOR"},
+                        now="2026-10-14T00:00:00Z", fetch_fn=fetch_i20)
+    finally:
+        fdd.extract_text = orig
+    ij = con.execute("SELECT items_json FROM fdd_extracts WHERE brand_id='v'").fetchone()[0]
+    check("item20: projected in extract json", '"projected_new_franchised": 11' in ij, True)
+    check("item20: by_state in extract json", '"CA": 6' in ij, True)
+    check("item20: projected in summary", "+11 projected next FY" in con.execute("SELECT summary FROM pipeline_signals WHERE brand_id='v'").fetchone()[0], True)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0

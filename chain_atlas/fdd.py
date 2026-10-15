@@ -18,8 +18,10 @@ posture. We archive the raw PDF (the evidence) before parsing a figure from it.
 REALITY (why most rows are an honest "no number"). Many franchisors — especially new or foreign entrants,
 which is most of these brands — OPT OUT of Item 19 ("we do not make any representations about a
 franchisee's future financial performance"). That opt-out is itself recorded as a finding; an AUV anchor
-is written ONLY when real figures are disclosed, never invented. Item 20 (systemwide outlet counts,
-franchised vs company-owned) is almost always present and is captured as a cross-check on our census.
+is written ONLY when real figures are disclosed, never invented. Item 20 (outlet tables) is almost always
+present and is mined for systemwide counts, the 3-year franchised/company series, latest-year gross
+departures (start + opened - end), projected openings and the by-state split — a census cross-check plus a
+forward/churn signal, each best-effort with None/{} rather than a wrong number.
 
 WHAT IT WRITES.
   * pipeline_signals (signal_type='fdd'): one row per franchisor's latest filed FDD — the status
@@ -220,32 +222,96 @@ def parse_item19(sec: str) -> dict:
             "excerpt": re.sub(r"\s+", " ", sec[:600]).strip()}
 
 
+# US states + DC -> postal abbreviation, for the by-state table parse.
+_US_STATES = {
+    "Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR", "California": "CA",
+    "Colorado": "CO", "Connecticut": "CT", "Delaware": "DE", "District of Columbia": "DC",
+    "Florida": "FL", "Georgia": "GA", "Hawaii": "HI", "Idaho": "ID", "Illinois": "IL",
+    "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY", "Louisiana": "LA",
+    "Maine": "ME", "Maryland": "MD", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN",
+    "Mississippi": "MS", "Missouri": "MO", "Montana": "MT", "Nebraska": "NE", "Nevada": "NV",
+    "New Hampshire": "NH", "New Jersey": "NJ", "New Mexico": "NM", "New York": "NY",
+    "North Carolina": "NC", "North Dakota": "ND", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR",
+    "Pennsylvania": "PA", "Rhode Island": "RI", "South Carolina": "SC", "South Dakota": "SD",
+    "Tennessee": "TN", "Texas": "TX", "Utah": "UT", "Vermont": "VT", "Virginia": "VA",
+    "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
+}
+# Longest names first so "West Virginia" matches before "Virginia", "New York" before any fragment.
+_STATE_ROW = re.compile(
+    r"\b(" + "|".join(sorted((re.escape(n) for n in _US_STATES), key=len, reverse=True))
+    + r")\b\s+\$?(\d{1,4})\b")
+
+
 def parse_item20(sec: str) -> dict:
     """
     name:      parse_item20
-    purpose:   Pull the latest-year systemwide outlet counts from Item 20's Table 1.
+    purpose:   Pull Item 20's outlet tables — systemwide counts, the 3-year series, latest-year gross
+               departures, projected openings, and the by-state split.
     arguments: sec — the Item 20 text.
-    returns:   {year, franchised_end, company_end, total_end} with None where not parseable.
-    other:     Table 1 rows read 'Year Start End NetChange' per outlet type. Heuristic and best-effort —
-               a cross-check on our census, not an anchor; None rather than a wrong number when unsure.
+    returns:   {year, franchised_end, company_end, total_end,                      (Table 1 latest year)
+                franchised_series, company_series,                                 ([(year, end), ...])
+                franchised_status_latest: {year, start, opened, end, left_system}, (Table 3, or None)
+                projected: {signed_not_open, projected_new_franchised},            (Table 5, or None)
+                by_state: {ST: count},                                             (by-state table, or {})
+                needs_human_read}
+    other:     Heuristic and best-effort, in the house style — a census cross-check and forward/churn
+               signal, not an anchor; each sub-table yields None/{} rather than a wrong number when its
+               shape is not found. 'left_system' = start + opened - end: outlets that left the franchised
+               system in the latest year (terminations + non-renewals + reacquisitions + ceased) — a gross
+               departure count derived without mapping the middle columns, which vary by franchisor.
     """
-    out = {"year": None, "franchised_end": None, "company_end": None, "total_end": None}
+    out = {"year": None, "franchised_end": None, "company_end": None, "total_end": None,
+           "franchised_series": [], "company_series": [], "franchised_status_latest": None,
+           "projected": None, "by_state": {}, "needs_human_read": False}
 
-    def last_triple(block):
+    def triples(block):
+        # Table 1 rows: 'Year Start End NetChange' (exactly three figures) -> [(year, end), ...].
         rows = re.findall(r"\b(20\d\d)\s+(\d{1,5})\s+(\d{1,5})\s+(-?\d{1,5})\b", block or "")
-        if not rows:
-            return None, None
-        y, s, e, n = rows[-1]
-        return int(y), int(e)
+        return [(int(y), int(e)) for (y, _s, e, _n) in rows]
     # Isolate each outlet-type block so Franchised rows don't bleed into Company rows.
     fblk = re.search(r"Franchised([\s\S]*?)(?=Company|Total\s+Outlets|Table|$)", sec, re.I)
     cblk = re.search(r"Company[\s\-]*Ow\w*([\s\S]*?)(?=Total\s+Outlets|Table|$)", sec, re.I)
-    fy, fe = last_triple(fblk.group(1) if fblk else "")
-    cy, ce = last_triple(cblk.group(1) if cblk else "")
-    out["franchised_end"], out["company_end"] = fe, ce
-    out["year"] = fy or cy
-    if fe is not None or ce is not None:
-        out["total_end"] = (fe or 0) + (ce or 0)
+    out["franchised_series"] = triples(fblk.group(1) if fblk else "")
+    out["company_series"] = triples(cblk.group(1) if cblk else "")
+    if out["franchised_series"]:
+        out["year"], out["franchised_end"] = out["franchised_series"][-1]
+    if out["company_series"]:
+        cy, ce = out["company_series"][-1]
+        out["company_end"] = ce
+        out["year"] = out["year"] or cy
+    if out["franchised_end"] is not None or out["company_end"] is not None:
+        out["total_end"] = (out["franchised_end"] or 0) + (out["company_end"] or 0)
+
+    # Table 3 (Status of Franchised Outlets): latest-year gross departures, via start + opened - end.
+    sm = re.search(r"Status\s+of\s+Franchised\s+Outlets[\s\S]*?"
+                   r"(?=Status\s+of\s+Company|Table\s+No\.?\s*4|Table\s+No\.?\s*5|ITEM\s*21|$)", sec, re.I)
+    if sm:
+        # A status row = a year followed by >=4 figures (Table 1 rows have only 3); the negative
+        # lookahead stops a row before the next year so rows don't merge in the flattened text.
+        rows = re.findall(r"\b(20\d\d)((?:\s+(?!20\d\d\b)\d{1,5}){4,})", sm.group(0))
+        if rows:
+            y, tail = rows[-1]
+            nums = [int(x) for x in tail.split()]
+            start, opened, end = nums[0], nums[1], nums[-1]
+            out["franchised_status_latest"] = {"year": int(y), "start": start, "opened": opened,
+                                               "end": end, "left_system": start + opened - end}
+
+    # Table 5 (Projected Openings): the 'Totals' row under a 'Projected Openings' header.
+    pm = re.search(r"Projected\s+Openings?[\s\S]{0,1200}?\bTotals?\b\s+(\d{1,5})(?:\s+(\d{1,5}))?",
+                   sec, re.I)
+    if pm:
+        out["projected"] = {"signed_not_open": int(pm.group(1)),
+                            "projected_new_franchised": int(pm.group(2)) if pm.group(2) else None}
+
+    # Outlets by state: only under a 'by State' header, and only state names trailed by a count, so
+    # a state mentioned in prose does not register. First figure per row (the franchised column).
+    bm = re.search(r"(?:Outlets?\s+by\s+State|by\s+State)[\s\S]{0,2000}", sec, re.I)
+    if bm:
+        for name, n in _STATE_ROW.findall(bm.group(0)):
+            out["by_state"].setdefault(_US_STATES[name], int(n))
+
+    out["needs_human_read"] = bool(sec.strip()) and not out["franchised_series"] \
+        and not out["company_series"]
     return out
 
 
@@ -427,6 +493,8 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
     outlets = (f"; Item 20 {row['year']}: {i20['total_end']} US outlets "
                f"({i20['franchised_end']} franchised / {i20['company_end']} company)"
                if i20["total_end"] is not None else "")
+    if i20.get("projected") and i20["projected"].get("projected_new_franchised") is not None:
+        outlets += f", +{i20['projected']['projected_new_franchised']} projected next FY"
     invest = (f"; Item 7 invest ${i7['low']:,}-${i7['high']:,}"
               if i7["low"] is not None else "")
     fin = (f"; Item 21 US revenue ~${i21['revenue']:,}" if i21["revenue"] is not None else "")
@@ -465,7 +533,8 @@ def collect_one(con, target: dict, now: str | None = None, fetch_fn=None, raw_fn
         "needs_human_read,source_url,retrieved_at) VALUES(?,?,?,?,?,?,?,?,?)",
         (doc_key, bid, row["franchisor"], row["year"] or None, "MN",
          json.dumps(items, ensure_ascii=False),
-         1 if (i7["needs_human_read"] or i21["needs_human_read"]) else 0, url, now))
+         1 if (i7["needs_human_read"] or i21["needs_human_read"]
+               or i20["needs_human_read"]) else 0, url, now))
 
     # Filed/measured figures -> anchors. Idempotent on the (brand, metric) page_ref tag. All confidence
     # 'medium' (heuristic parse pending a human read); Item 21 is measured US revenue, flagged by metric.
