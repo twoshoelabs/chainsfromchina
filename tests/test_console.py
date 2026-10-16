@@ -121,6 +121,18 @@ def main():
     check("page supports paste into the screenshot space", "'paste'" in console._PAGE, True)
     check("page is localhost-private labelled", "PRIVATE" in console._PAGE, True)
 
+    # --- serve() on a busy port returns a clean code, not a traceback ---
+    import socket
+    s = socket.socket()
+    s.bind(("127.0.0.1", 0))
+    s.listen(1)
+    busy = s.getsockname()[1]
+    try:
+        check("serve on a busy port returns 1 (no traceback)",
+              console.serve(port=busy, open_browser=False), 1)
+    finally:
+        s.close()
+
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
 

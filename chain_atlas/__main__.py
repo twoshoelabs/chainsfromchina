@@ -198,8 +198,7 @@ def main(argv=None):
 
     if cmd == "console":
         from . import console
-        console.serve(port=int(opt("--port", "8787")), open_browser="--no-open" not in argv)
-        return 0
+        return console.serve(port=int(opt("--port", "8787")), open_browser="--no-open" not in argv) or 0
 
     if cmd == "export-tier":
         from . import db, tier_export

@@ -337,7 +337,16 @@ class _Handler(BaseHTTPRequestHandler):
 
 def serve(port: int = 8787, open_browser: bool = True):
     """Start the private console on 127.0.0.1:<port>. Blocks until Ctrl-C."""
-    httpd = HTTPServer(("127.0.0.1", port), _Handler)           # localhost ONLY — never 0.0.0.0
+    import errno
+    try:
+        httpd = HTTPServer(("127.0.0.1", port), _Handler)       # localhost ONLY — never 0.0.0.0
+    except OSError as e:
+        if e.errno == errno.EADDRINUSE:                         # an earlier console is still running
+            print(f"Port {port} is already in use — an earlier console is probably still running.")
+            print(f"  stop it:  lsof -ti :{port} | xargs kill")
+            print(f"  or:       python -m chain_atlas console --port {port + 1}")
+            return 1
+        raise
     url = f"http://127.0.0.1:{port}/"
     print(f"owner console — PRIVATE, localhost only → {url}   (Ctrl-C to stop)")
     if open_browser:
