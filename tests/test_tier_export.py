@@ -94,6 +94,52 @@ def main():
         raised = True
     check("unknown tier rejected", raised, True)
 
+    # ========================= full dataset (build order #4) =========================
+    pds = T.dataset(con, "public", brands=[BRAND])
+    ods = T.dataset(con, "observer", brands=[BRAND])
+    rds = T.dataset(con, "pro", brands=[BRAND])
+
+    # --- table gating: a table appears only at/above its min tier ---
+    check("public tables", set(pds["tables"]), {"brands", "outlets"})
+    check("observer adds closings+abroad", set(ods["tables"]) - set(pds["tables"]), {"closings", "abroad"})
+    check("pro adds the analytics + events tables",
+          {"scale", "economics", "structure", "narrative", "events"} <= set(rds["tables"]), True)
+    check("events table is pro-gated (absent public/observer)",
+          "events" not in pds["tables"] and "events" not in ods["tables"], True)
+
+    # --- THE GATE on the flat dataset: Pro-only values must not appear below pro ---
+    for name, ds in (("public", pds), ("observer", ods)):
+        raw = json.dumps(ds, ensure_ascii=False)
+        check(f"dataset {name}: no economics anchor", str(int(SECRET)) not in raw, True)
+        check(f"dataset {name}: no china split (8621)", "8621" not in raw, True)
+    check("dataset pro: economics anchor present",
+          str(int(SECRET)) in json.dumps(rds, ensure_ascii=False), True)
+
+    # --- aggregates gate too ---
+    check("public aggregates: core counts", {"brands_tracked", "us_outlets_total"} <= set(pds["aggregates"]), True)
+    check("public aggregates: no event rollups", "new_us_entrants_90d" not in pds["aggregates"], True)
+    check("pro aggregates: event rollups present", "new_us_entrants_90d" in rds["aggregates"], True)
+
+    # --- manifest lists only emitted tables ---
+    check("manifest tables match emitted", {t["name"] for t in pds["manifest"]["tables"]}, set(pds["tables"]))
+
+    # --- write_dataset: CSVs + README + manifest; economics.csv is pro-only ---
+    td = tempfile.mkdtemp()
+    wf = T.write_dataset(rds, td)
+    check("wrote bundle.json", any(f.endswith("bundle.json") for f in wf), True)
+    check("wrote README.md", any(f.endswith("README.md") for f in wf), True)
+    check("wrote outlets.csv", os.path.exists(os.path.join(td, "data", "outlets.csv")), True)
+    check("pro wrote economics.csv", os.path.exists(os.path.join(td, "data", "economics.csv")), True)
+    check("economics.csv carries the anchor", str(int(SECRET)) in
+          Path(os.path.join(td, "data", "economics.csv")).read_text(), True)
+
+    tp = tempfile.mkdtemp()
+    T.write_dataset(pds, tp)
+    check("public write has NO economics.csv", not os.path.exists(os.path.join(tp, "data", "economics.csv")), True)
+    check("public economics value absent from every public file", all(
+        str(int(SECRET)) not in Path(os.path.join(dp, f)).read_text()
+        for dp, _, fs in os.walk(tp) for f in fs), True)
+
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
 

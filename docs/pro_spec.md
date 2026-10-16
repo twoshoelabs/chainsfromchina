@@ -230,8 +230,11 @@ Reordered to put the defensible pillars first.
 1. ~~Freeze the submission schema~~ (`submissions.py`) — **done.** The keystone.
 2. ~~Dossier-assembly command~~ — **done**, and intentionally demoted to the on-ramp sample.
 3. ~~Verification queue~~ (`verify.py`, with the `watch` verdict) — **done.** Pillar 3's workflow.
-4. ~~Tier-gated exporter~~ (`tier_export.py`) — **done.** Now extend it to emit the **full-dataset Pro
-   export** (the primary product), not just per-brand slices.
+4. ~~Tier-gated exporter~~ + ~~full-dataset Pro export~~ (`tier_export.py`) — **done.** `dataset()` /
+   `write_dataset()` emit the primary product: flat tier-gated tables (brands, outlets, closings, abroad,
+   scale, economics, structure, narrative) + the event-log time-series, aggregates, a manifest and a
+   README, as JSON *and* CSV. Tables derive from the already-gated per-brand slices, so the paywall
+   allowlist stays single-sourced. `export-tier <tier> --dataset --out DIR`.
 5. **Event log + alerts (pillar 2) — the priority build.** A typed, append-only event stream
    (brand, kind ∈ {entered_us, outlet_opened, outlet_closed, count_threshold, new_filing, lease_signed},
    before→after, as_of, provenance) derived at each cadence. It (a) powers push/email/digest alerts

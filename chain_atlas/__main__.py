@@ -209,8 +209,18 @@ def main(argv=None):
             return 2
         con = db.connect()
         brands = [opt("--brand")] if opt("--brand") else None
-        bundle = tier_export.export(con, tier, brands=brands)
         out = opt("--out")
+        if "--dataset" in argv:                        # the full tabular dataset product
+            ds = tier_export.dataset(con, tier, brands=brands)
+            if out:
+                files = tier_export.write_dataset(ds, out)
+                print(f"{tier} dataset: {ds['brand_count']} brands, "
+                      f"{len(ds['tables'])} table(s) -> {len(files)} file(s) in {out}")
+            else:
+                import json as _json
+                print(_json.dumps(ds, ensure_ascii=False, indent=1))
+            return 0
+        bundle = tier_export.export(con, tier, brands=brands)
         if out:
             files = tier_export.write(bundle, out)
             print(f"{tier}: {bundle['brand_count']} brands -> {len(files)} file(s) in {out}")
