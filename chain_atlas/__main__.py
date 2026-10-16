@@ -186,6 +186,16 @@ def main(argv=None):
         openings.report(con)
         return 0
 
+    if cmd == "dossier":
+        from . import db, dossier
+        brand = next((a for a in argv[1:] if not a.startswith("-")), None)
+        if not brand:
+            print("usage: python -m chain_atlas dossier <chain_id> [--md]")
+            return 2
+        con = db.connect()
+        print(dossier.run(con, brand, as_markdown=("--md" in argv)))
+        return 0
+
     if cmd == "dossiers":
         from . import dossiers
         errs = dossiers.validate()
@@ -241,6 +251,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  dossier <chain_id> [--md]                        Pro: assemble ONE chain's full dossier (all 5 layers) as JSON or Markdown")
     print("  dossiers                                         Pro: qualitative per-chain dossiers (history, popular items, flagships)")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
     print("  watch [--chain X]                                launch-watch: alert when a blocked chain's page changes")
