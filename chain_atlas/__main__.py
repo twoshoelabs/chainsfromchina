@@ -305,6 +305,31 @@ def main(argv=None):
               " [--kind K] [--brand B] [--sector S] [--min-confidence high] [--deliver]")
         return 2
 
+    if cmd == "apps":
+        from . import apps
+        sub = argv[1] if len(argv) > 1 and not argv[1].startswith("-") else "report"
+        if sub == "validate":
+            probs = apps.validate()
+            if probs:
+                print("apps.json invalid:")
+                for p in probs:
+                    print("  " + p)
+                return 2
+            print(f"apps.json valid ({len(apps.verified())} verified US apps)")
+            return 0
+        if sub == "probe":
+            bl = [opt("--brand")] if opt("--brand") else None
+            hits = apps.probe(brands=bl)
+            for b, rows in sorted(hits.items()):
+                for c in rows:
+                    print(f"  {b:16} [{c['score']:6}] {str(c['app'])[:34]:34} by "
+                          f"{str(c['seller'])[:24]:24} ({c.get('ratings_n') or '-'})  {c['ios_url']}")
+            print(f"-- {len(hits)} brand(s) with candidate US app(s); VERIFY before adding to "
+                  "manual/apps.json (name collisions are common) --")
+            return 0
+        apps.report()
+        return 0
+
     if cmd == "dossiers":
         from . import dossiers
         errs = dossiers.validate()

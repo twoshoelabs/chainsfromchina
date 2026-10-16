@@ -1,0 +1,326 @@
+{
+ "_readme": "Verified US mobile-app presence per tracked chain — a structure/intent (DTC-channel) datum. Curated by hand from Apple App Store (US) candidates surfaced by `python -m chain_atlas apps probe`; the probe never writes here (name collisions require human verification). kind: own = the brand's own app; platform = a third-party ordering platform's app for the brand (e.g. Chowbus, Menusifu); none = checked, no US app. platforms lists only what is confirmed (iOS is programmatically checkable; Android/Google Play is a manual field). PRO-tier: rides the structure layer of the Pro export, never the public map/data. See chain_atlas/apps.py and [[cfc-analytics-paywall]].",
+ "as_of": "2026-10-16",
+ "brands": {
+  "chagee": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "CHAGEE USA",
+   "developer": "Chagee",
+   "ios_url": "https://apps.apple.com/us/app/chagee-usa/id6737460668",
+   "android_url": null,
+   "ratings_n": 39,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": null
+  },
+  "cotti": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Cotti Coffee AM",
+   "developer": "Cotti Coffee International Limited",
+   "ios_url": "https://apps.apple.com/us/app/cotti-coffee-am/id6450108308",
+   "android_url": null,
+   "ratings_n": 34,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Also operator-facing Partner/Station apps by the same developer."
+  },
+  "dreame": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Dreamehome",
+   "developer": "Dreame Innovation Technology (Suzhou) Co., Ltd.",
+   "ios_url": "https://apps.apple.com/us/app/dreamehome/id1564419343",
+   "android_url": null,
+   "ratings_n": 12563,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Smart-home control app for its devices."
+  },
+  "heytea": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "heytea",
+   "developer": "HEYTEA",
+   "ios_url": "https://apps.apple.com/us/app/heytea/id6468945008",
+   "android_url": null,
+   "ratings_n": 9583,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": null
+  },
+  "popmart": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "POP MART Americas",
+   "developer": "POP MART",
+   "ios_url": "https://apps.apple.com/us/app/pop-mart-americas/id6757692490",
+   "android_url": null,
+   "ratings_n": 313,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "US-specific app, separate from the China app."
+  },
+  "xiaomi": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Xiaomi Home",
+   "developer": "Beijing Xiaomi Co., Ltd",
+   "ios_url": "https://apps.apple.com/us/app/xiaomi-home/id957323480",
+   "android_url": null,
+   "ratings_n": 9324,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Smart-home / device control app."
+  },
+  "huawei": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "HUAWEI AI Life",
+   "developer": "Huawei Software Technologies Co., Ltd.",
+   "ios_url": "https://apps.apple.com/us/app/huawei-ai-life/id1266194141",
+   "android_url": null,
+   "ratings_n": 1178,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Device / IoT control app."
+  },
+  "liuyishou": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Liuyishou Hotpot Rewards",
+   "developer": "Liuyishou Hotpot",
+   "ios_url": "https://apps.apple.com/us/app/liuyishou-hotpot-rewards/id6740687616",
+   "android_url": null,
+   "ratings_n": 1,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Loyalty / rewards app for 刘一手火锅."
+  },
+  "teapulse": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Teapulse",
+   "developer": "Teapulse",
+   "ios_url": "https://apps.apple.com/us/app/teapulse/id6753216633",
+   "android_url": null,
+   "ratings_n": 25,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": null
+  },
+  "zhengxin": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "ZhengxinUSA",
+   "developer": "Zhengxin Chicken Steak",
+   "ios_url": "https://apps.apple.com/us/app/zhengxinusa/id6670172104",
+   "android_url": null,
+   "ratings_n": 1,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "US app for 正新鸡排 Zhengxin Chicken Steak."
+  },
+  "luckin": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "LUCKIN COFFEE USA",
+   "developer": "First Ray Holdings (USA) Inc",
+   "ios_url": "https://apps.apple.com/us/app/luckin-coffee-usa/id6744305418",
+   "android_url": null,
+   "ratings_n": 48,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Published by its US entity (First Ray Holdings USA)."
+  },
+  "haidilao": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Haidilao",
+   "developer": "SINGAPORE SUPER HI DINING PTE. LTD.",
+   "ios_url": "https://apps.apple.com/us/app/haidilao/id6475017506",
+   "android_url": null,
+   "ratings_n": 8,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Published by Super Hi International, Haidilao's overseas operator."
+  },
+  "mixue": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "My MIXUE",
+   "developer": "Zhengzhou Baodao Technology Co., Ltd.",
+   "ios_url": "https://apps.apple.com/us/app/my-mixue/id1640815150",
+   "android_url": null,
+   "ratings_n": 11,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Own app by Mixue's Zhengzhou tech arm, US-listed. A separate US-localized 'MIXUE US' ordering app (platform vendor MENUSIFU) also exists."
+  },
+  "bingxue": {
+   "us_app": true,
+   "kind": "own",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "BINGXUE",
+   "developer": "济南宝岛企业管理咨询有限公司",
+   "ios_url": "https://apps.apple.com/us/app/bingxue/id6809288334",
+   "android_url": null,
+   "ratings_n": 0,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "New listing (0 ratings); developer in Jinan, Shandong (Bingxue's home). Re-verify as it matures."
+  },
+  "aunteajenny": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Auntea Jenny US",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/auntea-jenny-us/id6759036512",
+   "android_url": null,
+   "ratings_n": 72,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "US ordering app on the Chowbus platform, not an own-brand app."
+  },
+  "chahalo": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Chahalo US",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/chahalo-us/id6785776453",
+   "android_url": null,
+   "ratings_n": 21,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Chowbus-platform US ordering app (a Canada variant also exists)."
+  },
+  "lelecha": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "LELECHA",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/lelecha/id6748211336",
+   "android_url": null,
+   "ratings_n": 1,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Chowbus-platform US ordering app (乐乐茶)."
+  },
+  "mollytea": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "MollyteaUS",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/mollyteaus/id6743390468",
+   "android_url": null,
+   "ratings_n": 1121,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Chowbus-platform US app (茉莉奶白 Molly Tea)."
+  },
+  "wallace": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Wallace Chicken",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/wallace-chicken/id6754761533",
+   "android_url": null,
+   "ratings_n": 3,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Chowbus-platform US ordering app (华莱士)."
+  },
+  "makkee": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "Makkee Dessert US",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/makkee-dessert-us/id6795771375",
+   "android_url": null,
+   "ratings_n": 0,
+   "as_of": "2026-10-16",
+   "confidence": "medium",
+   "source": "Apple App Store (US) / iTunes Search API",
+   "note": "Chowbus-platform US ordering app (麦记)."
+  }
+ }
+}

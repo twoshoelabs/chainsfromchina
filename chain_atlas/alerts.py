@@ -36,11 +36,11 @@ BASELINE = str(_ROOT / "manual" / "event_baseline.json")
 CURSOR = str(_ROOT / "manual" / "event_cursor.json")
 
 # Kinds, in descending alert value. entered_us (a brand's FIRST US outlet) is the flagship alert.
-KINDS = ("entered_us", "market_entered", "outlet_opened", "outlet_closed",
+KINDS = ("entered_us", "market_entered", "app_shipped", "outlet_opened", "outlet_closed",
          "market_exited", "scale_changed", "new_filing")
 _PRIORITY = {k: i for i, k in enumerate(KINDS)}
 _DIM = {"entered_us": "presence", "outlet_opened": "presence", "outlet_closed": "presence",
-        "market_entered": "presence", "market_exited": "presence",
+        "market_entered": "presence", "market_exited": "presence", "app_shipped": "structure",
         "scale_changed": "scale", "new_filing": "economics"}
 _CONF_RANK = {"high": 3, "medium": 2, "low": 1, None: 0}
 
@@ -119,6 +119,14 @@ def snapshot(con=None) -> dict:
             scale[b] = {"total": e.get("total"), "as_of": e.get("as_of"),
                         "confidence": e.get("confidence"), "source": e.get("source")}
 
+    app_layer = {}
+    try:
+        from . import apps as _apps
+        app_layer = {b: {"app_name": r.get("app_name"), "kind": r.get("kind")}
+                     for b, r in _apps.verified().items()}
+    except Exception:                                           # noqa: BLE001
+        pass
+
     anchors = {}
     if con is not None:
         try:
@@ -130,7 +138,7 @@ def snapshot(con=None) -> dict:
             pass
 
     return {"as_of": config.today_ny(), "presence": pres, "closings": closings,
-            "register": register, "scale": scale, "anchors": anchors}
+            "register": register, "scale": scale, "anchors": anchors, "apps": app_layer}
 
 
 # --------------------------------------------------------------------------- detect (pure)
@@ -201,6 +209,13 @@ def detect(prev: dict, curr: dict) -> list:
                                 as_of, "reported", "medium", e.get("source") or "register",
                                 f"{brand} EXITED {mkt}"))
 
+    # ---- apps: a brand's first verified US app (a DTC-commitment signal) ----
+    for brand, rec in curr.get("apps", {}).items():
+        if brand not in prev.get("apps", {}):
+            out.append(_evt(brand, "app_shipped", "app", None, rec.get("app_name"), as_of,
+                            "measured", "high", "Apple App Store (US)",
+                            f"{brand} shipped a US app: {rec.get('app_name')} ({rec.get('kind')})"))
+
     # ---- scale: home-market store-count changes ----
     for brand, e in curr.get("scale", {}).items():
         was = prev.get("scale", {}).get(brand)
@@ -269,7 +284,8 @@ def _slim(snap: dict) -> dict:
             "register": {b: {m: {"status": e.get("status")} for m, e in mk.items()}
                          for b, mk in snap.get("register", {}).items()},
             "scale": {b: {"total": e.get("total")} for b, e in snap.get("scale", {}).items()},
-            "anchors": {b: list(a) for b, a in snap.get("anchors", {}).items()}}
+            "anchors": {b: list(a) for b, a in snap.get("anchors", {}).items()},
+            "apps": list(snap.get("apps", {}))}
 
 
 def run_detect(con=None, log_path: str = EVENT_LOG, baseline_path: str = BASELINE) -> list:
@@ -344,6 +360,7 @@ def digest(events, lens: dict = None, since: str = None, title: str = "CFC alert
     for e in evs:
         by_kind.setdefault(e.get("kind"), []).append(e)
     labels = {"entered_us": "🇺🇸 New US entrants", "market_entered": "🌏 New abroad markets",
+              "app_shipped": "📱 New US apps",
               "outlet_opened": "➕ Outlets opened", "outlet_closed": "➖ Outlets closed",
               "market_exited": "↩︎ Market exits", "scale_changed": "📈 Home-market scale changes",
               "new_filing": "📄 New filings"}

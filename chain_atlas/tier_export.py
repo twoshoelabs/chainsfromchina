@@ -145,6 +145,8 @@ _TABLES = {
                           "operating_model", "fdd_year", "fdd_invest_low", "fdd_invest_high",
                           "litigation", "bankruptcy"]),
     "narrative": ("pro", ["brand", "history", "popular_items", "notes", "source", "confidence"]),
+    "apps":      ("pro", ["brand", "us_app", "kind", "platforms", "app_name", "developer", "ios_url",
+                         "android_url", "ratings_n", "confidence", "as_of"]),
     "events":    ("pro", ["id", "brand", "kind", "dimension", "key", "before", "after", "as_of",
                          "detected_at", "provenance_tier", "confidence", "source", "headline"]),
 }
@@ -257,6 +259,14 @@ def dataset(con, tier: str, brands=None) -> dict:
                                             "fdd_year": fd.get("year"), "fdd_invest_low": inv[0],
                                             "fdd_invest_high": inv[1], "litigation": fd.get("litigation"),
                                             "bankruptcy": fd.get("bankruptcy")})
+        if "apps" in tables:
+            ua = (sl.get("structure") or {}).get("us_app")
+            if ua:
+                tables["apps"].append({"brand": b, "us_app": ua.get("us_app"), "kind": ua.get("kind"),
+                                       "platforms": _j(ua.get("platforms")), "app_name": ua.get("app_name"),
+                                       "developer": ua.get("developer"), "ios_url": ua.get("ios_url"),
+                                       "android_url": ua.get("android_url"), "ratings_n": ua.get("ratings_n"),
+                                       "confidence": ua.get("confidence"), "as_of": ua.get("as_of")})
         if "narrative" in tables:
             n = sl.get("narrative") or {}
             if n:
@@ -295,6 +305,10 @@ def _aggregates(tier: str, tables: dict) -> dict:
         agg["outlets_by_sector"][sec] = agg["outlets_by_sector"].get(sec, 0) + (b.get("us_outlets") or 0)
     if "abroad" in tables:
         agg["abroad_markets"] = len({r["market"] for r in tables["abroad"] if r.get("market")})
+    if "apps" in tables:
+        agg["us_apps"] = {"total": len(tables["apps"]),
+                          "own": sum(1 for r in tables["apps"] if r.get("kind") == "own"),
+                          "platform": sum(1 for r in tables["apps"] if r.get("kind") == "platform")}
     if "events" in tables:                       # time-series rollups (pro+ only)
         cutoff = (date.today() - timedelta(days=90)).isoformat()
         recent = [e for e in tables["events"] if (e.get("detected_at") or "")[:10] >= cutoff]

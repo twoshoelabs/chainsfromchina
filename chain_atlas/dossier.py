@@ -125,6 +125,8 @@ def _structure(con, brand: str) -> dict:
                    "parent_zh": listing.get("group_zh"), "sisters": listing.get("sisters"),
                    "china_a_share": bool(listing.get("mainland")), "ir": listing.get("ir")}
     operating_model = _load("register.json").get("chains", {}).get(brand, {}).get("operating_model")
+    from . import apps
+    us_app = apps.record_of(brand)
     fdd = None
     try:
         row = con.execute(
@@ -143,7 +145,7 @@ def _structure(con, brand: str) -> dict:
                    "bankruptcy": (items.get("item4") or {}).get("has_bankruptcy")}
     except Exception:                                            # noqa: BLE001
         pass
-    return {"listing": listing, "operating_model": operating_model, "fdd": fdd}
+    return {"listing": listing, "operating_model": operating_model, "fdd": fdd, "us_app": us_app}
 
 
 def _narrative(brand: str) -> dict:
@@ -263,7 +265,11 @@ def render_markdown(d: dict) -> str:
         for lbl, v in (("Litigation disclosed", f["litigation"]), ("Prior bankruptcy", f["bankruptcy"])):
             if v:
                 L.append(f"- {lbl}: yes")
-    if not st.get("operating_model") and not st["listing"] and not st["fdd"]:
+    if st.get("us_app"):
+        ap = st["us_app"]
+        L.append(f"- US app: **{ap.get('app_name')}** ({ap.get('kind')}, {'/'.join(ap.get('platforms') or [])}) "
+                 f"— {ap.get('developer')}{conf(ap.get('confidence'))}")
+    if not st.get("operating_model") and not st["listing"] and not st["fdd"] and not st.get("us_app"):
         L.append("_No listing, operating-model or FDD data on file._")
 
     n = d["narrative"]
