@@ -20,7 +20,7 @@
   "the `financial_anchors` table (measured) and `china_stores.json` (counts). This file is prose.",
   "Validate with `python -m chain_atlas dossiers`."
  ],
- "as_of": "2026-10-07",
+ "as_of": "2026-10-15",
  "brands": {
   "mixue": {
    "history": {
@@ -87,6 +87,111 @@
      "as_of": "2026",
      "confidence": "high",
      "source": "brand storefronts / HKEX filing"
+    }
+   ]
+  },
+  "popmart": {
+   "history": {
+    "text": "Founded 2010 in Beijing by Wang Ning as a general variety/trinket shop; pivoted toward designer-toy blind boxes around 2014-2016, with the 2016 Molly blind-box collaboration (artist Kenny Wong) marking the turn into IP-driven collectibles. Listed on HKEX in Dec 2020 (9992.HK).",
+    "as_of": "2026-10-15",
+    "source": "company-history press profiles (brandwiki, NBC/Forbes coverage of Wang Ning)",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "LABUBU (The Monsters series)",
+     "note": "the chain's global breakout IP; press reporting on FY2024 results tied ~US$423M of group revenue to Labubu dolls, +729% YoY",
+     "as_of": "2026-10-15",
+     "source": "press (NBC-affiliate business coverage)",
+     "confidence": "medium"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Founder/chairman/CEO Wang Ning holds ~48.7% of the company; Forbes put his net worth at ~US$22.7bn in June 2025, China's 10th richest person at the time.",
+     "as_of": "2026-10-15",
+     "source": "press (Forbes-sourced reporting)",
+     "confidence": "medium"
+    }
+   ]
+  },
+  "luckin": {
+   "history": {
+    "text": "Founded Oct 2017 (Beijing, later headquartered Xiamen) by Qian Zhiya (Jenny Qian) and Lu Zhengyao (Charles Lu); built on a mobile-order, cashier-light kiosk model to undercut Starbucks on price. A 2020 accounting scandal (then-COO Jian Liu found to have fabricated ~RMB2.2bn/US$314M in 2019 sales) led to a Nasdaq delisting; the company rebuilt and in June 2023 overtook Starbucks by store count in China.",
+    "as_of": "2026-10-15",
+    "source": "press/company-history coverage (business press)",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "Coconut Latte (椰云拿铁)",
+     "note": "flagship hit drink; press reporting described peak sales near 2 million cups/day",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "medium"
+    },
+    {
+     "name": "Brown Sugar Boba Latte / Cheese Latte",
+     "note": "recurring China-market bestsellers",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "medium"
+    }
+   ]
+  },
+  "haidilao": {
+   "history": {
+    "text": "Founded 1994 in Jianyang, Sichuan, by Zhang Yong (with Shi Yonghong, Shu Ping and Li Haiyan); grew from a four-table storefront into one of the world's largest hot pot chains, known for highly attentive, theatrical tableside service. First overseas restaurant opened at Clarke Quay, Singapore, in 2012; North America operations now run through the separately listed Super Hi International (HKEX 9658 / Nasdaq HDL).",
+    "as_of": "2026-10-15",
+    "source": "press/company-history coverage (business press)",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "Sichuan-style hot pot broths (mala spicy + milder options)",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "medium"
+    },
+    {
+     "name": "Tableside hand-pulled noodle dance",
+     "note": "signature service theater (not a dish), the chain's best-known table-side ritual",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "medium"
+    }
+   ]
+  },
+  "chagee": {
+   "history": {
+    "text": "Founded Nov 2017 in Kunming, Yunnan, by Zhang Junjie, who trained at a local tea-shop chain (Dawei Milk Tea) from 2010; the Chinese name 霸王茶姬 references the opera Farewell My Concubine. Headquarters later moved toward Chengdu (dual-HQ setup, with overseas operations managed from Shanghai). Listed on Nasdaq (CHA) via a 2025 20-F.",
+    "as_of": "2026-10-15",
+    "source": "company's own site + press",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "Jasmine Green Milk Tea / Boya Juexian (伯牙绝弦)",
+     "note": "the chain's signature no-boba, tea-forward bestseller; company states over 100 million cups sold per year",
+     "as_of": "2026-10-15",
+     "source": "company statement via press",
+     "confidence": "medium"
+    }
+   ],
+   "flagship_outlets": [
+    {
+     "name": "Bangkok 74th-floor store",
+     "city": "Bangkok",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "low"
+    },
+    {
+     "name": "Paris pop-up (2024 Olympics)",
+     "city": "Paris",
+     "as_of": "2026-10-15",
+     "source": "press",
+     "confidence": "low"
     }
    ]
   }

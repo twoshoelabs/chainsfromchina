@@ -241,6 +241,16 @@
     "markets": "",
     "note": "Crab + seafood hotpot; HK IPO",
     "source": "https://news.futunn.com/en/post/12184806/"
+   },
+   {
+    "name": "First Lamb Shabu / 老诚一锅",
+    "name_zh": "老诚一锅",
+    "hq": "Beijing",
+    "china_stores": "~131 Beijing + ~58 other-China (mostly franchise)",
+    "status": "us_exited",
+    "markets": "China (Beijing); US EXITED — Flushing + East Village NYC, both closed",
+    "note": "Beijing lamb-spine (羊蝎子) hot pot chain that opened two NYC stores and closed both (logged in closings.json). WATCH for a credible US REOPENING. The name 老诚一锅 is heavily counterfeited in China; the US operation (laochengyiguo.us) was the real Beijing brand.",
+    "source": "https://commercialobserver.com/2018/04/beijing-based-hot-pot-chain-opening-second-u-s-location-in-east-village/"
    }
   ],
   "Malatang & skewers": [
@@ -609,6 +619,16 @@
     "markets": "",
     "note": "Duck / 卤味",
     "source": "https://m.lejucaijing.com/news-7240687275272239003.html"
+   },
+   {
+    "name": "Caoshiyabo / Cao's Duck Neck",
+    "name_zh": "曹氏鸭脖",
+    "hq": "Changsha, Hunan / Chengdu (contested)",
+    "china_stores": "~2,000+ franchise",
+    "status": "registered",
+    "markets": "Malaysia (KL, Selangor, Johor)",
+    "note": "In the Global register (MY present, medium confidence). CONTESTED brand — multiple China entities (成都团结曹氏, 成都蜀湘曹氏, 湖南曹氏鸭脖), no single parent asserted; the 'Caoshiyabo Malaysia' operation's parent is unconfirmed. WATCH for a credible US entry.",
+    "source": "https://www.foodaily.com/articles/37250"
    }
   ],
   "Bakery & dessert": [

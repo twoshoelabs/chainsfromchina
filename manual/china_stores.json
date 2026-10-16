@@ -2,7 +2,7 @@
  "_readme": [
   "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with China/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
  ],
- "as_of": "2026-10-05",
+ "as_of": "2026-10-15",
  "brands": {
   "mixue": {
    "china": 55356,
@@ -55,20 +55,20 @@
    "note": "1,288 self-op + 358 franchise; China-focused, overseas not split out"
   },
   "chabaidao": {
-   "china": 8395,
-   "overseas": 14,
-   "total": 8409,
-   "as_of": "2024-12-31",
-   "source": "ChaPanda FY2024 annual report (HKEX:2555)",
-   "confidence": "high"
+   "china": 8621,
+   "overseas": 38,
+   "total": 8659,
+   "as_of": "2025-12-31",
+   "source": "ChaPanda FY2025 Annual Report (HKEX:2555, 24 Apr 2026)",
+   "confidence": "high",
+   "note": "overseas: 18 South Korea, 5 Malaysia, 3 Singapore, 3 Thailand, 2 Australia, 1 Hong Kong, 2 Macau, 2 France, 1 Spain, 1 United States — supersedes the FY2024 china:8395/overseas:14/total:8409 row"
   },
   "aunteajenny": {
-   "overseas": 1,
-   "total": 9176,
-   "as_of": "2024-12-31",
-   "source": "Auntea Jenny IPO prospectus FY2024 (HKEX:2589)",
-   "confidence": "high",
-   "note": "9,152 franchise + 24 self-op; overseas = 1 (Kuala Lumpur)"
+   "total": 11449,
+   "as_of": "2025-12-31",
+   "source": "press coverage of Auntea Jenny FY2025 results announcement (HKEX:2589, ~Mar 2026); not independently verified against the primary PDF this run",
+   "confidence": "medium",
+   "note": "26 direct + 11,423 franchise; +24.8% vs 9,176 at end-2024; 45 overseas stores opened during 2025 (US/South Korea/Malaysia) — supersedes the FY2024 overseas:1/total:9176 row"
   },
   "taier": {
    "china": 465,
@@ -80,25 +80,25 @@
    "note": "Tai Er brand; Jiumaojiu group 644 restaurants"
   },
   "semir": {
-   "total": 8325,
-   "as_of": "2024-12-31",
-   "source": "Semir FY2024 annual report (SZSE:002563)",
-   "confidence": "high",
-   "note": "980 direct + 7,260 franchise + 85 concession; 100+ HK/overseas; incl. Balabala"
+   "total": 7931,
+   "as_of": "2025-12-31",
+   "source": "press (36Kr/TMTPost) citing Semir FY2025 annual report (SZSE:002563); not independently verified against primary filing text this run",
+   "confidence": "medium",
+   "note": "Balabala ~5,255 + Semir adult ~2,676 brand-level; may exclude concession counters in the prior FY2024 total (8,325, incl 85 concession + 100+ HK/overseas) — not directly comparable; supersedes that row pending primary verification"
   },
   "bestore": {
-   "china": 2704,
-   "as_of": "2024-12-31",
-   "source": "Bestore FY2024 annual report (SSE:603719)",
-   "confidence": "high",
-   "note": "1,033 direct + 1,671 franchise; all China"
+   "total": 2107,
+   "as_of": "2025-12-31",
+   "source": "brokerage research note (Everbright Securities) citing Bestore FY2025 annual report (SSE:603719); not independently verified against primary filing text this run",
+   "confidence": "medium",
+   "note": "-597 net vs 2024 (248 franchise + 349 direct closures); net loss RMB -147.65M is primary-confirmed; this store figure is secondary — supersedes the FY2024 china:2704 row pending primary verification"
   },
   "mglife": {
-   "china": 741,
-   "as_of": "2024-12-31",
-   "source": "M&G FY2024 annual report (SSE:603899)",
-   "confidence": "high",
-   "note": "九木杂物社; +38 晨光生活馆; franchise model"
+   "total": 860,
+   "as_of": "2025-12-31",
+   "source": "Beijing Business Today (北京商报) citing M&G/Chenguang FY2025 annual report (SSE:603899); not independently verified against primary filing text this run",
+   "confidence": "medium",
+   "note": "Mu Wu (九木杂物社) only, up from 741 at FY2024 (晨光生活馆 sub-count not found this run) — supersedes the FY2024 china:741 row pending primary verification"
   },
   "anta": {
    "total": 9900,
@@ -143,11 +143,11 @@
    "note": "~2,118 across JNBY + sister brands (listed HKEX:3306)"
   },
   "juewei": {
-   "total": 16000,
-   "as_of": "2025",
-   "source": "company/press, via register global blurb",
-   "confidence": "medium",
-   "note": "16,000+ outlets (franchise; braised snacks)"
+   "total": 10000,
+   "as_of": "2025-12-31",
+   "source": "chairman Dai Wenjun, FY2025/Q1-2026 earnings call, 10 Jun 2026 (Jiemian/Beijing News)",
+   "confidence": "low",
+   "note": "CORRECTION: approximate FLOOR only — chairman said 'just over 10,000' (逾万家) at year-end 2025; company has not disclosed a precise store count since FY2023. SUPERSEDES the prior total:16000 figure, which looks stale/overstated (that followed the company's first annual loss since its 2017 IPO). Do NOT backfill with third-party monitoring-platform figures."
   },
   "laoxiangji": {
    "total": 1900,
@@ -316,6 +316,29 @@
    "source": "company/press, via register global blurb",
    "confidence": "medium",
    "note": "8,000+ stores (甜啦啦)"
+  },
+  "bosideng": {
+   "total": 3647,
+   "as_of": "2026-03-31",
+   "source": "Bosideng International Holdings FY2025/26 annual results (HKEX:3998, 25 Jun 2026)",
+   "confidence": "high",
+   "note": "Regular retail stores, down apparel business only (35.0% self-op / 65.0% distributor-op); excludes 1,000+ peak-season stores established during the year; no separate overseas count disclosed (overseas is mostly wholesale, per register.json)"
+  },
+  "maogeping": {
+   "china": 445,
+   "overseas": 1,
+   "total": 446,
+   "as_of": "2025-12-31",
+   "source": "Mao Geping FY2025 Annual Report (HKEX:1318)",
+   "confidence": "high",
+   "note": "412 self-operated + 33 distributor-operated counters, 131 PRC cities; +1 first Hong Kong counter (Harbour City, opened ~Oct 2025)"
+  },
+  "lining": {
+   "total": 7609,
+   "as_of": "2025-12-31",
+   "source": "Li Ning Company Limited 2025 Annual Results announcement (HKEX:2331, ~19 Mar 2026)",
+   "confidence": "high",
+   "note": "LI-NING brand (Core Brand + YOUNG) points of sale; net +24 vs year-end 2024; no separate China/overseas split (US store closed, no open overseas retail yet per register.json)"
   }
  }
 }

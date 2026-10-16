@@ -369,6 +369,90 @@
    "closed_note": "US entry-and-exit. Bobobaba is the US-customized bubble-tea line of Amanda Wang, founder of Ningji Lemon Tea (柠季, Changsha, Hunan; 3,000+ China stores; Tencent/ByteDance-backed) — China origin, in scope. This Glendale shop was her first and ONLY US outlet, opened mid-April 2026, and closed within months: Yelp lists it CLOSED (updated Sep 2026) while Google and Apple Maps show 'Temporarily closed' (observed 7 Oct 2026). With no US outlet operating, the chain is closed in the US for now — a clean enter-and-exit example. Revisit if it reopens.",
    "confidence": "confirmed",
    "source": "Yelp ('BOBOBABA - CLOSED', updated Sep 2026) + Google & Apple Maps ('Temporarily closed'), hand-noted from screenshots (7 Oct 2026); press — Chinese-tea-brands-in-US coverage (Ningji's Amanda Wang; first overseas outlet opened in LA as Bobobaba, mid-April 2026)."
+  },
+  {
+   "chain": "spiceworld",
+   "name": "Flushing (New World Mall)",
+   "address": "136-20 Roosevelt Ave, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed (operator-observed Google, Oct 2026). China-origin Chengdu hot-pot chain 香天下 / Xiang Hot Pot / Spice World (600+ outlets globally, also Sydney/Singapore); entered the US at New World Mall and exited. Not otherwise tracked (no open US outlet).",
+   "confidence": "confirmed",
+   "source": "Operator-observed Google listing (Permanently closed) + The Infatuation."
+  },
+  {
+   "chain": "hotpotlegend",
+   "name": "Rockville (Hungerford Dr)",
+   "address": "595 Hungerford Dr, Rockville, MD 20850",
+   "city": "Rockville",
+   "state": "MD",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Closed (Yelp reports this location closed, Oct 2026). First US outlet of Hot Pot Legend / 炊二哥火锅, a Chengdu hot-pot chain ('火锅世家'). Both US outlets now closed — the brand has exited the US. Not otherwise tracked.",
+   "confidence": "confirmed",
+   "source": "Yelp (location closed) + hotpotlegend.us; theburn.com reporting."
+  },
+  {
+   "chain": "hotpotlegend",
+   "name": "Ashburn (One Loudoun)",
+   "address": "20462 Exchange St, Ashburn, VA 20147",
+   "city": "Ashburn",
+   "state": "VA",
+   "opened": "2026-01",
+   "closed_on": null,
+   "closed_note": "Permanently closed (operator-observed Google, Oct 2026). Second US outlet of Hot Pot Legend / 炊二哥火锅 (Chengdu); soft-opened Jan 2026 at One Loudoun. Both US outlets now closed — brand has exited the US. Not otherwise tracked.",
+   "confidence": "confirmed",
+   "source": "Operator-observed Google listing (Permanently closed); theburn.com/patch reporting."
+  },
+  {
+   "chain": "firstlambshabu",
+   "name": "Flushing (Roosevelt Ave) — 1st US store",
+   "address": "136-72 Roosevelt Ave, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": "2017",
+   "closed_on": null,
+   "closed_note": "The brand's first US store (per Eater), now shown Permanently Closed. First Lamb Shabu 老诚一锅 is a Beijing lamb-spine (羊蝎子) hot pot chain (chairman Yan Zhichao; ~131 Beijing + ~58 other-China stores, mostly franchised) — China origin, in scope. It opened two NYC outlets and has since exited the US (no operating US store now) — a clean enter-and-exit. Note: the name 老诚一锅 is heavily counterfeited in China (trademark disputes), but the US operation (laochengyiguo.us) was press-confirmed as the Beijing brand's own expansion. Revisit if it reopens.",
+   "confidence": "confirmed",
+   "source": "Eater NY venue page ('First Lamb Shabu 老诚一锅' — Permanently Closed, ny.eater.com/venue/52213) + eattheworldnyc review (Dec 2017); Yelp (location reported closed). Hand-noted from screenshots 14 Oct 2026."
+  },
+  {
+   "chain": "firstlambshabu",
+   "name": "East Village (14th St) — 2nd US store",
+   "address": "218 E 14th St, New York, NY 10003",
+   "city": "New York",
+   "state": "NY",
+   "opened": "2019-08",
+   "closed_on": "2020-06",
+   "closed_note": "The brand's second US store, opened ~Aug 2019 (Commercial Observer called it the 'second US location' of this Beijing-based chain); closed by mid-2020 (EV Grieve, Jun 2020 — a for-rent sign went up). First Lamb Shabu 老诚一锅 is a Beijing lamb-spine (羊蝎子) hot pot chain (chairman Yan Zhichao; ~131 Beijing + ~58 other-China stores, mostly franchised) — China origin, in scope. It opened two NYC outlets and has since exited the US (no operating US store now) — a clean enter-and-exit. Note: the name 老诚一锅 is heavily counterfeited in China (trademark disputes), but the US operation (laochengyiguo.us) was press-confirmed as the Beijing brand's own expansion. Revisit if it reopens.",
+   "confidence": "confirmed",
+   "source": "Commercial Observer (Apr 2018, 'Beijing-based hot pot chain opening second US location in East Village') + EV Grieve (Jun 2020, closed); Yelp ('Yelpers report this location has closed', 3.4/17). Hand-noted from screenshots 14 Oct 2026."
+  },
+  {
+   "chain": "showminihotpot",
+   "name": "Flushing (Roosevelt Ave) — US-debut store",
+   "address": "136-72 Roosevelt Ave, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": "2025",
+   "closed_on": null,
+   "closed_note": "Show Mini Hot Pot's (秀海福) US-debut NYC store, now Permanently Closed per its Google listing (4.2 / 113 reviews). The brand's Richardson, TX store remains open, so the CHAIN is still in the US — only this Flushing location closed. NOTE: the same unit (136-72 Roosevelt Ave) previously housed First Lamb Shabu 老诚一锅, also closed — a repeat-closure storefront. China-origin Harbin golden-soup malatang chain (秀海福, 哈尔滨裕祥鼎).",
+   "confidence": "confirmed",
+   "source": "Google Business listing 'Show Mini Hot Pot New York 秀海福麻辣烫纽约店' — Permanently Closed, 4.2 / 113 reviews; storefront signage ('凡是人间最狠麻辣烫 / SHOW MINI HOT POT') confirms the brand. Hand-noted from screenshots 14 Oct 2026."
+  },
+  {
+   "chain": "jibeichuan",
+   "name": "Orlando (Alafaya Commons)",
+   "address": "11905 E Colonial Dr, Orlando, FL 32826",
+   "city": "Orlando",
+   "state": "FL",
+   "opened": "2025",
+   "closed_on": null,
+   "closed_note": "A JiBeiChuan (季北川) Orlando outlet that opened ~Aug 2025 at Alafaya Commons (own site jibeichuanorlando.com, 57 Yelp reviews / 202 photos). Now REPORTED CLOSED but NOT independently confirmed: Yelp shows the soft community flag 'Yelpers report this location has closed' (not a Yelp/Google 'Permanently Closed' status), the jibeichuanorlando.com domain now 301-redirects, and the page was 'updated over 3 months ago'. We never tracked this store as open (it was not on the brand's jibeichuanny.com US list); logged here for completeness. Re-verify via Google 'Permanently Closed' before treating as confirmed.",
+   "confidence": "medium",
+   "source": "Yelp business page 'Ji Bei Chuan Rice Noodle & Ramen' (Orlando) — 'Yelpers report this location has closed' (hand screenshot 16 Oct 2026); What Now Orlando opening announcement (whatnow.com/?p=146597); jibeichuanorlando.com 301 redirect."
   }
  ]
 }

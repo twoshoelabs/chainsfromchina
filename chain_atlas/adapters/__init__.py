@@ -38,7 +38,10 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     FeidachuAdapter, DalongyiAdapter, ShuyiAdapter, MoreYogurtAdapter,
                     AntaAdapter, UrbanRevivoAdapter, JnbyAdapter, MeilleurMomentAdapter,
                     WallaceAdapter, ZhengxinAdapter, HiBakeAdapter, BingzAdapter, TeapulseAdapter,
-                    MakkeeAdapter, DusuAdapter)
+                    MakkeeAdapter, DusuAdapter, NanshanAdapter, JuqiAdapter, LeebaiAdapter, QuanjudeAdapter, MamaxitaAdapter, ShanchengLameiziAdapter,
+                    BingxueAdapter, WalaidaAdapter, JibeichuanAdapter, BabakehouseAdapter,
+                    ChicjocAdapter, DreameAdapter, ShowminihotpotAdapter, RolifeAdapter,
+                    NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -86,6 +89,23 @@ REGISTRY: list[Adapter] = [
     TeapulseAdapter(), # grass-jelly tea 悸动烧仙草 / Teapulse (Shanghai); ~7 NYC outlets, Wix locator — see stubs.py
     MakkeeAdapter(), # dessert soups 麦记牛奶 / Makkee Dessert (Huzhou); CA/NY/WA, Chowbus only — see stubs.py
     DusuAdapter(), # bakery 读酥世家 / Dusu Bakery (Shanghai); shop-in-shop in Temple City CA — see stubs.py
+    NanshanAdapter(), # Shenzhen hot pot 南山·熊猫烫火锅 / Nanshan Hot Pot; NY Flushing + Bayside — see stubs.py
+    JuqiAdapter(), # Beijing home-style 局气 / JUQI; Tangram Flushing — see stubs.py
+    LeebaiAdapter(), # Chengdu buns/noodles 李与白 / Lee & Bai; NY/CA/NJ — see stubs.py
+    QuanjudeAdapter(), # Beijing roast duck 全聚德 / iDEN; NYC flagship — see stubs.py
+    MamaxitaAdapter(), # Shenyang Chinese-Korean BBQ 西塔老太太 / Mama Xita; Bellevue WA — see stubs.py
+    ShanchengLameiziAdapter(), # Chongqing hot pot 山城辣妹子 / Shancheng Lameizi; SoCal + SD — see stubs.py
+    BingxueAdapter(), # Shandong tea & ice cream 冰雪时光 / BINGXUE; first US store Davis CA (2 Oct 2026) — see stubs.py
+    WalaidaAdapter(), # Hunan bullfrog restaurant 蛙来哒 / WALAIDA; Flushing NY outlet (confirmed 14 Oct 2026) — see stubs.py
+    JibeichuanAdapter(), # Hangzhou rice-noodle chain 季北川 / JiBeiChuan; NYC (3) + San Leandro CA (14 Oct 2026) — see stubs.py
+    BabakehouseAdapter(), # Yunnan bakery BA / BON APPÉTIT; Bellevue WA NA flagship (14 Oct 2026); Dubai in register — see stubs.py
+    ChicjocAdapter(), # Shanghai womenswear CHICJOC (玖赐); Fashion Island + Beverly Center CA (14 Oct 2026); Paris in register — see stubs.py
+    DreameAdapter(), # Suzhou smart-home electronics 追觅 / DREAME; US retail chain (3 CA + NJ) (14 Oct 2026) — see stubs.py
+    ShowminihotpotAdapter(), # Harbin malatang 秀海福 / Show Mini Hot Pot; Richardson TX open, Flushing NY uncertain (14 Oct 2026) — see stubs.py
+    RolifeAdapter(), # Suzhou IP-toy/lifestyle 若来 / Rolife (Robotime); ~12 US stores, 7 states (14 Oct 2026) — see stubs.py
+    NanhotpotAdapter(), # Chongqing hotpot 楠火锅 / Nan Hotpot; Bellevue WA + Plano TX (14 Oct 2026) — see stubs.py
+    HuaxiaoxiaoAdapter(), # Xinjiang fried rice noodles 花小小 / Hwa ShooShoo (Beijing 四有青年); overseas-first store Flushing NY Tangram (Feb 2025) — see stubs.py
+    ZhoumapoAdapter(), # Sichuan stir-fry 周麻婆 / Zhoumapo (Mrs. Zhou, Fuzhou Fujian); first US store Times Square NYC (lease Jan 2025) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

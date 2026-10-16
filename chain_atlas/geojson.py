@@ -144,11 +144,38 @@ def build(con, d: dict | None = None) -> dict:
     prev = outlets_asof(con, 7)                  # ~a week ago, so the homepage counter can spin up to today
     totals["prev"] = prev["outlets"]
     totals["prev_as_of"] = prev["as_of"]
+    # Extra search terms the map's hero search can match a chain by, beyond its display name: the
+    # Chinese name, any in-market trading name, and explicit aliases (e.g. "Shanghai Auntie" for
+    # 沪上阿姨 Auntea Jenny, or "Panda Hot Pot" for 熊猫烫火锅 Nanshan). Only for chains actually on
+    # the map, and keyed to the register's own filter (register.js searchStr) so map and register
+    # search match on the same terms. Terms come from BOTH the register chain record AND the adapter
+    # stub, so US-only chains (not in register.json, e.g. feidachu/nonggengji/nanshan) are covered.
+    reg_chains = d.get("chains", {})
+    try:
+        from .adapters import REGISTRY
+        admap = {a.chain_id: a for a in REGISTRY}
+    except Exception:                                            # noqa: BLE001
+        admap = {}
+    aliases = {}
+    for cid in {f["properties"]["chain"] for f in feats}:
+        c = reg_chains.get(cid) or {}
+        display = (meta.get(cid) or {}).get("name")
+        terms = [c.get("name_zh"), c.get("name_us"), c.get("name_intl")]
+        if isinstance(c.get("aliases"), list):
+            terms += c["aliases"]
+        a = admap.get(cid)
+        if a is not None:
+            terms += [getattr(a, "name_zh", None), getattr(a, "name_us", None)]
+            terms += list(getattr(a, "aliases", None) or ())
+        terms = [t for t in dict.fromkeys(terms) if t and t != display]
+        if terms:
+            aliases[cid] = terms
     return {"type": "FeatureCollection", "features": feats,
             "meta": {"collected": last["d"] if last else None,
                      "days": days["n"] if days else None,
                      "generated": gen["f"] if gen else None,
-                     "totals": totals}}
+                     "totals": totals,
+                     "aliases": aliases}}
 
 
 def export(con, out_dir, d: dict | None = None) -> dict:

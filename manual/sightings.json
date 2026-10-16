@@ -1715,6 +1715,23 @@
    ]
   },
   {
+   "chain": "heytea",
+   "supplied_on": "2026-10-11",
+   "reviewed": "2026-10-11",
+   "source": "Official @heytea.usa grand-opening post (9 Oct 2026) and the operating Google Business listing \"heytea (Harrison)\".",
+   "scope": "HEYTEA (喜茶) opened a Boston Chinatown store at 75 Harrison Ave on 9 Oct 2026 — its fifth in Greater Boston, after Allston, Back Bay, Natick Mall and Malden.",
+   "locations": [
+    {
+     "name": "HEYTEA (Boston Chinatown)",
+     "address": "75 Harrison Ave, Boston, MA 02111",
+     "confidence": "confirmed",
+     "verified_by": "@heytea.usa grand-opening post (opened 9 Oct 2026); Google listing \"heytea (Harrison)\" open, 4.8 / 56 reviews (11 Oct 2026)",
+     "lat": 42.351236,
+     "lon": -71.061373
+    }
+   ]
+  },
+  {
    "chain": "shuyi",
    "supplied_on": "2026-10-04",
    "reviewed": "2026-10-04",
@@ -1964,7 +1981,7 @@
   {
    "chain": "makkee",
    "supplied_on": "2026-10-07",
-   "reviewed": "2026-10-08",
+   "reviewed": "2026-10-16",
    "source": "Brand's own US account (Instagram @makkeedessert_usa) location list; per-store Google listings for the street addresses (hand-noted from screenshots, not scraped); local press (Mountain View Voice/Almanac; 425 Business, Bellevue).",
    "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). All 6 open outlets are mapped (incl. the DTLA / K-town store at 3450 W 6th St, which the brand runs as @makkeedessert_dtla). Irvine CA, San Jose CA and Brooklyn NY are announced (coming soon), not yet open. Not monitored.",
    "locations": [
@@ -2016,6 +2033,14 @@
      "lat": 34.063165,
      "lon": -118.297156,
      "coord_src": "manual"
+    },
+    {
+     "name": "Brooklyn (86th St)",
+     "address": "2053 86th St, Brooklyn, NY 11214",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Makkee Dessert 麦记牛奶' operating (hours posted, 'Closes soon · 10:30 PM'); newly opened — no reviews yet (operator-observed 16 Oct 2026)",
+     "lat": 40.603857,
+     "lon": -73.9968907
     }
    ]
   },
@@ -2033,6 +2058,593 @@
      "verified_by": "Press (The Infatuation LA, first US location) + Google listing (333 reviews, operating); shop-in-shop counter inside Duo Duo Snacks (7 Oct 2026).",
      "lat": 34.100934,
      "lon": -118.073663
+    }
+   ]
+  },
+  {
+   "chain": "nanshan",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "Operator-observed Google listings + the brand's own Instagram (@nanshan.hotpot).",
+   "scope": "Known US outlets of Nanshan Hot Pot (南山·熊猫烫火锅), a Shenzhen Sichuan-Chongqing hot-pot chain (panda IP) with no single US locator. Its US debut was Flushing in ~Oct 2024; a second opened in Bayside. Both in the NYC metro; not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "37-17 Prince St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 2,938 reviews (10 Oct 2026)",
+     "lat": 40.760729637631,
+     "lon": -73.832840797208
+    },
+    {
+     "name": "Bayside",
+     "address": "212-12 Northern Blvd, Bayside, NY 11361",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, ~1.4K reviews (10 Oct 2026)",
+     "lat": 40.759984991788,
+     "lon": -73.770427787763
+    }
+   ]
+  },
+  {
+   "chain": "juqi",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "Operator-observed Google listing + first-party @juqi_ny / juqiusa.com.",
+   "scope": "JUQI (局气), a Beijing home-style restaurant chain; its first US outlet, at the Tangram complex in Flushing. No national US locator; tracked via sightings.",
+   "locations": [
+    {
+     "name": "Tangram (Flushing)",
+     "address": "133-36 37th Ave G17, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing + first-party site juqiusa.com (10 Oct 2026)",
+     "lat": 40.760428184499,
+     "lon": -73.834166118165
+    }
+   ]
+  },
+  {
+   "chain": "leebai",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "Operator-observed Google listings (first-party storefront signage visible).",
+   "scope": "Known US outlets of Lee & Bai (李与白包子铺), a Chengdu buns-and-noodles chain with no single US locator: NY (Flushing, Long Island City), CA (Sunnyvale), NJ (Palisades Park). Not a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "38-09 Union St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 244 reviews (10 Oct 2026)",
+     "lat": 40.761581057004,
+     "lon": -73.827023968328
+    },
+    {
+     "name": "Long Island City",
+     "address": "42-62 Hunter St, Long Island City, NY 11101",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 62 reviews (10 Oct 2026)",
+     "lat": 40.74882728669,
+     "lon": -73.940258165278
+    },
+    {
+     "name": "Sunnyvale",
+     "address": "1661 Hollenbeck Ave, Sunnyvale, CA 94087",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 104 reviews (10 Oct 2026)",
+     "lat": 37.340111003232,
+     "lon": -122.041566211468
+    },
+    {
+     "name": "Palisades Park",
+     "address": "442 Broad Ave, Palisades Park, NJ 07650",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 147 reviews (10 Oct 2026)",
+     "lat": 40.851879366789,
+     "lon": -73.994961044702
+    }
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "Operator-observed Google listing (store not currently on usa.mollytea.com's collected locator).",
+   "scope": "A Molly Tea (茉莉奶白) outlet the daily collected feed (usa.mollytea.com) misses: San Gabriel. Hand-verified so it still maps; auto-retires if the locator later lists it.",
+   "locations": [
+    {
+     "name": "San Gabriel",
+     "address": "425 W Valley Blvd #101, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google listing, 2,593 reviews (10 Oct 2026)",
+     "lat": 34.079503707644,
+     "lon": -118.105616545459
+    }
+   ]
+  },
+  {
+   "chain": "quanjude",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "First-party site quanjude1864.com + press (CGCC, China Daily).",
+   "scope": "Quanjude (全聚德)'s US flagship, in NYC under its 'iDEN' concept. Soft-opened Jun 2025. Its North America debut (Vancouver 2020) is Canada, out of US scope.",
+   "locations": [
+    {
+     "name": "iDEN & Quanjude (Midtown)",
+     "address": "3 E 52nd St, New York, NY 10022",
+     "confidence": "confirmed",
+     "verified_by": "first-party site quanjude1864.com + press; operating since Jun 2025 soft opening (10 Oct 2026)",
+     "lat": 40.759782618589,
+     "lon": -73.976122004859
+    }
+   ]
+  },
+  {
+   "chain": "mamaxita",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "Operator-observed Google/Yelp + first-party mamaxitabbq.com.",
+   "scope": "Mama Xita BBQ (西塔老太太)'s US outlets, per its own locations page: Bellevue WA and Temple City CA. Shenyang Chinese-Korean BBQ chain (Chubby Group). Tracked via sightings.",
+   "locations": [
+    {
+     "name": "Bellevue",
+     "address": "550 106th Ave NE Ste 101, Bellevue, WA 98004",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Yelp (355 reviews) + first-party mamaxitabbq.com (10 Oct 2026)",
+     "lat": 47.615123131434,
+     "lon": -122.198839122879
+    },
+    {
+     "name": "Temple City",
+     "address": "5701 Rosemead Blvd, Temple City, CA 91780",
+     "confidence": "confirmed",
+     "verified_by": "operator-observed Google (561 reviews) + first-party mamaxitabbq.com/locations (10 Oct 2026)",
+     "lat": 34.103719520577,
+     "lon": -118.073688106799
+    }
+   ]
+  },
+  {
+   "chain": "shanchenglameizi",
+   "supplied_on": "2026-10-10",
+   "reviewed": "2026-10-10",
+   "source": "First-party site shanchenglameizi.com (one operator across US outlets) + Google/Yelp.",
+   "scope": "US outlets of Shancheng Lameizi (山城辣妹子), a Chongqing hot-pot brand, per its own US site: Rowland Heights, San Gabriel, Irvine, San Diego. Not necessarily complete.",
+   "locations": [
+    {
+     "name": "Rowland Heights",
+     "address": "18932 Gale Ave, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
+     "lat": 33.996008844977,
+     "lon": -117.889784597794
+    },
+    {
+     "name": "San Gabriel",
+     "address": "1530 S San Gabriel Blvd, San Gabriel, CA 91776",
+     "confidence": "confirmed",
+     "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
+     "lat": 34.080988995343,
+     "lon": -118.090665775159
+    },
+    {
+     "name": "Irvine",
+     "address": "14130 Culver Dr Unit L, Irvine, CA 92604",
+     "confidence": "confirmed",
+     "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
+     "lat": 33.708579354288,
+     "lon": -117.783497146955
+    },
+    {
+     "name": "San Diego",
+     "address": "4225 Convoy St, San Diego, CA 92111",
+     "confidence": "confirmed",
+     "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
+     "lat": 32.818325165605,
+     "lon": -117.154845126865
+    }
+   ]
+  },
+  {
+   "chain": "bingxue",
+   "supplied_on": "2026-10-12",
+   "reviewed": "2026-10-12",
+   "source": "Official @citydavisca / Bingxue grand-opening posts (2 Oct 2026), the Media OutReach press release, and the operating Google Business listing.",
+   "scope": "Bingxue (冰雪时光) opened its first US and North American store in downtown Davis, CA on 2 Oct 2026 (a mayor-attended grand opening). A second US store is in development on Oxnard Blvd, CA (not yet open). Not a complete roster — the US footprint is new.",
+   "locations": [
+    {
+     "name": "BINGXUE (Davis)",
+     "address": "425 2nd St, Davis, CA 95616",
+     "confidence": "confirmed",
+     "verified_by": "Grand opening 2 Oct 2026 (@citydavisca, Media OutReach press release); Google listing open, 4.5 / 15 reviews (12 Oct 2026)",
+     "lat": 38.542966,
+     "lon": -121.742976
+    }
+   ]
+  },
+  {
+   "chain": "cotti",
+   "supplied_on": "2026-10-13",
+   "reviewed": "2026-10-13",
+   "source": "Conejo Valley Guide (Oct 2026) + on-site storefront signage ('accepting applications at hr_la@cotticoffee.com').",
+   "scope": "A single ANNOUNCED, NOT-YET-OPEN Cotti Coffee in Newbury Park, CA (The Village at Newbury Park). Coming-soon watch only: the storefront sign and local-press report confirm the space is leased and hiring, but it is not open for business. Held OUT of the open count and off the map (confidence 'uncertain') until an opening is verified, at which point it is promoted to 'confirmed'.",
+   "locations": [
+    {
+     "name": "The Village at Newbury Park",
+     "address": "1025 Broadbeck Dr, Suite D, Newbury Park, CA 91320",
+     "confidence": "uncertain",
+     "verified_by": "Coming soon (announced, not open): Conejo Valley Guide + on-site 'now hiring' sign (hr_la@cotticoffee.com), 13 Oct 2026. Between Subway and the Verizon Store; ~400 ft from a Starbucks drive-thru.",
+     "lat": 34.192509,
+     "lon": -118.936571
+    }
+   ]
+  },
+  {
+   "chain": "walaida",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Operator-observed Google Business listing '蛙来哒法拉盛店 WALAIDA FLUSHING' (open; 4.2 / 140 reviews; pickup + delivery), corroborated by MapQuest and Corner (14 Oct 2026).",
+   "scope": "WALAIDA's one confirmed US outlet — a single Flushing, NY store. NOT a full US roster; the brand publishes no readable US locator. Hunan bullfrog (牛蛙) restaurant chain, China origin (Changsha).",
+   "locations": [
+    {
+     "name": "Flushing (Prince Center)",
+     "address": "135-05 Roosevelt Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing 'WALAIDA Flushing' — open, 4.2 / 140 reviews, Hunan restaurant, pickup + delivery (14 Oct 2026); MapQuest + Corner corroborate",
+     "lat": 40.759048,
+     "lon": -73.831807
+    }
+   ]
+  },
+  {
+   "chain": "jibeichuan",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-16",
+   "source": "Official US site jibeichuanny.com (lists its NYC stores) + operator-observed Google/Yelp listings for the San Leandro, CA store (14 Oct 2026).",
+   "scope": "JiBeiChuan's (季北川花胶鸡汤米粉) known US outlets — three in NYC (Flushing, Manhattan, Brooklyn) from its official US site, plus one in San Leandro, CA. NOT necessarily a complete US roster; the brand publishes no machine-readable US locator. China-origin rice-noodle chain (Hangzhou, Zhejiang).",
+   "locations": [
+    {
+     "name": "Flushing",
+     "address": "38-10 Prince St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Official US site jibeichuanny.com (lists this as one of its US stores), 14 Oct 2026",
+     "lat": 40.760054,
+     "lon": -73.83263
+    },
+    {
+     "name": "Manhattan (Chrystie St)",
+     "address": "87 Chrystie St, New York, NY 10002",
+     "confidence": "confirmed",
+     "verified_by": "Official US site jibeichuanny.com (lists this as one of its US stores), 14 Oct 2026",
+     "lat": 40.717576,
+     "lon": -73.994198
+    },
+    {
+     "name": "Brooklyn (86th St)",
+     "address": "2238 86th St, Brooklyn, NY 11214",
+     "confidence": "confirmed",
+     "verified_by": "Official US site jibeichuanny.com (lists this as one of its US stores), 14 Oct 2026",
+     "lat": 40.601295,
+     "lon": -73.992878
+    },
+    {
+     "name": "San Leandro",
+     "address": "1668 E 14th St, San Leandro, CA 94577",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing (open, 4.5 / 93 reviews) + Yelp; jbcslaz.com (14 Oct 2026)",
+     "lat": 37.722356,
+     "lon": -122.15209
+    },
+    {
+     "name": "Sacramento (Lake Crest Village)",
+     "address": "960 Florin Rd, Sacramento, CA 95831",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Ji Bei Chuan' operating (Open, 3.9 / 44 reviews), located in Lake Crest Village Shopping Center; storefront soft-opened 4 Sep 2026 (operator-observed 15 Oct 2026)",
+     "lat": 38.4958031,
+     "lon": -121.5233351
+    },
+    {
+     "name": "Jersey City (Grove St)",
+     "address": "362 Grove St, Jersey City, NJ 07302",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'JiBeiChuan Noodle&Ramen 季北川花胶鸡米线' operating (4.4/224 reviews); Chowbus ordering (operator-observed 16 Oct 2026)",
+     "lat": 40.7211006,
+     "lon": -74.0426493
+    }
+   ]
+  },
+  {
+   "chain": "babakehouse",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Operator-observed Google Business listing ('BA Bakehouse', open, 4.0 / 323 reviews) + Downtown Bellevue Network (opening Jan 2026) + the brand's own site babakery.com (14 Oct 2026).",
+   "scope": "BA Artisan Bakehouse's (BA / BON APPÉTIT) one US outlet — its North America flagship in Bellevue, WA. China-origin bakery chain (Kunming, Yunnan). No machine-readable US locator.",
+   "locations": [
+    {
+     "name": "Bellevue (Bellevue Connection)",
+     "address": "550 106th Ave NE Ste 102, Bellevue, WA 98004",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing (open, 4.0 / 323 reviews) + Downtown Bellevue Network (opened Jan 2026); North America flagship per babakery.com (14 Oct 2026)",
+     "lat": 47.615123,
+     "lon": -122.198839
+    }
+   ]
+  },
+  {
+   "chain": "chicjoc",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Official CHICJOC store locator (chicjoc.com/store-locator.html) + Fashion Island mall directory (14 Oct 2026).",
+   "scope": "CHICJOC's US outlets — both in California: Beverly Center (Los Angeles, its first overseas store, Nov 2024) and Fashion Island (Newport Beach), from its official store locator. China-origin Shanghai womenswear brand (上海玖赐, founded 2015).",
+   "locations": [
+    {
+     "name": "Beverly Center",
+     "address": "8500 Beverly Blvd Space 714, Los Angeles, CA 90048",
+     "confidence": "confirmed",
+     "verified_by": "Official CHICJOC store locator (chicjoc.com/store-locator) listing this as a US store, 14 Oct 2026; its first overseas store (Nov 2024)",
+     "lat": 34.07598,
+     "lon": -118.376658
+    },
+    {
+     "name": "Fashion Island (Newport Beach)",
+     "address": "879 Newport Center Dr Ste 879, Newport Beach, CA 92660",
+     "confidence": "confirmed",
+     "verified_by": "Official CHICJOC store locator (chicjoc.com/store-locator) listing this as a US store, 14 Oct 2026; Fashion Island directory (Suite 879)",
+     "lat": 33.616532,
+     "lon": -117.878556
+    }
+   ]
+  },
+  {
+   "chain": "dreame",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Dreame's official 'where to buy' page (dreametech.com/pages/where-to-buy) Offline Stores list (14 Oct 2026). Temporary pop-ups are excluded.",
+   "scope": "DREAME's PERMANENT US branded retail stores (its US smart-home retail chain) from its own store list: three in California + one in New Jersey. Temporary pop-ups / road-show stops are NOT included. China-origin electronics brand (追觅科技, Suzhou).",
+   "locations": [
+    {
+     "name": "Westfield Century City",
+     "address": "10250 Santa Monica Blvd unit 2385, Los Angeles, CA 90067",
+     "confidence": "confirmed",
+     "verified_by": "Dreame's own 'where to buy' list (dreametech.com/pages/where-to-buy, Offline Stores section), 14 Oct 2026",
+     "lat": 34.060013,
+     "lon": -118.419834
+    },
+    {
+     "name": "Westfield UTC (San Diego)",
+     "address": "4545 La Jolla Village Dr Suite C4, San Diego, CA 92122",
+     "confidence": "confirmed",
+     "verified_by": "Dreame's own 'where to buy' list (dreametech.com/pages/where-to-buy, Offline Stores section), 14 Oct 2026",
+     "lat": 32.873823,
+     "lon": -117.208645
+    },
+    {
+     "name": "Westfield Valley Fair (Santa Clara)",
+     "address": "2855 Stevens Creek Blvd Ste 240, Santa Clara, CA 95050",
+     "confidence": "confirmed",
+     "verified_by": "Dreame's own 'where to buy' list (dreametech.com/pages/where-to-buy, Offline Stores section), 14 Oct 2026",
+     "lat": 37.323415,
+     "lon": -121.944779
+    },
+    {
+     "name": "Garden State Plaza (Paramus)",
+     "address": "1 Garden State Plaza, Paramus, NJ 07652",
+     "confidence": "confirmed",
+     "verified_by": "Dreame's own 'where to buy' list (dreametech.com/pages/where-to-buy, Offline Stores section), 14 Oct 2026; first US East Coast store (Dec 2025). Coordinates are a manual mall-centroid override (Census had no match).",
+     "lat": 40.9207,
+     "lon": -74.0754
+    }
+   ]
+  },
+  {
+   "chain": "showminihotpot",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Brand site showminihotpot.com (store list) + Yelp / Uber Eats / Snackpass for Richardson; Yelp for Flushing (14 Oct 2026).",
+   "scope": "Show Mini Hot Pot's (秀海福) US presence. Richardson, TX is CONFIRMED open. Its Flushing, NY US-debut store (136-72 Roosevelt Ave) is now PERMANENTLY CLOSED (logged in closings.json) — the brand's Richardson store keeps the chain in the US. San Gabriel CA (a Tawa Gateway tenant listing) is NOT on the brand's own site and is excluded; other US cities are announced coming-soon. China-origin Harbin malatang chain.",
+   "locations": [
+    {
+     "name": "Richardson (CityLine)",
+     "address": "1251 State St #800, Richardson, TX 75082",
+     "confidence": "confirmed",
+     "verified_by": "Yelp ('Show Mini Hot Pot', ~4.3 / 55 reviews) + Uber Eats (4.2 / 72) + Snackpass ordering + brand site posted hours (14 Oct 2026)",
+     "lat": 33.001313,
+     "lon": -96.700246
+    }
+   ]
+  },
+  {
+   "chain": "rolife",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-16",
+   "source": "Rolife's official 'where to buy' store list (rolifeonline.com/pages/retail-store, USA tab shows 12 stores), 14 Oct 2026. International stores and temporary/announced locations excluded.",
+   "scope": "Rolife's (若来, Robotime) US branded retail stores — the 12 permanent US stores on its own store list, across MA, CA, WA, NJ, TX, NY and VA. A Mall of America flagship was announced (Sep 2026) but is not yet on the brand's store list, so it is not counted. China-origin IP-toy/lifestyle chain (Suzhou).",
+   "locations": [
+    {
+     "name": "South Shore Plaza (Braintree)",
+     "address": "250 Granite St, Braintree, MA 02184",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 42.220851,
+     "lon": -71.028401
+    },
+    {
+     "name": "Irvine Spectrum Center",
+     "address": "670 Spectrum Center Dr Suite 751, Irvine, CA 92618",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026; coords are a manual mall-centroid override (Census no match)",
+     "lat": 33.6497,
+     "lon": -117.7447
+    },
+    {
+     "name": "Alderwood Mall (Lynnwood)",
+     "address": "3000 184th St SW Suite 0918, Lynnwood, WA 98037",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 47.831707,
+     "lon": -122.274529
+    },
+    {
+     "name": "Westfield Southcenter (Tukwila)",
+     "address": "2800 Southcenter Mall Store 1240, Tukwila, WA 98188",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 47.458687,
+     "lon": -122.262418
+    },
+    {
+     "name": "Westfield Topanga (Canoga Park)",
+     "address": "6600 Topanga Canyon Blvd Suite 2067, Canoga Park, CA 91303",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 34.189744,
+     "lon": -118.605749
+    },
+    {
+     "name": "American Dream (East Rutherford)",
+     "address": "1 American Dream Way B108, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026; coords are a manual mall-centroid override (Census no match)",
+     "lat": 40.8109,
+     "lon": -74.0688
+    },
+    {
+     "name": "Galleria Dallas",
+     "address": "13350 Dallas Pkwy Ste 2230A, Dallas, TX 75240",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Rolife' operating, located in Galleria Dallas (5.0/1, Opens 10AM); brand locator names this store 'Rolife Galleria Dallas' but lists a stale/wholesale address (7410 Ambassador Row, Dallas Market Center district) — corrected to the actual mall retail address per Google (operator-observed 16 Oct 2026)",
+     "lat": 32.9305062,
+     "lon": -96.8209979
+    },
+    {
+     "name": "Palisades Center (West Nyack)",
+     "address": "1000 Palisades Center Dr, West Nyack, NY 10994",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 41.095552,
+     "lon": -73.959041
+    },
+    {
+     "name": "Westfield Valley Fair (Santa Clara)",
+     "address": "2855 Stevens Creek Blvd Suite 1305, Santa Clara, CA 95050",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 37.323415,
+     "lon": -121.944779
+    },
+    {
+     "name": "Fashion Centre at Pentagon City (Arlington)",
+     "address": "1100 S Hayes St, Arlington, VA 22202",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 38.864234,
+     "lon": -77.059032
+    },
+    {
+     "name": "Newbury Street (Boston)",
+     "address": "218 Newbury St Unit 1, Boston, MA 02116",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 42.349966,
+     "lon": -71.080891
+    },
+    {
+     "name": "Sherman Oaks",
+     "address": "14006 Riverside Dr Suite 263, Sherman Oaks, CA 91423",
+     "confidence": "confirmed",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "lat": 34.157551,
+     "lon": -118.437093
+    },
+    {
+     "name": "Mall of America (Bloomington)",
+     "address": "60 E Broadway Suite E285, Bloomington, MN 55425",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Rolife Mall of America' operating (5.0 / 128 reviews); its MOA flagship, previously held out, now confirmed open (operator-observed 15 Oct 2026)",
+     "lat": 44.8537072,
+     "lon": -93.2393456
+    },
+    {
+     "name": "Christiana Mall (first US store)",
+     "address": "132 Christiana Mall #748, Newark, DE 19702",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Rolife Christiana Mall' operating (4.9/119 reviews, toy store, located in Christiana Mall); Rolife's own grand-opening press release (rolifeus.com) — its FIRST US store, opened 18 Nov 2024 (operator-observed 16 Oct 2026)",
+     "lat": 39.6806089,
+     "lon": -75.6514642
+    },
+    {
+     "name": "Westfield Galleria at Roseville",
+     "address": "1151 Galleria Blvd Ste 259B, Roseville, CA 95678",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Rolife' operating (Open, 4.8/72 reviews, gift shop, located in Westfield Galleria at Roseville); brand locator listed this store under a wrong/duplicate (Irvine) address — corrected to the Google address (operator-observed 16 Oct 2026)",
+     "lat": 38.7738908,
+     "lon": -121.2697546
+    },
+    {
+     "name": "Great Mall (Milpitas)",
+     "address": "447 Great Mall Dr Ste 192, Milpitas, CA 95035",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Rolife' operating (Open, 4.8/48 reviews, gift shop, located in Great Mall); brand locator listed this store under a wrong/duplicate (Alderwood) address — corrected to the Google address (operator-observed 16 Oct 2026)",
+     "lat": 37.4164279,
+     "lon": -121.8948551
+    }
+   ]
+  },
+  {
+   "chain": "nanhotpot",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Google Business + Yelp for both stores; 央广网 (overseas-first store in Seattle, 2023); brand operator sites nanhotpotseattle.com + nanhotpottx.com (14 Oct 2026).",
+   "scope": "Nan Hotpot's (楠火锅) US outlets — Bellevue, WA (its overseas-first store, 2023) and Plano, TX. 楠火锅 is a China-origin Chongqing hotpot chain (590–600+ stores) that franchises/co-operates abroad via a North America division. The US stores use per-market operator sites and a navy logo variant (official is orange) and make no explicit 'official' claim, so they appear AUTHORIZED but identity is NOT independently confirmed; both are confirmed OPERATING.",
+   "locations": [
+    {
+     "name": "Bellevue (Crossroads) — Seattle",
+     "address": "15600 NE 8th St Ste O18, Bellevue, WA 98008",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Nan Hot Pot' (open, 4.5 / 686 reviews) + Yelp (4.1 / 99); 央广网 reports it as 楠火锅's overseas-first store (Mar 2023). nanhotpotseattle.com (14 Oct 2026)",
+     "lat": 47.6191171,
+     "lon": -122.1304611
+    },
+    {
+     "name": "Plano (N Central Expy)",
+     "address": "2380 N Central Expy, Plano, TX 75074",
+     "confidence": "confirmed",
+     "verified_by": "Google/Yelp 'Nan Hot Pot' operating (46 reviews); brand operator site nanhotpottx.com; same name/tagline/logo + Bishan-Chongqing origin story as the real 楠火锅 (14 Oct 2026)",
+     "lat": 33.0035569,
+     "lon": -96.7074149
+    }
+   ]
+  },
+  {
+   "chain": "huaxiaoxiao",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Google Business 'Hwa ShooShoo Xinjiang Fried Rice Noodles' (Tangram, Flushing); brand material (Zhihu/Baidu Baike) documenting the NY store as 花小小's overseas-first store (Feb 2025).",
+   "scope": "Hwa ShooShoo's (花小小 新疆炒米粉) sole confirmed US outlet — Flushing, NY (Tangram food court). 花小小 is a China-origin Xinjiang fried-rice-noodle fast-casual chain (~3,500–4,000+ stores; HQ Beijing, 四有青年餐创集团). The Flushing store is the brand's documented overseas-first store (Feb 2025) and carries the genuine brand identity (red plum-blossom chef-girl seal + HWA SHOOSHOO / 新疆炒米粉); confirmed OPERATING. US scale beyond this one store not yet independently confirmed.",
+   "locations": [
+    {
+     "name": "Flushing (Tangram food court)",
+     "address": "37-09 College Point Blvd, FH 14 (food court), Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Google Business 'Hwa ShooShoo Xinjiang Fried Rice Noodles' operating (4.6 / 134 reviews), located in Tangram; brand's own content reports it as 花小小's overseas-first store (Feb 2025); storefront signage matches the genuine brand identity (14 Oct 2026)",
+     "lat": 40.7601185,
+     "lon": -73.8348018
+    }
+   ]
+  },
+  {
+   "chain": "zhoumapo",
+   "supplied_on": "2026-10-14",
+   "reviewed": "2026-10-14",
+   "source": "Commercial Observer (24 Jan 2025) on Zhoumapo's first US lease at 728 Eighth Ave; Google Business 'Mapo Asian restaurant & Bar -Time Square 周麻婆'; brand US site mapoasianbartimesquare.com / mapousa.com.",
+   "scope": "Zhoumapo's (周麻婆) first US outlet — Times Square, NYC (728 8th Ave), trading as 'Mapo Asian Restaurant & Bar — Time Square 周麻婆'. 周麻婆 is a China-origin (Fuzhou, Fujian) fast-casual Sichuan stir-fry chain (~300 stores) that repositioned upmarket as a full restaurant & bar for this flagship but carries the genuine 周麻婆 / Mrs. Zhou name and grandma logo. Confirmed OPERATING; US scale beyond this one store not yet established.",
+   "locations": [
+    {
+     "name": "Times Square (728 8th Ave)",
+     "address": "728 8th Ave, New York, NY 10036",
+     "confidence": "confirmed",
+     "verified_by": "Commercial Observer (24 Jan 2025): Zhoumapo signed a 10-year lease for its first US location here; Google Business 'Mapo Asian restaurant & Bar -Time Square 周麻婆' open, 4.5 / 302 reviews; brand US sites mapoasianbartimesquare.com + mapousa.com (14 Oct 2026)",
+     "lat": 40.7592738,
+     "lon": -73.988223
     }
    ]
   }

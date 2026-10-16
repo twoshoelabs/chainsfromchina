@@ -48,6 +48,18 @@ const MONOGRAM = {
   xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
   jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
   moge: 'MG', moreyogurt: 'MG', baospastry: 'BP', wallace: 'WA', zhengxin: 'ZX', hibake: 'HB',
+  nanshan: 'NS', juqi: 'JQ', leebai: 'LB', quanjude: 'QJ', mamaxita: 'XT', shanchenglameizi: 'SL',
+  bingxue: 'BX',
+  walaida: 'WL',
+  jibeichuan: 'JB',
+  babakehouse: 'BA',
+  chicjoc: 'CJ',
+  dreame: 'DR',
+  showminihotpot: 'SH',
+  rolife: 'RL',
+  nanhotpot: 'NH',
+  huaxiaoxiao: 'HS',
+  zhoumapo: 'ZM',
 };
 
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
@@ -57,7 +69,18 @@ const LOGO_CHAINS = new Set([
   'dusu', 'feidachu', 'fishwithyou', 'grandmashome', 'haidilao', 'happylamb', 'heytea', 'jnby', 'juewei', 'lelecha', 'liuyishou',
   'luckin', 'makkee', 'malubianbian', 'meilleurmoment', 'meizhoudongpo', 'miniso', 'mixue', 'moge', 'mollytea', 'moreyogurt',
   'nayuki', 'nonggengji', 'popmart', 'shudaxia', 'shuyi', 'taier', 'teapulse', 'toptoy', 'toys52', 'urbanrevivo', 'xiaolongkan',
-  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake',
+  'xibei', 'xijiade', 'yangguofu', 'yangs', 'zhangliang', 'wallace', 'zhengxin', 'hibake', 'nanshan', 'leebai', 'juqi', 'quanjude', 'shanchenglameizi',
+  'bingxue',
+  'walaida',
+  'jibeichuan',
+  'babakehouse',
+  'chicjoc',
+  'dreame',
+  'showminihotpot',
+  'rolife',
+  'nanhotpot',
+  'huaxiaoxiao',
+  'zhoumapo',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
@@ -66,6 +89,10 @@ const BADGE = 64;         // logical badge diameter (px); device size = BADGE * 
 // changes only when an icon file changes), so a brand's new logo shows on a normal reload instead of
 // needing a hard refresh. Empty locally, which is fine (the query is just ignored).
 const ICONV = (typeof window !== 'undefined' && window.CFC_ICON_V) || '';
+// Data cache-bust suffix, same idea for the JSON/GeoJSON the page fetches: deploy.sh stamps a hash
+// of the data files, so a fresh census (or a new register alias) loads on a normal reload. Empty
+// locally. Appended to every data fetch below.
+const DATAV = (typeof window !== 'undefined' && window.CFC_DATA_V) || '';
 
 // Load a brand's logo PNG (icons/<chain>.png). Resolves to an Image, or null if there is none.
 function loadLogo(chain) {
@@ -383,7 +410,10 @@ async function init() {
   if (tallyEl) tallyEl.innerHTML = '<div class="tally-skel">' + '<div class="skelrow"></div>'.repeat(7) + '</div>';
 
   // Fetch our data once; we reuse it for the source, the per-brand icons, and the count line.
-  const fc = await fetch('data/stores.geojson').then((r) => r.json());
+  const fc = await fetch('data/stores.geojson' + DATAV).then((r) => r.json());
+  // Alternate search terms per chain (Chinese name, in-market names, aliases like "Shanghai Auntie")
+  // so the hero search finds a brand by more than its display name — the register filter's twin.
+  window.CHAIN_ALIASES = (fc.meta && fc.meta.aliases) || {};
   if (loadingEl) {
     const n = (fc.meta && fc.meta.totals && fc.meta.totals.mapped) || fc.features.length;
     loadingEl.textContent = `Loading ${n.toLocaleString()} outlets…`;
@@ -426,11 +456,11 @@ async function init() {
   const logos = await Promise.all(chains.map((c) => (LOGO_CHAINS.has(c) ? loadLogo(c) : Promise.resolve(null))));
   chains.forEach((c, i) => { LOGO_PRESENT[c] = !!logos[i]; });
   // State outlines power the Alaska/Hawaii insets (each masked to its own shape).
-  const statesFC = await fetch('us-states.geojson').then((r) => r.json()).catch(() => null);
+  const statesFC = await fetch('us-states.geojson' + DATAV).then((r) => r.json()).catch(() => null);
   try { buildInsets(document.getElementById('map'), insetStyle, statesFC, fc); }
   catch (e) { console.warn('AK/HI insets skipped', e && e.message); }
 
-  map.on('load', () => {
+  const onMapLoad = () => {
     // Register a per-brand badge (solid "open" + dashed "soft" variant). addImage requires the
     // style to be loaded, so it happens here, not before.
     chains.forEach((c, i) => {
@@ -541,7 +571,14 @@ async function init() {
     setupToolbar(map);
     restoreFromURL(map);
     map.once('idle', () => { if (loadingEl) { loadingEl.remove(); loadingEl = null; } });
-  });
+  };
+  // Guard against a MISSED 'load' event. The awaits above (brand logos, us-states.geojson) can let
+  // the map finish loading BEFORE this point is reached, in which case on('load') would attach too
+  // late and never fire — the 'stores' source is never added and the map renders the basemap with
+  // no pins (intermittent: it only blanks when the basemap wins the race against the logo fetches).
+  // So run the setup now if the map is already loaded, otherwise wait for load. (The AK/HI insets
+  // were never affected because each registers its load handler synchronously at creation.)
+  if (map.loaded()) onMapLoad(); else map.on('load', onMapLoad);
 }
 
 // ---- Place panel ----------------------------------------------------------------------------
@@ -579,7 +616,7 @@ function openPlacePanel(coords, leaves) {
     const p = l.properties;
     const sq = '';                              // one shape for every outlet (no counted/hand split)
     const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
-    return `<a class="pp-row" href="chain.html?c=${esc(p.chain)}">` +
+    return `<a class="pp-row" href="chain/${esc(p.chain)}/">` +
       `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
       `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
   }).join('');
@@ -635,7 +672,9 @@ function cfcCopyPlace(btn) {
 // ---- Search: grouped suggestions (Places / Shopping centers / Chains) ------------------------
 function buildSearchIndex() {
   const meta = window.CHAIN_META || {};
-  const chains = Object.keys(meta).map((id) => ({ type: 'chain', id, name: meta[id].name, sector: meta[id].sector }));
+  const alt = window.CHAIN_ALIASES || {};
+  const chains = Object.keys(meta).map((id) => ({ type: 'chain', id, name: meta[id].name, sector: meta[id].sector,
+    alt: (alt[id] || []).join(' ') }));
   const cityMap = {};
   for (const f of FULL_FC.features) {
     const p = f.properties; if (!p.city || !p.state) continue;
@@ -674,8 +713,15 @@ function setupSearch(map) {
   let opts = [], sel = -1;
 
   const close = () => { panel.hidden = true; box.setAttribute('aria-expanded', 'false'); sel = -1; };
-  const matchIn = (arr, q) => arr.filter((o) => o.name.toLowerCase().includes(q))
-    .sort((a, b) => a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q));
+  // Match a chain by its display name OR its alternate terms (Chinese name, in-market names,
+  // aliases). Rank by the earliest position the query appears across either, so a name hit still
+  // sorts ahead of an alias-only hit.
+  const pos = (o, q) => {
+    const idxs = [o.name.toLowerCase().indexOf(q), o.alt ? o.alt.toLowerCase().indexOf(q) : -1].filter((i) => i >= 0);
+    return idxs.length ? Math.min(...idxs) : 999;
+  };
+  const matchIn = (arr, q) => arr.filter((o) => o.name.toLowerCase().includes(q) || (o.alt && o.alt.toLowerCase().includes(q)))
+    .sort((a, b) => pos(a, q) - pos(b, q));
 
   function render(raw) {
     const q = raw.trim().toLowerCase();
@@ -697,7 +743,19 @@ function setupSearch(map) {
     grp('Places', places, (o) => `<span class="ic">◉</span><span class="nm">${esc(o.name)}, ${esc(o.state)}</span><span class="meta">${o.n} outlet${o.n > 1 ? 's' : ''}</span>`);
     grp('Shopping centers', centers, (o) => `<span class="ic">▣</span><span class="nm">${esc(o.name)}</span><span class="meta">${esc([o.city, o.state].filter(Boolean).join(', '))}</span>`);
     grp('Chains', chains, (o) => `<span class="ring" style="border-color:${SECTOR[o.sector] || OTHER}"></span><span class="nm">${esc(o.name)}</span><span class="meta">${esc(SECTOR_LABEL[o.sector] || '')}</span>`);
-    if (!opts.length) html = `<div class="none">No matches for <b>${esc(raw.trim())}</b>.</div>`;
+    if (!opts.length) html = `<div class="none">No matches for <b>${esc(raw.trim())}</b> on the US map.</div>`;
+    // A link to the international register: some China-origin chains trade only abroad and so never
+    // appear on the US map or in this index. When no map chain matched, carry the query so the
+    // register opens pre-filtered to it; otherwise offer a plain browse link.
+    // When NOTHING on the map matched, the query is probably a chain that trades only abroad: carry
+    // it so the register opens pre-filtered. When something matched (a chain, place or center), just
+    // offer a plain browse link rather than pre-filtering the register by a US place name.
+    const regQ = raw.trim();
+    const regHref = opts.length ? 'register.html' : `register.html?q=${encodeURIComponent(regQ)}`;
+    const regText = opts.length
+      ? 'Browse the international register &rarr;'
+      : `Not on the US map? Search the <b>international register</b> for &ldquo;${esc(regQ)}&rdquo; &rarr;`;
+    html += `<a class="reg-link" href="${regHref}" style="display:block;padding:.55rem .7rem;border-top:1px solid var(--line,#e5e3dc);font-size:.85em;line-height:1.3;color:var(--ink,#0E0F0E);text-decoration:none">${regText}</a>`;
     panel.innerHTML = html; panel.hidden = false; box.setAttribute('aria-expanded', 'true'); sel = -1;
     panel.querySelectorAll('.opt').forEach((elt) => {
       elt.addEventListener('mousedown', (e) => { e.preventDefault(); choose(+elt.dataset.i); });
@@ -882,7 +940,7 @@ function buildTally(fc) {
           : esc(m.name)) +
         `</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
-      prof.className = 'prof'; prof.href = 'chain.html?c=' + id; prof.textContent = 'ⓘ';
+      prof.className = 'prof'; prof.href = 'chain/' + encodeURIComponent(id) + '/'; prof.textContent = 'ⓘ';
       prof.title = 'Who they are — about this chain';
       prof.setAttribute('aria-label', 'About this chain (Who they are)');
       prof.addEventListener('click', (e) => e.stopPropagation());

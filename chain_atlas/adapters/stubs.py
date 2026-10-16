@@ -231,6 +231,10 @@ class NaixueAdapter(Adapter):
     """
     chain_id, name, name_zh = "nayuki", "Naixue", "奈雪的茶"
     name_us = "Naisnow"
+    # "Nayuki" is the brand's long-standing international romanization (and HK IPO name); it is
+    # neither the US trading name (Naisnow) nor the current pinyin (Naixue), so without it here the
+    # chain is unfindable by the name most people know. Flows to the map + register + Chains search.
+    aliases = ["Nayuki"]
     parent, format = "Nayuki Holdings (HKEX 2150)", "tea"
     ENABLED = False
     BLOCKED_REASON = ("trades as NaiSnow in the US; at least two stores (American Dream NJ, Upper"
@@ -1052,3 +1056,410 @@ class DusuAdapter(Adapter):
                       " inside Duo Duo Snacks, 5585 Rosemead Blvd, Temple City CA — its only US"
                       " location, no standalone locator. Tracked via sightings (7 Oct 2026)")
     RECHECK = ["https://www.theinfatuation.com/los-angeles/reviews/dusu-bakery"]
+
+
+class NanshanAdapter(Adapter):
+    """
+    Nanshan Hot Pot (南山·熊猫烫火锅) — added 2026-10-10. A Shenzhen-origin "new Chinese-style"
+    Sichuan-Chongqing hot-pot chain with a panda mascot/IP (premium imported Wagyu; tops Dianping /
+    Douyin hot-pot lists), ~17 outlets in Shenzhen/Dongguan before going abroad. China origin, in scope.
+
+    US entry via New York: first US store opened ~Oct 2024 in Flushing (37-17 Prince St), with a
+    second in Bayside (212-12 Northern Blvd). No national US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "nanshan", "Nanshan Hot Pot", "南山·熊猫烫火锅"
+    name_us = "Nanshan Hot Pot"
+    # Trades as "Nanshan Hot Pot" in NY; the brand's general English name is "Panda Hot Pot"
+    # (storefront 熊猫烫火锅 / PANDA HOT POT). Both are search aliases. (The Melbourne "Panda Hot
+    # Pot" is a DIFFERENT brand, Shu Da Xia 蜀大侠 — see cfc-panda-hotpot-namesakes.)
+    aliases = ("Nanshan Hotpot", "Nan Shan Hot Pot", "熊猫烫火锅", "Panda Hot Pot")
+    parent, format = "Nanshan (南山·熊猫烫火锅, Shenzhen)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("Shenzhen Sichuan-Chongqing hot-pot chain (南山·熊猫烫火锅, panda-IP); two US"
+                      " outlets open in NY — Flushing (37-17 Prince St) and Bayside (212-12 Northern"
+                      " Blvd) — with no national US locator. Tracked via sightings (10 Oct 2026)")
+    RECHECK = ["https://www.instagram.com/nanshan.hotpot/"]
+
+
+class JuqiAdapter(Adapter):
+    """
+    JUQI (局气) — added 2026-10-10. A Beijing home-style restaurant chain (~20 outlets in China),
+    known for playful old-Beijing dishes (Lord-Rabbit mashed potato, honeycomb-briquette fried rice,
+    Peking duck). China origin, in scope.
+
+    First US outlet at the Tangram complex, Flushing (133-36 37th Ave G17), open; first-party US site
+    juqiusa.com + @juqi_ny. No national US locator, so tracked via sightings. (No Sydney outlet on
+    record despite earlier press — not claimed.) Menu/pricing PDF kept for a later Pro pricing catalog.
+    """
+    chain_id, name, name_zh = "juqi", "JUQI", "局气"
+    name_us = "JUQI"
+    aliases = ("Ju Qi", "局气")
+    parent, format = "JuQi (局气, Beijing)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Beijing home-style restaurant chain (局气, ~20 China outlets); first US outlet"
+                      " at Tangram, Flushing (133-36 37th Ave G17), with no national US locator."
+                      " Tracked via sightings (10 Oct 2026)")
+    RECHECK = ["https://juqiusa.com/",
+               "https://website-cdn.menusifu.com/wp-content/uploads/juqiusa.com/2024/01/JuQi-Menu.pdf"]
+
+
+class LeebaiAdapter(Adapter):
+    """
+    Lee & Bai (李与白) — added 2026-10-10. A Chengdu buns-and-noodles chain (李与白包子铺; hundreds of
+    outlets in China) — fresh-steamed baozi, Chengdu pickled-pork bao and zapu noodles. China origin,
+    in scope.
+
+    US footprint growing: open outlets in Flushing (38-09 Union St), Long Island City (42-62 Hunter
+    St), Sunnyvale CA (1661 Hollenbeck Ave) and Palisades Park NJ (442 Broad Ave). No national US
+    locator, so tracked via sightings (not a complete roster).
+    """
+    chain_id, name, name_zh = "leebai", "Lee & Bai", "李与白"
+    name_us = "Lee & Bai"
+    aliases = ("Lee and Bai", "Lee & Bai Buns and Noodles", "Lee & Bai Chinese Bao Shop",
+               "Lee & Bai Chinese Buns Shop", "李与白包子铺")
+    parent, format = "Lee & Bai (李与白, Chengdu)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Chengdu buns-and-noodles chain (李与白包子铺, hundreds of China outlets); open"
+                      " US outlets in NY (Flushing, Long Island City), CA (Sunnyvale) and NJ"
+                      " (Palisades Park), with no national US locator. Tracked via sightings (10 Oct 2026)")
+    RECHECK = ["https://www.theinfatuation.com/new-york/reviews/lee-and-bai"]
+
+
+class QuanjudeAdapter(Adapter):
+    """
+    Quanjude (全聚德) — added 2026-10-10. The Beijing roast-duck institution (since 1864; National
+    Intangible Cultural Heritage hanging-oven method), a state-owned chain with 100+ outlets in China.
+    China origin, in scope.
+
+    US flagship in NYC at 3 E 52nd St (the former La Grenouille space), run under its upscale "iDEN"
+    concept ("iDEN & Quanjude"); soft-opened June 2025, operating. North America began in Vancouver
+    (2020, Michelin-starred) — Canada, out of US scope. No US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "quanjude", "Quanjude", "全聚德"
+    name_us = "Quanjude"
+    aliases = ("iDEN", "iDEN & Quanjude", "iDEN Fifth", "iDen", "全聚德", "Quanjude Beijing Duck")
+    parent, format = "Quanjude (全聚德, Beijing; est. 1864)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Beijing roast-duck chain (全聚德, est. 1864; 100+ China outlets). US flagship"
+                      " in NYC — 3 E 52nd St — under its 'iDEN' concept, soft-opened Jun 2025. No US"
+                      " locator. Tracked via sightings (10 Oct 2026)")
+    RECHECK = ["https://www.quanjude1864.com/", "https://www.cgccusa.org/en/news/iden-quanjude-opens"]
+
+
+class MamaxitaAdapter(Adapter):
+    """
+    Mama Xita BBQ (西塔老太太) — added 2026-10-10. A Shenyang-origin Chinese-Korean-style barbecue
+    chain (the Xita Korean-BBQ district of Shenyang, Liaoning); 450+ outlets across 31 Asian cities,
+    run by the Chubby Group (which also operates Chubby Cattle). China origin, in scope. NOT the same
+    as 西塔烧烤 / Xi Top BBQ in Flushing.
+
+    First US outlet open in Bellevue WA (550 106th Ave NE, Ste 101). No US locator, so tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "mamaxita", "Mama Xita BBQ", "西塔老太太"
+    name_us = "Mama Xita BBQ"
+    aliases = ("Xita Lao Tai Tai", "Mama Xita", "西塔老太太")
+    parent, format = "Chubby Group (Shenyang; also runs Chubby Cattle)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Shenyang Chinese-Korean BBQ chain (西塔老太太, 450+ Asia outlets, Chubby Group);"
+                      " first US outlet open in Bellevue WA (550 106th Ave NE). Has a first-party US"
+                      " locator (mamaxitabbq.com/locations) — recheck it for new openings."
+                      " Tracked via sightings (10 Oct 2026)")
+    # First-party US locator — the canonical source to re-crawl for new/closed US outlets.
+    RECHECK = ["https://mamaxitabbq.com/locations/"]
+
+
+class ShanchengLameiziAdapter(Adapter):
+    """
+    Shancheng Lameizi (山城辣妹子) — added 2026-10-10. A Chongqing hot-pot brand (山城 = Chongqing's
+    nickname); has a Beijing outlet and was named by the Chongqing municipal government among regional
+    food brands pushed for overseas expansion. China origin, in scope.
+
+    US outlets operate under one group (shared site shanchenglameizi.com) in Southern California:
+    Rowland Heights, San Gabriel, Irvine (14130 Culver Dr — in the former Little Sheep area) and San
+    Diego. No single US locator page scraped; tracked via sightings.
+    """
+    chain_id, name, name_zh = "shanchenglameizi", "Shancheng Lameizi", "山城辣妹子"
+    name_us = "Shancheng Lameizi"
+    aliases = ("Shancheng Lameizhi", "Lameizi", "北京山城辣妹子", "山城辣妹子重庆火锅",
+               "Chongqing Spicy Girl Hot Pot")
+    parent, format = "Shancheng Lameizi (山城辣妹子, Chongqing)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("Chongqing hot-pot brand (山城辣妹子; Beijing outlet + Chongqing-government"
+                      " overseas push). US outlets under one operator (shanchenglameizi.com): Rowland"
+                      " Heights, San Gabriel, Irvine, San Diego. Tracked via sightings (10 Oct 2026)")
+    RECHECK = ["https://www.shanchenglameizi.com/"]
+
+
+class BingxueAdapter(Adapter):
+    """
+    Bingxue (冰雪时光) — added 2026-10-12. A mass-market tea-and-ice-cream chain founded 2014 in
+    Tai'an, Shandong (operator Jinan Baodao Enterprise Management, Shandong); the budget-priced,
+    bear-mascot ("Bobo Bear") rival to Mixue — DISTINCT from Mixue 蜜雪冰城, do not conflate. Fresh
+    fruit teas, milk teas, soft serve (it claims the world's best-selling matcha soft serve), yogurt
+    smoothies and coffee. The brand reports ~5,000 contracted stores across 18 countries/regions
+    (1,500+ operating outside its home market). China origin, in scope.
+
+    Entered the US (and North America) on 2 Oct 2026 with a first store in downtown Davis, CA
+    (425 2nd St) — a mayor-attended grand opening; a second US store is in development on Oxnard
+    Blvd, CA. No readable US store locator yet (bingxueglobal.com has US/Canada regional sites but no
+    machine-readable roster; orders run through Chowbus), so tracked via sightings.
+    """
+    chain_id, name, name_zh = "bingxue", "BINGXUE", "冰雪时光"
+    name_us = None
+    aliases = ("Bingxue", "Bingxue Tea & Ice Cream", "Bingxue Shiguang", "冰雪", "冰雪時光")
+    parent, format = "Bingxue (冰雪时光, Jinan Baodao, Shandong)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("Shandong tea-and-ice-cream chain (冰雪时光, Tai'an 2014; Mixue's bear-mascot"
+                      " budget rival, ~5,000 stores / 18 countries). Entered the US 2 Oct 2026 with a"
+                      " first store in Davis, CA; second planned on Oxnard Blvd, CA. No readable US"
+                      " locator (Chowbus ordering) — tracked via sightings (12 Oct 2026)")
+    RECHECK = ["http://www.bingxueglobal.com/"]
+
+
+class WalaidaAdapter(Adapter):
+    """
+    Walaida (蛙来哒) — added 2026-10-14. A Hunan-cuisine restaurant chain built on charcoal / dry-pot
+    bullfrog (牛蛙), founded ~2009–2010 in Changsha, Hunan by siblings Luo Hao and Luo Qing (HQ later
+    moved to Shenzhen). ~460–500 stores across 90+ Chinese cities, roughly 90% franchised. China
+    origin, in scope.
+
+    US presence: one confirmed outlet in Flushing, NY (135-05 Roosevelt Ave, Prince Center), named
+    蛙来哒法拉盛店 / WALAIDA FLUSHING and operating per its Google Business listing (4.2 / 140 reviews,
+    pickup + delivery). No readable US store locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "walaida", "WALAIDA", "蛙来哒"
+    name_us = None
+    aliases = ("Walaida", "Wa Lai Da", "蛙來哒", "WALAIDA FLUSHING", "Bullfrog")
+    parent, format = "Walaida (蛙来哒, Changsha / Shenzhen)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Hunan bullfrog (牛蛙) restaurant chain (蛙来哒, Changsha ~2009; ~460–500 stores,"
+                      " ~90% franchised). Confirmed operating in Flushing, NY (135-05 Roosevelt Ave)"
+                      " per its Google listing — no readable US locator, tracked via sightings"
+                      " (14 Oct 2026)")
+    RECHECK = ["https://www.walaida.net/"]
+
+
+class JibeichuanAdapter(Adapter):
+    """
+    JiBeiChuan (季北川花胶鸡汤米粉) — added 2026-10-14. A rice-noodle chain built on fish-maw
+    chicken-soup rice noodles (花胶鸡汤米粉); prepared 2018, first direct-operated store 2019;
+    HQ in Hangzhou, Zhejiang (Hangzhou Shengli Catering Management Co.). Operates in China
+    (Zhejiang, Jiangsu, Hunan, Hubei, Henan) plus North America (US + Canada), via direct-operated
+    and partner/franchise stores. China origin, in scope.
+
+    US outlets tracked via sightings from its official US site (jibeichuanny.com) + Google listings:
+    three in NYC (Flushing, Manhattan, Brooklyn) and one in San Leandro, CA. No readable US locator.
+    """
+    chain_id, name, name_zh = "jibeichuan", "JiBeiChuan", "季北川"
+    name_us = None
+    aliases = ("Ji Bei Chuan", "JBC", "JiBeiChuan Noodles", "季北川花胶鸡汤米粉", "花胶鸡汤米粉")
+    parent, format = "JiBeiChuan (季北川, Hangzhou Shengli Catering, Zhejiang)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Hangzhou (Zhejiang) rice-noodle chain (季北川花胶鸡汤米粉, fish-maw chicken-soup"
+                      " rice noodles; founded 2018–19, direct + partner stores in China + North"
+                      " America). US outlets in NYC (Flushing, Manhattan, Brooklyn) and San Leandro,"
+                      " CA — tracked via sightings from its official US site + Google listings"
+                      " (14 Oct 2026)")
+    RECHECK = ["https://www.jibeichuanny.com/"]
+
+
+class BabakehouseAdapter(Adapter):
+    """
+    BA Artisan Bakehouse (BA / BON APPÉTIT) — added 2026-10-14. A French-Asian artisan bakery chain
+    founded 2016 in Kunming, Yunnan (first store on 金夏路); operated by Yunnan Bangnaboudi Food
+    Development Co. (邦纳博地 = transliteration of "Bon Appétit"). ~45 stores across China (Kunming,
+    Chongqing, Xi'an, Chengdu…), plus overseas in Dubai and the US. China origin, in scope. There is
+    no formal Chinese brand name — written "BA" / "BA烘焙" / "BA法式烘焙" in Chinese.
+
+    US presence: one outlet, the North America flagship in Bellevue, WA (550 106th Ave NE Ste 102,
+    Bellevue Connection), opened Jan 2026, operating (Google 4.0 / 323 reviews). No US store locator,
+    so tracked via sightings. Its Dubai store is in the Global register (market AE).
+    """
+    chain_id, name, name_zh = "babakehouse", "BA Artisan Bakehouse", "BA烘焙"
+    name_us = None
+    aliases = ("BA", "BA Bakehouse", "Bon Appetit", "BON APPÉTIT", "BA法式烘焙", "邦纳博地")
+    parent, format = "Bon Appétit (BA, Yunnan Bangnaboudi Food Development Co., Kunming)", "bakery"
+    ENABLED = False
+    BLOCKED_REASON = ("Yunnan (Kunming) French-Asian artisan bakery chain (BA / BON APPÉTIT, founded"
+                      " 2016; ~45 China stores + Dubai). Its North America flagship operates in"
+                      " Bellevue, WA (550 106th Ave NE) — no readable US locator, tracked via"
+                      " sightings (14 Oct 2026)")
+    RECHECK = ["https://babakery.com/"]
+
+
+class ChicjocAdapter(Adapter):
+    """
+    CHICJOC — added 2026-10-14. A Shanghai "minimalist-luxury" (极简极奢) womenswear brand operated by
+    Shanghai Jiuci Brand Management Co. (上海玖赐), founded 2015. Began as a Taobao online brand, went
+    offline in May 2022 (first store at Nanjing Deji Plaza) and grew to ~40–50 brick-and-mortar stores
+    across first- and key second-tier Chinese cities' high-end malls; four own factories (Changzhou,
+    Taixing, Wuxi, Anqing). China origin, in scope. No Chinese brand name (uses "CHICJOC").
+
+    US presence: two California outlets — Fashion Island (Newport Beach, its first overseas store,
+    Nov 2024) and Beverly Center (Los Angeles). Also a Paris store (in the Global register, market FR).
+    Store page at chicjoc.com/store-locator is not machine-readable, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "chicjoc", "CHICJOC", ""
+    name_us = None
+    aliases = ("CHICJOC", "玖赐", "上海玖赐", "Journey of Costume")
+    parent, format = "CHICJOC (Shanghai Jiuci Brand Management, 上海玖赐)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Shanghai minimalist-luxury womenswear brand (CHICJOC, 上海玖赐, founded 2015;"
+                      " ~40–50 China stores). US outlets at Fashion Island (Newport Beach) and Beverly"
+                      " Center (Los Angeles), CA; Paris store abroad. No machine-readable US locator,"
+                      " tracked via sightings (14 Oct 2026)")
+    RECHECK = ["https://www.chicjoc.com/store-locator.html"]
+
+
+class DreameAdapter(Adapter):
+    """
+    DREAME (追觅科技) — added 2026-10-14. A Suzhou (Jiangsu) smart-home electronics brand
+    (Xiaomi-ecosystem origin): robot vacuums, cordless stick vacuums, wet/dry cleaners and hair
+    dryers. It runs a growing US BRANDED RETAIL CHAIN of smart-home stores — a chain, not a lone
+    flagship. China origin, in scope, sector electronics.
+
+    US permanent stores (from its own dreametech.com "where to buy" list): Westfield Century City
+    (Los Angeles), Westfield UTC (San Diego), Westfield Valley Fair (Santa Clara) and Garden State
+    Plaza (Paramus, NJ). It also runs temporary pop-ups / a "road show" (NOT counted here). No
+    machine-readable US locator, so tracked via sightings. NOT to be confused with "Dreame Mart", a
+    SEPARATE art-toy concept (opened Brea Mall May 2025, since renamed Ohku).
+    """
+    chain_id, name, name_zh = "dreame", "DREAME", "追觅"
+    name_us = None
+    aliases = ("Dreame", "追觅", "追觅科技", "Dreame Technology")
+    parent, format = "Dreame Technology (追觅科技, Suzhou, Jiangsu)", "electronics"
+    ENABLED = False
+    BLOCKED_REASON = ("Suzhou smart-home electronics brand (追觅科技 Dreame Technology; robot/cordless"
+                      " vacuums, hair dryers). Runs a US branded retail chain — 4 permanent stores"
+                      " (Century City, San Diego UTC, Valley Fair CA + Garden State Plaza NJ) plus"
+                      " pop-ups. Tracked via sightings from its 'where to buy' list (14 Oct 2026)."
+                      " NOT 'Dreame Mart' (separate art-toy concept, now Ohku)")
+    RECHECK = ["https://www.dreametech.com/pages/where-to-buy"]
+
+
+class ShowminihotpotAdapter(Adapter):
+    """
+    Show Mini Hot Pot (秀海福) — added 2026-10-14. A golden-soup MALATANG chain (金汤麻辣烫, branded
+    "mini hot pot" in the US — customizable individual-serving malatang), operated by Harbin
+    Yuxiangding Catering Management Co. (哈尔滨裕祥鼎), founded 2016 in Harbin, Heilongjiang. ~693
+    China stores (June 2025), franchise + central kitchen. China origin, in scope, sector food_drink.
+
+    US: open in Richardson, TX (1251 State St #800, CityLine — Yelp ~4.3, delivery live). A Flushing,
+    NY space it lists (136-72 Roosevelt Ave — the former First Lamb Shabu unit) shows CLOSED on Yelp,
+    so it is held UNCERTAIN pending re-check. Many US cities are announced "coming soon" (Soho NY,
+    Los Angeles, Seattle, Dallas, Houston, Chicago, College Station). No readable US locator, tracked
+    via sightings. A San Gabriel, CA (Tawa Gateway) tenant listing is NOT on the brand's own site
+    (its only CA entry is LA "coming soon"), so it is not counted.
+    """
+    chain_id, name, name_zh = "showminihotpot", "Show Mini Hot Pot", "秀海福"
+    name_us = None
+    aliases = ("Show Mini Hot Pot", "Show Mini Hotpot", "秀海福金汤麻辣烫", "秀海福麻辣烫", "Show Hot Pot")
+    parent, format = "Show Mini Hot Pot (秀海福, Harbin Yuxiangding Catering, 哈尔滨裕祥鼎)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Harbin (Heilongjiang) golden-soup malatang chain (秀海福 / Show Mini Hot Pot,"
+                      " 哈尔滨裕祥鼎; founded 2016, ~693 China stores). Open in Richardson, TX; a Flushing"
+                      " NY space it lists shows closed on Yelp (held uncertain); several US cities"
+                      " announced coming-soon. Tracked via sightings (14 Oct 2026)")
+    RECHECK = ["https://showminihotpot.com/"]
+
+
+class RolifeAdapter(Adapter):
+    """
+    Rolife (若来) — added 2026-10-14. An IP-toy / lifestyle-creative brand of Robotime Group (若态科技,
+    Suzhou, Jiangsu; founded 2007, Rolife sub-brand since 2017): DIY miniature dollhouses, 3D wooden
+    puzzles and IP art toys (headline character Nanci, sold as blind boxes). China origin, in scope,
+    sector lifestyle & toys (like TOP TOY / 52TOYS / Pop Mart).
+
+    It runs a US BRANDED RETAIL CHAIN (a chain, not a lone flagship) — ~12 US stores across 7 states
+    per its own rolifeonline.com "where to buy" list, tracked via sightings. It also runs stores
+    abroad (China, Thailand, Japan, Netherlands) not tracked here. A Mall of America flagship was
+    announced (Sep 2026) but is not yet on the brand's own US store list, so it is not counted yet.
+    """
+    chain_id, name, name_zh = "rolife", "Rolife", "若来"
+    name_us = None
+    aliases = ("Rolife", "Robotime", "若来", "若态", "Rolife Robotime")
+    parent, format = "Robotime Group (若态科技, Suzhou)", "toys"
+    ENABLED = False
+    BLOCKED_REASON = ("Suzhou (Jiangsu) IP-toy / lifestyle-creative chain (Rolife by Robotime 若态科技;"
+                      " DIY miniatures, 3D wooden puzzles, Nanci art-toy blind boxes). Runs a ~12-store"
+                      " US retail chain across 7 states — tracked via sightings from its own 'where to"
+                      " buy' list (14 Oct 2026)")
+    RECHECK = ["https://www.rolifeonline.com/pages/retail-store"]
+
+
+class NanhotpotAdapter(Adapter):
+    """
+    Nan Hotpot (楠火锅) — added 2026-10-14. A Chongqing-style hotpot chain founded 1993, HQ Chengdu
+    (成都上纵集团 / Chengdu Shangzong Group, founder Zhang Wenhao); heavy beef-tallow base and a
+    "market-stall / old-alley" (巷子里的老火锅) store concept; 590–600+ stores. China origin, in scope,
+    sector food_drink.
+
+    It expanded abroad through a North America business division with SIGNED COOPERATIVE / FRANCHISE
+    stores (also UK, Italy, NZ). US outlets: its overseas-first store in the Seattle area (Bellevue,
+    WA, Mar 2023; Google 4.5/686) and one in Plano, TX (nanhotpottx.com). The US stores use per-market
+    operator sites and a navy logo variant (official is orange) and make no explicit "official" claim,
+    so they appear AUTHORIZED but identity is not independently confirmed. Tracked via sightings.
+    """
+    chain_id, name, name_zh = "nanhotpot", "Nan Hotpot", "楠火锅"
+    name_us = None
+    aliases = ("Nan Hotpot", "Nan Hot Pot", "楠火锅", "巷子里的老火锅")
+    parent, format = "Nan Hotpot (楠火锅, Chengdu Shangzong Group 成都上纵集团)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("Chongqing-style hotpot chain (楠火锅 Nan Hotpot, founded 1993; HQ Chengdu,"
+                      " 成都上纵集团; 590–600+ stores). Overseas-first store Bellevue WA (Seattle, 2023),"
+                      " plus Plano TX, via its North America cooperative/franchise program — US outlets"
+                      " appear authorized but identity not independently confirmed. Tracked via"
+                      " sightings (14 Oct 2026)")
+    RECHECK = ["https://www.nanhotpotseattle.com/", "https://www.nanhotpottx.com/"]
+
+
+class HuaxiaoxiaoAdapter(Adapter):
+    """
+    Hwa ShooShoo (花小小 新疆炒米粉) — added 2026-10-14. A Xinjiang fried-rice-noodle (新疆炒米粉)
+    fast-casual chain founded 2019–2020 (first store Beijing Wangjing); parent 四有青年餐创集团
+    (Beijing Siyou Qingnian, est. 2015), slogan 让世界爱上新疆味. ~3,500 stores by end-2025,
+    4,000+ claimed by mid-2026. China origin, in scope, sector food_drink.
+
+    Its documented overseas-first store opened in Flushing, NY (Tangram food court) in Feb 2025 —
+    the brand bills it as the first Xinjiang fried-rice-noodle brand to reach North America, and the
+    storefront carries the genuine brand identity (red plum-blossom chef-girl seal + HWA SHOOSHOO /
+    新疆炒米粉). Tracked via sightings; US scale beyond the one store not yet independently confirmed.
+    """
+    chain_id, name, name_zh = "huaxiaoxiao", "Hwa ShooShoo", "花小小"
+    name_us = None
+    aliases = ("Hwa ShooShoo", "Hwa Shoo Shoo", "花小小", "花小小新疆炒米粉",
+               "Xinjiang Fried Rice Noodles", "新疆炒米粉")
+    parent, format = "Hwa ShooShoo (花小小, 四有青年餐创集团 / Beijing Siyou Qingnian)", "fastfood"
+    ENABLED = False
+    BLOCKED_REASON = ("Xinjiang fried-rice-noodle chain (花小小 Hwa ShooShoo, founded 2019–2020; HQ"
+                      " Beijing, 四有青年餐创集团; ~3,500–4,000+ stores). Overseas-first store in"
+                      " Flushing NY (Tangram, Feb 2025) — storefront carries the genuine brand"
+                      " identity; in scope. Tracked via sightings (14 Oct 2026)")
+    RECHECK = ["https://zhuanlan.zhihu.com/p/30284995808"]
+
+
+class ZhoumapoAdapter(Adapter):
+    """
+    Zhoumapo / Mrs. Zhou (周麻婆) — added 2026-10-14. A fast-casual Sichuan stir-fry (快餐式小炒) chain
+    founded August 2012 by Zhou Hongxia (周红霞); parent 福建省周麻婆餐饮管理有限公司 (Fujian Zhou Mapo
+    Catering Management), HQ Fuzhou, Fujian. Signature ¥2 Mapo tofu; ~300 franchised stores (2021).
+    China origin, in scope, sector food_drink.
+
+    Its first US store opened at 728 Eighth Avenue, Times Square, NYC (10-year lease signed Jan 2025;
+    Commercial Observer), trading as "Mapo Asian Restaurant & Bar — Time Square 周麻婆" — repositioned
+    upmarket as a full restaurant & bar but carrying the genuine 周麻婆 / Mrs. Zhou name and grandma
+    logo. Confirmed operating (Google 4.5/302). Tracked via sightings.
+    """
+    chain_id, name, name_zh = "zhoumapo", "Zhoumapo", "周麻婆"
+    name_us = None
+    aliases = ("Zhoumapo", "Zhou Mapo", "Mrs. Zhou", "Mapo", "Mapo Asian Restaurant & Bar",
+               "周麻婆")
+    parent, format = "Zhoumapo (周麻婆, Fujian Zhou Mapo Catering 福建省周麻婆餐饮管理有限公司)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("Fast-casual Sichuan stir-fry chain (周麻婆 Zhoumapo / Mrs. Zhou, founded 2012;"
+                      " HQ Fuzhou, Fujian; ~300 stores). First US store at 728 Eighth Ave, Times"
+                      " Square NYC (lease Jan 2025, Commercial Observer), trading as 'Mapo Asian"
+                      " Restaurant & Bar — Time Square 周麻婆'; confirmed operating. In scope, tracked"
+                      " via sightings (14 Oct 2026)")
+    RECHECK = ["https://www.mapoasianbartimesquare.com/", "https://www.mapousa.com/"]
