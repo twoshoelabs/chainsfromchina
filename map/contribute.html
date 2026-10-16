@@ -103,6 +103,48 @@
     </form>
   </div>
 
+  <form class="ccard cform" id="srcform" style="margin-top:14px">
+    <h2>Submit a source or data point</h2>
+    <p class="cblurb">A <strong>sourced fact</strong> about a chain we track — a store count, a filing
+       figure, a corporate detail, a piece of history — <strong>with where it came from</strong>. This
+       feeds the project's deeper intelligence layer. Everything is checked and keeps its source; we
+       never publish a number without one.</p>
+    <label>Chain <span class="req">*</span>
+      <input name="brand" required placeholder="e.g. Mixue 蜜雪冰城, ChaPanda 茶百道"></label>
+    <label>Kind of data <span class="req">*</span>
+      <select name="dimension" required>
+        <option value="">Choose…</option>
+        <option value="scale">Scale — store counts, openings, growth</option>
+        <option value="economics">Economics — revenue, cost, financials</option>
+        <option value="structure">Structure — parent, listing, franchise, supply chain</option>
+        <option value="narrative">Narrative — history, popular items, flagships</option>
+      </select>
+      <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px">For a specific store, opening or closure, use the location form above.</span></label>
+    <label>Specifically
+      <input name="metric" placeholder="e.g. store_count_total, us_revenue, history (optional)"></label>
+    <label>The fact / value <span class="req">*</span>
+      <input name="value" required placeholder="e.g. 8,621 China stores — or a sentence of history"></label>
+    <label>Date it was true <span class="req">*</span>
+      <input type="date" name="as_of" required></label>
+    <label>Source <span class="req">*</span>
+      <input name="source" required placeholder="e.g. FY2025 annual report (HKEX:2555); press article; store visit"></label>
+    <label>Source link
+      <input type="url" name="source_url" placeholder="https://… (optional but valued)"></label>
+    <label>How sure is it? <span class="req">*</span>
+      <select name="confidence" required>
+        <option value="high">High — a primary filing / first-hand</option>
+        <option value="medium" selected>Medium — reputable press / secondary</option>
+        <option value="low">Low — a single weak mention</option>
+      </select></label>
+    <label>Notes
+      <textarea name="note" rows="2" placeholder="Optional — anything that helps verify it"></textarea></label>
+    <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+      <button type="submit">Send this data point</button>
+      <button type="button" id="srccopy" style="background:transparent; border:1px solid currentColor">Copy as JSON</button>
+    </div>
+  </form>
+
   <p class="note small">Submissions go to the project for review; nothing you send is published
   automatically. The test is China origin. Chains that only sell Chinese products, or that come
   from Hong Kong, are outside this project's scope.</p>
@@ -150,11 +192,50 @@ function done(form, kind) {
   ok.hidden = false;
   ok.textContent = kind === 'location'
     ? 'Thank you — your location is on its way for review.'
+    : kind === 'source'
+    ? 'Thank you — your data point is on its way for review.'
     : 'Thank you — your chain suggestion is on its way for review.';
   ok.scrollIntoView({ block: 'center' });
 }
 handle(document.getElementById('locform'), 'location');
 handle(document.getElementById('chainform'), 'chain');
+
+// Source / data-point form -> one CANONICAL submission record (chain_atlas/submissions.py schema).
+// The operator runs it through `submissions.append()`, which stamps the id/tier/time on ingest, so the
+// form only supplies the core fields. Required: brand, dimension, value, as_of, source, confidence.
+const SRC_REQUIRED = ['brand', 'dimension', 'value', 'as_of', 'source', 'confidence'];
+function buildSubmission(form) {
+  const g = n => (form[n] && form[n].value || '').trim();
+  return { brand: g('brand'), dimension: g('dimension'), metric: g('metric') || g('dimension'),
+           value: g('value'), unit: null, as_of: g('as_of'), source: g('source'),
+           source_url: g('source_url') || null, confidence: g('confidence'),
+           submitter: 'contributor', status: 'submitted', note: g('note') || null };
+}
+function missingField(rec) { return SRC_REQUIRED.find(k => !rec[k]); }
+
+const srcform = document.getElementById('srcform');
+srcform.addEventListener('submit', e => {
+  e.preventDefault();
+  if (srcform.website_hp && srcform.website_hp.value) return;    // honeypot
+  const rec = buildSubmission(srcform);
+  const subject = encodeURIComponent(`[Chains From China] data point: ${rec.brand} / ${rec.metric || rec.dimension}`);
+  const body = encodeURIComponent('Canonical submission record (paste into submissions):\n\n'
+    + JSON.stringify(rec, null, 1));
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  done(srcform, 'source');
+});
+document.getElementById('srccopy').addEventListener('click', async () => {
+  const rec = buildSubmission(srcform);
+  const miss = missingField(rec);
+  if (miss) { alert('Please fill in: ' + miss); return; }
+  const json = JSON.stringify(rec, null, 1);
+  const btn = document.getElementById('srccopy');
+  try {
+    await navigator.clipboard.writeText(json);
+    const t = btn.textContent; btn.textContent = 'Copied ✓';
+    setTimeout(() => { btn.textContent = t; }, 1500);
+  } catch (_) { window.prompt('Copy this submission record:', json); }
+});
 
 // The "To confirm" queue: reported-but-unconfirmed locations, read live from the published data.
 // Confirming one pre-fills the location form; when the operator marks it confirmed in the data it
