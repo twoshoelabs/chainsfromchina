@@ -321,6 +321,64 @@
    "confidence": "medium",
    "source": "Apple App Store (US) / iTunes Search API",
    "note": "Chowbus-platform US ordering app (麦记)."
+  },
+  "nayuki": {
+   "us_app": true,
+   "kind": "platform",
+   "platforms": [
+    "ios"
+   ],
+   "app_name": "NAISNOW",
+   "developer": "Chowbus, Inc.",
+   "ios_url": "https://apps.apple.com/us/app/naisnow/id6755374879",
+   "android_url": null,
+   "ratings_n": 74,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API (desc confirms Nayuki: HKEX 2150, 'tea + soft bread', founded 2015)",
+   "note": "'NaiSnow' is Nayuki 奈雪的茶's US brand/app name; Chowbus-platform US ordering app."
+  },
+  "toys52": {
+   "us_app": false,
+   "kind": "none",
+   "platforms": [],
+   "app_name": null,
+   "developer": null,
+   "ios_url": null,
+   "android_url": null,
+   "ratings_n": null,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API lookup",
+   "note": "Checked, no US app. Its own '52TOYS官方商城' (by Tianjin Qingyunhe Cultural Development Co., Ltd.) is a China-market app, US-listed but RMB/China-oriented — not a US DTC app."
+  },
+  "xtep": {
+   "us_app": false,
+   "kind": "none",
+   "platforms": [],
+   "app_name": null,
+   "developer": null,
+   "ios_url": null,
+   "android_url": null,
+   "ratings_n": null,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API lookup",
+   "note": "Checked, no US app. Its own '特步跑步' (by XTEP (CHINA) CO., LTD.) is a China-market app, US-listed but RMB/China-oriented — not a US DTC app."
+  },
+  "anta": {
+   "us_app": false,
+   "kind": "none",
+   "platforms": [],
+   "app_name": null,
+   "developer": null,
+   "ios_url": null,
+   "android_url": null,
+   "ratings_n": null,
+   "as_of": "2026-10-16",
+   "confidence": "high",
+   "source": "Apple App Store (US) / iTunes Search API lookup",
+   "note": "Checked, no US app. Its own '安踏跑步' (by Anta Sports Products Group Co., Ltd.) is a China-market app, US-listed but RMB/China-oriented — not a US DTC app."
   }
  }
 }
