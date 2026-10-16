@@ -38,13 +38,23 @@ class _Resp:
 
 
 class _FakeSession:
-    """Returns one matching app for CHAGEE, nothing otherwise — no network."""
+    """Serves both the search and lookup endpoints for CHAGEE, nothing else — no network."""
     def __init__(self): self.headers = {}
     def get(self, url, params=None, timeout=None):
-        term = (params or {}).get("term", "").lower()
-        if "chagee" in term:
+        params = params or {}
+        if "lookup" in url:                                   # the lookup endpoint (metadata by id)
+            if "6737460668" in str(params.get("id", "")):
+                return _Resp({"results": [
+                    {"trackId": 6737460668, "trackName": "CHAGEE USA", "sellerName": "Chagee",
+                     "primaryGenreName": "Food & Drink", "languageCodesISO2A": ["EN", "ZH"],
+                     "description": "Order CHAGEE tea, earn rewards, find a US store.",
+                     "sellerUrl": "https://www.chagee.com",
+                     "trackViewUrl": "https://apps.apple.com/us/app/chagee-usa/id6737460668?x=1",
+                     "userRatingCount": 39}]})
+            return _Resp({"results": []})
+        if "chagee" in params.get("term", "").lower():         # the search endpoint
             return _Resp({"results": [
-                {"trackId": 1, "trackName": "CHAGEE USA", "artistName": "Chagee",
+                {"trackId": 6737460668, "trackName": "CHAGEE USA", "artistName": "Chagee",
                  "trackViewUrl": "https://apps.apple.com/us/app/chagee-usa/id6737460668?x=1",
                  "userRatingCount": 39, "currentVersionReleaseDate": "2026-09-01T00:00:00Z"},
                 {"trackId": 2, "trackName": "Unrelated App", "artistName": "Someone Else",
@@ -81,6 +91,17 @@ def main():
     check("probe strips the query string from the url",
           hits["chagee"][0]["ios_url"].endswith("id6737460668"), True)
     check("probe excludes the unrelated app", all(c["app"] != "Unrelated App" for c in hits["chagee"]), True)
+
+    # --- lookup() + probe(detail=True): the disambiguator metadata ---
+    check("_id_of extracts the id", apps._id_of("https://x/app/id6737460668?q=1"), "6737460668")
+    md = apps.lookup("6737460668", session=_FakeSession())
+    check("lookup returns metadata by id", md.get("6737460668", {}).get("genre"), "Food & Drink")
+    check("lookup carries the description", md["6737460668"]["desc"].startswith("Order CHAGEE"), True)
+    check("lookup by URL also works", "6737460668" in apps.lookup(
+        "https://apps.apple.com/us/app/chagee-usa/id6737460668", session=_FakeSession()), True)
+    dh = apps.probe(brands=["chagee"], pause=0, session=_FakeSession(), detail=True)
+    check("probe --details attaches genre", dh["chagee"][0].get("genre"), "Food & Drink")
+    check("probe --details attaches description", "desc" in dh["chagee"][0], True)
 
     # --- dossier structure layer surfaces us_app ---
     con = fresh()

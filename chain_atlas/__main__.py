@@ -317,13 +317,29 @@ def main(argv=None):
                 return 2
             print(f"apps.json valid ({len(apps.verified())} verified US apps)")
             return 0
+        if sub == "lookup":
+            i = opt("--id")
+            if not i:
+                print("usage: python -m chain_atlas apps lookup --id <app_id_or_url>")
+                return 2
+            for aid, m in apps.lookup(i).items():
+                print(f"  {m['app']}  [{m['genre']}]  langs: {','.join(m['languages'][:8])}")
+                print(f"  seller: {m['seller']}  | {m['ios_url']}")
+                if m.get("seller_url"):
+                    print(f"  seller_url: {m['seller_url']}")
+                print(f"  desc: {m['desc'][:400]}")
+            return 0
         if sub == "probe":
             bl = [opt("--brand")] if opt("--brand") else None
-            hits = apps.probe(brands=bl)
+            detail = "--details" in argv
+            hits = apps.probe(brands=bl, detail=detail)
             for b, rows in sorted(hits.items()):
                 for c in rows:
                     print(f"  {b:16} [{c['score']:6}] {str(c['app'])[:34]:34} by "
                           f"{str(c['seller'])[:24]:24} ({c.get('ratings_n') or '-'})  {c['ios_url']}")
+                    if detail and c.get("desc") is not None:
+                        print(f"        {c.get('genre','?')} · {','.join((c.get('languages') or [])[:6])}"
+                              f" · {c.get('desc','')[:150]}")
             print(f"-- {len(hits)} brand(s) with candidate US app(s); VERIFY before adding to "
                   "manual/apps.json (name collisions are common) --")
             return 0

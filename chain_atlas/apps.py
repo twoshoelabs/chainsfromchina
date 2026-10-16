@@ -30,6 +30,8 @@ STORE = str(_ROOT / "manual" / "apps.json")
 KINDS = ("own", "platform", "none")           # own-brand app / third-party ordering platform / no app
 PLATFORMS = ("ios", "android")
 ITUNES = "https://itunes.apple.com/search"
+LOOKUP = "https://itunes.apple.com/lookup"
+UA = "chainsfromchina/1.0 (dgsilver@gmail.com)"
 
 
 def _load(relpath, default=None):
@@ -98,6 +100,47 @@ def score(term: str, track_name: str, seller: str):
     return "high" if (inn and ins) else "medium" if (inn or ins) else None
 
 
+def _id_of(url: str):
+    """The numeric App Store id embedded in a trackViewUrl ('…/id6737460668' -> '6737460668')."""
+    m = re.search(r"id(\d+)", url or "")
+    return m.group(1) if m else None
+
+
+def lookup(ids, country: str = "us", session=None) -> dict:
+    """
+    name:      lookup
+    purpose:   Full App Store metadata for one or more app ids — the real disambiguator beyond a name
+               match (developer, genre, languages, description reveal own-vs-platform-vs-collision).
+    arguments: ids — an app id or list of ids (numbers or trackViewUrls); country; session — injectable.
+    returns:   {id: {app, seller, genre, languages, desc, seller_url, ios_url, ratings_n}}.
+    effects:   Network I/O. Batches ids (one request per 50). Missing/failed ids are simply absent.
+    """
+    import requests
+    if isinstance(ids, (str, int)):
+        ids = [ids]
+    ids = [str(_id_of(str(x)) or x) for x in ids]
+    ids = [i for i in dict.fromkeys(ids) if i and i.isdigit()]
+    s = session or requests.Session()
+    s.headers.setdefault("User-Agent", UA)
+    out = {}
+    for i in range(0, len(ids), 50):
+        chunk = ids[i:i + 50]
+        try:
+            r = s.get(LOOKUP, params={"id": ",".join(chunk), "country": country}, timeout=15)
+            res = r.json().get("results", []) if r.status_code == 200 else []
+        except Exception:                                       # noqa: BLE001
+            res = []
+        for a in res:
+            out[str(a.get("trackId"))] = {
+                "app": a.get("trackName"), "seller": a.get("sellerName") or a.get("artistName"),
+                "genre": a.get("primaryGenreName"), "languages": a.get("languageCodesISO2A", []),
+                "desc": (a.get("description") or "").replace("\n", " ").strip(),
+                "seller_url": a.get("sellerUrl"),
+                "ios_url": (a.get("trackViewUrl") or "").split("?")[0],
+                "ratings_n": a.get("userRatingCount")}
+    return out
+
+
 def brand_terms() -> dict:
     """brand -> {display, terms[]}: Latin-script search names from the register, census directory and
     companies (the App Store search is Latin-only in the US storefront)."""
@@ -121,20 +164,22 @@ def brand_terms() -> dict:
     return out
 
 
-def probe(brands=None, pause: float = 2.2, session=None) -> dict:
+def probe(brands=None, pause: float = 2.2, session=None, detail: bool = False) -> dict:
     """
     name:      probe
     purpose:   Query the US App Store for each brand and return scored CANDIDATE apps for human review.
     arguments: brands — restrict to these chain_ids (else all); pause — seconds between calls (Apple
-               rate-limits ~20/min); session — a requests.Session (injectable for tests).
-    returns:   {brand: [ {app, seller, score, ios_url, ratings_n, updated} ]} — only brands with ≥1
-               candidate. Does NOT write manual/apps.json.
+               rate-limits ~20/min); session — a requests.Session (injectable for tests); detail — also
+               attach full lookup() metadata (genre/languages/desc/seller_url) to each candidate so the
+               own-vs-platform-vs-collision call can be made without a second trip.
+    returns:   {brand: [ {app, seller, score, ios_url, ratings_n, updated[, genre, languages, desc,
+               seller_url]} ]} — only brands with ≥1 candidate. Does NOT write manual/apps.json.
     effects:   Network I/O. Retries each call up to 3× with backoff; a brand that never returns 200 is
                omitted (not recorded as 'no app').
     """
     import requests
     s = session or requests.Session()
-    s.headers.setdefault("User-Agent", "chainsfromchina/1.0 (dgsilver@gmail.com)")
+    s.headers.setdefault("User-Agent", UA)
     terms = brand_terms()
     if brands:
         terms = {b: v for b, v in terms.items() if b in brands}
@@ -169,6 +214,14 @@ def probe(brands=None, pause: float = 2.2, session=None) -> dict:
         if cands:
             hits[b] = sorted(cands.values(), key=lambda c: (c["score"] != "high", -(c["ratings_n"] or 0)))
         time.sleep(pause)
+    if detail and hits:
+        meta = lookup([c["ios_url"] for rows in hits.values() for c in rows], session=s)
+        for rows in hits.values():
+            for c in rows:
+                m = meta.get(_id_of(c["ios_url"]) or "")
+                if m:
+                    c["genre"], c["languages"] = m["genre"], m["languages"]
+                    c["seller_url"], c["desc"] = m["seller_url"], (m["desc"] or "")[:240]
     return hits
 
 
