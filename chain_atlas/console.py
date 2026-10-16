@@ -120,7 +120,8 @@ button.x{background:#fff;color:var(--accent);border-color:var(--accent);padding:
 .src{border-top:1px solid var(--rule);padding:8px 0}.src .t{font-weight:600}
 .src .m{color:var(--muted);font-size:12px}.src .e{color:#444;font-size:12.5px;margin-top:2px}
 .qi{border-top:1px solid var(--rule);padding:9px 0}.qi .tag{font-size:11px;background:#eee;border-radius:3px;padding:1px 6px;color:#444}
-.qi .b{font-weight:600}.qi .s{color:var(--muted);font-size:12px;display:block}
+.qi .b{font-weight:600}.qi .s{color:var(--muted);font-size:12px;display:block;margin-top:4px}
+.qi a.s.link{color:var(--accent);text-decoration:none}.qi a.s.link:hover{text-decoration:underline}
 .qi input.note{margin:4px 0 0}.counts{color:var(--muted);font-size:12px;margin:0 0 8px}
 .screen{border:1px dashed #bbb;border-radius:4px;padding:8px 10px;margin:6px 0 0;background:#fff;
  cursor:pointer;font-size:12px;color:var(--muted);outline:none}
@@ -277,7 +278,11 @@ async function loadQueue(){
    bv.onclick = ()=>verdict(i.id,'verified',note.value,i.brand,space);
    bw.onclick = ()=>verdict(i.id,'watch',note.value,i.brand,space);
    bx.onclick = ()=>verdict(i.id,'rejected',note.value,i.brand,space);
-   const src = document.createElement('span'); src.className='s'; src.textContent = i.source||'';
+   let src;
+   if(i.source_url){ src = document.createElement('a'); src.className='s link';
+     src.href=i.source_url; src.target='_blank'; src.rel='noopener noreferrer';
+     src.textContent=(i.source||i.source_url)+' ↗'; }
+   else { src = document.createElement('span'); src.className='s'; src.textContent = i.source||''; }
    d.append(document.createElement('div'), bv, bw, bx, note, space.el, src);
    q.append(d);
  }

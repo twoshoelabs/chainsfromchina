@@ -43,8 +43,8 @@ def main():
                 "VALUES('doc-1','cotti',2026,1,'https://mn')")
     con.execute("INSERT INTO fdd_extracts(doc_number,brand_id,year,needs_human_read) "
                 "VALUES('doc-2','miniso',2026,0)")   # NOT flagged -> must not appear
-    con.execute("INSERT INTO financial_anchors(brand_id,period,metric,value,confidence,source) "
-                "VALUES('aunteajenny','2025','store_count',11449,'medium','press')")
+    con.execute("INSERT INTO financial_anchors(brand_id,period,metric,value,confidence,source,source_url) "
+                "VALUES('aunteajenny','2025','store_count',11449,'medium','press','https://example.com/a1.pdf')")
     con.execute("INSERT INTO financial_anchors(brand_id,period,metric,value,confidence,source) "
                 "VALUES('mixue','2025','group_revenue',33559923,'high','HKEX')")  # high -> must not appear
     con.commit()
@@ -60,6 +60,11 @@ def main():
     check("high anchor not queued", "fa:mixue:group_revenue:2025" not in ids, True)
     check("needs_human_read item has reason", by_reason["needs_human_read"] and by_reason["needs_human_read"][0]["id"], "fdd:doc-1")
     check("unverified_anchor present", len(by_reason["unverified_anchor"]) >= 1, True)
+    check("anchor item carries a clickable source_url",
+          by_reason["unverified_anchor"][0]["source_url"], "https://example.com/a1.pdf")
+    # a non-URL source does not become a link (the china_stores 'source' is a label, not a URL)
+    cs = next((i for i in q if i["id"] == "cs:juewei"), None)
+    check("non-URL source stays unlinked", cs and cs.get("source_url"), None)
     # file-backed: a known sub-'high' china_stores total (juewei is low from the 2026-10-15 intel refresh)
     check("china_stores unverified_count surfaces", any(i["id"] == "cs:juewei" for i in q), True)
     check("uncertain sightings surface", len(by_reason["uncertain"]) >= 1, True)

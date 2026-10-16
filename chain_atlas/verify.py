@@ -63,10 +63,16 @@ def resolved(path: str = VERDICT_LOG) -> dict:
     return out
 
 
-def _item(qid, brand, layer, metric, value, confidence, source, reason, store, ref, tier=None):
+def _urlish(s):
+    """Return s when it looks like a clickable http(s) link, else None."""
+    return s if isinstance(s, str) and s.startswith(("http://", "https://")) else None
+
+
+def _item(qid, brand, layer, metric, value, confidence, source, reason, store, ref,
+          tier=None, source_url=None):
     return {"id": qid, "brand": brand, "layer": layer, "metric": metric, "value": value,
-            "confidence": confidence, "tier": tier, "source": source, "reason": reason,
-            "store": store, "ref": ref, "priority": PRIORITY.get(reason, 9)}
+            "confidence": confidence, "tier": tier, "source": source, "source_url": source_url,
+            "reason": reason, "store": store, "ref": ref, "priority": PRIORITY.get(reason, 9)}
 
 
 def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG) -> list:
@@ -87,7 +93,8 @@ def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG)
         for r in con.execute("SELECT doc_number, brand_id, year, source_url FROM fdd_extracts "
                              "WHERE needs_human_read=1"):
             items.append(_item(f"fdd:{r[0]}", r[1], "structure", "fdd_extract", f"FDD {r[2]}",
-                               "low", r[3], "needs_human_read", "fdd_extracts", r[0]))
+                               "low", r[3], "needs_human_read", "fdd_extracts", r[0],
+                               source_url=_urlish(r[3])))
     except Exception:                                            # noqa: BLE001
         pass
 
@@ -98,7 +105,7 @@ def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG)
                 items.append(_item(rec.get("id"), rec.get("brand"), rec.get("dimension"),
                                    rec.get("metric"), rec.get("value"), rec.get("confidence"),
                                    rec.get("source"), "submitted", "submissions", rec.get("id"),
-                                   rec.get("provenance_tier")))
+                                   rec.get("provenance_tier"), source_url=_urlish(rec.get("source_url"))))
     except Exception:                                            # noqa: BLE001
         pass
 
@@ -109,15 +116,16 @@ def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG)
                 ref = f"{g.get('chain')}|{loc.get('address')}"
                 items.append(_item(f"sight:{ref}", g.get("chain"), "presence", "outlet",
                                    loc.get("name"), loc.get("confidence"), loc.get("verified_by"),
-                                   "uncertain", "sightings", ref))
+                                   "uncertain", "sightings", ref,
+                                   source_url=_urlish(loc.get("source_url") or loc.get("url"))))
 
     # financial_anchors below 'high' — secondary/press, not a primary filing.
     try:
-        for r in con.execute("SELECT brand_id, metric, period, value, confidence, source "
+        for r in con.execute("SELECT brand_id, metric, period, value, confidence, source, source_url "
                              "FROM financial_anchors WHERE confidence IS NOT 'high'"):
             items.append(_item(f"fa:{r[0]}:{r[1]}:{r[2]}", r[0], "economics", r[1], r[3],
                                r[4], r[5], "unverified_anchor", "financial_anchors",
-                               f"{r[0]}|{r[1]}|{r[2]}"))
+                               f"{r[0]}|{r[1]}|{r[2]}", source_url=_urlish(r[6])))
     except Exception:                                            # noqa: BLE001
         pass
 
@@ -126,7 +134,7 @@ def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG)
         if e.get("total") is not None and e.get("confidence") != "high":
             items.append(_item(f"cs:{brand}", brand, "scale", "store_count_total", e.get("total"),
                                e.get("confidence"), e.get("source"), "unverified_count",
-                               "china_stores", brand))
+                               "china_stores", brand, source_url=_urlish(e.get("source_url"))))
 
     # register markets that are ANNOUNCED (coming-soon) — a watch item needing open-confirmation.
     # (Low-confidence abroad notes are NOT queued here: they are not gating sellable output and are
@@ -134,9 +142,10 @@ def queue(con, include_resolved: bool = False, resolved_path: str = VERDICT_LOG)
     for e in _load("register.json").get("entries", []):
         if e.get("status") == "announced":
             ref = f"{e.get('chain')}|{e.get('market')}"
+            src0 = (e.get("sources") or [None])[0]
             items.append(_item(f"reg:{ref}", e.get("chain"), "presence", "market_presence",
                                f"{e.get('market')} ({e.get('status')})", e.get("confidence"),
-                               (e.get("sources") or [None])[0], "register_pending", "register", ref))
+                               src0, "register_pending", "register", ref, source_url=_urlish(src0)))
 
     if not include_resolved:
         done = resolved(resolved_path)

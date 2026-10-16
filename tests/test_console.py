@@ -117,6 +117,7 @@ def main():
     check("page has the library", "Library" in console._PAGE, True)
     check("page has queue container", 'id=queue' in console._PAGE, True)
     check("page has the per-item screenshot space", "makeScreenSpace" in console._PAGE, True)
+    check("page links the source when a url is present", "i.source_url" in console._PAGE, True)
     check("page supports paste into the screenshot space", "'paste'" in console._PAGE, True)
     check("page is localhost-private labelled", "PRIVATE" in console._PAGE, True)
 
