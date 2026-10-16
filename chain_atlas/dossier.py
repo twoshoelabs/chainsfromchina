@@ -38,16 +38,46 @@ def _brand_meta(brand: str) -> dict:
     return {"name": brand, "name_zh": None}
 
 
+def _state_of(addr: str):
+    """Best-effort US state code from a flat address string ('…, GA 30519' -> 'GA')."""
+    import re
+    m = re.search(r",\s*([A-Z]{2})\s+\d{5}", addr or "")
+    return m.group(1) if m else None
+
+
 def _presence(brand: str) -> dict:
-    """US roster + count from the published census, plus any logged closings for the brand."""
+    """
+    US roster + count for the brand. Primary source is the published census roster (stores.json), which
+    carries geocoded, adapter-sourced chains. Brands tracked only via hand-verified sightings (no enabled
+    adapter) are absent there, so we fall back to CONFIRMED sightings — the same locations that already
+    count on the public map — deduped against anything the roster already lists. Both are 'measured'
+    presence; uncertain/announced sightings are NOT included (they are held out of the count and live in
+    the verification queue instead). Plus any logged closings for the brand.
+    """
+    def _norm(a):
+        return "".join((a or "").lower().split())
+
     rows = [s for s in _load("map/data/stores.json").get("stores", []) if s.get("chain") == brand]
     roster = [{"name": s.get("name"), "address": s.get("addr"), "city": s.get("city"),
-               "state": s.get("state")} for s in rows]
-    states = sorted({s.get("state") for s in rows if s.get("state")})
+               "state": s.get("state"), "source": "census roster"} for s in rows]
+    seen = {_norm(r["address"]) for r in roster}
+    for g in _load("manual/sightings.json").get("sightings", []):
+        if g.get("chain") != brand:
+            continue
+        for loc in g.get("locations", []):
+            if loc.get("confidence") != "confirmed":
+                continue
+            if _norm(loc.get("address")) in seen:
+                continue
+            seen.add(_norm(loc.get("address")))
+            roster.append({"name": loc.get("name"), "address": loc.get("address"),
+                           "city": loc.get("city"), "state": loc.get("state") or _state_of(loc.get("address")),
+                           "source": "hand-verified sighting"})
+    states = sorted({r["state"] for r in roster if r.get("state")})
     closings = [{"name": c.get("name"), "address": c.get("address"), "closed_note": c.get("closed_note"),
                  "confidence": c.get("confidence"), "source": c.get("source")}
                 for c in _load("manual/closings.json").get("closings", []) if c.get("chain") == brand]
-    return {"us_outlets": len(rows), "states": states, "roster": roster, "closings": closings,
+    return {"us_outlets": len(roster), "states": states, "roster": roster, "closings": closings,
             "tier": "measured", "source": "daily US census (operator-observed / hand-verified)"}
 
 
@@ -188,9 +218,11 @@ def render_markdown(d: dict) -> str:
         L.append(f"**Modeled US revenue:** {est['low']:,.0f}–{est['high']:,.0f} {est.get('unit','USD')} "
                  f"(mid {est['mid']:,.0f}) _(modeled — {est.get('method')})_")
     if e["anchors"]:
+        def _num(v):
+            return f"{int(v):,}" if isinstance(v, (int, float)) and float(v).is_integer() else f"{v:,}"
         L.append("\n**Anchors (filing/FDD-derived):**")
         for a in e["anchors"]:
-            L.append(f"- {a['metric']} = {a['value']:,} {a.get('unit') or ''} "
+            L.append(f"- {a['metric']} = {_num(a['value'])} {a.get('unit') or ''} "
                      f"({a.get('period')}){conf(a['confidence'])} — _{a.get('source')}_")
     if not e["us_revenue_estimate"] and not e["anchors"]:
         L.append("_No disclosed anchors or modeled estimate on file._")
@@ -209,6 +241,16 @@ def render_markdown(d: dict) -> str:
         li = st["listing"]
         L.append(f"- Parent: {li['parent_zh'] or li['parent']}"
                  + (f" · sisters: {', '.join(li['sisters'])}" if li.get("sisters") else ""))
+    # A listing with no ticker/parent but a meaningful status (e.g. an IPO filed or lapsed) is still
+    # structure-layer intelligence — surface the status rather than rendering an empty section.
+    _STATUS = {"ipo_pending": "IPO filed — pending (not yet public)",
+               "ipo_lapsed": "IPO application filed then LAPSED — not public",
+               "ipo_withdrawn": "IPO application withdrawn — not public",
+               "private": "Privately held — not listed"}
+    if st["listing"] and not st["listing"].get("tickers"):
+        stt = st["listing"].get("status")
+        if stt and stt != "listed":
+            L.append(f"- Listing: {_STATUS.get(stt, stt.replace('_', ' '))}")
     if st["fdd"]:
         f = st["fdd"]
         inv = f["initial_investment"]
