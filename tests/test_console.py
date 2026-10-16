@@ -48,7 +48,8 @@ def main():
     check("verdict appended", sum(1 for _ in open(verd)), 1)
     st, _ = console.handle_verdict(json.dumps({"queue_id": "x", "verdict": "maybe"}), verdict_path=verd)
     check("bad verdict -> 400", st, 400)
-    # a 'watch' verdict with a screenshot saves the image into the chain's evidence library
+    # a 'watch' verdict with a screenshot saves the image into the chain's evidence library;
+    # `evidence` is a LIST of paths. The legacy singular `screenshot` is still accepted (-> one-item list).
     import base64
     vlib = os.path.join(tmp, "vsources")
     shot = base64.b64encode(b"\x89PNG fake image").decode()
@@ -58,9 +59,24 @@ def main():
         verdict_path=verd, lib=vlib)
     check("watch verdict -> 200", st, 200)
     check("watch verdict recorded", pay["verdict"]["verdict"], "watch")
-    check("screenshot saved as evidence", pay["verdict"]["evidence"].endswith(".png"), True)
+    check("evidence is a list", isinstance(pay["verdict"]["evidence"], list), True)
+    check("legacy screenshot -> one evidence path", pay["verdict"]["evidence"][0].endswith(".png"), True)
     check("evidence file exists under chain", os.path.exists(os.path.join(
-        tmp, "vsources", "chahalo", os.path.basename(pay["verdict"]["evidence"]))), True)
+        tmp, "vsources", "chahalo", os.path.basename(pay["verdict"]["evidence"][0]))), True)
+    # MULTIPLE screenshots in one verdict -> multiple evidence files, all saved under the chain
+    shots = [{"name": "a.png", "b64": base64.b64encode(b"\x89PNG a").decode()},
+             {"name": "b.png", "b64": base64.b64encode(b"\x89PNG b").decode()}]
+    st, pay = console.handle_verdict(json.dumps(
+        {"queue_id": "sight:makkee|x", "verdict": "watch", "brand": "makkee", "screenshots": shots}),
+        verdict_path=verd, lib=vlib)
+    check("multi-screenshot verdict -> 200", st, 200)
+    check("two evidence paths recorded", len(pay["verdict"]["evidence"]), 2)
+    check("both evidence files exist", all(os.path.exists(os.path.join(
+        tmp, "vsources", "makkee", os.path.basename(p))) for p in pay["verdict"]["evidence"]), True)
+    # a verdict with no screenshots -> evidence None
+    st, pay = console.handle_verdict(json.dumps(
+        {"queue_id": "cs:x", "verdict": "verified"}), verdict_path=verd, lib=vlib)
+    check("no-screenshot verdict has null evidence", pay["verdict"]["evidence"], None)
 
     # --- queue: reflects a seeded DB; a resolved item is excluded ---
     con = fresh()
@@ -100,6 +116,8 @@ def main():
     check("page has the content textarea", "id=text" in console._PAGE, True)
     check("page has the library", "Library" in console._PAGE, True)
     check("page has queue container", 'id=queue' in console._PAGE, True)
+    check("page has the per-item screenshot space", "makeScreenSpace" in console._PAGE, True)
+    check("page supports paste into the screenshot space", "'paste'" in console._PAGE, True)
     check("page is localhost-private labelled", "PRIVATE" in console._PAGE, True)
 
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))

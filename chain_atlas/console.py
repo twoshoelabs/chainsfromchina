@@ -52,30 +52,36 @@ def handle_library(lib=sources.LIB):
 
 
 def handle_verdict(body: str, verdict_path: str = verify.VERDICT_LOG, lib=sources.LIB):
-    """POST /api/verdict — {queue_id, verdict, by?, note?, new_confidence?, brand?, screenshot?{name,b64}}.
-    verdict is one of verify.VERDICTS (verified/rejected/watch); an attached screenshot is saved into the
-    chain's evidence library and referenced from the verdict. (status, payload)."""
+    """POST /api/verdict — {queue_id, verdict, by?, note?, new_confidence?, brand?,
+    screenshots?[{name,b64}], screenshot?{name,b64}}. verdict is one of verify.VERDICTS
+    (verified/rejected/watch); any attached screenshots are saved into the chain's evidence library and
+    referenced from the verdict (`evidence` is a list of paths). The legacy singular `screenshot` is still
+    accepted. (status, payload)."""
     try:
         d = json.loads(body)
     except Exception:                                           # noqa: BLE001
         return 400, {"ok": False, "error": "body is not valid JSON"}
-    evidence = None
-    shot = d.get("screenshot")
-    if shot and shot.get("b64"):
+    shots = list(d.get("screenshots") or [])
+    if d.get("screenshot"):                                     # legacy singular
+        shots.append(d["screenshot"])
+    evidence = []
+    for n, shot in enumerate(shots, 1):
+        if not (shot and shot.get("b64")):
+            continue
         try:
             fb = base64.b64decode(shot["b64"])
             srec = sources.add_source(
                 {"chain": d.get("brand") or "_unassigned", "kind": "other",
-                 "title": f"Verdict evidence — {d.get('queue_id')}", "note": d.get("note"),
-                 "tags": ["verdict-evidence"]},
+                 "title": f"Verdict evidence — {d.get('queue_id')}" + (f" ({n})" if len(shots) > 1 else ""),
+                 "note": d.get("note"), "tags": ["verdict-evidence"]},
                 file_bytes=fb, file_name=shot.get("name"), lib=lib)
-            evidence = srec["file"]
+            evidence.append(srec["file"])
         except Exception as e:                                 # noqa: BLE001
             return 400, {"ok": False, "error": f"screenshot not saved: {e}"}
     try:
         v = verify.record_verdict(d.get("queue_id"), d.get("verdict"), by=d.get("by", "owner"),
                                   note=d.get("note"), new_confidence=d.get("new_confidence"),
-                                  evidence=evidence, path=verdict_path)
+                                  evidence=(evidence or None), path=verdict_path)
         return 200, {"ok": True, "verdict": v}
     except ValueError as e:
         return 400, {"ok": False, "error": str(e)}
@@ -116,6 +122,15 @@ button.x{background:#fff;color:var(--accent);border-color:var(--accent);padding:
 .qi{border-top:1px solid var(--rule);padding:9px 0}.qi .tag{font-size:11px;background:#eee;border-radius:3px;padding:1px 6px;color:#444}
 .qi .b{font-weight:600}.qi .s{color:var(--muted);font-size:12px;display:block}
 .qi input.note{margin:4px 0 0}.counts{color:var(--muted);font-size:12px;margin:0 0 8px}
+.screen{border:1px dashed #bbb;border-radius:4px;padding:8px 10px;margin:6px 0 0;background:#fff;
+ cursor:pointer;font-size:12px;color:var(--muted);outline:none}
+.screen:focus{border-color:#999}.screen.drag{border-color:var(--accent);background:#fff6f5;color:var(--accent)}
+.screen.has{border-style:solid;border-color:#cfcfcf;color:#444}
+.thumbs{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.thumb{position:relative;width:56px;height:56px;border:1px solid var(--rule);border-radius:3px;
+ overflow:hidden;background:#f3f3f3}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb b{position:absolute;top:0;right:0;color:#fff;background:rgba(0,0,0,.6);border-radius:0 0 0 4px;
+ font-size:12px;line-height:1;padding:2px 5px;cursor:pointer}
 </style></head><body>
 <h1>Chains From China — owner console <span class=priv>· PRIVATE · localhost only</span></h1>
 <p class=sub>Build depth on each chain: drop the raw material (press, financial, analyst, filings), then
@@ -153,7 +168,8 @@ work the verification queue. Sources stay on this machine; nothing here is publi
 
 <section><h2>Verification queue</h2>
 <p class=h2note><b>Verify</b> = confirmed open/true · <b>Watch</b> = real but not open yet
- (coming-soon / temporarily closed) · <b>Reject</b> = not real. Attach a screenshot to any verdict.</p>
+ (coming-soon / temporarily closed) · <b>Reject</b> = not real. Each item has a screenshot space —
+ attach as many as you like (click, drag-drop, or ⌘V paste); they're saved as evidence with the verdict.</p>
 <div id=counts class=counts>loading…</div>
 <div id=queue></div>
 </section>
@@ -199,6 +215,50 @@ async function loadLibrary(){
      +(s.file?' · 📎 '+(s.orig_name||'file'):'')+'</div>'+
      (s.excerpt?'<div class=e>'+s.excerpt+'…</div>':''); r.append(d); }
 }
+let activeSpace = null;                       // the screenshot space a ⌘V paste lands in
+function fileToB64(f){ return new Promise(res=>{ const r=new FileReader();
+  r.onload=()=>res(r.result.split(',')[1]); r.readAsDataURL(f); }); }
+function makeScreenSpace(){
+ const stash = [];                            // {name, b64, url}
+ const wrap = document.createElement('div');
+ const zone = document.createElement('div'); zone.className='screen'; zone.tabIndex=0;
+ const thumbs = document.createElement('div'); thumbs.className='thumbs';
+ const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*';
+ inp.multiple=true; inp.style.display='none';
+ wrap.append(zone, thumbs, inp);
+ const space = {el:wrap, stash, addFiles};
+ function label(){ zone.classList.toggle('has', stash.length>0);
+   zone.textContent = stash.length ? ('📷 '+stash.length+' screenshot'+(stash.length>1?'s':'')
+     +' — click / drop / ⌘V to add more') : '📷 Screenshots — click, drop, or paste (⌘V)'; }
+ function render(){ thumbs.innerHTML='';
+   stash.forEach((s,idx)=>{ const t=document.createElement('div'); t.className='thumb';
+     const im=document.createElement('img'); im.src=s.url;
+     const x=document.createElement('b'); x.textContent='×'; x.title='remove';
+     x.onclick=(e)=>{ e.stopPropagation(); stash.splice(idx,1); render(); };
+     t.append(im,x); thumbs.append(t); }); label(); }
+ async function addFiles(files){
+   for(const f of files){ if(!f || !(f.type||'').startsWith('image/')) continue;
+     const b64 = await fileToB64(f);
+     stash.push({name:f.name||'screenshot.png', b64, url:'data:'+f.type+';base64,'+b64}); }
+   render(); }
+ zone.onclick = ()=>{ activeSpace=space; inp.click(); };
+ zone.onfocus = ()=>{ activeSpace=space; };
+ // snapshot the FileList to an array BEFORE clearing the input — clearing empties the live FileList
+ // that addFiles() iterates asynchronously, which would drop all but the first pick.
+ inp.onchange = ()=>{ const fs=[...inp.files]; inp.value=''; addFiles(fs); };
+ zone.ondragover = (e)=>{ e.preventDefault(); zone.classList.add('drag'); };
+ zone.ondragleave = ()=>zone.classList.remove('drag');
+ zone.ondrop = (e)=>{ e.preventDefault(); zone.classList.remove('drag');
+   activeSpace=space; addFiles([...e.dataTransfer.files]); };
+ label();
+ return space;
+}
+document.addEventListener('paste', e=>{
+ if(!activeSpace || !e.clipboardData) return;
+ const files=[]; for(const it of e.clipboardData.items){
+   if((it.type||'').startsWith('image/')){ const f=it.getAsFile(); if(f) files.push(f); } }
+ if(files.length){ e.preventDefault(); activeSpace.addFiles(files); }
+});
 async function loadQueue(){
  const j = await (await fetch('/api/queue')).json();
  $('counts').textContent = j.summary.total+' open — '+
@@ -210,24 +270,24 @@ async function loadQueue(){
      +i.layer+':'+i.metric+' = '+String(i.value).slice(0,60)
      +' <span style="color:#999">('+(i.confidence||'')+')</span>';
    const note = document.createElement('input'); note.className='note'; note.placeholder='verdict note (optional)';
-   const shot = document.createElement('input'); shot.type='file'; shot.accept='image/*'; shot.className='shot';
+   const space = makeScreenSpace();
    const bv = document.createElement('button'); bv.className='v'; bv.textContent='Verify';
    const bw = document.createElement('button'); bw.className='w'; bw.textContent='Watch';
    const bx = document.createElement('button'); bx.className='x'; bx.textContent='Reject';
-   bv.onclick = ()=>verdict(i.id,'verified',note.value,i.brand,shot);
-   bw.onclick = ()=>verdict(i.id,'watch',note.value,i.brand,shot);
-   bx.onclick = ()=>verdict(i.id,'rejected',note.value,i.brand,shot);
+   bv.onclick = ()=>verdict(i.id,'verified',note.value,i.brand,space);
+   bw.onclick = ()=>verdict(i.id,'watch',note.value,i.brand,space);
+   bx.onclick = ()=>verdict(i.id,'rejected',note.value,i.brand,space);
    const src = document.createElement('span'); src.className='s'; src.textContent = i.source||'';
-   d.append(document.createElement('div'), bv, bw, bx, note, shot, src);
+   d.append(document.createElement('div'), bv, bw, bx, note, space.el, src);
    q.append(d);
  }
  if(j.items.length>60){ const more=document.createElement('p'); more.className='counts';
    more.textContent='…and '+(j.items.length-60)+' more'; q.append(more);}
 }
-async function verdict(id,v,note,brand,shotInput){
- const shot = shotInput ? await readFile(shotInput) : null;
+async function verdict(id,v,note,brand,space){
+ const shots = (space ? space.stash : []).map(s=>({name:s.name, b64:s.b64}));
  await fetch('/api/verdict',{method:'POST',body:JSON.stringify(
-   {queue_id:id,verdict:v,by:'owner',note:note||null,brand:brand||null,screenshot:shot})});
+   {queue_id:id,verdict:v,by:'owner',note:note||null,brand:brand||null,screenshots:shots})});
  loadQueue();
 }
 loadLibrary(); loadQueue();

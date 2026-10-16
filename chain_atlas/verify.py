@@ -163,8 +163,8 @@ def record_verdict(queue_id: str, verdict: str, by: str = "owner", note: str = N
     name:      record_verdict
     purpose:   Append one human verdict for a queue item to the verdict log.
     arguments: queue_id — the item's id; verdict — one of VERDICTS; by — who; note; new_confidence — the
-               promoted confidence a later promotion step should apply; evidence — a path to a saved
-               screenshot/doc backing the call; path — the log.
+               promoted confidence a later promotion step should apply; evidence — a path (or list of
+               paths) to saved screenshots/docs backing the call; path — the log.
     returns:   the verdict record written.
     effects:   Appends one JSON line. Raises ValueError on an unknown verdict.
     other:     Append-only. Three verdicts, because the real/open question is not binary:
