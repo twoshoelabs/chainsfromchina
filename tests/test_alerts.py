@@ -105,6 +105,25 @@ def main():
     check("run_detect second call (no change) empty", n1, [])
     check("baseline file written", os.path.exists(bl), True)
 
+    # ---------- notify: the daily hook (detect → digest file → cursor), against live data ----------
+    import json as _json
+    live = alerts.snapshot()                       # real manual/ data (loose, robust assertions)
+    some = next(iter(live["presence"]))            # a brand with ≥1 US outlet
+    slim = alerts._slim(live)
+    for layer in ("presence", "register", "scale", "anchors", "closings"):
+        slim.get(layer, {}).pop(some, None)        # pretend this brand did not exist last run
+    nbl = os.path.join(tmp, "nb.json"); Path(nbl).write_text(_json.dumps(slim))
+    nlog = os.path.join(tmp, "nlog.jsonl"); ncur = os.path.join(tmp, "ncur.json")
+    ndig = os.path.join(tmp, "nd.md")
+    r = alerts.notify(con=None, digest_path=ndig, cursor_path=ncur, log_path=nlog,
+                      baseline_path=nbl, macos=False)
+    check("notify surfaces the re-entered brand", r["undelivered"] >= 1, True)
+    check("notify wrote a digest file", os.path.exists(ndig), True)
+    check("digest names the brand", some in r["digest"], True)
+    r2 = alerts.notify(con=None, digest_path=ndig, cursor_path=ncur, log_path=nlog,
+                       baseline_path=nbl, macos=False)
+    check("notify idempotent (cursor advanced, nothing re-delivered)", r2["undelivered"], 0)
+
     print("\n" + ("ALL PASS" if not fails else f"{len(fails)} FAIL: " + ", ".join(fails)))
     return 1 if fails else 0
 

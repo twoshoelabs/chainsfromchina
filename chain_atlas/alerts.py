@@ -378,3 +378,48 @@ def mark_delivered(events=None, cursor_path: str = CURSOR, log_path: str = EVENT
     if newest:
         Path(cursor_path).write_text(json.dumps({"last_delivered_at": newest}), encoding="utf-8")
     return newest
+
+
+def _macos_notify(summary: str, title: str = "CFC alerts"):
+    """Best-effort local macOS notification; silently a no-op off a Mac user session."""
+    import subprocess
+    body = re.sub(r'["\\]', "", summary)[:230]
+    try:
+        subprocess.run(["osascript", "-e", f'display notification "{body}" with title "{title}"'],
+                       check=False, timeout=10, capture_output=True)
+    except Exception:                                           # noqa: BLE001
+        pass
+
+
+def notify(con=None, digest_path: str = None, cursor_path: str = CURSOR,
+           log_path: str = EVENT_LOG, baseline_path: str = BASELINE, macos: bool = True) -> dict:
+    """
+    name:      notify
+    purpose:   The daily local-refresh hook: detect today's changes, surface any NOT yet delivered, and
+               advance the cursor. Intended to run after `export` and before `deploy.sh`, so the updated
+               event log + baseline ride the same Refresh commit.
+    arguments: con — optional DB connection (adds the filing layer); digest_path — where to append the
+               Markdown digest (default DATA_DIR/alerts/digest.md); the rest are test overrides; macos —
+               post a best-effort local notification.
+    returns:   {detected, undelivered, digest, digest_path}.
+    effects:   Runs run_detect() (appends events, rewrites baseline), appends the digest to disk, posts a
+               local notification, and advances the delivery cursor. Idempotent: a no-change day writes
+               nothing and delivers nothing.
+    """
+    from . import config
+    new = run_detect(con, log_path=log_path, baseline_path=baseline_path)
+    pending = undelivered(cursor_path=cursor_path, log_path=log_path)
+    if not pending:
+        return {"detected": len(new), "undelivered": 0, "digest": "", "digest_path": None}
+    body = digest(pending, title="CFC alerts")
+    if digest_path is None:
+        d = config.DATA_DIR / "alerts"
+        d.mkdir(parents=True, exist_ok=True)
+        digest_path = str(d / "digest.md")
+    with open(digest_path, "a", encoding="utf-8") as f:
+        f.write(f"## {config.now_ny('minutes')} NY\n\n{body}\n\n")
+    if macos:
+        top = next((e["headline"] for e in pending), "")
+        _macos_notify(f"{len(pending)} new — {top}")
+    mark_delivered(cursor_path=cursor_path, log_path=log_path)
+    return {"detected": len(new), "undelivered": len(pending), "digest": body, "digest_path": digest_path}

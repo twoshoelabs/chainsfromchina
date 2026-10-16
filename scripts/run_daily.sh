@@ -12,6 +12,13 @@ fi
 "$PY" -m chain_atlas run
 rc=$?
 "$PY" -m chain_atlas export
+# PRO alerts (pillar 2): detect today's changes across every layer (census + sightings + register +
+# scale + filings) and surface any NOT yet delivered — a new US entrant, an outlet open/close, an
+# abroad market, a scale change, a new filing. Runs AFTER export so it sees the fresh census, and
+# BEFORE deploy.sh so the updated event log + baseline ride the same Refresh commit. Writes a durable
+# digest to $CHAIN_ATLAS_DATA/alerts/digest.md, posts a local notification, and advances the cursor.
+# Non-fatal: an alert failure must never fail collection.
+"$PY" -m chain_atlas alerts notify --with-filings || true
 # Launch-watch: quiet until a blocked chain's page changes state (e.g. Tai Er's staged US
 # site going live). Never affects the run's exit code; a signal is logged to
 # $CHAIN_ATLAS_DATA/launch_alerts.log and printed to this daily log.

@@ -256,6 +256,14 @@ def main(argv=None):
             if new and "--digest" in argv:
                 print("\n" + alerts.digest(new, title="New alerts"))
             return 0
+        if sub == "notify":
+            r = alerts.notify(con, macos="--no-macos" not in argv)
+            if r["undelivered"]:
+                print(r["digest"])
+                print(f"\n-- {r['undelivered']} new alert(s) written to {r['digest_path']} --")
+            else:
+                print(f"no new alerts (detected {r['detected']} this run)")
+            return 0
         if sub in ("digest", "log"):
             events = alerts.load()
             lens = {}
@@ -282,6 +290,7 @@ def main(argv=None):
                 print(f"\n-- delivery cursor advanced to {cur} --")
             return 0
         print("usage: python -m chain_atlas alerts detect [--digest] [--with-filings]")
+        print("       python -m chain_atlas alerts notify [--with-filings] [--no-macos]  (daily hook)")
         print("       python -m chain_atlas alerts digest|log [--since ISO | --undelivered]"
               " [--kind K] [--brand B] [--sector S] [--min-confidence high] [--deliver]")
         return 2
