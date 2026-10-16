@@ -196,6 +196,24 @@ def main(argv=None):
         print(dossier.run(con, brand, as_markdown=("--md" in argv)))
         return 0
 
+    if cmd == "export-tier":
+        from . import db, tier_export
+        tier = next((a for a in argv[1:] if not a.startswith("-")), None)
+        if tier not in tier_export.TIERS:
+            print(f"usage: python -m chain_atlas export-tier <{'|'.join(tier_export.TIERS)}> [--brand X] [--out DIR]")
+            return 2
+        con = db.connect()
+        brands = [opt("--brand")] if opt("--brand") else None
+        bundle = tier_export.export(con, tier, brands=brands)
+        out = opt("--out")
+        if out:
+            files = tier_export.write(bundle, out)
+            print(f"{tier}: {bundle['brand_count']} brands -> {len(files)} file(s) in {out}")
+        else:
+            import json as _json
+            print(_json.dumps(bundle, ensure_ascii=False, indent=1))
+        return 0
+
     if cmd == "verify":
         from . import db, verify
         con = db.connect()
@@ -272,6 +290,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  export-tier <public|observer|pro|intelligence> [--brand X] [--out DIR]   tier-gated export (pro/ = access-controlled)")
     print("  verify [--reason R|--brand B|--limit N]          Pro: the verification queue — records awaiting a human verdict")
     print("  verify --resolve <id> --verdict verified|rejected   …record a verdict (append-only verifications.jsonl)")
     print("  dossier <chain_id> [--md]                        Pro: assemble ONE chain's full dossier (all 5 layers) as JSON or Markdown")
