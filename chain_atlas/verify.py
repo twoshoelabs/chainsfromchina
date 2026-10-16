@@ -154,25 +154,39 @@ def summary(items: list) -> dict:
             key=lambda kv: PRIORITY.get(kv[0], 9)))}
 
 
+VERDICTS = ("verified", "rejected", "watch")
+
+
 def record_verdict(queue_id: str, verdict: str, by: str = "owner", note: str = None,
-                   new_confidence: str = None, path: str = VERDICT_LOG) -> dict:
+                   new_confidence: str = None, evidence: str = None, path: str = VERDICT_LOG) -> dict:
     """
     name:      record_verdict
     purpose:   Append one human verdict for a queue item to the verdict log.
-    arguments: queue_id — the item's id; verdict — 'verified' or 'rejected'; by — who; note; new_confidence
-               — the promoted confidence a later promotion step should apply; path — the log.
+    arguments: queue_id — the item's id; verdict — one of VERDICTS; by — who; note; new_confidence — the
+               promoted confidence a later promotion step should apply; evidence — a path to a saved
+               screenshot/doc backing the call; path — the log.
     returns:   the verdict record written.
     effects:   Appends one JSON line. Raises ValueError on an unknown verdict.
-    other:     Append-only. This records the DECISION; it does NOT edit the source store — promotion is a
-               separate, deliberate step so the queue can never corrupt data.
+    other:     Append-only. Three verdicts, because the real/open question is not binary:
+                 verified — confirmed true/open; promote it.
+                 rejected — not real / wrong; drop it.
+                 watch    — REAL but not yet open (announced / coming-soon / temporarily closed). Neither
+                            counted nor dropped — acknowledged and kept on the watch list for re-check.
+               Records the DECISION only; it does NOT edit the source store (promotion is separate), so the
+               queue can never corrupt data. All three drop the item from the active queue (see resolved()).
     """
-    if verdict not in ("verified", "rejected"):
-        raise ValueError("verdict must be 'verified' or 'rejected'")
+    if verdict not in VERDICTS:
+        raise ValueError("verdict must be one of " + ", ".join(VERDICTS))
     rec = {"queue_id": queue_id, "verdict": verdict, "by": by, "at": _utcnow(),
-           "note": note, "new_confidence": new_confidence}
+           "note": note, "new_confidence": new_confidence, "evidence": evidence}
     with open(path, "a", encoding="utf-8") as f:
         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     return rec
+
+
+def watching(path: str = VERDICT_LOG) -> list:
+    """The items whose latest verdict is 'watch' — real-but-not-yet-open, for periodic re-check."""
+    return [v for v in resolved(path).values() if v.get("verdict") == "watch"]
 
 
 def render(items: list, limit: int = 40) -> str:

@@ -14,3 +14,7 @@ manual/demographics_cache.json
 
 # Pro-tier artifacts (pricing menus, exports) — access-controlled, never published or committed
 pro/
+
+# Source/evidence corpus — raw press/financial/analyst material (often copyrighted, large):
+# local-only, never committed. The EXTRACTED facts get committed, the sources stay on the machine.
+manual/sources/

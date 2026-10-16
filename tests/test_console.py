@@ -60,13 +60,26 @@ def main():
     st, pay = console.handle_submit("{not json", subs_path=subs)
     check("bad JSON -> 400", st, 400)
 
-    # --- verdict: valid + bad ---
+    # --- verdict: valid + bad + watch-with-screenshot ---
     st, pay = console.handle_verdict(json.dumps({"queue_id": "cs:juewei", "verdict": "verified"}),
                                      verdict_path=verd)
     check("valid verdict -> 200", st, 200)
     check("verdict appended", sum(1 for _ in open(verd)), 1)
     st, _ = console.handle_verdict(json.dumps({"queue_id": "x", "verdict": "maybe"}), verdict_path=verd)
     check("bad verdict -> 400", st, 400)
+    # a 'watch' verdict with a screenshot saves the image into the chain's evidence library
+    import base64
+    vlib = os.path.join(tmp, "vsources")
+    shot = base64.b64encode(b"\x89PNG fake image").decode()
+    st, pay = console.handle_verdict(json.dumps(
+        {"queue_id": "sight:chahalo|1403 Research", "verdict": "watch", "brand": "chahalo",
+         "note": "coming soon 2026", "screenshot": {"name": "rockville.png", "b64": shot}}),
+        verdict_path=verd, lib=vlib)
+    check("watch verdict -> 200", st, 200)
+    check("watch verdict recorded", pay["verdict"]["verdict"], "watch")
+    check("screenshot saved as evidence", pay["verdict"]["evidence"].endswith(".png"), True)
+    check("evidence file exists under chain", os.path.exists(os.path.join(
+        tmp, "vsources", "chahalo", os.path.basename(pay["verdict"]["evidence"]))), True)
 
     # --- queue: reflects a seeded DB; a resolved item is excluded ---
     con = fresh()
@@ -79,8 +92,32 @@ def main():
     check("already-resolved cs:juewei excluded", "cs:juewei" not in ids, True)
     check("summary total matches items", pay["summary"]["total"], len(pay["items"]))
 
-    # --- the served page carries the form + queue ---
-    check("page has submit form field", "id=value" in console._PAGE, True)
+    # --- source library handlers (drop + list) ---
+    import base64
+    lib = os.path.join(tmp, "sources")
+    st, pay = console.handle_source(json.dumps(
+        {"chain": "chabaidao", "kind": "press", "title": "A report", "text": "some body text"}), lib=lib)
+    check("drop text source -> 200", st, 200)
+    check("drop returns source id", pay["ok"] and pay["source"]["id"].startswith("src_"), True)
+    st, pay = console.handle_source(json.dumps(
+        {"chain": "mixue", "kind": "financial", "title": "FY25",
+         "file": {"name": "r.pdf", "b64": base64.b64encode(b"%PDF fake").decode()}}), lib=lib)
+    check("drop file source -> 200", st, 200)
+    check("drop file recorded", pay["source"]["file"].endswith(".pdf"), True)
+    st, pay = console.handle_source(json.dumps({"kind": "press", "title": "x", "text": "t"}), lib=lib)
+    check("drop without chain -> 400", st, 400)
+    st, pay = console.handle_source("{bad", lib=lib)
+    check("drop bad JSON -> 400", st, 400)
+    # library view reflects the drops
+    st, pay = console.handle_library(lib=lib)
+    check("library -> 200", st, 200)
+    check("library by_chain counts", pay["by_chain"], {"chabaidao": 1, "mixue": 1})
+    check("library recent has titles", any(s["title"] == "A report" for s in pay["recent"]), True)
+
+    # --- the served page carries the source drop + library + queue ---
+    check("page has the source drop", "Drop a source" in console._PAGE, True)
+    check("page has the content textarea", "id=text" in console._PAGE, True)
+    check("page has the library", "Library" in console._PAGE, True)
     check("page has queue container", 'id=queue' in console._PAGE, True)
     check("page is localhost-private labelled", "PRIVATE" in console._PAGE, True)
 

@@ -86,7 +86,19 @@ def main():
     # include_resolved keeps it
     q3 = verify.queue(con, include_resolved=True, resolved_path=tmp)
     check("include_resolved keeps it", "fdd:doc-1" in {i["id"] for i in q3}, True)
-    # bad verdict raises
+
+    # --- 'watch' verdict (real-but-not-open) + evidence: valid, drops from queue, listed by watching() ---
+    watch_id = next((i["id"] for i in q2 if i["reason"] == "uncertain"), None)
+    verify.record_verdict(watch_id, "watch", by="owner", note="coming soon 2026",
+                          evidence="sources/chahalo/shot.png", path=tmp)
+    rv = verify.resolved(tmp).get(watch_id, {})
+    check("watch is a valid verdict", rv.get("verdict"), "watch")
+    check("evidence stored on the verdict", rv.get("evidence"), "sources/chahalo/shot.png")
+    check("watching() lists the watch item", any(w["queue_id"] == watch_id for w in verify.watching(tmp)), True)
+    q4 = verify.queue(con, resolved_path=tmp)
+    check("watched item drops from queue (not re-asked)", watch_id not in {i["id"] for i in q4}, True)
+
+    # bad verdict still raises
     raised = False
     try:
         verify.record_verdict("x", "maybe", path=tmp)

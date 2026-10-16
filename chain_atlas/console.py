@@ -14,11 +14,41 @@ The HTTP layer is a thin dispatcher over three pure handlers (handle_submit / ha
 handle_queue) so the logic is testable without sockets. It writes only the append-only intake/verdict
 logs — never the typed stores (promotion stays a separate, deliberate step).
 """
+import base64
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
+from . import sources
 from . import submissions as S
 from . import verify
+
+
+def handle_source(body: str, lib=sources.LIB):
+    """POST /api/source — drop a source (metadata + pasted text and/or a base64 file). (status, payload)."""
+    try:
+        d = json.loads(body)
+    except Exception:                                          # noqa: BLE001
+        return 400, {"ok": False, "error": "body is not valid JSON"}
+    fb = fn = None
+    f = d.get("file")
+    if f and f.get("b64"):
+        try:
+            fb = base64.b64decode(f["b64"])
+            fn = f.get("name")
+        except Exception:                                      # noqa: BLE001
+            return 400, {"ok": False, "error": "attached file is not valid base64"}
+    meta = {k: d.get(k) for k in ("chain", "kind", "title", "publisher", "date", "url",
+                                  "tags", "note", "submitter")}
+    try:
+        rec = sources.add_source(meta, text=d.get("text"), file_bytes=fb, file_name=fn, lib=lib)
+        return 200, {"ok": True, "source": rec}
+    except ValueError as e:
+        return 400, {"ok": False, "error": str(e)}
+
+
+def handle_library(lib=sources.LIB):
+    """GET /api/library — the corpus shape (counts per chain) + the most recent drops. (status, payload)."""
+    return 200, {"by_chain": sources.by_chain(lib=lib), "recent": sources.list_sources(lib=lib)[:30]}
 
 
 def handle_submit(body: str, subs_path: str = "manual/submissions.jsonl"):
@@ -34,16 +64,31 @@ def handle_submit(body: str, subs_path: str = "manual/submissions.jsonl"):
         return 400, {"ok": False, "error": str(e)}
 
 
-def handle_verdict(body: str, verdict_path: str = verify.VERDICT_LOG):
-    """POST /api/verdict — {queue_id, verdict, by?, note?, new_confidence?} -> recorded. (status, payload)."""
+def handle_verdict(body: str, verdict_path: str = verify.VERDICT_LOG, lib=sources.LIB):
+    """POST /api/verdict — {queue_id, verdict, by?, note?, new_confidence?, brand?, screenshot?{name,b64}}.
+    verdict is one of verify.VERDICTS (verified/rejected/watch); an attached screenshot is saved into the
+    chain's evidence library and referenced from the verdict. (status, payload)."""
     try:
         d = json.loads(body)
     except Exception:                                           # noqa: BLE001
         return 400, {"ok": False, "error": "body is not valid JSON"}
+    evidence = None
+    shot = d.get("screenshot")
+    if shot and shot.get("b64"):
+        try:
+            fb = base64.b64decode(shot["b64"])
+            srec = sources.add_source(
+                {"chain": d.get("brand") or "_unassigned", "kind": "other",
+                 "title": f"Verdict evidence — {d.get('queue_id')}", "note": d.get("note"),
+                 "tags": ["verdict-evidence"]},
+                file_bytes=fb, file_name=shot.get("name"), lib=lib)
+            evidence = srec["file"]
+        except Exception as e:                                 # noqa: BLE001
+            return 400, {"ok": False, "error": f"screenshot not saved: {e}"}
     try:
         v = verify.record_verdict(d.get("queue_id"), d.get("verdict"), by=d.get("by", "owner"),
                                   note=d.get("note"), new_confidence=d.get("new_confidence"),
-                                  path=verdict_path)
+                                  evidence=evidence, path=verdict_path)
         return 200, {"ok": True, "verdict": v}
     except ValueError as e:
         return 400, {"ok": False, "error": str(e)}
@@ -60,80 +105,112 @@ _PAGE = """<!doctype html><html lang=en><head><meta charset=utf-8>
 <style>
 :root{--ink:#1a1a1a;--muted:#6b6b6b;--rule:#e2e2e2;--surface:#fafafa;--accent:#b23b2e}
 *{box-sizing:border-box}body{font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- color:var(--ink);max-width:860px;margin:0 auto;padding:18px 16px 60px;background:#fff}
+ color:var(--ink);max-width:880px;margin:0 auto;padding:18px 16px 60px;background:#fff}
 h1{font-size:19px;margin:0 0 2px}.priv{color:var(--accent);font-size:12px;font-weight:600}
 .sub{color:var(--muted);margin:2px 0 18px}
 section{border:1px solid var(--rule);border-radius:3px;padding:16px;margin:0 0 18px;background:var(--surface)}
-h2{font-size:15px;margin:0 0 10px}label{display:block;font-size:13px;color:var(--muted);margin:9px 0 0}
+h2{font-size:15px;margin:0 0 4px}.h2note{color:var(--muted);font-size:12px;margin:0 0 10px}
+label{display:block;font-size:13px;color:var(--muted);margin:9px 0 0}
 input,select,textarea{width:100%;margin-top:3px;padding:7px 8px;border:1px solid #cfcfcf;border-radius:3px;
- font:inherit;background:#fff}.row{display:flex;gap:10px;flex-wrap:wrap}.row>label{flex:1;min-width:150px}
+ font:inherit;background:#fff}textarea{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>label{flex:1;min-width:140px}
 button{font:inherit;padding:7px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;
- border-radius:3px;cursor:pointer;margin-top:12px}button.sec{background:#fff;color:var(--ink)}
+ border-radius:3px;cursor:pointer;margin-top:12px}
 button.v{background:#1f7a3d;border-color:#1f7a3d;padding:3px 10px;margin:0}
+button.w{background:#b07d12;border-color:#b07d12;padding:3px 10px;margin:0 0 0 6px}
 button.x{background:#fff;color:var(--accent);border-color:var(--accent);padding:3px 10px;margin:0 0 0 6px}
+.qi input.shot{margin:4px 0 0;font-size:12px}
 .msg{margin-top:10px;font-size:13px}.ok{color:#1f7a3d}.err{color:var(--accent)}
-.qi{border-top:1px solid var(--rule);padding:9px 0;display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
-.qi .tag{font-size:11px;background:#eee;border-radius:3px;padding:1px 6px;color:#444}
-.qi .b{font-weight:600}.qi .s{color:var(--muted);font-size:12px;flex-basis:100%}
-.qi input.note{flex-basis:100%;margin:4px 0 0}.counts{color:var(--muted);font-size:12px;margin:0 0 8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
+.chip{font-size:12px;background:#eee;border-radius:12px;padding:2px 9px;color:#333}
+.chip b{color:var(--accent)}
+.src{border-top:1px solid var(--rule);padding:8px 0}.src .t{font-weight:600}
+.src .m{color:var(--muted);font-size:12px}.src .e{color:#444;font-size:12.5px;margin-top:2px}
+.qi{border-top:1px solid var(--rule);padding:9px 0}.qi .tag{font-size:11px;background:#eee;border-radius:3px;padding:1px 6px;color:#444}
+.qi .b{font-weight:600}.qi .s{color:var(--muted);font-size:12px;display:block}
+.qi input.note{margin:4px 0 0}.counts{color:var(--muted);font-size:12px;margin:0 0 8px}
 </style></head><body>
 <h1>Chains From China — owner console <span class=priv>· PRIVATE · localhost only</span></h1>
-<p class=sub>Submit sourced data points and work the verification queue. Writes to the append-only intake
-and verdict logs; nothing here is published.</p>
+<p class=sub>Build depth on each chain: drop the raw material (press, financial, analyst, filings), then
+work the verification queue. Sources stay on this machine; nothing here is published.</p>
 
-<section><h2>Submit a data point</h2>
+<section><h2>Drop a source</h2>
+<p class=h2note>A press report, financial filing, analyst note or company statement — paste the text,
+ attach a file, or both. This is the evidence PRO facts get extracted from.</p>
 <div class=row>
- <label>Chain (chain_id)<input id=brand placeholder="mixue"></label>
- <label>Dimension<select id=dimension>
-   <option value=presence>presence</option><option value=scale selected>scale</option>
-   <option value=economics>economics</option><option value=structure>structure</option>
-   <option value=narrative>narrative</option></select></label>
- <label>Metric<input id=metric placeholder="store_count_total"></label>
+ <label>Chain (chain_id) <input id=chain placeholder="chabaidao"></label>
+ <label>Kind <select id=kind>
+   <option>press</option><option>financial</option><option>analyst</option>
+   <option>filing</option><option>company</option><option>other</option></select></label>
+ <label>Date (YYYY-MM-DD) <input id=date placeholder="2026-04-24"></label>
 </div>
-<label>Value / fact<input id=value placeholder="59823 — or a sentence"></label>
+<label>Title <input id=title placeholder="ChaPanda FY2025 Annual Report"></label>
 <div class=row>
- <label>Unit<input id=unit placeholder="stores / USD (optional)"></label>
- <label>As of (YYYY-MM-DD)<input id=as_of placeholder="2025-12-31"></label>
- <label>Confidence<select id=confidence>
-   <option>high</option><option selected>medium</option><option>low</option></select></label>
+ <label>Publisher / outlet <input id=publisher placeholder="HKEX · Caixin · Nomura"></label>
+ <label>URL <input id=url placeholder="https://… (optional)"></label>
+ <label>Tags (comma-sep) <input id=tags placeholder="revenue, store-count"></label>
 </div>
-<label>Source<input id=source placeholder="FY2025 annual report (HKEX:2555)"></label>
-<div class=row>
- <label>Source URL<input id=source_url placeholder="https://… (optional)"></label>
- <label>Provenance tier<select id=provenance_tier>
-   <option value="">(infer)</option><option>measured</option><option>filed</option>
-   <option>modeled</option><option>reported</option></select></label>
- <label>Submitter<input id=submitter value=owner></label>
-</div>
-<label>Note<textarea id=note rows=2 placeholder="optional"></textarea></label>
-<label>Geo address (presence only)<input id=geo_address placeholder="123 Main St, City, ST"></label>
-<button onclick=submit()>Save data point</button>
-<div id=smsg class=msg></div>
+<label>Content — paste the article / report text <textarea id=text rows=8
+   placeholder="Paste the full text or the relevant passages here…"></textarea></label>
+<label>…or attach a file (PDF, etc.) <input type=file id=file></label>
+<label>Note <input id=note placeholder="what's useful in it (optional)"></label>
+<button onclick=dropSource()>Save to library</button>
+<div id=dmsg class=msg></div>
+</section>
+
+<section><h2>Library</h2>
+<p class=h2note>The corpus so far — how much depth each chain has.</p>
+<div id=bychain class=chips>loading…</div>
+<div id=recent></div>
 </section>
 
 <section><h2>Verification queue</h2>
+<p class=h2note><b>Verify</b> = confirmed open/true · <b>Watch</b> = real but not open yet
+ (coming-soon / temporarily closed) · <b>Reject</b> = not real. Attach a screenshot to any verdict.</p>
 <div id=counts class=counts>loading…</div>
 <div id=queue></div>
 </section>
 
 <script>
 const $ = id => document.getElementById(id);
-async function submit(){
- const dim = $('dimension').value;
- const r = {brand:$('brand').value.trim(), dimension:dim, metric:$('metric').value.trim()||dim,
-   value:$('value').value.trim(), unit:$('unit').value.trim()||null, as_of:$('as_of').value.trim(),
-   confidence:$('confidence').value, source:$('source').value.trim(),
-   source_url:$('source_url').value.trim()||null,
-   provenance_tier:$('provenance_tier').value||undefined,
-   submitter:$('submitter').value.trim()||'owner', note:$('note').value.trim()||null, status:'submitted'};
- if(dim==='presence' && $('geo_address').value.trim())
-   r.geo={address:$('geo_address').value.trim()};
- const res = await fetch('/api/submit',{method:'POST',body:JSON.stringify(r)});
- const j = await res.json(); const m = $('smsg');
- if(j.ok){ m.className='msg ok'; m.textContent='Saved · id '+j.record.id+' · tier '+j.record.provenance_tier;
-   ['brand','metric','value','unit','as_of','source','source_url','note','geo_address'].forEach(i=>$(i).value='');
-   loadQueue(); }
+function readFile(input){
+ return new Promise(res => {
+   const f = input.files && input.files[0];
+   if(!f){ res(null); return; }
+   const r = new FileReader();
+   r.onload = () => res({name:f.name, b64:r.result.split(',')[1]});
+   r.readAsDataURL(f);
+ });
+}
+async function dropSource(){
+ const file = await readFile($('file'));
+ const meta = {chain:$('chain').value.trim(), kind:$('kind').value,
+   title:$('title').value.trim(), publisher:$('publisher').value.trim()||null,
+   date:$('date').value.trim()||null, url:$('url').value.trim()||null,
+   tags:$('tags').value.split(',').map(s=>s.trim()).filter(Boolean),
+   note:$('note').value.trim()||null, submitter:'owner',
+   text:$('text').value, file:file};
+ const j = await (await fetch('/api/source',{method:'POST',body:JSON.stringify(meta)})).json();
+ const m = $('dmsg');
+ if(j.ok){ m.className='msg ok'; m.textContent='Saved · '+j.source.id
+     +(j.source.file?' · file '+j.source.orig_name:'')+(j.source.text?' · text':'');
+   ['title','publisher','url','tags','text','note'].forEach(i=>$(i).value=''); $('file').value='';
+   loadLibrary(); }
  else { m.className='msg err'; m.textContent='Rejected: '+j.error; }
+}
+async function loadLibrary(){
+ const j = await (await fetch('/api/library')).json();
+ const bc = $('bychain'); bc.innerHTML='';
+ const ents = Object.entries(j.by_chain);
+ if(!ents.length){ bc.innerHTML='<span class=counts>No sources yet — drop the first one above.</span>'; }
+ for(const [c,n] of ents){ const s=document.createElement('span'); s.className='chip';
+   s.innerHTML=c+' <b>'+n+'</b>'; bc.append(s); }
+ const r = $('recent'); r.innerHTML='';
+ for(const s of j.recent){ const d=document.createElement('div'); d.className='src';
+   d.innerHTML='<div class=t>['+s.kind+'] '+s.title+'</div>'+
+     '<div class=m>'+s.chain+(s.publisher?' · '+s.publisher:'')+(s.date?' · '+s.date:'')
+     +(s.file?' · 📎 '+(s.orig_name||'file'):'')+'</div>'+
+     (s.excerpt?'<div class=e>'+s.excerpt+'…</div>':''); r.append(d); }
 }
 async function loadQueue(){
  const j = await (await fetch('/api/queue')).json();
@@ -142,26 +219,31 @@ async function loadQueue(){
  const q = $('queue'); q.innerHTML='';
  for(const i of j.items.slice(0,60)){
    const d = document.createElement('div'); d.className='qi';
-   d.innerHTML = '<span class=tag>'+i.reason+'</span>'+
-     '<span class=b>'+(i.brand||'')+'</span>/'+i.layer+':'+i.metric+' = '+
-     String(i.value).slice(0,60)+' <span style="color:#999">('+(i.confidence||'')+')</span>';
+   d.innerHTML = '<span class=tag>'+i.reason+'</span> <span class=b>'+(i.brand||'')+'</span>/'
+     +i.layer+':'+i.metric+' = '+String(i.value).slice(0,60)
+     +' <span style="color:#999">('+(i.confidence||'')+')</span>';
    const note = document.createElement('input'); note.className='note'; note.placeholder='verdict note (optional)';
+   const shot = document.createElement('input'); shot.type='file'; shot.accept='image/*'; shot.className='shot';
    const bv = document.createElement('button'); bv.className='v'; bv.textContent='Verify';
+   const bw = document.createElement('button'); bw.className='w'; bw.textContent='Watch';
    const bx = document.createElement('button'); bx.className='x'; bx.textContent='Reject';
-   bv.onclick = ()=>verdict(i.id,'verified',note.value);
-   bx.onclick = ()=>verdict(i.id,'rejected',note.value);
+   bv.onclick = ()=>verdict(i.id,'verified',note.value,i.brand,shot);
+   bw.onclick = ()=>verdict(i.id,'watch',note.value,i.brand,shot);
+   bx.onclick = ()=>verdict(i.id,'rejected',note.value,i.brand,shot);
    const src = document.createElement('span'); src.className='s'; src.textContent = i.source||'';
-   d.append(document.createElement('br'), bv, bx, note, src);
+   d.append(document.createElement('div'), bv, bw, bx, note, shot, src);
    q.append(d);
  }
  if(j.items.length>60){ const more=document.createElement('p'); more.className='counts';
    more.textContent='…and '+(j.items.length-60)+' more'; q.append(more);}
 }
-async function verdict(id,v,note){
- await fetch('/api/verdict',{method:'POST',body:JSON.stringify({queue_id:id,verdict:v,by:'owner',note:note||null})});
+async function verdict(id,v,note,brand,shotInput){
+ const shot = shotInput ? await readFile(shotInput) : null;
+ await fetch('/api/verdict',{method:'POST',body:JSON.stringify(
+   {queue_id:id,verdict:v,by:'owner',note:note||null,brand:brand||null,screenshot:shot})});
  loadQueue();
 }
-loadQueue();
+loadLibrary(); loadQueue();
 </script></body></html>"""
 
 
@@ -181,12 +263,17 @@ class _Handler(BaseHTTPRequestHandler):
             from . import db
             status, payload = handle_queue(db.connect())
             return self._send(status, json.dumps(payload, ensure_ascii=False))
+        if self.path.startswith("/api/library"):
+            status, payload = handle_library()
+            return self._send(status, json.dumps(payload, ensure_ascii=False))
         return self._send(404, '{"error":"not found"}')
 
     def do_POST(self):                                          # noqa: N802
         n = int(self.headers.get("Content-Length", "0") or 0)
         body = self.rfile.read(n).decode("utf-8") if n else ""
-        if self.path == "/api/submit":
+        if self.path == "/api/source":
+            status, payload = handle_source(body)
+        elif self.path == "/api/submit":
             status, payload = handle_submit(body)
         elif self.path == "/api/verdict":
             status, payload = handle_verdict(body)
