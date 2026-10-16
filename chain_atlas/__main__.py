@@ -196,6 +196,11 @@ def main(argv=None):
         print(dossier.run(con, brand, as_markdown=("--md" in argv)))
         return 0
 
+    if cmd == "console":
+        from . import console
+        console.serve(port=int(opt("--port", "8787")), open_browser="--no-open" not in argv)
+        return 0
+
     if cmd == "export-tier":
         from . import db, tier_export
         tier = next((a for a in argv[1:] if not a.startswith("-")), None)
@@ -290,6 +295,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  console [--port N] [--no-open]                   Pro: PRIVATE owner console (localhost) — submit data points + work the queue")
     print("  export-tier <public|observer|pro|intelligence> [--brand X] [--out DIR]   tier-gated export (pro/ = access-controlled)")
     print("  verify [--reason R|--brand B|--limit N]          Pro: the verification queue — records awaiting a human verdict")
     print("  verify --resolve <id> --verdict verified|rejected   …record a verdict (append-only verifications.jsonl)")
