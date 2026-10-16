@@ -4,22 +4,22 @@ The owner console — a PRIVATE, localhost-only workbench for the PRO pipeline (
 The public site is static, so a secure login-gated area that writes data back is not possible. The
 private area is therefore LOCAL: `python -m chain_atlas console` serves a small form in the owner's
 browser, bound to 127.0.0.1 ONLY (never 0.0.0.0, never deployed) — the machine itself is the auth
-boundary, nothing is exposed to the network. It does two things, on the same schema and stores the CLI
-uses:
+boundary, nothing is exposed to the network. It does two things, on the same stores the CLI uses:
 
-  * SUBMIT a sourced data point  -> validates via submissions.py, appends to manual/submissions.jsonl
-  * WORK the verification queue   -> lists verify.queue(), records verdicts to manual/verifications.jsonl
+  * DROP a source   -> press/financial/analyst/filings per chain into the git-ignored evidence library
+                       (sources.py): the raw material PRO facts get extracted from.
+  * WORK the queue  -> lists verify.queue(), records verdicts (verified/watch/rejected) with an optional
+                       screenshot, to manual/verifications.jsonl.
 
-The HTTP layer is a thin dispatcher over three pure handlers (handle_submit / handle_verdict /
-handle_queue) so the logic is testable without sockets. It writes only the append-only intake/verdict
-logs — never the typed stores (promotion stays a separate, deliberate step).
+The HTTP layer is a thin dispatcher over the pure handlers (handle_source / handle_library /
+handle_verdict / handle_queue) so the logic is testable without sockets. It writes only the local
+evidence library and the append-only verdict log — never the typed stores (promotion stays separate).
 """
 import base64
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from . import sources
-from . import submissions as S
 from . import verify
 
 
@@ -49,19 +49,6 @@ def handle_source(body: str, lib=sources.LIB):
 def handle_library(lib=sources.LIB):
     """GET /api/library — the corpus shape (counts per chain) + the most recent drops. (status, payload)."""
     return 200, {"by_chain": sources.by_chain(lib=lib), "recent": sources.list_sources(lib=lib)[:30]}
-
-
-def handle_submit(body: str, subs_path: str = "manual/submissions.jsonl"):
-    """POST /api/submit — a raw submission record (JSON) -> validated + appended. (status, payload)."""
-    try:
-        rec = json.loads(body)
-    except Exception:                                           # noqa: BLE001
-        return 400, {"ok": False, "error": "body is not valid JSON"}
-    try:
-        saved = S.append(rec, path=subs_path)
-        return 200, {"ok": True, "record": saved}
-    except ValueError as e:
-        return 400, {"ok": False, "error": str(e)}
 
 
 def handle_verdict(body: str, verdict_path: str = verify.VERDICT_LOG, lib=sources.LIB):
@@ -273,8 +260,6 @@ class _Handler(BaseHTTPRequestHandler):
         body = self.rfile.read(n).decode("utf-8") if n else ""
         if self.path == "/api/source":
             status, payload = handle_source(body)
-        elif self.path == "/api/submit":
-            status, payload = handle_submit(body)
         elif self.path == "/api/verdict":
             status, payload = handle_verdict(body)
         else:

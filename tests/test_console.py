@@ -1,8 +1,8 @@
 """
-The owner console (the private, localhost submit+verify workbench) is a thin HTTP dispatcher over three
-pure handlers. These tests exercise those handlers directly (no sockets): submit validates + appends,
-an invalid/bad-JSON submit is rejected without writing, verdicts append, and the queue reflects a seeded
-DB and drops a resolved item. The served page carries the form + queue.
+The owner console (the private, localhost drop-sources + verify workbench) is a thin HTTP dispatcher
+over pure handlers. These tests exercise them directly (no sockets): a verdict appends (and a 'watch'
+verdict with a screenshot saves the image into the chain's evidence library), the queue reflects a
+seeded DB and drops a resolved item, and a dropped source lands in the library. Served page has it all.
 
 Run: .venv/bin/python tests/test_console.py
 """
@@ -39,26 +39,7 @@ def main():
             fails.append(label)
 
     tmp = tempfile.mkdtemp()
-    subs = os.path.join(tmp, "submissions.jsonl")
     verd = os.path.join(tmp, "verifications.jsonl")
-
-    # --- submit: valid ---
-    rec = {"brand": "mixue", "dimension": "scale", "metric": "store_count_total", "value": 59823,
-           "as_of": "2025-12-31", "source": "FY2025 HKEX", "confidence": "high", "submitter": "owner"}
-    st, pay = console.handle_submit(json.dumps(rec), subs_path=subs)
-    check("valid submit -> 200", st, 200)
-    check("valid submit ok + id stamped", pay["ok"] and pay["record"]["id"].startswith("sub_"), True)
-    check("valid submit wrote one row", sum(1 for _ in open(subs)), 1)
-
-    # --- submit: invalid (missing required) writes nothing ---
-    st, pay = console.handle_submit(json.dumps({"dimension": "scale"}), subs_path=subs)
-    check("invalid submit -> 400", st, 400)
-    check("invalid submit ok=False", pay["ok"], False)
-    check("invalid submit wrote nothing extra", sum(1 for _ in open(subs)), 1)
-
-    # --- submit: bad JSON ---
-    st, pay = console.handle_submit("{not json", subs_path=subs)
-    check("bad JSON -> 400", st, 400)
 
     # --- verdict: valid + bad + watch-with-screenshot ---
     st, pay = console.handle_verdict(json.dumps({"queue_id": "cs:juewei", "verdict": "verified"}),
