@@ -196,6 +196,27 @@ def main(argv=None):
         print(dossier.run(con, brand, as_markdown=("--md" in argv)))
         return 0
 
+    if cmd == "verify":
+        from . import db, verify
+        con = db.connect()
+        rid = opt("--resolve")
+        if rid:
+            vd = opt("--verdict")
+            if vd not in ("verified", "rejected"):
+                print("usage: … verify --resolve <id> --verdict verified|rejected [--by W] [--note …] [--confidence high]")
+                return 2
+            r = verify.record_verdict(rid, vd, by=opt("--by", "owner"), note=opt("--note"),
+                                      new_confidence=opt("--confidence"))
+            print(f"recorded: {r['verdict']} {rid} by {r['by']}")
+            return 0
+        items = verify.queue(con)
+        if opt("--reason"):
+            items = [i for i in items if i["reason"] == opt("--reason")]
+        if opt("--brand"):
+            items = [i for i in items if i["brand"] == opt("--brand")]
+        print(verify.render(items, limit=int(opt("--limit", "40"))))
+        return 0
+
     if cmd == "dossiers":
         from . import dossiers
         errs = dossiers.validate()
@@ -251,6 +272,8 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  verify [--reason R|--brand B|--limit N]          Pro: the verification queue — records awaiting a human verdict")
+    print("  verify --resolve <id> --verdict verified|rejected   …record a verdict (append-only verifications.jsonl)")
     print("  dossier <chain_id> [--md]                        Pro: assemble ONE chain's full dossier (all 5 layers) as JSON or Markdown")
     print("  dossiers                                         Pro: qualitative per-chain dossiers (history, popular items, flagships)")
     print("  recheck [--chain X]                              re-probe why a chain is still blocked")
