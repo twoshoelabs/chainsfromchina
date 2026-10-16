@@ -2,7 +2,7 @@
  "_readme": [
   "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with China/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
  ],
- "as_of": "2026-10-15",
+ "as_of": "2026-10-16",
  "brands": {
   "mixue": {
    "china": 55356,
@@ -339,6 +339,13 @@
    "source": "Li Ning Company Limited 2025 Annual Results announcement (HKEX:2331, ~19 Mar 2026)",
    "confidence": "high",
    "note": "LI-NING brand (Core Brand + YOUNG) points of sale; net +24 vs year-end 2024; no separate China/overseas split (US store closed, no open overseas retail yet per register.json)"
+  },
+  "toys52": {
+   "total": 5,
+   "as_of": "2025-05",
+   "source": "澎湃新闻 (The Paper), '国内只剩5家店，52TOYS，想上市', 26 May 2025",
+   "confidence": "medium",
+   "note": "OWN-BRAND retail stores in China only (~5, per press, around its May 2025 HKEX A1 filing). 52TOYS (北京乐自天成) is an IP/blind-box maker selling mainly via wholesale, e-commerce and third-party retail — its own-store count badly UNDERSTATES scale and is not a retail-chain footprint. 16 months stale; the IPO prospectus has the precise figure. See listings.json toys52 (ipo_pending)."
   }
  }
 }
