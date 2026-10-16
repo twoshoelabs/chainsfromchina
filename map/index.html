@@ -3,9 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
+<script>window.CFC_ICON_V="?v=__ICONV__";window.CFC_DATA_V="?v=__DATAV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
 <title>Chains From China — the daily census of China-origin retail in the US</title>
-<meta name="description" content="A daily count of China-origin retail and F&B chains open across the United States — taken from each company's own store list.">
+<meta name="description" content="A daily count of China-origin retail and food-and-drink chains open across the United States — taken from each company's own store list.">
+<link rel="canonical" href="https://chainsfromchina.com/">
+<meta name="theme-color" content="#C94A35">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chains From China">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chains From China — the daily census of China-origin retail in the US">
+<meta property="og:description" content="A daily count of China-origin retail and food-and-drink chains open across the United States — taken from each company's own store list.">
+<meta property="og:url" content="https://chainsfromchina.com/">
+<meta property="og:image" content="https://chainsfromchina.com/og.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chains From China — the daily census of China-origin retail in the US">
+<meta name="twitter:description" content="A daily count of China-origin retail and food-and-drink chains open across the United States — taken from each company's own store list.">
+<meta name="twitter:image" content="https://chainsfromchina.com/og.png?v=2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://chainsfromchina.com/#org","name":"Chains From China","url":"https://chainsfromchina.com/","logo":"https://chainsfromchina.com/apple-touch-icon.png","description":"An independent daily census of China-origin retail and food-and-drink chains open in the United States.","parentOrganization":{"@type":"Organization","name":"Twoshoe Labs LLC"}},
+{"@type":"WebSite","@id":"https://chainsfromchina.com/#website","url":"https://chainsfromchina.com/","name":"Chains From China","inLanguage":"en-US","publisher":{"@id":"https://chainsfromchina.com/#org"}}
+]}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Serif+SC:wght@500&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
@@ -52,7 +79,10 @@
 
   /* ---------- Hero 8/4 ---------- */
   .hero { display:flex; flex-wrap:wrap; gap:0; border-bottom:1px solid var(--ink); }
-  .hero-main { flex:999 1 640px; min-width:0; padding:22px 32px 26px 0; border-right:1px solid var(--ink); }
+  .hero-main { flex:999 1 640px; min-width:0; padding:22px 32px 26px 0; border-right:1px solid var(--ink); position:relative; overflow:hidden; }
+  /* Decorative graticule texture sits behind the hero content; raise the content above it (no layout shift). */
+  .hero-main > .graticule { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .hero-main > :not(.graticule) { position:relative; z-index:1; }
   .hero-side { flex:1 1 320px; padding:22px 0 26px 28px; }
   .seclabel { font-size:15px; font-weight:600; margin:0 0 6px; }
   .seclabel.red { font-size:13px; color:var(--accent-text); }
@@ -299,7 +329,7 @@
 <body>
 
 <div class="wrap">
-  <div class="vcredit">Chains From China · a daily census by Twoshoe Labs · since 2 Sep 2026</div>
+  <div class="vcredit">Chains From China · a daily census by Twoshoe Labs</div>
 
   <!-- 1 · MASTHEAD (nameplate) -->
   <header class="mast">
@@ -326,6 +356,55 @@
   <!-- 2 · HERO 8/4 -->
   <div class="hero">
     <section class="hero-main">
+      <svg class="graticule" viewBox="0 0 1022 476" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+        <defs>
+          <linearGradient id="gfade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0.28"/>
+            <stop offset="0.5" stop-color="#fff" stop-opacity="0.6"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+          </linearGradient>
+          <mask id="gmask"><rect width="1022" height="476" fill="url(#gfade)"/></mask>
+        </defs>
+        <g mask="url(#gmask)" fill="none" stroke="#1f3a5c" opacity="0.3">
+          <circle cx="560" cy="-640" r="650" stroke-width="1.6"/>
+          <circle cx="560" cy="-640" r="690" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="730" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="770" stroke-width="1.6"/>
+          <circle cx="560" cy="-640" r="810" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="850" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="890" stroke-width="1.6"/>
+          <circle cx="560" cy="-640" r="930" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="970" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="1010" stroke-width="1.6"/>
+          <circle cx="560" cy="-640" r="1050" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="1090" stroke-width="0.8"/>
+          <circle cx="560" cy="-640" r="1130" stroke-width="1.6"/>
+          <circle cx="560" cy="-640" r="1170" stroke-width="0.8"/>
+          <line x1="174.3" y1="-180.4" x2="-339.9" y2="432.5" stroke-width="0.8"/>
+          <line x1="215.9" y1="-148.5" x2="-243" y2="506.8" stroke-width="0.8"/>
+          <line x1="260" y1="-120.4" x2="-140" y2="572.4" stroke-width="1.6"/>
+          <line x1="306.4" y1="-96.2" x2="-31.7" y2="628.8" stroke-width="0.8"/>
+          <line x1="354.8" y1="-76.2" x2="81.2" y2="675.6" stroke-width="0.8"/>
+          <line x1="404.7" y1="-60.4" x2="197.7" y2="712.3" stroke-width="1.6"/>
+          <line x1="455.8" y1="-49.1" x2="316.9" y2="738.7" stroke-width="0.8"/>
+          <line x1="507.7" y1="-42.3" x2="438" y2="754.7" stroke-width="0.8"/>
+          <line x1="560" y1="-40" x2="560" y2="760" stroke-width="1.6"/>
+          <line x1="612.3" y1="-42.3" x2="682" y2="754.7" stroke-width="0.8"/>
+          <line x1="664.2" y1="-49.1" x2="803.1" y2="738.7" stroke-width="0.8"/>
+          <line x1="715.3" y1="-60.4" x2="922.3" y2="712.3" stroke-width="1.6"/>
+          <line x1="765.2" y1="-76.2" x2="1038.8" y2="675.6" stroke-width="0.8"/>
+          <line x1="813.6" y1="-96.2" x2="1151.7" y2="628.8" stroke-width="0.8"/>
+          <line x1="860" y1="-120.4" x2="1260" y2="572.4" stroke-width="1.6"/>
+          <line x1="904.1" y1="-148.5" x2="1363" y2="506.8" stroke-width="0.8"/>
+          <line x1="945.7" y1="-180.4" x2="1459.9" y2="432.5" stroke-width="0.8"/>
+          <path d="M169 26.8h12M175 20.8v12M354.7 103.8h12M360.7 97.8v12M554 130h12M560 124v12M753.3 103.8h12M759.3 97.8v12M939 26.8h12M945 20.8v12M89 165.4h12M95 159.4v12M313.3 258.3h12M319.3 252.3v12M554 290h12M560 284v12M794.7 258.3h12M800.7 252.3v12M1019 165.4h12M1025 159.4v12M9 304h12M15 298v12M271.9 412.9h12M277.9 406.9v12M554 450h12M560 444v12M836.1 412.9h12M842.1 406.9v12M1099 304h12M1105 298v12" stroke-width="1.4" opacity="0.9"/>
+        </g>
+        <g mask="url(#gmask)" fill="none" stroke="#c8372d">
+          <circle cx="800.7" cy="258.3" r="11" stroke-width="1.6"/>
+          <circle cx="800.7" cy="258.3" r="3" fill="#c8372d" stroke="none"/>
+          <path d="M778.7 258.3h14M808.7 258.3h14M800.7 236.3v14M800.7 266.3v14" stroke-width="1.4"/>
+        </g>
+      </svg>
       <p class="seclabel">Open in the US this morning</p>
       <div class="heronum">
         <span class="cond big" id="hero-num"></span>
@@ -347,7 +426,7 @@
         </tbody>
       </table>
       <div class="comingnext">
-        <p class="lbl">Coming next, by chain</p>
+        <p class="lbl">Opening soon, as announced</p>
         <div id="cn-rows"></div>
       </div>
     </aside>
@@ -404,22 +483,20 @@
         <p class="seclabel red">There and here</p>
         <h2 class="find">The same counter, half a world apart.</h2>
       </div>
-      <p class="ctx">Each pair is shot from the same height and angle, so the eye compares the shops, not the photography.</p>
+      <p class="ctx">One chain at home and in America — the Chinese storefront where it began, and a US branch today.</p>
     </div>
     <div class="diptych">
       <figure class="ph">
         <div class="ph-frame r32">
-          <picture><source srcset="photos/pair-china-storefront.webp" type="image/webp">
-            <img src="photos/pair-china-storefront.jpg" alt="Illustration of a tea and ice cream shopfront in China with a red Chinese sign and people outside"></picture>
+          <img src="photos/mixue/china.jpg" alt="A MIXUE (蜜雪冰城) tea and ice cream storefront in Zhengzhou, China">
           <span class="ph-city zh" lang="zh-Hans">郑州</span></div>
-        <figcaption><span><b>Zhengzhou, Henan.</b> Where the chain began. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
+        <figcaption><span><b>Zhengzhou, Henan.</b> Where MIXUE 蜜雪冰城 began.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg" target="_blank" rel="noopener" style="color:inherit">Windmemories</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a></span></figcaption>
       </figure>
       <figure class="ph">
         <div class="ph-frame r32">
-          <picture><source srcset="photos/pair-us-storefront.webp" type="image/webp">
-            <img src="photos/pair-us-storefront.jpg" alt="Illustration of a tea and ice cream shopfront on a US street with a green sign"></picture>
-          <span class="ph-city us cond">[CITY, ST]</span></div>
-        <figcaption><span><b>[City, State].</b> The same chain, open in the US today. <span class="by" style="color:var(--muted)">Placeholder</span></span><span class="by">[date · photographer]</span></figcaption>
+          <img src="photos/mixue/us.jpg" alt="A US MIXUE storefront at Broadway and West 32nd Street, New York">
+          <span class="ph-city us cond">New York, NY</span></div>
+        <figcaption><span><b>New York, NY.</b> The same chain, open in the US today.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3AMixue_store_in_New_York_City_June_2026.jpg" target="_blank" rel="noopener" style="color:inherit">4300streetcar</a> / <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY 4.0</a></span></figcaption>
       </figure>
     </div>
   </section>
@@ -481,8 +558,8 @@
   <section style="padding:30px 0 32px;border-bottom:1px solid var(--ink)">
     <div class="photohead">
       <div>
-        <p class="seclabel red">Sightings this week</p>
-        <h2 class="find sm">Photographed by readers, checked against each chain's store list.</h2>
+        <p class="seclabel red">Sightings</p>
+        <h2 class="find sm">Typical storefronts — photo submissions welcome.</h2>
       </div>
       <a href="contribute.html" style="font-size:15px;font-weight:700;text-underline-offset:3px">Submit a sighting</a>
     </div>
@@ -511,13 +588,13 @@
       <li>Newly-announced locations are kept out of every total until verified.</li>
       <li class="dag" id="foot-dag">† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS.</li>
     </ol>
-    <p class="colophon">Set in Schibsted Grotesk and Archivo. Collected daily since 2 September 2026. © 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
+    <p class="colophon">Set in Schibsted Grotesk and Archivo. © 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
   </footer>
 </div>
 
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
 
-<script src="atlas.js?v=20261009b"></script>
+<script src="atlas.js?v=20261014j"></script>
 <script>
 // ---- Editorial homepage bindings (map engine is atlas.js, untouched) ----
 const SECTOR_NAME = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
@@ -580,23 +657,23 @@ function animateGrandTotal(outlets, prevTotal){
 }
 
 (async function () {
+  const DATAV = window.CFC_DATA_V || '';   // per-deploy data cache-bust (see <head>)
   let fc, demo=null, reg=null;
-  try { fc = await fetch('data/stores.geojson').then(r=>r.json()); } catch(e){ return; }
-  try { demo = await fetch('data/demographics.json').then(r=>r.json()); } catch(e){}
-  try { reg = await fetch('data/register.json').then(r=>r.json()); } catch(e){}
+  try { fc = await fetch('data/stores.geojson' + DATAV).then(r=>r.json()); } catch(e){ return; }
+  try { demo = await fetch('data/demographics.json' + DATAV).then(r=>r.json()); } catch(e){}
+  try { reg = await fetch('data/register.json' + DATAV).then(r=>r.json()); } catch(e){}
   const feats = fc.features, meta = fc.meta||{}, T = meta.totals||{};
   // Show a Chinese name only when it really is Chinese; a name_zh that is just the Latin name
   // (e.g. "52TOYS") would only repeat the English name beside it.
   const zhOf = ch => { const z = (reg && reg.chains && reg.chains[ch] && reg.chains[ch].name_zh) || ''; return /[㐀-鿿豈-﫿]/.test(z) ? z : ''; };
   const isLocated = f => f.properties.status==='open' || (f.properties.kind==='sighting' && f.properties.status!=='coming_soon');
 
-  // Masthead issue line: "No. 31 · Friday 2 October 2026 · counted 6:00 PM ET" (all times New York)
+  // Masthead issue line: "Friday 2 October 2026" (the collection date)
   if (meta.collected) {
     const d = new Date(meta.collected+'T00:00:00');
-    const line = 'No. ' + (meta.days||'—') + ' · ' +
+    const line =
       d.toLocaleDateString('en-US',{weekday:'long'}) + ' ' + d.getDate() + ' ' +
-      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear() + ' · ' +
-      (meta.generated ? 'counted ' + new Date(meta.generated).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}) + ' ET' : 'New York time');
+      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear();
     $('issue-line').textContent = line;
   }
 
@@ -717,20 +794,24 @@ function animateGrandTotal(outlets, prevTotal){
   // Drop-cap links (co-tenancy count is Pro — not shown here)
   $('dc-ctry').textContent = reg ? fmt(Object.keys(reg.markets||{}).length) : '—';
 
-  // Sightings sheet — placeholder illustrations until readers' photos arrive
+  // Sightings sheet — representative, already-rights-cleared storefronts (reused from the chain pages)
+  // standing in until real sightings — the operator's own photos and reader submissions — replace
+  // them. Each is credited to its Wikimedia Commons author + license, as CC BY/BY-SA require.
   const SIGHTINGS = [
-    ['sighting-01-opening', 'Illustration of a shopfront on opening day with people outside'],
-    ['sighting-02-coming-soon', 'Illustration of a coming-soon hoarding inside a mall'],
-    ['sighting-03-night', 'Illustration of a lit shopfront at night'],
-    ['sighting-04-interior', 'Illustration of a shop interior with menu boards and a counter'],
-    ['sighting-05-strip-mall', 'Illustration of a strip-mall storefront with parked cars'],
-    ['sighting-06-closed', 'Illustration of a closed shop with its shutter down and sign still up'],
+    { f: 'chagee/china.jpg', chain: 'CHAGEE', city: 'Yiwu, China', alt: 'A CHAGEE storefront in Yiwu, China', by: 'MNXANL', lic: 'CC BY-SA 4.0', lu: 'https://creativecommons.org/licenses/by-sa/4.0', src: 'https://commons.wikimedia.org/wiki/File%3A202403_CHAGEE_Store_on_Fotang_Old_Street%2C_Yiwu.jpg' },
+    { f: 'luckin/us.jpg', chain: 'Luckin Coffee', city: 'New York, NY', alt: 'A Luckin Coffee storefront on Sixth Avenue, Manhattan', by: '4300streetcar', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_on_Sixth_Avenue_Manhattan_September_2025.jpg' },
+    { f: 'haidilao/us-houston.jpg', chain: 'Haidilao', city: 'Houston, TX', alt: 'A Haidilao hot pot storefront in Houston, Texas', by: 'WhisperToMe', lic: 'CC0', lu: 'https://creativecommons.org/publicdomain/zero/1.0', src: 'https://commons.wikimedia.org/wiki/File:Haidilao_Harris_County.jpg' },
+    { f: 'popmart/us.jpg', chain: 'POP MART', city: 'New York, NY', alt: 'A POP MART store at the Oculus, New York', by: 'Thelabubucollector', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3ALabubu_Pop_Mart_store_in_New_York_City.jpg' },
+    { f: 'miniso/us.jpg', chain: 'MINISO', city: 'New York, NY', alt: 'A MINISO store in Times Square, New York', by: 'Tony25430', lic: 'CC0', lu: 'https://creativecommons.org/publicdomain/zero/1.0', src: 'https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg' },
+    { f: 'zhangliang/us.jpg', chain: 'Zhang Liang', city: 'New York, NY', alt: 'A Zhang Liang Malatang storefront in Chinatown, Manhattan', by: 'Kidfly182', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg' },
+    { f: 'bingxue/china.jpg', chain: 'BINGXUE', city: 'Fuyuan, China', alt: 'A BINGXUE tea and ice cream storefront in Fuyuan, China', by: 'HCCB3947', lic: 'CC BY-SA 4.0', lu: 'https://creativecommons.org/licenses/by-sa/4.0', src: 'https://commons.wikimedia.org/wiki/File%3A%E6%8A%9A%E8%BF%9C%E7%9A%84%E5%86%B0%E9%9B%AA%E6%97%B6%E5%85%89.jpg' },
   ];
-  $('sheet').innerHTML = SIGHTINGS.map(([f, alt], i) =>
-    '<figure><div class="ph-frame r45"><span class="num">' + (meta.days || '') + '-' + (i + 1) + '</span>' +
-    '<picture><source srcset="photos/' + f + '.webp" type="image/webp">' +
-    '<img src="photos/' + f + '.jpg" alt="' + alt + '"></picture></div>' +
-    '<figcaption><b>[Chain]</b>, [city]<br><span class="meta">[date · reader · status · placeholder]</span></figcaption></figure>').join('');
+  const sCredit = (s) => '<a href="' + s.src + '" target="_blank" rel="noopener" style="color:inherit">' + s.by +
+    '</a> / <a href="' + s.lu + '" target="_blank" rel="noopener" style="color:inherit">' + s.lic + '</a>';
+  $('sheet').innerHTML = SIGHTINGS.map((s, i) =>
+    '<figure><div class="ph-frame r32">' +
+    '<img src="photos/' + s.f + '" alt="' + s.alt + '"></div>' +
+    '<figcaption><b>' + s.chain + '</b>, ' + s.city + '<br><span class="meta">' + sCredit(s) + '</span></figcaption></figure>').join('');
 })();
 </script>
 <!-- Cloudflare Web Analytics -->

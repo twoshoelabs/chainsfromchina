@@ -408,7 +408,12 @@ def export(out_dir: Path) -> dict:
         cs_path = Path(__file__).resolve().parents[1] / "manual" / "china_stores.json"
         for cid, b in (json.loads(cs_path.read_text(encoding="utf-8")).get("brands") or {}).items():
             if b.get("total") is not None:
-                worldwide[cid] = {"n": b["total"], "as_of": b.get("as_of")}
+                entry = {"n": b["total"], "as_of": b.get("as_of")}
+                # Mark totals not validated against a primary company filing (confidence != high) —
+                # press/company-statement figures, so the public column never shows them as hard facts.
+                if b.get("confidence") != "high":
+                    entry["unverified"] = True
+                worldwide[cid] = entry
     except Exception:                                           # noqa: BLE001
         worldwide = {}
     d["derived"] = {

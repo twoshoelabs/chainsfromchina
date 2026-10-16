@@ -6,8 +6,12 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const HAS_CJK = /[㐀-鿿豈-﫿]/;   // Han ideographs (incl. Ext-A + compatibility)
 const chainLabel = (c, opts = {}) => {
-  const trading = c.name_us || c.name;
-  const alias = c.name_us && c.name_us !== c.name ? c.name : null;
+  // The in-market Western trading name takes precedence over the pinyin/global name: name_us for a
+  // US/North-America name (TeaByDo, Naisnow, AGoodFun), else name_intl for a brand that trades
+  // abroad under a different romanization without a US store (Lausanjee for 老乡鸡 Laoxiangji).
+  const traded = c.name_us || c.name_intl;
+  const trading = traded || c.name;
+  const alias = traded && traded !== c.name ? c.name : null;
   // Only show the Chinese name when it actually IS Chinese. Some chains carry a name_zh that is just
   // their Latin name (e.g. "52TOYS", "KKV"); repeating it adds nothing, so suppress a non-CJK one.
   const zh = (c.name_zh && HAS_CJK.test(c.name_zh)) ? `<span class="zh">${esc(c.name_zh)}</span>` : '';
@@ -35,7 +39,8 @@ let D = null;
 const catOf = c => CAT_OVERRIDE[c] || CAT_BY_FORMAT[(D.chains[c] || {}).format] || 'Other';
 
 async function main() {
-  D = await fetch('data/register.json').then(r => r.json());
+  const DATAV = (typeof window !== 'undefined' && window.CFC_DATA_V) || '';  // per-deploy data cache-bust
+  D = await fetch('data/register.json' + DATAV).then(r => r.json());
   const cells = {};
   for (const e of D.entries) cells[e.chain + '/' + e.market] = e;
 
@@ -66,7 +71,7 @@ async function main() {
   for (const cat of cats) {
     h += `<tr class="catrow"><th class="catcell" colspan="${markets.length + 1}">${esc(cat)}</th></tr>`;
     for (const c of byCat[cat]) {
-      h += `<tr><th class="chain">${chainLabel(D.chains[c])}</th>`;
+      h += `<tr data-chain="${esc(c)}"><th class="chain">${chainLabel(D.chains[c])}</th>`;
       for (const m of markets) {
         const e = cells[c + '/' + m];
         h += `<td class="${cellClass(e)}" data-key="${esc(c + '/' + m)}">${cellText(e)}</td>`;
@@ -89,7 +94,7 @@ async function main() {
   // buildTally and the homepage isLocated predicate.
   const usCount = {};
   try {
-    const sg = await fetch('data/stores.geojson').then(r => r.json());
+    const sg = await fetch('data/stores.geojson' + DATAV).then(r => r.json());
     for (const f of (sg.features || [])) {
       const p = f.properties || {};
       if (p.chain && (p.status === 'open' || (p.kind === 'sighting' && p.status !== 'coming_soon')))
@@ -99,6 +104,58 @@ async function main() {
 
   usView(chains, markets, cells, usCount);
   document.getElementById('asof').textContent = `Last updated ${D.as_of}.`;
+  setupRegFilter();
+}
+
+// Every string a chain can be found by: its id, trading name, the alternate romanization (name_us /
+// name_intl, e.g. "Lausanjee" for 老乡鸡 Laoxiangji), the Chinese name, and any explicit aliases.
+function searchStr(c) {
+  const us = (D.derived && D.derived.us_status) || {};
+  const m = (D.chains && D.chains[c]) || us[c] || {};
+  const parts = [c, m.name, m.name_us, m.name_intl, m.name_zh];
+  if (Array.isArray(m.aliases)) parts.push(...m.aliases);
+  return parts.filter(Boolean).join(' ').toLowerCase();
+}
+
+// Filter both the matrix and the US-reach tables by a free-text query. A category band in the matrix
+// stays only while a chain beneath it is still visible, and a US-reach box hides when it empties.
+function applyRegFilter(q) {
+  q = (q || '').trim().toLowerCase();
+  const ok = c => !q || searchStr(c).includes(q);
+  let shown = 0;
+  document.querySelectorAll('tr[data-chain]').forEach(tr => {
+    const vis = ok(tr.dataset.chain);
+    tr.hidden = !vis;
+    if (vis) shown++;
+  });
+  const body = document.querySelector('#matrix tbody');
+  if (body) {
+    const kids = [...body.children];
+    kids.forEach((tr, i) => {
+      if (!tr.classList.contains('catrow')) return;
+      let any = false;
+      for (let j = i + 1; j < kids.length && !kids[j].classList.contains('catrow'); j++) {
+        if (kids[j].dataset.chain && !kids[j].hidden) { any = true; break; }
+      }
+      tr.hidden = !any;
+    });
+  }
+  document.querySelectorAll('#usview .usbox').forEach(box => {
+    box.hidden = ![...box.querySelectorAll('tr[data-chain]')].some(tr => !tr.hidden);
+  });
+  const empty = document.getElementById('reg-empty');
+  if (empty) empty.hidden = shown > 0;
+}
+
+function setupRegFilter() {
+  const box = document.getElementById('reg-filter');
+  if (!box) return;
+  box.addEventListener('input', () => applyRegFilter(box.value));
+  // Honor a ?q= query (the landing-map search links here pre-filtered for a chain that isn't on the
+  // US map) or a value the browser restored on reload.
+  const q0 = new URLSearchParams(location.search).get('q');
+  if (q0 && !box.value) { box.value = q0; box.focus(); }
+  if (box.value) applyRegFilter(box.value);
 }
 
 /*
@@ -113,7 +170,7 @@ function usView(chains, markets, cells, usCount) {
   // "Here" is every chain that trades in the US, drawn from us_status (which now covers all US
   // adapters), not just the register's own international chains — so the map's US chains all show.
   // Ordered alphabetically by the name shown, so a reader can scan for one.
-  const nameKey = c => String(metaOf(c).name_us || metaOf(c).name || c).toLowerCase();
+  const nameKey = c => String(metaOf(c).name_us || metaOf(c).name_intl || metaOf(c).name || c).toLowerCase();
   const here = Object.keys(us)
     .filter(c => us[c].status === 'collected' || us[c].status === 'present_not_collected')
     .sort((a, b) => nameKey(a).localeCompare(nameKey(b)));
@@ -131,11 +188,15 @@ function usView(chains, markets, cells, usCount) {
   const wwCell = c => {
     const w = ww[c];
     if (!w || w.n == null) return `<td class="num dash">&mdash;</td>`;
-    return `<td class="num">${num(w.n)}` +
+    // A "~" marks a reported figure not validated against a primary company filing.
+    const fig = w.unverified
+      ? `<abbr class="est" title="Reported figure &mdash; not validated against a primary company filing">~${num(w.n)}</abbr>`
+      : num(w.n);
+    return `<td class="num">${fig}` +
       (w.as_of ? `<span class="asof">as of ${esc(w.as_of)}</span>` : '') + `</td>`;
   };
   const body = list => list.map(c =>
-    `<tr><td class="name"><b>${chainLabel(metaOf(c))}</b></td>${usCell(c)}${wwCell(c)}</tr>`).join('');
+    `<tr data-chain="${esc(c)}"><td class="name"><b>${chainLabel(metaOf(c))}</b></td>${usCell(c)}${wwCell(c)}</tr>`).join('');
   const table = list =>
     `<table class="ustable"><thead><tr><th>Chain</th>` +
     `<th class="num">In the US</th><th class="num">Worldwide</th></tr></thead>` +
@@ -146,7 +207,8 @@ function usView(chains, markets, cells, usCount) {
     `<p class="note small">Every Chinese chain this project tracks on the US map, A&ndash;Z. ` +
     `The <strong>In the US</strong> column is collected daily and matches the ` +
     `<a href="index.html">US map</a> exactly; <strong>Worldwide</strong> is the latest company-wide ` +
-    `store total reported in filings or the press, with the date it was reported.</p>` +
+    `store total reported in filings or the press, with the date it was reported. ` +
+    `A <span class="est">~</span> marks a reported figure not yet validated against a primary company filing.</p>` +
     table(here) + `</section>` +
     (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, not yet in the US</h2>` +
       `<p class="note small">The watchlist &mdash; Chinese chains that have opened outside China but ` +
@@ -159,6 +221,7 @@ function cellClass(e) {
   if (e.collected) return 'c-yes c-high c-collected';
   if (e.status === 'no_evidence') return 'c-noev';
   if (e.status === 'exited') return 'c-exit';
+  if (e.status === 'announced') return 'c-soon';
   return 'c-yes c-' + e.confidence;
 }
 
@@ -166,6 +229,7 @@ function cellText(e) {
   if (!e) return '<span class="dotmark">·</span>';
   if (e.status === 'no_evidence') return '–';
   if (e.status === 'exited') return '×';
+  if (e.status === 'announced') return '<span class="soon" title="Announced \u2014 not yet open">\u25cb</span>';
   if (e.collected) return `${e.locations}<span class="conf c-collected">\u2605</span>`;
   const mark = e.confidence === 'high' ? '' :
     `<span class="conf c-${e.confidence}">${e.confidence === 'low' ? '??' : '?'}</span>`;

@@ -176,6 +176,8 @@ td.c-yes.c-medium{background:color-mix(in srgb, var(--accent) 8%, var(--surface)
 td.c-yes.c-low{background:color-mix(in srgb, var(--accent) 4%, var(--surface))}
 td.c-noev{color:var(--muted)}
 td.c-none{color:var(--rule)}
+td.c-soon{background:var(--surface)}          /* announced, not yet open — a plain cell, not a "yes" */
+.soon{color:var(--soon); font-weight:600}     /* the hollow ring marking an announced market */
 .dotmark{color:var(--muted); opacity:.5}
 .conf{font-size:10px; vertical-align:super; margin-left:1px; font-weight:400}
 .conf.c-medium{color:var(--soon)}
@@ -267,6 +269,8 @@ table.ustable th.num, table.ustable td.num{text-align:right; white-space:nowrap;
 table.ustable td.dash{color:var(--muted)}
 table.ustable .asof{display:block; margin-top:1px; color:var(--muted);
   font-size:11px; font-variant-numeric:normal; letter-spacing:0}
+/* "~" before a worldwide total = a reported figure not validated against a primary filing. */
+.est{border-bottom:1px dotted var(--muted); cursor:help; text-decoration:none}
 
 /* The coverage ratio is a correction to what the map alone implies, so it reads as a caveat. */
 .coverline{
