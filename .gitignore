@@ -18,3 +18,6 @@ pro/
 # Source/evidence corpus — raw press/financial/analyst material (often copyrighted, large):
 # local-only, never committed. The EXTRACTED facts get committed, the sources stay on the machine.
 manual/sources/
+
+# alert delivery cursor (per-channel local state)
+manual/event_cursor.json
