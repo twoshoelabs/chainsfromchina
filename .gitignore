@@ -11,3 +11,6 @@ map/data/*.json
 scripts/.r2.env
 manual/demographics_cache.json
 .demo_attempt
+
+# Pro-tier artifacts (pricing menus, exports) — access-controlled, never published or committed
+pro/

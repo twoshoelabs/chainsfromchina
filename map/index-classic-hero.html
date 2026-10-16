@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, follow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chains From China — where China's chains are open in America</title>
-<meta name="description" content="A daily count of Chinese retail and F&B chains open across the United States — taken from each company's own store list.">
+<meta name="description" content="A daily count of Chinese retail and food-and-drink chains open across the United States — taken from each company's own store list.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
@@ -547,7 +548,7 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
   try { if (fc.meta && fc.meta.generated) etc = new Date(fc.meta.generated)
     .toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET'; } catch (e) {}
   document.getElementById('eyebrow').textContent =
-    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}${etc ? ', ' + etc : ', New York time'}${day ? ' · Day ' + day : ''}`;
+    `Daily census · Updated ${coll ? prettyDate(coll) : '—'}${etc ? ', ' + etc : ', New York time'}`;
 
   // Coming next: coming_soon features grouped by chain
   const soonBy = {};
@@ -647,6 +648,6 @@ const prettyDate = (iso) => { try { return new Date(iso+'T00:00:00').toLocaleDat
 // where the map and data live.
 </script>
 <aside id="place-panel" class="place-panel" hidden aria-label="Place details"></aside>
-<script src="site.js?v=11"></script>
+<script src="site.js?v=15"></script>
 </body>
 </html>

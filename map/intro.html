@@ -3,9 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
+<script>window.CFC_ICON_V="?v=__ICONV__";window.CFC_DATA_V="?v=__DATAV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
 <title>Chains From China — the chains</title>
-<meta name="description" content="Every Chinese retail and F&B chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
+<meta name="description" content="Every Chinese retail and food-and-drink chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
+<link rel="canonical" href="https://chainsfromchina.com/intro.html">
+<meta name="theme-color" content="#C94A35">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chains From China">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chains From China — the chains">
+<meta property="og:description" content="Every Chinese retail and food-and-drink chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
+<meta property="og:url" content="https://chainsfromchina.com/intro.html">
+<meta property="og:image" content="https://chainsfromchina.com/og.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chains From China — the chains">
+<meta name="twitter:description" content="Every Chinese retail and food-and-drink chain this project tracks in the United States, with its US outlet count, sector and when it arrived.">
+<meta name="twitter:image" content="https://chainsfromchina.com/og.png?v=2">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
@@ -60,6 +81,7 @@
   .clogo.mono::after { content: attr(data-m); }
   .cname { font-weight: 700; font-size: 1.05rem; line-height: 1.15; }
   .cname .zh { font-family: var(--zh); font-weight: 500; color: var(--dim); font-size: .9rem; display: block; }
+  .cname .calt { font-weight: 400; color: var(--faint); font-size: .78rem; display: block; margin-top: 1px; }
   .cfig { font-family: var(--serif); font-weight: 700; font-size: 2rem; line-height: 1; }
   .cfig span { font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--dim); margin-left: 6px; }
   .cfig em { font-style: normal; color: var(--amber); font-size: 1rem; margin-left: 8px; }
@@ -141,12 +163,12 @@
   <div class="wrap">
     <p><b>Chains From China</b> is an independent commercial project — not affiliated with, endorsed by
       or sponsored by any company named here. Outlet counts are collected daily from each chain's own
-      locator, or hand-verified where a chain publishes no usable one.</p>
+      locator and/or hand-verified, especially where a chain publishes no usable one.</p>
     <p>&copy; 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
   </div>
 </footer>
 
-<script src="site.js?v=11"></script>
+<script src="site.js?v=15"></script>
 <script>
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
   grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
@@ -159,14 +181,15 @@ const NY_RE = /\b(flushing|brooklyn|queens|manhattan|bronx|staten|new york|nyc|,
 const initials = n => (n || '?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
 
 const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see <head>)
+const DATAV = window.CFC_DATA_V || '';   // data cache-bust suffix, stamped per-deploy (see <head>)
 const state = { q: '', src: 'all', sort: 'outlets', view: 'cards', sectors: new Set(), franchiseOnly: false };
 let CHAINS = [];
 
 (async function () {
   let gj, sj;
   try { [gj, sj] = await Promise.all([
-    fetch('data/stores.geojson').then(r=>r.json()),
-    fetch('data/stores.json').then(r=>r.json()),
+    fetch('data/stores.geojson' + DATAV).then(r=>r.json()),
+    fetch('data/stores.json' + DATAV).then(r=>r.json()),
   ]); } catch (e) { document.getElementById('cards').innerHTML = '<p class="emptymsg">Could not load chain data.</p>'; return; }
   const meta = sj.meta || {};
   const companies = (meta.companies && meta.companies.companies) || {};
@@ -189,6 +212,7 @@ let CHAINS = [];
     const comp = companies[id] || {};
     CHAINS.push({
       id, name: m.name_us || m.name || id, rom: (m.name_us && m.name && m.name_us !== m.name) ? m.name : '',
+      alts: (m.aliases || []).filter(Boolean),
       zh: m.name_zh || '', sector: k.sector || m.format || 'other',
       outlets: k.open + k.hand, announced: k.soon, source, franchise: k.fr || 0, fdd: k.fdd || 0,
       since: comp.us_since || '', year: yearOf(comp.us_since),
@@ -239,7 +263,7 @@ function filtered() {
   let list = CHAINS.filter(c => {
     if (state.franchiseOnly && !c.franchise) return false;
     if (state.sectors.size && !state.sectors.has(c.sector)) return false;
-    if (q && !(c.name.toLowerCase().includes(q) || (c.rom && c.rom.toLowerCase().includes(q)) || (c.zh && c.zh.includes(state.q.trim())))) return false;
+    if (q && !(c.name.toLowerCase().includes(q) || (c.rom && c.rom.toLowerCase().includes(q)) || c.alts.some(a => a.toLowerCase().includes(q)) || (c.zh && c.zh.includes(state.q.trim())))) return false;
     return true;
   });
   list.sort((a, b) =>
@@ -253,8 +277,12 @@ function cardHTML(c) {
   const color = secColor(c.sector);
   const logo = `<span class="clogo" style="border-color:${color}" data-m="${esc(initials(c.name))}">` +
     `<img src="icons/${esc(c.id)}.png${ICONV}" alt="" loading="lazy" onerror="this.closest('.clogo').classList.add('mono');this.closest('.clogo').style.background='${color}';this.remove();"></span>`;
-  return `<a class="ccard" href="chain.html?c=${esc(c.id)}">` +
-    `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}</div></div>` +
+  // Also-known-as: the romanized name plus any aliases, so a chain listed under its US trading name
+  // (e.g. "Naisnow") is still recognizable by the name most people know (e.g. "Nayuki").
+  const altNames = [c.rom, ...c.alts].filter(Boolean);
+  const altLine = altNames.length ? `<span class="calt">also ${esc(altNames.join(' · '))}</span>` : '';
+  return `<a class="ccard" href="chain/${esc(c.id)}/">` +
+    `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}${altLine}</div></div>` +
     `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
     `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>` +
       (c.franchise ? `<span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
@@ -264,7 +292,8 @@ function cardHTML(c) {
 
 function tableHTML(list) {
   const rows = list.map(c =>
-    `<tr><td><a href="chain.html?c=${esc(c.id)}">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span>` +
+    `<tr><td><a href="chain/${esc(c.id)}/">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span>` +
+      ([c.rom, ...c.alts].filter(Boolean).length ? ` <span style="color:var(--faint);font-size:.82rem">(${esc([c.rom, ...c.alts].filter(Boolean).join(' · '))})</span>` : '') +
       (c.franchise ? ` <span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'US FDD on file' : 'First-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') + `</td>` +
     `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
     `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +

@@ -3,9 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>window.CFC_ICON_V="?v=__ICONV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
+<script>window.CFC_ICON_V="?v=__ICONV__";window.CFC_DATA_V="?v=__DATAV__";</script><!-- logo cache-bust; deploy.sh stamps __ICONV__ -->
 <title>Chain — Chains From China</title>
 <meta name="description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
+<!-- canonical is set per-chain by JS (…/chain.html?c=<id>); no generic static canonical, so each
+     chain URL stays self-canonical for non-rendering crawlers instead of collapsing to /chain.html -->
+<meta name="theme-color" content="#C94A35">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chains From China">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chain — Chains From China">
+<meta property="og:description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
+<meta property="og:url" content="https://chainsfromchina.com/chain.html">
+<meta property="og:image" content="https://chainsfromchina.com/og.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chain — Chains From China">
+<meta name="twitter:description" content="A profile of one Chinese chain in the United States: its outlets, where it trades, when it arrived, and where it operates abroad.">
+<meta name="twitter:image" content="https://chainsfromchina.com/og.png?v=2">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Serif+SC:wght@500&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
@@ -143,35 +165,110 @@
 <footer class="sitefoot">
   <div class="wrap">
     <p><b>Chains From China</b> is an independent commercial project — not affiliated with, endorsed by
-      or sponsored by any company named here. Store counts are collected daily from the chain's own
-      locator, or hand-verified where it publishes no usable one.</p>
+      or sponsored by any company named here. Outlet counts are collected daily from each chain's own
+      locator and/or hand-verified, especially where a chain publishes no usable one.</p>
     <p>&copy; 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
   </div>
 </footer>
 
-<script src="site.js?v=11"></script>
+<script src="site.js?v=15"></script>
 <script>
 const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-deploy (see index.html)
+const DATAV = window.CFC_DATA_V || '';   // data cache-bust suffix, stamped per-deploy (see index.html)
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
   grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
   lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+// ---- Photographs: real, rights-cleared photos (per-chain manifest in companies.json `photos`),
+// each with a visible credit line (CC BY/BY-SA require it; CC0/PD credited as a courtesy). Falls
+// back to the placeholder illustrations for chains that have no manifest yet.
+function photoCredit(o) {
+  if (!o || (!o.credit && !o.license)) return '';
+  const who = o.credit ? `<a href="${esc(o.source || '#')}" target="_blank" rel="noopener" style="color:inherit">${esc(o.credit)}</a>` : '';
+  const lic = o.license ? `<a href="${esc(o.license_url || '#')}" target="_blank" rel="noopener" style="color:inherit">${esc(o.license)}</a>` : '';
+  // Wikimedia photos carry a CC/CC0 license (author linked to the source file, license linked to the
+  // deed); brand-supplied photos carry no license — just the brand, linked to its official page. We
+  // drop the "Photo:" label and the "via Wikimedia Commons"/"official channel" tail to de-crowd the
+  // caption; the author link + license link still satisfy the CC BY/BY-SA attribution requirements.
+  const body = o.license ? `${who}${who && lic ? ' / ' : ''}${lic}` : who;
+  return `<span style="display:block;color:var(--faint);font-size:10px;margin-top:2px">${body}</span>`;
+}
+function photoFig(o, aspect, label, zh) {
+  if (!o || !o.file) return '';
+  const labFont = zh ? 'font-family:var(--zh)' : 'font-family:var(--cond);font-stretch:62%;font-weight:800';
+  const lab = label ? `<span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;${labFont}"${zh ? ' lang="zh-Hans"' : ''}>${esc(label)}</span>` : '';
+  return `<figure style="margin:0"><div style="position:relative;aspect-ratio:${aspect};border:1px solid var(--ink);overflow:hidden;background:#D7DAD5">` +
+    `<img src="photos/${esc(o.file)}" alt="${esc(o.caption || '')}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">${lab}</div>` +
+    `<figcaption style="font-size:12px;color:var(--dim);padding-top:6px">${esc(o.caption || '')}${photoCredit(o)}</figcaption></figure>`;
+}
+function photosBlock(comp, m) {
+  const ph = comp.photos;
+  if (ph && (ph.china || ph.us || (ph.gallery && ph.gallery.length))) {
+    // Intro wording depends on where the photos came from: Wikimedia (CC-licensed) vs the chain's
+    // own official channel (brand-supplied, no license) vs a mix of both.
+    const all = [ph.china, ph.us, ...(ph.gallery || [])].filter(Boolean);
+    const anyLic = all.some(o => o.license), anyBrand = all.some(o => !o.license);
+    const src = anyLic && anyBrand ? `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`
+      : anyBrand ? `${esc(m.name)}'s official channel`
+      : 'Wikimedia Commons under the licenses noted';
+    let h = `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Photographs from ${src}; not affiliated with ${esc(m.name)}.</p>`;
+    if (ph.china && ph.us) {
+      // Both sides → the "There and here" juxtaposition.
+      h += `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+        `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
+        photoFig(ph.china, '3/2', ph.china.label, true) +
+        photoFig(ph.us, '3/2', ph.us.label, false) + `</div>`;
+    } else if (ph.china || ph.us) {
+      // Only one side available → a single lead storefront, no misleading pair heading.
+      const one = ph.china || ph.us;
+      h += `<div style="margin-bottom:20px;max-width:520px">` +
+        photoFig(one, '3/2', one.label, !!ph.china) + `</div>`;
+    }
+    if (ph.gallery && ph.gallery.length) {
+      h += `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">` +
+        ph.gallery.map((o) => photoFig(o, '3/2', '', false)).join('') + `</div>`;
+    }
+    return h;
+  }
+  // Placeholder illustrations (chains without a photo manifest yet)
+  return `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
+    `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:20px">` +
+      `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">The first US storefront. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+      `<div style="flex:1 1 200px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start">` +
+        ['thumb-night', 'thumb-interior', 'thumb-menu'].map((t) => `<div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${t}.webp" type="image/webp"><img src="photos/${t}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div>`).join('') +
+      `</div></div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hans">郑州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+      `</div>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">` +
+        [['specimen-menu-us', 'US menu board'], ['specimen-menu-china', 'Menu board in China'], ['specimen-sign', 'Bilingual sign'], ['specimen-cup', 'Takeaway cup']].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">Fig. ${i + 1}. ${cap}</figcaption></figure>`).join('') +
+      `</div>`;
+}
 const secColor = s => getComputedStyle(document.documentElement).getPropertyValue('--sec-' + s).trim() || '#6b7280';
 const initials = n => (n||'?').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '•';
 const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming',DC:'D.C.' };
 
 (async function () {
-  const id = new URLSearchParams(location.search).get('c');
+  // Chain id comes from (in order): the prerendered page's injected global (clean URL /chain/<id>/),
+  // a /chain/<id>/ path, or the legacy ?c=<id> query. Prerendered static pages set window.CFC_CHAIN;
+  // the legacy chain.html?c= URL still renders but declares the clean URL as canonical (see below).
+  const id = window.CFC_CHAIN ||
+    new URLSearchParams(location.search).get('c') ||
+    decodeURIComponent((location.pathname.match(/\/chain\/([^\/]+)\/?$/) || ['', ''])[1] || '');
   const box = document.getElementById('profile');
   if (!id) { box.innerHTML = '<p class="loading">No chain selected. <a href="intro.html">Browse all chains →</a></p>'; return; }
   let gj, sj, reg, cen;
   try { [gj, sj, reg, cen] = await Promise.all([
-    fetch('data/stores.geojson').then(r=>r.json()),
-    fetch('data/stores.json').then(r=>r.json()),
-    fetch('data/register.json').then(r=>r.json()),
+    fetch('data/stores.geojson' + DATAV).then(r=>r.json()),
+    fetch('data/stores.json' + DATAV).then(r=>r.json()),
+    fetch('data/register.json' + DATAV).then(r=>r.json()),
     // Co-tenancy is a Pro feature: centers.json is not published publicly, so tolerate its absence.
     // The "Neighbors" block is guarded on nb.length and simply hides when there is no cluster data.
-    fetch('data/centers.json').then(r=>r.json()).catch(()=>({co_tenancy:[]})),
+    fetch('data/centers.json' + DATAV).then(r=>r.json()).catch(()=>({co_tenancy:[]})),
   ]); } catch (e) { box.innerHTML = '<p class="loading">Could not load data.</p>'; return; }
 
   const meta = sj.meta || {};
@@ -179,7 +276,11 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const collected = meta.chains || {};
   const blocked = (meta.blocked || []).reduce((m, b) => (m[b.chain_id] = b, m), {});
   const m = collected[id] || blocked[id];
-  if (!m) { box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return; }
+  if (!m) {
+    // Unknown/blank ?c= (e.g. a bare /chain.html) renders nothing real — keep it out of the index.
+    document.head.insertAdjacentHTML('beforeend', '<meta name="robots" content="noindex">');
+    box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return;
+  }
   const comp = companies[id] || {};
   // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, China A-share flag).
   const lst = (meta.listings && meta.listings.brands && meta.listings.brands[id]) || null;
@@ -247,6 +348,31 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   document.title = `${m.name} ${zhName} in the US — Chains From China`.replace(/\s+/g, ' ');
   var md = document.querySelector('meta[name="description"]');
   if (md && summary) md.setAttribute('content', summary);
+  // SEO: the static HTML carries brand-level OG defaults; refine per chain so search engines that
+  // render JS index each chain at its own ?c= URL with its own title, description and canonical.
+  (function () {
+    // Canonical is the clean, pre-rendered URL (/chain/<id>/). The prerenderer injects CFC_CANON;
+    // a legacy ?c= hit falls back to the same clean form, so both consolidate to one indexable URL.
+    const base = window.CFC_CANON || ('https://chainsfromchina.com/chain/' + encodeURIComponent(id) + '/');
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.rel = 'canonical'; document.head.appendChild(link); }
+    link.href = base;
+    const set = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.setAttribute('content', val); };
+    set('meta[property="og:url"]', base);
+    set('meta[property="og:title"]', document.title);
+    set('meta[name="twitter:title"]', document.title);
+    if (summary) { set('meta[property="og:description"]', summary); set('meta[name="twitter:description"]', summary); }
+    try {
+      // Two levels only: every ListItem must carry a URL (Google allows omitting it just on the last),
+      // and the sector tier has no standalone page to link to — so it stays in the visible breadcrumb
+      // but is left out of the structured data to keep the trail valid.
+      const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Chains', item: 'https://chainsfromchina.com/intro.html' },
+        { '@type': 'ListItem', position: 2, name: m.name, item: base } ] };
+      const sc = document.createElement('script'); sc.type = 'application/ld+json';
+      sc.textContent = JSON.stringify(crumbs); document.head.appendChild(sc);
+    } catch (e) {}
+  })();
   document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
 
   const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
@@ -272,7 +398,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       rows.push(`<dt>${lst.tickers.length > 1 ? 'Tickers' : 'Ticker'}</dt><dd>${lst.tickers.map(t => `<b>${esc(t)}</b>`).join(' &middot; ')}` +
         `${lst.disclosure ? ` &mdash; <a href="${esc(lst.disclosure)}" target="_blank" rel="noopener">filings</a>` : ''}</dd>`);
     if (lst.sisters && lst.sisters.length)
-      rows.push(`<dt>Sister brand${lst.sisters.length > 1 ? 's' : ''}</dt><dd>${lst.sisters.map(s => `<a href="chain.html?c=${esc(s)}">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
+      rows.push(`<dt>Sister brand${lst.sisters.length > 1 ? 's' : ''}</dt><dd>${lst.sisters.map(s => `<a href="chain/${esc(s)}/">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
     if (lst.note) rows.push(`<dt>Note</dt><dd>${esc(lst.note)}</dd>`);
     const ashare = lst.us_inaccessible
       ? `<p class="frline"><b>China A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} in China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.</p>` : '';
@@ -311,24 +437,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>Where ${esc(m.name)} trades</h2>` +
       (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
+      locationsHTML(feats) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
-    `<section><h2>Photographs</h2>` +
-      `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
-      `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:20px">` +
-        `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">The first US storefront. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
-        `<div style="flex:1 1 200px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start">` +
-          ['thumb-night', 'thumb-interior', 'thumb-menu'].map((t) => `<div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${t}.webp" type="image/webp"><img src="photos/${t}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div>`).join('') +
-        `</div></div>` +
-      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
-      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
-        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hans">郑州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
-        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
-      `</div>` +
-      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
-      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">` +
-        [['specimen-menu-us', 'US menu board'], ['specimen-menu-china', 'Menu board in China'], ['specimen-sign', 'Bilingual sign'], ['specimen-cup', 'Takeaway cup']].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">Fig. ${i + 1}. ${cap}</figcaption></figure>`).join('') +
-      `</div>` +
-    `</section>` +
+    `<section><h2>Photographs</h2>` + photosBlock(comp, m) + `</section>` +
     (comp.blurb ? `<section><h2>About</h2><p class="lead">${esc(comp.blurb)}</p>` +
       `<dl class="kv">` +
         (comp.first_outlet ? `<dt>First US store</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
@@ -345,7 +456,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `</div></section>` +
     (related.length ? `<section><h2>Related ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains</h2>` +
       `<div class="related">` + related.map(k =>
-        `<a class="relcard" href="chain.html?c=${esc(k)}"><span class="rring" style="border-color:${secColor(sector)}"></span>` +
+        `<a class="relcard" href="chain/${esc(k)}/"><span class="rring" style="border-color:${secColor(sector)}"></span>` +
         `<span>${esc(cnt[k].name)}</span><span class="rn">${cnt[k].n}</span></a>`).join('') + `</div>` +
       `<p class="lead" style="margin-top:12px"><a href="intro.html?sector=${esc(sector)}">All ${sectorTotal} ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains →</a></p></section>` : '') +
     `<section style="border-bottom:0"><h2>More, with Pro</h2>` +
@@ -359,24 +470,59 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (outlets + soon) drawMap(feats, sector, id, m.name);
 })();
 
+// A full, crawlable address list (collapsed in a <details>, but still in the DOM so search engines
+// index it). This is what lets a "<chain> <street or mall>" query match, the next tier down from the
+// city text in byStateHTML. Grouped by state, biggest first; coming-soon outlets are marked.
+function locationsHTML(feats) {
+  if (!feats || !feats.length) return '';
+  const by = {};
+  for (const f of feats) {
+    const p = f.properties; const s = p.state; if (!s) continue;
+    (by[s] || (by[s] = [])).push(p);
+  }
+  const states = Object.keys(by).sort((a, b) => by[b].length - by[a].length);
+  if (!states.length) return '';
+  const total = states.reduce((n, s) => n + by[s].length, 0);
+  const body = states.map((s) => {
+    const items = by[s].slice().sort((a, b) =>
+      (a.city || '').localeCompare(b.city || '') || (a.address || '').localeCompare(b.address || ''));
+    const lines = items.map((p) => {
+      const addr = [p.address, p.city].filter(Boolean).join(', ') || p.city || '';
+      const soon = p.status === 'coming_soon' ? ' <em style="font-style:normal;color:var(--amber)">· coming soon</em>' : '';
+      return `<li style="margin:0 0 2px">${esc(addr)}${soon}</li>`;
+    }).join('');
+    return `<div style="margin:0 0 10px"><b style="font-size:.85rem">${esc(STATE_NAMES[s] || s)}</b>` +
+      `<ul style="list-style:none;padding:0;margin:4px 0 0;font-size:.82rem;color:var(--dim);line-height:1.5">${lines}</ul></div>`;
+  }).join('');
+  return `<details class="loclist" style="margin-top:12px;border-top:1px solid var(--rule);padding-top:10px">` +
+    `<summary style="cursor:pointer;font-size:.9rem;font-weight:600">All ${total} US location${total === 1 ? '' : 's'}, by state</summary>` +
+    `<div style="margin-top:12px;columns:240px;column-gap:28px">${body}</div></details>`;
+}
+
 function byStateHTML(feats, sector) {
   // Split each state into open (solid, sector colour) and announced (dashed amber). The open values
   // add up to the chain's "open in the US" headline; announced is shown apart so the two never merge.
   const by = {};
   for (const f of feats) {
     const s = f.properties.state; if (!s) continue;
-    const b = by[s] || (by[s] = { open: 0, soon: 0 });
+    const b = by[s] || (by[s] = { open: 0, soon: 0, cities: new Set() });
     if (f.properties.status === 'coming_soon') b.soon++; else b.open++;
+    if (f.properties.city) b.cities.add(String(f.properties.city).trim());
   }
   const rows = Object.entries(by).sort((a, b) => (b[1].open + b[1].soon) - (a[1].open + a[1].soon));
   if (!rows.length) return '<p class="lead">No located outlets yet.</p>';
   const max = Math.max(...rows.map(([, v]) => v.open + v.soon)) || 1;
   const color = secColor(sector);
-  return '<div class="bystate2">' + rows.map(([s, v]) =>
-    `<div class="bsrow"><span class="bsname">${esc(STATE_NAMES[s] || s)}</span>` +
-    `<span class="bsbar"><span class="bsopen" style="width:${v.open / max * 100}%;background:${color}"></span>` +
-    `<span class="bssoon" style="width:${v.soon / max * 100}%"></span></span>` +
-    `<span class="bsnum">${v.open}${v.soon ? ` <em>+${v.soon}</em>` : ''}</span></div>`).join('') +
+  // The cities per state are rendered as plain text (not just the canvas map / click popups) so search
+  // engines index where the chain actually trades — this is what lets a "<chain> <city>" query match.
+  return '<div class="bystate2">' + rows.map(([s, v]) => {
+    const cities = [...v.cities].sort((a, b) => a.localeCompare(b)).join(', ');
+    return `<div class="bsrow"><span class="bsname">${esc(STATE_NAMES[s] || s)}</span>` +
+      `<span class="bsbar"><span class="bsopen" style="width:${v.open / max * 100}%;background:${color}"></span>` +
+      `<span class="bssoon" style="width:${v.soon / max * 100}%"></span></span>` +
+      `<span class="bsnum">${v.open}${v.soon ? ` <em>+${v.soon}</em>` : ''}</span></div>` +
+      (cities ? `<div class="bscities" style="font-size:.78rem;color:var(--dim);margin:-2px 0 8px;padding-left:2px">${esc(cities)}</div>` : '');
+  }).join('') +
     '</div><p class="lead" style="font-size:.78rem;margin-top:8px">Solid = open · <span style="color:var(--amber)">dashed = announced</span></p>';
 }
 
@@ -607,7 +753,7 @@ function insetCount(n) {
 async function buildChainInsets(parent, mainMap, style, fc, logo, color, mono) {
   const inBounds = (f, b) => { const [[w, s], [e, n]] = b; const [x, y] = f.geometry.coordinates; return x >= w && x <= e && y >= s && y <= n; };
   let statesFC = null;
-  try { statesFC = await fetch('us-states.geojson').then(r => r.json()); } catch (e) { /* mask is optional */ }
+  try { statesFC = await fetch('us-states.geojson' + DATAV).then(r => r.json()); } catch (e) { /* mask is optional */ }
   const wrap = document.createElement('div'); wrap.className = 'map-insets';
   parent.appendChild(wrap);
   for (const ins of INSETS) {

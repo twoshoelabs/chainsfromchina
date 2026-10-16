@@ -71,6 +71,11 @@ rm -f "$TMP"/centers.js "$TMP"/data/centers.json
 echo "chainsfromchina.com" > "$TMP"/CNAME         # custom domain
 touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as-is
 
+# SEO: regenerate sitemap.xml from the just-exported chain roster (static pages + every chain page),
+# with today's NY date as lastmod, so search engines see the current set on each deploy. robots.txt
+# (static, in map/) points crawlers here. Never fail the deploy over it.
+"$PY" scripts/gen_sitemap.py "$TMP" || echo "WARNING: sitemap generation failed"
+
 # Cache-bust local CSS/JS: append a per-deploy version query to every style.css/app.js
 # reference. Without this the CDN and browsers keep serving a stale stylesheet, so a redesign
 # sits invisible until a manual hard refresh. perl -pi is used (not sed -i) to stay portable.
@@ -79,8 +84,20 @@ STAMP="$(date -u +%Y%m%d%H%M%S)"
 # brand logos are cached normally but a swapped logo appears on a plain reload (no hard refresh). Each
 # page carries window.CFC_ICON_V="?v=__ICONV__"; the JS appends it to every icons/<id>.png request.
 ICONV="$(cat "$TMP"/icons/*.png 2>/dev/null | shasum | cut -c1-10)"
+# Data cache-bust: a short content hash of the published data files. Like the logo hash, it changes
+# only when the data changes, so the JSON/GeoJSON the pages fetch is cached normally but a fresh
+# census (or a new register alias) appears on a plain reload — no manual hard refresh. Each page
+# carries window.CFC_DATA_V="?v=__DATAV__"; the JS appends it to every data fetch (see DATAV in the
+# scripts). us-states.geojson is included so a boundary update busts too.
+DATAV="$(cat "$TMP"/data/*.json "$TMP"/us-states.geojson 2>/dev/null | shasum | cut -c1-10)"
 find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
-  "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g; s{__ICONV__}{$ICONV}g"
+  "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g; s{__ICONV__}{$ICONV}g; s{__DATAV__}{$DATAV}g"
+
+# SEO: pre-render a real static page per chain at /chain/<id>/index.html from the just-stamped
+# chain.html template (unique title/description/canonical + crawlable body), so every chain indexes
+# and ranks without Googlebot having to render the JS first. Runs AFTER stamping so the generated
+# pages inherit the stamped CSS/JS versions and ICONV/DATAV. Never fail the deploy over it.
+"$PY" scripts/prerender_chains.py "$TMP" || echo "WARNING: chain prerender failed"
 (
   cd "$TMP"
   git init -q

@@ -58,21 +58,18 @@
   }
 
   // ---- Census meta: fill the nameplate issue line + any [data-census] eyebrow -----------------
-  fetch('data/meta.json').then(function (r) { return r.json(); }).then(function (m) {
+  fetch('data/meta.json' + ((window.CFC_DATA_V) || '')).then(function (r) { return r.json(); }).then(function (m) {
     if (!m) return;
     var d = m.last_collected, shortLabel = d, issue = '', et = etClock(m.generated);
     try {
       var dt = new Date(d + 'T00:00:00');
       shortLabel = dt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
-      issue = 'No. ' + (m.days_collected || '—') + ' · ' +
-        dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
-        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear() +
-        ' · ' + (et ? 'counted ' + et : 'New York time');
+      issue = dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
+        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear();
     } catch (e) {}
     var issueEl = document.getElementById('cfc-issue');
     if (issueEl && issue) issueEl.textContent = issue;
-    var text = 'Daily census · Updated ' + shortLabel + (et ? ', ' + et : ', New York time') +
-      (m.days_collected ? ' · Day ' + m.days_collected : '');
+    var text = 'Daily census · Updated ' + shortLabel + (et ? ', ' + et : ', New York time');
     document.querySelectorAll('[data-census]').forEach(function (el) { el.textContent = text; });
   }).catch(function () {});
 
@@ -113,7 +110,7 @@
   function loadIndex() {
     if (idxP) return idxP;
     idxP = Promise.all([
-      fetch('data/stores.geojson').then(function (r) { return r.json(); }),
+      fetch('data/stores.geojson' + ((window.CFC_DATA_V) || '')).then(function (r) { return r.json(); }),
       // Co-tenancy is a Pro feature — centers.json is not published publicly, so don't request it.
       Promise.resolve({ co_tenancy: [] }),
     ]).then(function (res) {
@@ -164,7 +161,7 @@
 
   function choose(i) {
     var o = opts[i]; if (!o) return;
-    if (o.type === 'chain') location.href = 'chain.html?c=' + encodeURIComponent(o.id);
+    if (o.type === 'chain') location.href = 'chain/' + encodeURIComponent(o.id) + '/';
     else location.href = 'index.html#c=' + o.lng.toFixed(4) + ',' + o.lat.toFixed(4) + '&z=' + (o.type === 'center' ? 15 : 10);
   }
 

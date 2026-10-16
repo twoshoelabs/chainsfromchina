@@ -3,6 +3,7 @@
 // its chains by outlet count as brand-logo chips, with the long tail behind an expandable "+N more".
 // Counts an outlet under the state it sits in; "opening soon" (announced) is shown separately.
 const ICONV = window.CFC_ICON_V || '';
+const DATAV = window.CFC_DATA_V || '';   // per-deploy data cache-bust
 const OTHER = '#6b7280';
 const SECTOR = {
   tea: '#5E8C3A', coffee: '#7A4E2D', food_drink: '#B5462E', bakery: '#C08A2B',
@@ -89,7 +90,7 @@ function render() {
 
 async function init() {
   let fc;
-  try { fc = await fetch('data/stores.geojson').then((r) => r.json()); } catch (e) { return; }
+  try { fc = await fetch('data/stores.geojson' + DATAV).then((r) => r.json()); } catch (e) { return; }
   const agg = {};
   for (const f of fc.features) {
     const p = f.properties, st = p.state;
@@ -169,7 +170,7 @@ function openAddresses(abbr, chain) {
     href += `&c=${lon.toFixed(4)},${lat.toFixed(4)}&z=${pts.length === 1 ? 11 : 6}`;
   }
   M_MAP.href = href;
-  M_PROFILE.href = `chain.html?c=${encodeURIComponent(chain)}`;
+  M_PROFILE.href = `chain/${encodeURIComponent(chain)}/`;
 
   MODAL.hidden = false;
   document.body.classList.add('modal-open');
