@@ -240,6 +240,52 @@ def main(argv=None):
         print(verify.render(items, limit=int(opt("--limit", "40"))))
         return 0
 
+    if cmd == "alerts":
+        from . import alerts
+        sub = argv[1] if len(argv) > 1 and not argv[1].startswith("-") else "digest"
+        con = None
+        if "--with-filings" in argv:
+            from . import db
+            con = db.connect()
+        if sub == "detect":
+            seeded = not Path(alerts.BASELINE).exists()
+            new = alerts.run_detect(con)
+            print(f"detected {len(new)} new event(s)"
+                  + ("  (baseline seeded — first run emits nothing)" if seeded
+                     else "  (no changes)" if not new else ""))
+            if new and "--digest" in argv:
+                print("\n" + alerts.digest(new, title="New alerts"))
+            return 0
+        if sub in ("digest", "log"):
+            events = alerts.load()
+            lens = {}
+            if opt("--kind"):
+                lens["kinds"] = [opt("--kind")]
+            if opt("--brand"):
+                lens["brands"] = [opt("--brand")]
+            if opt("--sector"):
+                lens["sectors"] = [opt("--sector")]
+            if opt("--min-confidence"):
+                lens["min_confidence"] = opt("--min-confidence")
+            since = alerts.read_cursor() if "--undelivered" in argv else opt("--since")
+            if sub == "log":
+                rows = alerts.filter_events(events, lens, since)[-int(opt("--limit", "40")):]
+                for e in rows:
+                    print(f"  [{e['kind']}] {e['brand']}: {e['headline']}  "
+                          f"({e['confidence']}, {e['as_of']})")
+                print(f"-- {len(rows)} event(s) of {len(events)} in log --")
+                return 0
+            out = alerts.digest(events, lens, since)
+            print(out or "(no alerts match)")
+            if "--deliver" in argv and out:
+                cur = alerts.mark_delivered(events)
+                print(f"\n-- delivery cursor advanced to {cur} --")
+            return 0
+        print("usage: python -m chain_atlas alerts detect [--digest] [--with-filings]")
+        print("       python -m chain_atlas alerts digest|log [--since ISO | --undelivered]"
+              " [--kind K] [--brand B] [--sector S] [--min-confidence high] [--deliver]")
+        return 2
+
     if cmd == "dossiers":
         from . import dossiers
         errs = dossiers.validate()
