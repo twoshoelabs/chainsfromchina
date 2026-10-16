@@ -1158,6 +1158,27 @@
    "format": "hotpot",
    "global": "Inner Mongolia (Baotou) Mongolian hot-pot chain founded 1999; owned by Yum China since 2012. A global franchise present across East/Southeast Asia and Oceania — Japan, Thailand, Indonesia, Singapore, Cambodia, Myanmar, New Zealand, Australia — plus its China home market. Its earlier US outlets have closed (e.g. Irvine), so it is not currently open in the US.",
    "operating_model": "franchise"
+  },
+  "toys52": {
+   "name": "52TOYS",
+   "name_zh": "乐自天成",
+   "name_intl": "52TOYS",
+   "aliases": [
+    "52TOYS",
+    "Beijing Lezi Tiancheng",
+    "北京乐自天成",
+    "乐自天成",
+    "猛兽匣",
+    "Beastbox",
+    "胖哒幼",
+    "Panda Roll"
+   ],
+   "format": "toys",
+   "global": "China-origin collectible-IP / designer-toy company (brand 52TOYS, launched 2015; operator Beijing Lezi Tiancheng Culture Development, 北京乐自天成, founded 2012; CEO Chen Wei 陈威). Full-chain IP-toy maker on an 'own IP + licensed IP' model — own IPs incl. 猛兽匣 Beastbox and 胖哒幼 Panda Roll, licenses incl. Crayon Shin-chan and Tom & Jerry; ~2,800 SKUs, 35 owned + 80 licensed IPs. 3rd-largest IP-toy company by 2024 China GMV. Channel-led: ~2/3 of revenue via dealers/distribution, and own China stores shrank 19→5 (2022–May 2025) even as revenue grew RMB463M→630M (loss-making, loss widening to RMB122M in 2024). Filed a HKEX A1 on 22 May 2025 (sponsors Citi + Huatai); the application lapsed 22 Nov 2025. Overseas via Taiwan (Shin Kong Mitsukoshi counters), a Hong Kong Airport store, and the US (two metro-Atlanta stores).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China IP-toy maker; US-tracked via two metro-Atlanta stores, with Taiwan counters (Shin Kong Mitsukoshi) abroad. Primarily wholesale/distribution + own stores, not franchise; no US franchise offer or FDD confirmed."
   }
  },
  "entries": [
@@ -8334,6 +8355,21 @@
    "note": "Present on the brand's locator (Australia).",
    "sources": [
     "https://www.littlesheep.com/enfranchise/Locations/Index"
+   ]
+  },
+  {
+   "chain": "toys52",
+   "market": "TW",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-16",
+   "note": "Two 52TOYS counters inside Shin Kong Mitsukoshi (新光三越) department stores — 桃園站前店 2F (Taoyuan Station Front) and 台中中港店 6F (Taichung Zhonggang) — listed on SKM's official brand directory. Shop-in-shop counters (count as outlets per house precedent). Corroborates the A1's >100% overseas-revenue CAGR.",
+   "sources": [
+    "https://www.skm.com.tw/"
    ]
   }
  ]

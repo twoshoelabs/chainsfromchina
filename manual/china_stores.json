@@ -342,10 +342,10 @@
   },
   "toys52": {
    "total": 5,
-   "as_of": "2025-05",
-   "source": "澎湃新闻 (The Paper), '国内只剩5家店，52TOYS，想上市', 26 May 2025",
+   "as_of": "2025-05-19",
+   "source": "52TOYS HKEX IPO prospectus (A1, filed 22 May 2025), via 澎湃新闻 / 腾讯新闻 / 界面新闻",
    "confidence": "medium",
-   "note": "OWN-BRAND retail stores in China only (~5, per press, around its May 2025 HKEX A1 filing). 52TOYS (北京乐自天成) is an IP/blind-box maker selling mainly via wholesale, e-commerce and third-party retail — its own-store count badly UNDERSTATES scale and is not a retail-chain footprint. 16 months stale; the IPO prospectus has the precise figure. See listings.json toys52 (ipo_pending)."
+   "note": "Own-brand retail stores in China ONLY, and shrinking fast per the IPO prospectus: 19 (end-2022) → 15 (2023) → 10 (2024) → 5 (19 May 2025). 52TOYS (北京乐自天成, founded 2015; founders Chen Wei 陈威 CEO + Huang Jin 黄今) is a collectible-IP/blind-box maker selling mainly via DISTRIBUTION + third-party retail — own stores badly understate scale (revenue RMB463M (2022) → 482M (2023) → 630M (2024), but net losses WIDENED (RMB1.7M → 122M)). Plans 100+ own stores over 3–5 yrs. A Hong Kong Airport store opened 2026 (outside its home market). Figure is prospectus-grade but taken from press; verify vs the A1 PDF to mark high. The HKEX A1 behind these figures LAPSED 22 Nov 2025. See listings.toys52."
   }
  }
 }

@@ -194,6 +194,45 @@
      "confidence": "low"
     }
    ]
+  },
+  "toys52": {
+   "history": {
+    "text": "Company 北京乐自天成 registered 2012-07-09 (legal rep / CEO Chen Wei 陈威); the 52TOYS brand launched 2015, co-led by Chen Wei and Huang Jin (黄今, 三国杀/Yoka co-founder). A full-chain IP-toy company (incubation, design, production, omni-channel) on an 'own IP + licensed IP' dual-drive — per its 22 May 2025 HKEX A1, 35 owned IPs (incl. 猛兽匣 Beastbox, 胖哒幼 Panda Roll) + 80 licensed (incl. Crayon Shin-chan, Tom & Jerry), ~2,800 SKUs. 3rd-largest IP-toy company by 2024 China GMV (claims #2 in the multi-category niche). The A1 (sponsors Citi + Huatai) LAPSED on 22 Nov 2025.",
+    "as_of": "2026-10-16",
+    "source": "Baidu Baike + HKEX A1 (via Sina/Tencent/Futu)",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "猛兽匣 Beastbox",
+     "note": "52TOYS's signature own IP — transforming mecha/beast figures",
+     "as_of": "2026-10-16",
+     "source": "Baidu Baike / company",
+     "confidence": "medium"
+    },
+    {
+     "name": "胖哒幼 Panda Roll",
+     "note": "flagship own panda IP (blind boxes)",
+     "as_of": "2026-10-16",
+     "source": "Baidu Baike / company",
+     "confidence": "medium"
+    },
+    {
+     "name": "Licensed lines: Crayon Shin-chan 蜡笔小新, Tom & Jerry 猫和老鼠",
+     "note": ">100 IPs end-2024, own+licensed dual-drive",
+     "as_of": "2026-10-16",
+     "source": "Baidu Baike",
+     "confidence": "medium"
+    }
+   ],
+   "notes": [
+    {
+     "text": "The A1 quantifies the channel-led thesis: ~2/3 of revenue runs through dealers (66.8% in 2024) vs ~31% self-operated, even as own China stores shrank 19->5 and revenue grew RMB463M->630M (2022-24). But it is LOSS-MAKING and the loss WIDENED (RMB1.7M->71.9M->122M), and licensed-IP revenue share rose to 64.5% (2024) while own-IP fell to 24.5% = rising license-concentration. Overseas revenue CAGR >100%. Losses are the likely reason the A1 lapsed 22 Nov 2025 without listing.",
+     "as_of": "2026-10-16",
+     "source": "HKEX A1 (via Sina/Tencent/Futu)",
+     "confidence": "medium"
+    }
+   ]
   }
  }
 }
