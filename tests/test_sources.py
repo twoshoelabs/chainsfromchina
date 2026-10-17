@@ -65,6 +65,12 @@ def main():
         SR.add_source({"chain": "x", "kind": "press", "title": "y", "date": "Oct 2026"}, text="t", lib=lib)
     except ValueError as e:
         check("bad date rejected", "date must be" in str(e), True)
+    # month precision (YYYY-MM) is accepted — many articles are dated only to the month (own lib,
+    # so it doesn't disturb the list/by_chain counts below)
+    mlib = Path(tempfile.mkdtemp()) / "sources"
+    mrec = SR.add_source({"chain": "x", "kind": "press", "title": "month-dated", "date": "2023-05"},
+                         text="t", lib=mlib)
+    check("YYYY-MM date accepted", mrec["date"], "2023-05")
 
     # --- stable id (same citation -> same id) ---
     a = {"chain": "mixue", "title": "T", "date": "2026-01-01", "url": "u"}

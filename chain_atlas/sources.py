@@ -23,7 +23,7 @@ LIB = _ROOT / "manual" / "sources"
 INDEX = LIB / "index.jsonl"
 
 KINDS = {"press", "financial", "analyst", "filing", "company", "other"}
-_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_DATE = re.compile(r"^\d{4}-\d{2}(-\d{2})?$")   # full date, or month precision (YYYY-MM)
 _SAFE_EXT = re.compile(r"[^A-Za-z0-9]+")
 
 
@@ -53,7 +53,7 @@ def validate(meta: dict) -> list:
     if not (meta.get("title") or "").strip():
         errs.append("title is required")
     if meta.get("date") and not _DATE.match(str(meta["date"])):
-        errs.append("date must be YYYY-MM-DD")
+        errs.append("date must be YYYY-MM-DD or YYYY-MM")
     return errs
 
 
