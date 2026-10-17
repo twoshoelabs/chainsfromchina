@@ -82,6 +82,7 @@ const LOGO_CHAINS = new Set([
   'nanhotpot',
   'huaxiaoxiao',
   'zhoumapo',
+  'littlesheep',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
