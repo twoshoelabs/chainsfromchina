@@ -2647,6 +2647,23 @@
      "lon": -73.988223
     }
    ]
+  },
+  {
+   "chain": "littlesheep",
+   "supplied_on": "2026-10-17",
+   "reviewed": "2026-10-17",
+   "source": "Google Business listing + littlesheepusa.com",
+   "scope": "US re-entry: Little Sheep's self-described first US location (American Dream, NJ). Not a full roster.",
+   "locations": [
+    {
+     "name": "American Dream (Unit A320)",
+     "address": "1 American Dream Way, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing (open, 4.8 / 1,654 reviews) + littlesheepusa.com 'where we are' (17 Oct 2026). Coordinates are a manual mall-centroid override (OSM/Nominatim; Census no match).",
+     "lat": 40.808508,
+     "lon": -74.070214
+    }
+   ]
   }
  ]
 }

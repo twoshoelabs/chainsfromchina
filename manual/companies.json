@@ -1599,6 +1599,18 @@
    "photo_credit": null,
    "us_since": "2025",
    "first_outlet": "New York, NY — Times Square (728 8th Ave)"
+  },
+  "littlesheep": {
+   "name": "Little Sheep Hot Pot",
+   "name_zh": "小肥羊",
+   "category": "Hot pot",
+   "blurb": "A Mongolian hot-pot chain founded 1999 in Baotou, Inner Mongolia; owned by Yum China since 2012. After its earlier US outlets closed, it re-entered the US in 2026 with a location at the American Dream mall in New Jersey.",
+   "site_cn": null,
+   "site_us": "https://littlesheepusa.com",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2026",
+   "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)"
   }
  }
 }
