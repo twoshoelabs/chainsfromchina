@@ -1463,3 +1463,28 @@ class ZhoumapoAdapter(Adapter):
                       " Restaurant & Bar — Time Square 周麻婆'; confirmed operating. In scope, tracked"
                       " via sightings (14 Oct 2026)")
     RECHECK = ["https://www.mapoasianbartimesquare.com/", "https://www.mapousa.com/"]
+
+
+class LittleSheepAdapter(Adapter):
+    """
+    Little Sheep (小肥羊) — added 2026-10-17. A Mongolian hot-pot chain founded 1999 in Baotou, Inner
+    Mongolia; owned by Yum China since 2012 (China origin, in scope, sector food_drink). A global
+    franchise across East/Southeast Asia and Oceania, tracked for those markets in the Global register.
+
+    Its earlier US outlets (e.g. Irvine) closed, but it RE-ENTERED the US in 2026: its self-described
+    first US location is at American Dream, East Rutherford, NJ (1 American Dream Way, Unit A320),
+    confirmed operating (Google 4.8/1,654; littlesheepusa.com). No first-party national US locator —
+    the US site lists the one store — so tracked via sightings; the mall address is a Census no-match,
+    placed by a manual OSM/Nominatim centroid override.
+    """
+    chain_id, name, name_zh = "littlesheep", "Little Sheep", "小肥羊"
+    name_us = "Little Sheep Hot Pot"
+    aliases = ("Little Sheep", "Little Sheep Hot Pot", "Little Sheep Hot Pot & Bar", "小肥羊")
+    parent, format = "Little Sheep (小肥羊; Yum China)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("Mongolian hot-pot chain (小肥羊 Little Sheep, founded 1999 in Baotou, Inner"
+                      " Mongolia; owned by Yum China since 2012). Earlier US outlets closed, but it"
+                      " re-entered the US in 2026 with its first new location at American Dream, East"
+                      " Rutherford NJ (littlesheepusa.com); confirmed operating (Google 4.8/1,654). In"
+                      " scope (China origin), tracked via sightings (17 Oct 2026)")
+    RECHECK = ["https://littlesheepusa.com/where-we-are"]
