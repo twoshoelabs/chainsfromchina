@@ -13,9 +13,10 @@
   "Packaged-goods MAKERS and distribution-only brands (Three Squirrels, ChaCha, Weilong) are NOT",
   "listed — the site tracks storefront chains, not products on a grocery shelf.",
   "Excluded as non-Chinese-origin: Happy Lemon needs origin verification; Yonghe King (Jollibee),",
-  "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research."
+  "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research.",
+  "'us-flagship' = a single US brand-promotion flagship/showroom, NOT a chain — internal reference only, kept OFF the Register/census unless it becomes multi-store."
  ],
- "as_of": "2026-09-29",
+ "as_of": "2026-10-17",
  "categories": {
   "Tea": [
    {
@@ -967,6 +968,18 @@
     "markets": "",
     "note": "",
     "source": ""
+   }
+  ],
+  "Electronics & devices": [
+   {
+    "name": "Insta360",
+    "name_zh": "影石创新",
+    "hq": "Shenzhen",
+    "china_stores": "—",
+    "status": "us-flagship",
+    "markets": "US: single flagship, Times Square NYC (opened 2026)",
+    "note": "SINGLE brand-promotion flagship (showroom), NOT a retail chain — INTERNAL REFERENCE ONLY; do NOT add to the Register or census unless it becomes a multi-store chain. Action-camera / imaging maker (Arashi Vision 影石创新, STAR Market-listed).",
+    "source": "https://www.insta360.com/blog/news/new-york-city-times-square-flagship-opening.html"
    }
   ]
  }
