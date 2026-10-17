@@ -233,6 +233,67 @@
      "confidence": "medium"
     }
    ]
+  },
+  "babakehouse": {
+   "history": {
+    "text": "BON APPéTIT (branded BA / BA烘焙; the name is the French mealtime blessing 'bon appétit') is a French-technique artisan bakery created in Kunming, Yunnan, around the concept 'le pain est vivant' — 'bread is alive.' Its house philosophy is 真/鲜/制: natural ingredients, hand-made fresh in-store with no frozen dough, and slow natural ('wild') fermentation. BA frames itself as 'a company that came out of the mountains,' fusing French baking with Eastern-highland Yunnan terroir — Himalayan rose salt, wild black truffle, and mountain spring water — and adapts its method to altitude (far less yeast at Shangri-La's ~3,200 m) and Yunnan's dry climate.",
+    "as_of": "2026-10-17",
+    "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+    "confidence": "medium"
+   },
+   "popular_items": [
+    {
+     "name": "Black Truffle series (黑松露系列)",
+     "note": "Black Truffle Baguette, Sashimi Black Truffle Baguette, Black Truffle Croissant — using fresh Yunnan/Shangri-La black truffle (BA notes ~1/3 of the world's black truffle comes from Yunnan).",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+     "confidence": "medium"
+    },
+    {
+     "name": "BABAguette series",
+     "note": "Yunnan ingredients in baguettes — 老奶洋芋 (mashed-potato) and 滇式卤鸡 (Yunnan braised-chicken); a pun on French 'baguette' and the Yunnan word for staple food, 'BABA'.",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+     "confidence": "medium"
+    },
+    {
+     "name": "山地鲜包包 mountain fresh-buns",
+     "note": "墨江紫米乳酪 (Mojiang purple-rice cheese) and 斑马流沙蛋黄 (zebra salted lava egg-yolk).",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+     "confidence": "medium"
+    }
+   ],
+   "flagship_outlets": [
+    {
+     "name": "BA1903",
+     "city": "Kunming",
+     "note": "Themed on the Yunnan-Vietnam (meter-gauge) Railway heritage (1903/1910), which first brought French coffee-and-crusty-bread culture to Kunming.",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)"
+    },
+    {
+     "name": "Songtsam Shangri-La (松赞香格里拉店)",
+     "city": "Shangri-La",
+     "note": "A '3,300 m-altitude artisan bakery' inside a Songtsam hotel, using local mountain spring water; positioned as a world-class high-altitude artisan store.",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Chongqing has reportedly been a standout market — per the founder, per-store performance there outpaces home-base Kunming despite local taste differences, on identical products — a sign the Yunnan-terroir concept travels beyond its region.",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+     "confidence": "medium"
+    },
+    {
+     "text": "Technique as identity: altitude and dry climate force recipe adaptation (sharply reduced yeast, Napoleon flour as a base, tangzhong 烫种 + levain 鲁邦种), which BA presents as a distinct Southwest-China / Yunnan baker identity rather than a copy of French or Japanese bread.",
+     "as_of": "2026-10-17",
+     "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
+     "confidence": "medium"
+    }
+   ]
   }
  }
 }
