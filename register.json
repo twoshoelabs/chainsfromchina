@@ -8425,6 +8425,21 @@
     "https://www.stheadline.com/food/3535729/",
     "https://global.hk01.com/社会新闻/60313096/"
    ]
+  },
+  {
+   "chain": "taier",
+   "market": "HK",
+   "status": "present",
+   "locations": 6,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-17",
+   "note": "6 operator-observed HK stores (hand-verified Google, Oct 2026), all open, in prime malls: Sha Tin (New Town Plaza), TST (K11), Kowloon Tong (Festival Walk/又一城), Mong Kok (MOKO), Kai Tak (Airside) and Yuen Long (元點). Branded 太二老壇子酸菜魚; operated by parent Jiumaojiu (九毛九, HKEX 9922). A stable/expanding HK presence — the counter-example to the China F&B brands retreating from Hong Kong.",
+   "sources": [
+    "Google Business listings (6 Tai Er HK stores, all operating), hand-verified Oct 2026"
+   ]
   }
  ]
 }
