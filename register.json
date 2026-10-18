@@ -8495,15 +8495,17 @@
    "chain": "aunteajenny",
    "market": "MY",
    "status": "present",
-   "locations": 11,
+   "locations": 50,
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-10-07",
-   "note": "At least 11 operating outlets on Google Maps, all in Kuala Lumpur / Klang Valley (MyTown, Sri Petaling, Lot 10, Ombak KLCC, Setapak, Kepong, Pavilion Bukit Jalil, TARUMT Arena, Taman Connaught, Sunway Velocity, Ativo Plaza). The chain's first overseas market.",
+   "reviewed": "2026-10-18",
+   "note": "50 open Malaysia outlets per the brand's OWN store locator (aunteajenny.com.my, Oct 2026) — first-party, nationwide: Klang Valley/KL + Selangor, Johor (JB, Muar, Kluang, Segamat, Batu Pahat, Kulai), Penang, Perak (Ipoh), Melaka, Negeri Sembilan (Seremban, Nilai), Pahang (Kuantan), Kedah (Alor Setar), Sarawak (Kuching) and Sabah (Sandakan Airport), incl. KLIA2 and klia airports. PLUS 2 'Coming Soon' (Ombak KLCC, Kota Damansara — announced, not counted). A big upgrade from the earlier Google-Maps floor of 11 (KL only). China-origin tea chain (沪上阿姨 Shanghai, 2013; HKEX 2589).",
    "sources": [
-    "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more)."
+    "Per-market Google Maps listings, operator-observed 7 Oct 2026 — each an operating storefront (reviews, photos, current hours). Count is a floor (there may be more).",
+    "https://www.aunteajenny.com.my/cn/discover.html",
+    "Auntea Jenny MY store locator (aunteajenny.com.my/cn/discover.html, Oct 2026)"
    ]
   },
   {
@@ -8804,8 +8806,8 @@
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-10-17",
-   "note": "No HK retail outlets — checked Oct 2026. The brand's own Global Sites list (aunteajenny.com.my) names USA / UK / KR / AU / ID / MY but NOT Hong Kong; its HK tie is the 8 May 2025 HKEX listing (2589), not stores (the HKEJ commentary grouping it with Mixue referred to the listing).",
+   "reviewed": "2026-10-18",
+   "note": "No HK retail outlets — checked Oct 2026. The brand's own Global Sites list (aunteajenny.com.my) names USA / UK / KR / AU / ID / MY but NOT Hong Kong; its HK tie is the 8 May 2025 HKEX listing (2589), not stores (the HKEJ commentary grouping it with Mixue referred to the listing). NAMESAKE GUARD (2026-10-18): 滬上園 (Shanghai Garden), a Shanghainese restaurant (小籠包/上海麵) at 78-84 Lai Chi Kok Rd, Prince Edward, is NOT Auntea Jenny — it shares the 滬上/沪上 'Shanghai' prefix but is a different business (園 'garden' vs 阿姨 'auntie'; restaurant vs tea chain). Auntea Jenny 沪上阿姨 still has NO HK store.",
    "sources": [
     "https://www.aunteajenny.com.my/history.html"
    ]
@@ -9020,17 +9022,20 @@
   {
    "chain": "chajiu",
    "market": "HK",
-   "status": "present",
+   "status": "exited",
    "locations": null,
-   "locations_as_of": null,
+   "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
    "reviewed": "2026-10-18",
-   "note": "Collapsing — down to possibly a single store. Operator-observed Oct 2026: OPEN (hand-confirmed) — only Kwai Fong (7 Kwai Foo Rd, Kwai Chung Plaza). PERMANENTLY CLOSED (hand-confirmed) — Tsim Sha Tsui (49 Carnarvon Rd, Savoy Mansion), Causeway Bay (83 Percival St, Percival House), Tsuen Wan (16 Tsuen Hing Path, Fortune Mansion), and earlier Mong Kok Soy St (豉油街 33号 → 祥興記生煎包). That's 4 confirmed closed vs 1 open, so the trade-press 'peak ~7 / ~5 now' is stale — exact count left unset; Kwai Fong is the lone confirmed survivor. China-origin (Guangzhou, seasonal fruit/veg teas 蔬果茶). Near-exit — re-verify whether Kwai Fong still trades.",
+   "note": "LIKELY FULLY EXITED HK (Oct 2026). Its last store — Kwai Fong, Shop 301A, 3/F, Kwai Chung Plaza (7-11 Kwai Foo Rd) — is marked CLOSED on OpenRice (茶救星球蔬果茶 'JO's CHA (Closed)'). SOURCE CONFLICT: a Google listing still showed 'Open · Closes 9 PM', but OpenRice's explicit '(Closed)' is more reliable for HK closures and fits the collapse trajectory — the other 4 stores (TST Carnarvon, Causeway Bay Percival, Tsuen Wan Tsuen Hing, Mong Kok 豉油街) are all confirmed closed. Treated as exited; re-verify if the Google listing updates. China-origin (Guangzhou, seasonal fruit/veg teas 蔬果茶) — a near-total-to-full HK collapse from a ~7-store peak.",
    "sources": [
     "https://www.stheadline.com/food/3623726/",
-    "stheadline (茶救星球 Mong Kok 豉油街 exit; peak 7 -> ~5)"
+    "stheadline (茶救星球 Mong Kok 豉油街 exit; peak 7 -> ~5)",
+    "Google listing (Jo's Cha 茶救星球, Kwai Fong/Kwai Chung Plaza — open Oct 2026)",
+    "https://www.openrice.com/en/hongkong/r-jos-cha-kwai-fong",
+    "OpenRice (JO's CHA 茶救星球蔬果茶, Kwai Fong — Closed)"
    ]
   },
   {
