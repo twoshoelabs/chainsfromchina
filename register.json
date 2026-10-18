@@ -1195,6 +1195,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Chubby Group BBQ chain; US-tracked via Bellevue WA + Temple City CA. Fully exited HK 2026. No US franchise offer or FDD confirmed."
+  },
+  "sanjin": {
+   "name": "Sanjin Tangbao",
+   "name_zh": "三津汤包",
+   "name_intl": "Sanjin Tangbao",
+   "aliases": [
+    "三津湯包",
+    "Sanjin Tangbao",
+    "Sanjin",
+    "三津",
+    "sanjinfoods"
+   ],
+   "format": "snack",
+   "global": "Soup-dumpling (湯包) and pan-fried-bun QSR chain; brand created in Shenzhen 2014 (operator 深圳三津餐饮管理) by three founders from Huaining, Anhui — 5,300+ franchised stores (May 2023) across Guangdong, Hunan, Fujian, Jiangxi and Guangxi; a '国民早餐' (national breakfast) brand. Entered Hong Kong 20 Sept 2023 (Maxgrand Plaza, San Po Kong) — reportedly the first China soup-dumpling brand in HK; ~3 company-operated HK stores with HK-customised flavours. No known US presence.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Shenzhen-based 包点/soup-dumpling franchise (5,300+ China stores). Entered HK 2023 (company-operated). No US presence."
   }
  },
  "entries": [
@@ -8439,6 +8457,23 @@
    "note": "6 operator-observed HK stores (hand-verified Google, Oct 2026), all open, in prime malls: Sha Tin (New Town Plaza), TST (K11), Kowloon Tong (Festival Walk/又一城), Mong Kok (MOKO), Kai Tak (Airside) and Yuen Long (元點). Branded 太二老壇子酸菜魚; operated by parent Jiumaojiu (九毛九, HKEX 9922). A stable/expanding HK presence — the counter-example to the China F&B brands retreating from Hong Kong.",
    "sources": [
     "Google Business listings (6 Tai Er HK stores, all operating), hand-verified Oct 2026"
+   ]
+  },
+  {
+   "chain": "sanjin",
+   "market": "HK",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2026-10",
+   "first_opened": "2023-09-20",
+   "precision": "day",
+   "confidence": "medium",
+   "reviewed": "2026-10-17",
+   "note": "Reportedly the first China soup-dumpling (湯包) brand to enter HK — first store opened 20 Sept 2023 at Maxgrand Plaza (萬廸廣場), San Po Kong; company-operated, HK-customised flavours. ~3 branches (OpenRice 'All Branches(3)'); San Po Kong (大有街) + Sham Shui Po (277 Cheung Sha Wan Rd, B&C, open 24h) hand-verified operating (Oct 2026).",
+   "sources": [
+    "https://www.hkcd.com/hkcdweb/content_p/2023/09/21/content_159786.html",
+    "https://baike.baidu.com/item/三津汤包/55750887",
+    "OpenRice (三津湯包, All Branches 3); Google listings hand-verified Oct 2026"
    ]
   }
  ]
