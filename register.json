@@ -5262,9 +5262,9 @@
    "locations": 12,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "12 HK stores per the brand's OWN store locator (lininghk.com, Oct 2026) — first-party: North Point (李寧大廈, Electric Rd), TST (Canton Rd flagship, Silvercord), Wan Chai (Hopewell Centre), Kai Tak Sports Park retail hub, Sha Tin (New Town Plaza), Tai Wai (The Wai/圍方), Tsuen Wan (Citywalk/荃新天地), Tuen Mun (Town Plaza), Tseung Kwan O (East Point City), Tin Shui Wai (T Town South/頌富), plus 2 SOGO 崇光 concession counters (Causeway Bay + Kai Tak 雙子匯 — branded Li-Ning sections inside SOGO; count per the shop-in-shop precedent, and on Li-Ning's own locator). China-origin sportswear (李宁, Beijing). (First-party locator — useful but NOT definitive: brand locators can lag closures or list not-yet-open stores, as fufuland's own site did; cross-check against OpenRice / operator-observed before treating as final.)",
+   "note": "12 HK stores per the brand's OWN store locator (lininghk.com, Oct 2026) — first-party: North Point (李寧大廈, Electric Rd), TST (Canton Rd flagship, Silvercord), Wan Chai (Hopewell Centre), Kai Tak Sports Park retail hub, Sha Tin (New Town Plaza), Tai Wai (The Wai/圍方), Tsuen Wan (Citywalk/荃新天地), Tuen Mun (Town Plaza), Tseung Kwan O (East Point City), Tin Shui Wai (T Town South/頌富), plus 2 SOGO 崇光 concession counters (Causeway Bay + Kai Tak 雙子匯 — branded Li-Ning sections inside SOGO; count per the shop-in-shop precedent, and on Li-Ning's own locator). China-origin sportswear (李宁, Beijing). (First-party locator — useful but NOT definitive: brand locators can lag closures or list not-yet-open stores, as fufuland's own site did; cross-check against OpenRice / operator-observed before treating as final.) FULLY VERIFIED (Oct 2026): all 12 independently corroborated store-by-store — 6 on Google (TST flagship, Sha Tin, Causeway Bay SOGO, Wan Chai, Tai Wai, North Point), Kai Tak Sports Park via press (啟德零售館1), and the remaining 5 on their malls' own tenant directories: Kai Tak SOGO/雙子匯 (sogo.com.hk, 5/F Shop 14), Tuen Mun Town Plaza (tmtp.com.hk, 3/F Shop 3209), East Point City/TKO (eastpointcity.com.hk, Shop 168), Citywalk/荃新天地 (citywalk.com.hk, UG73&75), T Town/Tin Shui Wai (linkhk.com, S114). No phantom entries — the first-party locator's 12 is confirmed. Confidence high (store-by-store verified, not extrapolated).",
    "sources": [
     "https://www.thestandard.com.hk/section-news/section/2/248347/",
     "https://www.lininghk.com/store-locator/"
@@ -8858,9 +8858,9 @@
    "locations_as_of": "2026-10",
    "first_opened": "2023-09-20",
    "precision": "day",
-   "confidence": "medium",
-   "reviewed": "2026-10-17",
-   "note": "Reportedly the first China soup-dumpling (湯包) brand to enter HK — first store opened 20 Sept 2023 at Maxgrand Plaza (萬廸廣場), San Po Kong; company-operated, HK-customised flavours. ~3 branches (OpenRice 'All Branches(3)'); San Po Kong (大有街) + Sham Shui Po (277 Cheung Sha Wan Rd, B&C, open 24h) hand-verified operating (Oct 2026).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Reportedly the first China soup-dumpling (湯包) brand to enter HK — first store opened 20 Sept 2023 at Maxgrand Plaza (萬廸廣場/大有街), San Po Kong; company-operated, HK-customised flavours. 3 open HK branches (OpenRice 'All Branches(3)', all Open, Oct 2026): San Po Kong (大有街, Maxgrand Plaza, 3 Tai Yau St), Sham Shui Po (277 Cheung Sha Wan Rd, Shop B&C, open 24h) and a NEW store at Shau Kei Wan (123 Shau Kei Wan Rd). Google and OpenRice agree on ~3, but OpenRice is slightly ahead — it lists the new Shau Kei Wan store (tagged 'new') that Google hasn't caught yet (Google shows only 2 unique, with a Cheung Sha Wan duplicate). China-origin (Guangdong).",
    "sources": [
     "https://www.hkcd.com/hkcdweb/content_p/2023/09/21/content_159786.html",
     "https://baike.baidu.com/item/三津汤包/55750887",
