@@ -1131,7 +1131,7 @@
    ],
    "format": "tea",
    "sector": "tea",
-   "global": "Shanghai freshly-made tea chain (沪上阿姨 'Shanghai Auntie', founded 2013; HKEX 2589, listed Dec 2024) — grain-forward / 五谷 milk teas, overwhelmingly franchised, ~9,000+ stores almost all in China. Fast overseas push from 2025-26: Malaysia (a dozen+ KL outlets), Australia (Sydney), the UK (London), South Korea (Seoul) and Indonesia (Jakarta). Collected daily on the US map; its international markets are tracked here.",
+   "global": "Shanghai freshly-made tea chain (沪上阿姨 'Shanghai Auntie', founded 2013; HKEX 2589, listed 8 May 2025) — grain-forward / 五谷 milk teas, overwhelmingly franchised, ~9,000+ stores almost all in China. Fast overseas push from 2025-26: Malaysia (a dozen+ KL outlets), Australia (Sydney), the UK (London), South Korea (Seoul) and Indonesia (Jakarta). Hong Kong is a listing venue only — no HK retail outlets (its own Global Sites list excludes HK). Collected daily on the US map; its international markets are tracked here.",
    "operating_model": "franchise",
    "franchise_available_us": 0,
    "fdd_available": 0,
@@ -8374,6 +8374,20 @@
    "note": "Two 52TOYS counters inside Shin Kong Mitsukoshi (新光三越) department stores — 桃園站前店 2F (Taoyuan Station Front) and 台中中港店 6F (Taichung Zhonggang) — listed on SKM's official brand directory. Shop-in-shop counters (count as outlets per house precedent). Corroborates the A1's >100% overseas-revenue CAGR.",
    "sources": [
     "https://www.skm.com.tw/"
+   ]
+  },
+  {
+   "chain": "aunteajenny",
+   "market": "HK",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-17",
+   "note": "No HK retail outlets — checked Oct 2026. The brand's own Global Sites list (aunteajenny.com.my) names USA / UK / KR / AU / ID / MY but NOT Hong Kong; its HK tie is the 8 May 2025 HKEX listing (2589), not stores (the HKEJ commentary grouping it with Mixue referred to the listing).",
+   "sources": [
+    "https://www.aunteajenny.com.my/history.html"
    ]
   }
  ]
