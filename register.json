@@ -3133,15 +3133,17 @@
    "chain": "nowwa",
    "market": "AU",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2025-04-28",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "First standalone overseas store — The Strand, Elizabeth St, Melbourne, opened 28 Apr 2025.",
+   "reviewed": "2026-10-17",
+   "note": "First standalone overseas store — The Strand, 250 Elizabeth St, Melbourne CBD, opened 28 Apr 2025; confirmed still operating Oct 2026 (Google). One AU store (floor).",
    "sources": [
-    "https://www.worldcoffeeportal.com/news/chinas-nowwa-coffee-makes-international-debut-in-australia/"
-   ]
+    "https://www.worldcoffeeportal.com/news/chinas-nowwa-coffee-makes-international-debut-in-australia/",
+    "Google Business listing (NOWWA Coffee, The Strand Melbourne, operating Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "nowwa",
