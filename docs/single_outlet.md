@@ -11,10 +11,11 @@ _Derived from the live US census (map/data/stores.geojson) and our closings reco
 
 Most are recent arrivals (2025+), so “testing the water” is the honest read; a few have sat on one store for years despite huge global scale.
 
-**Recent entrants (2025+) — genuine toe-in-water (18):** Anta, BA Artisan Bakehouse, Bao's Pastry, BINGXUE, Bingz, Chef Fei, Dusu Bakery, Hi Bake, Hwa ShooShoo, JUQI, Little Sheep, Meilleur Moment, Nong Geng Ji, Quanjude, TOP TOY, Urban Revivo, WALAIDA, Zhoumapo
+**Recent entrants (2025+) — genuine toe-in-water (17):** Anta, BA Artisan Bakehouse, Bao's Pastry, BINGXUE, Bingz, Chef Fei, Dusu Bakery, Hi Bake, Hwa ShooShoo, Little Sheep, Meilleur Moment, Nong Geng Ji, Quanjude, TOP TOY, Urban Revivo, WALAIDA, Zhoumapo
 
-**Long-standing single store (pre-2025) — more token than trial (2):**
+**Long-standing single store (pre-2025) — more token than trial (3):**
 - **Grandma's Home** — US since March 2024; scale n/a; New York — 56 West 22nd St (Flatiron)
+- **JUQI** — US since ~2020; scale n/a; Flushing, Queens, NY — 133-36 37th Ave G17 (Tangram)
 - **Shu Da Xia Hotpot** — US since May 2022; 600+ outlets; Boston — 580 Commonwealth Ave
 
 **Global giant, one US door (scale vs footprint):**

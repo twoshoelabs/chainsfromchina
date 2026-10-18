@@ -1345,8 +1345,9 @@
    "site_us": "https://juqiusa.com/",
    "photo": null,
    "photo_credit": null,
-   "us_since": null,
-   "first_outlet": "Flushing, Queens, NY — 133-36 37th Ave G17 (Tangram)"
+   "us_since": "~2020",
+   "first_outlet": "Flushing, Queens, NY — 133-36 37th Ave G17 (Tangram)",
+   "us_since_note": "Flushing (Tangram) announced Oct 2019 for a 2020 opening (Patch); still a single US store — long-standing (exact year 2020-2022 uncertain)."
   },
   "leebai": {
    "name": "Lee & Bai",
@@ -1489,8 +1490,9 @@
    "site_us": null,
    "photo": null,
    "photo_credit": null,
-   "us_since": null,
-   "first_outlet": "Flushing, NY — 135-05 Roosevelt Ave"
+   "us_since": "2026",
+   "first_outlet": "Flushing, NY — 135-05 Roosevelt Ave",
+   "us_since_note": "Operating Oct 2026 (Google, Flushing, ~140 reviews); exact opening date not established."
   },
   "jibeichuan": {
    "name": "JiBeiChuan",
@@ -1620,6 +1622,21 @@
    "site_us": "https://yaoyaochicago.com/",
    "first_outlet": "Chicago, IL (Chinatown)",
    "us_since": "2023"
+  },
+  "bingz": {
+   "name": "Bingz",
+   "us_since": "Oct 2026",
+   "us_since_note": "Grand opening 2 Oct 2026 (San Gabriel, TAWA Gateway)."
+  },
+  "dusu": {
+   "name": "Dusu Bakery",
+   "us_since": "2026",
+   "us_since_note": "Opened by Sep 2026 (The Infatuation LA, 30 Sep 2026, 'has opened'); exact month not established."
+  },
+  "hibake": {
+   "name": "Hi Bake",
+   "us_since": "Aug 2025",
+   "us_since_note": "First overseas store Aug 2025 (Beverly Hills), per Chinese trade press."
   }
  }
 }
