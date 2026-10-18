@@ -674,7 +674,14 @@
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "100% company-operated; publicly states it does not franchise anywhere; China-only."
+   "franchise_note": "100% company-operated; publicly states it does not franchise anywhere; China-only.",
+   "aliases": [
+    "Maners Coffee",
+    "MANERS COFFEE",
+    "Maners",
+    "Manner Coffee"
+   ],
+   "name_intl": "Manner Coffee"
   },
   "yuanji": {
    "name": "Yuanji Chuanchuanxiang",
@@ -1510,6 +1517,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Shenzhen) pickled-fish chain (franchises since 2019); US 3 stores (Chicago Michelin Bib + 2 CA); HK fully exited."
+  },
+  "baoshifu": {
+   "name": "Bao Shifu",
+   "name_zh": "鲍师傅",
+   "name_intl": "Bao Shifu",
+   "aliases": [
+    "鮑師傅",
+    "鲍师傅",
+    "Bao Shifu",
+    "Baoshifu",
+    "鲍师傅糕点"
+   ],
+   "format": "bakery",
+   "global": "China-origin bakery/pastry chain famous for its seaweed meat-floss cakes (海苔肉松小贝) — founded 2004 in Beijing by Bao Caisheng (鲍才胜); direct-operated (~100+ stores in China; well known for its anti-counterfeit trademark battles against copycats). Entering Hong Kong — first store site-selected at APM, Kwun Tong (not yet open). No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Beijing) pastry chain, direct-operated (refused franchising to curb copycats); HK first store announced (APM Kwun Tong), not yet open. No US presence."
   }
  },
  "entries": [
@@ -1790,16 +1815,17 @@
    "chain": "chagee",
    "market": "HK",
    "status": "present",
-   "locations": 7,
-   "locations_as_of": "2025-09",
+   "locations": 22,
+   "locations_as_of": "2026-10",
    "first_opened": "2024",
    "precision": "year",
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "The count is inferred from the flagship announcement, which described the Lee Tung Street store (26 Sep 2025) as CHAGEE's seventh in Hong Kong. That is a floor at that date, not a current figure, and it is a year stale.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "22 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor) — a huge jump from the 7 inferred in Sep 2025. Across HK Island (Man Yee/Central, Fashion Walk/CWB, Lee Tung Ave/Wan Chai), Kowloon (K11 + Mira Place/TST, Elements, MOKO, Olympian City, Muk On St, Cullinan Sky Mall/Kai Tak, Festival Walk), the NT (Nina Mall + Citywalk/Tsuen Wan, East Point City + PopCorn + Metro City/TKO, V city/Tuen Mun, YOHO/Yuen Long, Tai Po Mega Mall, Landmark North/Sheung Shui) and 2 HK International Airport stores (Departures + Sky Plaza). Excludes the Macau Venetian store (tracked under MO), a Taiwan 'CHAGE Zhishan' store, and non-Chagee listings. Two Citywalk/荃新天地 listings merged as one (a 2nd phase would make 23). China-origin premium tea (霸王茶姬, Yunnan 2017).",
    "sources": [
     "https://insideretail.asia/2025/10/03/chagee-opens-its-largest-flagship-yet-in-hong-kong/",
-    "https://www.investhk.gov.hk/en/news/chinese-tea-chain-chagee-opens-its-worlds-largest-flagship-store-in-hong-kong/"
+    "https://www.investhk.gov.hk/en/news/chinese-tea-chain-chagee-opens-its-worlds-largest-flagship-store-in-hong-kong/",
+    "Google listings (霸王茶姬 CHAGEE, 22 open HK outlets, hand-counted Oct 2026)"
    ]
   },
   {
@@ -3562,16 +3588,19 @@
   {
    "chain": "manner",
    "market": "HK",
-   "status": "announced",
+   "status": "exited",
    "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-29",
-   "note": "First store outside China — World Trade Centre, Causeway Bay; under renovation as of early 2026. Signage reads 'Maners Coffee' / 'originated from Manner' (a local name-registration workaround).",
+   "first_opened": "2023-01",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Entered HK in Jan 2023 at the World Trade Centre, Causeway Bay — the FIRST China coffee chain in Hong Kong. The 'Manner' name could not be trademark-registered in HK, so the store traded as 'Maners Coffee' (same logo, tagline 'originated from Manner Coffee'). That single HK store CLOSED end-2025 on lease expiry — EXITED. China-origin (Shanghai, Jing'an, 2015; ByteDance/Temasek-backed; ~300-2,000+ stores). Part of the China F&B HK retreat. (Separately, Manner revived HK IPO plans in Nov 2025.)",
    "sources": [
     "https://www.worldcoffeeportal.com/news/chinas-manner-coffee-set-to-open-first-hong-kong-store/",
-    "https://pandaily.com/manner-coffee-to-open-store-in-hong-kong/"
+    "https://pandaily.com/manner-coffee-to-open-store-in-hong-kong/",
+    "https://www.stheadline.com/food/3623726/",
+    "https://www.ourchinastory.com/zh/5619",
+    "Google/stheadline (Maners Coffee, World Trade Centre Causeway Bay — closed end-2025)"
    ]
   },
   {
@@ -5365,17 +5394,22 @@
   {
    "chain": "judydoll",
    "market": "HK",
-   "status": "no_evidence",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "medium",
+   "status": "present",
+   "locations": 1,
+   "first_opened": "2026-06",
+   "precision": "month",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "No standalone/branded HK store. Judydoll (橘朵) is distributed in HK via @cosme HONG KONG (a Japanese MULTI-BRAND beauty flagship, Kowloon, opened Dec 2025) — a stockist/distribution presence, NOT a branded chain outlet, so it does not count as a HK retail presence. (If a dedicated branded @cosme counter is later confirmed, revisit under the shop-in-shop precedent.) Corrected from an earlier misread 'first HK store 2026'. Judydoll 橘朵 and Joocyee 酵色 share parent 橘宜集团 (Chuse).",
+   "note": "One standalone branded HK store — Shop 1001A, 1/F, Tuen Mun Town Plaza (Phase 1); Judydoll's first HK physical store, announced 1 Jun 2026, InvestHK-supported (IG @judydoll_hk). ON TOP of that it has WIDE HK distribution (not branded outlets, not counted): ~40 SASA (莎莎) points-of-sale across HK + Macau — the brand's own 'where to find us' map is literally titled 'Judydoll HK and Macau SASA store' / 'Point of Sale' — plus @cosme HONG KONG and SASA online. So the branded-outlet count is 1; SASA/@cosme are retail distribution. China-origin budget color-cosmetics (founded 2017, Shanghai Juyi Group 上海橘宜集团); omnichannel, plans more HK stores.",
    "sources": [
     "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/",
-    "https://hk.cosme.net/flagship/en/"
-   ]
+    "https://hk.cosme.net/flagship/en/",
+    "https://www.hk01.com/社會新聞/60355694/",
+    "https://www.tmtp.com.hk/en/Shop/814",
+    "Tuen Mun Town Plaza shop directory (JudyDoll, Shop 1001A, 1/F)",
+    "https://linktr.ee/judydoll.hk"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "joocyee",
@@ -9033,18 +9067,19 @@
    "chain": "xishu",
    "market": "HK",
    "status": "present",
-   "locations": null,
-   "locations_as_of": null,
+   "locations": 6,
+   "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
    "reviewed": "2026-10-18",
-   "note": "Present and operating in HK as CHEZ CHOUX 西樹泡芙 — trade press (Cathay dining) cites 10+ HK branches (NOT hand-verified, so count left unset). Hand-confirmed open Oct 2026: its new sub-line 'Puffin' at Langham Place, Mong Kok (B2; 12-zodiac-themed puffs). China-origin (Shanghai, 上海摩提工房). NOTE: 'Puffin' is Xishu's sub-line, NOT a fufuland rebrand. Hand-count the CHEZ CHOUX/Puffin outlets to set a floor.",
+   "note": "At least 6 open HK branded outlets, hand-counted Oct 2026 (floor): 5 as CHEZ CHOUX 西樹泡芙 (Mong Kok / 8 Argyle St, a 2nd branch, Ma On Shan / MOSTown 新港城中心, an MTR-station kiosk, Tin Shui Wai) + 1 as its 'Puffin' sub-line (Langham Place, Mong Kok). EXCLUDED: a 'Choux Crème' listing (418 Kwun Tong Rd) — different name, possibly a separate brand; verify before counting. Trade press (Cathay) cited 10+ HK branches, so the paste may be partial — re-verify for the full list. China-origin cream-puff chain (Shanghai, 上海摩提工房). 'Puffin' is Xishu's sub-line, NOT a fufuland rebrand.",
    "sources": [
     "https://www.ulifestyle.com.hk/community/detailpost/7a6d5dea-c2f3-40a8-bf8a-0faa5c93c26c",
     "https://www.facebook.com/chezchouxhongkong/",
     "Google listing (Puffin, Langham Place Mong Kok, open Oct 2026)",
-    "Cathay dining (西樹泡芙, 10+ HK branches)"
+    "Cathay dining (西樹泡芙, 10+ HK branches)",
+    "Google listings (CHEZ CHOUX 西樹泡芙 + Puffin, >=6 open HK outlets, hand-counted Oct 2026)"
    ]
   },
   {
@@ -9150,6 +9185,21 @@
    "note": "No standalone/branded HK store. Joocyee (酵色) is distributed in HK via @cosme HONG KONG (a Japanese MULTI-BRAND beauty flagship, Kowloon, opened Dec 2025) — a stockist/distribution presence, NOT a branded chain outlet, so it does not count as a HK retail presence. (If a dedicated branded @cosme counter is later confirmed, revisit under the shop-in-shop precedent.) Corrected from an earlier misread 'first HK store 2026'. Judydoll 橘朵 and Joocyee 酵色 share parent 橘宜集团 (Chuse).",
    "sources": [
     "https://hk.cosme.net/flagship/en/"
+   ]
+  },
+  {
+   "chain": "baoshifu",
+   "market": "HK",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "First HK store SITE-SELECTED but NOT yet open (announced ~2026): APM, Kwun Tong — headline products 海苔肉松小贝 (seaweed meat-floss cake) and 芋泥挞 (taro tart). Per stheadline. China-origin Beijing pastry chain (鲍师傅, founder 鲍才胜, 2004). Watch for the opening.",
+   "sources": [
+    "https://www.stheadline.com/zh-hans/food/3615137/",
+    "stheadline (鲍师傅 first HK store site-selected, APM Kwun Tong — not yet open)"
    ]
   }
  ]
