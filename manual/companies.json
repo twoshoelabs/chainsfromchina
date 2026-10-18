@@ -1611,6 +1611,15 @@
    "photo_credit": null,
    "us_since": "2026",
    "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)"
+  },
+  "yaoyao": {
+   "name": "YAOYAO",
+   "name_zh": "姚姚酸菜鱼",
+   "category": "Sichuan pickled fish",
+   "blurb": "YAOYAO (姚姚酸菜鱼) is a China-origin Sichuan pickled-fish (酸菜鱼) chain founded in Shenzhen in 2016 by Yao Minxi, a former Huawei executive. Known for its Tiffany-blue 'light-luxury' interiors and bear-fish mascot, it grew to roughly 50-70 stores and has repeatedly ranked among China's top pickled-fish brands. In the US it operates three outlets — Chicago's Chinatown (a Michelin Bib Gourmand pick in 2024 and 2025), San Leandro, and San Bruno, California (the last co-branded 'Jin Gege & Yao Yao'). It opened and then fully withdrew from Hong Kong, where all four of its stores have closed.",
+   "site_us": "https://yaoyaochicago.com/",
+   "first_outlet": "Chicago, IL (Chinatown)",
+   "us_since": "2023"
   }
  }
 }

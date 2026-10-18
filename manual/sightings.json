@@ -2670,6 +2670,39 @@
      "lon": -74.070214
     }
    ]
+  },
+  {
+   "chain": "yaoyao",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Operator-observed Google Maps + CCYP + Michelin Guide, Oct 2026 (user-supplied screenshots). All three operating (listings show reopening hours, not permanent closure).",
+   "scope": "姚姚酸菜魚 / YAOYAO — China-origin Sichuan pickled-fish chain (Shenzhen 2016). Its US branded stores: 3 operating outlets — Chicago IL (Michelin Bib Gourmand 2024 & 2025), San Leandro CA, and San Bruno CA (co-branded 'Jin Gege & Yao Yao'). HK fully exited; this sighting covers the US only.",
+   "locations": [
+    {
+     "name": "Chicago (Chinatown)",
+     "address": "230 W Cermak Rd, Chicago, IL 60616",
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing + Michelin Guide (Bib Gourmand 2024/2025) + yaoyaochicago.com, Oct 2026",
+     "lat": 41.852969,
+     "lon": -87.63314
+    },
+    {
+     "name": "San Leandro (Greenhouse Marketplace)",
+     "address": "699 Lewelling Blvd, San Leandro, CA 94579",
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing + CCYP, Oct 2026; coords are a manual OSM/Nominatim override (Census no match)",
+     "lat": 37.688937,
+     "lon": -122.138332
+    },
+    {
+     "name": "San Bruno (San Bruno Towne Center)",
+     "address": "1212 El Camino Real, San Bruno, CA 94066",
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing + CCYP, Oct 2026; trades as 'Jin Gege & Yao Yao'",
+     "lat": 37.637199,
+     "lon": -122.421372
+    }
+   ]
   }
  ]
 }

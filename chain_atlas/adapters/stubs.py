@@ -1488,3 +1488,28 @@ class LittleSheepAdapter(Adapter):
                       " Rutherford NJ (littlesheepusa.com); confirmed operating (Google 4.8/1,654). In"
                       " scope (China origin), tracked via sightings (17 Oct 2026)")
     RECHECK = ["https://littlesheepusa.com/where-we-are"]
+
+
+class YaoyaoAdapter(Adapter):
+    """
+    YAOYAO (姚姚酸菜鱼) — added 2026-10-18. A China-origin Sichuan pickled-fish (酸菜鱼) chain
+    founded in Shenzhen in Aug 2016 (founder Yao Minxi 姚旻汐, ex-Huawei); Tiffany-blue bear-fish
+    branding, ~50-70 China stores, repeatedly a Top-10 China pickled-fish brand. Franchises since
+    2019. Overseas in Singapore (VivoCity) and the US; it fully exited Hong Kong (4 stores closed),
+    tracked for HK/SG in the Global register.
+
+    US presence = 3 operating outlets: Chicago, IL (230 W Cermak Rd — Michelin Bib Gourmand 2024 &
+    2025), San Leandro, CA (699 Lewelling Blvd, Greenhouse Marketplace) and San Bruno, CA (1212 El
+    Camino Real, co-branded 'Jin Gege & Yao Yao'). No first-party national US locator, so tracked
+    via sightings; San Leandro is a Census no-match placed by a manual OSM/Nominatim override.
+    """
+    chain_id, name, name_zh = "yaoyao", "YAOYAO", "姚姚酸菜鱼"
+    name_us = "Yao Yao"
+    aliases = ("YAOYAO", "Yao Yao", "姚姚酸菜鱼", "姚姚酸菜魚", "Yao Yao Suan Cai Yu", "Jin Gege & Yao Yao")
+    parent, format = "YAOYAO (姚姚酸菜鱼; Shenzhen)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Sichuan pickled-fish chain (姚姚酸菜鱼 YAOYAO, founded Shenzhen"
+                      " 2016). 3 operating US outlets — Chicago IL (Michelin Bib Gourmand 2024/2025),"
+                      " San Leandro CA and San Bruno CA (co-branded Jin Gege & Yao Yao). No first-party"
+                      " US locator, so tracked via sightings (18 Oct 2026). In scope (China origin)")
+    RECHECK = ["https://yaoyaochicago.com/"]

@@ -45,7 +45,7 @@ const MONOGRAM = {
   yangguofu: 'YG', fishwithyou: 'FW', yangs: 'YS', zhangliang: 'ZL', chahalo: 'CH',
   xiaolongkan: 'XL', liuyishou: 'LY', aunteajenny: 'AJ', mollytea: 'MT', lelecha: 'LL',
   toptoy: 'TT', toys52: '52', dezhuang: 'DZ', shudaxia: 'SX', xibei: 'XB', grandmashome: 'GH',
-  littlesheep: 'LS',
+  littlesheep: 'LS', yaoyao: 'YY',
   xijiade: 'XJ', feidachu: 'FC', dalongyi: 'DL', shuyi: 'SY', anta: 'AN', urbanrevivo: 'UR',
   jnby: 'JN', meilleurmoment: 'MM', meizhoudongpo: 'MD', nonggengji: 'NG', malubianbian: 'ML',
   moge: 'MG', moreyogurt: 'MG', baospastry: 'BP', wallace: 'WA', zhengxin: 'ZX', hibake: 'HB',
@@ -83,6 +83,7 @@ const LOGO_CHAINS = new Set([
   'huaxiaoxiao',
   'zhoumapo',
   'littlesheep',
+  'yaoyao',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina

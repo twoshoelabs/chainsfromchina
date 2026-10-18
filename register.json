@@ -628,12 +628,23 @@
    "franchise_note": "470+ directly-operated; officially no franchising (warns offers are fraudulent); US only in planning."
   },
   "tanyu": {
-   "name": "Tan Yu",
-   "name_zh": "探鱼",
+   "name": "Tanyu",
+   "name_zh": "探魚",
+   "name_intl": "Tanyu",
+   "name_us": "Tanyu",
+   "aliases": [
+    "探鱼",
+    "探魚",
+    "Tanyu",
+    "探魚烤魚",
+    "探鱼烤鱼"
+   ],
    "format": "restaurant",
-   "global": "400+ grilled-fish stores in 80+ cities; overseas across ~8 markets (parent: Gantang Mingshan 甘棠明善, Shenzhen)",
-   "operating_model": "franchise",
-   "franchise_note": "Franchises in China; has a Flushing NY store + Vancouver; no US FDD or first-party US franchise page found."
+   "global": "China-origin grilled-fish (烤魚) chain — founded Shenzhen 2013; signature fresh-green-pepper grilled fish. 240-300+ stores across 70+ China cities; overseas in Singapore (first flagship 2017), Malaysia (KL 2023) and Hong Kong. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shenzhen) grilled-fish chain; HK 2 outlets, also SG/MY. No US presence."
   },
   "nanjingimpressions": {
    "name": "Nanjing Impressions",
@@ -1339,6 +1350,166 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin Hunan chain, direct-operated. US: Flushing NY + Rockville MD. HK: 9 outlets."
+  },
+  "laomatou": {
+   "name": "Lao Ma Tou Hot Pot",
+   "name_zh": "老碼頭火鍋",
+   "name_intl": "Lao Ma Tou Hot Pot",
+   "aliases": [
+    "老码头火锅",
+    "老碼頭火鍋",
+    "Lao Ma Tou",
+    "老码头",
+    "老碼頭"
+   ],
+   "format": "hotpot",
+   "global": "China-origin Sichuan hotpot chain (Chengdu; known for a clear 'no-sediment' red-oil broth 無渣紅油湯底, ranked among Chengdu's top hotpot brands). Entered Hong Kong May 2018 with a ~10,000 sq ft Mong Kok flagship; exited HK in 2024 after six years. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Chengdu) Sichuan hotpot; entered HK 2018, exited 2024. No US presence."
+  },
+  "lmm": {
+   "name": "LMM",
+   "name_zh": "檸濛濛",
+   "name_intl": "LMM Hand-crashed Lemon Tea",
+   "aliases": [
+    "柠濛濛",
+    "檸濛濛",
+    "LMM",
+    "檸檬茶"
+   ],
+   "format": "tea",
+   "global": "China-origin hand-smashed lemon-tea (手打檸檬茶, perfume-lemon 香水檸檬) chain with airport-themed stores (founder Guo Zhenye 郭震業); a 'river-crossing dragon' (過江龍) that entered Hong Kong in 2023. Exited HK in 2024. No known US presence. Distinct from Ningji 柠季, NingQi 柠気 and LINLEE 鄰里.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China hand-smashed lemon-tea brand; entered HK 2023, exited 2024. No US presence."
+  },
+  "chajiu": {
+   "name": "Jo's Cha",
+   "name_zh": "茶救星球",
+   "name_intl": "Jo's Cha",
+   "aliases": [
+    "茶救星球",
+    "Jo's Cha",
+    "Jos Cha"
+   ],
+   "format": "tea",
+   "global": "China-origin tea chain (Guangzhou) specializing in seasonal fruit- and vegetable-based teas. Entered Hong Kong and peaked at about 7 stores; has since downsized to ~5 amid the China F&B HK shakeout. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Guangzhou) seasonal fruit/veg tea chain; HK downsized ~7->5. No US presence."
+  },
+  "fufuland": {
+   "name": "fufuland",
+   "name_zh": null,
+   "name_intl": "fufuland",
+   "aliases": [
+    "fufuland",
+    "fufu land"
+   ],
+   "format": "dessert",
+   "global": "China-origin fresh-milk soufflé (生乳舒芙蕾) dessert chain; a 'river-crossing dragon' that entered Hong Kong in 2024 with its sister brand 檸季 (Ningji) and peaked at ~11 HK stores before collapsing and fully exiting HK by July 2026. No known US presence. Origin company not firmly established.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China soufflé/dessert brand; entered HK 2024 with sister brand Ningji, peaked ~11 stores, fully exited by Jul 2026. No US presence. Origin company unconfirmed."
+  },
+  "laoxianghao": {
+   "name": "Lao Xiang Hao",
+   "name_zh": "老湘好",
+   "name_intl": "Lao Xiang Hao",
+   "aliases": [
+    "老湘好",
+    "Lao Xiang Hao",
+    "LAO XIANG HAO"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Hunan (湘) home-style stir-fry restaurant; a 'river-crossing dragon' (過江龍) that entered Hong Kong with a Mong Kok store but withdrew within months. China chain scale unconfirmed. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China Hunan stir-fry brand; one HK store, exited 2025 after ~3 months. China scale unconfirmed. No US presence."
+  },
+  "xishu": {
+   "name": "CHEZ CHOUX",
+   "name_zh": "西樹泡芙",
+   "name_intl": "CHEZ CHOUX",
+   "name_us": "CHEZ CHOUX",
+   "aliases": [
+    "西树泡芙",
+    "西樹泡芙",
+    "CHEZ CHOUX",
+    "Chez Choux",
+    "Puffin",
+    "摩提工房",
+    "Moti"
+   ],
+   "format": "dessert",
+   "global": "China-origin cream-puff (泡芙) chain — founded in Shanghai (brand launched ~2010-2011; operated by Shanghai Moti Gongfang 上海摩提工房, est. 2003). Trades internationally as CHEZ CHOUX ('home of puffs'); ~400-700+ stores in China, with the parent group running 1,000+ stores across 150+ cities incl. Hong Kong. Present in HK with 10+ branches plus a new sub-line 'Puffin'. No known US presence.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shanghai) cream-puff chain (franchises in China); HK 10+ stores as CHEZ CHOUX + Puffin sub-line. No US presence."
+  },
+  "luofen": {
+   "name": "Luo Fen Shi Jia",
+   "name_zh": "羅粉世家",
+   "name_intl": "Luo Fen Shi Jia",
+   "aliases": [
+    "罗粉世家",
+    "羅粉世家",
+    "Luo Fen Shi Jia",
+    "花姐姐餐飲",
+    "江西米粉"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Jiangxi rice-noodle (江西米粉) brand from Nanchang; a 'river-crossing dragon' that entered Hong Kong with one Cheung Sha Wan store but withdrew after about a year. China chain scale unconfirmed. No known US presence. (HK operator billed as 花姐姐餐飲香港集團.)",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Nanchang, Jiangxi) rice-noodle brand; one HK store, exited 2024. China scale unconfirmed. No US presence."
+  },
+  "meowbbq": {
+   "name": "Meow BBQ",
+   "name_zh": "貓抓烤肉",
+   "name_intl": "Meow Barbecue",
+   "name_us": "Meow Barbecue",
+   "aliases": [
+    "猫抓烤肉",
+    "貓抓烤肉",
+    "Meow BBQ",
+    "Meow Barbecue",
+    "Uncle Meow"
+   ],
+   "format": "restaurant",
+   "global": "China-origin cat-themed barbecue (烤肉/燒肉) chain — founded 2012 by Fang Daqiang ('Uncle Meow'); combines Japanese-style meat selection, Korean-style marinade and Chinese cooking. 30+ stores across ~10 China cities (Beijing, Guangzhou, Shanghai, Chongqing); repeatedly ranked a Top-10 China BBQ brand. Overseas in Singapore (Bugis+ 2022, VivoCity 2024). Entered then exited Hong Kong. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin BBQ chain (30+ China stores); overseas SG; entered+exited HK. No US presence."
+  },
+  "yaoyao": {
+   "name": "YAOYAO",
+   "name_zh": "姚姚酸菜魚",
+   "name_intl": "Yao Yao Sauerkraut Fish",
+   "name_us": "Yao Yao",
+   "aliases": [
+    "姚姚酸菜鱼",
+    "姚姚酸菜魚",
+    "YAOYAO",
+    "Yao Yao",
+    "姚姚爱鱼",
+    "Yao Yao Sauerkraut Fish"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Sichuan pickled-fish (酸菜魚) chain — founded Shenzhen Aug 2016 (founder Yao Minxi 姚旻汐, ex-Huawei); Tiffany-blue bear-fish branding, ~50-70 China stores, repeatedly a Top-10 China pickled-fish brand. Overseas: Singapore (VivoCity 2023) and the US — 3 outlets (Chicago IL, Michelin Bib Gourmand 2024-25; plus San Leandro and San Bruno CA). Entered then fully exited Hong Kong (4 stores, all closed).",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shenzhen) pickled-fish chain (franchises since 2019); US 3 stores (Chicago Michelin Bib + 2 CA); HK fully exited."
   }
  },
  "entries": [
@@ -1605,7 +1776,7 @@
    "precision": "day",
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Two closed HK sites are confirmed, both in Mong Kok: its first store (Bank Centre, 636 Nathan Rd) and CTMA Centre (1N Sai Yeung Choi St South) — both PERMANENTLY CLOSED (the open count already excludes them). An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed.",
+   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Two closed HK sites are confirmed, both in Mong Kok: its first store (Bank Centre, 636 Nathan Rd) and CTMA Centre (1N Sai Yeung Choi St South) — both PERMANENTLY CLOSED (the open count already excludes them). An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed. Trade press (stheadline, Oct 2026) names further closed HK branches this year — Tsim Sha Tsui (Nathan Rd) and Mong Kok (兆萬中心/Shanghai Industrial Investment Bldg, lease given up) — consistent with a multi-store trim; the operator-observed open floor remains 8 (the '3 stores left' commentary is still not supported by listings).",
    "sources": [
     "https://www.dealstreetasia.com/stories/chinese-bubble-tea-chain-mixue-to-open-its-first-hk-store-370050",
     "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong",
@@ -7803,15 +7974,17 @@
    "chain": "happylamb",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2018",
    "precision": "year",
    "confidence": "high",
-   "note": "Entered Hong Kong 2018; operating outlets include Causeway Bay.",
-   "reviewed": "2026-10-05",
+   "note": "One open HK store, hand-verified Oct 2026 (Google): Mong Kok, Soy St (豉油街 60號 104號; 4.3/1,036; open to 12:30 AM). A second HK store — Causeway Bay, 4/F 489 Hennessy Rd (4.3/208) — is PERMANENTLY CLOSED. China-origin (快乐小羊, re-founded 2017 by Zhang Gang). Distinct from Little Sheep 小肥羊.",
+   "reviewed": "2026-10-18",
    "sources": [
-    "https://happylambhotpot.com/"
-   ]
+    "https://happylambhotpot.com/",
+    "Google listings (Happy Lamb 快乐小羊 HK — Mong Kok Soy St open, CWB Hennessy Rd permanently closed, Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "happylamb",
@@ -8653,9 +8826,9 @@
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "low",
    "reviewed": "2026-10-18",
-   "note": "One HK store — Shop B, G/F, 518-520 Nathan Rd (彌敦行), Yau Ma Tei, hand-verified open Oct 2026. Takoyaki/丸子 + milk tea. China-origin (reportedly Guangzhou 1997); re-verify origin + China scale.",
+   "note": "One HK store — Shop B, G/F, 518-520 Nathan Rd (彌敦行), Yau Ma Tei, hand-verified open Oct 2026. Takoyaki/丸子 + milk tea. China-origin (reportedly Guangzhou 1997); re-verify origin + China scale. DISCREPANCY (flagged 2026-10-18): stheadline's Oct 2026 '13-brand retreat' round-up lists 咕嚕丸子屋 among brands that EXITED HK within a year. This conflicts with the open Yau Ma Tei Google listing observed Oct 2026. Likely the Mong Kok store closed (退租) while Yau Ma Tei survives — but RE-VERIFY whether the Yau Ma Tei outlet is currently trading before trusting present(1).",
    "sources": [
     "Google listing (咕嚕丸子屋 GuluGulu, Yau Ma Tei, open Oct 2026)",
     "https://www.dianping.com/shop/601692846"
@@ -8723,6 +8896,194 @@
    "sources": [
     "https://airside.com.hk/dining/NONG-GENG-JI-Hunan-Home-Style-Cuisine",
     "Google listings (農耕記·湖南土菜, 9 HK outlets, all open Oct 2026)"
+   ]
+  },
+  {
+   "chain": "ningji",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Entered HK in 2024 with a rapid ~10-store rollout (Causeway Bay, Sha Tin, Tseung Kwan O, Mong Kok). The hand-smashed-lemon-tea (手打檸檬茶) craze faded fast and HK consumers preferred local 茶餐廳-style lemon tea; stores closed through 2025-2026. FULLY EXITED HK by June 2026 when its last store (YOHO MIX, Yuen Long) was reclaimed by the mall. Part of the China F&B HK retreat (過江龍退場潮). Entered HK paired with its sister dessert brand fufuland (both exited).",
+   "sources": [
+    "https://www.stheadline.com/food/3623726/",
+    "stheadline (檸季 full HK withdrawal, last store YOHO MIX Yuen Long reclaimed June 2026)"
+   ]
+  },
+  {
+   "chain": "laomatou",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2018-05",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Entered HK May 2018 with a ~10,000 sq ft flagship in Mong Kok (榮富大廈, Tong Mi Rd; ~HK$280K/mo). After the pandemic hit trade, the flagship closed in 2024 — about two years before its lease end — marking a full HK exit after six years. China-origin (Chengdu, Sichuan hotpot). A second HK site is confirmed permanently closed: North Point, 1/F 112-114 Tsat Tsz Mui Rd (now taken over by Itacho Sushi 板長壽司) — operator-observed, confirming a brand-wide HK exit.",
+   "sources": [
+    "https://www.stheadline.com/food/3623726/",
+    "stheadline / squarefoot (老碼頭火鍋 Mong Kok flagship closure 2024)"
+   ]
+  },
+  {
+   "chain": "lmm",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Entered HK in 2023 (e.g. Mong Kok, Shop 6 G/F 44-46 Dundas St). Perfume-lemon hand-smashed tea at HK$30+/cup, airport-styled interiors. Exited HK in 2024 — Mong Kok Hang Lung Bldg store closed on lease expiry June 2024, Tin Hau (栢景台) store closed early Aug 2024. China-origin; exact origin city unconfirmed (founder 郭震業). Part of the HK retreat. Operator-observed: the Mong Kok Dundas St (44-46, Shop 6) store shows permanently closed on Google (Oct 2026), confirming the exit.",
+   "sources": [
+    "https://www.stheadline.com/food/3623726/",
+    "stheadline / ourchinastory (檸濛濛 LMM HK stores closed 2024)"
+   ]
+  },
+  {
+   "chain": "chajiu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "Collapsing — down to possibly a single store. Operator-observed Oct 2026: OPEN (hand-confirmed) — only Kwai Fong (7 Kwai Foo Rd, Kwai Chung Plaza). PERMANENTLY CLOSED (hand-confirmed) — Tsim Sha Tsui (49 Carnarvon Rd, Savoy Mansion), Causeway Bay (83 Percival St, Percival House), Tsuen Wan (16 Tsuen Hing Path, Fortune Mansion), and earlier Mong Kok Soy St (豉油街 33号 → 祥興記生煎包). That's 4 confirmed closed vs 1 open, so the trade-press 'peak ~7 / ~5 now' is stale — exact count left unset; Kwai Fong is the lone confirmed survivor. China-origin (Guangzhou, seasonal fruit/veg teas 蔬果茶). Near-exit — re-verify whether Kwai Fong still trades.",
+   "sources": [
+    "https://www.stheadline.com/food/3623726/",
+    "stheadline (茶救星球 Mong Kok 豉油街 exit; peak 7 -> ~5)"
+   ]
+  },
+  {
+   "chain": "fufuland",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "China-origin fresh-milk soufflé (生乳舒芙蕾) chain. Entered HK in 2024 alongside its sister brand 檸季 (Ningji) and peaked at ~11 stores. Collapsed through 2025-2026: down to a single Tai Wai (大圍圍方) store by May 2026, which closed in July 2026 ('equipment upgrade') — FULLY EXITED HK, no fufuland-branded stores remain (operator-observed). Its Sha Tin New Town Plaza store lasted only ~3 months; a MegaBox store was cited by the food-safety center for milk-ice-cream bacteria far over legal limits. DISCREPANCIES (flagged 2026-10-18): (1) fufuland's OWN website still lists ~8 'open/opening' HK stores — a stale locator (locator-lag), NOT operating stores. (2) RESOLVED 2026-10-18: the 'Puffin' dessert shop open at Langham Place is a sub-line of 西樹泡芙/CHEZ CHOUX (see chain 'xishu'), a different China-origin operator — NOT a fufuland rebrand. fufuland remains fully exited.",
+   "sources": [
+    "https://www.stheadline.com/food/3573612/",
+    "https://www.stheadline.com/food/3623726/",
+    "Google listings (fufuland HK stores permanently closed; last Tai Wai store closed Jul 2026)",
+    "cmkgp.com.hk/flagship-brand/fufuland-souffle-pancakes (brand own-site store list — stale/locator-lag)"
+   ]
+  },
+  {
+   "chain": "laoxianghao",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — G/F, Lung Ma Building, 552 Nathan Rd, Mong Kok (旺角彌敦道552號龍馬大廈地舖). Operated only ~3 months before abandoning the lease ~Jan 2025 (OpenRice marks it Closed; operator-observed). A strong candidate for the article's '3-month lightning exit' headline. China-origin Hunan (湘) stir-fry; its China chain scale is UNCONFIRMED (may be a single HK venture). Part of the China F&B HK retreat (過江龍退場潮).",
+   "sources": [
+    "https://www.openrice.com/en/hongkong/r-lao-xiang-hao-mong-kok-hunan-r888952",
+    "https://www.stheadline.com/food/3623726/",
+    "OpenRice listing (老湘好 LAO XIANG HAO, Mong Kok — Closed)"
+   ]
+  },
+  {
+   "chain": "xishu",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "Present and operating in HK as CHEZ CHOUX 西樹泡芙 — trade press (Cathay dining) cites 10+ HK branches (NOT hand-verified, so count left unset). Hand-confirmed open Oct 2026: its new sub-line 'Puffin' at Langham Place, Mong Kok (B2; 12-zodiac-themed puffs). China-origin (Shanghai, 上海摩提工房). NOTE: 'Puffin' is Xishu's sub-line, NOT a fufuland rebrand. Hand-count the CHEZ CHOUX/Puffin outlets to set a floor.",
+   "sources": [
+    "https://www.ulifestyle.com.hk/community/detailpost/7a6d5dea-c2f3-40a8-bf8a-0faa5c93c26c",
+    "https://www.facebook.com/chezchouxhongkong/",
+    "Google listing (Puffin, Langham Place Mong Kok, open Oct 2026)",
+    "Cathay dining (西樹泡芙, 10+ HK branches)"
+   ]
+  },
+  {
+   "chain": "luofen",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — 271 Castle Peak Rd (青山道), Cheung Sha Wan (~1,100 sq ft, ~HK$70K/mo). Leased 2023, operated ~1+ year, abandoned the lease mid-2024; the space was taken over by a local two-dish-rice (兩餸飯) shop Aug 2024. Google marks it permanently closed (operator-observed). China-origin Jiangxi rice noodles (Nanchang 南昌); China chain scale UNCONFIRMED. Part of the China F&B HK retreat.",
+   "sources": [
+    "https://www.stheadline.com/food/3623726/",
+    "Google/OpenRice (羅粉世家, Cheung Sha Wan — permanently closed)"
+   ]
+  },
+  {
+   "chain": "meowbbq",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — Mong Kok (UG, Arcade, 104 Nathan Rd). Korean-style all-you-can-eat BBQ (燒肉放題). OpenRice marks it CLOSED (operator-observed). China-origin cat-themed BBQ (founded 2012, Fang Daqiang; 30+ China stores). Part of the China F&B HK retreat.",
+   "sources": [
+    "https://www.openrice.com/en/hongkong/r-meow-bbq-mong-kok",
+    "OpenRice listing (貓抓烤肉 Meow BBQ, Mong Kok — Closed)"
+   ]
+  },
+  {
+   "chain": "meowbbq",
+   "market": "SG",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2024",
+   "first_opened": "2022-09",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "Two Singapore outlets (press-sourced, not hand-verified): Bugis+ (first overseas store, Sep 2022) and VivoCity (2024). Brand's debut outside China.",
+   "sources": [
+    "https://sethlui.com/meow-barbeque-bugis-singapore-sep-2022/",
+    "sethlui / hungrygowhere (Meow Barbecue Singapore Bugis+ + VivoCity)"
+   ]
+  },
+  {
+   "chain": "yaoyao",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "FULLY EXITED HK (全線結業). The China chain ran 4 HK stores over ~4 years, all now closed: Tsim Sha Tsui (Harbour City 港威商場), Tuen Mun (屯門), Tsing Yi (青衣), and Causeway Bay (希慎廣場 13/F — a 2023 Michelin recommendation). Per stheadline (Oct 2026). China-origin (Shenzhen 2016); HK operator Heritage Catering Ltd. A headline case of the China F&B HK retreat.",
+   "sources": [
+    "Google listings (姚姚酸菜魚 — Harbour City permanently closed; Tuen Mun temporarily closed)"
+   ]
+  },
+  {
+   "chain": "yaoyao",
+   "market": "SG",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2023-08",
+   "first_opened": "2023-08",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One Singapore outlet — VivoCity (opened Aug 2023; press-sourced, not hand-verified).",
+   "sources": [
+    "https://sethlui.com/?p=190505",
+    "sethlui / hungrygowhere (Yao Yao Sauerkraut Fish, Singapore VivoCity)"
    ]
   }
  ]
