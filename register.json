@@ -2925,29 +2925,33 @@
    "chain": "hefu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": "2024-02-08",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "First-ever overseas store, Causeway Bay, 8 Feb 2024; several HK branches since (count unpublished). A Toronto aggregator listing is unconfirmed and omitted.",
+   "reviewed": "2026-10-18",
+   "note": "Three open HK stores, hand-verified Oct 2026 (Google): Causeway Bay, Yuen Long and Fei Tsui Rd (Chai Wan). China-origin premium noodle chain (和府捞面, Jiangsu).",
    "sources": [
-    "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/"
-   ]
+    "https://www.media-outreach.com/news/hong-kong/2024/02/08/277706/",
+    "Google listings (和府捞面 Hefu Noodles, 3 open HK stores Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "xiabu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "Among the ~21 Xiabu-brand outlets outside China counted Jun 2024.",
+   "reviewed": "2026-10-18",
+   "note": "Two open HK stores, hand-verified Oct 2026 (Google): Tsim Sha Tsui (Xiabu·TeameTea) and Mong Kok. China-origin hotpot chain (呷哺呷哺, Beijing).",
    "sources": [
-    "https://en.wikipedia.org/wiki/Xiabu_Xiabu"
-   ]
+    "https://en.wikipedia.org/wiki/Xiabu_Xiabu",
+    "Google listings (呷哺呷哺 Xiabu Xiabu, 2 open HK stores Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "xiabu",
@@ -2997,12 +3001,16 @@
    "chain": "coucou",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": "2019",
    "precision": "year",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "Coucou (HK) subsidiary est. 2019; several outlets (Causeway Bay, TST, Mong Kok)."
+   "reviewed": "2026-10-18",
+   "note": "Four open HK outlets, hand-verified Oct 2026 (Google): MOKO (Mong Kok), Gala Place (Mong Kok), Taikoo Shing (CouCou Reserve) and Tsim Sha Tsui. China-origin hotpot+tea brand (湊湊, Xiabu Xiabu group, Beijing).",
+   "locations_as_of": "2026-10",
+   "sources": [
+    "Google listings (湊湊 COUCOU, 4 open HK outlets Oct 2026)"
+   ]
   },
   {
    "chain": "coucou",
@@ -3233,15 +3241,17 @@
    "chain": "muwu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": "2024-04-15",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "First HK store, Mong Kok, 15 Apr 2024 ('first step to go global'); 2nd store May 2024. An unverified Johor Bahru buffet is a possible name-reuse and is omitted.",
+   "reviewed": "2026-10-18",
+   "note": "Two open HK stores, hand-verified Oct 2026 (Google): Mong Kok and Shek Tong Tsui. China-origin skewer-BBQ (木屋烧烤, Shenzhen).",
    "sources": [
-    "https://www.info.gov.hk/gia/general/202404/09/P2024040900246.htm"
-   ]
+    "https://www.info.gov.hk/gia/general/202404/09/P2024040900246.htm",
+    "Google listings (木屋烧烤 Moowoo Shaokao, 2 open HK stores Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "steelpipe",
@@ -3977,16 +3987,18 @@
    "chain": "qiandama",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 16,
    "first_opened": "2018-08-25",
    "precision": "day",
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Franchise fresh-food chain; 72 stores across Hong Kong and Macau as of 30 Sep 2025 (branded QDAMA / 錢大媽).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "At least 16 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Wan Chai (Wan Chai Rd + Bowrington Rd), To Kwa Wan (Ma Tau Kok Rd), Yau Ma Tei (Reclamation St), North Point (Java Rd), Tai Po (Wai Yi St + Greenery Plaza), Fanling (Luen On St), Jordan (Man Wai Bldg), Causeway Bay (Electric Rd), Sheung Shui (Lung Sum Ave), Tin Shui Wai (Tin Ching Estate), Shau Kei Wan (Shau Kei Wan Rd), Chai Wan (Cheerful Garden), Aberdeen (Tin Wan + Aberdeen). All share +852 2368 8972. Earlier press put 72 stores across HK+Macau (2025). One ambiguous 'Agriculture / Yuheng Rd' listing excluded. China-origin (Dongguan fresh-food franchise, 不卖隔夜肉).",
    "sources": [
     "https://en.wikipedia.org/wiki/Qiandama",
-    "https://www.facebook.com/qdamahk19/"
-   ]
+    "https://www.facebook.com/qdamahk19/",
+    "Google listings (錢大媽 Qiandama, >=16 open HK stores, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "bestore",
@@ -5578,16 +5590,18 @@
    "chain": "yangguofu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "A Central restaurant at the Nexxus Building, 41 Connaught Road Central, with a dedicated Hong Kong social presence and delivery listings.",
+   "reviewed": "2026-10-18",
+   "note": "Two open HK stores, hand-verified Oct 2026 (Google): Central and Wan Chai. China-origin malatang chain (杨国福麻辣烫).",
    "sources": [
     "https://www.openrice.com/en/hongkong/r-%E6%A5%8A%E5%9C%8B%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%87%99-central-northeastern-r809941",
-    "https://www.foodpanda.hk/zh/chain/cw0ii/yang-guo-fu-mala-tang"
-   ]
+    "https://www.foodpanda.hk/zh/chain/cw0ii/yang-guo-fu-mala-tang",
+    "Google listings (杨国福麻辣烫 Yang Guo Fu, 2 open HK stores Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "yangguofu",
@@ -9087,6 +9101,21 @@
     "https://sethlui.com/?p=190505",
     "sethlui / hungrygowhere (Yao Yao Sauerkraut Fish, Singapore VivoCity)"
    ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "SG",
+   "status": "present",
+   "first_opened": null,
+   "precision": null,
+   "sources": [
+    "Google listings (Yang Guo Fu Mala Tang, 5 open SG outlets Oct 2026)"
+   ],
+   "locations": 5,
+   "locations_as_of": "2026-10",
+   "reviewed": "2026-10-18",
+   "confidence": "high",
+   "note": "At least 5 open Singapore outlets, hand-counted Oct 2026 (Google): Bugis+, Orchard Rd (277), Northpoint City (Yishun), SingPost Centre (Eunos), Plaza Singapura. A floor."
   }
  ]
 }
