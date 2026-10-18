@@ -1231,6 +1231,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Shantou Chaoshan beef-hotpot chain (200+ China stores); HK via 香港八合里餐飲管理 (2024). Planned 2-3 HK stores not yet realized. No US presence."
+  },
+  "chenpengpeng": {
+   "name": "Teochew Bistro",
+   "name_zh": "陈鹏鹏潮汕菜",
+   "name_intl": "Teochew Bistro",
+   "aliases": [
+    "陳鵬鵬",
+    "陳鵬鵬潮汕菜",
+    "陈鹏鹏",
+    "Chen Peng Peng",
+    "陈鹏鹏卤鹅饭店"
+   ],
+   "format": "restaurant",
+   "global": "Shenzhen-based Chaoshan (潮汕/Teochew) cuisine chain, signature Chaoshan braised goose (卤鹅); grew from a braised-goose restaurant (陈鹏鹏卤鹅饭店, ~2016) into 陈鹏鹏潮汕菜 (~2021) — ~30-34 stores concentrated in Shenzhen/Guangdong. Entered Hong Kong: 1 store at New Town Plaza, Sha Tin (branded 'Teochew Bistro' / 陳鵬鵬潮汕菜). No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Shenzhen Chaoshan-cuisine chain (~30-34 stores, mostly Guangdong); 1 HK store (New Town Plaza). No US presence."
   }
  },
  "entries": [
@@ -8508,6 +8526,22 @@
    "sources": [
     "https://www.hk01.com/社會新聞/1082317/內地連鎖牛肉火鍋店八合里攻港-料短期在港開設兩至三間門店",
     "Google listing (八合里潮汕鮮牛肉火鍋, V Walk, open Oct 2026)"
+   ]
+  },
+  {
+   "chain": "chenpengpeng",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — New Town Plaza Phase 1, Shop 703A (L7), Sha Tin (branded 'Teochew Bistro' / 陳鵬鵬潮汕菜), hand-verified open Oct 2026. Shenzhen Chaoshan-cuisine chain known for 潮汕卤鹅 braised goose (reportedly priced ~2x the China level in HK); chef targets HK-based China expats (港漂).",
+   "sources": [
+    "https://www.hk01.com/社會新聞/1001148/陳鵬鵬潮汕菜攻港-招牌鹵鵝貴內地一倍-大廚冀家鄉味道吸港漂客",
+    "Google/OpenRice (陳鵬鵬潮汕菜 / Teochew Bistro, New Town Plaza, open Oct 2026)"
    ]
   }
  ]
