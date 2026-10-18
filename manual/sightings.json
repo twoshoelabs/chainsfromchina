@@ -893,6 +893,15 @@
      "lat": 39.02419829999999,
      "lon": -77.1451289,
      "coord_src": "Westfield Montgomery centroid"
+    },
+    {
+     "name": "HEYTEA (Westfield Valley Fair)",
+     "address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
+     "confidence": "confirmed",
+     "verified_by": "Westfield Valley Fair official directory lists HEYTEA (no coming-soon tag; mall directory lags, so operating) (18 Oct 2026)",
+     "lat": 37.32458,
+     "lon": -121.94173,
+     "coord_src": "Westfield Valley Fair centroid (shared w/ Pop Mart Santa Clara)"
     }
    ]
   },
