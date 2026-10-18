@@ -1440,16 +1440,18 @@
    "chain": "mixue",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": "2023-12-19",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "Opened at Silvercord, Mong Kok, months before the Hong Kong IPO — the listing venue and the first shopfront arrived almost together.",
+   "reviewed": "2026-10-17",
+   "note": "Entered HK Dec 2023, months ahead of its HK IPO. Scaled back sharply in 2026 — closed 6 stores, down from a peak of 9 to 3 (as of Oct 2026); its first store (Mong Kok) has been dismantled. A Hong Kong Economic Journal commentary (8 Oct 2026) reads the HK presence as largely pre-IPO brand-building now being unwound to cut losses amid high rents and labor costs; it groups ChaPanda (茶百道) and Auntea Jenny (滬上阿姨) as similar cases.",
    "sources": [
     "https://www.dealstreetasia.com/stories/chinese-bubble-tea-chain-mixue-to-open-its-first-hk-store-370050",
-    "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong"
-   ]
+    "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong",
+    "https://www.cna.com.tw/news/acn/202610080372.aspx"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
