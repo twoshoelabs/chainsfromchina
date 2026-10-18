@@ -1,0 +1,161 @@
+"""
+Single-US-outlet analysis — how many China-origin chains run exactly ONE store in America, and of
+those, how many have NEVER had more (no closures on record) versus those that SHRANK to one.
+
+The distinction is the story: a chain that is new in the US with one store is testing the water; a
+chain that has sat on a single US store for years — while running hundreds or thousands worldwide —
+is closer to a token "US presence" (useful for investor-relations optics). A chain down to one store
+AFTER closures is the opposite signal entirely: a retreat.
+
+SOURCES (all already measured and cited elsewhere — this is a DERIVATION, never an estimate):
+  - current counted US outlets: map/data/stores.geojson (status 'open' + hand-verified 'sighting';
+    'coming_soon' excluded) — the single source for every US count site-wide ([[cfc-us-count-governs]]).
+  - historical US closures: manual/closings.json (hand-recorded; may miss a pre-tracking closure, so
+    "never expanded" means "no closure ON RECORD" — stated as a caveat, not a claim of omniscience).
+  - global scale: the register chain blurb (register.json). US entry date / first outlet: companies.json.
+
+Public-safe: counts only, no revenue/capacity. `python -m chain_atlas single-outlet [--md]`.
+"""
+import json
+import re
+import collections
+
+RECENT_FROM = 2025   # US-entry year at/after which a lone store reads as "just arrived / testing"
+
+
+def _year(us_since) -> int | None:
+    """Pull a 4-digit year out of a us_since string like 'Feb 2026' / 'January 2026' / '2022'."""
+    if not us_since:
+        return None
+    m = re.search(r"(20\d{2})", str(us_since))
+    return int(m.group(1)) if m else None
+
+
+def _scale(blurb: str) -> str:
+    """Best-effort global store-count phrase from a register blurb, e.g. '5,000 stores', '600+ outlets'."""
+    if not blurb:
+        return ""
+    m = re.search(r"([\d][\d,]*\+?\s*(?:stores|outlets|teahouses|restaurants|locations))", blurb)
+    return m.group(1) if m else ""
+
+
+def analyze() -> dict:
+    """
+    name:      analyze
+    purpose:   Compute the single-US-outlet breakdown from the exported census + closings.
+    returns:   dict with counts and the classified chain lists (always_one / shrank_to_one),
+               each enriched with name, us_since year, global scale and first US outlet.
+    effects:   Reads map/data/stores.geojson, manual/closings.json, register.json, manual/companies.json.
+    """
+    g = json.load(open("map/data/stores.geojson"))
+    reg = json.load(open("register.json")).get("chains", {})
+    comp = (json.load(open("manual/companies.json")).get("companies") or {})
+    cl = json.load(open("manual/closings.json"))
+    closerows = cl.get("closings", cl) if isinstance(cl, dict) else cl
+
+    cur = collections.Counter()
+    names, firstcity = {}, {}
+    for f in g["features"]:
+        p = f["properties"]
+        if p.get("status") in ("open", "sighting"):
+            cid = p["chain"]
+            cur[cid] += 1
+            names.setdefault(cid, p.get("name") or cid)
+            firstcity.setdefault(cid, f"{p.get('city', '?')}, {p.get('state', '?')}")
+    closed = collections.Counter(r["chain"] for r in closerows)
+
+    def enrich(cid):
+        c = comp.get(cid, {}) or {}
+        us = c.get("us_since")
+        return {
+            "chain": cid,
+            "name": names.get(cid, cid),
+            "us_since": us,
+            "us_year": _year(us),
+            "first_outlet": c.get("first_outlet") or firstcity.get(cid, "?"),
+            "scale": _scale((reg.get(cid, {}) or {}).get("global", "")),
+            "us_closures": closed.get(cid, 0),
+        }
+
+    ones = [cid for cid, n in cur.items() if n == 1]
+    always = [enrich(c) for c in ones if closed.get(c, 0) == 0]
+    shrank = [enrich(c) for c in ones if closed.get(c, 0) > 0]
+    always.sort(key=lambda d: d["name"].lower())
+    shrank.sort(key=lambda d: (-d["us_closures"], d["name"].lower()))
+
+    return {
+        "us_chains": len(cur),
+        "single_outlet": len(ones),
+        "always_one": always,
+        "shrank_to_one": shrank,
+        "recent_from": RECENT_FROM,
+    }
+
+
+def report(as_markdown: bool = False):
+    """
+    name:      report
+    purpose:   Print the single-US-outlet analysis for the press desk (plain text or Markdown).
+    arguments: as_markdown — emit a Markdown write-up (for docs / a press release) instead of a table.
+    effects:   stdout only.
+    """
+    a = analyze()
+    always, shrank = a["always_one"], a["shrank_to_one"]
+    recent = [d for d in always if (d["us_year"] or 9999) >= a["recent_from"]]
+    longstanding = [d for d in always if (d["us_year"] or 9999) < a["recent_from"]]
+    giants = sorted([d for d in always if d["scale"]],
+                    key=lambda d: -int(re.sub(r"[^\d]", "", d["scale"]) or 0))
+
+    if as_markdown:
+        p = print
+        p("# China chains with a single US outlet\n")
+        p(f"_Derived from the live US census (map/data/stores.geojson) and our closings record. "
+          f"Generated by `python -m chain_atlas single-outlet`._\n")
+        p(f"- **{a['us_chains']}** China-origin chains have any US presence.")
+        p(f"- **{a['single_outlet']}** operate exactly **one** US outlet.")
+        p(f"  - **{len(always)}** have never expanded beyond it (no closures on record) — the "
+          f"“toe-in-water / IR-optics” set.")
+        p(f"  - **{len(shrank)}** shrank to one *after* closures — a retreat, not a trial.\n")
+        p(f"## The {len(always)} single-store, never-grown chains\n")
+        p(f"Most are recent arrivals ({a['recent_from']}+), so “testing the water” is the honest "
+          f"read; a few have sat on one store for years despite huge global scale.\n")
+        p(f"**Recent entrants ({a['recent_from']}+) — genuine toe-in-water ({len(recent)}):** "
+          + ", ".join(d["name"] for d in recent) + "\n")
+        if longstanding:
+            p(f"**Long-standing single store (pre-{a['recent_from']}) — more token than trial "
+              f"({len(longstanding)}):**")
+            for d in longstanding:
+                p(f"- **{d['name']}** — US since {d['us_since']}; {d['scale'] or 'scale n/a'}; "
+                  f"{d['first_outlet']}")
+            p("")
+        if giants:
+            p("**Global giant, one US door (scale vs footprint):**\n")
+            p("| Chain | Global scale | US presence |")
+            p("|---|---|---|")
+            for d in giants[:6]:
+                p(f"| {d['name']} | {d['scale']} | 1 ({d['first_outlet']}) |")
+            p("")
+        if shrank:
+            p(f"## Shrank to one (retreat) — {len(shrank)}\n")
+            for d in shrank:
+                p(f"- **{d['name']}** — down to 1 after {d['us_closures']} US closure(s)")
+            p("")
+        p("_Caveat: “never expanded” means currently one store **and no closure in our "
+          "records** (strong evidence, but a pre-tracking closure could be uncounted)._")
+        return
+
+    print(f"China chains with any US presence: {a['us_chains']}")
+    print(f"Chains with EXACTLY ONE US outlet: {a['single_outlet']}")
+    print(f"  always one (no closures on record): {len(always)}   [recent {a['recent_from']}+: "
+          f"{len(recent)} | long-standing: {len(longstanding)}]")
+    print(f"  shrank to one (after closures):     {len(shrank)}\n")
+    print(f"{'ALWAYS-ONE chain':26} {'US since':12} {'first US outlet':28} global scale")
+    print("-" * 92)
+    for d in always:
+        print(f"{d['name'][:25]:26} {str(d['us_since'] or '?'):12} {str(d['first_outlet'])[:27]:28} {d['scale']}")
+    if shrank:
+        print("\nSHRANK-TO-ONE (retreat):")
+        for d in shrank:
+            print(f"  {d['name']} — {d['us_closures']} US closure(s)")
+    print("\nCaveat: 'always one' = one store now + no closure ON RECORD (closings.json may miss a "
+          "pre-tracking closure).")

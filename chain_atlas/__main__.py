@@ -186,6 +186,11 @@ def main(argv=None):
         openings.report(con)
         return 0
 
+    if cmd == "single-outlet":
+        from . import single_outlet
+        single_outlet.report(as_markdown=("--md" in argv))
+        return 0
+
     if cmd == "dossier":
         from . import db, dossier
         brand = next((a for a in argv[1:] if not a.startswith("-")), None)
@@ -400,6 +405,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  single-outlet [--md]                             chains with exactly ONE US store: toe-in-water vs shrank-to-one")
     print("  console [--port N] [--no-open]                   Pro: PRIVATE owner console (localhost) — submit data points + work the queue")
     print("  export-tier <public|observer|pro|intelligence> [--brand X] [--out DIR]   tier-gated export (pro/ = access-controlled)")
     print("  verify [--reason R|--brand B|--limit N]          Pro: the verification queue — records awaiting a human verdict")
