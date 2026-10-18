@@ -1179,6 +1179,22 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China IP-toy maker; US-tracked via two metro-Atlanta stores, with Taiwan counters (Shin Kong Mitsukoshi) abroad. Primarily wholesale/distribution + own stores, not franchise; no US franchise offer or FDD confirmed."
+  },
+  "mamaxita": {
+   "name": "Mama Xita BBQ",
+   "name_zh": "西塔老太太",
+   "name_intl": "Mama Xita BBQ",
+   "aliases": [
+    "Xita Lao Tai Tai",
+    "Mama Xita",
+    "西塔老太太"
+   ],
+   "format": "restaurant",
+   "global": "Chinese-Korean-style barbecue chain from the Xita Korean-BBQ district of Shenyang, Liaoning; ~450+ outlets across 31 Asian cities, run by the Chubby Group (also Chubby Cattle). US outlets (Bellevue WA, Temple City CA) tracked via sightings. Entered Hong Kong in 2023 (first store TST East) but FULLY EXITED by 2026 — both HK stores closed, the last foreclosed/auctioned amid rent disputes, after under 3 years. Distinct from 西塔烧烤 / Xi Top BBQ, Flushing.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Chubby Group BBQ chain; US-tracked via Bellevue WA + Temple City CA. Fully exited HK 2026. No US franchise offer or FDD confirmed."
   }
  },
  "entries": [
@@ -8393,6 +8409,21 @@
    "note": "No HK retail outlets — checked Oct 2026. The brand's own Global Sites list (aunteajenny.com.my) names USA / UK / KR / AU / ID / MY but NOT Hong Kong; its HK tie is the 8 May 2025 HKEX listing (2589), not stores (the HKEJ commentary grouping it with Mixue referred to the listing).",
    "sources": [
     "https://www.aunteajenny.com.my/history.html"
+   ]
+  },
+  {
+   "chain": "mamaxita",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2023-09",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-10-17",
+   "note": "Entered HK 2023: first store TST East (Mandarin Centre 文華中心, 14 Science Museum Rd, opened Sept 2023), 2nd at Tseung Kwan O (Metro City/新都城二期, Oct 2024). FULLY EXITED by 2026 — the TST East store closed (now permanently closed per Google), and the TKO store was foreclosed/auctioned (District Court auction of seized goods ~13 Oct 2026) amid rent disputes (TST East landlord 旺福集團 sued ~HK$920K; TKO landlord 凱峰企業, a Henderson Land sub, ~HK$300K). Under 3 years in HK.",
+   "sources": [
+    "https://www.stheadline.com/food/3535729/",
+    "https://global.hk01.com/社会新闻/60313096/"
    ]
   }
  ]
