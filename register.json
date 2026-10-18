@@ -1976,16 +1976,18 @@
    "chain": "chagee",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 44,
    "first_opened": "2019",
    "precision": "year",
-   "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "The most interesting entry in this register: entered 2019 by franchise, reached 12 outlets by 2021, WITHDREW the franchise operation in early 2024, then re-entered company-owned in August 2024 at Orchard Gateway, Plaza Singapura and Raffles Place. A register that recorded only 'present' would hide a full retreat and re-entry.",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "The most interesting entry in this register: entered 2019 by franchise, reached 12 outlets by 2021, WITHDREW the franchise operation in early 2024, then re-entered company-owned in August 2024 at Orchard Gateway, Plaza Singapura and Raffles Place. A register that recorded only 'present' would hide a full retreat and re-entry. As of Oct 2026 the company-owned re-entry has grown to 44 Singapore outlets per CHAGEE's own store locator (chagee.com.sg) — island-wide (Orchard, CBD/Raffles, VivoCity, Changi Airport T2, NUS, and heartland malls from Jurong to Punggol). So the Aug-2024 restart (3 stores) is now its largest overseas market after Malaysia. (First-party locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
     "https://en.wikipedia.org/wiki/Chagee",
-    "https://www.foodtalks.cn/en/news/54407"
-   ]
+    "https://www.foodtalks.cn/en/news/54407",
+    "https://chagee.com.sg/en/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
@@ -4250,85 +4252,97 @@
    "chain": "chagee",
    "market": "KR",
    "status": "present",
-   "locations": null,
+   "locations": 8,
    "first_opened": "2026-05",
    "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "First three Korean stores opened May 2026.",
+   "reviewed": "2026-10-18",
+   "note": "8 open South Korea outlets per CHAGEE's own store locator (chagee.co.kr, Oct 2026) — ALL in Seoul (Gangnam flagship, Yeoksam, Sinchon, Seoul City Hall, Jongno, Konkuk Univ., Yongsan I'Park Mall, Shinsegae Dept. Gangnam). An early-stage Seoul-only entry. (First-party locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://www.chinadaily.com.cn/a/202603/20/WS69bcaab5a310d6866eb3ee0d.html"
-   ]
+    "https://www.chinadaily.com.cn/a/202603/20/WS69bcaab5a310d6866eb3ee0d.html",
+    "https://chagee.co.kr/kr/en/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
    "market": "VN",
    "status": "present",
-   "locations": null,
+   "locations": 22,
    "first_opened": "2025-07",
    "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "Re-entered Vietnam July 2025 with Ho Chi Minh City flagships.",
+   "reviewed": "2026-10-18",
+   "note": "22 open Vietnam outlets per CHAGEE's own store locator (vn.chagee.com, Oct 2026) — ALL in Ho Chi Minh City (District 1/Ben Thanh/Dong Khoi, Binh Thanh/Vinhomes Central Park, Thu Duc/Vinhomes Grand Park, Tan Phu, Phu Nhuan, etc.), mostly street shops plus a few malls (Van Hanh Mall, Cantavil, mPlaza). A concentrated single-city rollout. (First-party locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://insideretail.asia/2025/07/15/chagee-re-enters-vietnam-despite-boycott/"
-   ]
+    "https://insideretail.asia/2025/07/15/chagee-re-enters-vietnam-despite-boycott/",
+    "https://vn.chagee.com/vn/en/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
    "market": "TH",
    "status": "present",
-   "locations": null,
+   "locations": 27,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "An early overseas market for Chagee.",
+   "reviewed": "2026-10-18",
+   "note": "27 open Thailand outlets per CHAGEE's own store locator (global.chagee.com/th, Oct 2026) — overwhelmingly Bangkok + Nonthaburi (Icon Siam, One Bangkok, Central World, Central Rama 3/Westgate/Westville/Ramindra, King Power Mahanakhon, Don Mueang Airport, etc.). Two 'Central Ramindra' listings (109/9 + 109/10) merged as likely one mall. (First-party store locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://www.nasdaq.com/press-release/chagee-releases-2025-year-end-tea-friends-review-global-stores-span-8-countries"
-   ]
+    "https://www.nasdaq.com/press-release/chagee-releases-2025-year-end-tea-friends-review-global-stores-span-8-countries",
+    "https://global.chagee.com/th/en/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 223,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "Flagship international market; 200th Malaysian store Oct 2025 (Bukit Bintang).",
+   "reviewed": "2026-10-18",
+   "note": "~223 open Malaysia outlets — hand-counted from CHAGEE's own store locator (chagee.com.my, Oct 2026; ~224 listings incl. one duplicate 'Plaza Merdeka', so count is approximate, ±a few). CHAGEE's LARGEST overseas market by far, nationwide across every state: Klang Valley/Selangor + KL dominate, plus Penang, Johor, Sarawak (Kuching/Miri/Sibu/Bintulu), Sabah (KK/Sandakan/Tawau/Semporna), Perak, Kedah, Kelantan, Terengganu, Pahang, Melaka, Negeri Sembilan, Perlis, Putrajaya and both airports (KLIA2, Senai). Includes several 'Express' kiosks and a few flagships (Sunway Pyramid, Gurney Plaza, IOI City Mall). (First-party locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://chagee.com.my/"
-   ]
+    "https://chagee.com.my/",
+    "https://chagee.com.my/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
    "market": "ID",
    "status": "present",
-   "locations": null,
+   "locations": 47,
    "first_opened": "2025-04-11",
    "precision": "day",
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "First Indonesian flagship opened 11 Apr 2025 in Jakarta.",
+   "reviewed": "2026-10-18",
+   "note": "47 open Indonesia outlets per CHAGEE's own store locator (global.chagee.com/id, Oct 2026) — CHAGEE's LARGEST overseas market. Concentrated in Greater Jakarta (Jakarta, Tangerang/BSD, Bekasi, Bogor, Depok: Plaza Indonesia, Kota Kasablanka, PIK Avenue, Gandaria City, Pondok Indah, the AEON/Summarecon/Lippo/Ciputra malls) plus Bali (4: Bali Collection, Discovery Mall, Level 21, Trans Studio) and Surabaya (3: Ciputra World, Pakuwon City, Tunjungan Plaza 6). (First-party locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://www.equalocean.com/news/2025060321555"
-   ]
+    "https://www.equalocean.com/news/2025060321555",
+    "https://global.chagee.com/id/ind/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
    "market": "PH",
    "status": "present",
-   "locations": null,
+   "locations": 21,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-29",
-   "note": "A company Asia-Pacific market; includes a 2025 pet-friendly store.",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "21 open Philippines outlets per CHAGEE's own store locator (global.chagee.com/ph, Oct 2026) — Metro Manila (Quezon City, Makati, Taguig/BGC, Pasig/Ortigas, Pasay/MOA, Parañaque, San Juan): SM Sta Mesa, Arca South, Gateway, Uptown, Serendra, TriNoMa, Glorietta 4, NU MOA, SM North EDSA, etc. (First-party store locator — useful but not definitive; cross-check against operator-observed.)",
    "sources": [
-    "https://www.nasdaq.com/press-release/chagee-releases-2025-year-end-tea-friends-review-global-stores-span-8-countries"
-   ]
+    "https://www.nasdaq.com/press-release/chagee-releases-2025-year-end-tea-friends-review-global-stores-span-8-countries",
+    "https://global.chagee.com/ph/en/stores"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "chagee",
@@ -7797,12 +7811,14 @@
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-10-02",
-   "note": "Chagee's CMO publicly named Japan (and South Korea) as expansion targets (QSR Media interview, 2026) — no store, address or date given, and Japan is absent from Chagee's own Q2 2026 official 8-market overseas list.",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "ANNOUNCED, not yet open (Oct 2026): CHAGEE has registered a Japan entity — CHAGEE JAPAN Co., Ltd., Akasaka, Minato-ku, Tokyo (set up Apr 2025) — but NO stores are open and no launch date is set (per foodboat.jp). NAMESAKE CAUTION: a separate, similar-looking brand reportedly announced Osaka/Tokyo stores (Apr 2026) — that is NOT CHAGEE and is excluded. Watch for the real launch.",
    "sources": [
-    "https://qsrmedia.com/executive-insights/exclusive/chagee-targets-japan-and-south-korea-in-asia-expansion-push"
-   ]
+    "https://qsrmedia.com/executive-insights/exclusive/chagee-targets-japan-and-south-korea-in-asia-expansion-push",
+    "https://foodboat.jp/view/page/chagee"
+   ],
+   "locations_as_of": null
   },
   {
    "chain": "chagee",
