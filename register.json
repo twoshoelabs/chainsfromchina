@@ -8892,17 +8892,20 @@
   {
    "chain": "gulugulu",
    "market": "HK",
-   "status": "present",
-   "locations": 1,
+   "status": "exited",
+   "locations": null,
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "One HK store — Shop B, G/F, 518-520 Nathan Rd (彌敦行), Yau Ma Tei, hand-verified open Oct 2026. Takoyaki/丸子 + milk tea. China-origin (reportedly Guangzhou 1997); re-verify origin + China scale. DISCREPANCY (flagged 2026-10-18): stheadline's Oct 2026 '13-brand retreat' round-up lists 咕嚕丸子屋 among brands that EXITED HK within a year. This conflicts with the open Yau Ma Tei Google listing observed Oct 2026. Likely the Mong Kok store closed (退租) while Yau Ma Tei survives — but RE-VERIFY whether the Yau Ma Tei outlet is currently trading before trusting present(1).",
+   "note": "FULLY EXITED HK (resolved 2026-10-18). Its last HK store — Shop B, G/F, Nathan Tower, 518-520 Nathan Rd, Yau Ma Tei — is now CLOSED (OpenRice marks it Closed; am730 reports the brand leaving HK). This resolves the earlier discrepancy: the Oct-2026 Google listing had looked open (held at present/low confidence), but it has since closed, following the earlier Mong Kok 退租. China-origin takoyaki/丸子 snack brand (reportedly Guangzhou 1997). Part of the China F&B HK retreat.",
    "sources": [
     "Google listing (咕嚕丸子屋 GuluGulu, Yau Ma Tei, open Oct 2026)",
-    "https://www.dianping.com/shop/601692846"
+    "https://www.dianping.com/shop/601692846",
+    "https://www.am730.com.hk/article/462308",
+    "https://www.openrice.com/en/hongkong/r-gulugulu-yau-ma-tei",
+    "OpenRice (咕嚕丸子屋 GuluGulu, Yau Ma Tei — Closed)"
    ]
   },
   {
