@@ -465,6 +465,18 @@
    "closed_note": "MLBB Hot Pot Milpitas; closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17 (close date unknown; Yelp listing last updated 3+ months ago).",
    "confidence": "confirmed",
    "source": "Yelp listing (yelp.com/biz/mlbb-hot-pot-milpitas-3); brand site mlbbhotpotus.com."
+  },
+  {
+   "chain": "malubianbian",
+   "name": "Houston (Diho Square, Chinatown)",
+   "address": "9102 Bellaire Blvd, Houston, TX 77036",
+   "city": "Houston",
+   "state": "TX",
+   "opened": null,
+   "closed_on": "2026-10-17",
+   "closed_note": "MaLuBianBian Houston (Diho Square); closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17. Brand site malubianbianhouston.com. Close date unknown.",
+   "confidence": "confirmed",
+   "source": "Yelp listing (MaLuBianBian, 9102 Bellaire Blvd); brand site malubianbianhouston.com."
   }
  ]
 }
