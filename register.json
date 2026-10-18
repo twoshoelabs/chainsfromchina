@@ -5259,15 +5259,17 @@
    "chain": "lining",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 12,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Canton Road flagship, Tsim Sha Tsui (2022).",
+   "reviewed": "2026-10-18",
+   "note": "12 HK stores per the brand's OWN store locator (lininghk.com, Oct 2026) — first-party: North Point (李寧大廈, Electric Rd), TST (Canton Rd flagship, Silvercord), Wan Chai (Hopewell Centre), Kai Tak Sports Park retail hub, Sha Tin (New Town Plaza), Tai Wai (The Wai/圍方), Tsuen Wan (Citywalk/荃新天地), Tuen Mun (Town Plaza), Tseung Kwan O (East Point City), Tin Shui Wai (T Town South/頌富), plus 2 SOGO 崇光 concession counters (Causeway Bay + Kai Tak 雙子匯 — branded Li-Ning sections inside SOGO; count per the shop-in-shop precedent, and on Li-Ning's own locator). China-origin sportswear (李宁, Beijing). (First-party locator — useful but NOT definitive: brand locators can lag closures or list not-yet-open stores, as fufuland's own site did; cross-check against OpenRice / operator-observed before treating as final.)",
    "sources": [
-    "https://www.thestandard.com.hk/section-news/section/2/248347/"
-   ]
+    "https://www.thestandard.com.hk/section-news/section/2/248347/",
+    "https://www.lininghk.com/store-locator/"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "moco",
@@ -9233,6 +9235,21 @@
    "note": "One open HK store, OpenRice-verified Oct 2026: K11 Art Mall, TST (Shop G34-G35, 18 Hanoi Rd). A 2nd store at Peak Galleria (The Peak) is marked CLOSED on OpenRice (not counted). China-origin premium tea+bakery chain (奈雪的茶 Naixue, Shenzhen; HKEX-listed 2021).",
    "sources": [
     "OpenRice (NAIXUE 奈雪的茶 HK — K11 TST open; Peak Galleria Closed)"
+   ]
+  },
+  {
+   "chain": "lining",
+   "market": "MO",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "2 Macau stores per Li-Ning's own locator (Oct 2026): The Londoner + The Venetian (Cotai). (First-party locator — useful but NOT definitive: brand locators can lag closures or list not-yet-open stores, as fufuland's own site did; cross-check against OpenRice / operator-observed before treating as final.)",
+   "sources": [
+    "https://www.lininghk.com/store-locator/"
    ]
   }
  ]
