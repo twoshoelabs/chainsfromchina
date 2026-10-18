@@ -687,11 +687,11 @@
    "name": "Banu Maodu Hotpot",
    "name_zh": "巴奴毛肚火锅",
    "format": "hotpot",
-   "global": "Premium Henan hotpot chain (founded 2001, Anyang). Began going global with an announced first Hong Kong store.",
+   "global": "Premium Henan hotpot chain (founded 2001, Anyang; ~240 directly-operated stores per banu.cn, Oct 2026). Going global with its first overseas store — Hysan Place, Causeway Bay, Hong Kong, opening mid-November 2026, with a stated plan for 15–20 Hong Kong stores.",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "162 stores all self-operated (per 2025 HK IPO); founder eyeing North America but no US store or franchise yet."
+   "franchise_note": "~240 stores, all self-operated (banu.cn Oct 2026; 162 at the 2025 HK IPO); founder eyeing North America but no US store or franchise yet."
   },
   "laoxiangji": {
    "name": "Laoxiangji",
@@ -3426,11 +3426,13 @@
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "First store outside China announced for Hysan Place, Causeway Bay, Hong Kong, opening ~November 2026 (not yet open).",
+   "reviewed": "2026-10-17",
+   "note": "First market outside China: entering Hysan Place, Causeway Bay, Hong Kong in mid-November 2026 (not yet open). Founder Du Zhongbing (杜中兵) states a plan for 15–20 Hong Kong stores, built up gradually, with a HK-exclusive 邵鮮湯 broth. Announced, not yet operating.",
    "sources": [
     "https://www.rli.uk.com/banu-launches-first-hong-kong-store/",
-    "https://insideretail.asia/2026/07/24/hotpot-brand-banu-opens-first-hong-kong-store/"
+    "https://insideretail.asia/2026/07/24/hotpot-brand-banu-opens-first-hong-kong-store/",
+    "https://www.hk01.com/財經快訊/60400522/巴奴火鍋下月進駐希慎廣場-擬全港開15至20間-研限定湯底吸客",
+    "https://www.taiwannews.com.tw/zh/news/6458207"
    ]
   },
   {

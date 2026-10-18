@@ -262,11 +262,11 @@
    "note": "~300 stores in 60+ Chinese cities"
   },
   "banu": {
-   "total": 162,
-   "as_of": "2025",
-   "source": "company/press, via register global blurb",
+   "total": 240,
+   "as_of": "2026-10",
+   "source": "banu.cn store list ('Direct operated stores about 240')",
    "confidence": "medium",
-   "note": "162 stores, all self-operated"
+   "note": "~240 directly-operated stores (all self-operated); up from 162 at the 2025 HK IPO."
   },
   "shuyi": {
    "total": 6000,
