@@ -453,6 +453,18 @@
    "closed_note": "A JiBeiChuan (季北川) Orlando outlet that opened ~Aug 2025 at Alafaya Commons (own site jibeichuanorlando.com, 57 Yelp reviews / 202 photos). Now REPORTED CLOSED but NOT independently confirmed: Yelp shows the soft community flag 'Yelpers report this location has closed' (not a Yelp/Google 'Permanently Closed' status), the jibeichuanorlando.com domain now 301-redirects, and the page was 'updated over 3 months ago'. We never tracked this store as open (it was not on the brand's jibeichuanny.com US list); logged here for completeness. Re-verify via Google 'Permanently Closed' before treating as confirmed.",
    "confidence": "medium",
    "source": "Yelp business page 'Ji Bei Chuan Rice Noodle & Ramen' (Orlando) — 'Yelpers report this location has closed' (hand screenshot 16 Oct 2026); What Now Orlando opening announcement (whatnow.com/?p=146597); jibeichuanorlando.com 301 redirect."
+  },
+  {
+   "chain": "malubianbian",
+   "name": "Milpitas",
+   "address": "1792 N Milpitas Blvd, Milpitas, CA 95035",
+   "city": "Milpitas",
+   "state": "CA",
+   "opened": null,
+   "closed_on": "2026-10-17",
+   "closed_note": "MLBB Hot Pot Milpitas; closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17 (close date unknown; Yelp listing last updated 3+ months ago).",
+   "confidence": "confirmed",
+   "source": "Yelp listing (yelp.com/biz/mlbb-hot-pot-milpitas-3); brand site mlbbhotpotus.com."
   }
  ]
 }
