@@ -1249,6 +1249,96 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Shenzhen Chaoshan-cuisine chain (~30-34 stores, mostly Guangdong); 1 HK store (New Town Plaza). No US presence."
+  },
+  "gulugulu": {
+   "name": "GuluGulu",
+   "name_zh": "咕嚕丸子屋",
+   "name_intl": "GuluGulu",
+   "aliases": [
+    "咕噜丸子屋",
+    "咕嚕丸子屋",
+    "GuluGulu",
+    "咕嚕咕嚕"
+   ],
+   "format": "snack",
+   "global": "China-origin takoyaki (章魚燒/丸子) and milk-tea snack chain; reportedly founded in Guangzhou in 1997 (a Philippines franchisee cites 600+ China stores — unverified), with China stores (e.g. Shenzhen) and overseas branches (Singapore, Australia, Philippines). Entered Hong Kong — one store at Yau Ma Tei. No known US presence. (Origin/scale to re-verify.)",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin takoyaki/snack chain (franchises; 600+ China stores per a franchisee site, unverified); 1 HK store. No US presence."
+  },
+  "luobo": {
+   "name": "Luobo Xiangnan",
+   "name_zh": "蘿蔔向南",
+   "name_intl": "Luobo Xiangnan",
+   "aliases": [
+    "萝卜向南",
+    "蘿蔔向南",
+    "Luobo Xiangnan"
+   ],
+   "format": "snack",
+   "global": "China (Xiangxi / western Hunan)-style fast-food brand — hot-plate fried rice (鐵板炒飯) and Xiangxi pickles. Entered Hong Kong with one store at Dundas Square, Mong Kok (leased Dec 2023, opened Feb 2024) but CLOSED after ~4 months (~June 2024) amid 'poor local fit'. China chain scale UNCONFIRMED — possibly a limited/single venture. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China Xiangxi/Hunan fast-food brand; one HK store, exited 2024 after ~4 months. China scale unconfirmed. No US presence."
+  },
+  "tosummer": {
+   "name": "To Summer",
+   "name_zh": "觀夏",
+   "name_intl": "To Summer",
+   "aliases": [
+    "观夏",
+    "觀夏",
+    "To Summer",
+    "崑崙煮雪"
+   ],
+   "format": "beauty",
+   "global": "China-origin niche fragrance / home-scent brand — founded Beijing 2018 (劉惠璞 + 沈黎), 'new Chinese' (新中式) oriental perfumery, L'Oréal-backed; ~10+ China stores incl. Shanghai (湖南路 flagship), Beijing (國子監四合院), Wuxi and Nanjing. Hong Kong first overseas store at Causeway Bay. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin fragrance retailer (direct-operated, L'Oréal-backed); HK first overseas store. No US presence."
+  },
+  "hla": {
+   "name": "HLA",
+   "name_zh": "海瀾之家",
+   "name_intl": "HLA",
+   "name_us": "HLA",
+   "aliases": [
+    "海澜之家",
+    "海瀾之家",
+    "HLA",
+    "Heilan Home",
+    "男人的衣柜"
+   ],
+   "format": "apparel",
+   "global": "China-origin menswear chain — founded Jiangyin, Jiangsu (周建平, 1988; brand launched ~2002), listed in Shanghai (600398); one of China's largest apparel chains (5,000+ stores). Overseas push includes Singapore (Suntec City, 2018). Signed its first Hong Kong lease in Central. No known US presence.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China menswear giant (consignment/franchise model, 5,000+ China stores); HK store signed but under fit-out. No US presence."
+  },
+  "nonggengji": {
+   "name": "Nong Geng Ji",
+   "name_zh": "农耕记",
+   "name_intl": "Nong Geng Ji",
+   "name_us": "Nong Geng Ji",
+   "aliases": [
+    "農耕記",
+    "农耕记",
+    "Nong Geng Ji",
+    "Nonggengji",
+    "Nongenji",
+    "湖南土菜",
+    "Hunan Home-Style Cuisine"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Hunan home-style restaurant chain — founded Shenzhen 2017; direct-operated, with stores across China (Shenzhen, Beijing, Shanghai, Haikou, Zhuhai, Dongguan, Zhongshan) and overseas in Hong Kong and Singapore. A leading Hunan-cuisine brand. Also present in the US (Flushing NY + Rockville MD).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin Hunan chain, direct-operated. US: Flushing NY + Rockville MD. HK: 9 outlets."
   }
  },
  "entries": [
@@ -1514,8 +1604,8 @@
    "first_opened": "2023-12-19",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-10-17",
-   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Its first store (Bank Centre, 636 Nathan Rd, Mong Kok) is PERMANENTLY CLOSED. An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed.",
+   "reviewed": "2026-10-18",
+   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Two closed HK sites are confirmed, both in Mong Kok: its first store (Bank Centre, 636 Nathan Rd) and CTMA Centre (1N Sai Yeung Choi St South) — both PERMANENTLY CLOSED (the open count already excludes them). An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed.",
    "sources": [
     "https://www.dealstreetasia.com/stories/chinese-bubble-tea-chain-mixue-to-open-its-first-hk-store-370050",
     "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong",
@@ -1544,76 +1634,85 @@
    "chain": "luckin",
    "market": "HK",
    "status": "present",
-   "locations": null,
-   "locations_as_of": "2026-03-30",
+   "locations": 36,
+   "locations_as_of": "2026-10",
    "first_opened": "2024-12-28",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "Entered 28 Dec 2024; about 18 stores by late 2025, plus an airport outlet.",
+   "reviewed": "2026-10-18",
+   "note": "At least 36 HK outlets, hand-counted from Google operating listings Oct 2026 (count is a FLOOR — Luckin HK expands fast, true total likely higher): across HK Island (TST, Central/Wellington St + Pier 8, Sheung Wan, Wan Chai x2, Causeway Bay/Tin Hau, Fortress Hill, Sai Ying Pun, Quarry Bay, Siu Sai Wan, Sai Wan Ho), Kowloon (Mong Kok, Kowloon Tong, San Po Kong, Kowloon Bay, Kai Tak, Whampoa, TST East, Ho Man Tin, Diamond Hill, Sham Shui Po x2/V Walk, Kwun Tong, Tai Kok Tsui) and the New Territories + airport (Sha Tin x2/Fo Tan, Tseung Kwan O x3, Tsuen Wan, Tin Shui Wai, Kwai Fong, Tuen Mun, Chek Lap Kok). Quarry Bay listing is closed-for-the-day (hours), not permanent.",
    "sources": [
-    "https://investor.luckincoffee.com/"
+    "https://investor.luckincoffee.com/",
+    "Google listings (瑞幸咖啡 Luckin, ≥36 HK outlets, hand-counted Oct 2026)"
    ]
   },
   {
    "chain": "heytea",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": "2018-12",
    "precision": "month",
    "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "The second retreat-and-return in this register, after CHAGEE in Singapore. HEYTEA opened at New Town Plaza, Sha Tin in December 2018, quietly withdrew from Hong Kong in 2020, and is listed again today at Infinitus Plaza on its own site. The date of re-entry is not established. Recording only 'present' would erase the whole story.",
+   "reviewed": "2026-10-18",
+   "note": "The second retreat-and-return in this register, after CHAGEE in Singapore. HEYTEA opened at New Town Plaza, Sha Tin in December 2018, quietly withdrew from Hong Kong in 2020, and is listed again today at Infinitus Plaza on its own site. The date of re-entry is not established. Recording only 'present' would erase the whole story. As of Oct 2026 the return is firmly operating: at least 3 open HK stores, hand-counted from Google listings (floor; paste may be partial) — Times Square (Causeway Bay), K11 Art Mall (TST), Mong Kok (Soy Street). This confirms re-entry is well underway even though the exact re-entry date remains unestablished.",
    "sources": [
     "https://insideretail.asia/2019/01/03/heytea-hong-kong-debuts-at-shatin-new-town-plaza/",
     "https://insideretail.asia/2020/05/04/chinese-tea-chain-heytea-quietly-backs-out-of-hong-kong/",
-    "https://www.heytea.com/stores"
-   ]
+    "https://www.heytea.com/stores",
+    "Google listings (喜茶 HEYTEA, 3+ open HK stores, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "cotti",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 8,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Debuted in Sheung Wan. The sources seen give the day as 30 October but not the year, and Cotti's expansion timeline would make 2023 the obvious guess — which is exactly why it is left blank here rather than guessed.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "8 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor): Sheung Wan, Wan Chai (HKCEC 會展灣景 + 裕安大廈), Causeway Bay (信和廣場), Kwai Chung (九龍貿易中心), Tsuen Wan (如心廣場), Tseung Kwan O (新都城二期), Kwun Tong. The 'Closed · Opens …' listings are hours closures, not permanent.",
    "sources": [
     "https://qsrmedia.com/operations/news/cotti-coffee-debuts-in-hong-kong",
-    "https://www.retailnews.asia/cotti-coffee-opens-first-location-in-hong-kong/"
-   ]
+    "https://www.retailnews.asia/cotti-coffee-opens-first-location-in-hong-kong/",
+    "Google listings (庫迪咖啡 Cotti, 8 open HK outlets, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "miniso",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 17,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "Several flagships, the largest at iSquare in Tsim Sha Tsui (Jan 2024) and another in Causeway Bay (Apr 2025). No count published and no first-opening date found; MINISO has been in Hong Kong long enough that the entry date predates the coverage searched.",
+   "reviewed": "2026-10-18",
+   "note": "17 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Causeway Bay, isquare (TST), Queensway Plaza (Admiralty), Sheung Wan, MOKO (Mong Kok), Tsing Yi, Tseung Kwan O, Tsuen Wan, V Walk (Sham Shui Po), Yau Ma Tei, Mei Foo MTR, 形點 II (Yuen Long), Fanling, 秀茂坪 (Kwun Tong), Plaza Hollywood (Diamond Hill), Sheung Shui, Ma On Shan. None marked closed.",
    "sources": [
     "https://insideretail.asia/2024/01/24/miniso-opens-its-largest-flagship-store-in-hong-kong/",
-    "https://insideretail.asia/2025/04/28/miniso-opens-flagship-store-in-hong-kongs-causeway-bay/"
-   ]
+    "https://insideretail.asia/2025/04/28/miniso-opens-flagship-store-in-hong-kongs-causeway-bay/",
+    "Google listings (MINISO 名創優品, 17 open HK stores, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "popmart",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 12,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Publishes its own Hong Kong store list at popmart.com/hk/store-list, the same shape as the US page. Probed 21 Sep 2026: it returns the same Cloudflare challenge, so the block is site-wide rather than US-specific. Pop Mart is not collectable in any market without either a real browser session or their permission.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "12 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Tsim Sha Tsui, Harbour City (TST), Hysan Place (CWB), Langham Place (Mong Kok), Cityplaza (Quarry Bay), HK Int'l Airport (Chek Lap Kok), Kai Tak Airside, New Town Plaza (Sha Tin), 奧海城 (Tai Kok Tsui), Tuen Mun Town Plaza, WWWTC Mall (CWB), apm (Kwun Tong). All staffed stores (no roboshops in this count). An older 'POP MART WWWTC' CWB listing shows permanently closed — superseded by the WWWTC Mall store, not an additional outlet.",
    "sources": [
-    "https://www.popmart.com/hk/store-list"
-   ]
+    "https://www.popmart.com/hk/store-list",
+    "Google listings (POP MART, 12 open HK stores + 1 closed, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "mixue",
@@ -3304,15 +3403,17 @@
    "chain": "haidilao",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 6,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "Several Hong Kong branches (Causeway Bay, Tsim Sha Tsui, Yau Ma Tei); operated by the parent, not Super Hi.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "6 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor): Tsim Sha Tsui (x2, separate branches/numbers), Causeway Bay, Mong Kok, Tseung Kwan O, Tsuen Wan. Several trade 24 hours.",
    "sources": [
-    "https://en.wikipedia.org/wiki/Haidilao"
-   ]
+    "https://en.wikipedia.org/wiki/Haidilao",
+    "Google listings (海底捞 Haidilao, 6 open HK outlets, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "haidilao",
@@ -8542,6 +8643,86 @@
    "sources": [
     "https://www.hk01.com/社會新聞/1001148/陳鵬鵬潮汕菜攻港-招牌鹵鵝貴內地一倍-大廚冀家鄉味道吸港漂客",
     "Google/OpenRice (陳鵬鵬潮汕菜 / Teochew Bistro, New Town Plaza, open Oct 2026)"
+   ]
+  },
+  {
+   "chain": "gulugulu",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — Shop B, G/F, 518-520 Nathan Rd (彌敦行), Yau Ma Tei, hand-verified open Oct 2026. Takoyaki/丸子 + milk tea. China-origin (reportedly Guangzhou 1997); re-verify origin + China scale.",
+   "sources": [
+    "Google listing (咕嚕丸子屋 GuluGulu, Yau Ma Tei, open Oct 2026)",
+    "https://www.dianping.com/shop/601692846"
+   ]
+  },
+  {
+   "chain": "luobo",
+   "market": "HK",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2024-02",
+   "precision": "month",
+   "confidence": "low",
+   "reviewed": "2026-10-18",
+   "note": "One HK store — Dundas Square, Dundas St, Mong Kok (took over Paisano's Pizzeria's unit at ~HK$250K/month). Opened Feb 2024, PERMANENTLY CLOSED ~June 2024 (~4 months) — 'poor local fit'. China (Xiangxi/Hunan) fast-food brand; its China chain scale is UNCONFIRMED (possibly a single HK venture, not a multi-store chain — re-verify). Part of the China F&B HK retreat.",
+   "sources": [
+    "https://www.stheadline.com/food/3355202/",
+    "https://hk.finance.yahoo.com/news/雷聲大-內地餐飲攻港水土不服-旺角現退租潮-蘿蔔向南-開業4月就冇做-063000936.html",
+    "Google listing (蘿蔔向南, Dundas Square, permanently closed)"
+   ]
+  },
+  {
+   "chain": "tosummer",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Hong Kong first overseas store — G/F, 52 Yun Ping Rd (恩平道), Causeway Bay; hand-verified open Oct 2026 (Google 4.1/47, open to 9PM). Brand's debut outside China.",
+   "sources": [
+    "https://www.tatlerasia.com/style/beauty/to-summer-first-hong-kong-store-founder-interview-zh-hant",
+    "https://hk.finance.yahoo.com/news/內地香水品牌-觀夏-落戶香港-進駐銅鑼灣-090048036.html",
+    "Google listing (觀夏 To Summer, Causeway Bay, open Oct 2026)"
+   ]
+  },
+  {
+   "chain": "hla",
+   "market": "HK",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "First HK store SIGNED but NOT yet open as of Oct 2026 — 77 Queen's Road Central (中旅大廈), ~HK$400K/mo, ~3,202 sq ft (took over a Korean womenswear unit that left end-2024; rent ~38% above the prior lease). Per hk01 the shop was still under fit-out ('裝修中，即將開業'). The Google listing exists but shows a scaffolding/construction photo, no hours and no reviews — consistent with a not-yet-open store. Re-check for opening.",
+   "sources": [
+    "https://global.hk01.com/地产楼市/60341122/男人的衣柜-海澜之家-40万租中环街舖开首店-较旧租升近四成",
+    "Google listing (海瀾之家, 77 Queen's Rd Central — construction photo, no hours, no reviews)"
+   ]
+  },
+  {
+   "chain": "nonggengji",
+   "market": "HK",
+   "status": "present",
+   "locations": 9,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Nine HK outlets, hand-verified open Oct 2026 (Google, all operating): Causeway Bay (Percival St, Po Hon Bldg), Whampoa Garden (7 Tak On St), North Point (Java Rd, Ka Wai Bldg), Kai Tak/Airside (2 Concorde Rd, 7/F), Wong Tai Sin (Lung Cheung Rd), Ma On Shan (新港城中心), Sha Tin (Lucky Plaza, Wang Pok St), Tseung Kwan O (東港城), Tai Kok Tsui (奧海城二期). China-origin (Shenzhen 2017), direct-operated; brand's own Airside page confirms origin + overseas HK/Singapore.",
+   "sources": [
+    "https://airside.com.hk/dining/NONG-GENG-JI-Hunan-Home-Style-Cuisine",
+    "Google listings (農耕記·湖南土菜, 9 HK outlets, all open Oct 2026)"
    ]
   }
  ]
