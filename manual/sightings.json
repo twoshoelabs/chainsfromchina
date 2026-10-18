@@ -875,6 +875,24 @@
      "lat": 38.917017,
      "lon": -77.2228361,
      "coord_src": "Tysons Corner Center centroid (shared w/ Miniso Tysons)"
+    },
+    {
+     "name": "HEYTEA (South Coast Plaza)",
+     "address": "3333 Bristol St, Costa Mesa, CA 92626",
+     "confidence": "confirmed",
+     "verified_by": "South Coast Plaza official directory lists HEYTEA, Level 1 Carousel Court (18 Oct 2026)",
+     "lat": 33.69266,
+     "lon": -117.888336,
+     "coord_src": "South Coast Plaza centroid (shared w/ Pop Mart SCP)"
+    },
+    {
+     "name": "HEYTEA (Westfield Montgomery)",
+     "address": "7101 Democracy Blvd, Bethesda, MD 20817",
+     "confidence": "uncertain",
+     "verified_by": "Westfield Montgomery directory tags HEYTEA 'Coming soon' (18 Oct 2026) — not yet open, held out of count",
+     "lat": 39.02419829999999,
+     "lon": -77.1451289,
+     "coord_src": "Westfield Montgomery centroid"
     }
    ]
   },
@@ -2774,6 +2792,33 @@
      "lat": 38.917017,
      "lon": -77.2228361,
      "coord_src": "Tysons Corner Center centroid"
+    },
+    {
+     "name": "Pop Mart (Westfield Montgomery)",
+     "address": "7101 Democracy Blvd, Bethesda, MD 20817",
+     "confidence": "confirmed",
+     "verified_by": "Westfield Montgomery official directory lists POP MART (operating) (18 Oct 2026)",
+     "lat": 39.02419829999999,
+     "lon": -77.1451289,
+     "coord_src": "Westfield Montgomery centroid (shared w/ Miniso)"
+    }
+   ]
+  },
+  {
+   "chain": "chagee",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Mall tenant directories (manual) — fills gaps the CHAGEE adapter (chagee.us) misses",
+   "scope": "Hand-added CHAGEE outlets found in mall directories but absent from the adapter feed.",
+   "locations": [
+    {
+     "name": "CHAGEE (South Coast Plaza)",
+     "address": "3333 Bristol St, Costa Mesa, CA 92626",
+     "confidence": "confirmed",
+     "verified_by": "South Coast Plaza official directory lists Chagee, Level 2 Bloomingdale's Wing (18 Oct 2026)",
+     "lat": 33.69266,
+     "lon": -117.888336,
+     "coord_src": "South Coast Plaza centroid"
     }
    ]
   }
