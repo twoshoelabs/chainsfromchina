@@ -1440,16 +1440,17 @@
    "chain": "mixue",
    "market": "HK",
    "status": "present",
-   "locations": 3,
+   "locations": 8,
    "first_opened": "2023-12-19",
    "precision": "day",
    "confidence": "high",
    "reviewed": "2026-10-17",
-   "note": "Entered HK Dec 2023, months ahead of its HK IPO. Scaled back sharply in 2026 — closed 6 stores, down from a peak of 9 to 3 (as of Oct 2026); its first store (Mong Kok) has been dismantled. A Hong Kong Economic Journal commentary (8 Oct 2026) reads the HK presence as largely pre-IPO brand-building now being unwound to cut losses amid high rents and labor costs; it groups ChaPanda (茶百道) and Auntea Jenny (滬上阿姨) as similar cases.",
+   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Its first store (Bank Centre, 636 Nathan Rd, Mong Kok) is PERMANENTLY CLOSED. An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed.",
    "sources": [
     "https://www.dealstreetasia.com/stories/chinese-bubble-tea-chain-mixue-to-open-its-first-hk-store-370050",
     "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong",
-    "https://www.cna.com.tw/news/acn/202610080372.aspx"
+    "https://www.cna.com.tw/news/acn/202610080372.aspx",
+    "Google Business listings (8 open Mixue HK stores + 1 permanently closed), hand-verified Oct 2026"
    ],
    "locations_as_of": "2026-10"
   },
