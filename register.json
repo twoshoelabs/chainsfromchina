@@ -621,7 +621,7 @@
    "name": "Green Tea",
    "name_zh": "绿茶餐厅",
    "format": "restaurant",
-   "global": "~500-700 Hangzhou-cuisine stores (HKEX-listed 2025, 6831); overwhelmingly in China, overseas since Aug 2024 across HK + SE Asia",
+   "global": "China-origin 'New Zhejiang Cuisine' (新浙江菜) casual-dining chain — founded in Hangzhou, Zhejiang by chairman Wang Qinsong 王勤松 (group marked its 20th anniversary in 2024); ~500-700 stores, overwhelmingly in China; HKEX-listed 2025 (6831). Overseas expansion began 31 Aug 2024 with Hong Kong (Hysan Place), then The Wai Mall (Nov 2024) and SE Asia. Signature Zhejiang dishes (West Lake water-shield & fish-ball soup, Dongpo braised beef); bamboo-themed 'Jiangnan' interiors.",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
@@ -1651,15 +1651,16 @@
    "chain": "bingxue",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-10-12",
-   "note": "Entered Hong Kong with a Mong Kok store (弼街, Yau Tsim Mong), positioned as a low-price challenger to Mixue.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Entered Hong Kong with a Mong Kok store (弼街, Yau Tsim Mong), positioned as a low-price challenger to Mixue. Hand-verified Oct 2026: one HK store, Mong Kok (弼街), operating (Google 4.0/4); few HK listings overall. A floor.",
    "sources": [
-    "https://www.stheadline.com/realtime-property/3462168/"
+    "https://www.stheadline.com/realtime-property/3462168/",
+    "Google listing (Bingxue 冰雪时光, Mong Kok — open Oct 2026)"
    ]
   },
   {
@@ -2639,16 +2640,18 @@
    "chain": "juewei",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 22,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Presence reported alongside Singapore.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "At least 22 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor) — 'Juewei seems to be everywhere now in Hong Kong'. Across HK Island (Central, Sai Ying Pun, Sai Wan Ho, North Point, Causeway Bay, Chai Wan), Kowloon (TST, Mong Kok, Jordan, Yau Ma Tei, Hung Hom, To Kwa Wan, Kwun Tong, Kai Tak, Cheung Sha Wan Rd, 元州大馬路) and the New Territories (Tsuen Wan, Tuen Mun, Sheung Shui, Tai Wai, Yuen Long, Sha Tin). Mostly MTR-station takeaway kiosks. China-origin 卤味/duck-neck chain (绝味鸭脖, Changsha, Hunan; 16,000+ outlets). Note: trades as 'King of Braise' in Singapore.",
    "sources": [
     "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
-    "https://www.juewei.com.sg/"
-   ]
+    "https://www.juewei.com.sg/",
+    "Google listings (絕味 Juewei, >=22 open HK outlets, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "juewei",
@@ -3293,15 +3296,18 @@
    "chain": "greentea",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 11,
    "first_opened": "2024-08-31",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "First overseas outlet Hysan Place, Causeway Bay, 31 Aug 2024; ~9 HK stores by 2025 (undated).",
+   "reviewed": "2026-10-18",
+   "note": "11 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor): Langham Place (Mong Kok), Hysan Place (Causeway Bay, first overseas outlet Aug 2024), APM (Kwun Tong), Olympian City 奧海城二期 (Tai Kok Tsui, listed as 'Green Tea Lu Dim Sum'), Tseung Kwan O (Park Central), The Southside (Wong Chuk Hang), V Walk (Sham Shui Po), 綠楊坊 (Tsuen Wan), The Wai (Tai Wai, opened Nov 2024), V city (Tuen Mun) and YOHO (Yuen Long). Excludes 富士園日本綠茶專門店 (a different, Japanese green-tea shop — namesake). China-origin Hangzhou-cuisine casual-dining chain (绿茶餐厅; HKEX-listed 2025, 6831).",
    "sources": [
-    "https://en.china-greentea.com.cn/company-news/10"
-   ]
+    "https://en.china-greentea.com.cn/company-news/10",
+    "Google listing (Green Tea 綠茶 Hysan Place, Causeway Bay — open Oct 2026)",
+    "Google listings (綠茶餐廳 Green Tea, 11 open HK outlets, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "greentea",
@@ -3869,16 +3875,18 @@
    "chain": "linlee",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": "2023",
    "precision": "year",
-   "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "First Hong Kong store opened 2023 in Mong Kok; a second (Soho) followed in Nov 2023.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "4 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Central (Lyndhurst Terrace), Tsuen Wan (路德圍), Sha Tin and Yuen Long. Two more — Causeway Bay and Wan Chai — are 'temporarily closed' (not counted). First HK store opened 2023 in Mong Kok. Excludes 'Lam Heung Ling Lemon Tea' (a different-named juice shop — likely a separate brand, not LINLEE). China-origin hand-smashed lemon tea (林里/LINLEE, Foshan, Guangdong).",
    "sources": [
     "https://www.afoodieworld.com/blog/2023/11/28/mega-guangdong-lemon-tea-brand-linlee-opens-new-store-in-soho-second-ever-location-in-hong-kong/",
-    "https://www.scmp.com/business/banking-finance/article/3261315"
-   ]
+    "https://www.scmp.com/business/banking-finance/article/3261315",
+    "Google listings (LINLEE 林里, 4 open HK stores + 2 temp-closed, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "moreyogurt",
@@ -3913,15 +3921,17 @@
    "chain": "moreyogurt",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 9,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "Multiple Hong Kong stores (Tsim Sha Tsui/K11 Musea, Mong Kok, Tuen Mun, Central).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "9 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Causeway Bay, K11 MUSEA (TST), Mong Kok, Tsuen Wan, Cityplaza (Quarry Bay), Kowloon Bay, Kwai Fong, Tseung Kwan O and Wan Chai. A 10th listing, Star Ferry Pier, is 'temporarily closed' (not counted). China-origin yogurt-drink chain (茉酸奶). Distinct from 茉莉奶白 Molly Tea and 愿茶 Möge Tee.",
    "sources": [
-    "https://ufood.com.hk/restaurant/news/detail/20018884/"
-   ]
+    "https://ufood.com.hk/restaurant/news/detail/20018884/",
+    "Google listings (More Yogurt 茉酸奶, 9 open HK stores + 1 temp-closed, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "mstand",
@@ -4981,15 +4991,17 @@
    "chain": "urbanrevivo",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Tsim Sha Tsui store (May 2025).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "One HK store, hand-verified Oct 2026 (Google): Tsim Sha Tsui (opened May 2025). A floor — re-verify for others. China-origin fast-fashion (UR).",
    "sources": [
-    "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
-   ]
+    "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027",
+    "Google listing (Urban Revivo, TST — open Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "urbanrevivo",
@@ -5071,9 +5083,9 @@
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "First HK store 2018.",
+   "confidence": "low",
+   "reviewed": "2026-10-18",
+   "note": "DISCREPANCY (2026-10-18): recorded HK=present on a 'first HK store 2018' note, but no Semir HK store is findable on Google (Oct 2026, operator-observed absence) — the 2018 store has likely CLOSED. Re-verify; likely downgrade to exited/no_evidence.",
    "sources": [
     "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
    ]
@@ -5166,15 +5178,17 @@
    "chain": "laopu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Existing Hong Kong stores.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "At least 3 open HK stores, hand-counted Oct 2026 (Google): Silvercord (TST), Central, and Harbour City II店 (TST). A 4th LAOPU GOLD listing was partially visible and the 'II店' implies a Harbour City I店 — likely more; re-verify. China-origin gold-jewelry chain (老铺黄金, Beijing; HKEX-listed 2024).",
    "sources": [
-    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
-   ]
+    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore",
+    "Google listings (老铺黄金 Laopu Gold, >=3 open HK stores Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "laopu",
@@ -5320,15 +5334,17 @@
    "chain": "maogeping",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Harbour City standalone store, Tsim Sha Tsui (2025).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "One HK store, hand-verified Oct 2026 (Google): Harbour City / 港威商場, L3 3208B, Tsim Sha Tsui — the brand's first HK store (opened Nov 2025). A floor. China-origin luxury cosmetics (毛戈平, Shanghai; HKEX-listed 2024).",
    "sources": [
-    "https://www.thestandard.com.hk/news/article/314879/"
-   ]
+    "https://www.thestandard.com.hk/news/article/314879/",
+    "Google listing (Maogeping 毛戈平美妆, Harbour City TST — open Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "judydoll",
@@ -5351,9 +5367,9 @@
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "First HK store (2026).",
+   "confidence": "low",
+   "reviewed": "2026-10-18",
+   "note": "DISCREPANCY (2026-10-18): recorded HK=present on a 'first HK store 2026' note, but Judydoll 橘朵 is not findable as a standalone HK store on Google (Oct 2026, operator-observed absence). May be a counter inside another retailer, not yet open, or withdrawn — re-verify before trusting present.",
    "sources": [
     "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/"
    ]
@@ -5502,15 +5518,17 @@
    "chain": "hotmaxx",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Olympian City store, Tai Kok Tsui (30 Sep 2024).",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "One HK store, hand-verified Oct 2026 (Google): Olympian City Phase 3 (奧海城三期 UG95), Tai Kok Tsui (opened 30 Sep 2024). Few HK listings. China-origin discount/convenience chain (好特卖). A floor.",
    "sources": [
-    "https://www.stheadline.com/food/3387847/"
-   ]
+    "https://www.stheadline.com/food/3387847/",
+    "Google listing (HotMaxx 好特卖, Olympian City — open Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "hotmaxx",
