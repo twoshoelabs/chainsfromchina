@@ -1513,3 +1513,26 @@ class YaoyaoAdapter(Adapter):
                       " San Leandro CA and San Bruno CA (co-branded Jin Gege & Yao Yao). No first-party"
                       " US locator, so tracked via sightings (18 Oct 2026). In scope (China origin)")
     RECHECK = ["https://yaoyaochicago.com/"]
+
+
+class YogostAdapter(Adapter):
+    """
+    Hey! I am Yogost (我是酸奶君) — added 2026-10-18. A China-origin yogurt-drink chain founded in
+    Shenzhen in 2017 (operator Shenzhen Baichengduoyi Restaurant Management Co. 深圳百城多宜), known
+    for purple-rice yogurt drinks and a bear-chef mascot. ~70+ stores across China, Hong Kong,
+    Australia, New Zealand, Indonesia, Malaysia, Canada and the US.
+
+    US presence tracked via sightings. Anchor outlet: American Dream, NJ (the mall's own dining
+    directory lists it as NOW OPEN). Additional US leads to verify: California (San Diego, Pacific
+    Pearl Plaza) and Boston (Allston, reported). No first-party national US locator.
+    """
+    chain_id, name, name_zh = "yogost", "Hey! I am Yogost", "我是酸奶君"
+    name_us = "Hey! I am Yogost"
+    aliases = ("YOGOST", "Hey I am Yogost", "Hey! I am Yogost", "我是酸奶君", "酸奶君", "Yogost")
+    parent, format = "Shenzhen Baichengduoyi Restaurant Management Co. (深圳百城多宜; Shenzhen)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin yogurt-drink chain (我是酸奶君 Hey! I am Yogost, founded Shenzhen"
+                      " 2017). US anchor outlet American Dream NJ (mall directory: NOW OPEN); CA (San"
+                      " Diego) and Boston leads to verify. No first-party US locator, so tracked via"
+                      " sightings (18 Oct 2026). In scope (China origin)")
+    RECHECK = ["https://www.americandream.com/directory/dining/all-food-drink"]

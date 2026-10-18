@@ -42,7 +42,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     BingxueAdapter, WalaidaAdapter, JibeichuanAdapter, BabakehouseAdapter,
                     ChicjocAdapter, DreameAdapter, ShowminihotpotAdapter, RolifeAdapter,
                     NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter, LittleSheepAdapter,
-                    YaoyaoAdapter)
+                    YaoyaoAdapter, YogostAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -109,6 +109,7 @@ REGISTRY: list[Adapter] = [
     ZhoumapoAdapter(), # Sichuan stir-fry 周麻婆 / Zhoumapo (Mrs. Zhou, Fuzhou Fujian); first US store Times Square NYC (lease Jan 2025) — see stubs.py
     LittleSheepAdapter(), # Inner Mongolia hotpot 小肥羊 / Little Sheep (Yum China); US re-entry at American Dream NJ (2026) — see stubs.py
     YaoyaoAdapter(), # Shenzhen Sichuan pickled-fish 姚姚酸菜鱼 / YAOYAO; 3 US outlets (Chicago Michelin Bib + San Leandro + San Bruno CA) (18 Oct 2026) — see stubs.py
+    YogostAdapter(), # Shenzhen yogurt-drink 我是酸奶君 / Hey! I am Yogost; US anchor American Dream NJ (now open) + CA/Boston leads (18 Oct 2026) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

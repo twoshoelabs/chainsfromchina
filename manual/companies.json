@@ -1640,6 +1640,18 @@
    "us_since": "Aug 2025",
    "us_since_note": "First overseas store Aug 2025 (Beverly Hills), per Chinese trade press.",
    "first_outlet": "Beverly Hills, CA — 235 N Canon Dr"
+  },
+  "yogost": {
+   "name": "Hey! I am Yogost",
+   "name_zh": "我是酸奶君",
+   "category": "Yogurt drinks",
+   "blurb": "Hey! I am Yogost (我是酸奶君) is a China-origin yogurt-drink chain founded in Shenzhen in 2017, operated by Shenzhen Baichengduoyi Restaurant Management Co. It is known for purple-rice yogurt drinks and a cute bear-chef mascot, with roughly 70-plus stores across China, Hong Kong, Australia, New Zealand, Indonesia, Malaysia, Canada and the United States. Its North American footprint, per the brand's own store locator, spans 12 Canadian outlets (Alberta, British Columbia, Ontario, Manitoba and Saskatchewan) and three US stores: Philadelphia, Boston and American Dream in New Jersey (the last opened in 2026).",
+   "site_cn": null,
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2026",
+   "first_outlet": "Philadelphia, PA / Boston, MA / East Rutherford, NJ (American Dream)"
   }
  }
 }

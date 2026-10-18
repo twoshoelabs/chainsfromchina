@@ -1535,6 +1535,46 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Beijing) pastry chain, direct-operated (refused franchising to curb copycats); HK first store announced (APM Kwun Tong), not yet open. No US presence."
+  },
+  "tanyaxue": {
+   "name": "Tan Ya Xue",
+   "name_zh": "谭鸭血老火锅",
+   "name_intl": "Tan Ya Xue",
+   "name_us": "Tan Ya Xue",
+   "aliases": [
+    "譚鴨血老火鍋",
+    "谭鸭血老火锅",
+    "谭鸭血",
+    "Tan Ya Xue",
+    "Tanyaxue",
+    "Tan Yaxue"
+   ],
+   "format": "hotpot",
+   "global": "China-origin Chengdu (Sichuan) duck-blood (鸭血) hotpot chain — launched 2018 (Chengdu-origin; founder Zhou Yang 周杨; celebrity-backed, co-founder comedian Liao Jian 廖健); franchise model. ~500 stores across 100+ China cities by 2020; the brand claimed ~1,000 globally by 2021 with overseas outlets in the US, Spain, Japan and Australia (unverified). China growth has since slowed.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Chengdu, Sichuan) duck-blood hotpot chain, franchise-driven (~500-1000 stores). Overseas incl. Japan; claimed US/Spain/Australia (unverified)."
+  },
+  "yogost": {
+   "name": "Hey! I am Yogost",
+   "name_zh": "我是酸奶君",
+   "name_intl": "Hey I am Yogost",
+   "name_us": "Hey! I am Yogost",
+   "aliases": [
+    "YOGOST",
+    "Hey I am Yogost",
+    "Hey! I am Yogost",
+    "我是酸奶君",
+    "酸奶君",
+    "Yogost"
+   ],
+   "format": "tea",
+   "global": "China-origin yogurt-drink chain — founded Shenzhen 2017 (operator Shenzhen Baichengduoyi Restaurant Management Co. 深圳百城多宜). Signature purple-rice yogurt drinks, fruit teas, mochi yogurt; bear-chef mascot. ~70+ stores. International footprint per the brand's own store locator: Canada 12 (AB/BC/ON/MB/SK), New Zealand 9 (Auckland 6 + Wellington/Christchurch/Hamilton), Australia 6 (WA 3 + QLD/VIC/SA), US 3 (Philadelphia PA; Boston MA/Allston; American Dream NJ Unit G113), and Seoul, South Korea announced ('coming soon'). Also reported in China, Hong Kong, Indonesia and Malaysia (press).",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shenzhen) yogurt-drink chain; international CA/AU/NZ/ID/MY + US; tracked via sightings."
   }
  },
  "entries": [
@@ -6142,13 +6182,13 @@
   {
    "chain": "luckin",
    "market": "SA",
-   "status": "announced",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
    "confidence": "low",
-   "reviewed": "2026-10-02",
-   "note": "Publicly weighing a GCC debut (Saudi named among candidate markets) after the Sept 2026 Mubadala/Centurium deal; nothing signed.",
+   "reviewed": "2026-10-18",
+   "note": "No Saudi-specific evidence. The only SA signal was being named among candidate GCC markets in the Sept 2026 Mubadala/Centurium coverage (nothing signed, no SA site or announcement). The Mubadala screenshot originally filed under SA is UAE/Abu-Dhabi-specific and was re-filed to luckin|AE. Downgraded announced->no_evidence 2026-10-18 pending any SA-specific confirmation.",
    "sources": [
     "https://www.cnbc.com/2026/09/29/luckin-coffee-mubadala-middle-east-temasek-centurium-capital.html"
    ]
@@ -9266,6 +9306,105 @@
    "note": "2 Macau stores per Li-Ning's own locator (Oct 2026): The Londoner + The Venetian (Cotai). (First-party locator — useful but NOT definitive: brand locators can lag closures or list not-yet-open stores, as fufuland's own site did; cross-check against OpenRice / operator-observed before treating as final.)",
    "sources": [
     "https://www.lininghk.com/store-locator/"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "JP",
+   "status": "present",
+   "locations": 15,
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "15 open Japan outlets, hand-counted from Google operating listings Oct 2026 — a NATIONAL footprint, not just Tokyo diaspora districts: 10 in Tokyo (Takadanobaba, Ueno, Ikebukuro, Shibuya, Ginza, Akasaka, Kinshicho, Okubo, Shimokitazawa, Hachioji) PLUS Yokohama (Chinatown), Kawasaki, Osaka (Shinsaibashi), Kyoto (Kawaramachi) and Fukuoka (Tenjin). Branded 'YGF Malatang'; many stores have 1,500-2,200+ Google reviews (established/popular). Entered Tokyo 2018. (Corrects the earlier 'diaspora-district only' read from the Toyo Keizai overview — the actual footprint is broad and mainstream.) China-origin malatang (楊國福).",
+   "sources": [
+    "https://toyokeizai.net/articles/-/926160",
+    "Toyo Keizai (ガチ中華チェーン, 2025-12-29)",
+    "Google listings (YGF Malatang 楊國福, 15 open Japan outlets, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
+  },
+  {
+   "chain": "tanyaxue",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "One CONFIRMED official Japan outlet — Kobe (神戸, Sannomiya/Kitanagasa, 二鶴ビル 6F). Official brand status now verified via HotPepper (full 譚鴨血老火鍋 / タンヤーシェ branding, '開鴻運' lucky-hotpot concept, official storefront); operating (Google 4.2/45). A SECOND official branch — Kawasaki (譚鴨血 老火鍋 川崎店, near 京急川崎駅; tabelog marks it 公式/official, 3.06, 7 reviews, 42 photos, so it was a real branch) — is currently STATUS-UNKNOWN: tabelog has it 掲載保留 ('listing on hold') because it cannot confirm whether the store has closed, relocated or is on break. NOT confirmed closed and NOT confirmed open — so not counted; re-verify. China-origin Chengdu (Sichuan) duck-blood hotpot (谭鸭血老火锅); entered Japan post-2020 (Toyo Keizai).",
+   "sources": [
+    "Google listings (譚鴨血老火鍋, Kobe + Kawasaki, Oct 2026)",
+    "https://byfood.com/restaurant/tan-yaxue-rou-hinabe-kobe-branch-4580",
+    "Toyo Keizai (ガチ中華チェーン, 2025-12)",
+    "HotPepper (譚鴨血老火鍋 Kobe, strJ003350002 — official)",
+    "tabelog (譚鴨血 老火鍋 川崎店 — 公式, 掲載保留/status unconfirmed)"
+   ]
+  },
+  {
+   "chain": "yogost",
+   "market": "CA",
+   "status": "present",
+   "locations": 12,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "12 Canada outlets per Yogost's own store locator, each a Google-linked operating listing (hours shown): AB 3 (Calgary Chinatown 328 Centre St S; Calgary T&T 999 36 St NE; Edmonton 8126 106 St NW), BC 3 (Richmond CF Richmond Centre; Richmond Lansdowne; Burnaby Metrotown), ON 2 (Toronto Downtown 674 Yonge St; Scarborough Skycity), MB 2 (Winnipeg McPhillips; Winnipeg Pembina), SK 2 (Regina; Saskatoon). First-party + operator-observed operating = high confidence.",
+   "sources": [
+    "Hey! I am Yogost official store locator (yogost franchise site)",
+    "Google Maps operating listings (hours shown) for each outlet"
+   ]
+  },
+  {
+   "chain": "yogost",
+   "market": "AU",
+   "status": "present",
+   "locations": 6,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "6 Australia outlets per Yogost's own locator (each a Google-linked operating listing; two open at time of capture): WA 3 (Perth 188 Newcastle St; East Victoria Park 1009 Albany Hwy; Riverton Forum), QLD 1 (Sunnybank 358 Mains Rd), VIC 1 (Hawthorn 672 Glenferrie Rd), SA 1 (Adelaide Chinatown 7 Moonta St).",
+   "sources": [
+    "Hey! I am Yogost official store locator (first-party)",
+    "Google Maps operating listings (hours shown) for each outlet"
+   ]
+  },
+  {
+   "chain": "yogost",
+   "market": "NZ",
+   "status": "present",
+   "locations": 9,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "9 New Zealand outlets per Yogost's own locator (each Google-linked operating): Auckland 6 (Newmarket, Flat Bush, Albany, Takapuna, Mount Eden, CBD Queen St), Wellington 1 (Manners St), Christchurch 1 (Riccarton Rd), Hamilton 1 (Victoria St).",
+   "sources": [
+    "Hey! I am Yogost official store locator (first-party)",
+    "Google Maps operating listings (hours shown) for each outlet"
+   ]
+  },
+  {
+   "chain": "yogost",
+   "market": "KR",
+   "status": "announced",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-10-18",
+   "note": "Seoul listed as 'Coming soon' on Yogost's own locator — announced, not yet open; no address or date given.",
+   "sources": [
+    "Hey! I am Yogost official store locator (first-party) — Seoul 'Coming soon'"
    ]
   }
  ]

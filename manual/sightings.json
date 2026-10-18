@@ -812,7 +812,7 @@
   {
    "chain": "heytea",
    "supplied_on": "2026-09-28",
-   "reviewed": "2026-09-28",
+   "reviewed": "2026-10-18",
    "source": "Operator web-verification of NYC health-department permit leads against Yelp/Maps listings; each of the seven is trading with reviews.",
    "scope": "HEYTEA (喜茶) New York outlets confirmed open by hand — seven Manhattan and Queens stores that began as permit leads and were verified trading via Yelp/Maps. Confirmed sightings for a chain with no first-party US roster; these supersede the matching permit rows.",
    "locations": [
@@ -857,6 +857,24 @@
      "address": "106 Lafayette St, New York, NY 10013",
      "confidence": "confirmed",
      "verified_by": "Yelp (64 reviews, 4.8 stars), trading (28 Sep 2026)"
+    },
+    {
+     "name": "HEYTEA (American Dream)",
+     "address": "1 American Dream Way, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "verified_by": "American Dream's own dining directory lists HEYTEA (operating, no coming-soon badge) (18 Oct 2026)",
+     "lat": 40.8085,
+     "lon": -74.0702,
+     "coord_src": "American Dream mall centroid"
+    },
+    {
+     "name": "HEYTEA (Tysons Corner)",
+     "address": "1961 Chain Bridge Rd, Tysons, VA 22102",
+     "confidence": "confirmed",
+     "verified_by": "Tysons Corner Center official mall directory lists HEYTEA, Level 1 (operating, no coming-soon badge) (18 Oct 2026)",
+     "lat": 38.917017,
+     "lon": -77.2228361,
+     "coord_src": "Tysons Corner Center centroid (shared w/ Miniso Tysons)"
     }
    ]
   },
@@ -2455,7 +2473,7 @@
   {
    "chain": "rolife",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-10-16",
+   "reviewed": "2026-10-18",
    "source": "Rolife's official 'where to buy' store list (rolifeonline.com/pages/retail-store, USA tab shows 12 stores), 14 Oct 2026. International stores and temporary/announced locations excluded.",
    "scope": "Rolife's (若来, Robotime) US branded retail stores — the 12 permanent US stores on its own store list, across MA, CA, WA, NJ, TX, NY and VA. A Mall of America flagship was announced (Sep 2026) but is not yet on the brand's store list, so it is not counted. China-origin IP-toy/lifestyle chain (Suzhou).",
    "locations": [
@@ -2502,10 +2520,11 @@
     {
      "name": "American Dream (East Rutherford)",
      "address": "1 American Dream Way B108, East Rutherford, NJ 07073",
-     "confidence": "confirmed",
+     "confidence": "uncertain",
      "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026; coords are a manual mall-centroid override (Census no match)",
      "lat": 40.8109,
-     "lon": -74.0688
+     "lon": -74.0688,
+     "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores."
     },
     {
      "name": "Galleria Dallas",
@@ -2701,6 +2720,60 @@
      "verified_by": "Google Maps operating listing + CCYP, Oct 2026; trades as 'Jin Gege & Yao Yao'",
      "lat": 37.637199,
      "lon": -122.421372
+    }
+   ]
+  },
+  {
+   "chain": "yogost",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Hey! I am Yogost official store locator (first-party) + Google operating listings + American Dream mall directory",
+   "scope": "US roster per the brand's own locator: 3 outlets (Philadelphia PA, Boston MA, American Dream NJ). No California outlet on the locator (earlier San Diego web lead dropped).",
+   "locations": [
+    {
+     "name": "American Dream (Unit G113)",
+     "address": "1 American Dream Way, Unit G113, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "verified_by": "Yogost first-party store locator (Google-linked, hours shown) + American Dream mall directory NOW OPEN (18 Oct 2026)",
+     "lat": 40.8085,
+     "lon": -74.0702,
+     "coord_src": "American Dream mall centroid (shared with other American Dream tenants)"
+    },
+    {
+     "name": "Philadelphia (Chinatown)",
+     "address": "124 N 10th St, Philadelphia, PA 19107",
+     "confidence": "confirmed",
+     "verified_by": "Yogost first-party store locator (Google-linked operating listing, hours shown) (18 Oct 2026)",
+     "lat": 39.954089,
+     "lon": -75.156248,
+     "coord_src": "US Census geocoder (fresh; cache had been poisoned with a null)"
+    },
+    {
+     "name": "Boston (Allston)",
+     "address": "147 Brighton Ave, Boston, MA 02134",
+     "confidence": "confirmed",
+     "verified_by": "Yogost first-party store locator (Google-linked operating listing, hours shown) (18 Oct 2026)",
+     "lat": 42.353071,
+     "lon": -71.131752,
+     "coord_src": "US Census geocoder (fresh; cache had been poisoned with a null)"
+    }
+   ]
+  },
+  {
+   "chain": "popmart",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Mall tenant directories (manual) — fills gaps the Pop Mart adapter misses",
+   "scope": "Hand-added Pop Mart STORES found in mall directories but absent from the adapter feed; roboshop kiosks excluded.",
+   "locations": [
+    {
+     "name": "Pop Mart (Tysons Corner, Level 1 store)",
+     "address": "1961 Chain Bridge Rd, Tysons, VA 22102",
+     "confidence": "confirmed",
+     "verified_by": "Tysons Corner Center official mall directory lists 'Pop Mart' as a Level 1 store (18 Oct 2026). Two 'POP MART Kiosk' entries (L1, L3) treated as roboshops and excluded per our Pop Mart policy.",
+     "lat": 38.917017,
+     "lon": -77.2228361,
+     "coord_src": "Tysons Corner Center centroid"
     }
    ]
   }
