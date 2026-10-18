@@ -1676,16 +1676,17 @@
    "chain": "bingxue",
    "market": "HK",
    "status": "present",
-   "locations": 1,
+   "locations": 5,
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "Entered Hong Kong with a Mong Kok store (弼街, Yau Tsim Mong), positioned as a low-price challenger to Mixue. Hand-verified Oct 2026: one HK store, Mong Kok (弼街), operating (Google 4.0/4); few HK listings overall. A floor.",
+   "note": "5 open HK stores, OpenRice-verified Oct 2026: Prince Edward (49 Bute St/弼街 — the first store), Tseung Kwan O (Bauhinia Garden, 11 Tong Chun St), Hung Hom (Whampoa Estate, 99 Dock St), Mong Kok (Wu Sang House, 655 Nathan Rd) and Kwun Tong (77 Mut Wah St). China-origin tea/ice-cream chain (冰雪时光, Shandong) — a low-price Mixue rival; don't conflate with 蜜雪冰城 Mixue.",
    "sources": [
     "https://www.stheadline.com/realtime-property/3462168/",
-    "Google listing (Bingxue 冰雪时光, Mong Kok — open Oct 2026)"
+    "Google listing (Bingxue 冰雪时光, Mong Kok — open Oct 2026)",
+    "OpenRice (冰雪時光 Bingxue HK — 5 open: Prince Edward/TKO/Hung Hom/Mong Kok/Kwun Tong)"
    ]
   },
   {
@@ -1797,17 +1798,19 @@
    "chain": "mixue",
    "market": "HK",
    "status": "present",
-   "locations": 8,
+   "locations": 5,
    "first_opened": "2023-12-19",
    "precision": "day",
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "~8 open HK stores, operator-observed (hand-verified via Google, Oct 2026) across HK Island (Causeway Bay, Siu Sai Wan), Kowloon (Jordan, Mong Kok/Goldfish St, TST East) and the New Territories (Sha Tin/Shek Mun, Tai Po, Yuen Long) — a floor, not the full count. Two closed HK sites are confirmed, both in Mong Kok: its first store (Bank Centre, 636 Nathan Rd) and CTMA Centre (1N Sai Yeung Choi St South) — both PERMANENTLY CLOSED (the open count already excludes them). An 8 Oct 2026 HK Economic Journal commentary (via CNA) claimed a cut to 3 stores as a post-IPO unwind; operator-observed listings do NOT support that — 8 remain open; only the Bank Centre closure is confirmed. Trade press (stheadline, Oct 2026) names further closed HK branches this year — Tsim Sha Tsui (Nathan Rd) and Mong Kok (兆萬中心/Shanghai Industrial Investment Bldg, lease given up) — consistent with a multi-store trim; the operator-observed open floor remains 8 (the '3 stores left' commentary is still not supported by listings).",
+   "note": "5 open HK stores, OpenRice-verified Oct 2026 (RESOLVED — supersedes the earlier Google count of 8): Jordan (National Court, 240-252 Nathan Rd), Causeway Bay (Causeway Bay Plaza 1, 489 Hennessy Rd), Tai Po (Fortune Plaza, 4 On Chee Rd), Siu Sai Wan/Chai Wan (Island Resort Mall, 28 Siu Sai Wan Rd) and Mong Kok (Prospect Bldg, 491-493A Nathan Rd). This matches stheadline's '執淨5間' (Aug 2026). The earlier Google-based 8 OVERCOUNTED — its extra TST/Sha Tin/Yuen Long listings were stale (Google 'open' lags closures; cf. Jo's Cha). Confirmed permanently closed: TST (Alpha House, 27 Nathan Rd — OpenRice marks it Closed), the first store at Bank Centre (636 Nathan Rd), CTMA Centre (Sai Yeung Choi St S), and Mong Kok 兆萬中心 (lease given up). The CNA 'cut to 3' figure is the outlier (OpenRice + stheadline both say 5). China-origin (蜜雪冰城, Zhengzhou).",
    "sources": [
     "https://www.dealstreetasia.com/stories/chinese-bubble-tea-chain-mixue-to-open-its-first-hk-store-370050",
     "https://thebeat.asia/hong-kong/delish/happenings/get-ready-to-line-up-as-mixue-ice-cream-tea-debuts-in-hong-kong",
     "https://www.cna.com.tw/news/acn/202610080372.aspx",
-    "Google Business listings (8 open Mixue HK stores + 1 permanently closed), hand-verified Oct 2026"
+    "Google Business listings (8 open Mixue HK stores + 1 permanently closed), hand-verified Oct 2026",
+    "https://www.stheadline.com/society/3601578/",
+    "OpenRice (蜜雪冰城 HK — 5 open: Jordan/CWB/Tai Po/Siu Sai Wan/Mong Kok; TST Alpha House Closed)"
    ],
    "locations_as_of": "2026-10"
   },
@@ -1832,16 +1835,17 @@
    "chain": "luckin",
    "market": "HK",
    "status": "present",
-   "locations": 36,
+   "locations": 35,
    "locations_as_of": "2026-10",
    "first_opened": "2024-12-28",
    "precision": "day",
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "At least 36 HK outlets, hand-counted from Google operating listings Oct 2026 (count is a FLOOR — Luckin HK expands fast, true total likely higher): across HK Island (TST, Central/Wellington St + Pier 8, Sheung Wan, Wan Chai x2, Causeway Bay/Tin Hau, Fortress Hill, Sai Ying Pun, Quarry Bay, Siu Sai Wan, Sai Wan Ho), Kowloon (Mong Kok, Kowloon Tong, San Po Kong, Kowloon Bay, Kai Tak, Whampoa, TST East, Ho Man Tin, Diamond Hill, Sham Shui Po x2/V Walk, Kwun Tong, Tai Kok Tsui) and the New Territories + airport (Sha Tin x2/Fo Tan, Tseung Kwan O x3, Tsuen Wan, Tin Shui Wai, Kwai Fong, Tuen Mun, Chek Lap Kok). Quarry Bay listing is closed-for-the-day (hours), not permanent.",
+   "note": "~35 open HK stores, OpenRice-verified Oct 2026 — spanning HK Island (Sheung Wan, Wan Chai x2, Sai Wan Ho, North Point/Fortress Hill, Sai Ying Pun, Chai Wan x2, Central MTR), Kowloon (TST/Mira Place, Mong Kok, Sham Shui Po, Tai Kok Tsui, Hung Hom, Diamond Hill, Kwun Tong, Kowloon Bay, Ho Man Tin, Kowloon Tong), the NT (Sha Tin, Ma On Shan, Tai Po, Tsuen Wan x2, Kwai Fong, Tuen Mun x2, Sheung Shui, Fanling, Tseung Kwan O x6) and HKIA T2. This CROSS-VERIFIES the earlier Google count of 36 — the two sources agree within 1 (a Citywalk duplicate listing merged), so Luckin — unlike Mixue — had NO material Google overcounting (its listings are current because it's expanding). One closure: K11 Art Mall TST (OpenRice marks it Closed). A floor. China-origin coffee (瑞幸, Xiamen/Beijing).",
    "sources": [
     "https://investor.luckincoffee.com/",
-    "Google listings (瑞幸咖啡 Luckin, ≥36 HK outlets, hand-counted Oct 2026)"
+    "Google listings (瑞幸咖啡 Luckin, ≥36 HK outlets, hand-counted Oct 2026)",
+    "OpenRice (瑞幸 Luckin HK — ~35 open + K11 Art Mall TST Closed, Oct 2026)"
    ]
   },
   {
@@ -2666,16 +2670,17 @@
    "chain": "juewei",
    "market": "HK",
    "status": "present",
-   "locations": 22,
+   "locations": 31,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "At least 22 open HK outlets, hand-counted from Google operating listings Oct 2026 (floor) — 'Juewei seems to be everywhere now in Hong Kong'. Across HK Island (Central, Sai Ying Pun, Sai Wan Ho, North Point, Causeway Bay, Chai Wan), Kowloon (TST, Mong Kok, Jordan, Yau Ma Tei, Hung Hom, To Kwa Wan, Kwun Tong, Kai Tak, Cheung Sha Wan Rd, 元州大馬路) and the New Territories (Tsuen Wan, Tuen Mun, Sheung Shui, Tai Wai, Yuen Long, Sha Tin). Mostly MTR-station takeaway kiosks. China-origin 卤味/duck-neck chain (绝味鸭脖, Changsha, Hunan; 16,000+ outlets). Note: trades as 'King of Braise' in Singapore.",
+   "note": "31 open HK outlets, OpenRice-verified Oct 2026 — mostly MTR-station kiosks (Mong Kok/MOK, TST/TST+ETS, Central/HOK, Jordan, Tai Wai, Hung Hom, Tsuen Wan/TSW+TWW, Tuen Mun, Kwun Tong, Sai Ying Pun, Sha Tin/SHT+Shek Mun, Diamond Hill, Yau Ma Tei, North Point, Tin Shui Wai, Kowloon Tong, Yuen Long/YUL, Kai Tak, Tiu Keng Leng, Fanling, Sheung Shui, Sai Wan Ho) plus street shops (To Kwa Wan, Tsuen Wan/Tai Ho Rd, Hung Hom/Tak Man, Yuen Long/Castle Peak Rd, Sham Shui Po/Cheung Sha Wan Rd). This UPWARD-corrects the earlier Google count of 22 — Google UNDERCOUNTED because small MTR-station kiosks are poorly listed there, while OpenRice captures them. Also: 1 under renovation (Wan Chai, Johnston Rd), 2 'Moved' (TWW 22→TWW 20, Grandway Tai Wai→Tai Wai MTR — relocations, not extra), and 1 closed (Tung Chung MTR). China-origin 卤味/duck-neck chain (绝味鸭脖, Changsha; 'King of Braise' in Singapore).",
    "sources": [
     "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
     "https://www.juewei.com.sg/",
-    "Google listings (絕味 Juewei, >=22 open HK outlets, hand-counted Oct 2026)"
+    "Google listings (絕味 Juewei, >=22 open HK outlets, hand-counted Oct 2026)",
+    "OpenRice (絕味 Juewei HK — 31 open + Wan Chai under-reno + Tung Chung closed, Oct 2026)"
    ],
    "locations_as_of": "2026-10"
   },
@@ -8863,16 +8868,18 @@
    "chain": "baheli",
    "market": "HK",
    "status": "present",
-   "locations": 1,
+   "locations": 2,
    "locations_as_of": "2026-10",
    "first_opened": "2024-12-05",
    "precision": "day",
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "Entered HK late 2024 — first store trial at New Town Plaza, Sha Tin (Nov 2024; officially opened 5 Dec 2024 per Invest HK). Planned 2-3 HK stores 'in the short term', but that expansion is AS-YET-UNREALIZED: ~1 store confirmed open Oct 2026 (V Walk, 24 Sham Mong Rd, Sham Shui Po). Operated by 香港八合里餐飲管理.",
+   "note": "2 open HK branches, hand-verified Oct 2026 — OpenRice lists 'All Branches(2)', both shown Open: Sha Tin (Shop 631-632, 6/F, New Town Plaza Phase I) and Sham Shui Po (L2-29, V Walk, 24 Sham Mong Rd). The earlier expansion plans are now realized (2 stores operating). China-origin Chaoshan beef hotpot (八合里潮汕鲜牛肉火锅, Guangdong).",
    "sources": [
     "https://www.hk01.com/社會新聞/1082317/內地連鎖牛肉火鍋店八合里攻港-料短期在港開設兩至三間門店",
-    "Google listing (八合里潮汕鮮牛肉火鍋, V Walk, open Oct 2026)"
+    "Google listing (八合里潮汕鮮牛肉火鍋, V Walk, open Oct 2026)",
+    "https://hk.news.yahoo.com/八合里-牛肉-火鍋-香港-000052092.html",
+    "OpenRice (八合里牛肉火鍋 — All Branches(2): Sha Tin New Town Plaza + V Walk; both Open)"
    ]
   },
   {
@@ -9208,6 +9215,21 @@
    "sources": [
     "https://www.stheadline.com/zh-hans/food/3615137/",
     "stheadline (鲍师傅 first HK store site-selected, APM Kwun Tong — not yet open)"
+   ]
+  },
+  {
+   "chain": "nayuki",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "One open HK store, OpenRice-verified Oct 2026: K11 Art Mall, TST (Shop G34-G35, 18 Hanoi Rd). A 2nd store at Peak Galleria (The Peak) is marked CLOSED on OpenRice (not counted). China-origin premium tea+bakery chain (奈雪的茶 Naixue, Shenzhen; HKEX-listed 2021).",
+   "sources": [
+    "OpenRice (NAIXUE 奈雪的茶 HK — K11 TST open; Peak Galleria Closed)"
    ]
   }
  ]
