@@ -629,22 +629,22 @@
   },
   "tanyu": {
    "name": "Tanyu",
-   "name_zh": "探魚",
+   "name_zh": "探鱼",
    "name_intl": "Tanyu",
-   "name_us": "Tanyu",
    "aliases": [
     "探鱼",
     "探魚",
     "Tanyu",
+    "Tan Yu",
     "探魚烤魚",
     "探鱼烤鱼"
    ],
    "format": "restaurant",
-   "global": "China-origin grilled-fish (烤魚) chain — founded Shenzhen 2013; signature fresh-green-pepper grilled fish. 240-300+ stores across 70+ China cities; overseas in Singapore (first flagship 2017), Malaysia (KL 2023) and Hong Kong. No known US presence.",
-   "operating_model": "company_owned",
+   "global": "China-origin grilled-fish (烤魚) chain — founded Shenzhen 2013 (parent Gantang Mingshan 甘棠明善, Shenzhen); signature fresh-green-pepper grilled fish. 400+ stores across 80+ China cities; overseas across ~8 markets incl. Singapore (first flagship 2017), Malaysia (KL 2023) and Hong Kong. Also has a US presence (a Flushing, NY store) and Vancouver, Canada.",
+   "operating_model": "franchise",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "China (Shenzhen) grilled-fish chain; HK 2 outlets, also SG/MY. No US presence."
+   "franchise_note": "Franchises in China; has a Flushing NY store + Vancouver — no US FDD or first-party US franchise page found. HK 2 outlets."
   },
   "nanjingimpressions": {
    "name": "Nanjing Impressions",
@@ -3374,15 +3374,17 @@
    "chain": "tanyu",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "On the brand's own overseas market list; undated.",
+   "confidence": "high",
+   "reviewed": "2026-10-18",
+   "note": "Two HK outlets, hand-verified open Oct 2026 (Google, both operating): Sha Tin (New Town Plaza Phase 1, F6 626室) and Kwun Tong (APM, Millennium City Phase V, L3-13). A floor. China-origin (Shenzhen 2013) grilled fish — a thriving entrant, not a retreater.",
    "sources": [
-    "https://www.tanyuchina.com/en"
-   ]
+    "https://www.tanyuchina.com/en",
+    "Google listings (探魚烤魚 Tanyu, 2 open HK outlets Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "tanyu",
