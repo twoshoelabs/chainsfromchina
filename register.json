@@ -2949,8 +2949,8 @@
    "first_opened": "2026",
    "precision": "year",
    "confidence": "high",
-   "reviewed": "2026-10-05",
-   "note": "The brand's own store locator lists 19 Hong Kong outlets by Oct 2026 (across Kowloon/HK Island — e.g. Whampoa, MOKO Mongkok, Tsuen Wan, Tai Wo Hau, West Kowloon). A fast scale-up from the ~2 HSR-station stores press reported earlier in 2026.",
+   "reviewed": "2026-10-18",
+   "note": "The brand's own store locator lists 19 Hong Kong outlets by Oct 2026 (across Kowloon/HK Island — e.g. Whampoa, MOKO Mongkok, Tsuen Wan, Tai Wo Hau, West Kowloon). A fast scale-up from the ~2 HSR-station stores press reported earlier in 2026. OpenRice cross-confirms (Oct 2026): ~18 open listings (Citywalk, MOKO, Whampoa, Citylink, West Kowloon Station, The Southside, TKO Spot, Science Park, Shun Tak, FitFort, Amoy Plaza, Metro Town, Sau Mau Ping, Lok Fu, Wan Chai, Tsz Wan Shan, Hung Hom MTR, Cullinan Sky Mall) — consistent with the first-party 19. Many are mall/MTR units. Count stays 19 (first-party locator is authoritative).",
    "sources": [
     "https://www.xiaonoodles.com/zh-tw/shop"
    ]
@@ -3955,15 +3955,16 @@
    "chain": "moreyogurt",
    "market": "HK",
    "status": "present",
-   "locations": 9,
+   "locations": 10,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "9 open HK stores, hand-counted from Google operating listings Oct 2026 (floor): Causeway Bay, K11 MUSEA (TST), Mong Kok, Tsuen Wan, Cityplaza (Quarry Bay), Kowloon Bay, Kwai Fong, Tseung Kwan O and Wan Chai. A 10th listing, Star Ferry Pier, is 'temporarily closed' (not counted). China-origin yogurt-drink chain (茉酸奶). Distinct from 茉莉奶白 Molly Tea and 愿茶 Möge Tee.",
+   "note": "10 open HK stores, OpenRice-verified Oct 2026: Mong Kok (Hollywood Plaza), Causeway Bay (The Goldmark), TST (K11 Musea), Tai Koo (Cityplaza), Tseung Kwan O (Park Central), Kowloon Bay (Telford Plaza 2), Kwai Fong (Metroplaza), Tsuen Wan x2 (Citywalk + Luk Yeung Galleria) and Wan Chai (Brim 28). Up from the Google count of 9 — OpenRice caught a 2nd Tsuen Wan store (Luk Yeung Galleria). One closure on OpenRice: The Wai, Tai Wai. (The earlier Star Ferry listing, Google-'temporarily closed', isn't on OpenRice.) China-origin yogurt-drink chain (茉酸奶). Distinct from 茉莉奶白 Molly Tea and 愿茶 Möge Tee.",
    "sources": [
     "https://ufood.com.hk/restaurant/news/detail/20018884/",
-    "Google listings (More Yogurt 茉酸奶, 9 open HK stores + 1 temp-closed, hand-counted Oct 2026)"
+    "Google listings (More Yogurt 茉酸奶, 9 open HK stores + 1 temp-closed, hand-counted Oct 2026)",
+    "OpenRice (More Yogurt 茉酸奶 HK — 10 open + The Wai/Tai Wai Closed, Oct 2026)"
    ],
    "locations_as_of": "2026-10"
   },
@@ -9082,19 +9083,21 @@
    "chain": "xishu",
    "market": "HK",
    "status": "present",
-   "locations": 6,
+   "locations": 8,
    "locations_as_of": "2026-10",
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "At least 6 open HK branded outlets, hand-counted Oct 2026 (floor): 5 as CHEZ CHOUX 西樹泡芙 (Mong Kok / 8 Argyle St, a 2nd branch, Ma On Shan / MOSTown 新港城中心, an MTR-station kiosk, Tin Shui Wai) + 1 as its 'Puffin' sub-line (Langham Place, Mong Kok). EXCLUDED: a 'Choux Crème' listing (418 Kwun Tong Rd) — different name, possibly a separate brand; verify before counting. Trade press (Cathay) cited 10+ HK branches, so the paste may be partial — re-verify for the full list. China-origin cream-puff chain (Shanghai, 上海摩提工房). 'Puffin' is Xishu's sub-line, NOT a fufuland rebrand.",
+   "note": "8 branded HK outlets (OpenRice-verified Oct 2026): 6 as CHEZ CHOUX 西樹泡芙 — mostly MTR-station kiosks (Mong Kok/MOK 11, Kwun Tong/KWT 21, Tuen Mun/TUM 54, Sha Tin/SHT 37, Fanling/FAN 1) + Ma On Shan (MOSTown Ph4) — plus 2 as its 'Puffin' sub-line: Langham Place (Mong Kok) and Cityplaza (Tai Koo, a branded counter inside Eslite Spectrum — counts per the shop-in-shop precedent). One closure: T Town North, Tin Shui Wai (OpenRice Closed). OpenRice files it under Japanese/Western Bakery (cream puff/soufflé). Cathay once cited 10+ HK branches, so a few more may exist. China-origin cream-puff chain (Shanghai, 上海摩提工房). 'Puffin' is Xishu's sub-line, NOT a fufuland rebrand.",
    "sources": [
     "https://www.ulifestyle.com.hk/community/detailpost/7a6d5dea-c2f3-40a8-bf8a-0faa5c93c26c",
     "https://www.facebook.com/chezchouxhongkong/",
     "Google listing (Puffin, Langham Place Mong Kok, open Oct 2026)",
     "Cathay dining (西樹泡芙, 10+ HK branches)",
-    "Google listings (CHEZ CHOUX 西樹泡芙 + Puffin, >=6 open HK outlets, hand-counted Oct 2026)"
+    "Google listings (CHEZ CHOUX 西樹泡芙 + Puffin, >=6 open HK outlets, hand-counted Oct 2026)",
+    "OpenRice (CHEZ CHOUX 西樹泡芙 HK — 6 open + T Town North Closed; + Puffin sub-line = 7)",
+    "OpenRice (Puffin HK — 2 open: Langham Place + Cityplaza/Eslite; part of CHEZ CHOUX 西樹泡芙)"
    ]
   },
   {
