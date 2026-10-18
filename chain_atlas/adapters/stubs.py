@@ -1584,3 +1584,22 @@ class DerucciAdapter(Adapter):
                       " CA (+ Duluth GA lead). No machine-readable US locator, so tracked via sightings (18"
                       " Oct 2026). In scope (China origin)")
     RECHECK = ["https://global.derucci.com/shop"]
+
+
+class MogouyanAdapter(Adapter):
+    """
+    Mogouyan Hand-Pulled Noodle — added 2026-10-18. A China-origin Lanzhou-style hand-pulled beef-noodle
+    chain named after the Mogouyan (磨沟沿) district of Lanzhou, Gansu, with 40-50 years of history there.
+    First overseas store Toronto (June 2019); the chain is Canada-heavy (Toronto, Edmonton/West Edmonton
+    Mall, Calgary, Mississauga, Mont-Tremblant). Its FIRST US location is Mall of America (Bloomington MN,
+    Level 3 South), with live noodle hand-pulling. Tracked via sightings (no machine-readable US locator).
+    """
+    chain_id, name, name_zh = "mogouyan", "Mogouyan Hand-Pulled Noodle", "磨沟沿"
+    name_us = "Mogouyan Hand-Pulled Noodle"
+    aliases = ("Mogouyan", "Mogouyan Hand-Pulled Noodle", "Mogouyan Noodles", "MGY")
+    parent, format = "Mogouyan (Lanzhou)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Lanzhou hand-pulled beef-noodle chain (Mogouyan). First US location Mall"
+                      " of America (Bloomington MN); overseas core is Canada. No machine-readable US locator,"
+                      " so tracked via sightings (18 Oct 2026). In scope (China origin)")
+    RECHECK = ["https://mogouyannoodles.com/"]

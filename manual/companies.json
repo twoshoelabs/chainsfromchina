@@ -1676,6 +1676,18 @@
    "photo_credit": null,
    "us_since": "2023",
    "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)"
+  },
+  "mogouyan": {
+   "name": "Mogouyan Hand-Pulled Noodle",
+   "name_zh": "磨沟沿",
+   "category": "Lanzhou hand-pulled noodles",
+   "blurb": "Mogouyan Hand-Pulled Noodle is a China-origin Lanzhou-style beef-noodle chain named after the Mogouyan district of Lanzhou, Gansu, where it traces 40-50 years of history. It expanded abroad starting with Toronto in 2019 and is concentrated in Canada; its first US location opened at Mall of America in Bloomington, Minnesota, featuring live hand-pulling of its noodles.",
+   "site_cn": null,
+   "site_us": "https://mogouyannoodles.com",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2024",
+   "first_outlet": "Bloomington, MN — Mall of America"
   }
  }
 }

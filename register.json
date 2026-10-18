@@ -1620,6 +1620,26 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Dongguan) mattress/bedding chain (慕思); US showrooms in NY/CA/GA + a new DeRucci North America division (Oct 2026)."
+  },
+  "mogouyan": {
+   "name": "Mogouyan Hand-Pulled Noodle",
+   "name_zh": "磨沟沿",
+   "name_intl": "Mogouyan",
+   "name_us": "Mogouyan Hand-Pulled Noodle",
+   "aliases": [
+    "Mogouyan",
+    "Mogouyan Hand-Pulled Noodle",
+    "Mogouyan Noodles",
+    "MGY",
+    "磨沟沿",
+    "磨沟沿牛肉面"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Lanzhou-style hand-pulled beef-noodle chain — named after the Mogouyan (磨沟沿) district of Lanzhou, Gansu, on the Yellow River, with 40-50 years of history there. First overseas store Toronto (June 2019); the chain is Canada-heavy (Toronto, Edmonton, Calgary, Mississauga, Mont-Tremblant). Its first US location is Mall of America (Bloomington MN, Level 3 South), with live hand-pulling demonstrations.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Lanzhou) hand-pulled beef-noodle chain; Canada-heavy overseas, first US store at Mall of America."
   }
  },
  "entries": [
@@ -9450,6 +9470,21 @@
    "note": "Seoul listed as 'Coming soon' on Yogost's own locator — announced, not yet open; no address or date given.",
    "sources": [
     "Hey! I am Yogost official store locator (first-party) — Seoul 'Coming soon'"
+   ]
+  },
+  {
+   "chain": "mogouyan",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-10",
+   "first_opened": "2019-06",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "Canada is the overseas core — Toronto (multiple), Edmonton (West Edmonton Mall), Calgary, Mississauga, Mont-Tremblant; first overseas store Toronto Jun 2019 (per the brand's own site).",
+   "sources": [
+    "Mogouyan official site (mogouyannoodles.com/about-us) + blogTO"
    ]
   }
  ]

@@ -120,11 +120,19 @@ Don't re-sweep flagships just for Miniso/Pop Mart — the adapters have those.
 The fastest-moving small/new China F&B (Mixue, Chagee, Wedrink, newer boba/dessert/malatang brands) cluster in
 **99 Ranch / H-Mart-anchored strip centers**, NOT enclosed malls — and these have no Simon/Westfield-style
 tenant directory, so the adapters AND the enclosed-mall sweep both miss them. Reach them a different way:
-scan the center's **Google Maps area** (or the 99 Ranch / H-Mart store's "nearby" tenant list) for our brands,
-and run brand-in-area searches (`Mixue <city>`, `Chagee <trade-area>`, `Pop Mart <plaza>`). Highest-yield strips:
+scan the center's **Google Maps area** (or the 99 Ranch / H-Mart store's "nearby" tenant list) for our brands.
+Highest-yield strips:
 - **Convoy District** (San Diego); **Spring Mountain Rd** (Las Vegas); **Buford Hwy / Pleasant Hill** (Atlanta)
 - **Bellaire Blvd Chinatown** (Houston); **Valley Blvd / San Gabriel Square / Rowland Heights** (SGV)
 - **Richardson / Carrollton** (Dallas); **Edison / Palisades** (NJ); **99 Ranch plazas** in every metro above
+
+**METHOD NOTE (learned 2026-10-18, six-area scan):** plain web search does NOT reach strip-plaza openings —
+they live on Google Maps, brand apps and local blogs, not indexed news (the six-area web scan returned zero
+confirmable new stores). Two things that DO work: (a) for the big adapter-less chains, reconcile the brand's
+**own store locator** — Mixue and Chagee are still EARLY-stage in the US (Mixue ~10, all LA/NYC/Bay; Chagee
+~12, all SoCal) and already fully in our census, so they are NOT the gap; (b) for the actual gap — small/new
+regional chains unique to a plaza — you need a true **Google-Maps-area pass** (browse Maps around the 99 Ranch
+pin), which plain WebSearch can't substitute for. Don't burn web searches on `Mixue <city>`; check the locator.
 
 ---
 

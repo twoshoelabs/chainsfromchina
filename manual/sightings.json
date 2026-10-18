@@ -2929,6 +2929,24 @@
      "coord_src": "Sky View Center centroid (manual; Census no-match on hyphenated Queens address)"
     }
    ]
+  },
+  {
+   "chain": "mogouyan",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Mall of America official directory + KARE11 press (first US store) + mogouyannoodles.com",
+   "scope": "US = 1 (first US location, Mall of America, Bloomington MN, Level 3 South). Overseas core is Canada.",
+   "locations": [
+    {
+     "name": "Mall of America (Level 3 South)",
+     "address": "60 E Broadway, Bloomington, MN 55425",
+     "confidence": "confirmed",
+     "verified_by": "Mall of America official directory + KARE11 'first US location' coverage (18 Oct 2026)",
+     "lat": 44.854797,
+     "lon": -93.24211,
+     "coord_src": "Mall of America centroid (shared w/ Pop Mart/Miniso Bloomington)"
+    }
+   ]
   }
  ]
 }
