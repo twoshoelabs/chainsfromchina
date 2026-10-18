@@ -2415,15 +2415,17 @@
    "chain": "chabaidao",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-21",
-   "note": "Entry into Hong Kong reported in market coverage; not confirmed against a first-party source.",
+   "confidence": "high",
+   "reviewed": "2026-10-17",
+   "note": "One confirmed HK store (operating): Mong Kok — Shop 30, G/F, Yuen King Building, 26–36 Sai Yeung Choi St S (Google, Oct 2026). Separately, the ChaPanda STOCK (HKEX:2555) was suspended 13 Oct 2026 in an SFC IPO-manipulation probe — a corporate matter; the shops operate normally (see listings).",
    "sources": [
-    "https://news.futunn.com/en/post/48783500/stock-price-soared-by-80-chabaida-enters-hong-kong-market"
-   ]
+    "https://news.futunn.com/en/post/48783500/stock-price-soared-by-80-chabaida-enters-hong-kong-market",
+    "Google Business listing (Chapanda 茶百道 旺角, Yuen King Building, operating)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "yihetang",
