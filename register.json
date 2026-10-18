@@ -901,7 +901,7 @@
    "name": "Semir",
    "name_zh": "森马",
    "format": "apparel",
-   "global": "Wenzhou mass-apparel group (Semir adult + Balabala kidswear); 100+ overseas stores across ~15 markets.",
+   "global": "Wenzhou mass-apparel group (森马服饰): Semir adult casual + Balabala 巴拉巴拉 kidswear (China's largest kidswear brand). 100+ overseas stores across ~15 markets — overseas/HK retail runs overwhelmingly under the Balabala banner.",
    "sector": "apparel",
    "sub_category": "mass apparel / kidswear (Balabala)",
    "tickers": [
@@ -5080,15 +5080,17 @@
    "chain": "semir",
    "market": "HK",
    "status": "present",
-   "locations": null,
+   "locations": 13,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
+   "confidence": "high",
    "reviewed": "2026-10-18",
-   "note": "DISCREPANCY (2026-10-18): recorded HK=present on a 'first HK store 2018' note, but no Semir HK store is findable on Google (Oct 2026, operator-observed absence) — the 2018 store has likely CLOSED. Re-verify; likely downgrade to exited/no_evidence.",
+   "note": "RESOLVED (2026-10-18): the group's HK presence is its BALABALA (巴拉巴拉) kidswear line — 13 stores hand-counted from Google operating listings Oct 2026 (floor): Causeway Bay (Windsor House), Mong Kok, Kai Tak (Airside 啟德), Yuen Long (YOHOmall), Tseung Kwan O (Park Central + The Lohas), Sha Tin (New Town Plaza), Kowloon Bay (Telford Plaza), Tsing Yi (Maritime Square), Tuen Mun (Town Plaza), Tsim Sha Tsui (Harbour City), Wan Chai (Hopewell Centre 合和中心) and Tsuen Wan (Ocean Pride 海之戀). The Semir-adult (森马) brand itself is NOT findable as an HK store — the 森马 listing in HK is an unrelated stationery wholesaler. So the earlier 'present-but-not-found' flag is resolved: present in HK via Balabala, not the Semir-adult storefront.",
    "sources": [
-    "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/"
-   ]
+    "https://focusmalaysia.my/global-kids-fashion-grand-balabala-makes-malaysian-debut-with-first-store-in-pavilion-kl/",
+    "Google listings (巴拉巴拉 Balabala, 13 open HK stores, hand-counted Oct 2026)"
+   ],
+   "locations_as_of": "2026-10"
   },
   {
    "chain": "semir",
@@ -5363,15 +5365,16 @@
   {
    "chain": "judydoll",
    "market": "HK",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
+   "confidence": "medium",
    "reviewed": "2026-10-18",
-   "note": "DISCREPANCY (2026-10-18): recorded HK=present on a 'first HK store 2026' note, but Judydoll 橘朵 is not findable as a standalone HK store on Google (Oct 2026, operator-observed absence). May be a counter inside another retailer, not yet open, or withdrawn — re-verify before trusting present.",
+   "note": "No standalone/branded HK store. Judydoll (橘朵) is distributed in HK via @cosme HONG KONG (a Japanese MULTI-BRAND beauty flagship, Kowloon, opened Dec 2025) — a stockist/distribution presence, NOT a branded chain outlet, so it does not count as a HK retail presence. (If a dedicated branded @cosme counter is later confirmed, revisit under the shop-in-shop precedent.) Corrected from an earlier misread 'first HK store 2026'. Judydoll 橘朵 and Joocyee 酵色 share parent 橘宜集团 (Chuse).",
    "sources": [
-    "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/"
+    "https://insideretail.asia/2026/06/04/judydoll-opens-first-brick-and-mortar-store-in-hong-kong/",
+    "https://hk.cosme.net/flagship/en/"
    ]
   },
   {
@@ -9134,6 +9137,20 @@
    "reviewed": "2026-10-18",
    "confidence": "high",
    "note": "At least 5 open Singapore outlets, hand-counted Oct 2026 (Google): Bugis+, Orchard Rd (277), Northpoint City (Yishun), SingPost Centre (Eunos), Plaza Singapura. A floor."
+  },
+  {
+   "chain": "joocyee",
+   "market": "HK",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "No standalone/branded HK store. Joocyee (酵色) is distributed in HK via @cosme HONG KONG (a Japanese MULTI-BRAND beauty flagship, Kowloon, opened Dec 2025) — a stockist/distribution presence, NOT a branded chain outlet, so it does not count as a HK retail presence. (If a dedicated branded @cosme counter is later confirmed, revisit under the shop-in-shop precedent.) Corrected from an earlier misread 'first HK store 2026'. Judydoll 橘朵 and Joocyee 酵色 share parent 橘宜集团 (Chuse).",
+   "sources": [
+    "https://hk.cosme.net/flagship/en/"
+   ]
   }
  ]
 }
