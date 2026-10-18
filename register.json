@@ -1213,6 +1213,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Shenzhen-based 包点/soup-dumpling franchise (5,300+ China stores). Entered HK 2023 (company-operated). No US presence."
+  },
+  "baheli": {
+   "name": "Baheli",
+   "name_zh": "八合里",
+   "name_intl": "Baheli",
+   "aliases": [
+    "八合里海记",
+    "八合里海記",
+    "Ba He Li",
+    "Baheli",
+    "八合里潮汕鲜牛肉火锅"
+   ],
+   "format": "hotpot",
+   "global": "Chaoshan (潮汕)-style fresh-beef hotpot chain from Shantou, Guangdong; 200+ stores in China. Entered Hong Kong late 2024 — first store trial at New Town Plaza, Sha Tin (Nov 2024; officially opened 5 Dec 2024 per Invest HK), operated by 香港八合里餐飲管理. Planned 2-3 HK stores short-term, but that expansion is as-yet-unrealized; ~1 store (V Walk, Sham Shui Po) confirmed open Oct 2026. No known US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Shantou Chaoshan beef-hotpot chain (200+ China stores); HK via 香港八合里餐飲管理 (2024). Planned 2-3 HK stores not yet realized. No US presence."
   }
  },
  "entries": [
@@ -8474,6 +8492,22 @@
     "https://www.hkcd.com/hkcdweb/content_p/2023/09/21/content_159786.html",
     "https://baike.baidu.com/item/三津汤包/55750887",
     "OpenRice (三津湯包, All Branches 3); Google listings hand-verified Oct 2026"
+   ]
+  },
+  {
+   "chain": "baheli",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": "2024-12-05",
+   "precision": "day",
+   "confidence": "medium",
+   "reviewed": "2026-10-18",
+   "note": "Entered HK late 2024 — first store trial at New Town Plaza, Sha Tin (Nov 2024; officially opened 5 Dec 2024 per Invest HK). Planned 2-3 HK stores 'in the short term', but that expansion is AS-YET-UNREALIZED: ~1 store confirmed open Oct 2026 (V Walk, 24 Sham Mong Rd, Sham Shui Po). Operated by 香港八合里餐飲管理.",
+   "sources": [
+    "https://www.hk01.com/社會新聞/1082317/內地連鎖牛肉火鍋店八合里攻港-料短期在港開設兩至三間門店",
+    "Google listing (八合里潮汕鮮牛肉火鍋, V Walk, open Oct 2026)"
    ]
   }
  ]
