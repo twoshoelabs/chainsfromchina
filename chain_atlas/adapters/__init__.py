@@ -42,7 +42,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     BingxueAdapter, WalaidaAdapter, JibeichuanAdapter, BabakehouseAdapter,
                     ChicjocAdapter, DreameAdapter, ShowminihotpotAdapter, RolifeAdapter,
                     NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter, LittleSheepAdapter,
-                    YaoyaoAdapter, YogostAdapter)
+                    YaoyaoAdapter, YogostAdapter, XimivogueAdapter, DerucciAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -110,6 +110,8 @@ REGISTRY: list[Adapter] = [
     LittleSheepAdapter(), # Inner Mongolia hotpot 小肥羊 / Little Sheep (Yum China); US re-entry at American Dream NJ (2026) — see stubs.py
     YaoyaoAdapter(), # Shenzhen Sichuan pickled-fish 姚姚酸菜鱼 / YAOYAO; 3 US outlets (Chicago Michelin Bib + San Leandro + San Bruno CA) (18 Oct 2026) — see stubs.py
     YogostAdapter(), # Shenzhen yogurt-drink 我是酸奶君 / Hey! I am Yogost; US anchor American Dream NJ (now open) + CA/Boston leads (18 Oct 2026) — see stubs.py
+    XimivogueAdapter(), # Guangzhou Miniso-style variety retailer XIMIVOGUE (markets as Korean); 4 US outlets GA/IL/FL (18 Oct 2026) — see stubs.py
+    DerucciAdapter(), # Dongguan premium mattress/bedding chain DeRUCCI 慕思 (markets as European-designer); US showrooms Flushing NY + Arcadia CA (18 Oct 2026) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

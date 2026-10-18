@@ -1575,6 +1575,51 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Shenzhen) yogurt-drink chain; international CA/AU/NZ/ID/MY + US; tracked via sightings."
+  },
+  "ximivogue": {
+   "name": "XIMIVOGUE",
+   "name_zh": "熙美诚品",
+   "name_intl": "Ximivogue",
+   "name_us": "XIMIVOGUE",
+   "aliases": [
+    "XIMIVOGUE",
+    "XIMI VOGUE",
+    "XIMI-V",
+    "Ximivogue",
+    "Ximiso",
+    "XIMISO",
+    "熙美诚品",
+    "熙美誠品",
+    "SHOWME STORE",
+    "SHOWME SHORE"
+   ],
+   "format": "variety",
+   "global": "China-origin variety/lifestyle retailer — founded 2015, HQ Guangzhou (Tianhe). Markets itself as 'Korean-designed' but is a Chinese company (the same Japanese/Korean-styling playbook as Miniso); a dollar/100-yen-style general-merchandise store (~7,000 SKUs: household, beauty, toys, accessories). ~1,400-1,700 stores across 90+ countries via franchise. US = 2 directory-verified (Sugarloaf Mills GA; Woodfield Mall IL). Florida Mall + Dolphin Mall were stale Yelp listings (not in those malls' current directories). Glendale Galleria CA / Myrtle Beach SC reported, Trumbull CT coming-soon — unverified.",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "China (Guangzhou) variety retailer, franchise model; markets as Korean-designed (cf. Miniso's Japanese positioning)."
+  },
+  "derucci": {
+   "name": "DeRUCCI",
+   "name_zh": "慕思",
+   "name_intl": "DeRUCCI",
+   "name_us": "DeRUCCI",
+   "aliases": [
+    "DeRUCCI",
+    "DeRucci",
+    "DeRUCCI Furniture",
+    "慕思",
+    "慕思寝具",
+    "Musi",
+    "Mùsī"
+   ],
+   "format": "furniture",
+   "global": "China-origin premium mattress/bedding & furniture brand — 慕思 (Mùsī), HQ Dongguan, Guangdong; founded 2004 (Lin Jiyong & Wang Bingkun), parent DeRUCCI Health Sleep Co. listed on the Shenzhen Stock Exchange 2022. Markets a European-designer story but is a Chinese company (same positioning playbook as Miniso's Japanese branding). ~4,000+ China stores (5,300 global). US showrooms: Flushing NY (Sky View), Arcadia CA (The Shops at Santa Anita) and Duluth GA (Atlanta); 'DeRucci North America' division formally entered the US bedding market Oct 2026 (High Point Market).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Dongguan) mattress/bedding chain (慕思); US showrooms in NY/CA/GA + a new DeRucci North America division (Oct 2026)."
   }
  },
  "entries": [

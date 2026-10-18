@@ -1652,6 +1652,30 @@
    "photo_credit": null,
    "us_since": "2026",
    "first_outlet": "Philadelphia, PA / Boston, MA / East Rutherford, NJ (American Dream)"
+  },
+  "ximivogue": {
+   "name": "XIMIVOGUE",
+   "name_zh": "熙美诚品",
+   "category": "Variety / lifestyle retail",
+   "blurb": "XIMIVOGUE is a China-origin variety and lifestyle retailer founded in 2015 and headquartered in Guangzhou. Like Miniso, it markets a Korean/Japanese design aesthetic despite being a Chinese company, selling an inexpensive, wide range of household goods, beauty products, accessories and toys. It has grown to well over a thousand stores across 90-plus countries through franchising, including US locations in Georgia, Illinois and Florida.",
+   "site_cn": null,
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2026",
+   "first_outlet": "Lawrenceville GA / Schaumburg IL / Orlando FL / Miami FL"
+  },
+  "derucci": {
+   "name": "DeRUCCI",
+   "name_zh": "慕思",
+   "category": "Mattress & bedding",
+   "blurb": "DeRUCCI (慕思) is a China-origin premium mattress, bedding and furniture company founded in 2004 and headquartered in Dongguan, Guangdong; its parent, DeRUCCI Health Sleep Co., listed on the Shenzhen Stock Exchange in 2022. Like Miniso, it wraps a European-designer image around what is a Chinese company, and operates roughly four thousand stores in China out of a global footprint above five thousand. It entered the US market with showrooms in New York, California and Georgia.",
+   "site_cn": null,
+   "site_us": "https://global.derucci.com",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2023",
+   "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)"
   }
  }
 }

@@ -1536,3 +1536,51 @@ class YogostAdapter(Adapter):
                       " Diego) and Boston leads to verify. No first-party US locator, so tracked via"
                       " sightings (18 Oct 2026). In scope (China origin)")
     RECHECK = ["https://www.americandream.com/directory/dining/all-food-drink"]
+
+
+class XimivogueAdapter(Adapter):
+    """
+    XIMIVOGUE (XIMI VOGUE / XIMISO) — added 2026-10-18. A China-origin variety/lifestyle retailer founded
+    in Guangzhou (Tianhe) in 2015 — a Miniso-style dollar/100-yen general-merchandise store that markets a
+    'Korean-designed' aesthetic despite being a Chinese company (the same positioning playbook as Miniso's
+    Japanese branding). ~1,400-1,700 stores across 90+ countries via franchise.
+
+    US presence tracked via sightings: 4 confirmed outlets — Sugarloaf Mills (Lawrenceville GA), Woodfield
+    Mall (Schaumburg IL), The Florida Mall (Orlando FL), Dolphin Mall (Miami FL). Leads to verify: Glendale
+    Galleria CA, Tanger Myrtle Beach SC; Trumbull CT reported coming-soon. No first-party national US locator
+    (a Simon brand page lists Simon-mall stores).
+    """
+    chain_id, name, name_zh = "ximivogue", "XIMIVOGUE", "熙美诚品"
+    name_us = "XIMIVOGUE"
+    aliases = ("XIMIVOGUE", "XIMI VOGUE", "XIMI-V", "Ximivogue", "Ximiso", "XIMISO",
+               "熙美诚品", "熙美誠品", "SHOWME STORE", "SHOWME SHORE")
+    parent, format = "XIMIVOGUE (Guangzhou)", "variety"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin variety/lifestyle retailer (XIMIVOGUE, founded Guangzhou 2015) -- a"
+                      " Miniso-style store that markets as Korean-designed. 4 confirmed US outlets (Sugarloaf"
+                      " Mills GA, Woodfield IL, Florida Mall + Dolphin Mall FL); CA/SC leads. No first-party"
+                      " US locator, so tracked via sightings (18 Oct 2026). In scope (China origin)")
+    RECHECK = ["https://www.simon.com/brands/ximivogue"]
+
+
+class DerucciAdapter(Adapter):
+    """
+    DeRUCCI (慕思 Mùsī) — added 2026-10-18. A China-origin premium mattress/bedding & furniture brand, HQ
+    Dongguan, Guangdong; founded 2004, parent DeRUCCI Health Sleep Co. listed on the Shenzhen Stock
+    Exchange (2022). Markets a European-designer image but is a Chinese company (same positioning playbook
+    as Miniso's Japanese branding). ~4,000+ China stores (5,300 global).
+
+    US showrooms tracked via sightings: Flushing NY (Sky View, directory-confirmed), Arcadia CA (The Shops
+    at Santa Anita). Duluth GA (Atlanta) is on the brand's own locator but lacks a street address — a lead.
+    'DeRucci North America' formally entered the US bedding market Oct 2026 (High Point Market).
+    """
+    chain_id, name, name_zh = "derucci", "DeRUCCI", "慕思"
+    name_us = "DeRUCCI"
+    aliases = ("DeRUCCI", "DeRucci", "DeRUCCI Furniture", "慕思", "慕思寝具", "Musi")
+    parent, format = "DeRUCCI Health Sleep Co. (慕思; Dongguan)", "furniture"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin premium mattress/bedding chain (DeRUCCI 慕思, Dongguan 2004, Shenzhen-"
+                      " listed). Markets as European-designer but Chinese. US showrooms Flushing NY + Arcadia"
+                      " CA (+ Duluth GA lead). No machine-readable US locator, so tracked via sightings (18"
+                      " Oct 2026). In scope (China origin)")
+    RECHECK = ["https://global.derucci.com/shop"]

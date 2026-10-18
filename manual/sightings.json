@@ -902,6 +902,15 @@
      "lat": 37.32458,
      "lon": -121.94173,
      "coord_src": "Westfield Valley Fair centroid (shared w/ Pop Mart Santa Clara)"
+    },
+    {
+     "name": "HEYTEA (The Florida Mall)",
+     "address": "8001 S Orange Blossom Trail, Orlando, FL 32809",
+     "confidence": "uncertain",
+     "verified_by": "The Florida Mall directory tags HEYTEA 'Coming Soon' (18 Oct 2026) — not yet open, held out of count",
+     "lat": 28.45011,
+     "lon": -81.400723,
+     "coord_src": "The Florida Mall centroid"
     }
    ]
   },
@@ -2192,7 +2201,7 @@
   {
    "chain": "mollytea",
    "supplied_on": "2026-10-10",
-   "reviewed": "2026-10-10",
+   "reviewed": "2026-10-18",
    "source": "Operator-observed Google listing (store not currently on usa.mollytea.com's collected locator).",
    "scope": "A Molly Tea (茉莉奶白) outlet the daily collected feed (usa.mollytea.com) misses: San Gabriel. Hand-verified so it still maps; auto-retires if the locator later lists it.",
    "locations": [
@@ -2203,6 +2212,15 @@
      "verified_by": "operator-observed Google listing, 2,593 reviews (10 Oct 2026)",
      "lat": 34.079503707644,
      "lon": -118.105616545459
+    },
+    {
+     "name": "Molly Tea (Glendale Galleria)",
+     "address": "1181 Galleria Way, Glendale, CA 91210",
+     "confidence": "uncertain",
+     "verified_by": "Glendale Galleria directory tags Molly Tea 'Coming Soon' (18 Oct 2026) — not yet open, held out of count",
+     "lat": 34.1463,
+     "lon": -118.2568,
+     "coord_src": "Glendale Galleria centroid"
     }
    ]
   },
@@ -2810,6 +2828,33 @@
      "lat": 39.02419829999999,
      "lon": -77.1451289,
      "coord_src": "Westfield Montgomery centroid (shared w/ Miniso)"
+    },
+    {
+     "name": "Pop Mart (Ala Moana Center, L3 Ewa wing)",
+     "address": "1450 Ala Moana Blvd, Honolulu, HI 96814",
+     "confidence": "confirmed",
+     "verified_by": "Pop Mart's first Hawaii store, opened 29 Aug 2026 at Ala Moana Center (KHON2/Hoodline/KITV press + mall directory)",
+     "lat": 21.289751,
+     "lon": -157.84391,
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Pop Mart (Dolphin Mall)",
+     "address": "11401 NW 12th St, Miami, FL 33172",
+     "confidence": "confirmed",
+     "verified_by": "Dolphin Mall official directory lists Pop Mart (Level 1, operating) (18 Oct 2026)",
+     "lat": 25.7887034,
+     "lon": -80.38117510000001,
+     "coord_src": "Dolphin Mall centroid (shared w/ Miniso)"
+    },
+    {
+     "name": "Pop Mart (Del Amo Fashion Center)",
+     "address": "3525 W Carson St, Torrance, CA 90503",
+     "confidence": "uncertain",
+     "verified_by": "Del Amo Fashion Center directory tags Pop Mart 'Coming Soon' (18 Oct 2026) — not yet open, held out of count",
+     "lat": 33.83267028368388,
+     "lon": -118.3495886266597,
+     "coord_src": "Del Amo centroid (shared w/ Chagee/Miniso)"
     }
    ]
   },
@@ -2828,6 +2873,60 @@
      "lat": 33.69266,
      "lon": -117.888336,
      "coord_src": "South Coast Plaza centroid"
+    }
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "Simon brand page + mall directories (Sugarloaf Mills, Woodfield, Florida Mall, Dolphin Mall) + Yelp",
+   "scope": "US confirmed = 2, both verified in the mall's own directory: Sugarloaf Mills (Lawrenceville GA) + Woodfield Mall (Schaumburg IL). Florida Mall + Dolphin Mall REMOVED — not in those malls' current directories (Yelp listings were stale).",
+   "locations": [
+    {
+     "name": "XIMIVOGUE (Sugarloaf Mills (Lawrenceville GA))",
+     "address": "5900 Sugarloaf Pkwy, Lawrenceville, GA 30043",
+     "confidence": "confirmed",
+     "verified_by": "Simon/mall directory + Yelp (XIMIVOGUE US store) (18 Oct 2026)",
+     "lat": 33.980221,
+     "lon": -84.075321,
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "XIMIVOGUE (Woodfield Mall (Schaumburg IL))",
+     "address": "5 Woodfield Mall, Schaumburg, IL 60173",
+     "confidence": "confirmed",
+     "verified_by": "Simon/mall directory + Yelp (XIMIVOGUE US store) (18 Oct 2026)",
+     "lat": 42.046417,
+     "lon": -88.037125,
+     "coord_src": "Woodfield Mall centroid (shared w/ Pop Mart Schaumburg; Census no-match)"
+    }
+   ]
+  },
+  {
+   "chain": "derucci",
+   "supplied_on": "2026-10-18",
+   "reviewed": "2026-10-18",
+   "source": "DeRUCCI first-party store locator (global.derucci.com/shop) + The Shops at Skyview directory + Yelp",
+   "scope": "US confirmed = 2 with addresses (Arcadia CA Santa Anita; Flushing NY Sky View). Duluth GA (Atlanta) on the locator but no street address yet — lead to add.",
+   "locations": [
+    {
+     "name": "DeRUCCI (Arcadia CA (The Shops at Santa Anita))",
+     "address": "400 S Baldwin Ave, Arcadia, CA 91007",
+     "confidence": "confirmed",
+     "verified_by": "DeRUCCI first-party locator global.derucci.com/shop + Yelp (18 Oct 2026)",
+     "lat": 34.135972,
+     "lon": -118.054181,
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "DeRUCCI (Flushing NY (Sky View))",
+     "address": "40-24 College Point Blvd, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "The Shops at Skyview official directory (Flushing) + DeRUCCI first-party locator global.derucci.com/shop (18 Oct 2026)",
+     "lat": 40.76155,
+     "lon": -73.84055,
+     "coord_src": "Sky View Center centroid (manual; Census no-match on hyphenated Queens address)"
     }
    ]
   }
