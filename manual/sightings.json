@@ -2586,6 +2586,12 @@
      "verified_by": "Google Business 'Rolife' operating (Open, 4.8/48 reviews, gift shop, located in Great Mall); brand locator listed this store under a wrong/duplicate (Alderwood) address — corrected to the Google address (operator-observed 16 Oct 2026)",
      "lat": 37.4164279,
      "lon": -121.8948551
+    },
+    {
+     "name": "Pheasant Lane Mall (Nashua)",
+     "address": "310 Daniel Webster Hwy Spc E151, Nashua, NH 03060",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing (operating; 'Rolife Pheasant Lane Mall', gift shop, located in Embox'em), 18 Oct 2026"
     }
    ]
   },
