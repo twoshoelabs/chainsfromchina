@@ -121,6 +121,51 @@
           "address": "239 8th Ave, New York, NY 10011",
           "confidence": "confirmed",
           "verified_by": "Google Business 'Cotti Coffee - Chelsea' (8 reviews, active pickup/delivery, posted hours) + chain Instagram grand-opening (~Aug 2026); operator-verified 29 Sep 2026. Yelp has no page yet (newly opened). Originally a NYC health-department permit lead."
+        },
+        {
+          "name": "Manhattan (FiDi)",
+          "address": "65 Nassau St, New York, NY 10038",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 40.7095,
+          "lon": -74.0087,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Los Angeles (Hollywood)",
+          "address": "5545 Sunset Blvd, Los Angeles, CA 90028",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 34.0984,
+          "lon": -118.3111,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Irvine",
+          "address": "4527 Campus Dr, Irvine, CA 92612",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 33.6497,
+          "lon": -117.8322,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "El Segundo",
+          "address": "630 N Sepulveda Blvd, El Segundo, CA 90245",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 33.9246,
+          "lon": -118.3959,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Manhattan (Midtown)",
+          "address": "485 7th Ave, New York, NY 10018",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 40.7523,
+          "lon": -73.9891,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
@@ -2301,6 +2346,60 @@
           "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
           "lat": 32.98,
           "lon": -96.91,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "West Covina",
+          "address": "959 S Glendora Ave, West Covina, CA 91790",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 34.059,
+          "lon": -117.9361,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Los Angeles (Koreatown)",
+          "address": "3501 W 6th St, Los Angeles, CA 90020",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 34.0637,
+          "lon": -118.2982,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Atlanta (Buckhead)",
+          "address": "3393 Peachtree Rd NE, Atlanta, GA 30326",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 33.8454,
+          "lon": -84.3613,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Tukwila (Southcenter)",
+          "address": "2800 Southcenter Mall Suite 121, Tukwila, WA 98188",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 47.4576,
+          "lon": -122.2594,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Boston (Allston)",
+          "address": "122 Brighton Ave, Boston, MA 02134",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 42.3527,
+          "lon": -71.1309,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Cherry Hill",
+          "address": "826 Haddonfield Rd Store #4, Cherry Hill, NJ 08002",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+          "lat": 39.9266,
+          "lon": -75.0322,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
