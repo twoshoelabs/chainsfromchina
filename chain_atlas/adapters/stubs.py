@@ -1603,3 +1603,47 @@ class MogouyanAdapter(Adapter):
                       " of America (Bloomington MN); overseas core is Canada. No machine-readable US locator,"
                       " so tracked via sightings (18 Oct 2026). In scope (China origin)")
     RECHECK = ["https://mogouyannoodles.com/"]
+
+
+class RbteaAdapter(Adapter):
+    """
+    R&B Tea — added 2026-10-19. Bubble/milk-tea chain whose name is the initials of its founders, Rex &
+    Bruce. Founder Bruce is Taiwanese but started the brand while working in Suzhou, China: the first
+    R&B Tea store opened in Suzhou in 2006 and the chain was built out across China (1,000+ shops reported
+    worldwide) before expanding to Singapore, Macau, Malaysia and Indonesia. IN SCOPE as China-born-and-built
+    (owner call 2026-10-19), distinct from the excluded Taiwan-HQ chains (Chatime/Gong cha/TP Tea). US arm
+    R&B Tea USA (rbteausa.com, HQ Gardena/Garden Grove CA) runs 40 operating stores (CA 24, TX 11, AZ 2,
+    MI 1, SC 1, NC 1). A machine-readable locator EXISTS (rbteausa.com/locations) — a future collector
+    candidate; for now the 40 stores are tracked via sightings (read 19 Oct 2026).
+    """
+    chain_id, name, name_zh = "rbtea", "R&B Tea", ""
+    name_us = "R&B Tea"
+    aliases = ("R&B Tea", "R & B Tea", "RB Tea", "R&B", "R&B Milk Tea", "R&B Teausa")
+    parent, format = "R&B Tea", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("China-born-and-built bubble-tea chain (R&B Tea; founders Rex & Bruce, first store Suzhou"
+                      " 2006). US arm rbteausa.com runs 40 stores (CA/TX/AZ/MI/SC/NC). Locator exists but is"
+                      " tracked via sightings for now (19 Oct 2026). In scope per owner call (China-born-and-built)")
+    RECHECK = ["https://rbteausa.com/locations"]
+
+
+class TenSecondsAdapter(Adapter):
+    """
+    Ten Seconds Yunnan Rice Noodle (十秒到云南过桥米线 / ShiMiaoDao) — added 2026-10-19. China-origin Yunnan
+    crossing-bridge rice-noodle (过桥米线) chain, HQ Hangzhou, Zhejiang (shimiaodao.com). Built out across China,
+    then expanded overseas — its own history dates the first overseas store to New York — and self-reports 40+
+    North America stores. Operator-observed Google Maps listings confirm ~39 operating US stores across 18 states
+    (CA 8, TX 7, NY 4, NJ/WA/PA/MD/OR 2, + 9 states x1). Discovered via the SGV malatang Maps scan. The official
+    site's US locator is blog-style (not a clean roster), so the roster was built by Maps enumeration and is
+    tracked via sightings. In scope (China origin).
+    """
+    chain_id, name, name_zh = "tenseconds", "Ten Seconds Yunnan Rice Noodle", "十秒到"
+    name_us = "Ten Seconds Yunnan Rice Noodle"
+    aliases = ("Ten Seconds", "Ten Seconds Rice Noodle", "Ten Seconds Yunnan Rice Noodle", "Ten Second Noodle",
+               "10 Second Noodle", "ShiMiaoDao", "十秒到", "十秒到云南过桥米线")
+    parent, format = "Ten Seconds (ShiMiaoDao, Hangzhou)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Yunnan 过桥米线 chain (Ten Seconds / 十秒到 / ShiMiaoDao, HQ Hangzhou). ~39"
+                      " operating US stores across 18 states confirmed via Google Maps (19 Oct 2026). Official US"
+                      " locator is blog-style, not machine-readable, so tracked via sightings. In scope (China origin)")
+    RECHECK = ["https://en.shimiaodao.com/usa/"]

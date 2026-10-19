@@ -1,1693 +1,1717 @@
 {
- "_readme": [
-  "Who each company is, for the Introduction tab: a short blurb, the parent's own site in China",
-  "(or global) and its US site where one exists, and a slot for a representative photo of one of",
-  "its outlets in China. LINKS ARE PROVIDED AS-IS. Any link outside the USA is untested by this",
-  "project and should be treated at the reader's discretion — the site warns of this beside every",
-  "such link. PHOTOS are not shipped: `photo` names a local file under map/img/ that must be an",
-  "image the project has the right to use (licensed, or an official press image with permission);",
-  "until one is added the tab shows a neutral placeholder. Never hotlink a copyrighted storefront",
-  "photo. `photo_credit` is shown beneath the image when present."
- ],
- "as_of": "2026-10-01",
- "companies": {
-  "mixue": {
-   "name": "MIXUE",
-   "name_zh": "蜜雪冰城",
-   "category": "Tea & ice cream",
-   "blurb": "The world's largest fast-food chain by store count, with nearly 60,000 outlets. It runs on very low prices, such as an ice cream cone for under a dollar, and a franchise model that makes most of its money selling ingredients to franchisees. Its mascot is a crowned Snow King. US stores began opening in 2025.",
-   "site_cn": "https://en.mxbc.com/",
-   "site_us": null,
-   "photo": "img/mixue.jpg",
-   "photo_credit": null,
-   "us_since": "December 2025",
-   "first_outlet": "Los Angeles — 6922 Hollywood Blvd",
-   "photos": {
-    "china": {
-     "file": "mixue/china.jpg",
-     "caption": "A Mixue in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg",
-     "label": "郑州"
+  "_readme": [
+    "Who each company is, for the Introduction tab: a short blurb, the parent's own site in China",
+    "(or global) and its US site where one exists, and a slot for a representative photo of one of",
+    "its outlets in China. LINKS ARE PROVIDED AS-IS. Any link outside the USA is untested by this",
+    "project and should be treated at the reader's discretion — the site warns of this beside every",
+    "such link. PHOTOS are not shipped: `photo` names a local file under map/img/ that must be an",
+    "image the project has the right to use (licensed, or an official press image with permission);",
+    "until one is added the tab shows a neutral placeholder. Never hotlink a copyrighted storefront",
+    "photo. `photo_credit` is shown beneath the image when present."
+  ],
+  "as_of": "2026-10-01",
+  "companies": {
+    "mixue": {
+      "name": "MIXUE",
+      "name_zh": "蜜雪冰城",
+      "category": "Tea & ice cream",
+      "blurb": "The world's largest fast-food chain by store count, with nearly 60,000 outlets. It runs on very low prices, such as an ice cream cone for under a dollar, and a franchise model that makes most of its money selling ingredients to franchisees. Its mascot is a crowned Snow King. US stores began opening in 2025.",
+      "site_cn": "https://en.mxbc.com/",
+      "site_us": null,
+      "photo": "img/mixue.jpg",
+      "photo_credit": null,
+      "us_since": "December 2025",
+      "first_outlet": "Los Angeles — 6922 Hollywood Blvd",
+      "photos": {
+        "china": {
+          "file": "mixue/china.jpg",
+          "caption": "A Mixue in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg",
+          "label": "郑州"
+        },
+        "us": {
+          "file": "mixue/us.jpg",
+          "caption": "A US Mixue (Broadway at West 32nd Street, Manhattan)",
+          "credit": "4300streetcar",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AMixue_store_in_New_York_City_June_2026.jpg",
+          "label": "New York, NY"
+        },
+        "gallery": [
+          {
+            "file": "mixue/g1.jpg",
+            "caption": "Mixue's signature soft-serve ice cream",
+            "credit": "Philip Mallis",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHoneydew_melon_ice_cream_from_Mixue_in_Chinatown%2C_Singapore.jpg"
+          },
+          {
+            "file": "mixue/g2.jpg",
+            "caption": "A cheese-foam tea",
+            "credit": "彩色琪子",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A%E8%9C%9C%E9%9B%AA%E5%86%B0%E5%9F%8E%E8%8A%9D%E5%A3%AB%E5%A5%B6%E7%9B%96%E5%9B%9B%E5%AD%A3%E6%98%A5.jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "mixue/us.jpg",
-     "caption": "A US Mixue (Broadway at West 32nd Street, Manhattan)",
-     "credit": "4300streetcar",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AMixue_store_in_New_York_City_June_2026.jpg",
-     "label": "New York, NY"
+    "chagee": {
+      "name": "CHAGEE",
+      "name_zh": "霸王茶姬",
+      "category": "Premium tea",
+      "blurb": "A fast-growing premium tea brand whose Chinese name is Bawang Chaji. It is often described as China's answer to Starbucks, and is known for its oolong-milk teas and plain branding. It listed on Nasdaq in 2025 and opened its first US stores the same year.",
+      "site_cn": "https://www.chagee.com/",
+      "site_us": "https://www.chagee.us/",
+      "photo": "img/chagee.jpg",
+      "photo_credit": null,
+      "us_since": "May 2025",
+      "first_outlet": "Los Angeles — Westfield Century City",
+      "photos": {
+        "china": {
+          "file": "chagee/china.jpg",
+          "caption": "A CHAGEE on Fotang Old Street, Yiwu, China",
+          "credit": "MNXANL",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A202403_CHAGEE_Store_on_Fotang_Old_Street%2C_Yiwu.jpg",
+          "label": "义乌"
+        },
+        "gallery": [
+          {
+            "file": "chagee/g1.jpg",
+            "caption": "A “Hua Tian Wu Long” tea",
+            "credit": "Fumikas Sagisavas",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC%E8%8A%B1%E7%94%B0%E4%B9%8C%E9%BE%99.jpg"
+          },
+          {
+            "file": "chagee/g2.jpg",
+            "caption": "A CHAGEE in Shenzhen, China",
+            "credit": "SYSHLWO MSRPSL SUNGA",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_%E5%A3%B9%E6%96%B9%E5%9F%8E%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83_Bao%27An_Uniwalk_Mall_%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC_Chagee_Restaurant_May_2023_Px3_01.jpg"
+          },
+          {
+            "file": "chagee/g3.jpg",
+            "caption": "A CHAGEE counter in a mall",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AChagee_at_Shin_Kong_Place-20240614.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "mixue/g1.jpg",
-      "caption": "Mixue's signature soft-serve ice cream",
-      "credit": "Philip Mallis",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHoneydew_melon_ice_cream_from_Mixue_in_Chinatown%2C_Singapore.jpg"
-     },
-     {
-      "file": "mixue/g2.jpg",
-      "caption": "A cheese-foam tea",
-      "credit": "彩色琪子",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A%E8%9C%9C%E9%9B%AA%E5%86%B0%E5%9F%8E%E8%8A%9D%E5%A3%AB%E5%A5%B6%E7%9B%96%E5%9B%9B%E5%AD%A3%E6%98%A5.jpg"
-     }
-    ]
-   }
-  },
-  "chagee": {
-   "name": "CHAGEE",
-   "name_zh": "霸王茶姬",
-   "category": "Premium tea",
-   "blurb": "A fast-growing premium tea brand whose Chinese name is Bawang Chaji. It is often described as China's answer to Starbucks, and is known for its oolong-milk teas and plain branding. It listed on Nasdaq in 2025 and opened its first US stores the same year.",
-   "site_cn": "https://www.chagee.com/",
-   "site_us": "https://www.chagee.us/",
-   "photo": "img/chagee.jpg",
-   "photo_credit": null,
-   "us_since": "May 2025",
-   "first_outlet": "Los Angeles — Westfield Century City",
-   "photos": {
-    "china": {
-     "file": "chagee/china.jpg",
-     "caption": "A CHAGEE on Fotang Old Street, Yiwu, China",
-     "credit": "MNXANL",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A202403_CHAGEE_Store_on_Fotang_Old_Street%2C_Yiwu.jpg",
-     "label": "义乌"
+    "luckin": {
+      "name": "Luckin Coffee",
+      "name_zh": "瑞幸咖啡",
+      "category": "Coffee",
+      "blurb": "China's largest coffee chain. It passed Starbucks in China by volume, using cheap, app-first ordering, and did so after rebuilding from a 2020 accounting fraud that had it delisted. It opened its first US stores in New York in mid-2025.",
+      "site_cn": "https://www.luckincoffee.com/",
+      "site_us": "https://www.luckincoffee.us/",
+      "photo": "img/luckin.jpg",
+      "photo_credit": null,
+      "us_since": "June 2025",
+      "first_outlet": "New York City — 755 Broadway",
+      "photos": {
+        "china": {
+          "file": "luckin/china.jpg",
+          "caption": "A Luckin Coffee in Beijing, China",
+          "credit": "CNHowey",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_coffee.jpg",
+          "label": "北京"
+        },
+        "us": {
+          "file": "luckin/us.jpg",
+          "caption": "A US Luckin Coffee (Sixth Avenue, Manhattan)",
+          "credit": "4300streetcar",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_on_Sixth_Avenue_Manhattan_September_2025.jpg",
+          "label": "New York, NY"
+        },
+        "gallery": [
+          {
+            "file": "luckin/g1.jpg",
+            "caption": "The signature “little blue cup”",
+            "credit": "X-SHLIED",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee%27s_Classic_Little_Blue_Cup.jpg"
+          },
+          {
+            "file": "luckin/g2.jpg",
+            "caption": "A pickup counter in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_at_L1_Guomao_Station_concourse_%2820251031160436%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "chagee/g1.jpg",
-      "caption": "A “Hua Tian Wu Long” tea",
-      "credit": "Fumikas Sagisavas",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC%E8%8A%B1%E7%94%B0%E4%B9%8C%E9%BE%99.jpg"
-     },
-     {
-      "file": "chagee/g2.jpg",
-      "caption": "A CHAGEE in Shenzhen, China",
-      "credit": "SYSHLWO MSRPSL SUNGA",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_%E5%A3%B9%E6%96%B9%E5%9F%8E%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83_Bao%27An_Uniwalk_Mall_%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC_Chagee_Restaurant_May_2023_Px3_01.jpg"
-     },
-     {
-      "file": "chagee/g3.jpg",
-      "caption": "A CHAGEE counter in a mall",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChagee_at_Shin_Kong_Place-20240614.jpg"
-     }
-    ]
-   }
-  },
-  "luckin": {
-   "name": "Luckin Coffee",
-   "name_zh": "瑞幸咖啡",
-   "category": "Coffee",
-   "blurb": "China's largest coffee chain. It passed Starbucks in China by volume, using cheap, app-first ordering, and did so after rebuilding from a 2020 accounting fraud that had it delisted. It opened its first US stores in New York in mid-2025.",
-   "site_cn": "https://www.luckincoffee.com/",
-   "site_us": "https://www.luckincoffee.us/",
-   "photo": "img/luckin.jpg",
-   "photo_credit": null,
-   "us_since": "June 2025",
-   "first_outlet": "New York City — 755 Broadway",
-   "photos": {
-    "china": {
-     "file": "luckin/china.jpg",
-     "caption": "A Luckin Coffee in Beijing, China",
-     "credit": "CNHowey",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_coffee.jpg",
-     "label": "北京"
+    "miniso": {
+      "name": "MINISO",
+      "name_zh": "名创优品",
+      "category": "Lifestyle & variety retail",
+      "blurb": "A variety retailer selling inexpensive, design-focused goods and licensed-character merchandise. It has a Japanese-styled look but Guangzhou roots. Today, MINISO has the largest and most established US presence of any chain tracked here.",
+      "site_cn": "https://www.miniso.com/",
+      "site_us": "https://www.miniso-us.com/",
+      "photo": "img/miniso.jpg",
+      "photo_credit": null,
+      "us_since": "April 2017",
+      "first_outlet": "Pasadena, CA — 88 W Colorado Blvd",
+      "photos": {
+        "china": {
+          "file": "miniso/china.jpg",
+          "caption": "A MINISO in Dongguan, China",
+          "credit": "茅野ふたば",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A%E5%90%8D%E5%88%9B%E4%BC%98%E5%93%81%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%B8%9C%E8%8E%9E%E5%B8%82%E5%A4%A9%E5%AE%9D%E8%B7%AF%EF%BC%8820241118100804%EF%BC%89.jpg",
+          "label": "东莞"
+        },
+        "us": {
+          "file": "miniso/us.jpg",
+          "caption": "A US MINISO in Times Square, New York",
+          "credit": "Tony25430",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg",
+          "label": "New York, NY"
+        },
+        "gallery": [
+          {
+            "file": "miniso/g1.jpg",
+            "caption": "Inside a MINISO store",
+            "credit": "TheNuggeteer",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AMINISO_Ormoc-2.jpg"
+          },
+          {
+            "file": "miniso/g2.jpg",
+            "caption": "A MINISO storefront abroad",
+            "credit": "Wpcpey",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_branch_in_The_Galeries_2017.jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "luckin/us.jpg",
-     "caption": "A US Luckin Coffee (Sixth Avenue, Manhattan)",
-     "credit": "4300streetcar",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_on_Sixth_Avenue_Manhattan_September_2025.jpg",
-     "label": "New York, NY"
+    "popmart": {
+      "name": "POP MART",
+      "name_zh": "泡泡玛特",
+      "category": "Collectible toys",
+      "blurb": "The blind-box toy company behind Labubu and other collectible figures, sold through staffed stores and unstaffed “Robo Shop” vending kiosks. Its US presence has grown quickly in malls across the country.",
+      "site_cn": "https://www.popmart.com/",
+      "site_us": "https://www.popmart.com/us",
+      "photo": "img/popmart.jpg",
+      "photo_credit": null,
+      "us_since": "September 2023",
+      "first_outlet": "East Rutherford, NJ — American Dream (first permanent store)",
+      "photos": {
+        "china": {
+          "file": "popmart/china.jpg",
+          "caption": "A POP MART store in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_store_at_Universal_CityWalk_Beijing_%2820210907111354%29.jpg",
+          "label": "北京"
+        },
+        "us": {
+          "file": "popmart/us.jpg",
+          "caption": "A US POP MART store (the Oculus, New York)",
+          "credit": "Thelabubucollector",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ALabubu_Pop_Mart_store_in_New_York_City.jpg",
+          "label": "New York, NY"
+        },
+        "gallery": [
+          {
+            "file": "popmart/g1.jpg",
+            "caption": "A POP MART “roboshop” vending machine in Cerritos, California",
+            "credit": "Thelabubucollector",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_Vending_Machine_in_Cerritos%2C_California.jpg"
+          },
+          {
+            "file": "popmart/g2.jpg",
+            "caption": "A POP MART store in Suzhou, China",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_at_Suzhou_Center-20220709.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "luckin/g1.jpg",
-      "caption": "The signature “little blue cup”",
-      "credit": "X-SHLIED",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee%27s_Classic_Little_Blue_Cup.jpg"
-     },
-     {
-      "file": "luckin/g2.jpg",
-      "caption": "A pickup counter in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_at_L1_Guomao_Station_concourse_%2820251031160436%29.jpg"
-     }
-    ]
-   }
-  },
-  "miniso": {
-   "name": "MINISO",
-   "name_zh": "名创优品",
-   "category": "Lifestyle & variety retail",
-   "blurb": "A variety retailer selling inexpensive, design-focused goods and licensed-character merchandise. It has a Japanese-styled look but Guangzhou roots. Today, MINISO has the largest and most established US presence of any chain tracked here.",
-   "site_cn": "https://www.miniso.com/",
-   "site_us": "https://www.miniso-us.com/",
-   "photo": "img/miniso.jpg",
-   "photo_credit": null,
-   "us_since": "April 2017",
-   "first_outlet": "Pasadena, CA — 88 W Colorado Blvd",
-   "photos": {
-    "china": {
-     "file": "miniso/china.jpg",
-     "caption": "A MINISO in Dongguan, China",
-     "credit": "茅野ふたば",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A%E5%90%8D%E5%88%9B%E4%BC%98%E5%93%81%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%B8%9C%E8%8E%9E%E5%B8%82%E5%A4%A9%E5%AE%9D%E8%B7%AF%EF%BC%8820241118100804%EF%BC%89.jpg",
-     "label": "东莞"
+    "haidilao": {
+      "name": "Haidilao",
+      "name_zh": "海底捞",
+      "category": "Hot pot",
+      "blurb": "A large hot pot chain known for its elaborate service, which can include free manicures, live noodle-pulling and birthday songs. Its overseas arm, Super Hi International, runs the US restaurants, and it has been in the US since 2013.",
+      "site_cn": "https://www.haidilao.com/",
+      "site_us": "https://haidilaohotpot.us/",
+      "photo": "img/haidilao.jpg",
+      "photo_credit": null,
+      "us_since": "September 2013",
+      "first_outlet": "Arcadia, CA — 400 S Baldwin Ave (Westfield Santa Anita)",
+      "photos": {
+        "china": {
+          "file": "haidilao/china-suzhou.jpg",
+          "label": "苏州",
+          "caption": "A Haidilao in Suzhou, China",
+          "credit": "Shwangtianyuan",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Haidilao_in_Suzhou.jpg"
+        },
+        "us": {
+          "file": "haidilao/us-houston.jpg",
+          "label": "Houston, TX",
+          "caption": "A US Haidilao (Harris County, Texas)",
+          "credit": "WhisperToMe",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "source": "https://commons.wikimedia.org/wiki/File:Haidilao_Harris_County.jpg"
+        },
+        "gallery": [
+          {
+            "file": "haidilao/gallery-order.jpg",
+            "caption": "Beef and dipping sauces",
+            "credit": "Angelsu52",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Haidilao_order.jpg"
+          },
+          {
+            "file": "haidilao/gallery-mall.jpg",
+            "caption": "At a shopping-mall branch in China",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Haidilao_Hot_Pot_at_GR_Shopping_Mall_(20200829181143).jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "miniso/us.jpg",
-     "caption": "A US MINISO in Times Square, New York",
-     "credit": "Tony25430",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg",
-     "label": "New York, NY"
+    "heytea": {
+      "name": "HEYTEA",
+      "name_zh": "喜茶",
+      "category": "Premium tea",
+      "blurb": "The brand that made cheese-foam and fresh-fruit tea popular in China, at the premium end of the market. Its US stores cluster in Chinese-American neighbourhoods. It publishes no US store locator, so we put its footprint together from public records.",
+      "site_cn": "https://www.heytea.com/",
+      "site_us": "https://www.heytea.com/en-us/store",
+      "photo": "img/heytea.jpg",
+      "photo_credit": null,
+      "us_since": "December 2023",
+      "first_outlet": "New York City — 1407 Broadway",
+      "photos": {
+        "china": {
+          "file": "heytea/china.jpg",
+          "caption": "A HEYTEA in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20211212_Heytea_at_MixC_Zhengzhou.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "heytea/g1.jpg",
+            "caption": "A HEYTEA mango drink",
+            "credit": "CNHowey",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHeytea_Mango_drink.jpg"
+          },
+          {
+            "file": "heytea/g2.jpg",
+            "caption": "HEYTEA drinks, photographed in Shenzhen",
+            "credit": "Infinitygwen",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_Products.jpg"
+          },
+          {
+            "file": "heytea/g3.jpg",
+            "caption": "A HEYTEA store in Hong Kong",
+            "credit": "Wpcpey",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_in_Hysan_Place_201903.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "miniso/g1.jpg",
-      "caption": "Inside a MINISO store",
-      "credit": "TheNuggeteer",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMINISO_Ormoc-2.jpg"
-     },
-     {
-      "file": "miniso/g2.jpg",
-      "caption": "A MINISO storefront abroad",
-      "credit": "Wpcpey",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_branch_in_The_Galeries_2017.jpg"
-     }
-    ]
-   }
-  },
-  "popmart": {
-   "name": "POP MART",
-   "name_zh": "泡泡玛特",
-   "category": "Collectible toys",
-   "blurb": "The blind-box toy company behind Labubu and other collectible figures, sold through staffed stores and unstaffed “Robo Shop” vending kiosks. Its US presence has grown quickly in malls across the country.",
-   "site_cn": "https://www.popmart.com/",
-   "site_us": "https://www.popmart.com/us",
-   "photo": "img/popmart.jpg",
-   "photo_credit": null,
-   "us_since": "September 2023",
-   "first_outlet": "East Rutherford, NJ — American Dream (first permanent store)",
-   "photos": {
-    "china": {
-     "file": "popmart/china.jpg",
-     "caption": "A POP MART store in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_store_at_Universal_CityWalk_Beijing_%2820210907111354%29.jpg",
-     "label": "北京"
+    "cotti": {
+      "name": "Cotti Coffee",
+      "name_zh": "库迪咖啡",
+      "category": "Coffee",
+      "blurb": "Founded in 2022 by two executives who had been forced out of Luckin, and set up in direct competition with it. Cotti competes on price and has expanded worldwide very fast on a franchise model. Its US growth is quiet and led by franchisees, with no public US locator.",
+      "site_cn": "https://www.cotti.com/",
+      "site_us": null,
+      "photo": "img/cotti.jpg",
+      "photo_credit": null,
+      "us_since": "2024",
+      "first_outlet": "Pearl City, HI — Pearl Highlands Center",
+      "photos": {
+        "china": {
+          "file": "cotti/china.jpg",
+          "caption": "A Cotti Coffee in Xiamen, China",
+          "credit": "HualinXMN",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_SM_Xiamen_Phase_III_shop.jpg",
+          "label": "厦门"
+        },
+        "gallery": [
+          {
+            "file": "cotti/g1.jpg",
+            "caption": "A Cotti mango-coconut latte",
+            "credit": "BlouStyle",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Mango_Coco_Latte.jpg"
+          },
+          {
+            "file": "cotti/g2.jpg",
+            "caption": "A Cotti storefront in Fuding",
+            "credit": "彩色琪子",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Fuding_Guchen_South_road_Store.jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "popmart/us.jpg",
-     "caption": "A US POP MART store (the Oculus, New York)",
-     "credit": "Thelabubucollector",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALabubu_Pop_Mart_store_in_New_York_City.jpg",
-     "label": "New York, NY"
+    "taier": {
+      "name": "Tai Er",
+      "name_zh": "太二",
+      "category": "Sichuan restaurant",
+      "blurb": "A Sichuan sauerkraut-fish (suancai yu) restaurant from the Hong Kong-listed group Jiumaojiu, known for its stylised branding and one signature dish. Its US presence is small and new, in San Mateo, San Jose, Flushing and LA.",
+      "site_cn": "http://en.jiumaojiu.com/",
+      "site_us": "https://www.taierusa.com/",
+      "photo": "img/taier.jpg",
+      "photo_credit": null,
+      "us_since": "2018",
+      "first_outlet": "City of Industry, CA — 18518 E Gale Ave",
+      "photos": {
+        "china": {
+          "file": "taier/china.jpg",
+          "caption": "A Tai Er sauerkraut-fish restaurant in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20211217_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_at_David_Plaza.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "taier/g1.jpg",
+            "caption": "A Tai Er in Hong Kong",
+            "credit": "EBIANHA Wokariem",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHK_KCD_%E5%95%9F%E5%BE%B7_Kai_Tak_AIRSIDE_Shopping_Mall_%E5%A4%AA%E4%BA%8C%E9%85%B8%E8%8F%9C%E9%B1%BC_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_January_2024_R12S_02.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "popmart/g1.jpg",
-      "caption": "A POP MART “roboshop” vending machine in Cerritos, California",
-      "credit": "Thelabubucollector",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_Vending_Machine_in_Cerritos%2C_California.jpg"
-     },
-     {
-      "file": "popmart/g2.jpg",
-      "caption": "A POP MART store in Suzhou, China",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_at_Suzhou_Center-20220709.jpg"
-     }
-    ]
-   }
-  },
-  "haidilao": {
-   "name": "Haidilao",
-   "name_zh": "海底捞",
-   "category": "Hot pot",
-   "blurb": "A large hot pot chain known for its elaborate service, which can include free manicures, live noodle-pulling and birthday songs. Its overseas arm, Super Hi International, runs the US restaurants, and it has been in the US since 2013.",
-   "site_cn": "https://www.haidilao.com/",
-   "site_us": "https://haidilaohotpot.us/",
-   "photo": "img/haidilao.jpg",
-   "photo_credit": null,
-   "us_since": "September 2013",
-   "first_outlet": "Arcadia, CA — 400 S Baldwin Ave (Westfield Santa Anita)",
-   "photos": {
-    "china": {
-     "file": "haidilao/china-suzhou.jpg",
-     "label": "苏州",
-     "caption": "A Haidilao in Suzhou, China",
-     "credit": "Shwangtianyuan",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File:Haidilao_in_Suzhou.jpg"
+    "chabaidao": {
+      "name": "ChaPanda",
+      "name_zh": "茶百道",
+      "category": "Tea",
+      "blurb": "A large Chinese fruit-tea chain (Chabaidao) that listed in Hong Kong in 2024. It entered the US in 2025 trading as “TeaByDo”, with only a handful of stores so far.",
+      "site_cn": "https://www.chabaidao.com/",
+      "site_us": null,
+      "photo": "img/chabaidao.jpg",
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Flushing, Queens, NY — 38-03 Main St",
+      "photos": {
+        "china": {
+          "file": "chabaidao/china.jpg",
+          "caption": "A ChaPanda (Chabaidao) in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20220809_Cha_Bai_Dao_at_Zhengzhou_Shanshan_Outlet_Plaza.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "chabaidao/g1.jpg",
+            "caption": "A ChaPanda store in Singapore",
+            "credit": "Pscmaczilhca",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AChaPanda_Store_in_Clementi_Central%2C_Singapore.jpg"
+          },
+          {
+            "file": "chabaidao/g2.jpg",
+            "caption": "A Chabaidao store in Suzhou",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AChabaidao_at_Jingcheng_Neighbor_Center-20210526.jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "haidilao/us-houston.jpg",
-     "label": "Houston, TX",
-     "caption": "A US Haidilao (Harris County, Texas)",
-     "credit": "WhisperToMe",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-     "source": "https://commons.wikimedia.org/wiki/File:Haidilao_Harris_County.jpg"
+    "nayuki": {
+      "name": "NaiSnow",
+      "name_zh": "奉雪的茶",
+      "category": "Tea & bakery",
+      "blurb": "The US arm of Nayuki (Naixue), a premium Hong Kong-listed tea-and-soft-bread chain, trading in America as “NaiSnow”. It entered the US in late 2025 and is expanding quickly across New York and into New Jersey.",
+      "site_cn": "https://www.naixue.com/",
+      "site_us": null,
+      "photo": "img/nayuki.jpg",
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Flushing, Queens, NY — 39-07 Prince St",
+      "photos": {
+        "china": {
+          "file": "nayuki/china.jpg",
+          "caption": "A Nayuki in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20211213_Nayuki_at_Yoyo_Park_01.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "nayuki/g1.jpg",
+            "caption": "A Nayuki Pro store in Suzhou",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ANayuki_Pro_at_Link_Square%2C_Suzhou-20211228.jpg"
+          },
+          {
+            "file": "nayuki/g2.jpg",
+            "caption": "A Nayuki store in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ANaixue_shop_at_88_St_Life_Mall_%2820231211123934%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "haidilao/gallery-order.jpg",
-      "caption": "Beef and dipping sauces",
-      "credit": "Angelsu52",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Haidilao_order.jpg"
-     },
-     {
-      "file": "haidilao/gallery-mall.jpg",
-      "caption": "At a shopping-mall branch in China",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Haidilao_Hot_Pot_at_GR_Shopping_Mall_(20200829181143).jpg"
-     }
-    ]
-   }
-  },
-  "heytea": {
-   "name": "HEYTEA",
-   "name_zh": "喜茶",
-   "category": "Premium tea",
-   "blurb": "The brand that made cheese-foam and fresh-fruit tea popular in China, at the premium end of the market. Its US stores cluster in Chinese-American neighbourhoods. It publishes no US store locator, so we put its footprint together from public records.",
-   "site_cn": "https://www.heytea.com/",
-   "site_us": "https://www.heytea.com/en-us/store",
-   "photo": "img/heytea.jpg",
-   "photo_credit": null,
-   "us_since": "December 2023",
-   "first_outlet": "New York City — 1407 Broadway",
-   "photos": {
-    "china": {
-     "file": "heytea/china.jpg",
-     "caption": "A HEYTEA in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211212_Heytea_at_MixC_Zhengzhou.jpg",
-     "label": "郑州"
+    "juewei": {
+      "name": "Juewei",
+      "name_zh": "绝味鸭脖",
+      "category": "Braised snacks",
+      "blurb": "A Shanghai-listed braised-snack chain (“duck neck” and other marinated items) with tens of thousands of outlets in China. Its US presence is tiny and mostly delivery, trading as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food.",
+      "site_cn": "http://www.juewei.com/",
+      "site_us": null,
+      "photo": "img/juewei.jpg",
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": "",
+      "photos": {
+        "china": {
+          "file": "juewei/china.jpg",
+          "caption": "A Juewei duck-neck shop in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Duck_Neck_at_13_West_3rd_Ring_Rd_N_%2820220808153655%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "juewei/g1.jpg",
+            "caption": "A Juewei counter in Changsha, China",
+            "credit": "Huangdan2060",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_in_Changsha_20250403.jpg"
+          },
+          {
+            "file": "juewei/g2.jpg",
+            "caption": "A Juewei storefront in Changsha, China",
+            "credit": "Huangdan2060",
+            "license": "CC BY 3.0",
+            "license_url": "https://creativecommons.org/licenses/by/3.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_20211203.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "heytea/g1.jpg",
-      "caption": "A HEYTEA mango drink",
-      "credit": "CNHowey",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHeytea_Mango_drink.jpg"
-     },
-     {
-      "file": "heytea/g2.jpg",
-      "caption": "HEYTEA drinks, photographed in Shenzhen",
-      "credit": "Infinitygwen",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_Products.jpg"
-     },
-     {
-      "file": "heytea/g3.jpg",
-      "caption": "A HEYTEA store in Hong Kong",
-      "credit": "Wpcpey",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_in_Hysan_Place_201903.jpg"
-     }
-    ]
-   }
-  },
-  "cotti": {
-   "name": "Cotti Coffee",
-   "name_zh": "库迪咖啡",
-   "category": "Coffee",
-   "blurb": "Founded in 2022 by two executives who had been forced out of Luckin, and set up in direct competition with it. Cotti competes on price and has expanded worldwide very fast on a franchise model. Its US growth is quiet and led by franchisees, with no public US locator.",
-   "site_cn": "https://www.cotti.com/",
-   "site_us": null,
-   "photo": "img/cotti.jpg",
-   "photo_credit": null,
-   "us_since": "2024",
-   "first_outlet": "Pearl City, HI — Pearl Highlands Center",
-   "photos": {
-    "china": {
-     "file": "cotti/china.jpg",
-     "caption": "A Cotti Coffee in Xiamen, China",
-     "credit": "HualinXMN",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_SM_Xiamen_Phase_III_shop.jpg",
-     "label": "厦门"
+    "yangguofu": {
+      "name": "Yangguofu",
+      "name_zh": "杨国福麻辣烫",
+      "category": "Malatang",
+      "blurb": "One of China's two dominant malatang (build-your-own skewered hotpot soup) chains, founded in Harbin in 2003. It began a registered US franchise programme in 2024, trading as YGF, and is expanding across the coasts.",
+      "site_cn": "https://www.yangguofu.com/",
+      "site_us": "https://www.ygfus.com/",
+      "photo": "img/yangguofu.jpg",
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": ""
     },
-    "gallery": [
-     {
-      "file": "cotti/g1.jpg",
-      "caption": "A Cotti mango-coconut latte",
-      "credit": "BlouStyle",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Mango_Coco_Latte.jpg"
-     },
-     {
-      "file": "cotti/g2.jpg",
-      "caption": "A Cotti storefront in Fuding",
-      "credit": "彩色琪子",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Fuding_Guchen_South_road_Store.jpg"
-     }
-    ]
-   }
-  },
-  "taier": {
-   "name": "Tai Er",
-   "name_zh": "太二",
-   "category": "Sichuan restaurant",
-   "blurb": "A Sichuan sauerkraut-fish (suancai yu) restaurant from the Hong Kong-listed group Jiumaojiu, known for its stylised branding and one signature dish. Its US presence is small and new, in San Mateo, San Jose, Flushing and LA.",
-   "site_cn": "http://en.jiumaojiu.com/",
-   "site_us": "https://www.taierusa.com/",
-   "photo": "img/taier.jpg",
-   "photo_credit": null,
-   "us_since": "2018",
-   "first_outlet": "City of Industry, CA — 18518 E Gale Ave",
-   "photos": {
-    "china": {
-     "file": "taier/china.jpg",
-     "caption": "A Tai Er sauerkraut-fish restaurant in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211217_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_at_David_Plaza.jpg",
-     "label": "郑州"
+    "fishwithyou": {
+      "name": "Fish With You",
+      "name_zh": "鱼你在一起",
+      "category": "Sichuan restaurant",
+      "blurb": "A Chinese fast-casual chain built on one dish: Sichuan sauerkraut fish (suancai yu) over rice. Founded in Beijing around 2016, it has thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish), using per-store sites rather than one locator.",
+      "site_cn": "https://en.yunizaiyiqi.com/",
+      "site_us": "https://www.fishwithyouny.com/",
+      "photo": "img/fishwithyou.jpg",
+      "photo_credit": null,
+      "us_since": "",
+      "first_outlet": "Flushing, Queens, NY — 135-25A 40th Rd"
     },
-    "gallery": [
-     {
-      "file": "taier/g1.jpg",
-      "caption": "A Tai Er in Hong Kong",
-      "credit": "EBIANHA Wokariem",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHK_KCD_%E5%95%9F%E5%BE%B7_Kai_Tak_AIRSIDE_Shopping_Mall_%E5%A4%AA%E4%BA%8C%E9%85%B8%E8%8F%9C%E9%B1%BC_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_January_2024_R12S_02.jpg"
-     }
-    ]
-   }
-  },
-  "chabaidao": {
-   "name": "ChaPanda",
-   "name_zh": "茶百道",
-   "category": "Tea",
-   "blurb": "A large Chinese fruit-tea chain (Chabaidao) that listed in Hong Kong in 2024. It entered the US in 2025 trading as “TeaByDo”, with only a handful of stores so far.",
-   "site_cn": "https://www.chabaidao.com/",
-   "site_us": null,
-   "photo": "img/chabaidao.jpg",
-   "photo_credit": null,
-   "us_since": "October 2025",
-   "first_outlet": "Flushing, Queens, NY — 38-03 Main St",
-   "photos": {
-    "china": {
-     "file": "chabaidao/china.jpg",
-     "caption": "A ChaPanda (Chabaidao) in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20220809_Cha_Bai_Dao_at_Zhengzhou_Shanshan_Outlet_Plaza.jpg",
-     "label": "郑州"
+    "yangs": {
+      "name": "Yang's Braised Chicken Rice",
+      "name_zh": "杨铭宇黄焖鸡",
+      "category": "Chinese restaurant",
+      "blurb": "A braised-chicken-over-rice brand that was one of the earliest Chinese chains in America, trading since 2017, but is now in retreat, with most of its US restaurants closed. We include it because it is here, and because tracking a chain that opens and then quietly closes is part of the point of a daily count.",
+      "site_cn": null,
+      "site_us": "https://yangsbraisedtogo.com/",
+      "photo": "img/yangs.jpg",
+      "photo_credit": null,
+      "us_since": "September 2017",
+      "first_outlet": "Tustin, CA — 13824 Red Hill Ave"
     },
-    "gallery": [
-     {
-      "file": "chabaidao/g1.jpg",
-      "caption": "A ChaPanda store in Singapore",
-      "credit": "Pscmaczilhca",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChaPanda_Store_in_Clementi_Central%2C_Singapore.jpg"
-     },
-     {
-      "file": "chabaidao/g2.jpg",
-      "caption": "A Chabaidao store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChabaidao_at_Jingcheng_Neighbor_Center-20210526.jpg"
-     }
-    ]
-   }
-  },
-  "nayuki": {
-   "name": "NaiSnow",
-   "name_zh": "奉雪的茶",
-   "category": "Tea & bakery",
-   "blurb": "The US arm of Nayuki (Naixue), a premium Hong Kong-listed tea-and-soft-bread chain, trading in America as “NaiSnow”. It entered the US in late 2025 and is expanding quickly across New York and into New Jersey.",
-   "site_cn": "https://www.naixue.com/",
-   "site_us": null,
-   "photo": "img/nayuki.jpg",
-   "photo_credit": null,
-   "us_since": "October 2025",
-   "first_outlet": "Flushing, Queens, NY — 39-07 Prince St",
-   "photos": {
-    "china": {
-     "file": "nayuki/china.jpg",
-     "caption": "A Nayuki in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211213_Nayuki_at_Yoyo_Park_01.jpg",
-     "label": "郑州"
+    "zhangliang": {
+      "name": "Zhang Liang Malatang",
+      "name_zh": "张亮麻辣烫",
+      "category": "Malatang",
+      "blurb": "One of China's two dominant malatang (build-your-own skewered hotpot soup) chains, alongside Yangguofu, founded in Harbin in 2008 with around 6,000 outlets. Its self-serve format lets diners fill a bowl from 80-plus fresh ingredients cooked in a spicy bone broth. Its own brand news reports 42 North American outlets across the US, Canada and Mexico as of September 2026; in the US it clusters in California, in the Bay Area and Los Angeles.",
+      "site_cn": "https://www.zlmlt.com/",
+      "site_us": null,
+      "photo": "img/zhangliang.jpg",
+      "photo_credit": null,
+      "us_since": "2019",
+      "first_outlet": "Flushing, Queens, NY",
+      "photos": {
+        "china": {
+          "file": "zhangliang/china.jpg",
+          "caption": "A Zhang Liang Malatang in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20220119_Zhangliang_Malatang_at_Greenland_Treasure_Container.jpg",
+          "label": "郑州"
+        },
+        "us": {
+          "file": "zhangliang/us.jpg",
+          "caption": "A US Zhang Liang Malatang (Chinatown, Manhattan)",
+          "credit": "Kidfly182",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg",
+          "label": "New York, NY"
+        },
+        "gallery": [
+          {
+            "file": "zhangliang/g1.jpg",
+            "caption": "Another US branch, in Flushing, Queens",
+            "credit": "Kidfly182",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AFlushing_Queens_March_2022_137.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "nayuki/g1.jpg",
-      "caption": "A Nayuki Pro store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ANayuki_Pro_at_Link_Square%2C_Suzhou-20211228.jpg"
-     },
-     {
-      "file": "nayuki/g2.jpg",
-      "caption": "A Nayuki store in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ANaixue_shop_at_88_St_Life_Mall_%2820231211123934%29.jpg"
-     }
-    ]
-   }
-  },
-  "juewei": {
-   "name": "Juewei",
-   "name_zh": "绝味鸭脖",
-   "category": "Braised snacks",
-   "blurb": "A Shanghai-listed braised-snack chain (“duck neck” and other marinated items) with tens of thousands of outlets in China. Its US presence is tiny and mostly delivery, trading as Juewei Yabo, Jue Wei Kitchen and Jue Wei Food.",
-   "site_cn": "http://www.juewei.com/",
-   "site_us": null,
-   "photo": "img/juewei.jpg",
-   "photo_credit": null,
-   "us_since": "",
-   "first_outlet": "",
-   "photos": {
-    "china": {
-     "file": "juewei/china.jpg",
-     "caption": "A Juewei duck-neck shop in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Duck_Neck_at_13_West_3rd_Ring_Rd_N_%2820220808153655%29.jpg",
-     "label": "北京"
+    "chahalo": {
+      "name": "ChaHalo",
+      "name_zh": "茶话弄",
+      "category": "Premium tea",
+      "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Xi'an, known for tea-forward drinks made with whole tea leaves and fresh milk and a signature \"tri-aroma\" style. It has grown to around 1,000 stores across China and began expanding overseas in 2024; its early US outlets are in California and New York, with Canada (Toronto) also underway.",
+      "site_cn": "https://www.chahalo.com/",
+      "site_us": null,
+      "photo": "img/chahalo.jpg",
+      "photo_credit": null,
+      "us_since": "October 2025",
+      "first_outlet": "Rowland Heights, CA"
     },
-    "gallery": [
-     {
-      "file": "juewei/g1.jpg",
-      "caption": "A Juewei counter in Changsha, China",
-      "credit": "Huangdan2060",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_in_Changsha_20250403.jpg"
-     },
-     {
-      "file": "juewei/g2.jpg",
-      "caption": "A Juewei storefront in Changsha, China",
-      "credit": "Huangdan2060",
-      "license": "CC BY 3.0",
-      "license_url": "https://creativecommons.org/licenses/by/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_20211203.jpg"
-     }
-    ]
-   }
-  },
-  "yangguofu": {
-   "name": "Yangguofu",
-   "name_zh": "杨国福麻辣烫",
-   "category": "Malatang",
-   "blurb": "One of China's two dominant malatang (build-your-own skewered hotpot soup) chains, founded in Harbin in 2003. It began a registered US franchise programme in 2024, trading as YGF, and is expanding across the coasts.",
-   "site_cn": "https://www.yangguofu.com/",
-   "site_us": "https://www.ygfus.com/",
-   "photo": "img/yangguofu.jpg",
-   "photo_credit": null,
-   "us_since": "",
-   "first_outlet": ""
-  },
-  "fishwithyou": {
-   "name": "Fish With You",
-   "name_zh": "鱼你在一起",
-   "category": "Sichuan restaurant",
-   "blurb": "A Chinese fast-casual chain built on one dish: Sichuan sauerkraut fish (suancai yu) over rice. Founded in Beijing around 2016, it has thousands of outlets in China. In the US it trades under several names (Fish With You, YONNY, Wei's Fish), using per-store sites rather than one locator.",
-   "site_cn": "https://en.yunizaiyiqi.com/",
-   "site_us": "https://www.fishwithyouny.com/",
-   "photo": "img/fishwithyou.jpg",
-   "photo_credit": null,
-   "us_since": "",
-   "first_outlet": "Flushing, Queens, NY — 135-25A 40th Rd"
-  },
-  "yangs": {
-   "name": "Yang's Braised Chicken Rice",
-   "name_zh": "杨铭宇黄焖鸡",
-   "category": "Chinese restaurant",
-   "blurb": "A braised-chicken-over-rice brand that was one of the earliest Chinese chains in America, trading since 2017, but is now in retreat, with most of its US restaurants closed. We include it because it is here, and because tracking a chain that opens and then quietly closes is part of the point of a daily count.",
-   "site_cn": null,
-   "site_us": "https://yangsbraisedtogo.com/",
-   "photo": "img/yangs.jpg",
-   "photo_credit": null,
-   "us_since": "September 2017",
-   "first_outlet": "Tustin, CA — 13824 Red Hill Ave"
-  },
-  "zhangliang": {
-   "name": "Zhang Liang Malatang",
-   "name_zh": "张亮麻辣烫",
-   "category": "Malatang",
-   "blurb": "One of China's two dominant malatang (build-your-own skewered hotpot soup) chains, alongside Yangguofu, founded in Harbin in 2008 with around 6,000 outlets. Its self-serve format lets diners fill a bowl from 80-plus fresh ingredients cooked in a spicy bone broth. Its own brand news reports 42 North American outlets across the US, Canada and Mexico as of September 2026; in the US it clusters in California, in the Bay Area and Los Angeles.",
-   "site_cn": "https://www.zlmlt.com/",
-   "site_us": null,
-   "photo": "img/zhangliang.jpg",
-   "photo_credit": null,
-   "us_since": "2019",
-   "first_outlet": "Flushing, Queens, NY",
-   "photos": {
-    "china": {
-     "file": "zhangliang/china.jpg",
-     "caption": "A Zhang Liang Malatang in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20220119_Zhangliang_Malatang_at_Greenland_Treasure_Container.jpg",
-     "label": "郑州"
+    "xiaolongkan": {
+      "name": "Shoo Loong Kan Hotpot",
+      "name_zh": "小龙坎",
+      "category": "Hot pot",
+      "blurb": "A Sichuan (mala) hotpot chain founded in Chengdu in 2014, one of China's largest with thousands of outlets, known for its numbing-spicy broth and old-Chengdu styling. It trades in the US as \"Shoo Loong Kan Hotpot\" and — unusually for the chains here — publishes its own US store locator.",
+      "site_cn": null,
+      "site_us": "https://shooloongkan.us/",
+      "photo": "img/xiaolongkan.jpg",
+      "photo_credit": null,
+      "us_since": "June 2022",
+      "first_outlet": "Flushing, Queens, NY — Tangram",
+      "photos": {
+        "gallery": [
+          {
+            "file": "xiaolongkan/g1.jpg",
+            "caption": "A Xiaolongkan (Shoo Loong Kan) hot pot in Madrid",
+            "credit": "MNXANL",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A202112_Xiaolongkan_Hot_Pot_Madrid.jpg"
+          },
+          {
+            "file": "xiaolongkan/g2.jpg",
+            "caption": "A Shoo Loong Kan in Frankfurt",
+            "credit": "Matti Blume",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AShoo_Loong_Kan_Hot_Pot%2C_Frankfurt_%28IMG_20211103_185121_520%29.jpg"
+          },
+          {
+            "file": "xiaolongkan/g3.jpg",
+            "caption": "Dumplings at Xiaolongkan",
+            "credit": "MNXANL",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A202112_Qingtian_Shanfen-Dumpling_at_Xiaolongkan_Hot_Pot_Madrid.jpg"
+          }
+        ]
+      }
     },
-    "us": {
-     "file": "zhangliang/us.jpg",
-     "caption": "A US Zhang Liang Malatang (Chinatown, Manhattan)",
-     "credit": "Kidfly182",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg",
-     "label": "New York, NY"
+    "liuyishou": {
+      "name": "Liuyishou Hot Pot",
+      "name_zh": "刘一手火锅",
+      "category": "Hot pot",
+      "blurb": "A Chongqing hotpot chain founded in 2000, one of China's largest with thousands of outlets, known for its buttery mala broth and beef. It trades across North America as \"Liuyishou Hot Pot\" and publishes its own site with a page per city; its US outlets run from Boston and New York to California, Texas, Illinois and Washington.",
+      "site_cn": null,
+      "site_us": "https://www.liuyishouna.com/",
+      "photo": "img/liuyishou.jpg",
+      "photo_credit": null,
+      "us_since": "February 2017",
+      "first_outlet": "Princeton, NJ",
+      "photos": {
+        "gallery": [
+          {
+            "file": "liuyishou/g1.jpg",
+            "caption": "A Liuyishou in Hong Kong",
+            "credit": "BOASHIM Grawongei",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AHK_WC_%E7%81%A3%E4%BB%94_Wan_Chai_%E5%9B%8D%E6%AD%A1%E9%87%8C_Lee_Tung_Avenue_shop_Liu_Yi_Shou_Chong_Qing_Hot_Pot_Restaurant_%E9%87%8D%E6%85%B6%E5%8A%89%E4%B8%80%E6%89%8B%E7%81%AB%E9%8D%8B%E5%BA%97_July_2020_SS2.jpg"
+          },
+          {
+            "file": "liuyishou/g2.jpg",
+            "caption": "A Liuyishou in Madrid",
+            "credit": "MNXANL",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A202112_Liuyishou_Hot_Pot_in_Madrid.jpg"
+          },
+          {
+            "file": "liuyishou/g3.jpg",
+            "caption": "A beef-and-lamb platter at Liuyishou",
+            "credit": "StoppedTime",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ALiu%27s_Beef_%26_Lamb_Platter.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "zhangliang/g1.jpg",
-      "caption": "Another US branch, in Flushing, Queens",
-      "credit": "Kidfly182",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AFlushing_Queens_March_2022_137.jpg"
-     }
-    ]
-   }
-  },
-  "chahalo": {
-   "name": "ChaHalo",
-   "name_zh": "茶话弄",
-   "category": "Premium tea",
-   "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Xi'an, known for tea-forward drinks made with whole tea leaves and fresh milk and a signature \"tri-aroma\" style. It has grown to around 1,000 stores across China and began expanding overseas in 2024; its early US outlets are in California and New York, with Canada (Toronto) also underway.",
-   "site_cn": "https://www.chahalo.com/",
-   "site_us": null,
-   "photo": "img/chahalo.jpg",
-   "photo_credit": null,
-   "us_since": "October 2025",
-   "first_outlet": "Rowland Heights, CA"
-  },
-  "xiaolongkan": {
-   "name": "Shoo Loong Kan Hotpot",
-   "name_zh": "小龙坎",
-   "category": "Hot pot",
-   "blurb": "A Sichuan (mala) hotpot chain founded in Chengdu in 2014, one of China's largest with thousands of outlets, known for its numbing-spicy broth and old-Chengdu styling. It trades in the US as \"Shoo Loong Kan Hotpot\" and — unusually for the chains here — publishes its own US store locator.",
-   "site_cn": null,
-   "site_us": "https://shooloongkan.us/",
-   "photo": "img/xiaolongkan.jpg",
-   "photo_credit": null,
-   "us_since": "June 2022",
-   "first_outlet": "Flushing, Queens, NY — Tangram",
-   "photos": {
-    "gallery": [
-     {
-      "file": "xiaolongkan/g1.jpg",
-      "caption": "A Xiaolongkan (Shoo Loong Kan) hot pot in Madrid",
-      "credit": "MNXANL",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A202112_Xiaolongkan_Hot_Pot_Madrid.jpg"
-     },
-     {
-      "file": "xiaolongkan/g2.jpg",
-      "caption": "A Shoo Loong Kan in Frankfurt",
-      "credit": "Matti Blume",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AShoo_Loong_Kan_Hot_Pot%2C_Frankfurt_%28IMG_20211103_185121_520%29.jpg"
-     },
-     {
-      "file": "xiaolongkan/g3.jpg",
-      "caption": "Dumplings at Xiaolongkan",
-      "credit": "MNXANL",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A202112_Qingtian_Shanfen-Dumpling_at_Xiaolongkan_Hot_Pot_Madrid.jpg"
-     }
-    ]
-   }
-  },
-  "liuyishou": {
-   "name": "Liuyishou Hot Pot",
-   "name_zh": "刘一手火锅",
-   "category": "Hot pot",
-   "blurb": "A Chongqing hotpot chain founded in 2000, one of China's largest with thousands of outlets, known for its buttery mala broth and beef. It trades across North America as \"Liuyishou Hot Pot\" and publishes its own site with a page per city; its US outlets run from Boston and New York to California, Texas, Illinois and Washington.",
-   "site_cn": null,
-   "site_us": "https://www.liuyishouna.com/",
-   "photo": "img/liuyishou.jpg",
-   "photo_credit": null,
-   "us_since": "February 2017",
-   "first_outlet": "Princeton, NJ",
-   "photos": {
-    "gallery": [
-     {
-      "file": "liuyishou/g1.jpg",
-      "caption": "A Liuyishou in Hong Kong",
-      "credit": "BOASHIM Grawongei",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHK_WC_%E7%81%A3%E4%BB%94_Wan_Chai_%E5%9B%8D%E6%AD%A1%E9%87%8C_Lee_Tung_Avenue_shop_Liu_Yi_Shou_Chong_Qing_Hot_Pot_Restaurant_%E9%87%8D%E6%85%B6%E5%8A%89%E4%B8%80%E6%89%8B%E7%81%AB%E9%8D%8B%E5%BA%97_July_2020_SS2.jpg"
-     },
-     {
-      "file": "liuyishou/g2.jpg",
-      "caption": "A Liuyishou in Madrid",
-      "credit": "MNXANL",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A202112_Liuyishou_Hot_Pot_in_Madrid.jpg"
-     },
-     {
-      "file": "liuyishou/g3.jpg",
-      "caption": "A beef-and-lamb platter at Liuyishou",
-      "credit": "StoppedTime",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALiu%27s_Beef_%26_Lamb_Platter.jpg"
-     }
-    ]
-   }
-  },
-  "aunteajenny": {
-   "name": "Auntea Jenny",
-   "name_zh": "沪上阿姨",
-   "category": "Bubble tea",
-   "blurb": "A bubble-tea chain founded in 2013 in Shanghai, one of China's largest with several thousand outlets and a 2025 Hong Kong listing, known for fresh-brewed milk teas and grain-based drinks. It entered the US as \"Auntea Jenny\", with its first outlets in New York and California and many more announced.",
-   "site_cn": null,
-   "site_us": "https://aunteajenny.us/",
-   "photo": "img/aunteajenny.jpg",
-   "photo_credit": null,
-   "us_since": "May 2025",
-   "first_outlet": "Flushing, Queens, NY — 39-07 Prince St",
-   "photos": {
-    "china": {
-     "file": "aunteajenny/china.jpg",
-     "caption": "An Auntea Jenny in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AAuntea_Jenny_at_Huoying_%2820230227172743%29.jpg",
-     "label": "北京"
+    "aunteajenny": {
+      "name": "Auntea Jenny",
+      "name_zh": "沪上阿姨",
+      "category": "Bubble tea",
+      "blurb": "A bubble-tea chain founded in 2013 in Shanghai, one of China's largest with several thousand outlets and a 2025 Hong Kong listing, known for fresh-brewed milk teas and grain-based drinks. It entered the US as \"Auntea Jenny\", with its first outlets in New York and California and many more announced.",
+      "site_cn": null,
+      "site_us": "https://aunteajenny.us/",
+      "photo": "img/aunteajenny.jpg",
+      "photo_credit": null,
+      "us_since": "May 2025",
+      "first_outlet": "Flushing, Queens, NY — 39-07 Prince St",
+      "photos": {
+        "china": {
+          "file": "aunteajenny/china.jpg",
+          "caption": "An Auntea Jenny in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AAuntea_Jenny_at_Huoying_%2820230227172743%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "aunteajenny/g1.jpg",
+            "caption": "An Auntea Jenny storefront in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AAuntea_Jenny_at_Yangzhuang_Subway_Station_%2820230222122800%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "aunteajenny/g1.jpg",
-      "caption": "An Auntea Jenny storefront in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AAuntea_Jenny_at_Yangzhuang_Subway_Station_%2820230222122800%29.jpg"
-     }
-    ]
-   }
-  },
-  "mollytea": {
-   "name": "Molly Tea",
-   "name_zh": "茉莉奶白",
-   "category": "Bubble tea",
-   "blurb": "A Chinese premium milk-tea chain founded in 2021, known for its jasmine-tea \"milk white\" drinks and fast overseas growth across Asia, Australia and North America. Its US outlets, trading as \"Molly Tea\", run across California and into Washington, Texas, Illinois, Georgia, Nevada, New Jersey, Pennsylvania and beyond.",
-   "site_cn": null,
-   "site_us": "https://usa.mollytea.com/",
-   "photo": "img/mollytea.jpg",
-   "photo_credit": null,
-   "us_since": "April 2024",
-   "first_outlet": "Flushing, Queens, NY — 37-11 Prince St (since closed)",
-   "photos": {
-    "china": {
-     "file": "mollytea/china.jpg",
-     "caption": "A Molly Tea in Shenzhen, China",
-     "credit": "ZHONG 82035 WANGZ",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_BaoAn_%E8%90%AC%E8%B1%90_%E5%AF%B6%E5%AE%89%E6%B5%B7%E5%B2%B8%E5%9F%8E_Coastal_City_mall_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_beverage_n_Rrestaurant_July_2024_R12S_20.jpg",
-     "label": "深圳"
+    "mollytea": {
+      "name": "Molly Tea",
+      "name_zh": "茉莉奶白",
+      "category": "Bubble tea",
+      "blurb": "A Chinese premium milk-tea chain founded in 2021, known for its jasmine-tea \"milk white\" drinks and fast overseas growth across Asia, Australia and North America. Its US outlets, trading as \"Molly Tea\", run across California and into Washington, Texas, Illinois, Georgia, Nevada, New Jersey, Pennsylvania and beyond.",
+      "site_cn": null,
+      "site_us": "https://usa.mollytea.com/",
+      "photo": "img/mollytea.jpg",
+      "photo_credit": null,
+      "us_since": "April 2024",
+      "first_outlet": "Flushing, Queens, NY — 37-11 Prince St (since closed)",
+      "photos": {
+        "china": {
+          "file": "mollytea/china.jpg",
+          "caption": "A Molly Tea in Shenzhen, China",
+          "credit": "ZHONG 82035 WANGZ",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_BaoAn_%E8%90%AC%E8%B1%90_%E5%AF%B6%E5%AE%89%E6%B5%B7%E5%B2%B8%E5%9F%8E_Coastal_City_mall_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_beverage_n_Rrestaurant_July_2024_R12S_20.jpg",
+          "label": "深圳"
+        },
+        "gallery": [
+          {
+            "file": "mollytea/g1.jpg",
+            "caption": "A Molly Tea in Guangzhou",
+            "credit": "Ghaud Lnegauk",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_beverage_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_September_2024_R12S_02.jpg"
+          },
+          {
+            "file": "mollytea/g2.jpg",
+            "caption": "A Molly Tea store in Jakarta",
+            "credit": "Jeremy1231233",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AMolly_Tea_store_in_Jakarta.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "mollytea/g1.jpg",
-      "caption": "A Molly Tea in Guangzhou",
-      "credit": "Ghaud Lnegauk",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_beverage_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_September_2024_R12S_02.jpg"
-     },
-     {
-      "file": "mollytea/g2.jpg",
-      "caption": "A Molly Tea store in Jakarta",
-      "credit": "Jeremy1231233",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMolly_Tea_store_in_Jakarta.jpg"
-     }
-    ]
-   }
-  },
-  "lelecha": {
-   "name": "Lelecha",
-   "name_zh": "乐乐茶",
-   "category": "Bubble tea",
-   "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Shanghai, known for cheese-foam teas, fruit teas and its dirty-bun bakery. It has begun opening in the US, though its US site is not yet public; early outlets are in California.",
-   "site_cn": null,
-   "site_us": "https://www.lelechaus.com/",
-   "photo": "img/lelecha.jpg",
-   "photo_credit": null,
-   "us_since": "July 2025",
-   "first_outlet": "New York City — 1032 Sixth Ave",
-   "photos": {
-    "china": {
-     "file": "lelecha/china.jpg",
-     "caption": "A Lelecha in Suzhou, China",
-     "credit": "Shwangtianyuan",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALelecha_at_AEON_Suzhou_Yuanqu_Hudong.jpg",
-     "label": "苏州"
+    "lelecha": {
+      "name": "Lelecha",
+      "name_zh": "乐乐茶",
+      "category": "Bubble tea",
+      "blurb": "A premium \"modern Chinese tea\" chain founded in 2016 in Shanghai, known for cheese-foam teas, fruit teas and its dirty-bun bakery. It has begun opening in the US, though its US site is not yet public; early outlets are in California.",
+      "site_cn": null,
+      "site_us": "https://www.lelechaus.com/",
+      "photo": "img/lelecha.jpg",
+      "photo_credit": null,
+      "us_since": "July 2025",
+      "first_outlet": "New York City — 1032 Sixth Ave",
+      "photos": {
+        "china": {
+          "file": "lelecha/china.jpg",
+          "caption": "A Lelecha in Suzhou, China",
+          "credit": "Shwangtianyuan",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ALelecha_at_AEON_Suzhou_Yuanqu_Hudong.jpg",
+          "label": "苏州"
+        },
+        "gallery": [
+          {
+            "file": "lelecha/g1.jpg",
+            "caption": "Lelecha's soft buns, in Beijing",
+            "credit": "Tigerpillow",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ALelecha%27s_soft_buns.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "lelecha/g1.jpg",
-      "caption": "Lelecha's soft buns, in Beijing",
-      "credit": "Tigerpillow",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALelecha%27s_soft_buns.jpg"
-     }
-    ]
-   }
-  },
-  "nonggengji": {
-   "name": "Nong Geng Ji",
-   "name_zh": "农耕记",
-   "category": "Restaurant",
-   "blurb": "A Hunan-cuisine restaurant chain from Shenzhen known for countryside-style, wok-charred cooking with fresh peppers and family-style dishes. Its first US restaurant opened in Flushing, Queens in January 2026, with a second announced for Rockville, Maryland.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": "img/nonggengji.jpg",
-   "photo_credit": null,
-   "us_since": "January 2026",
-   "first_outlet": "Flushing, Queens, NY — 135-15 37th Ave",
-   "photos": {
-    "china": {
-     "file": "nonggengji/china.jpg",
-     "caption": "A Nong Geng Ji Hunan restaurant in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ANong_Geng_Ji_Hunan_Cuisine_at_Beijing_Dawanglu_BollyWood_Hotel_%2820241101162415%29.jpg",
-     "label": "北京"
+    "nonggengji": {
+      "name": "Nong Geng Ji",
+      "name_zh": "农耕记",
+      "category": "Restaurant",
+      "blurb": "A Hunan-cuisine restaurant chain from Shenzhen known for countryside-style, wok-charred cooking with fresh peppers and family-style dishes. Its first US restaurant opened in Flushing, Queens in January 2026, with a second announced for Rockville, Maryland.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": "img/nonggengji.jpg",
+      "photo_credit": null,
+      "us_since": "January 2026",
+      "first_outlet": "Flushing, Queens, NY — 135-15 37th Ave",
+      "photos": {
+        "china": {
+          "file": "nonggengji/china.jpg",
+          "caption": "A Nong Geng Ji Hunan restaurant in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ANong_Geng_Ji_Hunan_Cuisine_at_Beijing_Dawanglu_BollyWood_Hotel_%2820241101162415%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "nonggengji/g1.jpg",
+            "caption": "A Nong Geng Ji in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ANong_Geng_Ji_Hunan_Cuisine_at_Beijing_Haidian_Joy_City_5F_%2820250221160610%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "nonggengji/g1.jpg",
-      "caption": "A Nong Geng Ji in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ANong_Geng_Ji_Hunan_Cuisine_at_Beijing_Haidian_Joy_City_5F_%2820250221160610%29.jpg"
-     }
-    ]
-   }
-  },
-  "baospastry": {
-   "name": "Bao's Pastry",
-   "name_zh": "鲍师傅",
-   "category": "Bakery",
-   "blurb": "A Beijing-headquartered bakery chain founded by Bao Caisheng about two decades ago, famous in China for its pork-floss cakes and cream-filled sponge, with more than 100 outlets. Its first US store opened in Flushing, Queens in late 2025.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": "img/baospastry.jpg",
-   "photo_credit": null,
-   "us_since": "January 2026",
-   "first_outlet": "Flushing, Queens, NY — 135-25 Roosevelt Ave",
-   "photos": {
-    "china": {
-     "file": "baospastry/china.jpg",
-     "caption": "A Bao's Pastry in Suzhou, China",
-     "credit": "Shwangtianyuan",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ABao%27s_Pastry_at_Guanqian_Street-20241023.jpg",
-     "label": "苏州"
+    "baospastry": {
+      "name": "Bao's Pastry",
+      "name_zh": "鲍师傅",
+      "category": "Bakery",
+      "blurb": "A Beijing-headquartered bakery chain founded by Bao Caisheng about two decades ago, famous in China for its pork-floss cakes and cream-filled sponge, with more than 100 outlets. Its first US store opened in Flushing, Queens in late 2025.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": "img/baospastry.jpg",
+      "photo_credit": null,
+      "us_since": "January 2026",
+      "first_outlet": "Flushing, Queens, NY — 135-25 Roosevelt Ave",
+      "photos": {
+        "china": {
+          "file": "baospastry/china.jpg",
+          "caption": "A Bao's Pastry in Suzhou, China",
+          "credit": "Shwangtianyuan",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ABao%27s_Pastry_at_Guanqian_Street-20241023.jpg",
+          "label": "苏州"
+        },
+        "gallery": [
+          {
+            "file": "baospastry/g1.jpg",
+            "caption": "A Bao's Pastry in Zhengzhou",
+            "credit": "Windmemories",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A20220623_David_Plaza_-_Bao%27s_Pastry.jpg"
+          },
+          {
+            "file": "baospastry/g2.jpg",
+            "caption": "Queues at a Bao's Pastry in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ABao%27s_Pastry_at_Wudaokou_%2820230208114154%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "baospastry/g1.jpg",
-      "caption": "A Bao's Pastry in Zhengzhou",
-      "credit": "Windmemories",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A20220623_David_Plaza_-_Bao%27s_Pastry.jpg"
-     },
-     {
-      "file": "baospastry/g2.jpg",
-      "caption": "Queues at a Bao's Pastry in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ABao%27s_Pastry_at_Wudaokou_%2820230208114154%29.jpg"
-     }
-    ]
-   }
-  },
-  "toptoy": {
-   "name": "TOP TOY",
-   "name_zh": "TOP TOY",
-   "category": "Art toys",
-   "blurb": "A Chinese art-toy and blind-box retailer launched in 2020 by MINISO Group, carrying its own IPs alongside licensed lines from Sanrio, Disney and others. It opened its first US store in Times Square, New York.",
-   "site_cn": null,
-   "site_us": "https://www.gotoptoy.com/",
-   "photo": "img/toptoy.jpg",
-   "photo_credit": null,
-   "us_since": "June 2026",
-   "first_outlet": "New York City — 1515 Broadway (Times Square)",
-   "photos": {
-    "china": {
-     "file": "toptoy/china.jpg",
-     "caption": "A TOP TOY in Guangzhou, China",
-     "credit": "Ghaud Lnegauk",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Top_Toy_September_2024_R12S_01.jpg",
-     "label": "广州"
+    "toptoy": {
+      "name": "TOP TOY",
+      "name_zh": "TOP TOY",
+      "category": "Art toys",
+      "blurb": "A Chinese art-toy and blind-box retailer launched in 2020 by MINISO Group, carrying its own IPs alongside licensed lines from Sanrio, Disney and others. It opened its first US store in Times Square, New York.",
+      "site_cn": null,
+      "site_us": "https://www.gotoptoy.com/",
+      "photo": "img/toptoy.jpg",
+      "photo_credit": null,
+      "us_since": "June 2026",
+      "first_outlet": "New York City — 1515 Broadway (Times Square)",
+      "photos": {
+        "china": {
+          "file": "toptoy/china.jpg",
+          "caption": "A TOP TOY in Guangzhou, China",
+          "credit": "Ghaud Lnegauk",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Top_Toy_September_2024_R12S_01.jpg",
+          "label": "广州"
+        },
+        "gallery": [
+          {
+            "file": "toptoy/g1.jpg",
+            "caption": "A TOP TOY in Dongguan",
+            "credit": "NAS 238 WMMNO",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E6%9D%B1%E8%8E%9E_Dongguan_%E6%B0%91%E7%9B%88_%E5%9C%8B%E8%B2%BF%E5%9F%8E_DG_Mall_shop_Top_Toy_Store_December_2024_R12S_01.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "toptoy/g1.jpg",
-      "caption": "A TOP TOY in Dongguan",
-      "credit": "NAS 238 WMMNO",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E6%9D%B1%E8%8E%9E_Dongguan_%E6%B0%91%E7%9B%88_%E5%9C%8B%E8%B2%BF%E5%9F%8E_DG_Mall_shop_Top_Toy_Store_December_2024_R12S_01.jpg"
-     }
-    ]
-   }
-  },
-  "toys52": {
-   "name": "52Toys",
-   "name_zh": "52TOYS",
-   "category": "Art toys",
-   "blurb": "A Chinese designer-toy and blind-box brand founded in 2015 in Beijing, known for its Panda Roll and BEASTBOX lines and mecha model kits. Its US retail presence has begun in Georgia, alongside an online store.",
-   "site_cn": null,
-   "site_us": "https://us.52toys.com/",
-   "photo": "img/toys52.jpg",
-   "photo_credit": null,
-   "us_since": "July 2024",
-   "first_outlet": "Atlanta, GA — 6035 Peachtree Rd"
-  },
-  "dezhuang": {
-   "name": "De Zhuang Hot Pot",
-   "name_zh": "德庄",
-   "category": "Hot pot",
-   "blurb": "A Chongqing hot-pot restaurant and seasoning group founded in 1999 by Li Dejian, grown to some 900 restaurants across China. Known for numbing-spicy Chongqing broth. It reached the US around early 2025 with a full hot-pot restaurant in Manhattan's East Village and a smaller 'De Hotpot Mini' express store near Seattle.",
-   "site_cn": "https://www.cqdz.cn/",
-   "site_us": "https://dezhuangofficial.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "Early 2025",
-   "first_outlet": "New York — 37 St Marks Pl (East Village)"
-  },
-  "meizhoudongpo": {
-   "name": "Meizhou Dongpo",
-   "name_zh": "眉州东坡",
-   "category": "Sichuan restaurant",
-   "blurb": "A Sichuan-cuisine sit-down chain founded in Beijing in 1996 by Wang Gang and Liang Di and named for the poet Su Dongpo. With about 114 restaurants in China, it was one of the earliest Chinese chains to reach America, opening a Los Angeles flagship in 2013. Two California restaurants remain open after several LA-area closures.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2013",
-   "first_outlet": "Los Angeles — 10250 Santa Monica Blvd (Century City)",
-   "photos": {
-    "china": {
-     "file": "meizhoudongpo/china.jpg",
-     "caption": "Inside a Meizhou Dongpo in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AInterior_of_Meizhou_Dongpo_Restaurant%2C_Xibeiwang_MIXC_One_6F_%2820240530192638%29.jpg",
-     "label": "北京"
+    "toys52": {
+      "name": "52Toys",
+      "name_zh": "52TOYS",
+      "category": "Art toys",
+      "blurb": "A Chinese designer-toy and blind-box brand founded in 2015 in Beijing, known for its Panda Roll and BEASTBOX lines and mecha model kits. Its US retail presence has begun in Georgia, alongside an online store.",
+      "site_cn": null,
+      "site_us": "https://us.52toys.com/",
+      "photo": "img/toys52.jpg",
+      "photo_credit": null,
+      "us_since": "July 2024",
+      "first_outlet": "Atlanta, GA — 6035 Peachtree Rd"
     },
-    "gallery": [
-     {
-      "file": "meizhoudongpo/g1.jpg",
-      "caption": "Kung Pao chicken at Meizhou Dongpo",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AKung_Pao_chicken_at_Meizhou_Dongpo_Restaurant_Shangdi_%2820190818101610%29.jpg"
-     },
-     {
-      "file": "meizhoudongpo/g2.jpg",
-      "caption": "Fish-flavored shredded pork",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AFish-flavoured_shredded_pork_at_Meizhou_Dongpo_Restaurant_Shangdi_%2820190808185406%29.jpg"
-     }
-    ]
-   }
-  },
-  "shudaxia": {
-   "name": "Shu Da Xia Hotpot",
-   "name_zh": "蜀大侠",
-   "category": "Hot pot",
-   "blurb": "A Chengdu hot-pot chain founded in 2015, styled around wuxia (martial-arts) imagery, with 600-plus outlets. Since 2023 it has been owned by the Xiaolongkan hot-pot group. Its single US restaurant, near Boston University, has operated since May 2022.",
-   "site_cn": null,
-   "site_us": "https://www.shudaxiaboston.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "May 2022",
-   "first_outlet": "Boston — 580 Commonwealth Ave"
-  },
-  "xibei": {
-   "name": "Xibei",
-   "name_zh": "西贝莜面村",
-   "category": "Northwestern-China restaurant",
-   "blurb": "The flagship brand of the Xibei group, which grew from a 1988 snack shop in Inner Mongolia into some 370 restaurants serving Northwestern-China oat-noodle and mutton dishes. Its US expansion began in Los Angeles in December 2024 and now spans four Southern California outlets under three names — a flagship, a dumpling shop and fast-casual 'Eatery' noodle bars.",
-   "site_cn": "https://www.xibei.com.cn/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "December 2024",
-   "first_outlet": "Los Angeles — 3300 W Sunset Blvd (Silver Lake)",
-   "photos": {
-    "china": {
-     "file": "xibei/china.jpg",
-     "caption": "A Xibei Youmiancun in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20250702_Xibei_Restaurant_at_Zhengdong_MIXC.jpg",
-     "label": "郑州"
+    "dezhuang": {
+      "name": "De Zhuang Hot Pot",
+      "name_zh": "德庄",
+      "category": "Hot pot",
+      "blurb": "A Chongqing hot-pot restaurant and seasoning group founded in 1999 by Li Dejian, grown to some 900 restaurants across China. Known for numbing-spicy Chongqing broth. It reached the US around early 2025 with a full hot-pot restaurant in Manhattan's East Village and a smaller 'De Hotpot Mini' express store near Seattle.",
+      "site_cn": "https://www.cqdz.cn/",
+      "site_us": "https://dezhuangofficial.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "Early 2025",
+      "first_outlet": "New York — 37 St Marks Pl (East Village)"
     },
-    "gallery": [
-     {
-      "file": "xibei/g1.jpg",
-      "caption": "Proso-millet cold cake, a Xibei specialty",
-      "credit": "DragonSamYU",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AProso_Millet_Cold_Cake_-_20161211.jpg"
-     },
-     {
-      "file": "xibei/g2.jpg",
-      "caption": "A Xibei at David Plaza, Zhengzhou",
-      "credit": "Windmemories",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A20230417_Xibei_Youmiancun_at_David_Plaza.jpg"
-     }
-    ]
-   }
-  },
-  "grandmashome": {
-   "name": "Grandma's Home",
-   "name_zh": "外婆家",
-   "category": "Hangzhou restaurant",
-   "blurb": "A Hangzhou-cuisine chain founded in 1998 by Wu Guoping, known for affordable home-style Jiangnan cooking across 200-plus directly-run restaurants in China. Its first and so far only US restaurant opened in Manhattan's Flatiron district in early 2024.",
-   "site_cn": "http://www.waipojia.com/",
-   "site_us": "https://www.grandmashome.us/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "March 2024",
-   "first_outlet": "New York — 56 West 22nd St (Flatiron)",
-   "photos": {
-    "china": {
-     "file": "grandmashome/china.jpg",
-     "caption": "A Grandma's Home in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20241213_Grandma%27s_Home_Restaurant_at_Wanda_Fun%2C_Zhengzhou.jpg",
-     "label": "郑州"
+    "meizhoudongpo": {
+      "name": "Meizhou Dongpo",
+      "name_zh": "眉州东坡",
+      "category": "Sichuan restaurant",
+      "blurb": "A Sichuan-cuisine sit-down chain founded in Beijing in 1996 by Wang Gang and Liang Di and named for the poet Su Dongpo. With about 114 restaurants in China, it was one of the earliest Chinese chains to reach America, opening a Los Angeles flagship in 2013. Two California restaurants remain open after several LA-area closures.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2013",
+      "first_outlet": "Los Angeles — 10250 Santa Monica Blvd (Century City)",
+      "photos": {
+        "china": {
+          "file": "meizhoudongpo/china.jpg",
+          "caption": "Inside a Meizhou Dongpo in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AInterior_of_Meizhou_Dongpo_Restaurant%2C_Xibeiwang_MIXC_One_6F_%2820240530192638%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "meizhoudongpo/g1.jpg",
+            "caption": "Kung Pao chicken at Meizhou Dongpo",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AKung_Pao_chicken_at_Meizhou_Dongpo_Restaurant_Shangdi_%2820190818101610%29.jpg"
+          },
+          {
+            "file": "meizhoudongpo/g2.jpg",
+            "caption": "Fish-flavored shredded pork",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AFish-flavoured_shredded_pork_at_Meizhou_Dongpo_Restaurant_Shangdi_%2820190808185406%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "grandmashome/g1.jpg",
-      "caption": "A Grandma's Home at Suzhou Center",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGrandma%27s_Home_at_Suzhou_Center-20220709.jpg"
-     }
-    ]
-   }
-  },
-  "xijiade": {
-   "name": "Dumpling Xi",
-   "name_zh": "喜家德",
-   "category": "Dumpling restaurant",
-   "blurb": "A Northeastern-China shrimp-dumpling chain founded in 2002 in Hegang, Heilongjiang by Gao Defu, with 800-plus directly-operated stores. It trades in America as 'Dumpling Xi', opening its first US store in Flushing, Queens in February 2025 and a second in the East Village that July.",
-   "site_cn": "https://www.xijiade.com.cn/",
-   "site_us": "https://dumplingxius.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "February 2025",
-   "first_outlet": "Flushing, Queens — 37-02 Prince St",
-   "photos": {
-    "china": {
-     "file": "xijiade/china.jpg",
-     "caption": "A Xijiade dumpling shop in Shenzhen, China",
-     "credit": "LaouZEI bOENFUOO",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_shop_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_01.jpg",
-     "label": "深圳"
+    "shudaxia": {
+      "name": "Shu Da Xia Hotpot",
+      "name_zh": "蜀大侠",
+      "category": "Hot pot",
+      "blurb": "A Chengdu hot-pot chain founded in 2015, styled around wuxia (martial-arts) imagery, with 600-plus outlets. Since 2023 it has been owned by the Xiaolongkan hot-pot group. Its single US restaurant, near Boston University, has operated since May 2022.",
+      "site_cn": null,
+      "site_us": "https://www.shudaxiaboston.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "May 2022",
+      "first_outlet": "Boston — 580 Commonwealth Ave"
     },
-    "gallery": [
-     {
-      "file": "xijiade/g1.jpg",
-      "caption": "Shrimp dumplings at Xijiade",
-      "credit": "LaouZEI bOENFUOO",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_sauce.jpg"
-     }
-    ]
-   }
-  },
-  "malubianbian": {
-   "name": "Ma Lu Bian Bian",
-   "name_zh": "马路边边",
-   "category": "Skewer hot pot",
-   "blurb": "A Chengdu chain founded in 2015 in the 'chuan chuan' style — DIY skewers cooked in a shared spicy hot pot — done up like a nostalgic 1980s roadside stall. It claims over a thousand outlets globally. Its US footprint has churned heavily since the first store opened in San Gabriel in 2019; an Orlando restaurant is the clearest currently-open location.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "November 2019",
-   "first_outlet": "San Gabriel, CA — 301 W Valley Blvd (now closed)"
-  },
-  "feidachu": {
-   "name": "Chef Fei",
-   "name_zh": "费大厨",
-   "category": "Hunan restaurant",
-   "blurb": "A Hunan-cuisine chain built on one signature dish — stir-fried pork with chili peppers (辣椒炒肉) — founded by Fei Lianghui in Hengyang, Hunan and unified under the 费大厨 name in 2016, with roughly 200 directly-managed restaurants across China. Marketed in America as 'China's King of Stir-Fry', it opened its first US restaurant at Westfield UTC in San Diego in September 2026.",
-   "site_cn": "https://www.feidachu.com.cn/",
-   "site_us": "https://cheffei.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "September 2026",
-   "first_outlet": "San Diego — 4301 La Jolla Village Dr (Westfield UTC)",
-   "photos": {
-    "china": {
-     "file": "feidachu/china.jpg",
-     "caption": "A Chef Fei (Fei Da Chu) in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20241227_Chef_Fei_at_Grand_Emporium%2C_Zhengzhou.jpg",
-     "label": "郑州"
+    "xibei": {
+      "name": "Xibei",
+      "name_zh": "西贝莜面村",
+      "category": "Northwestern-China restaurant",
+      "blurb": "The flagship brand of the Xibei group, which grew from a 1988 snack shop in Inner Mongolia into some 370 restaurants serving Northwestern-China oat-noodle and mutton dishes. Its US expansion began in Los Angeles in December 2024 and now spans four Southern California outlets under three names — a flagship, a dumpling shop and fast-casual 'Eatery' noodle bars.",
+      "site_cn": "https://www.xibei.com.cn/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "December 2024",
+      "first_outlet": "Los Angeles — 3300 W Sunset Blvd (Silver Lake)",
+      "photos": {
+        "china": {
+          "file": "xibei/china.jpg",
+          "caption": "A Xibei Youmiancun in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20250702_Xibei_Restaurant_at_Zhengdong_MIXC.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "xibei/g1.jpg",
+            "caption": "Proso-millet cold cake, a Xibei specialty",
+            "credit": "DragonSamYU",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AProso_Millet_Cold_Cake_-_20161211.jpg"
+          },
+          {
+            "file": "xibei/g2.jpg",
+            "caption": "A Xibei at David Plaza, Zhengzhou",
+            "credit": "Windmemories",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3A20230417_Xibei_Youmiancun_at_David_Plaza.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "feidachu/g1.jpg",
-      "caption": "A Chef Fei in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Beijing_Chaoyang_Joy_City_7F_%2820221002153053%29.jpg"
-     },
-     {
-      "file": "feidachu/g2.jpg",
-      "caption": "Another Chef Fei in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Xibeiwang_MIXC_One_6F_%2820240530192618%29.jpg"
-     }
-    ]
-   }
-  },
-  "dalongyi": {
-   "name": "Da Long Yi Hot Pot",
-   "name_zh": "大龙燚",
-   "category": "Hot pot",
-   "blurb": "A Chengdu hot-pot chain founded in 2013 in the city's Yulin district, grown through franchising to a claimed 2,000-plus stores with outlets abroad. Known for numbing-spicy Sichuan broth. Its US outlets run as independent franchises; two — in Long Island City and Boston — are currently open after earlier California and Seattle stores closed.",
-   "site_cn": "https://www.dalongyi.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "June 2019",
-   "first_outlet": "San Gabriel, CA — 250 W Valley Blvd (now closed)"
-  },
-  "shuyi": {
-   "name": "Shuyi Grass Jelly & Tea",
-   "name_zh": "书亦烧仙草",
-   "category": "Tea",
-   "blurb": "A grass-jelly milk-tea chain founded in 2007 in Chengdu by Wang Bin, whose signature drinks pile a cup half-full with grass jelly and other toppings; one of China's largest tea chains, with several thousand stores. Its US shops, trading as 'Shuyi Grass Jelly & Tea', are franchise-run — three are open in Virginia and the Bay Area after the original San Mateo store closed.",
-   "site_cn": "https://shuyisxc.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "Late 2023",
-   "first_outlet": "San Mateo, CA — 165 E 4th Ave (now closed)",
-   "photos": {
-    "china": {
-     "file": "shuyi/china.jpg",
-     "caption": "A Shuyi Shaoxiancao in Changsha, China",
-     "credit": "Huangdan2060",
-     "license": "CC BY 3.0",
-     "license_url": "https://creativecommons.org/licenses/by/3.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211123.jpg",
-     "label": "长沙"
+    "grandmashome": {
+      "name": "Grandma's Home",
+      "name_zh": "外婆家",
+      "category": "Hangzhou restaurant",
+      "blurb": "A Hangzhou-cuisine chain founded in 1998 by Wu Guoping, known for affordable home-style Jiangnan cooking across 200-plus directly-run restaurants in China. Its first and so far only US restaurant opened in Manhattan's Flatiron district in early 2024.",
+      "site_cn": "http://www.waipojia.com/",
+      "site_us": "https://www.grandmashome.us/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "March 2024",
+      "first_outlet": "New York — 56 West 22nd St (Flatiron)",
+      "photos": {
+        "china": {
+          "file": "grandmashome/china.jpg",
+          "caption": "A Grandma's Home in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20241213_Grandma%27s_Home_Restaurant_at_Wanda_Fun%2C_Zhengzhou.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "grandmashome/g1.jpg",
+            "caption": "A Grandma's Home at Suzhou Center",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AGrandma%27s_Home_at_Suzhou_Center-20220709.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "shuyi/g1.jpg",
-      "caption": "Another Shuyi in Changsha",
-      "credit": "Huangdan2060",
-      "license": "CC BY 3.0",
-      "license_url": "https://creativecommons.org/licenses/by/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211210.jpg"
-     }
-    ]
-   }
-  },
-  "anta": {
-   "name": "Anta",
-   "name_zh": "安踏",
-   "category": "Sportswear & footwear",
-   "blurb": "China's largest sportswear company, founded in 1991 in Jinjiang, Fujian, and listed in Hong Kong. The Anta brand runs roughly 9,900 stores across China; its parent group also owns or controls FILA, Descente and Amer Sports (Arc'teryx, Salomon, Wilson), though those are not Chinese brands and are tracked separately. Anta opened its first US store — a company-operated flagship in Beverly Hills — in February 2026, with NBA players it sponsors at the launch, and is expanding across Southeast Asia.",
-   "us_since": "Feb 2026",
-   "first_outlet": "Beverly Hills, CA — 330 N Beverly Dr",
-   "site_cn": "https://www.anta.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "photos": {
-    "china": {
-     "file": "anta/china.jpg",
-     "caption": "An Anta Sports store in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_store_at_Beijing_Xitieying_Wanda_Plaza_%2820210920193009%29.jpg",
-     "label": "北京"
+    "xijiade": {
+      "name": "Dumpling Xi",
+      "name_zh": "喜家德",
+      "category": "Dumpling restaurant",
+      "blurb": "A Northeastern-China shrimp-dumpling chain founded in 2002 in Hegang, Heilongjiang by Gao Defu, with 800-plus directly-operated stores. It trades in America as 'Dumpling Xi', opening its first US store in Flushing, Queens in February 2025 and a second in the East Village that July.",
+      "site_cn": "https://www.xijiade.com.cn/",
+      "site_us": "https://dumplingxius.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "February 2025",
+      "first_outlet": "Flushing, Queens — 37-02 Prince St",
+      "photos": {
+        "china": {
+          "file": "xijiade/china.jpg",
+          "caption": "A Xijiade dumpling shop in Shenzhen, China",
+          "credit": "LaouZEI bOENFUOO",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_shop_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_01.jpg",
+          "label": "深圳"
+        },
+        "gallery": [
+          {
+            "file": "xijiade/g1.jpg",
+            "caption": "Shrimp dumplings at Xijiade",
+            "credit": "LaouZEI bOENFUOO",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_sauce.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "anta/g1.jpg",
-      "caption": "An Anta Sports store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_at_Suzhou_People%27s_Department_Store-20260521.jpg"
-     }
-    ]
-   }
-  },
-  "urbanrevivo": {
-   "name": "Urban Revivo",
-   "name_zh": "",
-   "category": "Fast fashion (apparel)",
-   "blurb": "A Guangzhou fashion retailer founded in 2006 and often called China's answer to Zara, known for large, design-led stores. It runs more than 400 stores, mostly in China and Southeast Asia, and has since expanded to the UK and the US; its parent, Fashion Momentum Group, is privately held. Urban Revivo opened its first US store — a roughly 30,000-square-foot flagship in SoHo — in February 2025.",
-   "us_since": "Feb 2025",
-   "first_outlet": "SoHo, New York, NY — 515 Broadway",
-   "site_cn": null,
-   "site_us": "https://www.urbanrevivo.com/",
-   "photo": null,
-   "photo_credit": null,
-   "photos": {
-    "china": {
-     "file": "urbanrevivo/china.jpg",
-     "caption": "An Urban Revivo in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20250705_Urban_Revivo_at_Zhengdong_MIXC.jpg",
-     "label": "郑州"
+    "malubianbian": {
+      "name": "Ma Lu Bian Bian",
+      "name_zh": "马路边边",
+      "category": "Skewer hot pot",
+      "blurb": "A Chengdu chain founded in 2015 in the 'chuan chuan' style — DIY skewers cooked in a shared spicy hot pot — done up like a nostalgic 1980s roadside stall. It claims over a thousand outlets globally. Its US footprint has churned heavily since the first store opened in San Gabriel in 2019; an Orlando restaurant is the clearest currently-open location.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "November 2019",
+      "first_outlet": "San Gabriel, CA — 301 W Valley Blvd (now closed)"
     },
-    "gallery": [
-     {
-      "file": "urbanrevivo/g1.jpg",
-      "caption": "An Urban Revivo in Shenzhen",
-      "credit": "KAGYAMIUW Hangmaou",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E7%9A%87%E5%BA%AD%E5%BB%A3%E5%A0%B4_Wongtee_Plaza_%E5%95%86%E5%A0%B4_Mall_shop_clothing_URBAN_REVIVO_January_2024_R12S_01.jpg"
-     }
-    ]
-   }
-  },
-  "jnby": {
-   "name": "JNBY",
-   "name_zh": "江南布衣",
-   "category": "Designer apparel",
-   "blurb": "A Hangzhou designer-fashion house, listed in Hong Kong, that runs a family of in-house women's and lifestyle labels — JNBY, Croquis, less, jnby by JNBY and Pomme de terre — across roughly 2,100 stores, almost all in China. In the United States its stores trade as “AGoodFun”, run by a local licensee, with locations in San Francisco and Seattle; earlier stores in Bellevue and SoHo, New York have closed.",
-   "us_since": "2015",
-   "first_outlet": "Seattle, WA — 600 Pine St (Pacific Place), as AGoodFun",
-   "site_cn": "https://www.jnby.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null
-  },
-  "meilleurmoment": {
-   "name": "Meilleur Moment",
-   "name_zh": "伊芙丽",
-   "category": "Womenswear (apparel)",
-   "blurb": "A minimalist womenswear label from Hangzhou's Eifini group (伊芙丽), a privately held fashion company founded in 2001 with more than 600 stores across its brands in China. Meilleur Moment opened its first US store — a boutique in SoHo — in May 2025.",
-   "us_since": "May 2025",
-   "first_outlet": "SoHo, New York, NY — 257 Elizabeth St",
-   "site_cn": "https://www.eifini.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null
-  },
-  "moreyogurt": {
-   "name": "More Yogurt",
-   "name_zh": "茉酸奶",
-   "category": "Yogurt drinks & smoothies",
-   "blurb": "A Shanghai chain of yogurt-based drinks and smoothies — its signature is an avocado yogurt smoothie — that uses the English name “More Yogurt”. It operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026, with a second announced for Flushing, New York.",
-   "us_since": "2026",
-   "first_outlet": "Tustin, CA — 2471 Park Ave (The District at Tustin Legacy)",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null
-  },
-  "moge": {
-   "name": "Möge Tee",
-   "name_zh": "愿茶",
-   "category": "Bubble tea",
-   "blurb": "A Chinese bubble-tea chain (愿茶) that trades in the US as “Möge Tee”. It has grown quickly across the US — roughly 70 stores in 18 states by late 2026, clustered in the Northeast, Florida, Texas and California — collected daily from its own US store locator. (A different brand from Molly Tea / 茉莉奶白, and from More Yogurt / 茉酸奶.)",
-   "us_since": "2018",
-   "first_outlet": null,
-   "site_cn": null,
-   "site_us": "https://www.mogeteeusa.com/",
-   "photo": null,
-   "photo_credit": null
-  },
-  "juqi": {
-   "name": "JUQI",
-   "name_zh": "局气",
-   "category": "Restaurant",
-   "blurb": "A Beijing home-style restaurant chain (~20 outlets in China) known for playful old-Beijing dishes — Lord-Rabbit mashed potato, honeycomb-briquette fried rice and Peking duck. Its first US location opened at the Tangram complex in Flushing, Queens.",
-   "site_cn": null,
-   "site_us": "https://juqiusa.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "~2020",
-   "first_outlet": "Flushing, Queens, NY — 133-36 37th Ave G17 (Tangram)",
-   "us_since_note": "Flushing (Tangram) announced Oct 2019 for a 2020 opening (Patch); still a single US store — long-standing (exact year 2020-2022 uncertain)."
-  },
-  "leebai": {
-   "name": "Lee & Bai",
-   "name_zh": "李与白",
-   "category": "Restaurant",
-   "blurb": "A Chengdu buns-and-noodles chain (李与白包子铺) with hundreds of outlets in China, known for fresh-steamed baozi, Chengdu pickled-pork bao and zapu noodles. It is expanding across the US, with outlets in New York, California and New Jersey.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": null,
-   "first_outlet": "Flushing, Queens, NY — 38-09 Union St"
-  },
-  "quanjude": {
-   "name": "Quanjude",
-   "name_zh": "全聚德",
-   "category": "Restaurant",
-   "blurb": "The Beijing roast-duck institution (全聚德), founded 1864, whose hanging-oven Peking duck method is a National Intangible Cultural Heritage. A state-owned chain with 100+ outlets in China; its US flagship opened in Midtown Manhattan under the upscale 'iDEN' concept (iDEN & Quanjude).",
-   "site_cn": null,
-   "site_us": "https://www.quanjude1864.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "June 2025",
-   "first_outlet": "New York, NY — 3 E 52nd St (iDEN & Quanjude)",
-   "photos": {
-    "china": {
-     "file": "quanjude/china.jpg",
-     "caption": "Quanjude's original roast-duck restaurant in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AEntrance_lobby_of_Quanjude_Origin_Roast_Duck_Restaurant_%2820250323150212%29.jpg",
-     "label": "北京"
+    "feidachu": {
+      "name": "Chef Fei",
+      "name_zh": "费大厨",
+      "category": "Hunan restaurant",
+      "blurb": "A Hunan-cuisine chain built on one signature dish — stir-fried pork with chili peppers (辣椒炒肉) — founded by Fei Lianghui in Hengyang, Hunan and unified under the 费大厨 name in 2016, with roughly 200 directly-managed restaurants across China. Marketed in America as 'China's King of Stir-Fry', it opened its first US restaurant at Westfield UTC in San Diego in September 2026.",
+      "site_cn": "https://www.feidachu.com.cn/",
+      "site_us": "https://cheffei.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "September 2026",
+      "first_outlet": "San Diego — 4301 La Jolla Village Dr (Westfield UTC)",
+      "photos": {
+        "china": {
+          "file": "feidachu/china.jpg",
+          "caption": "A Chef Fei (Fei Da Chu) in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20241227_Chef_Fei_at_Grand_Emporium%2C_Zhengzhou.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "feidachu/g1.jpg",
+            "caption": "A Chef Fei in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Beijing_Chaoyang_Joy_City_7F_%2820221002153053%29.jpg"
+          },
+          {
+            "file": "feidachu/g2.jpg",
+            "caption": "Another Chef Fei in Beijing",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Xibeiwang_MIXC_One_6F_%2820240530192618%29.jpg"
+          }
+        ]
+      }
     },
-    "gallery": [
-     {
-      "file": "quanjude/g1.jpg",
-      "caption": "A chef carving Beijing roast duck at Quanjude",
-      "credit": "Pixor",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACarving_Beijing_Roast_Duck_at_Quanjude%2C_Beijing.jpg"
-     },
-     {
-      "file": "quanjude/g2.jpg",
-      "caption": "Inside Quanjude's original Beijing restaurant",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACentral_lobby_of_Quanjude_Origin_Roast_Duck_Restaurant_%2820250323150338%29.jpg"
-     }
-    ]
-   }
-  },
-  "mamaxita": {
-   "name": "Mama Xita BBQ",
-   "name_zh": "西塔老太太",
-   "category": "Restaurant",
-   "blurb": "A Chinese-Korean-style barbecue chain from the Xita Korean-BBQ district of Shenyang (Liaoning), with 450+ outlets across 31 Asian cities, run by the Chubby Group (which also operates Chubby Cattle). Its first US location opened in Bellevue, Washington.",
-   "site_cn": null,
-   "site_us": "https://mamaxitabbq.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": null,
-   "first_outlet": "Bellevue, WA — 550 106th Ave NE, Ste 101",
-   "photos": {
-    "gallery": [
-     {
-      "file": "mamaxita/g1.jpg",
-      "caption": "Inside Mama Xita BBQ",
-      "credit": "Mama Xita BBQ",
-      "source": "https://mamaxitabbq.com/"
-     },
-     {
-      "file": "mamaxita/g2.jpg",
-      "caption": "A Mama Xita BBQ dining room",
-      "credit": "Mama Xita BBQ",
-      "source": "https://mamaxitabbq.com/"
-     },
-     {
-      "file": "mamaxita/g3.jpg",
-      "caption": "A dish at Mama Xita BBQ",
-      "credit": "Mama Xita BBQ",
-      "source": "https://mamaxitabbq.com/"
-     }
-    ]
-   }
-  },
-  "shanchenglameizi": {
-   "name": "Shancheng Lameizi",
-   "name_zh": "山城辣妹子",
-   "category": "Restaurant",
-   "blurb": "A Chongqing hot-pot brand (山城辣妹子, 'Chongqing spicy girl') known for fiery beef-tallow broths and hand-cut fresh beef and tripe. China-origin (with a Beijing outlet); its US outlets operate under one Southern California group. Menu/pricing at shanchenglameizi.com (and its online-ordering pages) — kept for a later Pro pricing catalog.",
-   "site_cn": null,
-   "site_us": "https://www.shanchenglameizi.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": null,
-   "first_outlet": "Rowland Heights, CA — 18932 Gale Ave"
-  },
-  "bingxue": {
-   "name": "BINGXUE",
-   "name_zh": "冰雪时光",
-   "category": "Restaurant",
-   "blurb": "A mass-market tea-and-ice-cream chain from Tai'an, Shandong (冰雪时光, founded 2014) — the budget, bear-mascot (“Bobo Bear”) rival to Mixue, selling fresh-fruit and milk teas, soft serve (it claims the world's best-selling matcha soft serve), yogurt smoothies and coffee. The brand reports about 5,000 stores across 18 countries, over 1,500 of them outside its home market. It opened its first US and North American store in downtown Davis, California on 2 October 2026 — a mayor-attended grand opening — with a second US store in development on Oxnard Boulevard.",
-   "site_cn": "http://www.bingxueglobal.com/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "October 2026",
-   "first_outlet": "Davis, CA — 425 2nd St",
-   "photos": {
-    "china": {
-     "file": "bingxue/china.jpg",
-     "caption": "A Bingxue in Fuyuan, China",
-     "credit": "HCCB3947",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A%E6%8A%9A%E8%BF%9C%E7%9A%84%E5%86%B0%E9%9B%AA%E6%97%B6%E5%85%89.jpg",
-     "label": "抚远"
+    "dalongyi": {
+      "name": "Da Long Yi Hot Pot",
+      "name_zh": "大龙燚",
+      "category": "Hot pot",
+      "blurb": "A Chengdu hot-pot chain founded in 2013 in the city's Yulin district, grown through franchising to a claimed 2,000-plus stores with outlets abroad. Known for numbing-spicy Sichuan broth. Its US outlets run as independent franchises; two — in Long Island City and Boston — are currently open after earlier California and Seattle stores closed.",
+      "site_cn": "https://www.dalongyi.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "June 2019",
+      "first_outlet": "San Gabriel, CA — 250 W Valley Blvd (now closed)"
     },
-    "gallery": [
-     {
-      "file": "bingxue/g1.jpg",
-      "caption": "Bingxue's matcha soft serve",
-      "credit": "Cendy00",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ABingxue.jpg"
-     }
-    ]
-   }
-  },
-  "walaida": {
-   "name": "WALAIDA",
-   "name_zh": "蛙来哒",
-   "category": "Restaurant",
-   "blurb": "A Hunan-cuisine restaurant chain built on charcoal and dry-pot bullfrog (牛蛙), founded around 2009–2010 in Changsha, Hunan by siblings Luo Hao and Luo Qing and later headquartered in Shenzhen. It has grown to roughly 460–500 outlets across more than 90 Chinese cities, about 90% of them franchised. Its first tracked US outlet operates in Flushing, New York, as 蛙来哒法拉盛店 (WALAIDA Flushing).",
-   "site_cn": "https://www.walaida.net/",
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2026",
-   "first_outlet": "Flushing, NY — 135-05 Roosevelt Ave",
-   "us_since_note": "Operating Oct 2026 (Google, Flushing, ~140 reviews); exact opening date not established."
-  },
-  "jibeichuan": {
-   "name": "JiBeiChuan",
-   "name_zh": "季北川",
-   "category": "Restaurant",
-   "blurb": "A rice-noodle chain built on fish-maw chicken-soup rice noodles (花胶鸡汤米粉), prepared in 2018 with its first direct-operated store in 2019 and headquartered in Hangzhou, Zhejiang (Hangzhou Shengli Catering Management Co.). It runs direct-operated and partner stores across China (Zhejiang, Jiangsu, Hunan, Hubei, Henan) and in North America (the US and Canada). Its US outlets include three in New York City — Flushing, Manhattan and Brooklyn — and one in San Leandro, California.",
-   "site_cn": null,
-   "site_us": "https://www.jibeichuanny.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": null,
-   "first_outlet": null
-  },
-  "babakehouse": {
-   "name": "BA Artisan Bakehouse",
-   "name_zh": "BA烘焙",
-   "category": "Bakery",
-   "blurb": "A French-Asian artisan bakery chain founded in 2016 in Kunming, Yunnan — 'BA' is short for BON APPÉTIT (French for 'enjoy your meal'), operated by Yunnan Bangnaboudi Food Development Co. (邦纳博地). It has grown to about 45 stores across China (Kunming, Chongqing, Xi'an, Chengdu and more), with overseas stores in Dubai and the US. Its North America flagship opened in Bellevue, Washington in January 2026.",
-   "site_cn": "http://babonappetit.com/",
-   "site_us": "https://babakery.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "January 2026",
-   "first_outlet": "Bellevue, WA — 550 106th Ave NE"
-  },
-  "chicjoc": {
-   "name": "CHICJOC",
-   "name_zh": "",
-   "category": "Apparel",
-   "blurb": "A Shanghai \"minimalist-luxury\" (极简极奢) womenswear brand operated by Shanghai Jiuci Brand Management Co. (上海玖赐), founded 2015. It began as a Taobao online brand and moved offline in May 2022 (first store at Nanjing Deji Plaza), growing to roughly 40–50 brick-and-mortar stores across first- and key second-tier Chinese cities' high-end malls, backed by four own factories. Its first overseas store opened at the Beverly Center in Los Angeles in November 2024; it also trades at Fashion Island in Newport Beach and in Paris.",
-   "site_cn": null,
-   "site_us": "https://www.chicjoc.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "November 2024",
-   "first_outlet": "Los Angeles, CA — Beverly Center, 8500 Beverly Blvd"
-  },
-  "dreame": {
-   "name": "DREAME",
-   "name_zh": "追觅",
-   "category": "Electronics",
-   "blurb": "A Suzhou (Jiangsu) smart-home electronics brand (Dreame Technology, 追觅科技; Xiaomi-ecosystem origin) known for robot vacuums, cordless stick vacuums, wet/dry cleaners and hair dryers. In the US it runs a growing branded retail chain of smart-home stores — a chain rather than a single flagship — with permanent locations at Westfield Century City (Los Angeles), Westfield UTC (San Diego), Westfield Valley Fair (Santa Clara) and Garden State Plaza (Paramus, NJ), alongside temporary pop-ups.",
-   "site_cn": null,
-   "site_us": "https://www.dreametech.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2024",
-   "first_outlet": "Los Angeles, CA — Westfield Century City"
-  },
-  "showminihotpot": {
-   "name": "Show Mini Hot Pot",
-   "name_zh": "秀海福",
-   "category": "Restaurant",
-   "blurb": "A golden-soup malatang chain (金汤麻辣烫, branded 'mini hot pot' in the US — customizable, individual-serving malatang) operated by Harbin Yuxiangding Catering Management Co. (哈尔滨裕祥鼎), founded 2016 in Harbin, Heilongjiang. By mid-2025 it had about 693 stores across China (Heilongjiang, Anhui, Jilin, Hebei), run on a franchise model with a central kitchen. It entered the US in 2025; its Richardson, Texas store (CityLine) is operating, and it has announced several more US cities as coming soon.",
-   "site_cn": null,
-   "site_us": "https://showminihotpot.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2025",
-   "first_outlet": null
-  },
-  "rolife": {
-   "name": "Rolife",
-   "name_zh": "若来",
-   "category": "Lifestyle & toys",
-   "blurb": "An IP-toy and lifestyle-creative brand of Robotime Group (若态科技, Suzhou, founded 2007; the Rolife sub-brand launched 2017), known for DIY miniature dollhouses, 3D wooden puzzles and IP art toys — its headline character Nanci is sold as blind boxes. In the US it runs a growing branded retail chain of about a dozen stores across seven states; it also operates stores in China, Thailand, Japan and the Netherlands.",
-   "site_cn": null,
-   "site_us": "https://www.rolifeonline.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2025",
-   "first_outlet": "Lynnwood, WA — Alderwood Mall"
-  },
-  "nanhotpot": {
-   "name": "Nan Hotpot",
-   "name_zh": "楠火锅",
-   "category": "Restaurant",
-   "blurb": "A Chongqing-style hotpot chain (楠火锅) founded in 1993, headquartered in Chengdu under Chengdu Shangzong Group (成都上纵集团), known for a heavy beef-tallow base and a 'market-stall / old-alley' (巷子里的老火锅) store concept. It has grown to 590–600+ stores and expanded abroad through a North America division with signed cooperative/franchise partners. Its overseas-first store opened in the Seattle area (Bellevue, WA) in March 2023, and it also trades in Plano, Texas.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2023",
-   "first_outlet": "Bellevue, WA — Crossroads (Seattle area)"
-  },
-  "huaxiaoxiao": {
-   "name": "Hwa ShooShoo",
-   "name_zh": "花小小",
-   "category": "Restaurant",
-   "blurb": "A Xinjiang fried-rice-noodle (新疆炒米粉) fast-casual chain founded in 2019–2020, with its first store in Beijing (Wangjing) and incubated/operated by 四有青年餐创集团 (Beijing Siyou Qingnian, est. 2015) under the slogan 让世界爱上新疆味 ('let the world fall in love with the taste of Xinjiang'). It grew to roughly 3,500 stores by the end of 2025 and 4,000+ by mid-2026. Its overseas-first store opened in Flushing, New York (Tangram food court) in February 2025 — billed as the first Xinjiang fried-rice-noodle brand to reach North America.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2025",
-   "first_outlet": "Flushing, NY — Tangram food court (overseas-first store)"
-  },
-  "zhoumapo": {
-   "name": "Zhoumapo",
-   "name_zh": "周麻婆",
-   "category": "Restaurant",
-   "blurb": "A fast-casual Sichuan stir-fry (快餐式小炒) chain founded in August 2012 by Zhou Hongxia (周红霞), with its parent 福建省周麻婆餐饮管理有限公司 (Fujian Zhou Mapo Catering Management) headquartered in Fuzhou, Fujian. Known for a ¥2 Mapo tofu and 'tasty, fast, affordable' positioning, it grew to roughly 300 franchised stores by 2021. Its first US store opened at 728 Eighth Avenue in Times Square, New York (a 10-year lease signed in January 2025), trading as 'Mapo Asian Restaurant & Bar — Time Square 周麻婆' — repositioned as a full restaurant and bar while keeping the Mrs. Zhou brand and grandma logo.",
-   "site_cn": null,
-   "site_us": "https://www.mapousa.com/",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2025",
-   "first_outlet": "New York, NY — Times Square (728 8th Ave)"
-  },
-  "littlesheep": {
-   "name": "Little Sheep Hot Pot",
-   "name_zh": "小肥羊",
-   "category": "Hot pot",
-   "blurb": "A Mongolian hot-pot chain founded 1999 in Baotou, Inner Mongolia and owned by Yum China since 2012 — not to be confused with Happy Lamb (快乐小羊), the separate brand its founder re-created in 2017. After its earlier US outlets were largely renamed Happy Lamb, Little Sheep re-entered the US in 2026 with a new location at American Dream, New Jersey.",
-   "site_cn": null,
-   "site_us": "https://littlesheepusa.com",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2026",
-   "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)"
-  },
-  "yaoyao": {
-   "name": "YAOYAO",
-   "name_zh": "姚姚酸菜鱼",
-   "category": "Sichuan pickled fish",
-   "blurb": "YAOYAO (姚姚酸菜鱼) is a China-origin Sichuan pickled-fish (酸菜鱼) chain founded in Shenzhen in 2016 by Yao Minxi, a former Huawei executive. Known for its Tiffany-blue 'light-luxury' interiors and bear-fish mascot, it grew to roughly 50-70 stores and has repeatedly ranked among China's top pickled-fish brands. In the US it operates three outlets — Chicago's Chinatown (a Michelin Bib Gourmand pick in 2024 and 2025), San Leandro, and San Bruno, California (the last co-branded 'Jin Gege & Yao Yao'). It opened and then fully withdrew from Hong Kong, where all four of its stores have closed.",
-   "site_us": "https://yaoyaochicago.com/",
-   "first_outlet": "Chicago, IL (Chinatown)",
-   "us_since": "2023"
-  },
-  "bingz": {
-   "name": "Bingz",
-   "us_since": "Oct 2026",
-   "us_since_note": "Grand opening 2 Oct 2026 (San Gabriel, TAWA Gateway).",
-   "first_outlet": "San Gabriel, CA — 140 W Valley Blvd Ste 118C"
-  },
-  "dusu": {
-   "name": "Dusu Bakery",
-   "us_since": "2026",
-   "us_since_note": "Opened by Sep 2026 (The Infatuation LA, 30 Sep 2026, 'has opened'); exact month not established.",
-   "first_outlet": "Temple City, CA — 5585 Rosemead Blvd"
-  },
-  "hibake": {
-   "name": "Hi Bake",
-   "us_since": "Aug 2025",
-   "us_since_note": "First overseas store Aug 2025 (Beverly Hills), per Chinese trade press.",
-   "first_outlet": "Beverly Hills, CA — 235 N Canon Dr"
-  },
-  "yogost": {
-   "name": "Hey! I am Yogost",
-   "name_zh": "我是酸奶君",
-   "category": "Yogurt drinks",
-   "blurb": "Hey! I am Yogost (我是酸奶君) is a China-origin yogurt-drink chain founded in Shenzhen in 2017, operated by Shenzhen Baichengduoyi Restaurant Management Co. It is known for purple-rice yogurt drinks and a cute bear-chef mascot, with roughly 70-plus stores across China, Hong Kong, Australia, New Zealand, Indonesia, Malaysia, Canada and the United States. Its North American footprint, per the brand's own store locator, spans 12 Canadian outlets (Alberta, British Columbia, Ontario, Manitoba and Saskatchewan) and three US stores: Philadelphia, Boston and American Dream in New Jersey (the last opened in 2026).",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2026",
-   "first_outlet": "Philadelphia, PA / Boston, MA / East Rutherford, NJ (American Dream)"
-  },
-  "ximivogue": {
-   "name": "XIMIVOGUE",
-   "name_zh": "熙美诚品",
-   "category": "Variety / lifestyle retail",
-   "blurb": "XIMIVOGUE is a China-origin variety and lifestyle retailer founded in 2015 and headquartered in Guangzhou. Like Miniso, it markets a Korean/Japanese design aesthetic despite being a Chinese company, selling an inexpensive, wide range of household goods, beauty products, accessories and toys. It has grown to well over a thousand stores across 90-plus countries through franchising, including US locations in Georgia, Illinois and Florida.",
-   "site_cn": null,
-   "site_us": null,
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2026",
-   "first_outlet": "Lawrenceville GA / Schaumburg IL / Orlando FL / Miami FL"
-  },
-  "derucci": {
-   "name": "DeRUCCI",
-   "name_zh": "慕思",
-   "category": "Mattress & bedding",
-   "blurb": "DeRUCCI (慕思) is a China-origin premium mattress, bedding and furniture company founded in 2004 and headquartered in Dongguan, Guangdong; its parent, DeRUCCI Health Sleep Co., listed on the Shenzhen Stock Exchange in 2022. Like Miniso, it wraps a European-designer image around what is a Chinese company, and operates roughly four thousand stores in China out of a global footprint above five thousand. It entered the US market with showrooms in New York, California and Georgia.",
-   "site_cn": null,
-   "site_us": "https://global.derucci.com",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2023",
-   "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)"
-  },
-  "mogouyan": {
-   "name": "Mogouyan Hand-Pulled Noodle",
-   "name_zh": "磨沟沿",
-   "category": "Lanzhou hand-pulled noodles",
-   "blurb": "Mogouyan Hand-Pulled Noodle is a China-origin Lanzhou-style beef-noodle chain named after the Mogouyan district of Lanzhou, Gansu, where it traces 40-50 years of history. It expanded abroad starting with Toronto in 2019 and is concentrated in Canada; its first US location opened at Mall of America in Bloomington, Minnesota, featuring live hand-pulling of its noodles.",
-   "site_cn": null,
-   "site_us": "https://mogouyannoodles.com",
-   "photo": null,
-   "photo_credit": null,
-   "us_since": "2024",
-   "first_outlet": "Bloomington, MN — Mall of America"
+    "shuyi": {
+      "name": "Shuyi Grass Jelly & Tea",
+      "name_zh": "书亦烧仙草",
+      "category": "Tea",
+      "blurb": "A grass-jelly milk-tea chain founded in 2007 in Chengdu by Wang Bin, whose signature drinks pile a cup half-full with grass jelly and other toppings; one of China's largest tea chains, with several thousand stores. Its US shops, trading as 'Shuyi Grass Jelly & Tea', are franchise-run — three are open in Virginia and the Bay Area after the original San Mateo store closed.",
+      "site_cn": "https://shuyisxc.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "Late 2023",
+      "first_outlet": "San Mateo, CA — 165 E 4th Ave (now closed)",
+      "photos": {
+        "china": {
+          "file": "shuyi/china.jpg",
+          "caption": "A Shuyi Shaoxiancao in Changsha, China",
+          "credit": "Huangdan2060",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211123.jpg",
+          "label": "长沙"
+        },
+        "gallery": [
+          {
+            "file": "shuyi/g1.jpg",
+            "caption": "Another Shuyi in Changsha",
+            "credit": "Huangdan2060",
+            "license": "CC BY 3.0",
+            "license_url": "https://creativecommons.org/licenses/by/3.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211210.jpg"
+          }
+        ]
+      }
+    },
+    "anta": {
+      "name": "Anta",
+      "name_zh": "安踏",
+      "category": "Sportswear & footwear",
+      "blurb": "China's largest sportswear company, founded in 1991 in Jinjiang, Fujian, and listed in Hong Kong. The Anta brand runs roughly 9,900 stores across China; its parent group also owns or controls FILA, Descente and Amer Sports (Arc'teryx, Salomon, Wilson), though those are not Chinese brands and are tracked separately. Anta opened its first US store — a company-operated flagship in Beverly Hills — in February 2026, with NBA players it sponsors at the launch, and is expanding across Southeast Asia.",
+      "us_since": "Feb 2026",
+      "first_outlet": "Beverly Hills, CA — 330 N Beverly Dr",
+      "site_cn": "https://www.anta.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "photos": {
+        "china": {
+          "file": "anta/china.jpg",
+          "caption": "An Anta Sports store in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_store_at_Beijing_Xitieying_Wanda_Plaza_%2820210920193009%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "anta/g1.jpg",
+            "caption": "An Anta Sports store in Suzhou",
+            "credit": "Shwangtianyuan",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_at_Suzhou_People%27s_Department_Store-20260521.jpg"
+          }
+        ]
+      }
+    },
+    "urbanrevivo": {
+      "name": "Urban Revivo",
+      "name_zh": "",
+      "category": "Fast fashion (apparel)",
+      "blurb": "A Guangzhou fashion retailer founded in 2006 and often called China's answer to Zara, known for large, design-led stores. It runs more than 400 stores, mostly in China and Southeast Asia, and has since expanded to the UK and the US; its parent, Fashion Momentum Group, is privately held. Urban Revivo opened its first US store — a roughly 30,000-square-foot flagship in SoHo — in February 2025.",
+      "us_since": "Feb 2025",
+      "first_outlet": "SoHo, New York, NY — 515 Broadway",
+      "site_cn": null,
+      "site_us": "https://www.urbanrevivo.com/",
+      "photo": null,
+      "photo_credit": null,
+      "photos": {
+        "china": {
+          "file": "urbanrevivo/china.jpg",
+          "caption": "An Urban Revivo in Zhengzhou, China",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A20250705_Urban_Revivo_at_Zhengdong_MIXC.jpg",
+          "label": "郑州"
+        },
+        "gallery": [
+          {
+            "file": "urbanrevivo/g1.jpg",
+            "caption": "An Urban Revivo in Shenzhen",
+            "credit": "KAGYAMIUW Hangmaou",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E7%9A%87%E5%BA%AD%E5%BB%A3%E5%A0%B4_Wongtee_Plaza_%E5%95%86%E5%A0%B4_Mall_shop_clothing_URBAN_REVIVO_January_2024_R12S_01.jpg"
+          }
+        ]
+      }
+    },
+    "jnby": {
+      "name": "JNBY",
+      "name_zh": "江南布衣",
+      "category": "Designer apparel",
+      "blurb": "A Hangzhou designer-fashion house, listed in Hong Kong, that runs a family of in-house women's and lifestyle labels — JNBY, Croquis, less, jnby by JNBY and Pomme de terre — across roughly 2,100 stores, almost all in China. In the United States its stores trade as “AGoodFun”, run by a local licensee, with locations in San Francisco and Seattle; earlier stores in Bellevue and SoHo, New York have closed.",
+      "us_since": "2015",
+      "first_outlet": "Seattle, WA — 600 Pine St (Pacific Place), as AGoodFun",
+      "site_cn": "https://www.jnby.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null
+    },
+    "meilleurmoment": {
+      "name": "Meilleur Moment",
+      "name_zh": "伊芙丽",
+      "category": "Womenswear (apparel)",
+      "blurb": "A minimalist womenswear label from Hangzhou's Eifini group (伊芙丽), a privately held fashion company founded in 2001 with more than 600 stores across its brands in China. Meilleur Moment opened its first US store — a boutique in SoHo — in May 2025.",
+      "us_since": "May 2025",
+      "first_outlet": "SoHo, New York, NY — 257 Elizabeth St",
+      "site_cn": "https://www.eifini.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null
+    },
+    "moreyogurt": {
+      "name": "More Yogurt",
+      "name_zh": "茉酸奶",
+      "category": "Yogurt drinks & smoothies",
+      "blurb": "A Shanghai chain of yogurt-based drinks and smoothies — its signature is an avocado yogurt smoothie — that uses the English name “More Yogurt”. It operates in Hong Kong, Malaysia and Singapore, and opened its first US store in Tustin, California in 2026, with a second announced for Flushing, New York.",
+      "us_since": "2026",
+      "first_outlet": "Tustin, CA — 2471 Park Ave (The District at Tustin Legacy)",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null
+    },
+    "moge": {
+      "name": "Möge Tee",
+      "name_zh": "愿茶",
+      "category": "Bubble tea",
+      "blurb": "A Chinese bubble-tea chain (愿茶) that trades in the US as “Möge Tee”. It has grown quickly across the US — roughly 70 stores in 18 states by late 2026, clustered in the Northeast, Florida, Texas and California — collected daily from its own US store locator. (A different brand from Molly Tea / 茉莉奶白, and from More Yogurt / 茉酸奶.)",
+      "us_since": "2018",
+      "first_outlet": null,
+      "site_cn": null,
+      "site_us": "https://www.mogeteeusa.com/",
+      "photo": null,
+      "photo_credit": null
+    },
+    "juqi": {
+      "name": "JUQI",
+      "name_zh": "局气",
+      "category": "Restaurant",
+      "blurb": "A Beijing home-style restaurant chain (~20 outlets in China) known for playful old-Beijing dishes — Lord-Rabbit mashed potato, honeycomb-briquette fried rice and Peking duck. Its first US location opened at the Tangram complex in Flushing, Queens.",
+      "site_cn": null,
+      "site_us": "https://juqiusa.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "~2020",
+      "first_outlet": "Flushing, Queens, NY — 133-36 37th Ave G17 (Tangram)",
+      "us_since_note": "Flushing (Tangram) announced Oct 2019 for a 2020 opening (Patch); still a single US store — long-standing (exact year 2020-2022 uncertain)."
+    },
+    "leebai": {
+      "name": "Lee & Bai",
+      "name_zh": "李与白",
+      "category": "Restaurant",
+      "blurb": "A Chengdu buns-and-noodles chain (李与白包子铺) with hundreds of outlets in China, known for fresh-steamed baozi, Chengdu pickled-pork bao and zapu noodles. It is expanding across the US, with outlets in New York, California and New Jersey.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": null,
+      "first_outlet": "Flushing, Queens, NY — 38-09 Union St"
+    },
+    "quanjude": {
+      "name": "Quanjude",
+      "name_zh": "全聚德",
+      "category": "Restaurant",
+      "blurb": "The Beijing roast-duck institution (全聚德), founded 1864, whose hanging-oven Peking duck method is a National Intangible Cultural Heritage. A state-owned chain with 100+ outlets in China; its US flagship opened in Midtown Manhattan under the upscale 'iDEN' concept (iDEN & Quanjude).",
+      "site_cn": null,
+      "site_us": "https://www.quanjude1864.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "June 2025",
+      "first_outlet": "New York, NY — 3 E 52nd St (iDEN & Quanjude)",
+      "photos": {
+        "china": {
+          "file": "quanjude/china.jpg",
+          "caption": "Quanjude's original roast-duck restaurant in Beijing, China",
+          "credit": "N509FZ",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3AEntrance_lobby_of_Quanjude_Origin_Roast_Duck_Restaurant_%2820250323150212%29.jpg",
+          "label": "北京"
+        },
+        "gallery": [
+          {
+            "file": "quanjude/g1.jpg",
+            "caption": "A chef carving Beijing roast duck at Quanjude",
+            "credit": "Pixor",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ACarving_Beijing_Roast_Duck_at_Quanjude%2C_Beijing.jpg"
+          },
+          {
+            "file": "quanjude/g2.jpg",
+            "caption": "Inside Quanjude's original Beijing restaurant",
+            "credit": "N509FZ",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ACentral_lobby_of_Quanjude_Origin_Roast_Duck_Restaurant_%2820250323150338%29.jpg"
+          }
+        ]
+      }
+    },
+    "mamaxita": {
+      "name": "Mama Xita BBQ",
+      "name_zh": "西塔老太太",
+      "category": "Restaurant",
+      "blurb": "A Chinese-Korean-style barbecue chain from the Xita Korean-BBQ district of Shenyang (Liaoning), with 450+ outlets across 31 Asian cities, run by the Chubby Group (which also operates Chubby Cattle). Its first US location opened in Bellevue, Washington.",
+      "site_cn": null,
+      "site_us": "https://mamaxitabbq.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": null,
+      "first_outlet": "Bellevue, WA — 550 106th Ave NE, Ste 101",
+      "photos": {
+        "gallery": [
+          {
+            "file": "mamaxita/g1.jpg",
+            "caption": "Inside Mama Xita BBQ",
+            "credit": "Mama Xita BBQ",
+            "source": "https://mamaxitabbq.com/"
+          },
+          {
+            "file": "mamaxita/g2.jpg",
+            "caption": "A Mama Xita BBQ dining room",
+            "credit": "Mama Xita BBQ",
+            "source": "https://mamaxitabbq.com/"
+          },
+          {
+            "file": "mamaxita/g3.jpg",
+            "caption": "A dish at Mama Xita BBQ",
+            "credit": "Mama Xita BBQ",
+            "source": "https://mamaxitabbq.com/"
+          }
+        ]
+      }
+    },
+    "shanchenglameizi": {
+      "name": "Shancheng Lameizi",
+      "name_zh": "山城辣妹子",
+      "category": "Restaurant",
+      "blurb": "A Chongqing hot-pot brand (山城辣妹子, 'Chongqing spicy girl') known for fiery beef-tallow broths and hand-cut fresh beef and tripe. China-origin (with a Beijing outlet); its US outlets operate under one Southern California group. Menu/pricing at shanchenglameizi.com (and its online-ordering pages) — kept for a later Pro pricing catalog.",
+      "site_cn": null,
+      "site_us": "https://www.shanchenglameizi.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": null,
+      "first_outlet": "Rowland Heights, CA — 18932 Gale Ave"
+    },
+    "bingxue": {
+      "name": "BINGXUE",
+      "name_zh": "冰雪时光",
+      "category": "Restaurant",
+      "blurb": "A mass-market tea-and-ice-cream chain from Tai'an, Shandong (冰雪时光, founded 2014) — the budget, bear-mascot (“Bobo Bear”) rival to Mixue, selling fresh-fruit and milk teas, soft serve (it claims the world's best-selling matcha soft serve), yogurt smoothies and coffee. The brand reports about 5,000 stores across 18 countries, over 1,500 of them outside its home market. It opened its first US and North American store in downtown Davis, California on 2 October 2026 — a mayor-attended grand opening — with a second US store in development on Oxnard Boulevard.",
+      "site_cn": "http://www.bingxueglobal.com/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "October 2026",
+      "first_outlet": "Davis, CA — 425 2nd St",
+      "photos": {
+        "china": {
+          "file": "bingxue/china.jpg",
+          "caption": "A Bingxue in Fuyuan, China",
+          "credit": "HCCB3947",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File%3A%E6%8A%9A%E8%BF%9C%E7%9A%84%E5%86%B0%E9%9B%AA%E6%97%B6%E5%85%89.jpg",
+          "label": "抚远"
+        },
+        "gallery": [
+          {
+            "file": "bingxue/g1.jpg",
+            "caption": "Bingxue's matcha soft serve",
+            "credit": "Cendy00",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "source": "https://commons.wikimedia.org/wiki/File%3ABingxue.jpg"
+          }
+        ]
+      }
+    },
+    "walaida": {
+      "name": "WALAIDA",
+      "name_zh": "蛙来哒",
+      "category": "Restaurant",
+      "blurb": "A Hunan-cuisine restaurant chain built on charcoal and dry-pot bullfrog (牛蛙), founded around 2009–2010 in Changsha, Hunan by siblings Luo Hao and Luo Qing and later headquartered in Shenzhen. It has grown to roughly 460–500 outlets across more than 90 Chinese cities, about 90% of them franchised. Its first tracked US outlet operates in Flushing, New York, as 蛙来哒法拉盛店 (WALAIDA Flushing).",
+      "site_cn": "https://www.walaida.net/",
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2026",
+      "first_outlet": "Flushing, NY — 135-05 Roosevelt Ave",
+      "us_since_note": "Operating Oct 2026 (Google, Flushing, ~140 reviews); exact opening date not established."
+    },
+    "jibeichuan": {
+      "name": "JiBeiChuan",
+      "name_zh": "季北川",
+      "category": "Restaurant",
+      "blurb": "A rice-noodle chain built on fish-maw chicken-soup rice noodles (花胶鸡汤米粉), prepared in 2018 with its first direct-operated store in 2019 and headquartered in Hangzhou, Zhejiang (Hangzhou Shengli Catering Management Co.). It runs direct-operated and partner stores across China (Zhejiang, Jiangsu, Hunan, Hubei, Henan) and in North America (the US and Canada). Its US outlets include three in New York City — Flushing, Manhattan and Brooklyn — and one in San Leandro, California.",
+      "site_cn": null,
+      "site_us": "https://www.jibeichuanny.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": null,
+      "first_outlet": null
+    },
+    "babakehouse": {
+      "name": "BA Artisan Bakehouse",
+      "name_zh": "BA烘焙",
+      "category": "Bakery",
+      "blurb": "A French-Asian artisan bakery chain founded in 2016 in Kunming, Yunnan — 'BA' is short for BON APPÉTIT (French for 'enjoy your meal'), operated by Yunnan Bangnaboudi Food Development Co. (邦纳博地). It has grown to about 45 stores across China (Kunming, Chongqing, Xi'an, Chengdu and more), with overseas stores in Dubai and the US. Its North America flagship opened in Bellevue, Washington in January 2026.",
+      "site_cn": "http://babonappetit.com/",
+      "site_us": "https://babakery.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "January 2026",
+      "first_outlet": "Bellevue, WA — 550 106th Ave NE"
+    },
+    "chicjoc": {
+      "name": "CHICJOC",
+      "name_zh": "",
+      "category": "Apparel",
+      "blurb": "A Shanghai \"minimalist-luxury\" (极简极奢) womenswear brand operated by Shanghai Jiuci Brand Management Co. (上海玖赐), founded 2015. It began as a Taobao online brand and moved offline in May 2022 (first store at Nanjing Deji Plaza), growing to roughly 40–50 brick-and-mortar stores across first- and key second-tier Chinese cities' high-end malls, backed by four own factories. Its first overseas store opened at the Beverly Center in Los Angeles in November 2024; it also trades at Fashion Island in Newport Beach and in Paris.",
+      "site_cn": null,
+      "site_us": "https://www.chicjoc.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "November 2024",
+      "first_outlet": "Los Angeles, CA — Beverly Center, 8500 Beverly Blvd"
+    },
+    "dreame": {
+      "name": "DREAME",
+      "name_zh": "追觅",
+      "category": "Electronics",
+      "blurb": "A Suzhou (Jiangsu) smart-home electronics brand (Dreame Technology, 追觅科技; Xiaomi-ecosystem origin) known for robot vacuums, cordless stick vacuums, wet/dry cleaners and hair dryers. In the US it runs a growing branded retail chain of smart-home stores — a chain rather than a single flagship — with permanent locations at Westfield Century City (Los Angeles), Westfield UTC (San Diego), Westfield Valley Fair (Santa Clara) and Garden State Plaza (Paramus, NJ), alongside temporary pop-ups.",
+      "site_cn": null,
+      "site_us": "https://www.dreametech.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2024",
+      "first_outlet": "Los Angeles, CA — Westfield Century City"
+    },
+    "showminihotpot": {
+      "name": "Show Mini Hot Pot",
+      "name_zh": "秀海福",
+      "category": "Restaurant",
+      "blurb": "A golden-soup malatang chain (金汤麻辣烫, branded 'mini hot pot' in the US — customizable, individual-serving malatang) operated by Harbin Yuxiangding Catering Management Co. (哈尔滨裕祥鼎), founded 2016 in Harbin, Heilongjiang. By mid-2025 it had about 693 stores across China (Heilongjiang, Anhui, Jilin, Hebei), run on a franchise model with a central kitchen. It entered the US in 2025; its Richardson, Texas store (CityLine) is operating, and it has announced several more US cities as coming soon.",
+      "site_cn": null,
+      "site_us": "https://showminihotpot.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2025",
+      "first_outlet": null
+    },
+    "rolife": {
+      "name": "Rolife",
+      "name_zh": "若来",
+      "category": "Lifestyle & toys",
+      "blurb": "An IP-toy and lifestyle-creative brand of Robotime Group (若态科技, Suzhou, founded 2007; the Rolife sub-brand launched 2017), known for DIY miniature dollhouses, 3D wooden puzzles and IP art toys — its headline character Nanci is sold as blind boxes. In the US it runs a growing branded retail chain of about a dozen stores across seven states; it also operates stores in China, Thailand, Japan and the Netherlands.",
+      "site_cn": null,
+      "site_us": "https://www.rolifeonline.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2025",
+      "first_outlet": "Lynnwood, WA — Alderwood Mall"
+    },
+    "nanhotpot": {
+      "name": "Nan Hotpot",
+      "name_zh": "楠火锅",
+      "category": "Restaurant",
+      "blurb": "A Chongqing-style hotpot chain (楠火锅) founded in 1993, headquartered in Chengdu under Chengdu Shangzong Group (成都上纵集团), known for a heavy beef-tallow base and a 'market-stall / old-alley' (巷子里的老火锅) store concept. It has grown to 590–600+ stores and expanded abroad through a North America division with signed cooperative/franchise partners. Its overseas-first store opened in the Seattle area (Bellevue, WA) in March 2023, and it also trades in Plano, Texas.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2023",
+      "first_outlet": "Bellevue, WA — Crossroads (Seattle area)"
+    },
+    "huaxiaoxiao": {
+      "name": "Hwa ShooShoo",
+      "name_zh": "花小小",
+      "category": "Restaurant",
+      "blurb": "A Xinjiang fried-rice-noodle (新疆炒米粉) fast-casual chain founded in 2019–2020, with its first store in Beijing (Wangjing) and incubated/operated by 四有青年餐创集团 (Beijing Siyou Qingnian, est. 2015) under the slogan 让世界爱上新疆味 ('let the world fall in love with the taste of Xinjiang'). It grew to roughly 3,500 stores by the end of 2025 and 4,000+ by mid-2026. Its overseas-first store opened in Flushing, New York (Tangram food court) in February 2025 — billed as the first Xinjiang fried-rice-noodle brand to reach North America.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2025",
+      "first_outlet": "Flushing, NY — Tangram food court (overseas-first store)"
+    },
+    "zhoumapo": {
+      "name": "Zhoumapo",
+      "name_zh": "周麻婆",
+      "category": "Restaurant",
+      "blurb": "A fast-casual Sichuan stir-fry (快餐式小炒) chain founded in August 2012 by Zhou Hongxia (周红霞), with its parent 福建省周麻婆餐饮管理有限公司 (Fujian Zhou Mapo Catering Management) headquartered in Fuzhou, Fujian. Known for a ¥2 Mapo tofu and 'tasty, fast, affordable' positioning, it grew to roughly 300 franchised stores by 2021. Its first US store opened at 728 Eighth Avenue in Times Square, New York (a 10-year lease signed in January 2025), trading as 'Mapo Asian Restaurant & Bar — Time Square 周麻婆' — repositioned as a full restaurant and bar while keeping the Mrs. Zhou brand and grandma logo.",
+      "site_cn": null,
+      "site_us": "https://www.mapousa.com/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2025",
+      "first_outlet": "New York, NY — Times Square (728 8th Ave)"
+    },
+    "littlesheep": {
+      "name": "Little Sheep Hot Pot",
+      "name_zh": "小肥羊",
+      "category": "Hot pot",
+      "blurb": "A Mongolian hot-pot chain founded 1999 in Baotou, Inner Mongolia and owned by Yum China since 2012 — not to be confused with Happy Lamb (快乐小羊), the separate brand its founder re-created in 2017. After its earlier US outlets were largely renamed Happy Lamb, Little Sheep re-entered the US in 2026 with a new location at American Dream, New Jersey.",
+      "site_cn": null,
+      "site_us": "https://littlesheepusa.com",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2026",
+      "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)"
+    },
+    "yaoyao": {
+      "name": "YAOYAO",
+      "name_zh": "姚姚酸菜鱼",
+      "category": "Sichuan pickled fish",
+      "blurb": "YAOYAO (姚姚酸菜鱼) is a China-origin Sichuan pickled-fish (酸菜鱼) chain founded in Shenzhen in 2016 by Yao Minxi, a former Huawei executive. Known for its Tiffany-blue 'light-luxury' interiors and bear-fish mascot, it grew to roughly 50-70 stores and has repeatedly ranked among China's top pickled-fish brands. In the US it operates three outlets — Chicago's Chinatown (a Michelin Bib Gourmand pick in 2024 and 2025), San Leandro, and San Bruno, California (the last co-branded 'Jin Gege & Yao Yao'). It opened and then fully withdrew from Hong Kong, where all four of its stores have closed.",
+      "site_us": "https://yaoyaochicago.com/",
+      "first_outlet": "Chicago, IL (Chinatown)",
+      "us_since": "2023"
+    },
+    "bingz": {
+      "name": "Bingz",
+      "us_since": "Oct 2026",
+      "us_since_note": "Grand opening 2 Oct 2026 (San Gabriel, TAWA Gateway).",
+      "first_outlet": "San Gabriel, CA — 140 W Valley Blvd Ste 118C"
+    },
+    "dusu": {
+      "name": "Dusu Bakery",
+      "us_since": "2026",
+      "us_since_note": "Opened by Sep 2026 (The Infatuation LA, 30 Sep 2026, 'has opened'); exact month not established.",
+      "first_outlet": "Temple City, CA — 5585 Rosemead Blvd"
+    },
+    "hibake": {
+      "name": "Hi Bake",
+      "us_since": "Aug 2025",
+      "us_since_note": "First overseas store Aug 2025 (Beverly Hills), per Chinese trade press.",
+      "first_outlet": "Beverly Hills, CA — 235 N Canon Dr"
+    },
+    "yogost": {
+      "name": "Hey! I am Yogost",
+      "name_zh": "我是酸奶君",
+      "category": "Yogurt drinks",
+      "blurb": "Hey! I am Yogost (我是酸奶君) is a China-origin yogurt-drink chain founded in Shenzhen in 2017, operated by Shenzhen Baichengduoyi Restaurant Management Co. It is known for purple-rice yogurt drinks and a cute bear-chef mascot, with roughly 70-plus stores across China, Hong Kong, Australia, New Zealand, Indonesia, Malaysia, Canada and the United States. Its North American footprint, per the brand's own store locator, spans 12 Canadian outlets (Alberta, British Columbia, Ontario, Manitoba and Saskatchewan) and three US stores: Philadelphia, Boston and American Dream in New Jersey (the last opened in 2026).",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2026",
+      "first_outlet": "Philadelphia, PA / Boston, MA / East Rutherford, NJ (American Dream)"
+    },
+    "ximivogue": {
+      "name": "XIMIVOGUE",
+      "name_zh": "熙美诚品",
+      "category": "Variety / lifestyle retail",
+      "blurb": "XIMIVOGUE is a China-origin variety and lifestyle retailer founded in 2015 and headquartered in Guangzhou. Like Miniso, it markets a Korean/Japanese design aesthetic despite being a Chinese company, selling an inexpensive, wide range of household goods, beauty products, accessories and toys. It has grown to well over a thousand stores across 90-plus countries through franchising, including US locations in Georgia, Illinois and Florida.",
+      "site_cn": null,
+      "site_us": null,
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2026",
+      "first_outlet": "Lawrenceville GA / Schaumburg IL / Orlando FL / Miami FL"
+    },
+    "derucci": {
+      "name": "DeRUCCI",
+      "name_zh": "慕思",
+      "category": "Mattress & bedding",
+      "blurb": "DeRUCCI (慕思) is a China-origin premium mattress, bedding and furniture company founded in 2004 and headquartered in Dongguan, Guangdong; its parent, DeRUCCI Health Sleep Co., listed on the Shenzhen Stock Exchange in 2022. Like Miniso, it wraps a European-designer image around what is a Chinese company, and operates roughly four thousand stores in China out of a global footprint above five thousand. It entered the US market with showrooms in New York, California and Georgia.",
+      "site_cn": null,
+      "site_us": "https://global.derucci.com",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2023",
+      "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)"
+    },
+    "mogouyan": {
+      "name": "Mogouyan Hand-Pulled Noodle",
+      "name_zh": "磨沟沿",
+      "category": "Lanzhou hand-pulled noodles",
+      "blurb": "Mogouyan Hand-Pulled Noodle is a China-origin Lanzhou-style beef-noodle chain named after the Mogouyan district of Lanzhou, Gansu, where it traces 40-50 years of history. It expanded abroad starting with Toronto in 2019 and is concentrated in Canada; its first US location opened at Mall of America in Bloomington, Minnesota, featuring live hand-pulling of its noodles.",
+      "site_cn": null,
+      "site_us": "https://mogouyannoodles.com",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2024",
+      "first_outlet": "Bloomington, MN — Mall of America"
+    },
+    "rbtea": {
+      "name": "R&B Tea",
+      "name_zh": "",
+      "category": "Bubble tea / milk tea",
+      "blurb": "R&B Tea is a bubble-tea chain named for the initials of its founders, Rex and Bruce. Founder Bruce is Taiwanese but launched the brand while working in Suzhou, China: the first R&B Tea store opened in Suzhou in 2006, and the chain was built out across China — a reported 1,000-plus shops worldwide — before expanding to Singapore, Macau, Malaysia and Indonesia. Its US arm, R&B Tea USA (HQ Gardena/Garden Grove, California), operates 40 stores across California, Texas, Arizona, Michigan, South Carolina and North Carolina. It is tracked as China-born-and-built, distinct from the Taiwan-HQ tea chains the project excludes.",
+      "site_cn": null,
+      "site_us": "https://rbteausa.com",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2018",
+      "first_outlet": "Southern California (San Gabriel Valley)"
+    },
+    "tenseconds": {
+      "name": "Ten Seconds Yunnan Rice Noodle",
+      "name_zh": "十秒到",
+      "category": "Yunnan rice noodles (过桥米线)",
+      "blurb": "Ten Seconds Yunnan Rice Noodle (十秒到云南过桥米线, ShiMiaoDao) is a China-origin chain built around Yunnan \"crossing-the-bridge\" rice noodles, headquartered in Hangzhou, Zhejiang. After scaling across China it expanded overseas — its own history dates its first overseas store to New York — and now reports 40-plus North America locations. Operator-observed Google Maps listings confirm about 39 operating US stores across 18 states, concentrated in California and Texas, with its signature noodles served in a steaming stone pot.",
+      "site_cn": "https://www.shimiaodao.com",
+      "site_us": "https://en.shimiaodao.com/usa/",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2018",
+      "first_outlet": "New York (first overseas store)"
+    }
   }
- }
 }

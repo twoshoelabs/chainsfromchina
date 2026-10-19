@@ -61,6 +61,8 @@ const MONOGRAM = {
   nanhotpot: 'NH',
   huaxiaoxiao: 'HS',
   zhoumapo: 'ZM',
+  rbtea: 'RB',
+  tenseconds: 'TS',
 };
 
 // Brands with a logo file in icons/ (first-party, nominative use). Any brand not listed falls back
@@ -88,6 +90,8 @@ const LOGO_CHAINS = new Set([
   'ximivogue',
   'derucci',
   'mogouyan',
+  'rbtea',
+  'tenseconds',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina

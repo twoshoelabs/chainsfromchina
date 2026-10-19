@@ -134,6 +134,15 @@ confirmable new stores). Two things that DO work: (a) for the big adapter-less c
 regional chains unique to a plaza — you need a true **Google-Maps-area pass** (browse Maps around the 99 Ranch
 pin), which plain WebSearch can't substitute for. Don't burn web searches on `Mixue <city>`; check the locator.
 
+**PROVEN METHOD (piloted 2026-10-18, Convoy District San Diego):** in an interactive browser, open a Google Maps
+search like `https://www.google.com/maps/search/bubble+tea/@<lat>,<lon>,15z` centered on the plaza, then
+`get_page_text` the results panel and read the map pins; search a specific tracked brand (`Chabaidao 茶百道
+<area>`) to pull its exact address. This found **Chabaidao / TeaByDo at 4425 Convoy St #216, San Diego** that
+six web searches had missed, plus a new-chain lead (3CAT Handcrafted Beverage). Scan categories: `bubble tea`,
+`malatang`, `hot pot`, `Chinese bakery/dessert`. **CAVEAT: this needs an interactive browser — the monthly
+cloud routine (WebFetch/WebSearch only) can't do it.** So split the work: the cloud routine does enclosed-mall
+directories + brand-locator reconciliation; **strip-plaza Google-Maps passes are a manual/session task.**
+
 ---
 
 **Low-yield / skip:** outlet malls (Simon Premium Outlets, Tanger); affluent non-Asian-trade-area

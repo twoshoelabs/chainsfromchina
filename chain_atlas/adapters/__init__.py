@@ -43,7 +43,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     ChicjocAdapter, DreameAdapter, ShowminihotpotAdapter, RolifeAdapter,
                     NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter, LittleSheepAdapter,
                     YaoyaoAdapter, YogostAdapter, XimivogueAdapter, DerucciAdapter,
-                    MogouyanAdapter)
+                    MogouyanAdapter, RbteaAdapter, TenSecondsAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -114,6 +114,8 @@ REGISTRY: list[Adapter] = [
     XimivogueAdapter(), # Guangzhou Miniso-style variety retailer XIMIVOGUE (markets as Korean); 4 US outlets GA/IL/FL (18 Oct 2026) — see stubs.py
     DerucciAdapter(), # Dongguan premium mattress/bedding chain DeRUCCI 慕思 (markets as European-designer); US showrooms Flushing NY + Arcadia CA (18 Oct 2026) — see stubs.py
     MogouyanAdapter(), # Lanzhou hand-pulled beef-noodle chain Mogouyan; first US store at Mall of America (18 Oct 2026) — see stubs.py
+    RbteaAdapter(), # China-born-and-built bubble-tea chain R&B Tea (founders Rex & Bruce, first store Suzhou 2006); 40 US stores CA/TX/AZ/MI/SC/NC (19 Oct 2026) — see stubs.py
+    TenSecondsAdapter(), # China-origin Yunnan 过桥米线 chain Ten Seconds / 十秒到 / ShiMiaoDao (HQ Hangzhou); ~39 US stores / 18 states, found via SGV malatang Maps scan (19 Oct 2026) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

@@ -1640,6 +1640,50 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Lanzhou) hand-pulled beef-noodle chain; Canada-heavy overseas, first US store at Mall of America."
+  },
+  "rbtea": {
+   "name": "R&B Tea",
+   "name_zh": "",
+   "name_intl": "R&B Tea",
+   "name_us": "R&B Tea",
+   "aliases": [
+    "R&B Tea",
+    "R & B Tea",
+    "RB Tea",
+    "R&B",
+    "R&B Milk Tea",
+    "R&B Teausa"
+   ],
+   "format": "tea",
+   "global": "Bubble/milk-tea chain whose name is the initials of its founders, Rex & Bruce. OWNERSHIP/HISTORY: founder Bruce is Taiwanese, but he started the brand while working in Suzhou, China — the first R&B Tea store opened in Suzhou in 2006, and the chain was built out across China (1,000+ shops reported worldwide) before expanding abroad. IN SCOPE as China-born-and-built (owner call 2026-10-19): the brand was born and scaled in China, which qualifies it despite the Taiwanese founder — distinct from the Taiwan-HQ chains (Chatime, Gong cha, TP Tea) the project excludes. Overseas markets reported include Singapore, Macau, Malaysia and Indonesia. The US arm (R&B Tea USA, rbteausa.com, HQ Gardena/Garden Grove CA) runs 40 operating stores across CA/TX/AZ/MI/SC/NC with a long coming-soon pipeline.",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "R&B Tea USA (rbteausa.com) runs US operations and offers franchising via its /franchise page; US HQ Gardena/Garden Grove CA. No FDD confirmed yet. Chinese brand name unconfirmed (left blank, not guessed)."
+  },
+  "tenseconds": {
+   "name": "Ten Seconds Yunnan Rice Noodle",
+   "name_zh": "十秒到",
+   "name_intl": "Ten Seconds Yunnan Rice Noodle",
+   "name_us": "Ten Seconds Yunnan Rice Noodle",
+   "aliases": [
+    "Ten Seconds",
+    "Ten Seconds Rice Noodle",
+    "Ten Seconds Yunnan Rice Noodle",
+    "Ten Second Noodle",
+    "10 Second Noodle",
+    "ShiMiaoDao",
+    "Shi Miao Dao",
+    "十秒到",
+    "十秒到云南过桥米线",
+    "十秒到過橋米線"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Yunnan crossing-bridge rice-noodle (过桥米线) chain, HQ Hangzhou, Zhejiang (shimiaodao.com). Built out across China, then expanded overseas — its own history says the first overseas store opened in New York, followed by rapid US growth; the company self-reports 40+ North America stores across ~18 states/provinces. Operator-observed Google Maps listings confirm ~39 operating US stores across 18 states (CA/TX heaviest). Canada = 7 stores, all Greater Toronto Area (first-party site tensecondsnoodle.ca); the brand also advertises Europe, Mexico and South America location pages.",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "China 过桥米线 chain (ShiMiaoDao 十秒到), HQ Hangzhou; rapid US franchise/partner expansion. No US FDD confirmed yet."
   }
  },
  "entries": [
@@ -9485,6 +9529,81 @@
    "note": "Canada is the overseas core — Toronto (multiple), Edmonton (West Edmonton Mall), Calgary, Mississauga, Mont-Tremblant; first overseas store Toronto Jun 2019 (per the brand's own site).",
    "sources": [
     "Mogouyan official site (mogouyannoodles.com/about-us) + blogTO"
+   ]
+  },
+  {
+   "chain": "rbtea",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Singapore arm operates its own site (rbtea.com.sg).",
+   "sources": [
+    "rbtea.com.sg; danielfooddiary.com review"
+   ]
+  },
+  {
+   "chain": "rbtea",
+   "market": "MO",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Macau listed among the brand's overseas markets.",
+   "sources": [
+    "R&B Tea overseas-market reporting (whatnow.com)"
+   ]
+  },
+  {
+   "chain": "rbtea",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Malaysia listed among the brand's overseas markets.",
+   "sources": [
+    "R&B Tea overseas-market reporting (whatnow.com)"
+   ]
+  },
+  {
+   "chain": "rbtea",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Indonesia named as a recent overseas expansion market.",
+   "sources": [
+    "R&B Tea overseas-market reporting (whatnow.com)"
+   ]
+  },
+  {
+   "chain": "tenseconds",
+   "market": "CA",
+   "status": "present",
+   "locations": 7,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-19",
+   "note": "7 Canadian stores, all Greater Toronto Area / Ontario, per the brand's own Canada site: Downtown Toronto (318 Spadina Ave), Scarborough (2190 McNicoll Ave), North York (109A Ravel Rd), Richmond Hill (9021 Leslie St), Mississauga (1177 Central Parkway W), Newmarket (17235 Leslie St), Hamilton (96 Main St E). Operated under ShiMiaoDao (shimiaodao@gmail.com).",
+   "sources": [
+    "Ten Seconds official Canada site tensecondsnoodle.ca (read 19 Oct 2026)"
    ]
   }
  ]
