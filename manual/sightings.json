@@ -2293,6 +2293,15 @@
           "lat": 34.1463,
           "lon": -118.2568,
           "coord_src": "Glendale Galleria centroid"
+        },
+        {
+          "name": "Carrollton",
+          "address": "2540 Old Denton Rd #122, Carrollton, TX 75007",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 32.98,
+          "lon": -96.91,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
@@ -2376,6 +2385,15 @@
           "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
           "lat": 32.818325165605,
           "lon": -117.154845126865
+        },
+        {
+          "name": "Milpitas",
+          "address": "286 Barber Ct, Milpitas, CA 95035",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 37.41958,
+          "lon": -121.92,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
