@@ -487,6 +487,16 @@
       "opened": null,
       "closed_on": "2026-10-19",
       "closed_note": "HEYTEA Rowland Heights permanently closed (Google Maps 永久歇業 flag, verified 19 Oct 2026 during reconciliation re-sweep); removed from open census."
+    },
+    {
+      "chain": "fishwithyou",
+      "name": "Cupertino (traded as Wei's Fish)",
+      "address": "10520 S De Anza Blvd, Cupertino, CA 95014",
+      "city": "Cupertino",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Fish With You 鱼你在一起 Cupertino, traded locally as \"Wei's Fish 下饭酸菜鱼\" (identical orange twin-fish logo + 鱼你在一起 Chinese name on signage, owner-confirmed). Google shows PERMANENTLY CLOSED (red Closed label + Hours Closed, no reopening; 4.3 stars/284 reviews). Removed from census."
     }
   ]
 }
