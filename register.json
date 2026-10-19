@@ -383,9 +383,20 @@
    "name": "Fish With You",
    "name_zh": "鱼你在一起",
    "format": "restaurant",
-   "global": "sauerkraut-fish (酸菜鱼) fast-casual chain, several thousand outlets in China (2025 est.); US franchising began 2024-25",
+   "global": "sauerkraut-fish (酸菜鱼) fast-casual chain, several thousand outlets in China (2025 est.); US franchising began 2024-25. Trades in the US (and Canada/Thailand) as \"Yonny\" / \"YONNY 鱼你\" (same orange twin-fish logo); listings mix \"Fish With You\", \"鱼你在一起\" and \"Yonny\".",
    "operating_model": "franchise",
-   "franchise_note": "Sauerkraut-fish franchise (2,700+); many US locations and a public 'US 1,000 cities' recruiting push suggest US units are franchised, but no confirmed first-party US application page or US FDD found."
+   "franchise_note": "Sauerkraut-fish franchise (2,700+); many US locations and a public 'US 1,000 cities' recruiting push suggest US units are franchised, but no confirmed first-party US application page or US FDD found.",
+   "name_us": "Yonny",
+   "aliases": [
+    "Yonny",
+    "YONNY",
+    "鱼你",
+    "Yonny Mini Hotpot",
+    "Yonny Mini Hotpot & Suancai",
+    "Fish With You",
+    "鱼你在一起",
+    "鱼你"
+   ]
   },
   "zhangliang": {
    "name": "Zhang Liang Malatang",
@@ -9604,6 +9615,36 @@
    "note": "7 Canadian stores, all Greater Toronto Area / Ontario, per the brand's own Canada site: Downtown Toronto (318 Spadina Ave), Scarborough (2190 McNicoll Ave), North York (109A Ravel Rd), Richmond Hill (9021 Leslie St), Mississauga (1177 Central Parkway W), Newmarket (17235 Leslie St), Hamilton (96 Main St E). Operated under ShiMiaoDao (shimiaodao@gmail.com).",
    "sources": [
     "Ten Seconds official Canada site tensecondsnoodle.ca (read 19 Oct 2026)"
+   ]
+  },
+  {
+   "chain": "fishwithyou",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Calgary (310 Centre St S), trading as \"YONNY 鱼你 - Delicious Fish Pot\" (per Google Maps).",
+   "sources": [
+    "Google Maps operating listings (Yonny/鱼你 brand, Oct 2026)"
+   ]
+  },
+  {
+   "chain": "fishwithyou",
+   "market": "TH",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-10",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-19",
+   "note": "Bangkok — Chamchuri Square + Central Pinklao, trading as \"YONNY 鱼你\" (per Google Maps).",
+   "sources": [
+    "Google Maps operating listings (Yonny/鱼你 brand, Oct 2026)"
    ]
   }
  ]

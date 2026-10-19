@@ -1779,7 +1779,7 @@
           "address": "2313 N Central Expy, Plano, TX 75075",
           "name": "Plano",
           "confidence": "confirmed",
-          "verified_by": "first-party store site — routine discovery 2026-10-01 — https://www.yonnyplano.com/"
+          "verified_by": "Google Maps operating listing as \"Yonny Mini Hotpot & Suancai\" (鱼你在一起/Yonny rebrand), 2313 N Central Expy, verified 19 Oct 2026"
         },
         {
           "address": "4258 Spring Mountain Rd, Las Vegas, NV 89102",
@@ -1791,7 +1791,7 @@
           "address": "2 Old Denton Road, Carrollton, TX 75006",
           "name": "Carrollton",
           "confidence": "uncertain",
-          "verified_by": "permit filed, ~Nov 2026 (routine discovery 2026-10-01) — https://www.zabalist.com/projects/TABS2026021005"
+          "verified_by": "Unverified: no Fish With You/Yonny found on Old Denton Rd Carrollton (Google Maps, 19 Oct 2026); address \"2 Old Denton Road\" malformed. Held out pending verification."
         }
       ],
       "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
