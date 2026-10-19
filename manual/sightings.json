@@ -1019,6 +1019,87 @@
           "lat": 28.45011,
           "lon": -81.400723,
           "coord_src": "The Florida Mall centroid"
+        },
+        {
+          "name": "Brea",
+          "address": "1065 Brea Mall, Brea, CA 92821",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 33.9158,
+          "lon": -117.8871,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Tustin",
+          "address": "5414 Walnut Ave Ste E, Irvine, CA 92620",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 33.6893,
+          "lon": -117.7704,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Irvine (Harvard)",
+          "address": "17595 Harvard Ave #E, Irvine, CA 92614",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 33.6776,
+          "lon": -117.833,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Alhambra",
+          "address": "101 E Valley Blvd Ste E, Alhambra, CA 91801",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 34.0799,
+          "lon": -118.0994,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Sherman Oaks",
+          "address": "14006 Riverside Dr Ste 17, Sherman Oaks, CA 91423",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 34.157,
+          "lon": -118.4374,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Culver City",
+          "address": "6000 Sepulveda Blvd H2, Culver City, CA 90230",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 33.985,
+          "lon": -118.3951,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Daly City",
+          "address": "500 Westlake Center, Daly City, CA 94015",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 37.6994,
+          "lon": -122.4827,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Fremont",
+          "address": "5328 Curie St Ste B, Fremont, CA 94538",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 37.5028,
+          "lon": -121.9695,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Houston (Bellaire)",
+          "address": "9889 Bellaire Blvd Ste E217, Houston, TX 77036",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+          "lat": 29.7043,
+          "lon": -95.5529,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
@@ -1355,12 +1436,6 @@
           "address": "9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210",
           "confidence": "confirmed",
           "verified_by": "LA County health-department permit, first inspected 2024-08-21 (2026-09-23)"
-        },
-        {
-          "name": "HEYTEA (Rowland Heights)",
-          "address": "18253 COLIMA RD # 103, Rowland Heights, CA 91748",
-          "confidence": "confirmed",
-          "verified_by": "LA County health-department permit, first inspected 2025-02-07 (2026-09-23)"
         },
         {
           "name": "HEYTEA (Monterey Park)",
