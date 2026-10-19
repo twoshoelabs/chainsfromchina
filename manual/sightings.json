@@ -372,7 +372,8 @@
           "name": "Orlando",
           "address": "5600 W Colonial Dr #316, Orlando, FL 32808",
           "confidence": "uncertain",
-          "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); field audit 2026-10-02 found no business at this address on Google Maps (bare address pin, no name or page) — flagged unconfirmed pending a phone/Yelp check, held out of totals."
+          "verified_by": "FDD Item 20 / Exhibit C (effective 31 Dec 2025); field audit 2026-10-02 found no business at this address on Google Maps (bare address pin, no name or page) — flagged unconfirmed pending a phone/Yelp check, held out of totals.",
+          "note": "FDD Item 20 lists 5600 W Colonial Dr #316, Orlando (effective 31 Dec 2025). A TikTok aggregator reports a YGF Malatang SOFT OPENING ~early Oct 2026 at 5062 W Colonial Dr Ste 110, Orlando 32808 (adjusted hours) -- address differs from the FDD; NOT yet on Google Maps (Oct 19 search snapped to a different chain). HELD OUT until an operating Maps/Yelp listing confirms it is serving. NOTE: the Sunrise FL store (2430 N University Dr, @ygfmalatangmiami) is a SEPARATE, confirmed-open location."
         },
         {
           "name": "Doraville",
