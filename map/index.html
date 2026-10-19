@@ -90,7 +90,8 @@
   .heronum .big { font-weight:800; font-size:clamp(170px,24vw,340px); line-height:.78; letter-spacing:-0.02em; margin-left:-0.03em; }
   .heronum .unit { display:flex; flex-direction:column; padding-bottom:10px; font-size:22px; line-height:1.05; font-weight:500; }
   .heronum .unit .sub { font-weight:400; color:var(--muted); }
-  .hero h1 { margin:22px 0 0; max-width:700px; font-size:26px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+  /* Top margin scales with the hero number's clamp()'d size so the comma's descender (which overflows the tight .78 line-height) clears the headline at every width. */
+  .hero h1 { margin:clamp(48px, calc(22px + 3.74vw), 75px) 0 0; max-width:700px; font-size:26px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
   .hero .method { margin:10px 0 0; max-width:620px; font-size:15px; color:var(--ink-2); }
   .ledger { width:100%; border-collapse:collapse; font-size:15px; }
   .ledger td { padding:8px 0; }
