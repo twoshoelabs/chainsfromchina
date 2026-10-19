@@ -370,14 +370,24 @@
    "franchise_note": "First US store Aug 2025 (Flushing) as a direct rollout; heavily franchised in China; intl master/area via VF (Asia/MENA), not US. No first-party US franchise application or US FDD found."
   },
   "yangguofu": {
-   "name": "Yangguofu",
+   "name": "Yang Guo Fu Malatang",
    "name_zh": "杨国福麻辣烫",
    "format": "restaurant",
    "global": "6,000+ malatang outlets, overwhelmingly in China, as of 2025; US franchising began 2024",
    "operating_model": "franchise",
    "franchise_available_us": 1,
    "fdd_available": 1,
-   "franchise_note": "Open first-party US franchise application (ygfus.com/franchise.html; asks net assets >$500K); backed by a registered US FDD (Captain Business Management Co., Minnesota franchise registration #11645 — the source of our US store roster). Fee/royalty not disclosed on the site."
+   "franchise_note": "Open first-party US franchise application (ygfus.com/franchise.html; asks net assets >$500K); backed by a registered US FDD (Captain Business Management Co., Minnesota franchise registration #11645 — the source of our US store roster). Fee/royalty not disclosed on the site.",
+   "name_us": "YGF Malatang",
+   "aliases": [
+    "YGF",
+    "YGF Malatang",
+    "Yang Guo Fu",
+    "Yang Guo Fu Malatang",
+    "杨国福",
+    "杨国福麻辣烫",
+    "楊國福"
+   ]
   },
   "fishwithyou": {
    "name": "Fish With You",
