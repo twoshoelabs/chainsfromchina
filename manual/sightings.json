@@ -757,19 +757,20 @@
           "lon": -121.432754
         },
         {
-          "name": "Corona",
-          "address": "430 N McKinley St Unit 103, Corona, CA 92879",
+          "name": "Corona (inside 99 Ranch Market)",
+          "address": "430 N McKinley St Ste 103c, Corona, CA 92879",
           "confidence": "confirmed",
-          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "verified_by": "Google Maps \"ZhangLiang Malatang - Corona\" 4.7★/135 reviews, inside 99 Ranch Market / Corona Hills Plaza, 430 N McKinley St Ste 103c (Closed·Opens 11AM = open); owner screenshot + browser check 19 Oct 2026.",
           "lat": 33.889049,
           "lon": -117.520099,
-          "coord_src": "Census geocoder (zlmalatang.us address)"
+          "coord_src": "Census geocoder (zlmalatang.us address)",
+          "note": "Inside 99 Ranch Market, Corona (zhangliangcorona.com); has its own Google listing (4.7, 54 reviews)."
         },
         {
           "name": "Salt Lake City",
           "address": "3390 S State St #32, Salt Lake City, UT 84115",
           "confidence": "confirmed",
-          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "verified_by": "Google Maps operating listing \"Zhangliang Malatang Salt Lake City-Mini Hotpot\" 4.5★/233 reviews, exact addr 3390 S State St #32 (已打烊=closed-for-hour, not permanent); 19 Oct 2026. Mall directory (saltlakechinatown.com) omits it but Molly Tea co-located + counted.",
           "lat": 40.697432,
           "lon": -111.88833,
           "coord_src": "Census geocoder (zlmalatang.us address)"
@@ -778,25 +779,16 @@
           "name": "Philadelphia",
           "address": "1006 Race St, Philadelphia, PA 19107",
           "confidence": "confirmed",
-          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "verified_by": "Google Maps operating listing \"Zhangliang Malatang\" 3.8★/153 reviews, 1006 Race St (已打烊/Closed·Opens 11AM = open), 张亮麻辣烫 signage in photos; owner screenshot + browser check 19 Oct 2026.",
           "lat": 39.955341,
           "lon": -75.156067,
-          "coord_src": "Census geocoder (zlmalatang.us address)"
-        },
-        {
-          "name": "Palo Alto",
-          "address": "338 University Ave, Palo Alto, CA 94301",
-          "confidence": "confirmed",
-          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
-          "lat": 37.446421,
-          "lon": -122.16097,
           "coord_src": "Census geocoder (zlmalatang.us address)"
         },
         {
           "name": "Newark",
           "address": "39055 Cedar Blvd #108, Newark, CA 94560",
           "confidence": "confirmed",
-          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026 + Google Maps operating listing \"Zhangliang Malatang Newark\"",
+          "verified_by": "Google Maps \"Zhangliang Malatang Newark\" 4.4★/19 reviews, 39055 Cedar Blvd #108 (Closed·Opens 11AM = open), 麻辣烫 branding; owner screenshot + browser check 19 Oct 2026.",
           "lat": 37.524394,
           "lon": -122.007008,
           "coord_src": "Census geocoder (zlmalatang.us address)"
