@@ -737,6 +737,51 @@
           "verified_by": "Google (ChaHalo 茶话弄 - East Village, 177 reviews, operating), hand-noted from screenshot (8 Oct 2026).",
           "lat": 40.729026,
           "lon": -73.988516
+        },
+        {
+          "name": "Brooklyn (Sunset Park)",
+          "address": "773 59th St, Brooklyn, NY 11220",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 40.63646,
+          "lon": -74.00916,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Irvine (Jamboree)",
+          "address": "13238 Jamboree Rd, Irvine, CA 92602",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 33.72805,
+          "lon": -117.78625,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "San Diego (Convoy)",
+          "address": "4698 Convoy St #105, San Diego, CA 92111",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 32.82684,
+          "lon": -117.15511,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Rockville",
+          "address": "1403 Research Blvd Unit A1, Rockville, MD 20850",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 39.0903,
+          "lon": -77.17713,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "San Gabriel",
+          "address": "301 W Valley Blvd Ste 107, San Gabriel, CA 91776",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 34.0801,
+          "lon": -118.10391,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
@@ -2047,6 +2092,15 @@
           "verified_by": "Google (445 reviews, operating; Fresh Meadows Place) (6 Oct 2026).",
           "lat": 40.740547,
           "lon": -73.784531
+        },
+        {
+          "name": "Brooklyn (Sunset Park)",
+          "address": "5802 7th Ave, Brooklyn, NY 11220",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 40.637997,
+          "lon": -74.010795,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
@@ -2430,6 +2484,51 @@
           "verified_by": "Google Business 'JiBeiChuan Noodle&Ramen 季北川花胶鸡米线' operating (4.4/224 reviews); Chowbus ordering (operator-observed 16 Oct 2026)",
           "lat": 40.7211006,
           "lon": -74.0426493
+        },
+        {
+          "name": "Fairfax",
+          "address": "10698 Fairfax Blvd, Fairfax, VA 22030",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 38.85656,
+          "lon": -77.31423,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Albany",
+          "address": "1704 Western Ave, Albany, NY 12203",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 42.68709,
+          "lon": -73.85885,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Boston (Chinatown)",
+          "address": "50 Beach St, Boston, MA 02111",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 42.35149,
+          "lon": -71.06077,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Germantown",
+          "address": "19520 Waters Rd Unit 5, Germantown, MD 20874",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 39.17553,
+          "lon": -77.27347,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Brooklyn (Sunset Park)",
+          "address": "5216 8th Ave, Brooklyn, NY 11220",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+          "lat": 40.6398,
+          "lon": -74.00546,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
     },
