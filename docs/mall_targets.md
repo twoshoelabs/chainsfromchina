@@ -145,6 +145,35 @@ directories + brand-locator reconciliation; **strip-plaza Google-Maps passes are
 
 ---
 
+## Asian-supermarket food courts & in-store kiosks (delivery-app / operator-observation method)
+A distinct blind spot from strip plazas: China-origin chains that run a **food-court STALL or boba KIOSK INSIDE**
+an Asian supermarket — **99 Ranch "Tasty Place"** (~66 US stores, 11 states), **H-Mart "Market Eatery"**, and
+**Great Wall / Hong Kong Supermarket / iFresh / Zion / Super 88**. Per the shop-in-shop precedent these **count
+as US outlets** (e.g. Dusu Bakery inside Duo Duo Snacks; **Shuyi is literally inside the Fremont 99 Ranch**,
+stored by its street address 46551 Mission Blvd).
+
+**WHY MISSED:** these stalls have **NO individual Google Maps pin** (they sit under the food court's or the
+store's own listing) and are not on the chains' brand locators — so BOTH our enclosed-mall sweep AND the
+strip-plaza Google-Maps pass miss them. The Maps tight-zoom method FAILS here.
+
+**METHOD (different again):** the stalls are indexed on **Chinese delivery apps** — **Fantuan** (fantuanorder.com),
+**Chowbus**, **HungryPanda / 熊猫外卖** — listed under the supermarket's delivery area. BUT those apps are
+JS-gated (need a login/delivery address; a cloud routine's WebFetch returns an empty shell, and even an
+interactive browser needs address setup). So the gold-standard source is **OPERATOR firsthand observation**
+(visit / order in person) — which is also our highest-confidence tier. Treat a supermarket food court as a
+small "directory" to walk once and record its China-chain stalls.
+
+**COUNTING RULE (learned 2026-10-19 pilot):** a branded on-site **KIOSK/STALL that prepares the item on site
+COUNTS**; a supermarket merely **RESELLING a chain's PACKAGED product does NOT** — e.g. "HeyTea" showed up on a
+Postmates listing for **99 Ranch Dublin**, but it was bottled HeyTea Bayberry Jasmine on the grocery shelf, not
+a kiosk, so it does NOT count. Always confirm prepared-on-site before adding. Store by street address (geocodes
+cleanly); note the host supermarket in the sighting's name/note.
+
+**HIGHEST-YIELD food courts to walk:** 99 Ranch — Irvine, Daly City, Milpitas, San Gabriel/Rowland Heights,
+Hacienda Heights, Houston/Katy, Flushing; H-Mart — Fort Lee NJ, Flushing, Cary NC, Katy TX, Niles IL, Las Vegas.
+
+---
+
 **Low-yield / skip:** outlet malls (Simon Premium Outlets, Tanger); affluent non-Asian-trade-area
 lifestyle centers (e.g. Village at Corte Madera, most suburban "Village at …" centers); neighborhood
 malls where Miniso is the only China tenant (already adapter-covered).
