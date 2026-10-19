@@ -418,7 +418,17 @@
    "global": "one of China's two dominant malatang chains, ~6,000 outlets, founded in Harbin in 2008; its own brand news reports 42 North American outlets across the US, Canada and Mexico as of Sept 2026",
    "operating_model": "franchise",
    "franchise_available_us": 1,
-   "franchise_note": "Open US franchise application on first-party US site (zlmalatang.us/franchise); many US stores. Fee/royalty/FDD not publicly disclosed."
+   "franchise_note": "Open US franchise application on first-party US site (zlmalatang.us/franchise); many US stores. Fee/royalty/FDD not publicly disclosed.",
+   "name_us": "Zhangliang Malatang",
+   "aliases": [
+    "Zhangliang Malatang",
+    "Zhang Liang Spicy Hot Pot",
+    "ZhangLiang MaLaTang",
+    "ZhangLiang MaLaTang Spicy Hot Pot",
+    "Zhangliang",
+    "张亮麻辣烫",
+    "張亮麻辣燙"
+   ]
   },
   "chahalo": {
    "name": "ChaHalo",

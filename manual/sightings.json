@@ -265,7 +265,9 @@
             "would report a permanently growing chain no matter what happened on the ground.",
             "",
             "Unresolved here, deliberately. Recorded so that whoever collects Yang's checks this first."
-          ]
+          ],
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing \"杨铭宇黄焖鸡 Yang Ming Yu Tustin\" (已打烊·opens 11:30 = open), 19 Oct 2026"
         }
       ]
     },
@@ -280,7 +282,9 @@
           "name": "Flushing",
           "address": "38-03 Main St, Flushing, NY 11354",
           "opened": "2025-08-18",
-          "note": "ChaPanda's first North American store, trading as TeaByDo. Recorded because a chain this young leaves a complete opening history if it is watched from the start — and because the alias is what makes it findable at all."
+          "note": "ChaPanda's first North American store, trading as TeaByDo. Recorded because a chain this young leaves a complete opening history if it is watched from the start — and because the alias is what makes it findable at all.",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listing (TeaByDo/茶百道, verified in the 19 Oct 2026 chabaidao reconciliation -- matched roster)"
         },
         {
           "name": "Irvine",
@@ -751,6 +755,60 @@
           "verified_by": "Yelp (104 reviews, updated Aug 2026) + Google (Pacific Plaza, 68 reviews, operating — confirmed 5 Oct 2026). Coordinate is the OSM ZhangLiang Malatang POI at Pacific Plaza.",
           "lat": 38.500716,
           "lon": -121.432754
+        },
+        {
+          "name": "Corona",
+          "address": "430 N McKinley St Unit 103, Corona, CA 92879",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "lat": 33.889049,
+          "lon": -117.520099,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
+        },
+        {
+          "name": "Salt Lake City",
+          "address": "3390 S State St #32, Salt Lake City, UT 84115",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "lat": 40.697432,
+          "lon": -111.88833,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
+        },
+        {
+          "name": "Philadelphia",
+          "address": "1006 Race St, Philadelphia, PA 19107",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "lat": 39.955341,
+          "lon": -75.156067,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
+        },
+        {
+          "name": "Palo Alto",
+          "address": "338 University Ave, Palo Alto, CA 94301",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "lat": 37.446421,
+          "lon": -122.16097,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
+        },
+        {
+          "name": "Newark",
+          "address": "39055 Cedar Blvd #108, Newark, CA 94560",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026 + Google Maps operating listing \"Zhangliang Malatang Newark\"",
+          "lat": 37.524394,
+          "lon": -122.007008,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
+        },
+        {
+          "name": "Edison",
+          "address": "1813 NJ-27, Edison, NJ 08817",
+          "confidence": "confirmed",
+          "verified_by": "Zhangliang official US store locator zlmalatang.us/locations (24 stores), read 19 Oct 2026",
+          "lat": 40.513872,
+          "lon": -74.404485,
+          "coord_src": "Census geocoder (zlmalatang.us address)"
         }
       ]
     },
