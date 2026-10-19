@@ -487,6 +487,116 @@
       "opened": null,
       "closed_on": "2026-10-19",
       "closed_note": "HEYTEA Rowland Heights permanently closed (Google Maps 永久歇業 flag, verified 19 Oct 2026 during reconciliation re-sweep); removed from open census."
+    },
+    {
+      "chain": "tenseconds",
+      "name": "Ten Seconds Rice Noodle and Ramen (Orlando)",
+      "address": "5080 W Colonial Dr, Orlando, FL 32808",
+      "city": "Orlando",
+      "state": "FL",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Maps = 永久歇業 / Permanently closed (4.5★/69 reviews). NEVER counted in census. DISCREPANCY: the brand official site (en.shimiaodao.com/usa) still lists Orlando as an open US location (address 5080 W Colonial Dr) — Pro-insight example of brand-site locator lag. Verified via browser 19 Oct 2026."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea Arden (Sacramento)",
+      "address": "3045 Arden Wy Suite 300, Sacramento, CA 95825",
+      "city": "Sacramento",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Maps 永久歇業 / Permanently closed (5.0★/1 review — barely operated). Never counted. Found during national sweep 19 Oct 2026."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea USA - Fullerton",
+      "address": "410 E Chapman, Fullerton, CA",
+      "city": "Fullerton",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Permanently closed (4.7 stars/49), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea House (Long Beach)",
+      "address": "5353 2nd St, Long Beach, CA",
+      "city": "Long Beach",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Permanently closed (3.6 stars/30), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea Sugarland",
+      "address": "3607 Highway 6, Sugar Land, TX",
+      "city": "Sugar Land",
+      "state": "TX",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Permanently closed (4.2 stars/91), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea / Ssongs Hotdog Addison",
+      "address": "5100 Belt Line, Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Permanently closed (4.4 stars/239), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea (Sunnyvale)",
+      "address": "568 E El Camino Real, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Google Permanently closed (4.0 stars/46), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea - Frisco",
+      "address": "1612 FM 423, Frisco, TX",
+      "city": "Frisco",
+      "state": "TX",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Yelp reports closed (3.4 stars/19), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea - Amarillo",
+      "address": "5641 E Amarillo, Amarillo, TX",
+      "city": "Amarillo",
+      "state": "TX",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Yelp reports closed (4.0 stars/1), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea & Banh Mi (Mooresville)",
+      "address": "688 Bluefield, Mooresville, NC",
+      "city": "Mooresville",
+      "state": "NC",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Yelp reports closed (4.3 stars/15), owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea - Phoenix",
+      "address": "2211 W Camelback, Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "opened": null,
+      "closed_on": "2026-10-19",
+      "closed_note": "Yelp reports closed (3.9 stars/38) + absent from Maps sweep, owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
     }
   ]
 }

@@ -3309,7 +3309,7 @@
       "chain": "rbtea",
       "supplied_on": "2026-10-19",
       "reviewed": "2026-10-19",
-      "source": "R&B Tea USA official store locator (rbteausa.com/locations) — 40 operating US stores read 19 Oct 2026",
+      "source": "R&B Tea USA official store locator (rbteausa.com/locations) — 40 operating US stores read 19 Oct 2026 + Google Maps national sweep for non-locator outlets (19 Oct 2026)",
       "scope": "US = 40 operating stores (CA 24, TX 11, AZ 2, MI 1, SC 1, NC 1). Brand's own live locator is the source (HIGH-confidence floor). The locator's long 'Coming Soon' list (SF Ocean, UTA/UTD/UNT campus kiosks, Glendale/Tempe AZ, multiple Houston-area 'not decided yet', North McKinney, Spring TX, etc.) is NOT counted — held as coming-soon.",
       "locations": [
         {
@@ -3324,8 +3324,8 @@
         {
           "name": "Addison",
           "address": "5100 Belt Line Rd Ste 748, Dallas, TX 75254",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Permanently closed (4.4 stars/239), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 32.953965,
           "lon": -96.82167,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3333,8 +3333,8 @@
         {
           "name": "Fullerton",
           "address": "410 E Chapman Ave Suite B, Fullerton, CA 92832",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Permanently closed (4.7 stars/49), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 33.873945,
           "lon": -117.916879,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3379,7 +3379,7 @@
           "name": "Gardena",
           "address": "1847 W Redondo Beach Blvd, Gardena, CA 90247",
           "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "verified_by": "Google/Yelp: GRAND OPENING Oct 19-20 2026 (R&B Tea House, 3.9 stars/337) - open; owner screenshot 19 Oct 2026.",
           "lat": 33.888284,
           "lon": -118.310057,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3450,8 +3450,8 @@
         {
           "name": "Long Beach",
           "address": "5353 2nd St C, Long Beach, CA 90803",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Permanently closed (3.6 stars/30), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 33.758802,
           "lon": -118.131274,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3495,8 +3495,8 @@
         {
           "name": "Amarillo",
           "address": "5641 E Amarillo Blvd Space 100, Amarillo, TX 79107",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Yelp reports closed (4.0 stars/1), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 35.222766,
           "lon": -101.769178,
           "coord_src": "Google Maps place coords (Census TIGER gap)"
@@ -3532,7 +3532,7 @@
           "name": "Victorville",
           "address": "14130 Bear Valley Rd #203, Victorville, CA 92392",
           "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "verified_by": "Google: open (Closed-for-hour, popular times 1-9PM) + Chowbus R&B Tea (Victorville New) active (3.9 stars/108); owner screenshot 19 Oct 2026.",
           "lat": 34.470497,
           "lon": -117.354526,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3549,8 +3549,8 @@
         {
           "name": "Sunnyvale",
           "address": "568 E El Camino Real Ste A, Sunnyvale, CA 94087",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Permanently closed (4.0 stars/46), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 37.369303,
           "lon": -122.038489,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3558,8 +3558,8 @@
         {
           "name": "Sugar Land",
           "address": "3607 Highway 6, Sugar Land, TX 77478",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Permanently closed (4.2 stars/91), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 29.5895,
           "lon": -95.597386,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3567,8 +3567,8 @@
         {
           "name": "Phoenix",
           "address": "2211 W Camelback Rd unit 174, Phoenix, AZ 85015",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Yelp reports closed (3.9 stars/38) + absent from Maps sweep, owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 33.509497,
           "lon": -112.106569,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3613,7 +3613,7 @@
           "name": "McKinney",
           "address": "2761 Virginia Pkwy Ste 400, McKinney, TX 75071",
           "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "verified_by": "Google: open (Closed, Opens 11AM), 4.7 stars/196; owner screenshot + Maps sweep 19 Oct 2026.",
           "lat": 33.19877,
           "lon": -96.65267,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3657,8 +3657,8 @@
         {
           "name": "Frisco",
           "address": "1612 FM 423 #200, Frisco, TX 75033",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Yelp reports closed (3.4 stars/19), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 33.154818,
           "lon": -96.89105,
           "coord_src": "Census geocoder (rbteausa.com address)"
@@ -3666,11 +3666,110 @@
         {
           "name": "Mooresville",
           "address": "688 Bluefield Rd C, Mooresville, NC 28117",
-          "confidence": "confirmed",
-          "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Yelp reports closed (4.3 stars/15), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
           "lat": 35.595249,
           "lon": -80.868753,
           "coord_src": "Census geocoder (rbteausa.com address)"
+        },
+        {
+          "name": "R&B Tea Walmart Redlands",
+          "address": "2050 W Redlands Blvd, Redlands, CA 92373",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea Walmart Redlands\" 4.5★/22 reviews, bubble tea store, kiosk inside Walmart (已打烊=open); 19 Oct 2026. Not on official locator (in-store kiosk blind spot).",
+          "lat": 34.0655372,
+          "lon": -117.2226716,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Metro Supermarket (Rancho Cucamonga)",
+          "address": "8160 Day Creek Blvd Ste B, Rancho Cucamonga, CA 91739",
+          "confidence": "uncertain",
+          "verified_by": "Google Maps \"R&B Tea Metro Supermarket\" 4.0★/4 reviews — 暫時關閉 / TEMPORARILY CLOSED as of 19 Oct 2026; held out of count pending reopen.",
+          "lat": 34.1051605,
+          "lon": -117.5395078,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Fremont",
+          "address": "37120 Fremont Blvd Unit i, Fremont, CA 94536",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea - Fremont\" 3.8★/60 reviews, bubble tea store, Cash App $rbtea (已打烊=open); 19 Oct 2026. Not on official locator.",
+          "lat": 37.5598967,
+          "lon": -122.0096665,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea San Jose (Story Rd)",
+          "address": "929 Story Rd Ste 2039, San Jose, CA 95122",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B TEA SAN JOSE\" 3.9★/142 reviews, dedicated site rbsanjose.com (已打烊=open); 19 Oct 2026. Not on official locator.",
+          "lat": 37.3322693,
+          "lon": -121.8588498,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Nitro (Milpitas)",
+          "address": "60 S Abel St, Milpitas, CA 95035",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea - Nitro\" 3.7★/91 reviews, dedicated site rnbnitro.com (已打烊=open); 19 Oct 2026. Not on official locator.",
+          "lat": 37.4295853,
+          "lon": -121.9077367,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Plus (Fort Worth)",
+          "address": "7430 N Beach St, Fort Worth, TX 76137",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B TEA PLUS FORT WORTH\" 3.8★/110 reviews (已打烊=open); 19 Oct 2026. Not on official locator. Owner ruled IN SCOPE 19 Oct 2026.",
+          "lat": 32.8736977,
+          "lon": -97.2894653,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Walnut",
+          "address": "1251 N Grand Ave, Walnut, CA 91789",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea Walnut\" 3.9★/50 reviews, bubble tea, 1251 N Grand Ave (已打烊=open); national sweep 19 Oct 2026.",
+          "lat": 34.0444224,
+          "lon": -117.8494411,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Midtown-Houston",
+          "address": "609 W Gray St, Houston, TX 77019",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea Midtown-Houston\" 4.8★/203 reviews, bubble tea, 609 W Gray St (已打烊=open); national sweep 19 Oct 2026. Was on locator Coming Soon (Midtown/Montrose), now open.",
+          "lat": 29.753131,
+          "lon": -95.3884816,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Katy",
+          "address": "3325 W Grand Pkwy N Suite 600, Katy, TX 77449",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea - Katy\" 4.3★/50 reviews, bubble tea, 3325 W Grand Pkwy N Ste 600 (已打烊=open); national sweep 19 Oct 2026.",
+          "lat": 29.8219865,
+          "lon": -95.7686645,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Spring",
+          "address": "3478 Discovery Creek Blvd #300, Spring, TX 77386",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea Spring\" 4.4★/74 reviews, 3478 Discovery Creek Blvd #300 (已打烊=open); national sweep 19 Oct 2026. Was on locator Coming Soon, now open.",
+          "lat": 30.1071351,
+          "lon": -95.3895789,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "R&B Tea Odessa",
+          "address": "2107 Andrews Hwy, Odessa, TX 79761",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"R&B Tea Odessa\" 4.9★/160 reviews, bubble tea, 2107 Andrews Hwy (已打烊=open); national sweep 19 Oct 2026.",
+          "lat": 31.8641718,
+          "lon": -102.3793697,
+          "coord_src": "Google Maps place coordinates"
         }
       ]
     },
@@ -4069,10 +4168,10 @@
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
         },
         {
-          "name": "Vienna (Merrifield)",
-          "address": "2833 Gallows Rd, Vienna, VA 22180",
+          "name": "Falls Church (Merrifield)",
+          "address": "2833 Gallows Rd, Falls Church, VA 22042",
           "confidence": "confirmed",
-          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "verified_by": "Google Maps \"ShiMiaoDao Yunnan Rice Noodle 十秒到云南过桥米线\" 4.5★/142 reviews, 2833 Gallows Rd (已打烊=open); 19 Oct 2026. Official site mislabels as 833 Gallows Rd / Falls Church; Google+USPS city = Falls Church 22042 (was Vienna 22180).",
           "lat": 38.873816,
           "lon": -77.225285,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
