@@ -3340,7 +3340,7 @@
       "supplied_on": "2026-10-19",
       "reviewed": "2026-10-19",
       "source": "Google Maps nationwide enumeration of operating Ten Seconds Yunnan Rice Noodle (十秒到) listings + official site en.shimiaodao.com (read 19 Oct 2026)",
-      "scope": "US = 39 operating stores across 18 states (CA 8, TX 7, NY 4, NJ 2, WA 2, PA 2, MD 2, OR 2, NV/IL/OH/NC/GA/MA/CO/MI/HI/UT 1 each). Operator-observed Maps operating listings = HIGH-confidence floor. Permanently-closed units excluded (Manhattan 245 W 46th St, San Gabriel 132 S Atlantic Blvd, Dublin CA 4288 Dublin Blvd). Stale official-site posts with no live Maps store also excluded (Falls Church VA, Orlando FL, Minnesota, Connecticut, Indiana).",
+      "scope": "US = 44 operating stores across 19 states (CA 8, TX 7, NY 8, NJ 2, WA 2, PA 2, MD 2, OR 2, NV/IL/OH/NC/GA/MA/CO/MI/HI/UT/VA 1 each). Operator-observed Maps operating listings = HIGH-confidence floor; count raised from 39 after tight-zoom NYC/VA re-sweep caught dense-metro stores the first national-ranking pass capped out. Permanently-closed excluded (Manhattan 245 W 46th St, San Gabriel 132 S Atlantic Blvd, Dublin CA 4288 Dublin Blvd, Fremont CA 34460 Fremont Blvd, Orlando FL 5080 W Colonial Dr). Confirmed-absent states: MN, CT, IN.",
       "locations": [
         {
           "name": "Long Island City",
@@ -3691,6 +3691,51 @@
           "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
           "lat": 40.698016,
           "lon": -111.889396,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Manhattan (Koreatown)",
+          "address": "42 W 38th St, New York, NY 10018",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "lat": 40.751531,
+          "lon": -73.984794,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Elmhurst",
+          "address": "83-34 Broadway, Elmhurst, NY 11373",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "lat": 40.740258,
+          "lon": -73.8793,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Flushing (downtown)",
+          "address": "135-25 40th Rd, Flushing, NY 11354",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "lat": 40.758741,
+          "lon": -73.830734,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Flushing (Kissena)",
+          "address": "59-14 Kissena Blvd, Flushing, NY 11355",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "lat": 40.740397,
+          "lon": -73.815324,
+          "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Vienna (Merrifield)",
+          "address": "2833 Gallows Rd, Vienna, VA 22180",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "lat": 38.873816,
+          "lon": -77.225285,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
         }
       ]
