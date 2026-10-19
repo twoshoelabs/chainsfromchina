@@ -4175,6 +4175,15 @@
           "lat": 38.873816,
           "lon": -77.225285,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Honolulu (Waikiki)",
+          "address": "342 Lewers St Space 102, Honolulu, HI 96815",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"Ten Seconds Waikiki Express\" (open, 5.0/6 Yelp) + tensecondshi.com; owner screenshot 20 Oct 2026. 2nd HI store (distinct from Aiea).",
+          "lat": 21.2811526,
+          "lon": -157.8289938,
+          "coord_src": "Google Maps place coordinates"
         }
       ]
     }
