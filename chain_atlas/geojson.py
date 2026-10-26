@@ -141,7 +141,15 @@ def build(con, d: dict | None = None) -> dict:
     gen = con.execute("SELECT MAX(finished) AS f FROM runs").fetchone()   # NY-time finish (run.py uses TZ)
     from .mapdata import us_totals, outlets_asof   # one canonical total, shared with stores.json
     totals = us_totals(con)
-    prev = outlets_asof(con, 7)                  # ~a week ago, so the homepage counter can spin up to today
+    # ~a week ago, so the homepage counter can spin up to today. If that window has no delta — a flat
+    # week, e.g. after a collection gap or when recent entries were backdated to real opening dates —
+    # the counter would just appear without the climb, so fall back to progressively longer lookbacks
+    # until the total was actually lower (capped at ~a month). Keeps the spin "short and always seen".
+    prev = outlets_asof(con, 7)
+    for dd in (10, 14, 21, 30):
+        if prev["outlets"] < totals["outlets"]:
+            break
+        prev = outlets_asof(con, dd)
     totals["prev"] = prev["outlets"]
     totals["prev_as_of"] = prev["as_of"]
     # Extra search terms the map's hero search can match a chain by, beyond its display name: the
