@@ -571,7 +571,33 @@
    "photo": "img/fishwithyou.jpg",
    "photo_credit": null,
    "us_since": "",
-   "first_outlet": "Flushing, Queens, NY — 135-25A 40th Rd"
+   "first_outlet": "Flushing, Queens, NY — 135-25A 40th Rd",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "fishwithyou/china.jpg",
+     "caption": "Fish With You (鱼你在一起) in a Shanghai mall food hall — the orange twin-fish storefront, “2,500 stores worldwide,” its open kitchen behind.",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "fishwithyou/g1.jpg",
+      "caption": "The service window beneath an arch of fish-shaped lamps — pickled-cabbage fish ladled to order (取餐处, “take meals”)."
+     },
+     {
+      "file": "fishwithyou/g2.jpg",
+      "caption": "The free self-serve rice station — a row of cookers under a wall featuring the chain’s founder."
+     },
+     {
+      "file": "fishwithyou/g3.jpg",
+      "caption": "Booth seating and the house line on the wall: one serving of its sour-cabbage fish “goes with three bowls of rice.”"
+     },
+     {
+      "file": "fishwithyou/g4.jpg",
+      "caption": "The brand’s roundel — two orange fish nose to nose, 下饭酸菜鱼 (“rice-friendly pickled-cabbage fish”)."
+     }
+    ]
+   }
   },
   "yangs": {
    "name": "Yang's Braised Chicken Rice",
