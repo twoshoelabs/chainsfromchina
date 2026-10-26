@@ -1298,7 +1298,29 @@
    "site_cn": "https://www.jnby.com/",
    "site_us": null,
    "photo": null,
-   "photo_credit": null
+   "photo_credit": null,
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "jnby/china.jpg",
+     "caption": "JNBY at Grand Gateway 66 (恒隆广场), Shanghai",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "jnby/g1.jpg",
+      "caption": "JNBY on the mall concourse, Grand Gateway 66"
+     },
+     {
+      "file": "jnby/g2.jpg",
+      "caption": "The storefront, Grand Gateway 66, Shanghai"
+     },
+     {
+      "file": "jnby/g3.jpg",
+      "caption": "Inside the store"
+     }
+    ]
+   }
   },
   "meilleurmoment": {
    "name": "Meilleur Moment",
