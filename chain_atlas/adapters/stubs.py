@@ -730,9 +730,9 @@ class FeidachuAdapter(Adapter):
     It trades in the US as "Chef Fei". Its first US location opened 5 Sep 2026 at Westfield UTC in
     San Diego and is confirmed operating; no national US locator, so tracked via sightings.
     """
-    chain_id, name, name_zh = "feidachu", "Fei Da Chu", "费大厨"
+    chain_id, name, name_zh = "feidachu", "Chef Fei", "费大厨"
     name_us = "Chef Fei"
-    aliases = ("Fei Da Chu La Jiao Chao Rou", "费大厨辣椒炒肉")
+    aliases = ("Fei Da Chu", "Fei Da Chu La Jiao Chao Rou", "费大厨辣椒炒肉", "辣椒炒肉")
     parent, format = "Fei Da Chu (费大厨, Hunan)", "restaurant"
     ENABLED = False
     BLOCKED_REASON = ("Hunan-cuisine chain (费大厨辣椒炒肉, 'stir-fried pork with chili"

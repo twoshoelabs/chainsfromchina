@@ -1178,31 +1178,28 @@
    "us_since": "September 2026",
    "first_outlet": "San Diego — 4301 La Jolla Village Dr (Westfield UTC)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "feidachu/china.jpg",
-     "caption": "A Chef Fei (Fei Da Chu) in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20241227_Chef_Fei_at_Grand_Emporium%2C_Zhengzhou.jpg",
-     "label": "郑州"
+     "file": "feidachu/china.jpg?v=2",
+     "caption": "Chef Fei (费大厨辣椒炒肉) in a Shanghai shopping mall — the storefront, with the black-pork display and the wall of honors inside.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "feidachu/g1.jpg",
-      "caption": "A Chef Fei in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Beijing_Chaoyang_Joy_City_7F_%2820221002153053%29.jpg"
+      "file": "feidachu/g1.jpg?v=2",
+      "caption": "The signature counter: grain-fed Hunan black pork (黑猪肉) hung fresh over the open wok kitchen — “专业大厨炒,” cooked to order by a head chef."
      },
      {
-      "file": "feidachu/g2.jpg",
-      "caption": "Another Chef Fei in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChef_Fei%27s_Restaurant_at_Xibeiwang_MIXC_One_6F_%2820240530192618%29.jpg"
+      "file": "feidachu/g2.jpg?v=2",
+      "caption": "The open kitchen, with hand-torn free-range chicken (大厨手撕鸡) roasting on the rail."
+     },
+     {
+      "file": "feidachu/g3.jpg",
+      "caption": "The wall of honors — nine Dianping Must-Eat List (必吃榜) citations plus Hunan-cuisine awards for its chili-fried pork."
+     },
+     {
+      "file": "feidachu/g4.jpg",
+      "caption": "The dining room at service, a resident head chef working the floor."
      }
     ]
    }
