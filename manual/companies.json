@@ -826,12 +826,16 @@
     },
     "gallery": [
      {
-      "file": "lelecha/g1.jpg?v=2",
-      "caption": "The brand wall — 樂茶書 (“book of happy tea”) and the slogan “Tea of Happiness, Tea of China.”"
+      "file": "lelecha/g1.jpg?v=3",
+      "caption": "Inside: the tea bar set against a book-lined reading lounge — Lelecha’s “tea + book” (樂茶書) concept."
      },
      {
-      "file": "lelecha/g2.jpg",
-      "caption": "A street-level Lelecha, its lit mark on the curved glass facade, next door to a McDonald’s."
+      "file": "lelecha/g2.jpg?v=3",
+      "caption": "The reading corner — wooden stools and stone benches under the 樂 mark and “Stay young, stay curious.”"
+     },
+     {
+      "file": "lelecha/g3.jpg?v=3",
+      "caption": "The counter below the “Oriental Happiness · Trend · Originality” neon, boxed tea gifts and milk on display."
      }
     ]
    }
