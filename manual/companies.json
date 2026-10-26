@@ -1126,23 +1126,24 @@
    "us_since": "February 2025",
    "first_outlet": "Flushing, Queens — 37-02 Prince St",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "xijiade/china.jpg",
-     "caption": "A Xijiade dumpling shop in Shenzhen, China",
-     "credit": "LaouZEI bOENFUOO",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_shop_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_01.jpg",
-     "label": "深圳"
+     "file": "xijiade/china.jpg?v=2",
+     "caption": "Xijiade (喜家德虾仁水饺) in a Shanghai mall food hall — the curved service counter, “900 directly-run stores nationwide” overhead.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "xijiade/g1.jpg",
-      "caption": "Shrimp dumplings at Xijiade",
-      "credit": "LaouZEI bOENFUOO",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E5%B4%97%E5%BB%88%E5%8C%97%E7%AB%99_GangXia_North_Station_%E6%B7%B1%E5%9C%B3%E4%B9%8B%E7%9C%BC_Eye_%E6%B7%B1%E9%90%B5%E5%8C%AF_City_Hub_mall_%E5%96%9C%E5%AE%B6%E5%BE%B7_%E8%9D%A6%E4%BB%81%E6%B0%B4%E9%A4%83_Dumpling_Xi_Restaurant_July_2024_R12S_sauce.jpg"
+      "file": "xijiade/g1.jpg?v=2",
+      "caption": "The open kitchen — cooks fold shrimp dumplings to order behind a counter-bar, under a banner calling the brand “the face of Northeastern dumplings.”"
+     },
+     {
+      "file": "xijiade/g2.jpg",
+      "caption": "Booth seating in the dining room, the open kitchen visible behind."
+     },
+     {
+      "file": "xijiade/g3.jpg",
+      "caption": "The counter-bar runs the length of the open kitchen — a steady lunch queue along the mall concourse."
      }
     ]
    }
