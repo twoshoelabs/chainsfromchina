@@ -818,23 +818,20 @@
    "us_since": "July 2025",
    "first_outlet": "New York City — 1032 Sixth Ave",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "lelecha/china.jpg",
-     "caption": "A Lelecha in Suzhou, China",
-     "credit": "Shwangtianyuan",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALelecha_at_AEON_Suzhou_Yuanqu_Hudong.jpg",
-     "label": "苏州"
+     "file": "lelecha/china.jpg?v=2",
+     "caption": "Lelecha (乐乐茶) in a Shanghai mall — the storefront under its hooded-figure mark, LELECHA 樂樂茶 in lights.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "lelecha/g1.jpg",
-      "caption": "Lelecha's soft buns, in Beijing",
-      "credit": "Tigerpillow",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALelecha%27s_soft_buns.jpg"
+      "file": "lelecha/g1.jpg?v=2",
+      "caption": "The brand wall — 樂茶書 (“book of happy tea”) and the slogan “Tea of Happiness, Tea of China.”"
+     },
+     {
+      "file": "lelecha/g2.jpg",
+      "caption": "A street-level Lelecha, its lit mark on the curved glass facade, next door to a McDonald’s."
      }
     ]
    }
