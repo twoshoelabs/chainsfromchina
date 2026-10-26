@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.dansilver.chain_atlas.catchup</string>
+  <key>ProgramArguments</key><array>
+    <string>/bin/bash</string>
+    <string>/Users/dansilver/Projects/chain_atlas/scripts/catchup.sh</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/dansilver/Projects/chain_atlas</string>
+  <!-- Fire hourly while awake; launchd coalesces intervals missed during sleep into one fire on
+       wake, so a day skipped by the fixed-time agent self-corrects within ~an hour of next use. -->
+  <key>StartInterval</key><integer>3600</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/dansilver/chain_atlas_data/logs/catchup.log</string>
+  <key>StandardErrorPath</key><string>/Users/dansilver/chain_atlas_data/logs/catchup.log</string>
+</dict></plist>
