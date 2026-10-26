@@ -9669,6 +9669,20 @@
    "sources": [
     "Google Maps operating listings (Yonny/鱼你 brand, Oct 2026)"
    ]
+  },
+  {
+   "chain": "heytea",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2026-09-25",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-10-26",
+   "note": "HEYTEA's first Thailand store opened 25 Sep 2026 at Central World, Bangkok; local consumers reportedly queued ~3 hours and the Tourism Authority of Thailand publicly welcomed the entry.",
+   "sources": [
+    "https://www.yzwb.net/news/ch/202609/t20260929_398212.html"
+   ]
   }
  ]
 }

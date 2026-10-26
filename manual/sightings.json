@@ -2769,6 +2769,15 @@
           "lat": 40.6398,
           "lon": -74.00546,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
+        },
+        {
+          "name": "Orange (CT)",
+          "address": "519 Boston Post Rd, Orange, CT 06477",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"Ji Bei Chuan\" 4.7/241 reviews, 519 Boston Post Rd (Liberty Plaza), 已打烊=open; owner screenshot 26 Oct 2026.",
+          "lat": 41.2543349,
+          "lon": -73.017795,
+          "coord_src": "Google Maps place coordinates"
         }
       ]
     },
@@ -3038,6 +3047,15 @@
           "verified_by": "Google/Yelp 'Nan Hot Pot' operating (46 reviews); brand operator site nanhotpottx.com; same name/tagline/logo + Bishan-Chongqing origin story as the real 楠火锅 (14 Oct 2026)",
           "lat": 33.0035569,
           "lon": -96.7074149
+        },
+        {
+          "name": "Flushing (temp closed)",
+          "address": "36-36 Prince St #106, Flushing, NY 11354",
+          "confidence": "uncertain",
+          "verified_by": "Google Maps \"Nan Hotpot\" 楠火锅 4.8/694 reviews — 暫時關閉 / TEMPORARILY CLOSED as of 26 Oct 2026; held out of count pending reopen. Owner screenshot.",
+          "lat": 40.7611754,
+          "lon": -73.8329962,
+          "coord_src": "Google Maps place coordinates"
         }
       ]
     },
@@ -3284,6 +3302,15 @@
           "lat": 40.76155,
           "lon": -73.84055,
           "coord_src": "Sky View Center centroid (manual; Census no-match on hyphenated Queens address)"
+        },
+        {
+          "name": "American Dream (NJ)",
+          "address": "1 American Dream Way, Court G Level 1, East Rutherford, NJ 07073",
+          "confidence": "confirmed",
+          "verified_by": "Official mall directory americandream.com/venue/derucci (\"flagship and only store in New Jersey\", Court G Level 1, open 11-9); owner screenshot 26 Oct 2026.",
+          "lat": 40.808508,
+          "lon": -74.070214,
+          "coord_src": "American Dream mall centroid"
         }
       ]
     },
