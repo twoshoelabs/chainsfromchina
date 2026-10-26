@@ -604,32 +604,24 @@
    "us_since": "2019",
    "first_outlet": "Flushing, Queens, NY",
    "photos": {
+    "origin": "author",
     "china": {
      "file": "zhangliang/china.jpg",
-     "caption": "A Zhang Liang Malatang in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20220119_Zhangliang_Malatang_at_Greenland_Treasure_Container.jpg",
-     "label": "郑州"
-    },
-    "us": {
-     "file": "zhangliang/us.jpg",
-     "caption": "A US Zhang Liang Malatang (Chinatown, Manhattan)",
-     "credit": "Kidfly182",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg",
-     "label": "New York, NY"
+     "caption": "Zhang Liang Malatang (张亮麻辣烫) in a Shanghai shopping-mall food hall — the illuminated storefront sign above the signature orange “b” dining nook.",
+     "label": "上海"
     },
     "gallery": [
      {
       "file": "zhangliang/g1.jpg",
-      "caption": "Another US branch, in Flushing, Queens",
-      "credit": "Kidfly182",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AFlushing_Queens_March_2022_137.jpg"
+      "caption": "The stall from the concourse: the open pick-your-own ingredient bar at left, with bone-broth counter and booth seating."
+     },
+     {
+      "file": "zhangliang/g2.jpg",
+      "caption": "Inside — the signature orange “b” feature wall, bar seating, and the drinks case and order counter."
+     },
+     {
+      "file": "zhangliang/g3.jpg",
+      "caption": "The self-serve bar: diners fill a bowl from dozens of fresh skewered ingredients, cooked to order in spicy bone broth."
      }
     ]
    }
