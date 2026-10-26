@@ -1270,12 +1270,20 @@
     },
     "gallery": [
      {
-      "file": "anta/g1.jpg?v=2",
-      "caption": "ANTA's Chinese national-team campaign"
+      "file": "anta/g1.jpg?v=3",
+      "caption": "Inside: a look staged on a plinth at the entrance, apparel walls on either side."
      },
      {
-      "file": "anta/g2.jpg",
-      "caption": "Inside the store"
+      "file": "anta/g2.jpg?v=3",
+      "caption": "The selling floor — training and lifestyle lines racked by color."
+     },
+     {
+      "file": "anta/g3.jpg?v=3",
+      "caption": "A central display island of footwear and folded apparel."
+     },
+     {
+      "file": "anta/g4.jpg?v=3",
+      "caption": "The wider floor, team-sport and performance ranges along the walls."
      }
     ]
    }
@@ -1333,16 +1341,16 @@
     },
     "gallery": [
      {
-      "file": "jnby/g1.jpg",
-      "caption": "JNBY on the mall concourse, Grand Gateway 66"
+      "file": "jnby/g1.jpg?v=2",
+      "caption": "Inside: coats on an open rail in the pared-back selling space."
      },
      {
-      "file": "jnby/g2.jpg",
-      "caption": "The storefront, Grand Gateway 66, Shanghai"
+      "file": "jnby/g2.jpg?v=2",
+      "caption": "The display window — mannequins grouped against the fluted-wood facade."
      },
      {
-      "file": "jnby/g3.jpg",
-      "caption": "Inside the store"
+      "file": "jnby/g3.jpg?v=2",
+      "caption": "The storefront on the concourse, JNBY's signature dark wood and sweeping arc."
      }
     ]
    }
@@ -1367,12 +1375,20 @@
     },
     "gallery": [
      {
-      "file": "meilleurmoment/g1.jpg",
-      "caption": "The MEILLEUR MOMENT storefront"
+      "file": "meilleurmoment/g1.jpg?v=2",
+      "caption": "Inside: looks styled on forms over a central table, the season's rails behind."
      },
      {
-      "file": "meilleurmoment/g2.jpg",
-      "caption": "Inside the store"
+      "file": "meilleurmoment/g2.jpg?v=2",
+      "caption": "The selling floor — wall shelving of bags and shoes beside the womenswear rails."
+     },
+     {
+      "file": "meilleurmoment/g3.jpg?v=2",
+      "caption": "Accessories merchandised along the side wall."
+     },
+     {
+      "file": "meilleurmoment/g4.jpg?v=2",
+      "caption": "Coats and knits on open rails in the muted, gallery-like space."
      }
     ]
    }
@@ -1603,20 +1619,20 @@
     },
     "gallery": [
      {
-      "file": "chicjoc/g1.jpg",
-      "caption": "The storefront, Grand Gateway 66, Shanghai"
+      "file": "chicjoc/g1.jpg?v=2",
+      "caption": "Inside: the season's looks staged on plinths, full-price rails along the walls."
      },
      {
-      "file": "chicjoc/g2.jpg",
-      "caption": "CHICJOC on the mall concourse, Grand Gateway 66"
+      "file": "chicjoc/g2.jpg?v=2",
+      "caption": "The selling floor — open rails around a central table of folded knits."
      },
      {
-      "file": "chicjoc/g3.jpg",
-      "caption": "Inside the store"
+      "file": "chicjoc/g3.jpg?v=2",
+      "caption": "A styled display — a signature white dress on a plinth, the CHICJOC wall behind."
      },
      {
-      "file": "chicjoc/g4.jpg",
-      "caption": "Knitwear by the CHICJOC wall, in store"
+      "file": "chicjoc/g4.jpg?v=2",
+      "caption": "Outerwear on the forms, a down coat and knit layered near the entrance."
      }
     ]
    }
@@ -1734,20 +1750,12 @@
     },
     "gallery": [
      {
-      "file": "dusu/g1.jpg",
-      "caption": "The storefront (臻选店)"
+      "file": "dusu/g1.jpg?v=2",
+      "caption": "The display cases — breads and egg-tart pastries laid out fresh, the ovens working behind."
      },
      {
-      "file": "dusu/g2.jpg",
-      "caption": "The 酥 house-mark on the facade"
-     },
-     {
-      "file": "dusu/g3.jpg",
-      "caption": "Inside: the bakery counter"
-     },
-     {
-      "file": "dusu/g4.jpg",
-      "caption": "Gift boxes in store"
+      "file": "dusu/g2.jpg?v=2",
+      "caption": "Boxed gift tins and sets on the back shelving."
      }
     ]
    }
