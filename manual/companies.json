@@ -1359,7 +1359,25 @@
    "site_cn": "https://www.eifini.com/",
    "site_us": null,
    "photo": null,
-   "photo_credit": null
+   "photo_credit": null,
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "meilleurmoment/china.jpg",
+     "caption": "Meilleur Moment (麦檬) in Shanghai",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "meilleurmoment/g1.jpg",
+      "caption": "The MEILLEUR MOMENT storefront"
+     },
+     {
+      "file": "meilleurmoment/g2.jpg",
+      "caption": "Inside the store"
+     }
+    ]
+   }
   },
   "moreyogurt": {
    "name": "More Yogurt",
