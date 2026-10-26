@@ -610,6 +610,15 @@
      "caption": "Zhang Liang Malatang (张亮麻辣烫) in a Shanghai shopping-mall food hall — the illuminated storefront sign above the signature orange “b” dining nook.",
      "label": "上海"
     },
+    "us": {
+     "file": "zhangliang/us.jpg",
+     "caption": "A US Zhang Liang Malatang in Chinatown, Manhattan.",
+     "credit": "Kidfly182",
+     "license": "CC BY 4.0",
+     "license_url": "https://creativecommons.org/licenses/by/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg",
+     "label": "New York, NY"
+    },
     "gallery": [
      {
       "file": "zhangliang/g1.jpg?v=2",
@@ -622,6 +631,15 @@
      {
       "file": "zhangliang/g3.jpg",
       "caption": "The self-serve bar: diners fill a bowl from dozens of fresh skewered ingredients, cooked to order in spicy bone broth."
+     },
+     {
+      "file": "zhangliang/us2.jpg",
+      "caption": "Another US branch, in Flushing, Queens.",
+      "credit": "Kidfly182",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File%3AFlushing_Queens_March_2022_137.jpg",
+      "label": "Flushing, NY"
      }
     ]
    }
