@@ -1366,26 +1366,22 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "meilleurmoment/china.jpg",
-     "caption": "Meilleur Moment (麦檬) in Shanghai",
+     "file": "meilleurmoment/china.jpg?v=3",
+     "caption": "Meilleur Moment (麦檬 / MM) in a Shanghai mall — the MEILLEUR MM MOMENT storefront, mannequins and a styling table at the entrance.",
      "label": "上海"
     },
     "gallery": [
      {
-      "file": "meilleurmoment/g1.jpg?v=2",
-      "caption": "Inside: looks styled on forms over a central table, the season's rails behind."
+      "file": "meilleurmoment/g1.jpg?v=3",
+      "caption": "The selling floor — knit and outerwear on open rails, the brand’s embossed clock-face wall and fitting rooms behind."
      },
      {
-      "file": "meilleurmoment/g2.jpg?v=2",
-      "caption": "The selling floor — wall shelving of bags and shoes beside the womenswear rails."
+      "file": "meilleurmoment/g2.jpg?v=3",
+      "caption": "A wood-grid display wall of folded knits over a marble shelf of the brand’s skincare and accessories."
      },
      {
-      "file": "meilleurmoment/g3.jpg?v=2",
-      "caption": "Accessories merchandised along the side wall."
-     },
-     {
-      "file": "meilleurmoment/g4.jpg?v=2",
-      "caption": "Coats and knits on open rails in the muted, gallery-like space."
+      "file": "meilleurmoment/g3.jpg?v=3",
+      "caption": "The store on an upper level of the mall, its MM marquee facing the atrium."
      }
     ]
    }
