@@ -209,7 +209,9 @@ function photosBlock(comp, m) {
     // own official channel (brand-supplied, no license) vs a mix of both.
     const all = [ph.china, ph.us, ...(ph.gallery || [])].filter(Boolean);
     const anyLic = all.some(o => o.license), anyBrand = all.some(o => !o.license);
-    const src = anyLic && anyBrand ? `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`
+    // origin:"author" = shot on location by this project (not Wikimedia, not the brand's channel).
+    const src = ph.origin === 'author' ? 'Chains From China, taken on location'
+      : anyLic && anyBrand ? `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`
       : anyBrand ? `${esc(m.name)}'s official channel`
       : 'Wikimedia Commons under the licenses noted';
     let h = `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Photographs from ${src}; not affiliated with ${esc(m.name)}.</p>`;
