@@ -913,15 +913,22 @@
   },
   "meilleurmoment": {
    "name": "Meilleur Moment",
-   "name_zh": "伊芙丽",
+   "name_zh": "麦檬",
    "format": "apparel",
-   "global": "Womenswear line of Hangzhou's Eifini group (600+ stores group-wide); overseas boutiques in France, Singapore and (May 2025) the US (SoHo).",
+   "global": "麦檬 (MM), the younger womenswear line of Hangzhou's Eifini (伊芙丽) group (600+ stores group-wide); overseas boutiques in France, Singapore and (May 2025) the US (SoHo). 伊芙丽 Eifini is the parent/sister brand, not this brand's name.",
    "sector": "apparel",
    "operating_model": "company_owned",
    "us_entry_date": "2025-05",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "Eifini Group brand; US entry is a company-operated SoHo NYC flagship. No franchise offer."
+   "franchise_note": "Eifini Group brand; US entry is a company-operated SoHo NYC flagship. No franchise offer.",
+   "aliases": [
+    "Eifini",
+    "MM",
+    "Meilleur Moment MM",
+    "伊芙丽",
+    "麦檬"
+   ]
   },
   "bosideng": {
    "name": "Bosideng",
