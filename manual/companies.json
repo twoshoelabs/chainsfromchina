@@ -784,31 +784,24 @@
    "us_since": "April 2024",
    "first_outlet": "Flushing, Queens, NY — 37-11 Prince St (since closed)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "mollytea/china.jpg",
-     "caption": "A Molly Tea in Shenzhen, China",
-     "credit": "ZHONG 82035 WANGZ",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_BaoAn_%E8%90%AC%E8%B1%90_%E5%AF%B6%E5%AE%89%E6%B5%B7%E5%B2%B8%E5%9F%8E_Coastal_City_mall_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_beverage_n_Rrestaurant_July_2024_R12S_20.jpg",
-     "label": "深圳"
+     "file": "mollytea/china.jpg?v=2",
+     "caption": "Molly Tea (茉莉奶白) on a Shanghai street — the storefront on a rainy evening, its mascot lit in the window.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "mollytea/g1.jpg",
-      "caption": "A Molly Tea in Guangzhou",
-      "credit": "Ghaud Lnegauk",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_beverage_%E8%8C%89%E8%8E%89%E5%A5%B6%E7%99%BD_September_2024_R12S_02.jpg"
+      "file": "mollytea/g1.jpg?v=2",
+      "caption": "The order counter beneath the drinks screens, the brand’s pig mascot and pink gift bags alongside."
      },
      {
-      "file": "mollytea/g2.jpg",
-      "caption": "A Molly Tea store in Jakarta",
-      "credit": "Jeremy1231233",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMolly_Tea_store_in_Jakarta.jpg"
+      "file": "mollytea/g2.jpg?v=2",
+      "caption": "Booth seating by the marble MOLLY TEA / 茉莉奶白 feature wall."
+     },
+     {
+      "file": "mollytea/g3.jpg",
+      "caption": "The MOLLY STORE display of branded tumblers and gift bags, beside the pick-up counter and lounge seating."
      }
     ]
    }
