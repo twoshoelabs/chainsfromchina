@@ -23,14 +23,11 @@
    "us_since": "December 2025",
    "first_outlet": "Los Angeles — 6922 Hollywood Blvd",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "mixue/china.jpg",
-     "caption": "A Mixue in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg",
-     "label": "郑州"
+     "file": "mixue/china.jpg?v=2",
+     "caption": "Mixue (蜜雪冰城) on a Shanghai street corner — the Snow King sign over the walk-up window, its budget 3–5–7 yuan line on the banner.",
+     "label": "上海"
     },
     "us": {
      "file": "mixue/us.jpg",
@@ -43,20 +40,16 @@
     },
     "gallery": [
      {
-      "file": "mixue/g1.jpg",
-      "caption": "Mixue's signature soft-serve ice cream",
-      "credit": "Philip Mallis",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHoneydew_melon_ice_cream_from_Mixue_in_Chinatown%2C_Singapore.jpg"
+      "file": "mixue/g1.jpg?v=2",
+      "caption": "Inside: the Snow King neon and a wall of packaged snacks, with a couple of red tables to sit."
      },
      {
-      "file": "mixue/g2.jpg",
-      "caption": "A cheese-foam tea",
-      "credit": "彩色琪子",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A%E8%9C%9C%E9%9B%AA%E5%86%B0%E5%9F%8E%E8%8A%9D%E5%A3%AB%E5%A5%B6%E7%9B%96%E5%9B%9B%E5%AD%A3%E6%98%A5.jpg"
+      "file": "mixue/g2.jpg?v=2",
+      "caption": "The counter — soft-serve and tea machines in the open prep bay, drinks made to order."
+     },
+     {
+      "file": "mixue/g3.jpg",
+      "caption": "A second branch: a walk-up kiosk on a mall’s lower level, with its 雪王咖啡 (Snow King coffee) line."
      }
     ]
    }
