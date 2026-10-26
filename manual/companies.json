@@ -1837,6 +1837,36 @@
    "photo_credit": null,
    "us_since": "2018",
    "first_outlet": "New York (first overseas store)"
+  },
+  "wallace": {
+   "name": "Wallace",
+   "name_zh": "华莱士",
+   "category": "Fast food (fried chicken & burgers)",
+   "blurb": "A Western-style fast-food chain — fried chicken, burgers and fries — founded in Fuzhou in 2001 by the Hua brothers under Fujian Wallace Food Co. With roughly 20,000 outlets across China, it is widely billed as “China’s KFC”. Its first store outside China opened 17 November 2024 in Walnut, California, with a second in West Covina.",
+   "site_cn": null,
+   "site_us": "https://www.wallace-usa.com/",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2024",
+   "first_outlet": "Walnut, CA — 18732 Amar Rd",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "wallace/china.jpg",
+     "caption": "Wallace (华莱士) on a Shanghai street — the red storefront, its W-rooster sign over the pick-up window and open counter.",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "wallace/g1.jpg",
+      "caption": "The order counter and open kitchen — the house line “全鸡配汉堡” (whole chicken with burgers), food bagged to order behind the stainless pass."
+     },
+     {
+      "file": "wallace/g2.jpg",
+      "caption": "The dine-in area, marked by the brand’s orange neon W rooster; free Wi-Fi, bolted stools, quick turnover."
+     }
+    ]
+   }
   }
  }
 }
