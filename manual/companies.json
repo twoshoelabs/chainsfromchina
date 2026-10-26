@@ -66,39 +66,24 @@
    "us_since": "May 2025",
    "first_outlet": "Los Angeles — Westfield Century City",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "chagee/china.jpg",
-     "caption": "A CHAGEE on Fotang Old Street, Yiwu, China",
-     "credit": "MNXANL",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A202403_CHAGEE_Store_on_Fotang_Old_Street%2C_Yiwu.jpg",
-     "label": "义乌"
+     "file": "chagee/china.jpg?v=2",
+     "caption": "CHAGEE (霸王茶姬) near Xintiandi, Shanghai — the opera-mask roundel on a brick-and-black storefront, by the Line 13 metro.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "chagee/g1.jpg",
-      "caption": "A “Hua Tian Wu Long” tea",
-      "credit": "Fumikas Sagisavas",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC%E8%8A%B1%E7%94%B0%E4%B9%8C%E9%BE%99.jpg"
+      "file": "chagee/g1.jpg?v=2",
+      "caption": "The entrance — the opera-mask roundel underfoot, a shelf of branded tumblers and bottles by the door."
      },
      {
-      "file": "chagee/g2.jpg",
-      "caption": "A CHAGEE in Shenzhen, China",
-      "credit": "SYSHLWO MSRPSL SUNGA",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ASZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%AF%B6%E5%AE%89_%E5%A3%B9%E6%96%B9%E5%9F%8E%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83_Bao%27An_Uniwalk_Mall_%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC_Chagee_Restaurant_May_2023_Px3_01.jpg"
+      "file": "chagee/g2.jpg?v=2",
+      "caption": "The open tea bar, baristas in CHAGEE black building fresh-milk teas to order."
      },
      {
-      "file": "chagee/g3.jpg",
-      "caption": "A CHAGEE counter in a mall",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChagee_at_Shin_Kong_Place-20240614.jpg"
+      "file": "chagee/g3.jpg?v=2",
+      "caption": "The counter under the menu screens, with the chain’s stacked gift-boxed tea sets."
      }
     ]
    }
