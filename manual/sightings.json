@@ -2787,6 +2787,15 @@
           "lat": 39.745573,
           "lon": -121.8518736,
           "coord_src": "Google Maps address geocode"
+        },
+        {
+          "name": "Orlando (FL)",
+          "address": "7750 Palm Pkwy Ste 120, Orlando, FL 32836",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"Ji Bei Chuan Rice Noodles & Ramen 季北川\" 4.6/454 reviews, 7750 Palm Pkwy Ste 120 (已打烊=open) + orlandojbc.com; owner screenshot 26 Oct 2026.",
+          "lat": 28.3982932,
+          "lon": -81.4888943,
+          "coord_src": "Google Maps place coordinates"
         }
       ]
     },
