@@ -300,39 +300,16 @@
    "us_since": "December 2023",
    "first_outlet": "New York City — 1407 Broadway",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "heytea/china.jpg",
-     "caption": "A HEYTEA in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211212_Heytea_at_MixC_Zhengzhou.jpg",
-     "label": "郑州"
+     "file": "heytea/china.jpg?v=2",
+     "caption": "HEYTEA (喜茶) in a Shanghai mall — the lit storefront and order counter, its 喜茶製冰 tea-ice-cream line alongside.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "heytea/g1.jpg",
-      "caption": "A HEYTEA mango drink",
-      "credit": "CNHowey",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHeytea_Mango_drink.jpg"
-     },
-     {
-      "file": "heytea/g2.jpg",
-      "caption": "HEYTEA drinks, photographed in Shenzhen",
-      "credit": "Infinitygwen",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_Products.jpg"
-     },
-     {
-      "file": "heytea/g3.jpg",
-      "caption": "A HEYTEA store in Hong Kong",
-      "credit": "Wpcpey",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHey_Tea_in_Hysan_Place_201903.jpg"
+      "file": "heytea/g1.jpg?v=2",
+      "caption": "The order counter beneath HEYTEA’s neon mark — a figure sipping tea — with the pastry case and self-order screen."
      }
     ]
    }
