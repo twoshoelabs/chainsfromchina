@@ -521,7 +521,29 @@
    "photo": "img/yangguofu.jpg",
    "photo_credit": null,
    "us_since": "",
-   "first_outlet": ""
+   "first_outlet": "",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "yangguofu/china.jpg",
+     "caption": "Yang Guo Fu (杨国福麻辣烫) in a Shanghai mall — the lit storefront over the self-serve malatang bar and marble-table seating.",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "yangguofu/g1.jpg",
+      "caption": "The self-serve bar — diners fill a bowl from rows of fresh vegetables, noodles, tofu and skewered meats; it is then weighed and cooked to order."
+     },
+     {
+      "file": "yangguofu/g2.jpg",
+      "caption": "The dining room beside the ingredient case, under the YANG GUO FU mural wall."
+     },
+     {
+      "file": "yangguofu/g3.jpg",
+      "caption": "The cook line behind the orange 杨国福 curtain, finished bowls bagged for takeout."
+     }
+    ]
+   }
   },
   "fishwithyou": {
    "name": "Fish With You",
