@@ -1254,23 +1254,20 @@
    "photo": null,
    "photo_credit": null,
    "photos": {
+    "origin": "author",
     "china": {
      "file": "anta/china.jpg",
-     "caption": "An Anta Sports store in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_store_at_Beijing_Xitieying_Wanda_Plaza_%2820210920193009%29.jpg",
-     "label": "北京"
+     "caption": "An ANTA (安踏) store in Shanghai",
+     "label": "上海"
     },
     "gallery": [
      {
       "file": "anta/g1.jpg",
-      "caption": "An Anta Sports store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AAnta_Sports_at_Suzhou_People%27s_Department_Store-20260521.jpg"
+      "caption": "ANTA's Chinese national-team campaign"
+     },
+     {
+      "file": "anta/g2.jpg",
+      "caption": "Inside the store"
      }
     ]
    }
