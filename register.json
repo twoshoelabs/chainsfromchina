@@ -9683,6 +9683,21 @@
    "sources": [
     "https://www.yzwb.net/news/ch/202609/t20260929_398212.html"
    ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-10-26",
+   "note": "Confirmed operating: ChaPanda Bukit Jalil (Pavilion Bukit Jalil, KL) on Google Maps, 4.3/282 reviews, open; official @chapanda.my. Brand reports ~18 signed Malaysia stores and is a Grab signature merchant (yzwb.net, 29 Sep 2026).",
+   "sources": [
+    "https://www.yzwb.net/news/ch/202609/t20260929_398212.html",
+    "https://www.chapanda.com/"
+   ]
   }
  ]
 }

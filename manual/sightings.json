@@ -4107,8 +4107,8 @@
         {
           "name": "Aurora (Denver)",
           "address": "2000 South Havana Street, Aurora, CO",
-          "confidence": "confirmed",
-          "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
+          "confidence": "uncertain",
+          "verified_by": "CLOSED: Google Maps 永久歇業 / PERMANENTLY CLOSED (4.3/215), 2000 S Havana St Aurora CO; owner screenshot 26 Oct 2026. Held out of count.",
           "lat": 39.679781,
           "lon": -104.865215,
           "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -4210,6 +4210,15 @@
           "verified_by": "Google Maps \"Ten Seconds Waikiki Express\" (open, 5.0/6 Yelp) + tensecondshi.com; owner screenshot 20 Oct 2026. 2nd HI store (distinct from Aiea).",
           "lat": 21.2811526,
           "lon": -157.8289938,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "Champaign (UIUC)",
+          "address": "607 S Wright St, Champaign, IL 61820",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"Ten Second Rice Noodle\" 4.4/39 reviews, Chinese noodle shop, 607 S Wright St (已打烊=open) + tensecondsricenoodle1848.com; owner screenshot 26 Oct 2026.",
+          "lat": 40.1111927,
+          "lon": -88.2290639,
           "coord_src": "Google Maps place coordinates"
         }
       ]

@@ -597,6 +597,16 @@
       "opened": null,
       "closed_on": "2026-10-19",
       "closed_note": "Yelp reports closed (3.9 stars/38) + absent from Maps sweep, owner screenshot 19 Oct 2026. On brand locator rbteausa.com but closed = locator lag."
+    },
+    {
+      "chain": "tenseconds",
+      "name": "Ten Seconds Yunnan Rice Noodle (Aurora/Denver)",
+      "address": "2000 S Havana St, Aurora, CO 80014",
+      "city": "Aurora",
+      "state": "CO",
+      "opened": null,
+      "closed_on": "2026-10-26",
+      "closed_note": "Google Maps 永久歇業 / Permanently closed (4.3/215 reviews), tensecondsdenver.com. Was counted; removed. Owner screenshot 26 Oct 2026."
     }
   ]
 }
