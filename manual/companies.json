@@ -606,13 +606,13 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "zhangliang/china.jpg",
+     "file": "zhangliang/china.jpg?v=2",
      "caption": "Zhang Liang Malatang (张亮麻辣烫) in a Shanghai shopping-mall food hall — the illuminated storefront sign above the signature orange “b” dining nook.",
      "label": "上海"
     },
     "gallery": [
      {
-      "file": "zhangliang/g1.jpg",
+      "file": "zhangliang/g1.jpg?v=2",
       "caption": "The stall from the concourse: the open pick-your-own ingredient bar at left, with bone-broth counter and booth seating."
      },
      {
@@ -1248,13 +1248,13 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "anta/china.jpg",
+     "file": "anta/china.jpg?v=2",
      "caption": "An ANTA (安踏) store in Shanghai",
      "label": "上海"
     },
     "gallery": [
      {
-      "file": "anta/g1.jpg",
+      "file": "anta/g1.jpg?v=2",
       "caption": "ANTA's Chinese national-team campaign"
      },
      {
