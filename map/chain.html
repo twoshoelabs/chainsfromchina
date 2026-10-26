@@ -384,8 +384,12 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   })();
   document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
 
+  // The hero logo normally reuses the map-pin icon (icons/<id>.png), but a chain may set
+  // comp.page_logo to show a different mark on the page than on the pin — e.g. Chef Fei uses its
+  // wordmark on the page while the pin keeps the more legible chef illustration.
+  const heroLogo = comp.page_logo ? `icons/${esc(comp.page_logo)}` : `icons/${esc(id)}.png`;
   const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
-    `<img src="icons/${esc(id)}.png${ICONV}" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
+    `<img src="${heroLogo}${ICONV}" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
   const aka = (m.aliases && m.aliases.length) ? `<div class="aka">Also: ${esc(m.aliases.join(', '))}</div>` : '';
   const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
 
