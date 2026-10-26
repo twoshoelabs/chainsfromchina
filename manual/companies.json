@@ -1566,7 +1566,33 @@
    "photo_credit": null,
    "us_since": "2026",
    "first_outlet": "Flushing, NY — 135-05 Roosevelt Ave",
-   "us_since_note": "Operating Oct 2026 (Google, Flushing, ~140 reviews); exact opening date not established."
+   "us_since_note": "Operating Oct 2026 (Google, Flushing, ~140 reviews); exact opening date not established.",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "walaida/china.jpg",
+     "caption": "Walaida (蛙来哒) in a Shanghai mall food hall — the 紫苏牛蛙 (perilla bullfrog) counter under the red sign, with the brand’s frog-eyes mark.",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "walaida/g1.jpg",
+      "caption": "The dine-in hall, themed as the “Walaida Super Game Arcade” — retro speakers, a neon frog-eyes sign and booth seating."
+     },
+     {
+      "file": "walaida/g2.jpg",
+      "caption": "Booth seating in the arcade-themed dining room, under the chain’s “eat frog, eat Walaida” branding."
+     },
+     {
+      "file": "walaida/g3.jpg",
+      "caption": "The wall of honors — nine citations, among them “first in China” for perilla bullfrog and top frog-pot sales."
+     },
+     {
+      "file": "walaida/g4.jpg",
+      "caption": "The brand’s neon frog mascot — “Happy in Walaida,” since 2010, Changsha."
+     }
+    ]
+   }
   },
   "jibeichuan": {
    "name": "JiBeiChuan",
