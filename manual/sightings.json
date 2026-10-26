@@ -2778,6 +2778,15 @@
           "lat": 41.2543349,
           "lon": -73.017795,
           "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "Chico (CA)",
+          "address": "1851 Esplanade, Chico, CA 95926",
+          "confidence": "confirmed",
+          "verified_by": "Dedicated first-party site jibeichuan-chico.com (季北川, full hours + online order + phone) + press (whatnow.com: operator runs San Leandro & Chico Ji Bei Chuan). No Google Maps listing yet (new). Owner screenshot 26 Oct 2026.",
+          "lat": 39.745573,
+          "lon": -121.8518736,
+          "coord_src": "Google Maps address geocode"
         }
       ]
     },
@@ -4219,6 +4228,15 @@
           "verified_by": "Google Maps \"Ten Second Rice Noodle\" 4.4/39 reviews, Chinese noodle shop, 607 S Wright St (已打烊=open) + tensecondsricenoodle1848.com; owner screenshot 26 Oct 2026.",
           "lat": 40.1111927,
           "lon": -88.2290639,
+          "coord_src": "Google Maps place coordinates"
+        },
+        {
+          "name": "Staten Island (New Dorp)",
+          "address": "337b New Dorp Ln, Staten Island, NY 10306",
+          "confidence": "confirmed",
+          "verified_by": "Google Maps \"Ten Seconds Yunnan Rice Noodle\" 3.7/66 reviews, 337b New Dorp Ln (Closed·Opens 11AM = open); owner screenshot 26 Oct 2026.",
+          "lat": 40.5714422,
+          "lon": -74.1111265,
           "coord_src": "Google Maps place coordinates"
         }
       ]
