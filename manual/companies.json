@@ -1056,31 +1056,24 @@
    "us_since": "December 2024",
    "first_outlet": "Los Angeles — 3300 W Sunset Blvd (Silver Lake)",
    "photos": {
+    "origin": "author",
     "china": {
      "file": "xibei/china.jpg",
-     "caption": "A Xibei Youmiancun in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20250702_Xibei_Restaurant_at_Zhengdong_MIXC.jpg",
-     "label": "郑州"
+     "caption": "Xibei (西贝) at Feizhou International, Shanghai",
+     "label": "上海"
     },
     "gallery": [
      {
       "file": "xibei/g1.jpg",
-      "caption": "Proso-millet cold cake, a Xibei specialty",
-      "credit": "DragonSamYU",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AProso_Millet_Cold_Cake_-_20161211.jpg"
+      "caption": "The open kitchen — 蒙古牛排 and 小锅牛腩"
      },
      {
       "file": "xibei/g2.jpg",
-      "caption": "A Xibei at David Plaza, Zhengzhou",
-      "credit": "Windmemories",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3A20230417_Xibei_Youmiancun_at_David_Plaza.jpg"
+      "caption": "The red-gingham dining room"
+     },
+     {
+      "file": "xibei/g3.jpg",
+      "caption": "In-store organic grocery and the kids'-meal corner"
      }
     ]
    }
