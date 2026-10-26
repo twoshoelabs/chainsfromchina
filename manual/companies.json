@@ -950,7 +950,34 @@
    "photo": "img/toys52.jpg",
    "photo_credit": null,
    "us_since": "July 2024",
-   "first_outlet": "Atlanta, GA — 6035 Peachtree Rd"
+   "first_outlet": "Atlanta, GA — 6035 Peachtree Rd",
+   "photos": {
+    "origin": "author",
+    "note": "These show a 52TOYS automated \"roboshop\" vending kiosk at Hongqiao, Shanghai — a vending-machine format, NOT a staffed retail store of the kind this project counts. Shown as a placeholder until a 52TOYS retail store is photographed.",
+    "china": {
+     "file": "toys52/china.jpg",
+     "caption": "A 52TOYS roboshop (vending) kiosk at Hongqiao, Shanghai",
+     "label": "上海虹桥"
+    },
+    "gallery": [
+     {
+      "file": "toys52/g1.jpg",
+      "caption": "The BEASTBOX (猛兽匣) vending bay"
+     },
+     {
+      "file": "toys52/g2.jpg",
+      "caption": "A 52TOYS blind-box vending machine"
+     },
+     {
+      "file": "toys52/g3.jpg",
+      "caption": "A diorama display built from 52TOYS kits"
+     },
+     {
+      "file": "toys52/g4.jpg",
+      "caption": "The brand's Play-for-fun marking"
+     }
+    ]
+   }
   },
   "dezhuang": {
    "name": "De Zhuang Hot Pot",

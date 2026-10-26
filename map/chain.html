@@ -215,6 +215,9 @@ function photosBlock(comp, m) {
       : anyBrand ? `${esc(m.name)}'s official channel`
       : 'Wikimedia Commons under the licenses noted';
     let h = `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Photographs from ${src}; not affiliated with ${esc(m.name)}.</p>`;
+    // Optional caveat line — e.g. when the only photos to hand are of a format we don't count
+    // (a vending/roboshop kiosk), used as an honest placeholder until a real store is shot.
+    if (ph.note) h += `<p style="font-size:.82rem;color:var(--ink-2);margin:-8px 0 16px;padding:8px 12px;border-left:3px solid var(--ink);background:rgba(0,0,0,.045)">${esc(ph.note)}</p>`;
     if (ph.china && ph.us) {
       // Both sides → the "There and here" juxtaposition.
       h += `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
