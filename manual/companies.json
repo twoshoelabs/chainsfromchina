@@ -1681,7 +1681,33 @@
    "name": "Dusu Bakery",
    "us_since": "2026",
    "us_since_note": "Opened by Sep 2026 (The Infatuation LA, 30 Sep 2026, 'has opened'); exact month not established.",
-   "first_outlet": "Temple City, CA — 5585 Rosemead Blvd"
+   "first_outlet": "Temple City, CA — 5585 Rosemead Blvd",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "dusu/china.jpg",
+     "caption": "DUSU 读酥世家 in Xujiahui, Shanghai",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "dusu/g1.jpg",
+      "caption": "The storefront (臻选店)"
+     },
+     {
+      "file": "dusu/g2.jpg",
+      "caption": "The 酥 house-mark on the facade"
+     },
+     {
+      "file": "dusu/g3.jpg",
+      "caption": "Inside: the bakery counter"
+     },
+     {
+      "file": "dusu/g4.jpg",
+      "caption": "Gift boxes in store"
+     }
+    ]
+   }
   },
   "hibake": {
    "name": "Hi Bake",
