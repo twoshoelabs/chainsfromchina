@@ -250,14 +250,11 @@
    "us_since": "September 2013",
    "first_outlet": "Arcadia, CA — 400 S Baldwin Ave (Westfield Santa Anita)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "haidilao/china-suzhou.jpg",
-     "label": "苏州",
-     "caption": "A Haidilao in Suzhou, China",
-     "credit": "Shwangtianyuan",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File:Haidilao_in_Suzhou.jpg"
+     "file": "haidilao/china-shanghai.jpg",
+     "caption": "Haidilao Hot Pot (海底捞火锅) in a Shanghai mall — the Hi-logo entrance, the dining room glimpsed through the draft curtain.",
+     "label": "上海"
     },
     "us": {
      "file": "haidilao/us-houston.jpg",
@@ -270,20 +267,12 @@
     },
     "gallery": [
      {
-      "file": "haidilao/gallery-order.jpg",
-      "caption": "Beef and dipping sauces",
-      "credit": "Angelsu52",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Haidilao_order.jpg"
+      "file": "haidilao/gallery-service.jpg",
+      "caption": "The waiting lounge — Haidilao’s famous free perks, here a complimentary manicure while you wait for a table."
      },
      {
-      "file": "haidilao/gallery-mall.jpg",
-      "caption": "At a shopping-mall branch in China",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Haidilao_Hot_Pot_at_GR_Shopping_Mall_(20200829181143).jpg"
+      "file": "haidilao/gallery-atrium.jpg",
+      "caption": "The brand’s gold Hi mark in a sky-lit atrium; Haidilao often anchors whole upper floors of a mall."
      }
     ]
    }
