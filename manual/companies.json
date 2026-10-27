@@ -197,14 +197,11 @@
    "us_since": "September 2023",
    "first_outlet": "East Rutherford, NJ — American Dream (first permanent store)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "popmart/china.jpg",
-     "caption": "A POP MART store in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_store_at_Universal_CityWalk_Beijing_%2820210907111354%29.jpg",
-     "label": "北京"
+     "file": "popmart/china.jpg?v=2",
+     "caption": "POP MART (泡泡玛特) flagship in Shanghai — the illuminated crown-logo facade at night, blind-box toys glowing in the windows.",
+     "label": "上海"
     },
     "us": {
      "file": "popmart/us.jpg",
@@ -217,20 +214,12 @@
     },
     "gallery": [
      {
-      "file": "popmart/g1.jpg",
-      "caption": "A POP MART “roboshop” vending machine in Cerritos, California",
-      "credit": "Thelabubucollector",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_Vending_Machine_in_Cerritos%2C_California.jpg"
+      "file": "popmart/g1.jpg?v=2",
+      "caption": "Inside the immersive toy hall — tables of THE MONSTERS (Labubu) and other blind-box IPs under pink orb lights."
      },
      {
-      "file": "popmart/g2.jpg",
-      "caption": "A POP MART store in Suzhou, China",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3APop_Mart_at_Suzhou_Center-20220709.jpg"
+      "file": "popmart/g2.jpg?v=2",
+      "caption": "A POP MART in a Shanghai mall beside the beauty halls; the brand now anchors prime retail floors."
      }
     ]
    }
