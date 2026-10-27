@@ -214,6 +214,7 @@ function photosBlock(comp, m) {
     // so when an author set also carries a licensed photo the intro credits both sources.
     const src = ph.origin === 'author'
       ? (anyLic ? 'Chains From China, taken on location in China, and Wikimedia Commons for the US, as credited'
+         : anyBrand ? `Chains From China, taken on location in China, and ${esc(m.name)}'s official channel, as credited`
                 : 'Chains From China, taken on location')
       : anyLic && anyBrand ? `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`
       : anyBrand ? `${esc(m.name)}'s official channel`

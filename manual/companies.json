@@ -1475,22 +1475,24 @@
    "us_since": null,
    "first_outlet": "Bellevue, WA — 550 106th Ave NE, Ste 101",
    "photos": {
+    "origin": "author",
+    "china": {
+     "file": "mamaxita/china.jpg",
+     "caption": "Xita Laotaitai (西塔老太太 / Mama Xita BBQ) in a Shanghai mall — the clay-oven Korean-style BBQ, its dining room glowing behind the glass.",
+     "label": "上海"
+    },
     "gallery": [
      {
-      "file": "mamaxita/g1.jpg",
-      "caption": "Inside Mama Xita BBQ",
-      "credit": "Mama Xita BBQ",
-      "source": "https://mamaxitabbq.com/"
+      "file": "mamaxita/g1.jpg?v=2",
+      "caption": "The chain’s namesake mascot — a sunglasses-wearing “old lady” clutching a slab of marbled beef by the door."
      },
      {
-      "file": "mamaxita/g2.jpg",
-      "caption": "A Mama Xita BBQ dining room",
-      "credit": "Mama Xita BBQ",
-      "source": "https://mamaxitabbq.com/"
+      "file": "mamaxita/g2.jpg?v=2",
+      "caption": "Inside: booth seating and the clay 泥炉 grills, staff in red working the floor."
      },
      {
       "file": "mamaxita/g3.jpg",
-      "caption": "A dish at Mama Xita BBQ",
+      "caption": "A signature dish.",
       "credit": "Mama Xita BBQ",
       "source": "https://mamaxitabbq.com/"
      }
