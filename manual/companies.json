@@ -100,14 +100,11 @@
    "us_since": "June 2025",
    "first_outlet": "New York City — 755 Broadway",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "luckin/china.jpg",
-     "caption": "A Luckin Coffee in Beijing, China",
-     "credit": "CNHowey",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_coffee.jpg",
-     "label": "北京"
+     "file": "luckin/china.jpg?v=2",
+     "caption": "Luckin Coffee (瑞幸咖啡) in a Shanghai mall — the walk-up kiosk under the deer logo, a barista at the espresso bar.",
+     "label": "上海"
     },
     "us": {
      "file": "luckin/us.jpg",
@@ -120,20 +117,16 @@
     },
     "gallery": [
      {
-      "file": "luckin/g1.jpg",
-      "caption": "The signature “little blue cup”",
-      "credit": "X-SHLIED",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee%27s_Classic_Little_Blue_Cup.jpg"
+      "file": "luckin/g1.jpg?v=2",
+      "caption": "Inside a larger store — the roast-and-grind bar under “High-quality Arabica, blended by WBC champions,” with booth seating and a coffee-cherry mosaic wall."
      },
      {
-      "file": "luckin/g2.jpg",
-      "caption": "A pickup counter in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_at_L1_Guomao_Station_concourse_%2820251031160436%29.jpg"
+      "file": "luckin/g2.jpg?v=2",
+      "caption": "The lounge — window benches among planters, the coffee-plant mural running up the columns."
+     },
+     {
+      "file": "luckin/g3.jpg",
+      "caption": "A framed photo of a coffee estate set into the engraved coffee-botanical wall."
      }
     ]
    }
