@@ -1757,18 +1757,22 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "dusu/china.jpg",
-     "caption": "DUSU 读酥世家 in Xujiahui, Shanghai",
+     "file": "dusu/china.jpg?v=3",
+     "caption": "DUSU Shijia (读酥世家 / DUSU Pastry Family) — the flagship on a Shanghai corner; pastries baked and sold from the open window (“fresh-baked, hand-made, no additives”).",
      "label": "上海"
     },
     "gallery": [
      {
-      "file": "dusu/g1.jpg?v=2",
-      "caption": "The display cases — breads and egg-tart pastries laid out fresh, the ovens working behind."
+      "file": "dusu/g1.jpg?v=3",
+      "caption": "Inside: the display counter in front of the open bakery, the chain’s 读酥 gift boxes and best-seller board behind."
      },
      {
-      "file": "dusu/g2.jpg?v=2",
-      "caption": "Boxed gift tins and sets on the back shelving."
+      "file": "dusu/g2.jpg?v=3",
+      "caption": "The counter and open kitchen, where bakers finish Napoleon mille-feuille and the signature pork-chop buns."
+     },
+     {
+      "file": "dusu/g3.jpg?v=3",
+      "caption": "The case of signatures — butter 年糕 cakes, Biu-sauce pastries, egg rolls, 锅巴 crisps and walnut scones."
      }
     ]
    }
