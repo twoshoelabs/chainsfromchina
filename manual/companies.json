@@ -151,14 +151,11 @@
    "us_since": "April 2017",
    "first_outlet": "Pasadena, CA — 88 W Colorado Blvd",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "miniso/china.jpg",
-     "caption": "A MINISO in Dongguan, China",
-     "credit": "茅野ふたば",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A%E5%90%8D%E5%88%9B%E4%BC%98%E5%93%81%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%B8%9C%E8%8E%9E%E5%B8%82%E5%A4%A9%E5%AE%9D%E8%B7%AF%EF%BC%8820241118100804%EF%BC%89.jpg",
-     "label": "东莞"
+     "file": "miniso/china.jpg?v=2",
+     "caption": "MINISO LAND, the brand’s flagship on Shanghai’s Nanjing Road — a carnival-façade “World’s No. 1 store” (全球壹号店), Peanuts hot-air-balloon sign and all.",
+     "label": "上海"
     },
     "us": {
      "file": "miniso/us.jpg",
@@ -169,24 +166,7 @@
      "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg",
      "label": "New York, NY"
     },
-    "gallery": [
-     {
-      "file": "miniso/g1.jpg",
-      "caption": "Inside a MINISO store",
-      "credit": "TheNuggeteer",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMINISO_Ormoc-2.jpg"
-     },
-     {
-      "file": "miniso/g2.jpg",
-      "caption": "A MINISO storefront abroad",
-      "credit": "Wpcpey",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_branch_in_The_Galeries_2017.jpg"
-     }
-    ]
+    "gallery": []
    }
   },
   "popmart": {
