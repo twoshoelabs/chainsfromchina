@@ -1083,23 +1083,16 @@
    "us_since": "March 2024",
    "first_outlet": "New York — 56 West 22nd St (Flatiron)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "grandmashome/china.jpg",
-     "caption": "A Grandma's Home in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20241213_Grandma%27s_Home_Restaurant_at_Wanda_Fun%2C_Zhengzhou.jpg",
-     "label": "郑州"
+     "file": "grandmashome/china.jpg?v=2",
+     "caption": "Grandma’s Home (外婆家) in a Shanghai mall — the dining room off the atrium, blond-wood tables under a ring chandelier, the brand’s green neon sign alongside.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "grandmashome/g1.jpg",
-      "caption": "A Grandma's Home at Suzhou Center",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGrandma%27s_Home_at_Suzhou_Center-20220709.jpg"
+      "file": "grandmashome/g1.jpg?v=2",
+      "caption": "The entrance and its waiting area — stools and red ghost chairs by a Monet-mural garden wall; the chain is known for the queues it draws."
      }
     ]
    }
