@@ -127,6 +127,10 @@
      {
       "file": "luckin/g3.jpg",
       "caption": "A framed photo of a coffee estate set into the engraved coffee-botanical wall."
+     },
+     {
+      "file": "luckin/g4.jpg",
+      "caption": "A street-corner Luckin on Shanghai’s Huanghe Road, tucked between a steamed-bun shop and a Guizhou noodle house."
      }
     ]
    }
@@ -391,16 +395,16 @@
     },
     "gallery": [
      {
-      "file": "chabaidao/g1.jpg?v=2",
-      "caption": "The order counter under the ChaPanda wordmark, the panda mascot and tea bar beyond."
+      "file": "chabaidao/g1.jpg?v=3",
+      "caption": "A street-lane kiosk — the walk-up window beside the 胖妹面庄 noodle house."
      },
      {
-      "file": "chabaidao/g2.jpg?v=2",
-      "caption": "The open bar, baristas building fresh-fruit teas; the chain’s panda-print cups stacked ready."
+      "file": "chabaidao/g2.jpg?v=3",
+      "caption": "Inside the kiosk: the ChaPanda wordmark wall, coffee machine and cup station."
      },
      {
-      "file": "chabaidao/g3.jpg",
-      "caption": "The pickup counter and order-status screens, member and game-collab promos at the till."
+      "file": "chabaidao/g3.jpg?v=3",
+      "caption": "The open bar, baristas building fresh-fruit teas under the day’s promos."
      }
     ]
    }
