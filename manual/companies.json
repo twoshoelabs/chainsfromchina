@@ -288,14 +288,22 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "heytea/china.jpg?v=2",
-     "caption": "HEYTEA (喜茶) in a Shanghai mall — the lit storefront and order counter, its 喜茶製冰 tea-ice-cream line alongside.",
+     "file": "heytea/china.jpg?v=3",
+     "caption": "HEYTEA (喜茶) in a Shanghai mall — the storefront under its neon sipping-figure mark, with the pastry case and lit bench seating.",
      "label": "上海"
     },
     "gallery": [
      {
       "file": "heytea/g1.jpg?v=2",
       "caption": "The order counter beneath HEYTEA’s neon mark — a figure sipping tea — with the pastry case and self-order screen."
+     },
+     {
+      "file": "heytea/g2.jpg",
+      "caption": "The B1 concourse outside the store, customers waiting on the lit benches under the HEYTEA mark."
+     },
+     {
+      "file": "heytea/g3.jpg",
+      "caption": "The lit storefront and order window, the 喜茶製冰 tea-ice-cream line alongside."
      }
     ]
    }
