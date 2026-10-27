@@ -349,23 +349,24 @@
    "us_since": "2018",
    "first_outlet": "City of Industry, CA — 18518 E Gale Ave",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "taier/china.jpg",
-     "caption": "A Tai Er sauerkraut-fish restaurant in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211217_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_at_David_Plaza.jpg",
-     "label": "郑州"
+     "file": "taier/china.jpg?v=2",
+     "caption": "Tai Er (太二酸菜鱼) in a Shanghai mall — the storefront under its signature woodcut mural, bar seating along the glass.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "taier/g1.jpg",
-      "caption": "A Tai Er in Hong Kong",
-      "credit": "EBIANHA Wokariem",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AHK_KCD_%E5%95%9F%E5%BE%B7_Kai_Tak_AIRSIDE_Shopping_Mall_%E5%A4%AA%E4%BA%8C%E9%85%B8%E8%8F%9C%E9%B1%BC_Tai_Er_Chinese_Sauerkraut_Fish_Restaurant_January_2024_R12S_02.jpg"
+      "file": "taier/g1.jpg?v=2",
+      "caption": "The open kitchen — “认真做鱼 · 欢迎观赏” (we take fish seriously — come watch); cooks work behind glass under the woodcut fish mark."
+     },
+     {
+      "file": "taier/g2.jpg",
+      "caption": "The dining room, glassed off the concourse, carrying the brand’s cheeky line “酸菜比鱼好吃” — the pickled greens beat the fish."
+     },
+     {
+      "file": "taier/g3.jpg",
+      "caption": "The pass and rice-cooker station — Wuchang premium rice and a help-yourself iced-tea urn."
      }
     ]
    }
