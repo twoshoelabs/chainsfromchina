@@ -400,31 +400,24 @@
    "us_since": "October 2025",
    "first_outlet": "Flushing, Queens, NY — 38-03 Main St",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "chabaidao/china.jpg",
-     "caption": "A ChaPanda (Chabaidao) in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20220809_Cha_Bai_Dao_at_Zhengzhou_Shanshan_Outlet_Plaza.jpg",
-     "label": "郑州"
+     "file": "chabaidao/china.jpg?v=2",
+     "caption": "Cha Panda (茶百道 / ChaPanda) on a Shanghai corner — the blue-panda storefront, the brand’s inflatable mascot by the door.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "chabaidao/g1.jpg",
-      "caption": "A ChaPanda store in Singapore",
-      "credit": "Pscmaczilhca",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChaPanda_Store_in_Clementi_Central%2C_Singapore.jpg"
+      "file": "chabaidao/g1.jpg?v=2",
+      "caption": "The order counter under the ChaPanda wordmark, the panda mascot and tea bar beyond."
      },
      {
-      "file": "chabaidao/g2.jpg",
-      "caption": "A Chabaidao store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AChabaidao_at_Jingcheng_Neighbor_Center-20210526.jpg"
+      "file": "chabaidao/g2.jpg?v=2",
+      "caption": "The open bar, baristas building fresh-fruit teas; the chain’s panda-print cups stacked ready."
+     },
+     {
+      "file": "chabaidao/g3.jpg",
+      "caption": "The pickup counter and order-status screens, member and game-collab promos at the till."
      }
     ]
    }
