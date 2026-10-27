@@ -482,31 +482,24 @@
    "us_since": "",
    "first_outlet": "",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "juewei/china.jpg",
-     "caption": "A Juewei duck-neck shop in Beijing, China",
-     "credit": "N509FZ",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Duck_Neck_at_13_West_3rd_Ring_Rd_N_%2820220808153655%29.jpg",
-     "label": "北京"
+     "file": "juewei/china.jpg?v=2",
+     "caption": "Juewei (绝味鸭脖) on a Shanghai street — the grab-and-go counter under its yellow sign, a chilled case of spiced braised snacks (“Dare Spicy!”).",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "juewei/g1.jpg",
-      "caption": "A Juewei counter in Changsha, China",
-      "credit": "Huangdan2060",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_in_Changsha_20250403.jpg"
+      "file": "juewei/g1.jpg?v=2",
+      "caption": "The deli case — dozens of trays of 卤味: spiced duck neck, wings and gizzards, lotus root, tofu skin and more, sold by weight."
      },
      {
-      "file": "juewei/g2.jpg",
-      "caption": "A Juewei storefront in Changsha, China",
-      "credit": "Huangdan2060",
-      "license": "CC BY 3.0",
-      "license_url": "https://creativecommons.org/licenses/by/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AJuewei_Food_20211203.jpg"
+      "file": "juewei/g2.jpg?v=2",
+      "caption": "The counter, where staff weigh and bag your pick; a food-safety broadcast plays on the screen above."
+     },
+     {
+      "file": "juewei/g3.jpg",
+      "caption": "A closer look at the braised selection, glazed deep red in the chili brine."
      }
     ]
    }
