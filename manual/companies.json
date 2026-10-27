@@ -1300,22 +1300,22 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "jnby/china.jpg",
-     "caption": "JNBY at Grand Gateway 66 (恒隆广场), Shanghai",
+     "file": "jnby/china.jpg?v=3",
+     "caption": "JNBY in a Shanghai mall — the storefront under its signature grid of light panels, menswear styled at the entrance.",
      "label": "上海"
     },
     "gallery": [
      {
-      "file": "jnby/g1.jpg?v=2",
-      "caption": "Inside: coats on an open rail in the pared-back selling space."
+      "file": "jnby/g1.jpg?v=3",
+      "caption": "The selling floor — designer knitwear and outerwear on open rails, a video lookbook and sculptural wood tables."
      },
      {
-      "file": "jnby/g2.jpg?v=2",
-      "caption": "The display window — mannequins grouped against the fluted-wood facade."
+      "file": "jnby/g2.jpg?v=3",
+      "caption": "Autumn-winter looks on the forms — a deconstructed scarf-jacket and a cropped down puffer."
      },
      {
-      "file": "jnby/g3.jpg?v=2",
-      "caption": "The storefront on the concourse, JNBY's signature dark wood and sweeping arc."
+      "file": "jnby/g3.jpg?v=3",
+      "caption": "The store seen from the gallery above, its RE VAN campaign (shot in New York) on the pillar alongside."
      }
     ]
    }
