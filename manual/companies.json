@@ -174,7 +174,24 @@
      "source": "https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg",
      "label": "New York, NY"
     },
-    "gallery": []
+    "gallery": [
+     {
+      "file": "miniso/g1.jpg",
+      "caption": "A mall-floor MINISO — the red shopping-bag logo over a glass-brick facade of product icons (gifts, umbrellas, headphones), a “New Vintage” window display within."
+     },
+     {
+      "file": "miniso/g2.jpg",
+      "caption": "PLUSH WORLD — Miniso's signature wall of squishy plush, shelves of pigs, chicks and shiba dogs under a painted-sky lightbox."
+     },
+     {
+      "file": "miniso/g3.jpg",
+      "caption": "Under the circular “HAPPY MINISO” sign — the open floor ringed by IP zones (Chiikawa, Zootopia, the LISA collab) and a tower of hair clips."
+     },
+     {
+      "file": "miniso/g4.jpg",
+      "caption": "The licensed-IP corner — a LISA (of Blackpink) × MINISO collab wall beside Chiikawa, Zootopia and Toy Story (Lotso) merchandise."
+     }
+    ]
    }
   },
   "popmart": {
