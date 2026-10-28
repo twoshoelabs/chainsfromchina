@@ -795,23 +795,28 @@ function animateGrandTotal(outlets, prevTotal){
   // Drop-cap links (co-tenancy count is Pro — not shown here)
   $('dc-ctry').textContent = reg ? fmt(Object.keys(reg.markets||{}).length) : '—';
 
-  // Sightings sheet — representative, already-rights-cleared storefronts (reused from the chain pages)
-  // standing in until real sightings — the operator's own photos and reader submissions — replace
-  // them. Each is credited to its Wikimedia Commons author + license, as CC BY/BY-SA require.
+  // Sightings sheet — representative storefronts reused from the chain pages: mostly the project's
+  // own on-location photography (credited "Chains From China", linking to that chain's page), with a
+  // few public-domain / CC US storefronts from Wikimedia Commons credited to their author + license,
+  // as CC BY/BY-SA require. Reader submissions will add to these over time.
   const SIGHTINGS = [
-    { f: 'chagee/china.jpg', chain: 'CHAGEE', city: 'Yiwu, China', alt: 'A CHAGEE storefront in Yiwu, China', by: 'MNXANL', lic: 'CC BY-SA 4.0', lu: 'https://creativecommons.org/licenses/by-sa/4.0', src: 'https://commons.wikimedia.org/wiki/File%3A202403_CHAGEE_Store_on_Fotang_Old_Street%2C_Yiwu.jpg' },
+    { f: 'popmart/china.jpg?v=2', chain: 'POP MART', city: 'Shanghai, China', alt: 'The POP MART flagship facade at night, Shanghai', own: 1, id: 'popmart' },
     { f: 'luckin/us.jpg', chain: 'Luckin Coffee', city: 'New York, NY', alt: 'A Luckin Coffee storefront on Sixth Avenue, Manhattan', by: '4300streetcar', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3ALuckin_Coffee_on_Sixth_Avenue_Manhattan_September_2025.jpg' },
+    { f: 'miniso/china.jpg?v=2', chain: 'MINISO', city: 'Shanghai, China', alt: "MINISO LAND, the brand's flagship on Nanjing Road, Shanghai", own: 1, id: 'miniso' },
     { f: 'haidilao/us-houston.jpg', chain: 'Haidilao', city: 'Houston, TX', alt: 'A Haidilao hot pot storefront in Houston, Texas', by: 'WhisperToMe', lic: 'CC0', lu: 'https://creativecommons.org/publicdomain/zero/1.0', src: 'https://commons.wikimedia.org/wiki/File:Haidilao_Harris_County.jpg' },
-    { f: 'popmart/us.jpg', chain: 'POP MART', city: 'New York, NY', alt: 'A POP MART store at the Oculus, New York', by: 'Thelabubucollector', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3ALabubu_Pop_Mart_store_in_New_York_City.jpg' },
-    { f: 'miniso/us.jpg', chain: 'MINISO', city: 'New York, NY', alt: 'A MINISO store in Times Square, New York', by: 'Tony25430', lic: 'CC0', lu: 'https://creativecommons.org/publicdomain/zero/1.0', src: 'https://commons.wikimedia.org/wiki/File%3AMiniso_times_squre.jpg' },
+    { f: 'chagee/china.jpg?v=2', chain: 'CHAGEE', city: 'Shanghai, China', alt: 'A CHAGEE tea storefront near Xintiandi, Shanghai', own: 1, id: 'chagee' },
+    { f: 'toptoy/china.jpg?v=2', chain: 'TOP TOY', city: 'Shanghai, China', alt: 'The TOP TOY flagship on Nanjing Road, Shanghai', own: 1, id: 'toptoy' },
+    { f: 'heytea/china.jpg?v=3', chain: 'HEYTEA', city: 'Shanghai, China', alt: 'A HEYTEA storefront in a Shanghai mall', own: 1, id: 'heytea' },
     { f: 'zhangliang/us.jpg', chain: 'Zhang Liang', city: 'New York, NY', alt: 'A Zhang Liang Malatang storefront in Chinatown, Manhattan', by: 'Kidfly182', lic: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0', src: 'https://commons.wikimedia.org/wiki/File%3AChinatown_Manhattan_August_2025_055.jpg' },
-    { f: 'bingxue/china.jpg', chain: 'BINGXUE', city: 'Fuyuan, China', alt: 'A BINGXUE tea and ice cream storefront in Fuyuan, China', by: 'HCCB3947', lic: 'CC BY-SA 4.0', lu: 'https://creativecommons.org/licenses/by-sa/4.0', src: 'https://commons.wikimedia.org/wiki/File%3A%E6%8A%9A%E8%BF%9C%E7%9A%84%E5%86%B0%E9%9B%AA%E6%97%B6%E5%85%89.jpg' },
+    { f: 'cotti/china.jpg?v=2', chain: 'Cotti Coffee', city: 'Shanghai, China', alt: 'A Cotti Coffee counter in a Shanghai department store', own: 1, id: 'cotti' },
   ];
-  const sCredit = (s) => '<a href="' + s.src + '" target="_blank" rel="noopener" style="color:inherit">' + s.by +
-    '</a> / <a href="' + s.lu + '" target="_blank" rel="noopener" style="color:inherit">' + s.lic + '</a>';
+  const sCredit = (s) => s.own
+    ? '<a href="chain/' + s.id + '/" style="color:inherit">Chains From China</a>'
+    : '<a href="' + s.src + '" target="_blank" rel="noopener" style="color:inherit">' + s.by +
+      '</a> / <a href="' + s.lu + '" target="_blank" rel="noopener" style="color:inherit">' + s.lic + '</a>';
   $('sheet').innerHTML = SIGHTINGS.map((s, i) =>
     '<figure><div class="ph-frame r32">' +
-    '<img src="photos/' + s.f + '" alt="' + s.alt + '"></div>' +
+    '<img src="photos/' + s.f + '" alt="' + s.alt + '" loading="lazy"></div>' +
     '<figcaption><b>' + s.chain + '</b>, ' + s.city + '<br><span class="meta">' + sCredit(s) + '</span></figcaption></figure>').join('');
 })();
 </script>
