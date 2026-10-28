@@ -208,7 +208,10 @@ function photosBlock(comp, m) {
     // Intro wording depends on where the photos came from: Wikimedia (CC-licensed) vs the chain's
     // own official channel (brand-supplied, no license) vs a mix of both.
     const all = [ph.china, ph.us, ...(ph.gallery || [])].filter(Boolean);
-    const anyLic = all.some(o => o.license), anyBrand = all.some(o => !o.license);
+    // A brand-supplied photo carries a credit but no license; the project's own author photos carry
+    // neither, so test for the credit — otherwise an all-author set reads as !license and is wrongly
+    // attributed to the brand's "official channel".
+    const anyLic = all.some(o => o.license), anyBrand = all.some(o => o.credit && !o.license);
     // origin:"author" = the China photos were shot on location by this project (not Wikimedia, not
     // the brand's channel). We still keep any public-domain Wikimedia US photo for the side-by-side,
     // so when an author set also carries a licensed photo the intro credits both sources.
