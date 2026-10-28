@@ -1344,7 +1344,25 @@
    "site_cn": null,
    "site_us": null,
    "photo": null,
-   "photo_credit": null
+   "photo_credit": null,
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "moreyogurt/china.jpg",
+     "caption": "A More Yogurt (茉酸奶) kiosk in a Shanghai mall — fresh Hass avocados chilling in the case and the pear-shaped avocado mascot out front, under the brand’s pitch that one smoothie equals a whole avocado (一杯奶昔＝一颗牛油果).",
+     "label": "上海"
+    },
+    "gallery": [
+     {
+      "file": "moreyogurt/g1.jpg",
+      "caption": "Behind the counter: staff blending to order beside the fresh-avocado prep station, under the “43° North Latitude” sign."
+     },
+     {
+      "file": "moreyogurt/g2.jpg",
+      "caption": "The brand’s avocado mascot — leaf sprig, apron and striped socks — waving customers in at the entrance."
+     }
+    ]
+   }
   },
   "moge": {
    "name": "Möge Tee",
