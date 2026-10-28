@@ -401,7 +401,7 @@
   },
   "nayuki": {
    "name": "NaiSnow",
-   "name_zh": "奉雪的茶",
+   "name_zh": "奈雪的茶",
    "category": "Tea & bakery",
    "blurb": "The US arm of Nayuki (Naixue), a premium Hong Kong-listed tea-and-soft-bread chain, trading in America as “NaiSnow”. It entered the US in late 2025 and is expanding quickly across New York and into New Jersey.",
    "site_cn": "https://www.naixue.com/",
@@ -411,31 +411,24 @@
    "us_since": "October 2025",
    "first_outlet": "Flushing, Queens, NY — 39-07 Prince St",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "nayuki/china.jpg",
-     "caption": "A Nayuki in Zhengzhou, China",
-     "credit": "Windmemories",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3A20211213_Nayuki_at_Yoyo_Park_01.jpg",
-     "label": "郑州"
+     "file": "nayuki/china.jpg?v=2",
+     "caption": "A Nayuki (奈雪的茶) — it trades in the US as NaiSnow — tucked inside a Shanghai department store's jewelry hall, its glass-walled tea lounge behind the gold counters.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "nayuki/g1.jpg",
-      "caption": "A Nayuki Pro store in Suzhou",
-      "credit": "Shwangtianyuan",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ANayuki_Pro_at_Link_Square%2C_Suzhou-20211228.jpg"
+      "file": "nayuki/g1.jpg?v=2",
+      "caption": "The sit-down side — a plant-filled tea lounge with a soft-bread bakery case and the green NaiSnow (奈雪) mark on the merch shelf."
      },
      {
-      "file": "nayuki/g2.jpg",
-      "caption": "A Nayuki store in Beijing",
-      "credit": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ANaixue_shop_at_88_St_Life_Mall_%2820231211123934%29.jpg"
+      "file": "nayuki/g2.jpg?v=2",
+      "caption": "The bakery-and-pick-up counter: tea dispensers, a Meituan courier collecting, the brand's premium tea-and-soft-bread format."
+     },
+     {
+      "file": "nayuki/g3.jpg",
+      "caption": "The NaiSnow (奈雪) identity — “Nature · Art · Imagination” — over a retail shelf of logo cups, nut snacks and a Gaspard et Lisa collab."
      }
     ]
    }
