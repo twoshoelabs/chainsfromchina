@@ -1675,7 +1675,29 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2025",
-   "first_outlet": "Lynnwood, WA — Alderwood Mall"
+   "first_outlet": "Lynnwood, WA — Alderwood Mall",
+   "photos": {
+    "origin": "author",
+    "china": {
+     "file": "rolife/china.jpg",
+     "caption": "A Rolife (若来) store in Suzhou, the brand's home city — a backlit wall of its ranges (DIY miniature houses, 3D wooden craft, art toys) above shelves of Nanci blind boxes and model kits.",
+     "label": "苏州"
+    },
+    "gallery": [
+     {
+      "file": "rolife/g1.jpg",
+      "caption": "The shop floor: a central island of DIY dollhouse and music-box kits — Sanrio collabs among them — by a themed archway, model-kit shelves lining the walls."
+     },
+     {
+      "file": "rolife/g2.jpg",
+      "caption": "Rolife and ROKR's signature 3D builds on show — a wooden Eiffel Tower, a sakura treehouse and a cuckoo clock — above the boxed kits to assemble them."
+     },
+     {
+      "file": "rolife/g3.jpg",
+      "caption": "The Nanci line — the brand's headline character as costumed plush and blind-box scenes."
+     }
+    ]
+   }
   },
   "nanhotpot": {
    "name": "Nan Hotpot",
