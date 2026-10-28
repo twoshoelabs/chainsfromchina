@@ -884,23 +884,28 @@
    "us_since": "June 2026",
    "first_outlet": "New York City — 1515 Broadway (Times Square)",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "toptoy/china.jpg",
-     "caption": "A TOP TOY in Guangzhou, China",
-     "credit": "Ghaud Lnegauk",
-     "license": "CC0",
-     "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Top_Toy_September_2024_R12S_01.jpg",
-     "label": "广州"
+     "file": "toptoy/china.jpg?v=2",
+     "caption": "TOP TOY’s self-styled “world’s first flagship” (全球首家旗舰店) on Shanghai’s Nanjing Road pedestrian street — a multi-floor trendy-toy megastore, its two-story window filled by a giant golden lucky-cat build.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "toptoy/g1.jpg",
-      "caption": "A TOP TOY in Dongguan",
-      "credit": "NAS 238 WMMNO",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3AGD_%E5%BB%A3%E6%9D%B1_Guangdong_%E6%9D%B1%E8%8E%9E_Dongguan_%E6%B0%91%E7%9B%88_%E5%9C%8B%E8%B2%BF%E5%9F%8E_DG_Mall_shop_Top_Toy_Store_December_2024_R12S_01.jpg"
+      "file": "toptoy/g1.jpg?v=2",
+      "caption": "The central “Global Trendy Toys” display island, ringed by brand bays under a mirrored, TOP TOY-stamped ceiling."
+     },
+     {
+      "file": "toptoy/g2.jpg",
+      "caption": "A giant retro-television vitrine framing one of the brand’s art-toy characters, beside the plush and capsule-toy aisles."
+     },
+     {
+      "file": "toptoy/g3.jpg",
+      "caption": "The “Pick & Build” building-blocks hall — mirror-walled and checkerboard-floored, lined with brick-built skylines of New York and Shanghai’s Oriental Pearl."
+     },
+     {
+      "file": "toptoy/g4.jpg",
+      "caption": "The “Join the Fun” capsule-machine wall — rows of gashapon beside a blind-box display cart."
      }
     ]
    }
