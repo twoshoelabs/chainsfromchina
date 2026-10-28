@@ -309,31 +309,24 @@
    "us_since": "2024",
    "first_outlet": "Pearl City, HI — Pearl Highlands Center",
    "photos": {
+    "origin": "author",
     "china": {
-     "file": "cotti/china.jpg",
-     "caption": "A Cotti Coffee in Xiamen, China",
-     "credit": "HualinXMN",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_SM_Xiamen_Phase_III_shop.jpg",
-     "label": "厦门"
+     "file": "cotti/china.jpg?v=2",
+     "caption": "A Cotti Coffee (库迪咖啡) in a Shanghai department store — the counter under its logo, with actress Yang Mi, the brand's face, on the pillar poster.",
+     "label": "上海"
     },
     "gallery": [
      {
-      "file": "cotti/g1.jpg",
-      "caption": "A Cotti mango-coconut latte",
-      "credit": "BlouStyle",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Mango_Coco_Latte.jpg"
+      "file": "cotti/g1.jpg?v=2",
+      "caption": "How it sits on the mall floor: a compact Cotti counter with planter-screened bar seating along the concourse, opposite the shoe halls."
      },
      {
-      "file": "cotti/g2.jpg",
-      "caption": "A Cotti storefront in Fuding",
-      "credit": "彩色琪子",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File%3ACotti_Coffee_Fuding_Guchen_South_road_Store.jpg"
+      "file": "cotti/g2.jpg?v=2",
+      "caption": "Behind the bar — Franke machines and the @ mark on the curtain, under the brand line “The secret of flavor lies in the beans.”"
+     },
+     {
+      "file": "cotti/g3.jpg",
+      "caption": "Cotti leans hard on celebrity marketing — a Yang Mi (杨幂) “Happy Mi's Day” stand of cup sleeves and cards."
      }
     ]
    }
