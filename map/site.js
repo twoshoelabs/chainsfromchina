@@ -10,34 +10,50 @@
  *            page keeps its own hero search, so there ⌘K focuses that box instead of the overlay.
  */
 (function () {
+  // i18n.js loads first (in <head>); be defensive if it somehow didn't.
+  var LANG = window.CFC_LANG || 'en';
+  var P = LANG === 'zh' ? 'zh/' : '';                 // internal-link prefix for the /zh/ tree (base=/)
+  var tt = window.t || function (k, en) { return en; };
+  var secLbl = window.secLabel || function (c) { return c; };
+
   var PAGES = [
-    ['map', 'index.html', 'Map'],
-    ['chains', 'intro.html', 'Chains'],
-    ['cotenancy', 'centers.html', 'Co-tenancy'],
-    ['global', 'register.html', 'Global'],
-    ['method', 'method.html', 'Method'],
-    ['pro', 'index.html#pro', 'Pro'],
+    ['map', 'index.html', tt('nav.map', 'Map')],
+    ['chains', 'intro.html', tt('nav.chains', 'Chains')],
+    ['cotenancy', 'centers.html', tt('nav.cotenancy', 'Co-tenancy')],
+    ['global', 'register.html', tt('nav.global', 'Global')],
+    ['method', 'method.html', tt('nav.method', 'Method')],
+    ['pro', 'index.html#pro', tt('nav.pro', 'Pro')],
   ];
   var cur = (document.body.getAttribute('data-page') || '').trim();
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
+  // ---- Language switcher: link to the counterpart page in the other locale --------------------
+  var _path = location.pathname, _inZh = /^\/zh(\/|$)/.test(_path);
+  var _enHref = (_inZh ? (_path.replace(/^\/zh/, '') || '/') : _path) + location.search + location.hash;
+  var _zhHref = (_inZh ? _path : ('/zh' + (_path === '/' ? '/' : _path))) + location.search + location.hash;
+  var langSw = '<span class="np-lang">' +
+    '<a href="' + esc(_enHref) + '"' + (!_inZh ? ' aria-current="true"' : '') + '>EN</a>' +
+    '<span class="np-langsep" aria-hidden="true">·</span>' +
+    '<a href="' + esc(_zhHref) + '" lang="zh-Hans"' + (_inZh ? ' aria-current="true"' : '') + '>中文</a></span>';
+
   // ---- Header: newspaper nameplate (shared with the home page) ------------------------------
   var nav = PAGES.map(function (p) {
-    return '<a href="' + p[1] + '"' + (p[0] === cur ? ' aria-current="page"' : '') + '>' + p[2] + '</a>';
+    return '<a href="' + P + p[1] + '"' + (p[0] === cur ? ' aria-current="page"' : '') + '>' + p[2] + '</a>';
   }).join('');
 
   var header = document.createElement('header');
   header.className = 'site-nav';
+  var sub = tt('np.sub', 'The daily census of China-origin retail in the United States');
   header.innerHTML =
-    '<div class="np-issue"><span id="cfc-issue">The daily census of China-origin retail in the United States</span>' +
-      '<span class="np-sub">The daily census of China-origin retail in the United States</span></div>' +
+    '<div class="np-issue"><span id="cfc-issue">' + esc(sub) + '</span>' +
+      '<span class="np-sub">' + esc(sub) + '</span></div>' +
     '<div class="np-row">' +
-      '<a class="np-wm" href="index.html">' +
+      '<a class="np-wm" href="' + P + 'index.html">' +
         '<span class="np-mark">Chains From China</span>' +
         '<span class="np-zh" lang="zh-Hans">中国连锁在美门市</span></a>' +
-      '<nav class="np-nav" aria-label="Primary">' + nav + '</nav>' +
+      '<nav class="np-nav" aria-label="Primary">' + nav + langSw + '</nav>' +
     '</div>';
 
   var olds = document.querySelectorAll('.masthead');
@@ -52,8 +68,8 @@
   function etClock(iso) {
     if (!iso) return '';
     try {
-      return new Date(iso).toLocaleTimeString('en-US',
-        { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET';
+      return new Date(iso).toLocaleTimeString(window.cfcLocale ? cfcLocale() : 'en-US',
+        { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + tt('census.et', ' ET');
     } catch (e) { return ''; }
   }
 
@@ -63,13 +79,19 @@
     var d = m.last_collected, shortLabel = d, issue = '', et = etClock(m.generated);
     try {
       var dt = new Date(d + 'T00:00:00');
-      shortLabel = dt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
-      issue = dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
-        dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear();
+      if (LANG === 'zh') {
+        shortLabel = dt.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' });
+        issue = dt.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+      } else {
+        shortLabel = dt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+        issue = dt.toLocaleDateString('en-US', { weekday: 'long' }) + ' ' + dt.getDate() + ' ' +
+          dt.toLocaleDateString('en-US', { month: 'long' }) + ' ' + dt.getFullYear();
+      }
     } catch (e) {}
     var issueEl = document.getElementById('cfc-issue');
     if (issueEl && issue) issueEl.textContent = issue;
-    var text = 'Daily census · Updated ' + shortLabel + (et ? ', ' + et : ', New York time');
+    var tail = et ? ((LANG === 'zh' ? ' · ' : ', ') + et) : tt('census.nytime', ', New York time');
+    var text = tt('census.updated', 'Daily census · Updated {date}{tail}', { date: shortLabel, tail: tail });
     document.querySelectorAll('[data-census]').forEach(function (el) { el.textContent = text; });
   }).catch(function () {});
 
@@ -77,9 +99,7 @@
   var SEC_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',
     grocery_convenience:'#2F8C8C', snacks:'#D0702A', apparel:'#6B4FA0', beauty:'#C4577A',
     lifestyle_variety:'#2F5FA8', electronics:'#3C7A9A', home:'#7A8C3A' };
-  var SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
-    grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
-    lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+  // (sector labels now come from i18n.js secLabel(); SEC_COLOR above stays local.)
 
   var overlay = null, idxP = null, opts = [], sel = -1;
 
@@ -91,7 +111,7 @@
     overlay.innerHTML =
       '<div class="cfc-sm-box" role="dialog" aria-label="Search">' +
         '<div class="cfc-sm-top">' + searchIcon +
-          '<input id="cfc-sm-input" type="search" autocomplete="off" placeholder="Search chains, cities or shopping centers…" aria-label="Search" aria-controls="cfc-sm-list" aria-expanded="true">' +
+          '<input id="cfc-sm-input" type="search" autocomplete="off" placeholder="' + esc(tt('search.placeholder', 'Search chains, cities or shopping centers…')) + '" aria-label="Search" aria-controls="cfc-sm-list" aria-expanded="true">' +
           '<kbd>Esc</kbd></div>' +
         '<div class="cfc-sm-list" id="cfc-sm-list" role="listbox"></div>' +
       '</div>';
@@ -137,20 +157,20 @@
     var list = overlay.querySelector('#cfc-sm-list');
     var q = raw.trim().toLowerCase();
     opts = []; sel = -1;
-    if (!q) { list.innerHTML = '<div class="cfc-sm-none">Type to search across chains, cities and shopping centers.</div>'; return; }
+    if (!q) { list.innerHTML = '<div class="cfc-sm-none">' + esc(tt('search.empty', 'Type to search across chains, cities and shopping centers.')) + '</div>'; return; }
     loadIndex().then(function (idx) {
       if (overlay.querySelector('#cfc-sm-input').value.trim().toLowerCase() !== q) return;
       var m = function (arr) { return arr.filter(function (o) { return o.name.toLowerCase().indexOf(q) >= 0; })
         .sort(function (a, b) { return a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q); }); };
       var places = m(idx.places).slice(0, 5), centers = m(idx.centers).slice(0, 5), chains = m(idx.chains).slice(0, 6);
       var html = '';
-      if (!chains.length && (places.length || centers.length)) html += '<div class="cfc-sm-note">No chain names match <b>' + esc(raw.trim()) + '</b> — try a place or center:</div>';
+      if (!chains.length && (places.length || centers.length)) html += '<div class="cfc-sm-note">' + tt('search.nochain', 'No chain names match <b>{q}</b> — try a place or center:', { q: esc(raw.trim()) }) + '</div>';
       function grp(label, arr, make) { if (!arr.length) return; html += '<div class="cfc-sm-grp">' + label + '</div>';
         arr.forEach(function (o) { var i = opts.length; opts.push(o); html += '<div class="cfc-sm-opt" role="option" data-i="' + i + '">' + make(o) + '</div>'; }); }
-      grp('Places', places, function (o) { return '<span class="ic">◉</span><span class="nm">' + esc(o.name) + ', ' + esc(o.state) + '</span><span class="meta">' + o.n + ' outlet' + (o.n > 1 ? 's' : '') + '</span>'; });
-      grp('Shopping centers', centers, function (o) { return '<span class="ic">▣</span><span class="nm">' + esc(o.name) + '</span><span class="meta">' + esc([o.city, o.state].filter(Boolean).join(', ')) + '</span>'; });
-      grp('Chains', chains, function (o) { return '<span class="ring" style="border-color:' + (SEC_COLOR[o.sector] || '#888') + '"></span><span class="nm">' + esc(o.name) + '</span><span class="meta">' + esc(SEC_LABEL[o.sector] || '') + '</span>'; });
-      if (!opts.length) html = '<div class="cfc-sm-none">No matches for <b>' + esc(raw.trim()) + '</b>.</div>';
+      grp(tt('search.g.places', 'Places'), places, function (o) { return '<span class="ic">◉</span><span class="nm">' + esc(o.name) + ', ' + esc(o.state) + '</span><span class="meta">' + tt('search.outlets', o.n + ' outlet' + (o.n > 1 ? 's' : ''), { n: o.n }) + '</span>'; });
+      grp(tt('search.g.centers', 'Shopping centers'), centers, function (o) { return '<span class="ic">▣</span><span class="nm">' + esc(o.name) + '</span><span class="meta">' + esc([o.city, o.state].filter(Boolean).join(', ')) + '</span>'; });
+      grp(tt('search.g.chains', 'Chains'), chains, function (o) { return '<span class="ring" style="border-color:' + (SEC_COLOR[o.sector] || '#888') + '"></span><span class="nm">' + esc(o.name) + '</span><span class="meta">' + esc(secLbl(o.sector) || '') + '</span>'; });
+      if (!opts.length) html = '<div class="cfc-sm-none">' + tt('search.nomatch', 'No matches for <b>{q}</b>.', { q: esc(raw.trim()) }) + '</div>';
       list.innerHTML = html;
       list.querySelectorAll('.cfc-sm-opt').forEach(function (el) { el.addEventListener('mousedown', function (e) { e.preventDefault(); choose(+el.dataset.i); }); });
     });
@@ -161,8 +181,8 @@
 
   function choose(i) {
     var o = opts[i]; if (!o) return;
-    if (o.type === 'chain') location.href = 'chain/' + encodeURIComponent(o.id) + '/';
-    else location.href = 'index.html#c=' + o.lng.toFixed(4) + ',' + o.lat.toFixed(4) + '&z=' + (o.type === 'center' ? 15 : 10);
+    if (o.type === 'chain') location.href = P + 'chain/' + encodeURIComponent(o.id) + '/';
+    else location.href = P + 'index.html#c=' + o.lng.toFixed(4) + ',' + o.lat.toFixed(4) + '&z=' + (o.type === 'center' ? 15 : 10);
   }
 
   function openModal() {

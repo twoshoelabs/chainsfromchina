@@ -1,0 +1,53 @@
+{
+  "_readme": "Simplified-Chinese override catalog. key -> 中文. English is the inline default in code and HTML; this only supplies zh. Missing keys fall back to English. Read by scripts/build_zh.py (bakes [data-i18n] + emits /zh-strings.js) and by map/i18n.js at runtime on the /zh/ tree.",
+
+  "sector.tea": "茶饮",
+  "sector.coffee": "咖啡",
+  "sector.food_drink": "餐饮",
+  "sector.bakery": "烘焙",
+  "sector.grocery_convenience": "商超便利",
+  "sector.snacks": "零食",
+  "sector.apparel": "服饰",
+  "sector.beauty": "美妆",
+  "sector.lifestyle_variety": "生活潮玩",
+  "sector.electronics": "电子产品",
+  "sector.home": "家居",
+
+  "state.AL": "阿拉巴马", "state.AK": "阿拉斯加", "state.AZ": "亚利桑那", "state.AR": "阿肯色",
+  "state.CA": "加利福尼亚", "state.CO": "科罗拉多", "state.CT": "康涅狄格", "state.DE": "特拉华",
+  "state.DC": "华盛顿特区", "state.FL": "佛罗里达", "state.GA": "乔治亚", "state.HI": "夏威夷",
+  "state.ID": "爱达荷", "state.IL": "伊利诺伊", "state.IN": "印第安纳", "state.IA": "艾奥瓦",
+  "state.KS": "堪萨斯", "state.KY": "肯塔基", "state.LA": "路易斯安那", "state.ME": "缅因",
+  "state.MD": "马里兰", "state.MA": "马萨诸塞", "state.MI": "密歇根", "state.MN": "明尼苏达",
+  "state.MS": "密西西比", "state.MO": "密苏里", "state.MT": "蒙大拿", "state.NE": "内布拉斯加",
+  "state.NV": "内华达", "state.NH": "新罕布什尔", "state.NJ": "新泽西", "state.NM": "新墨西哥",
+  "state.NY": "纽约", "state.NC": "北卡罗来纳", "state.ND": "北达科他", "state.OH": "俄亥俄",
+  "state.OK": "俄克拉何马", "state.OR": "俄勒冈", "state.PA": "宾夕法尼亚", "state.RI": "罗德岛",
+  "state.SC": "南卡罗来纳", "state.SD": "南达科他", "state.TN": "田纳西", "state.TX": "得克萨斯",
+  "state.UT": "犹他", "state.VT": "佛蒙特", "state.VA": "弗吉尼亚", "state.WA": "华盛顿州",
+  "state.WV": "西弗吉尼亚", "state.WI": "威斯康星", "state.WY": "怀俄明",
+
+  "nav.map": "地图",
+  "nav.chains": "品牌",
+  "nav.cotenancy": "同址聚集",
+  "nav.global": "全球",
+  "nav.method": "方法",
+  "nav.pro": "专业版",
+
+  "np.sub": "每日追踪中国品牌在美国的门店",
+  "np.langlabel.en": "EN",
+  "np.langlabel.zh": "中文",
+
+  "census.updated": "每日普查 · 更新于 {date}{tail}",
+  "census.et": " 美东时间",
+  "census.nytime": "（纽约时间）",
+
+  "search.placeholder": "搜索品牌、城市或购物中心……",
+  "search.empty": "输入以搜索品牌、城市和购物中心。",
+  "search.g.places": "地点",
+  "search.g.centers": "购物中心",
+  "search.g.chains": "品牌",
+  "search.nochain": "没有匹配 <b>{q}</b> 的品牌名——试试地点或购物中心：",
+  "search.nomatch": "未找到与 <b>{q}</b> 匹配的结果。",
+  "search.outlets": "{n} 家门店"
+}
