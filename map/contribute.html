@@ -47,8 +47,8 @@
     </nav>
   </div>
   <p class="census-line" data-census style="margin:0 0 10px"></p>
-  <h1>Help fill the map</h1>
-  <p class="sub">This project can only see what these chains publish, and most of them publish
+  <h1 data-i18n="c.h1">Help fill the map</h1>
+  <p class="sub" data-i18n="c.sub">This project can only see what these chains publish, and most of them publish
      nothing. If you know a store we're missing, a location that has <strong>closed</strong>, a chain
      that has just <strong>arrived in the US</strong>, or one we should be following, tell us. Openings
      and closings both help. We check every submission before anything reaches the map.</p>
@@ -58,103 +58,103 @@
   <p class="note" id="okmsg" hidden></p>
 
   <section class="tocfm" id="toconfirm">
-    <h2>To confirm</h2>
-    <p class="note">These US locations have been <strong>reported but not yet verified open</strong> — watch
+    <h2 data-i18n="c.tocfm.h">To confirm</h2>
+    <p class="note" data-i18n="c.tocfm.note">These US locations have been <strong>reported but not yet verified open</strong> — watch
       items we track over time, not doubtful ones — so they are held out of the count for now. If you can
       identify one — you've been, you've seen it open, or you have a photo, receipt or link — confirm it below.
       Once checked (by you or any other reader) it joins the map and drops off this list.</p>
-    <ul class="tocfmlist" id="tocfmlist"><li class="empty">Loading…</li></ul>
+    <ul class="tocfmlist" id="tocfmlist"><li class="empty" data-i18n="c.tocfm.loading">Loading…</li></ul>
   </section>
 
   <div class="cardgrid contribgrid">
     <form class="ccard cform" id="locform">
-      <h2>Add or update a location</h2>
-      <p class="cblurb">A specific store you've seen or visited — newly open, or newly closed.</p>
-      <label>Chain <span class="req">*</span>
+      <h2 data-i18n="c.loc.h">Add or update a location</h2>
+      <p class="cblurb" data-i18n="c.loc.blurb">A specific store you've seen or visited — newly open, or newly closed.</p>
+      <label><span data-i18n="c.loc.chain">Chain</span> <span class="req">*</span>
         <input name="chain" required placeholder="e.g. HEYTEA, Cotti, Fish With You"></label>
-      <label>Street address <span class="req">*</span>
+      <label><span data-i18n="c.loc.address">Street address</span> <span class="req">*</span>
         <input name="address" required placeholder="123 Main St"></label>
-      <label>City &amp; state <span class="req">*</span>
+      <label><span data-i18n="c.loc.citystate">City &amp; state</span> <span class="req">*</span>
         <input name="citystate" required placeholder="Flushing, NY"></label>
-      <label>How do you know it? <span class="req">*</span>
+      <label><span data-i18n="c.loc.basis">How do you know it?</span> <span class="req">*</span>
         <select name="basis" required>
-          <option value="">Choose…</option>
-          <option>I've visited / seen it in person</option>
-          <option>It's open (saw it online, reviews, delivery apps)</option>
-          <option>Coming soon / under construction</option>
-          <option>It has closed</option>
+          <option value="" data-i18n="c.loc.basis.choose">Choose…</option>
+          <option data-i18n="c.loc.basis.visited">I've visited / seen it in person</option>
+          <option data-i18n="c.loc.basis.open">It's open (saw it online, reviews, delivery apps)</option>
+          <option data-i18n="c.loc.basis.soon">Coming soon / under construction</option>
+          <option data-i18n="c.loc.basis.closed">It has closed</option>
         </select></label>
-      <label>Anything else? (link, date, which name it trades under)
+      <label><span data-i18n="c.loc.extra">Anything else? (link, date, which name it trades under)</span>
         <textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
       <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
-      <button type="submit">Send this location</button>
+      <button type="submit" data-i18n="c.loc.send">Send this location</button>
     </form>
 
     <form class="ccard cform" id="chainform">
-      <h2>Suggest a chain</h2>
-      <p class="cblurb">A Chinese chain newly arrived in the US, or one you think we should follow.</p>
-      <label>Chain name <span class="req">*</span>
+      <h2 data-i18n="c.chain.h">Suggest a chain</h2>
+      <p class="cblurb" data-i18n="c.chain.blurb">A Chinese chain newly arrived in the US, or one you think we should follow.</p>
+      <label><span data-i18n="c.chain.name">Chain name</span> <span class="req">*</span>
         <input name="chain" required placeholder="English and/or Chinese name"></label>
-      <label>Where have you seen it in the US?
+      <label><span data-i18n="c.chain.where">Where have you seen it in the US?</span>
         <input name="where" placeholder="City, or 'not yet — but expanding'"></label>
-      <label>Why follow it?
+      <label><span data-i18n="c.chain.why">Why follow it?</span>
         <textarea name="why" rows="2" placeholder="Optional — what it is, links, anything useful"></textarea></label>
       <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
-      <button type="submit">Suggest this chain</button>
+      <button type="submit" data-i18n="c.chain.send">Suggest this chain</button>
     </form>
   </div>
 
   <form class="ccard cform" id="srcform" style="margin-top:14px">
-    <h2>Submit a source or data point</h2>
-    <p class="cblurb">A <strong>sourced fact</strong> about a chain we track — a store count, a filing
+    <h2 data-i18n="c.src.h">Submit a source or data point</h2>
+    <p class="cblurb" data-i18n="c.src.blurb">A <strong>sourced fact</strong> about a chain we track — a store count, a filing
        figure, a corporate detail, a piece of history — <strong>with where it came from</strong>. This
        feeds the project's deeper intelligence layer. Everything is checked and keeps its source; we
        never publish a number without one.</p>
-    <label>Chain <span class="req">*</span>
+    <label><span data-i18n="c.src.chain">Chain</span> <span class="req">*</span>
       <input name="brand" required placeholder="e.g. Mixue 蜜雪冰城, ChaPanda 茶百道"></label>
-    <label>Kind of data <span class="req">*</span>
+    <label><span data-i18n="c.src.dim">Kind of data</span> <span class="req">*</span>
       <select name="dimension" required>
-        <option value="">Choose…</option>
-        <option value="scale">Scale — store counts, openings, growth</option>
-        <option value="economics">Economics — revenue, cost, financials</option>
-        <option value="structure">Structure — parent, listing, franchise, supply chain</option>
-        <option value="narrative">Narrative — history, popular items, flagships</option>
+        <option value="" data-i18n="c.src.dim.choose">Choose…</option>
+        <option value="scale" data-i18n="c.src.dim.scale">Scale — store counts, openings, growth</option>
+        <option value="economics" data-i18n="c.src.dim.econ">Economics — revenue, cost, financials</option>
+        <option value="structure" data-i18n="c.src.dim.struct">Structure — parent, listing, franchise, supply chain</option>
+        <option value="narrative" data-i18n="c.src.dim.narr">Narrative — history, popular items, flagships</option>
       </select>
-      <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px">For a specific store, opening or closure, use the location form above.</span></label>
-    <label>Specifically
+      <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px" data-i18n="c.src.dim.hint">For a specific store, opening or closure, use the location form above.</span></label>
+    <label><span data-i18n="c.src.metric">Specifically</span>
       <input name="metric" placeholder="e.g. store_count_total, us_revenue, history (optional)"></label>
-    <label>The fact / value <span class="req">*</span>
+    <label><span data-i18n="c.src.value">The fact / value</span> <span class="req">*</span>
       <input name="value" required placeholder="e.g. 8,621 China stores — or a sentence of history"></label>
-    <label>Date it was true <span class="req">*</span>
+    <label><span data-i18n="c.src.asof">Date it was true</span> <span class="req">*</span>
       <input type="date" name="as_of" required></label>
-    <label>Source <span class="req">*</span>
+    <label><span data-i18n="c.src.source">Source</span> <span class="req">*</span>
       <input name="source" required placeholder="e.g. FY2025 annual report (HKEX:2555); press article; store visit"></label>
-    <label>Source link
+    <label><span data-i18n="c.src.srclink">Source link</span>
       <input type="url" name="source_url" placeholder="https://… (optional but valued)"></label>
-    <label>How sure is it? <span class="req">*</span>
+    <label><span data-i18n="c.src.conf">How sure is it?</span> <span class="req">*</span>
       <select name="confidence" required>
-        <option value="high">High — a primary filing / first-hand</option>
-        <option value="medium" selected>Medium — reputable press / secondary</option>
-        <option value="low">Low — a single weak mention</option>
+        <option value="high" data-i18n="c.src.conf.high">High — a primary filing / first-hand</option>
+        <option value="medium" selected data-i18n="c.src.conf.med">Medium — reputable press / secondary</option>
+        <option value="low" data-i18n="c.src.conf.low">Low — a single weak mention</option>
       </select></label>
-    <label>Notes
+    <label><span data-i18n="c.src.notes">Notes</span>
       <textarea name="note" rows="2" placeholder="Optional — anything that helps verify it"></textarea></label>
     <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
-      <button type="submit">Send this data point</button>
-      <button type="button" id="srccopy" style="background:transparent; border:1px solid currentColor">Copy as JSON</button>
+      <button type="submit" data-i18n="c.src.send">Send this data point</button>
+      <button type="button" id="srccopy" style="background:transparent; border:1px solid currentColor" data-i18n="c.src.copy">Copy as JSON</button>
     </div>
   </form>
 
-  <p class="note small">Submissions go to the project for review; nothing you send is published
+  <p class="note small" data-i18n="c.scopenote">Submissions go to the project for review; nothing you send is published
   automatically. The test is China origin. Chains that only sell Chinese products, or that come
   from Hong Kong, are outside this project's scope.</p>
 </div>
 
 <footer class="sitefoot">
-  <p><strong>Chains From China</strong> is an independent commercial project, not affiliated with
+  <p data-i18n="c.foot.1"><strong>Chains From China</strong> is an independent commercial project, not affiliated with
   any company named on it.</p>
-  <p class="pub">A project of <strong>Twoshoe Labs LLC</strong> &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>. &copy; 2026 Twoshoe Labs LLC.</p>
+  <p class="pub" data-i18n="centers.foot.3">A project of <strong>Twoshoe Labs LLC</strong> &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>. &copy; 2026 Twoshoe Labs LLC.</p>
 </footer>
 
 <script>
@@ -162,6 +162,24 @@
 // that accepts a POST; until then, submissions fall back to opening the reader's email client.
 const FORM_ENDPOINT = null;                 // e.g. "https://formspree.io/f/xxxxxxx"
 const CONTACT_EMAIL = "hello@twoshoelabs.com";   // role mailbox to create on the domain
+
+// Placeholders are input attributes, so the build cannot bake them; localize them at runtime.
+if (window.CFC_LANG === 'zh') {
+  const ph = (sel, key, en) => { const el = document.querySelector(sel); if (el) el.placeholder = t(key, en); };
+  ph('#locform [name="chain"]', 'c.loc.chain.ph', 'e.g. HEYTEA, Cotti, Fish With You');
+  ph('#locform [name="address"]', 'c.loc.address.ph', '123 Main St');
+  ph('#locform [name="citystate"]', 'c.loc.citystate.ph', 'Flushing, NY');
+  ph('#locform [name="notes"]', 'c.loc.notes.ph', 'Optional');
+  ph('#chainform [name="chain"]', 'c.chain.name.ph', 'English and/or Chinese name');
+  ph('#chainform [name="where"]', 'c.chain.where.ph', "City, or 'not yet — but expanding'");
+  ph('#chainform [name="why"]', 'c.chain.why.ph', 'Optional — what it is, links, anything useful');
+  ph('#srcform [name="brand"]', 'c.src.chain.ph', 'e.g. Mixue 蜜雪冰城, ChaPanda 茶百道');
+  ph('#srcform [name="metric"]', 'c.src.metric.ph', 'e.g. store_count_total, us_revenue, history (optional)');
+  ph('#srcform [name="value"]', 'c.src.value.ph', 'e.g. 8,621 China stores — or a sentence of history');
+  ph('#srcform [name="source"]', 'c.src.source.ph', 'e.g. FY2025 annual report (HKEX:2555); press article; store visit');
+  ph('#srcform [name="source_url"]', 'c.src.srclink.ph', 'https://… (optional but valued)');
+  ph('#srcform [name="note"]', 'c.src.note.ph', 'Optional — anything that helps verify it');
+}
 
 function handle(form, kind) {
   form.addEventListener('submit', async e => {
@@ -192,10 +210,10 @@ function done(form, kind) {
   const ok = document.getElementById('okmsg');
   ok.hidden = false;
   ok.textContent = kind === 'location'
-    ? 'Thank you — your location is on its way for review.'
+    ? t('c.ok.location', 'Thank you — your location is on its way for review.')
     : kind === 'source'
-    ? 'Thank you — your data point is on its way for review.'
-    : 'Thank you — your chain suggestion is on its way for review.';
+    ? t('c.ok.source', 'Thank you — your data point is on its way for review.')
+    : t('c.ok.chain', 'Thank you — your chain suggestion is on its way for review.');
   ok.scrollIntoView({ block: 'center' });
 }
 handle(document.getElementById('locform'), 'location');
@@ -228,13 +246,13 @@ srcform.addEventListener('submit', e => {
 document.getElementById('srccopy').addEventListener('click', async () => {
   const rec = buildSubmission(srcform);
   const miss = missingField(rec);
-  if (miss) { alert('Please fill in: ' + miss); return; }
+  if (miss) { alert(t('c.src.fill', 'Please fill in: ') + miss); return; }
   const json = JSON.stringify(rec, null, 1);
   const btn = document.getElementById('srccopy');
   try {
     await navigator.clipboard.writeText(json);
-    const t = btn.textContent; btn.textContent = 'Copied ✓';
-    setTimeout(() => { btn.textContent = t; }, 1500);
+    const prev = btn.textContent; btn.textContent = t('c.src.copied', 'Copied ✓');
+    setTimeout(() => { btn.textContent = prev; }, 1500);
   } catch (_) { window.prompt('Copy this submission record:', json); }
 });
 
@@ -255,7 +273,7 @@ async function loadToConfirm() {
     list.innerHTML = '';
     const li = document.createElement('li');
     li.className = 'empty';
-    li.textContent = 'Nothing is awaiting confirmation right now — thank you.';
+    li.textContent = t('c.tocfm.empty', 'Nothing is awaiting confirmation right now — thank you.');
     list.append(li);
     return;
   }
@@ -269,7 +287,7 @@ async function loadToConfirm() {
     const whoEl = document.createElement('span'); whoEl.className = 'who'; whoEl.textContent = who;
     const addrEl = document.createElement('span'); addrEl.className = 'addr'; addrEl.textContent = g.address || '';
     const btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'cfmbtn'; btn.textContent = 'I can confirm this';
+    btn.type = 'button'; btn.className = 'cfmbtn'; btn.textContent = t('c.tocfm.confirm', 'I can confirm this');
     li.append(whoEl, addrEl, btn);
     const hint = g.verified_by || g.source;   // the concise "why it's still pending" note
     if (hint) {
@@ -282,7 +300,7 @@ async function loadToConfirm() {
       const parts = (g.address || '').split(',');
       f.address.value = (parts.shift() || '').trim();
       f.citystate.value = parts.join(',').trim();
-      f.notes.value = `Confirming a reported location: ${who}`;
+      f.notes.value = t('c.tocfm.prefill', 'Confirming a reported location: {who}', { who: who });
       f.scrollIntoView({ behavior: 'smooth', block: 'center' });
       try { f.basis.focus({ preventScroll: true }); } catch (_) {}
     };
