@@ -343,7 +343,7 @@ function buildInsets(parent, style, statesFC, fc) {
     // The inset is a non-interactive thumbnail; click it to fly the MAIN map to that state so it can
     // be zoomed and explored there (Alaska and Hawaii are now part of the main silhouette mask).
     box.style.cursor = 'zoom-in';
-    box.title = 'Zoom to ' + ins.label + ' on the map';
+    box.title = t('chain.map.zoomto', 'Zoom to ' + ins.label + ' on the map', {label: window.stateName ? stateName(ins.id) : ins.label});
     box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0');
     const flyTo = () => { if (MAP_REF) MAP_REF.fitBounds(ins.bounds, { padding: 30 }); };
     box.addEventListener('click', flyTo);
@@ -395,10 +395,10 @@ class FitUSControl {
     const d = document.createElement('div');
     d.className = 'maplibregl-ctrl maplibregl-ctrl-group';
     const b = document.createElement('button');
-    b.type = 'button'; b.title = 'Fit the United States';
-    b.setAttribute('aria-label', 'Fit the United States');
+    b.type = 'button'; b.title = t('map.fitus.t', 'Fit the United States');
+    b.setAttribute('aria-label', t('map.fitus.t', 'Fit the United States'));
     b.style.cssText = 'font:700 11px/29px "Libre Franklin",system-ui,sans-serif';
-    b.textContent = 'US';
+    b.textContent = t('map.fitus', 'US');
     b.onclick = () => { map.fitBounds(US_BOUNDS, { padding: 40 }); setInsetsVisible(true); };  // back to the national view — insets useful again
     d.appendChild(b); this._c = d; return d;
   }
@@ -414,7 +414,7 @@ async function init() {
     mapEl.style.position = 'relative';
     loadingEl = document.createElement('div');
     loadingEl.className = 'map-loading';
-    loadingEl.textContent = 'Loading the map…';
+    loadingEl.textContent = t('map.loading', 'Loading the map…');
     mapEl.appendChild(loadingEl);
   }
   const tallyEl = document.getElementById('tally');
@@ -427,7 +427,7 @@ async function init() {
   window.CHAIN_ALIASES = (fc.meta && fc.meta.aliases) || {};
   if (loadingEl) {
     const n = (fc.meta && fc.meta.totals && fc.meta.totals.mapped) || fc.features.length;
-    loadingEl.textContent = `Loading ${n.toLocaleString()} outlets…`;
+    loadingEl.textContent = t('map.loadingN', `Loading ${n.toLocaleString()} outlets…`, {n:n.toLocaleString()});
   }
   const chainSector = {};
   for (const f of fc.features) chainSector[f.properties.chain] = f.properties.sector;
@@ -559,7 +559,7 @@ async function init() {
     map.on('click', 'pts', (e) => {
       const p = e.features[0].properties;
       const sec = SECTOR_LABEL[p.sector] || 'Other';
-      const state = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
+      const state = p.status === 'coming_soon' ? t('map.pin.announced','Announced / coming soon') : t('map.pin.open','Open');
       const logo = LOGO_PRESENT[p.chain]
         ? `<img src="icons/${esc(p.chain)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
@@ -619,14 +619,14 @@ function openPlacePanel(coords, leaves) {
   const brands = new Set(leaves.map((l) => l.properties.chain));
   const sectors = new Set(leaves.map((l) => l.properties.sector));
   const addr = (leaves.find((l) => l.properties.address) || { properties: {} }).properties.address;
-  const title = center ? center.center.name : (addr || 'This location');
+  const title = center ? center.center.name : (addr || t('map.pp.thisloc','This location'));
   const owner = center && center.center.owner_reit ? center.center.owner_reit
     : center ? [center.city, center.state].filter(Boolean).join(', ') : '';
   const dest = encodeURIComponent(lat + ',' + lng);
   const rows = leaves.slice().sort((a, b) => a.properties.name.localeCompare(b.properties.name)).map((l) => {
     const p = l.properties;
     const sq = '';                              // one shape for every outlet (no counted/hand split)
-    const st = p.status === 'coming_soon' ? 'coming soon' : 'open';
+    const st = p.status === 'coming_soon' ? t('map.pp.soon','coming soon') : t('map.pp.open','open');
     return `<a class="pp-row" href="chain/${esc(p.chain)}/">` +
       `<span class="ring${sq}" style="border-color:${SECTOR[p.sector] || OTHER}"></span>` +
       `<span>${esc(p.name)}</span><span class="st">${st}</span></a>`;
@@ -637,24 +637,24 @@ function openPlacePanel(coords, leaves) {
     .map((c) => ({ c, d: milesBetween(lat, lng, c.lat, c.lon) }))
     .sort((a, b) => a.d - b.d).slice(0, 3);
   const nearHtml = near.length
-    ? '<div class="pp-list" style="flex:0 0 auto;border-top:1px solid var(--rule)"><div class="lbl">Nearby clusters</div>' +
+    ? `<div class="pp-list" style="flex:0 0 auto;border-top:1px solid var(--rule)"><div class="lbl">${t('map.pp.nearby','Nearby clusters')}</div>` +
       near.map((n) => `<a class="pp-row" href="#" onclick="cfcGoCenter('${esc(n.c.key)}');return false;">` +
-        `<span>${esc(n.c.center.name)}</span><span class="st">${n.d < 10 ? n.d.toFixed(1) : Math.round(n.d)} mi</span></a>`).join('') +
+        `<span>${esc(n.c.center.name)}</span><span class="st">${t('map.pp.mi', (n.d < 10 ? n.d.toFixed(1) : Math.round(n.d)) + ' mi', {d:(n.d < 10 ? n.d.toFixed(1) : Math.round(n.d))})}</span></a>`).join('') +
       '</div>'
     : '';
   el.dataset.lng = lng; el.dataset.lat = lat;
   el.innerHTML =
-    '<div class="pp-head"><button class="pp-x" aria-label="Close place panel" onclick="closePlacePanel()">×</button>' +
+    `<div class="pp-head"><button class="pp-x" aria-label="${t('map.pp.close','Close place panel')}" onclick="closePlacePanel()">×</button>` +
     `<h3>${esc(title)}</h3>` + (owner ? `<div class="pp-owner">${esc(owner)}</div>` : '') + '</div>' +
     '<div class="pp-stats">' +
-      `<div class="s"><b>${brands.size}</b><span>brand${brands.size > 1 ? 's' : ''}</span></div>` +
-      `<div class="s"><b>${leaves.length}</b><span>outlets</span></div>` +
-      `<div class="s"><b>${sectors.size}</b><span>sector${sectors.size > 1 ? 's' : ''}</span></div></div>` +
+      `<div class="s"><b>${brands.size}</b><span>${t('map.pp.brands', 'brand'+(brands.size > 1 ? 's' : ''))}</span></div>` +
+      `<div class="s"><b>${leaves.length}</b><span>${t('map.pp.outlets','outlets')}</span></div>` +
+      `<div class="s"><b>${sectors.size}</b><span>${t('map.pp.sectors', 'sector'+(sectors.size > 1 ? 's' : ''))}</span></div></div>` +
     '<div class="pp-btns">' +
-      `<a href="https://www.google.com/maps/dir/?api=1&destination=${dest}" target="_blank" rel="noopener">Directions</a>` +
-      '<button type="button" onclick="cfcCopyPlace(this)">Copy link</button>' +
-      '<button type="button" class="pro" title="Follow this place — Pro, in development">Follow</button></div>' +
-    `<div class="pp-list"><div class="lbl">Chinese brands here</div>${rows}</div>` + nearHtml;
+      `<a href="https://www.google.com/maps/dir/?api=1&destination=${dest}" target="_blank" rel="noopener">${t('map.pp.directions','Directions')}</a>` +
+      `<button type="button" onclick="cfcCopyPlace(this)">${t('map.pp.copylink','Copy link')}</button>` +
+      `<button type="button" class="pro" title="${t('map.pp.follow.t','Follow this place — Pro, in development')}">${t('map.pp.follow','Follow')}</button></div>` +
+    `<div class="pp-list"><div class="lbl">${t('map.pp.brandshere','Chinese brands here')}</div>${rows}</div>` + nearHtml;
   el.hidden = false;
 }
 
@@ -677,7 +677,7 @@ function cfcCopyPlace(btn) {
   const u = location.origin + location.pathname + '#c=' + (+el.dataset.lng).toFixed(4) +
     ',' + (+el.dataset.lat).toFixed(4) + '&z=15';
   if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
-  const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = o; }, 1200);
+  const o = btn.textContent; btn.textContent = t('map.pp.copied','Copied'); setTimeout(() => { btn.textContent = o; }, 1200);
 }
 
 // ---- Search: grouped suggestions (Places / Shopping centers / Chains) ------------------------
@@ -749,12 +749,12 @@ function setupSearch(map) {
       for (const o of arr) { const i = opts.length; opts.push(o); html += `<div class="opt" role="option" data-i="${i}">${make(o)}</div>`; }
     };
     if (!chains.length && (places.length || centers.length)) {
-      html += `<div class="none">No chain names match <b>${esc(raw.trim())}</b> — try a place or center:</div>`;
+      html += `<div class="none">${t('search.nochain', `No chain names match <b>${esc(raw.trim())}</b> — try a place or center:`, {q:esc(raw.trim())})}</div>`;
     }
-    grp('Places', places, (o) => `<span class="ic">◉</span><span class="nm">${esc(o.name)}, ${esc(o.state)}</span><span class="meta">${o.n} outlet${o.n > 1 ? 's' : ''}</span>`);
-    grp('Shopping centers', centers, (o) => `<span class="ic">▣</span><span class="nm">${esc(o.name)}</span><span class="meta">${esc([o.city, o.state].filter(Boolean).join(', '))}</span>`);
-    grp('Chains', chains, (o) => `<span class="ring" style="border-color:${SECTOR[o.sector] || OTHER}"></span><span class="nm">${esc(o.name)}</span><span class="meta">${esc(SECTOR_LABEL[o.sector] || '')}</span>`);
-    if (!opts.length) html = `<div class="none">No matches for <b>${esc(raw.trim())}</b> on the US map.</div>`;
+    grp(t('search.g.places','Places'), places, (o) => `<span class="ic">◉</span><span class="nm">${esc(o.name)}, ${esc(o.state)}</span><span class="meta">${t('search.outlets', o.n + ' outlet' + (o.n > 1 ? 's' : ''), {n:o.n})}</span>`);
+    grp(t('search.g.centers','Shopping centers'), centers, (o) => `<span class="ic">▣</span><span class="nm">${esc(o.name)}</span><span class="meta">${esc([o.city, o.state].filter(Boolean).join(', '))}</span>`);
+    grp(t('search.g.chains','Chains'), chains, (o) => `<span class="ring" style="border-color:${SECTOR[o.sector] || OTHER}"></span><span class="nm">${esc(o.name)}</span><span class="meta">${esc(secLabel(o.sector))}</span>`);
+    if (!opts.length) html = `<div class="none">${t('map.search.nomatch', `No matches for <b>${esc(raw.trim())}</b> on the US map.`, {q:esc(raw.trim())})}</div>`;
     // A link to the international register: some China-origin chains trade only abroad and so never
     // appear on the US map or in this index. When no map chain matched, carry the query so the
     // register opens pre-filtered to it; otherwise offer a plain browse link.
@@ -764,8 +764,8 @@ function setupSearch(map) {
     const regQ = raw.trim();
     const regHref = opts.length ? 'register.html' : `register.html?q=${encodeURIComponent(regQ)}`;
     const regText = opts.length
-      ? 'Browse the international register &rarr;'
-      : `Not on the US map? Search the <b>international register</b> for &ldquo;${esc(regQ)}&rdquo; &rarr;`;
+      ? t('map.search.register', 'Browse the international register &rarr;')
+      : t('map.search.registerq', `Not on the US map? Search the <b>international register</b> for &ldquo;${esc(regQ)}&rdquo; &rarr;`, {q:esc(regQ)});
     html += `<a class="reg-link" href="${regHref}" style="display:block;padding:.55rem .7rem;border-top:1px solid var(--line,#e5e3dc);font-size:.85em;line-height:1.3;color:var(--ink,#0E0F0E);text-decoration:none">${regText}</a>`;
     panel.innerHTML = html; panel.hidden = false; box.setAttribute('aria-expanded', 'true'); sel = -1;
     panel.querySelectorAll('.opt').forEach((elt) => {
@@ -815,7 +815,7 @@ function setupToolbar(map) {
   if (share) share.addEventListener('click', () => {
     const u = shareURL(map);
     if (navigator.clipboard) navigator.clipboard.writeText(u).catch(() => {});
-    share.classList.add('copied'); const o = share.textContent; share.textContent = 'Link copied';
+    share.classList.add('copied'); const o = share.textContent; share.textContent = t('map.share.copied','Link copied');
     setTimeout(() => { share.classList.remove('copied'); share.textContent = o; }, 1400);
   });
   const ann = document.getElementById('show-announced');
@@ -933,8 +933,8 @@ function buildTally(fc) {
   for (const s of sectors) {
     const head = document.createElement('button');
     head.type = 'button'; head.className = 'tallygroup'; head.dataset.sector = s;
-    head.textContent = SECTOR_LABEL[s] || 'Other';
-    head.title = 'Show or hide this whole group';
+    head.textContent = SECTOR_LABEL[s] ? secLabel(s) : t('home.sec.other','Other');
+    head.title = t('map.tally.grouptitle','Show or hide this whole group');
     head.addEventListener('click', () => toggleGroup(s));
     box.append(head);
     for (const id of GROUP_CHAINS[s].sort((a, b) => meta[b].n - meta[a].n)) {
@@ -942,22 +942,22 @@ function buildTally(fc) {
       const chip = document.createElement('span');
       chip.className = 'chip'; chip.dataset.chain = id;
       chip.setAttribute('role', 'button'); chip.tabIndex = 0;
-      chip.title = 'Click to show or hide this chain on the map.';
+      chip.title = t('map.tally.chiptitle','Click to show or hide this chain on the map.');
       chip.innerHTML = `<span class="chiplogo" style="border-color:${SECTOR[s] || OTHER}">` +
         `<img src="icons/${esc(id)}.png${ICONV}" alt="" loading="lazy"></span>` +
         `<span class="chipnm">` +
         (m.fr
-          ? `<span class="frbox${m.fdd ? '' : ' page'}" title="${m.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">${esc(m.name)}</span>`
+          ? `<span class="frbox${m.fdd ? '' : ' page'}" title="${m.fdd ? t('chain.fr.badge.fdd','Open to a US franchisee — registered US FDD on file') : t('chain.fr.badge.nofdd','Open to a US franchisee via a first-party US franchise page (FDD not confirmed)')}">${esc(m.name)}</span>`
           : esc(m.name)) +
         `</span><span class="n">${m.n}</span>`;
       const prof = document.createElement('a');
       prof.className = 'prof'; prof.href = 'chain/' + encodeURIComponent(id) + '/'; prof.textContent = 'ⓘ';
-      prof.title = 'Who they are — about this chain';
-      prof.setAttribute('aria-label', 'About this chain (Who they are)');
+      prof.title = t('map.tally.proftitle','Who they are — about this chain');
+      prof.setAttribute('aria-label', t('map.tally.profaria','About this chain (Who they are)'));
       prof.addEventListener('click', (e) => e.stopPropagation());
       const only = document.createElement('button');
-      only.type = 'button'; only.className = 'only'; only.textContent = 'only';
-      only.title = 'Show only this chain (click others to add them back)';
+      only.type = 'button'; only.className = 'only'; only.textContent = t('map.tally.only','only');
+      only.title = t('map.tally.onlytitle','Show only this chain (click others to add them back)');
       only.addEventListener('click', (e) => { e.stopPropagation(); onlyChain(id); });
       chip.append(prof, only);
       const isCtl = (t) => t.closest('.prof') || t.closest('.only');
@@ -977,7 +977,7 @@ function buildTally(fc) {
 init().catch((e) => {
   console.error('map init failed', e);
   const el = document.getElementById('method');
-  if (el) el.textContent = 'The map could not load its basemap. ' + (el.textContent || '');
+  if (el) el.textContent = t('map.basemap.fail','The map could not load its basemap. ') + (el.textContent || '');
 });
 
 function esc(s) {
@@ -988,10 +988,10 @@ function esc(s) {
 function buildLegend() {
   const el = document.getElementById('legend');
   const sectors = Object.keys(SECTOR).map((k) =>
-    `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${SECTOR_LABEL[k]}</span>`).join('');
-  el.innerHTML = '<span class="k" style="font-weight:600">Pin ring = sector:</span>' + sectors +
-    '<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>open</span>' +
-    '<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>announced / coming soon</span>' +
-    '<span class="k" style="margin-left:.4rem"><span class="frbox">name</span> franchise (US FDD)</span>' +
-    '<span class="k"><span class="frbox page">name</span> franchise (first-party page)</span>';
+    `<span class="k"><span class="dot" style="border-color:${SECTOR[k]};background:#fff"></span>${secLabel(k)}</span>`).join('');
+  el.innerHTML = `<span class="k" style="font-weight:600">${t('map.legend.ring','Pin ring = sector:')}</span>` + sectors +
+    `<span class="k"><span class="dot" style="border-color:#888;background:#fff"></span>${t('map.legend.open','open')}</span>` +
+    `<span class="k"><span class="dot hollow" style="border-color:#888;border-style:dashed"></span>${t('map.legend.announced','announced / coming soon')}</span>` +
+    `<span class="k" style="margin-left:.4rem"><span class="frbox">${t('map.legend.frname','name')}</span>${t('map.legend.frfdd',' franchise (US FDD)')}</span>` +
+    `<span class="k"><span class="frbox page">${t('map.legend.frname','name')}</span>${t('map.legend.frpage',' franchise (first-party page)')}</span>`;
 }
