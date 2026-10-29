@@ -95,13 +95,18 @@ def transform_zh(html: str, page: str, cat: dict, strings_ref: str) -> str:
     html = re.sub(r'(<link rel="canonical" href=")[^"]*(">)', r'\g<1>' + zh_url + r'\2', html, count=1)
     html = re.sub(r'(<meta property="og:url" content=")[^"]*(">)', r'\g<1>' + zh_url + r'\2', html, count=1)
     html = html.replace('<link rel="canonical"', head_alternates(page) + '<link rel="canonical"', 1)
-    # 5. optional zh <title>/description from the catalog (English stays if absent)
-    t = cat.get("head.%s.title" % page)
+    # 5. optional zh <title>/description/OG from the catalog (English stays if a key is absent)
+    pkey = page[:-5] if page.endswith(".html") else page
+    t = cat.get("head.%s.title" % pkey)
     if t:
         html = re.sub(r'<title>.*?</title>', '<title>' + t + '</title>', html, count=1, flags=re.S)
-    d = cat.get("head.%s.desc" % page)
+        html = re.sub(r'(<meta property="og:title" content=")[^"]*(">)', r'\g<1>' + t + r'\2', html, count=1)
+        html = re.sub(r'(<meta name="twitter:title" content=")[^"]*(">)', r'\g<1>' + t + r'\2', html, count=1)
+    d = cat.get("head.%s.desc" % pkey)
     if d:
         html = re.sub(r'(<meta name="description" content=")[^"]*(">)', r'\g<1>' + d + r'\2', html, count=1)
+        html = re.sub(r'(<meta property="og:description" content=")[^"]*(">)', r'\g<1>' + d + r'\2', html, count=1)
+        html = re.sub(r'(<meta name="twitter:description" content=")[^"]*(">)', r'\g<1>' + d + r'\2', html, count=1)
     # 6. bake static copy + rewrite in-page links to the /zh/ tree
     html = bake_i18n(html, cat)
     html = rewrite_links(html)

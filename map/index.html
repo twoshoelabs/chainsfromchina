@@ -331,13 +331,13 @@
 <body>
 
 <div class="wrap">
-  <div class="vcredit">Chains From China · a daily census by Twoshoe Labs</div>
+  <div class="vcredit" data-i18n="home.vcredit">Chains From China · a daily census by Twoshoe Labs</div>
 
   <!-- 1 · MASTHEAD (nameplate) -->
   <header class="mast">
     <div class="issue">
-      <span id="issue-line">The daily census of China-origin retail</span>
-      <span>The daily census of China-origin retail in the United States</span>
+      <span id="issue-line" data-i18n="np.sub">The daily census of China-origin retail</span>
+      <span data-i18n="np.sub">The daily census of China-origin retail in the United States</span>
     </div>
     <div class="nameplate">
       <a class="wm" href="index.html">
@@ -345,12 +345,12 @@
         <span class="zh" lang="zh-Hans">中国连锁在美门市</span>
       </a>
       <nav class="mnav" aria-label="Main">
-        <a href="index.html" aria-current="page">Map</a>
-        <a href="intro.html">Chains</a>
-        <a href="centers.html">Co-tenancy</a>
-        <a href="register.html">Global</a>
-        <a href="method.html">Method</a>
-        <a href="#pro">Pro</a>
+        <a href="index.html" aria-current="page" data-i18n="nav.map">Map</a>
+        <a href="intro.html" data-i18n="nav.chains">Chains</a>
+        <a href="centers.html" data-i18n="nav.cotenancy">Co-tenancy</a>
+        <a href="register.html" data-i18n="nav.global">Global</a>
+        <a href="method.html" data-i18n="nav.method">Method</a>
+        <a href="#pro" data-i18n="nav.pro">Pro</a>
       </nav>
     </div>
   </header>
@@ -407,28 +407,28 @@
           <path d="M778.7 258.3h14M808.7 258.3h14M800.7 236.3v14M800.7 266.3v14" stroke-width="1.4"/>
         </g>
       </svg>
-      <p class="seclabel">Open in the US this morning</p>
+      <p class="seclabel" data-i18n="home.hero.eyebrow">Open in the US this morning</p>
       <div class="heronum">
         <span class="cond big" id="hero-num"></span>
-        <span class="unit">outlets<span class="sub">of <span id="hero-chains"></span> chains<sup>1</sup></span></span>
+        <span class="unit"><span data-i18n="home.hero.outlets">outlets</span><span class="sub"><span data-i18n="home.hero.of1">of </span><span id="hero-chains"></span><span data-i18n="home.hero.of2"> chains</span><sup>1</sup></span></span>
       </div>
-      <h1>The authoritative source on where China's chains are open in America: bubble tea, hot pot, art toys, sportswear and more.</h1>
-      <p class="method">Each figure comes from the company's own store locator, read every morning, and/or is verified by hand, one outlet at a time. Nothing is estimated unless shown (†).</p>
+      <h1 data-i18n="home.hero.h1">The authoritative source on where China's chains are open in America: bubble tea, hot pot, art toys, sportswear and more.</h1>
+      <p class="method" data-i18n="home.hero.method">Each figure comes from the company's own store locator, read every morning, and/or is verified by hand, one outlet at a time. Nothing is estimated unless shown (†).</p>
     </section>
     <aside class="hero-side">
-      <h2 class="seclabel">Today's count</h2>
+      <h2 class="seclabel" data-i18n="home.ledger.h">Today's count</h2>
       <table class="ledger">
         <tbody>
-          <tr><td>Outlets open</td><td class="v tot" id="L-open"></td></tr>
-          <tr class="sub"><td class="k2">on the map</td><td class="v" id="L-mapped"></td></tr>
-          <tr class="sub"><td class="k2">awaiting an address</td><td class="v" id="L-unaddr"></td></tr>
-          <tr><td>Chains tracked</td><td class="v tot" id="L-chains"></td></tr>
-          <tr><td>Sectors</td><td class="v tot" id="L-sectors"></td></tr>
-          <tr><td>Announced, not yet open<sup>2</sup></td><td class="v tot" id="L-ann"></td></tr>
+          <tr><td data-i18n="home.ledger.open">Outlets open</td><td class="v tot" id="L-open"></td></tr>
+          <tr class="sub"><td class="k2" data-i18n="home.ledger.mapped">on the map</td><td class="v" id="L-mapped"></td></tr>
+          <tr class="sub"><td class="k2" data-i18n="home.ledger.unaddr">awaiting an address</td><td class="v" id="L-unaddr"></td></tr>
+          <tr><td data-i18n="home.ledger.chains">Chains tracked</td><td class="v tot" id="L-chains"></td></tr>
+          <tr><td data-i18n="home.ledger.sectors">Sectors</td><td class="v tot" id="L-sectors"></td></tr>
+          <tr><td><span data-i18n="home.ledger.ann">Announced, not yet open</span><sup>2</sup></td><td class="v tot" id="L-ann"></td></tr>
         </tbody>
       </table>
       <div class="comingnext">
-        <p class="lbl">Opening soon, as announced</p>
+        <p class="lbl" data-i18n="home.ledger.soon">Opening soon, as announced</p>
         <div id="cn-rows"></div>
       </div>
     </aside>
@@ -437,19 +437,19 @@
   <!-- 3 · US MAP (working tool — atlas.js, chrome re-tokenized) -->
   <section id="mapsec">
     <div class="maphead">
-      <h2>US map</h2>
+      <h2 data-i18n="home.map.h">US map</h2>
       <div class="mapright">
         <div class="seg" role="group" aria-label="View">
-          <a href="#mapsec" class="on" aria-pressed="true">Map</a>
-          <a href="states.html">By state</a>
+          <a href="#mapsec" class="on" aria-pressed="true" data-i18n="home.map.seg.map">Map</a>
+          <a href="states.html" data-i18n="home.map.seg.state">By state</a>
         </div>
-        <button type="button" id="share-view" class="btn-sec" title="Copy a link to this exact view">Share view</button>
+        <button type="button" id="share-view" class="btn-sec" title="Copy a link to this exact view" data-i18n="home.map.share">Share view</button>
       </div>
     </div>
     <div class="maplayout">
       <div class="rail">
         <div class="search">
-          <p class="searchlbl">Find a chain, city or shopping center</p>
+          <p class="searchlbl" data-i18n="home.map.searchlbl">Find a chain, city or shopping center</p>
           <input id="hero-search" type="search" autocomplete="off" role="combobox" aria-expanded="false"
                  aria-controls="search-suggest" aria-autocomplete="list" placeholder="MIXUE, Flushing, Westfield…"
                  aria-label="Search chains, cities or shopping centers">
@@ -457,11 +457,11 @@
         </div>
         <div>
           <div class="railhd">
-            <span class="lbl">Show on map</span>
+            <span class="lbl" data-i18n="home.map.showon">Show on map</span>
             <span class="pbtns">
-              <button type="button" id="show-all">All</button>
-              <button type="button" id="show-none">None</button>
-              <button type="button" id="only-franchise" aria-pressed="false" title="Show only chains open to a US franchisee">Franchise</button>
+              <button type="button" id="show-all" data-i18n="home.map.all">All</button>
+              <button type="button" id="show-none" data-i18n="home.map.none">None</button>
+              <button type="button" id="only-franchise" aria-pressed="false" title="Show only chains open to a US franchisee" data-i18n="home.map.franchise">Franchise</button>
             </span>
           </div>
           <div class="tally" id="tally"></div>
@@ -473,7 +473,7 @@
       <div class="mapcol">
         <div id="map"></div>
         <div class="legendrow" id="legend"></div>
-        <p id="method">National view. Zooming in replaces clusters with brand-logo pins. For a breakdown by state, the <a href="states.html">by-state view</a> lists every state.</p>
+        <p id="method" data-i18n="home.map.method">National view. Zooming in replaces clusters with brand-logo pins. For a breakdown by state, the <a href="states.html">by-state view</a> lists every state.</p>
       </div>
     </div>
   </section>
@@ -482,23 +482,23 @@
   <section style="padding:26px 0 30px;border-bottom:1px solid var(--ink)">
     <div class="photohead">
       <div>
-        <p class="seclabel red">There and here</p>
-        <h2 class="find">The same counter, half a world apart.</h2>
+        <p class="seclabel red" data-i18n="home.th.eyebrow">There and here</p>
+        <h2 class="find" data-i18n="home.th.h2">The same counter, half a world apart.</h2>
       </div>
-      <p class="ctx">One chain at home and in America — the Chinese storefront where it began, and a US branch today.</p>
+      <p class="ctx" data-i18n="home.th.ctx">One chain at home and in America — the Chinese storefront where it began, and a US branch today.</p>
     </div>
     <div class="diptych">
       <figure class="ph">
         <div class="ph-frame r32">
           <img src="photos/mixue/china-zhengzhou.jpg" alt="A MIXUE (蜜雪冰城) tea and ice cream storefront in Zhengzhou, China">
           <span class="ph-city zh" lang="zh-Hans">郑州</span></div>
-        <figcaption><span><b>Zhengzhou, Henan.</b> Where MIXUE 蜜雪冰城 began.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg" target="_blank" rel="noopener" style="color:inherit">Windmemories</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a></span></figcaption>
+        <figcaption><span data-i18n="home.th.cn.cap"><b>Zhengzhou, Henan.</b> Where MIXUE 蜜雪冰城 began.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3A20250204_Mixue_at_Zhengzhou_BRT_Huayuan_Road_Station.jpg" target="_blank" rel="noopener" style="color:inherit">Windmemories</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a></span></figcaption>
       </figure>
       <figure class="ph">
         <div class="ph-frame r32">
           <img src="photos/mixue/us.jpg" alt="A US MIXUE storefront at Broadway and West 32nd Street, New York">
           <span class="ph-city us cond">New York, NY</span></div>
-        <figcaption><span><b>New York, NY.</b> The same chain, open in the US today.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3AMixue_store_in_New_York_City_June_2026.jpg" target="_blank" rel="noopener" style="color:inherit">4300streetcar</a> / <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY 4.0</a></span></figcaption>
+        <figcaption><span data-i18n="home.th.us.cap"><b>New York, NY.</b> The same chain, open in the US today.</span><span class="by"><a href="https://commons.wikimedia.org/wiki/File%3AMixue_store_in_New_York_City_June_2026.jpg" target="_blank" rel="noopener" style="color:inherit">4300streetcar</a> / <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener" style="color:inherit">CC BY 4.0</a></span></figcaption>
       </figure>
     </div>
   </section>
@@ -506,10 +506,10 @@
   <!-- 4 · SECTORS 4/8 -->
   <section class="sectors">
     <div class="lead">
-      <p class="seclabel red">Outlets by sector</p>
+      <p class="seclabel red" data-i18n="home.sec.eyebrow">Outlets by sector</p>
       <h2 class="find" id="sec-head"></h2>
       <p class="ctx" id="sec-ctx" style="margin-top:14px"></p>
-      <p style="margin-top:14px;font-size:12px;color:var(--muted)">Each dot is one outlet.</p>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted)" data-i18n="home.sec.dotnote">Each dot is one outlet.</p>
     </div>
     <div class="chartwrap">
       <div class="dotgrid" id="dotgrid" role="img" aria-label="One dot per open outlet, grouped by sector."></div>
@@ -520,10 +520,10 @@
   <!-- 5 · HOST NEIGHBORHOODS 5/7 (modeled → dagger) -->
   <div class="split">
     <section class="nb-left">
-      <p class="seclabel red">Host neighborhoods†</p>
+      <p class="seclabel red" data-i18n="home.nb.eyebrow">Host neighborhoods†</p>
       <div class="nbnum">
         <span class="cond n" id="nb-ratio">2.3×</span>
-        <span class="m">as many residents identifying as of Asian descent/origin as the US as a whole, for the typical outlet's census tract</span>
+        <span class="m" data-i18n="home.nb.desc">as many residents identifying as of Asian descent/origin as the US as a whole, for the typical outlet's census tract</span>
       </div>
       <div class="twobar" id="twobar"></div>
       <p class="after" id="nb-after"></p>
@@ -541,18 +541,18 @@
   <!-- 6 · TOP METROS + LINKS 7/5 -->
   <div class="split">
     <section class="m-left">
-      <p class="seclabel red">Top metros</p>
+      <p class="seclabel red" data-i18n="home.metro.eyebrow">Top metros</p>
       <h2 class="find sm" id="metro-head" style="margin-bottom:18px"></h2>
       <table class="mtable">
-        <thead><tr><th>Metro</th><th></th><th>Outlets</th><th>Share</th></tr></thead>
+        <thead><tr><th data-i18n="home.metro.th.metro">Metro</th><th></th><th data-i18n="home.metro.th.outlets">Outlets</th><th data-i18n="home.metro.th.share">Share</th></tr></thead>
         <tbody id="metro-rows"></tbody>
       </table>
     </section>
     <section class="m-right">
       <a class="dcap" href="centers.html"><span class="cond num" id="dc-cot" style="font-weight:300">Pro</span>
-        <span class="tx">Where two or more of these chains cluster in the same center or block — a Pro feature. <u>See what&rsquo;s inside</u></span></a>
+        <span class="tx" data-i18n="home.dc.cot">Where two or more of these chains cluster in the same center or block — a Pro feature. <u>See what&rsquo;s inside</u></span></a>
       <a class="dcap" href="register.html"><span class="cond num" id="dc-ctry" style="font-weight:300">25</span>
-        <span class="tx">countries outside China where these chains already trade, and which may come to the US next. <u>Open the register</u></span></a>
+        <span class="tx" data-i18n="home.dc.ctry">countries outside China where these chains already trade, and which may come to the US next. <u>Open the register</u></span></a>
     </section>
   </div>
 
@@ -560,10 +560,10 @@
   <section style="padding:30px 0 32px;border-bottom:1px solid var(--ink)">
     <div class="photohead">
       <div>
-        <p class="seclabel red">Sightings</p>
-        <h2 class="find sm">Typical storefronts — photo submissions welcome.</h2>
+        <p class="seclabel red" data-i18n="home.sight.eyebrow">Sightings</p>
+        <h2 class="find sm" data-i18n="home.sight.h2">Typical storefronts — photo submissions welcome.</h2>
       </div>
-      <a href="contribute.html" style="font-size:15px;font-weight:700;text-underline-offset:3px">Submit a sighting</a>
+      <a href="contribute.html" style="font-size:15px;font-weight:700;text-underline-offset:3px" data-i18n="home.sight.submit">Submit a sighting</a>
     </div>
     <div class="sheet" id="sheet"></div>
   </section>
@@ -571,26 +571,26 @@
   <!-- 7 · PRO (no cards) -->
   <section class="pro">
     <div class="intro">
-      <p class="seclabel red">Pro, in development</p>
-      <p class="big">The map and US counts are always free. Our Pro version is designed for landlords and brokers, brand expansion teams, and analysts.</p>
-      <p class="links"><a href="#pro" style="font-weight:700">Join the waitlist</a> &nbsp;or&nbsp; <a href="contribute.html">submit a sighting</a></p>
+      <p class="seclabel red" data-i18n="home.pro.eyebrow">Pro, in development</p>
+      <p class="big" data-i18n="home.pro.big">The map and US counts are always free. Our Pro version is designed for landlords and brokers, brand expansion teams, and analysts.</p>
+      <p class="links"><a href="#pro" style="font-weight:700" data-i18n="home.pro.join">Join the waitlist</a> &nbsp;<span data-i18n="home.pro.or">or</span>&nbsp; <a href="contribute.html" data-i18n="home.pro.submit">submit a sighting</a></p>
     </div>
     <dl>
-      <dt>History and alerts</dt><dd>The full daily archive; a note when a chain opens in a state, metro or center you follow.</dd>
-      <dt>Store-level exports</dt><dd>Every outlet with address, coordinates, status and first-seen date, as CSV or GeoJSON.</dd>
-      <dt>Co-tenancy and gaps</dt><dd>Which owners host these tenants, and which of their centers still have none.</dd>
-      <dt>Revenue and prices†</dt><dd>Per-outlet revenue ranges, plus tracked list prices for signature items versus the same in China.</dd>
+      <dt data-i18n="home.pro.dt1">History and alerts</dt><dd data-i18n="home.pro.dd1">The full daily archive; a note when a chain opens in a state, metro or center you follow.</dd>
+      <dt data-i18n="home.pro.dt2">Store-level exports</dt><dd data-i18n="home.pro.dd2">Every outlet with address, coordinates, status and first-seen date, as CSV or GeoJSON.</dd>
+      <dt data-i18n="home.pro.dt3">Co-tenancy and gaps</dt><dd data-i18n="home.pro.dd3">Which owners host these tenants, and which of their centers still have none.</dd>
+      <dt data-i18n="home.pro.dt4">Revenue and prices†</dt><dd data-i18n="home.pro.dd4">Per-outlet revenue ranges, plus tracked list prices for signature items versus the same in China.</dd>
     </dl>
   </section>
 
   <!-- 8 · FOOTER -->
   <footer>
     <ol>
-      <li>A chain is counted once we confirm it has an open US outlet. Brand names identify the businesses measured; no affiliation.</li>
-      <li>Newly-announced locations are kept out of every total until verified.</li>
-      <li class="dag" id="foot-dag">† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS.</li>
+      <li data-i18n="home.foot.1">A chain is counted once we confirm it has an open US outlet. Brand names identify the businesses measured; no affiliation.</li>
+      <li data-i18n="home.foot.2">Newly-announced locations are kept out of every total until verified.</li>
+      <li class="dag" id="foot-dag" data-i18n="home.foot.3">† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS.</li>
     </ol>
-    <p class="colophon">Set in Schibsted Grotesk and Archivo. © 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
+    <p class="colophon" data-i18n="home.colophon">Set in Schibsted Grotesk and Archivo. © 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
   </footer>
 </div>
 
@@ -611,6 +611,22 @@ const cap = s => s ? s[0].toUpperCase()+s.slice(1) : s;
 const fmt = n => (n==null?'—':n.toLocaleString('en-US'));
 const word = n => (n>=0 && n<=10) ? WORD[n] : String(n);
 const $ = id => document.getElementById(id);
+
+// Localize the self-contained masthead (this page does not load site.js): add the EN·中文 switcher
+// and localize the search placeholder. Nav hrefs are rewritten to /zh/ by the build. DOM is ready
+// (this script is at the end of <body>).
+(function(){
+  var path=location.pathname, inZh=/^\/zh(\/|$)/.test(path);
+  var enH=(inZh?(path.replace(/^\/zh/,'')||'/'):path)+location.search+location.hash;
+  var zhH=(inZh?path:('/zh'+(path==='/'?'/':path)))+location.search+location.hash;
+  var nav=document.querySelector('.mnav');
+  if(nav){ var s=document.createElement('span'); s.className='np-lang';
+    s.innerHTML='<a href="'+enH+'"'+(!inZh?' aria-current="true"':'')+'>EN</a>'+
+      '<span class="np-langsep" aria-hidden="true">·</span>'+
+      '<a href="'+zhH+'" lang="zh-Hans"'+(inZh?' aria-current="true"':'')+'>中文</a>';
+    nav.appendChild(s); }
+  var hs=$('hero-search'); if(hs) hs.placeholder=t('home.map.search.ph', hs.placeholder);
+})();
 
 // Grand-total count-up. On every page load the headline total spins up to today's figure instead
 // of just appearing — backing up to the count as of about a week ago (prevTotal, from the data) and
@@ -673,9 +689,10 @@ function animateGrandTotal(outlets, prevTotal){
   // Masthead issue line: "Friday 2 October 2026" (the collection date)
   if (meta.collected) {
     const d = new Date(meta.collected+'T00:00:00');
-    const line =
-      d.toLocaleDateString('en-US',{weekday:'long'}) + ' ' + d.getDate() + ' ' +
-      d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear();
+    const line = (window.CFC_LANG==='zh')
+      ? d.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'})
+      : d.toLocaleDateString('en-US',{weekday:'long'}) + ' ' + d.getDate() + ' ' +
+        d.toLocaleDateString('en-US',{month:'long'}) + ' ' + d.getFullYear();
     $('issue-line').textContent = line;
   }
 
@@ -700,7 +717,7 @@ function animateGrandTotal(outlets, prevTotal){
   const annRows = Object.entries(annBy).sort((a,b)=>b[1]-a[1]);
   const annTotal = (T.announced!=null) ? T.announced : annRows.reduce((s,[,n])=>s+n,0);
   $('L-ann').textContent = fmt(annTotal);
-  $('announced-lbl').textContent = 'Show ' + annTotal + ' announced';
+  $('announced-lbl').textContent = t('home.js.announced', 'Show ' + annTotal + ' announced', {n: annTotal});
   const nameOf = ch => { const f = feats.find(x=>x.properties.chain===ch); return (f&&f.properties.name)||ch; };
   $('cn-rows').innerHTML = annRows.slice(0,6).map(([ch,n]) =>
     '<div class="cn-row"><span>'+nameOf(ch)+'</span><span class="zh" lang="zh-Hans">'+zhOf(ch)+'</span><span class="n">+'+n+'</span></div>').join('');
@@ -713,21 +730,23 @@ function animateGrandTotal(outlets, prevTotal){
   for (const [sec,v] of secRows) { const cls = DOT_CLASS[sec]||'d-ring';
     for (let i=0;i<v.outlets;i++) dots += '<span class="dot '+cls+'"></span>'; }
   dg.innerHTML = dots;
-  dg.setAttribute('aria-label', total+' outlets, one dot each: '+secRows.map(([s,v])=>(SECTOR_NAME[s]||s)+' '+v.outlets).join(', ')+'.');
+  dg.setAttribute('aria-label', total+' outlets, one dot each: '+secRows.map(([s,v])=>secLabel(s)+' '+v.outlets).join(', ')+'.');
   // braces: named sectors with a dot color, rest grouped as "Other n"
   const named = secRows.filter(([s])=>DOT_CLASS[s]);
   const otherOutlets = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.outlets,0);
   const otherChains = secRows.filter(([s])=>!DOT_CLASS[s]).reduce((s,[,v])=>s+v.chains.size,0);
-  const braceItems = named.map(([s,v])=>({name:SECTOR_NAME[s]||s, n:v.outlets, c:v.chains.size}));
-  if (otherOutlets) braceItems.push({name:'Other', n:otherOutlets, c:otherChains});
+  const braceItems = named.map(([s,v])=>({name:secLabel(s), n:v.outlets, c:v.chains.size}));
+  if (otherOutlets) braceItems.push({name:t('home.sec.other','Other'), n:otherOutlets, c:otherChains});
   $('braces').innerHTML = braceItems.map(b =>
     '<div class="brace" style="flex-grow:'+b.n+'"><span class="b"></span>'+
-    '<span class="t"><b>'+b.name+' '+b.n+'</b><span>'+b.c+(b.c===1?' chain':' chains')+'</span></span></div>').join('');
+    '<span class="t"><b>'+b.name+' '+b.n+'</b><span>'+t('home.js.brace.chain', b.c+(b.c===1?' chain':' chains'), {c:b.c})+'</span></span></div>').join('');
   // Sector headline + context
   if (secRows.length) {
     const [ts,tv] = secRows[0];
-    $('sec-head').innerHTML = cap(word(tv.chains.size))+' '+(SECTOR_LABEL_LC[ts]||SECTOR_NAME[ts]||ts)+
+    const enHead = cap(word(tv.chains.size))+' '+(SECTOR_LABEL_LC[ts]||SECTOR_NAME[ts]||ts)+
       ' chains run '+tv.outlets+' of the '+total+' stores.';
+    $('sec-head').textContent = t('home.js.sec.head', enHead,
+      {word:String(tv.chains.size), sector:secLabel(ts), total:total, n:tv.outlets});
     // Ranked by number of brands (chains), tie-broken by outlets, so #1 and #2 always follow the
     // live stats — if toys overtakes food & drink for most brands, the sentence says so, and the
     // "next" sector is whichever is genuinely second, not a hard-coded tea.
@@ -736,14 +755,19 @@ function animateGrandTotal(outlets, prevTotal){
     const secName = s => cap(SECTOR_LABEL_LC[s]||SECTOR_NAME[s]||s);
     const plur = (n,w) => n+' '+w+(n===1?'':'s');
     const [s1,v1] = byBrands[0];
-    let ctx = secName(s1)+' has the most brands ('+v1.chains.size+') but with only '+
-      plur(v1.outlets,'outlet')+' between them.';
-    if (byBrands[1]) {
-      const [s2,v2] = byBrands[1];
-      ctx += ' '+secName(s2)+' is next with '+plur(v2.chains.size,'chain')+' and '+
-        plur(v2.outlets,'shop')+'.';
+    if (window.CFC_LANG === 'zh') {
+      let z = t('home.js.sec.ctx1', '', {sector:secLabel(s1), c:v1.chains.size, n:v1.outlets});
+      if (byBrands[1]) { const [s2,v2] = byBrands[1];
+        z += t('home.js.sec.ctx2', '', {sector:secLabel(s2), c:v2.chains.size, n:v2.outlets}); }
+      $('sec-ctx').textContent = z;
+    } else {
+      let ctx = secName(s1)+' has the most brands ('+v1.chains.size+') but with only '+
+        plur(v1.outlets,'outlet')+' between them.';
+      if (byBrands[1]) { const [s2,v2] = byBrands[1];
+        ctx += ' '+secName(s2)+' is next with '+plur(v2.chains.size,'chain')+' and '+
+          plur(v2.outlets,'shop')+'.'; }
+      $('sec-ctx').textContent = ctx;
     }
-    $('sec-ctx').textContent = ctx;
   }
 
   // Neighborhoods
@@ -754,11 +778,15 @@ function animateGrandTotal(outlets, prevTotal){
     const host=a.median_tract_pct, usW = Math.round(usShareWidth(nat,host));
     function usShareWidth(us,hostv){ return us/hostv*100; }
     $('twobar').innerHTML =
-      '<div class="row"><span>US population</span><div class="barwrap"><i style="width:'+Math.round(nat/host*100)+'%;background:var(--grey-base)"></i><b>'+nat+'%</b></div></div>'+
-      '<div class="row"><span>Median host tract</span><div class="barwrap"><i style="width:100%;background:var(--accent)"></i><b>'+host+'%</b></div></div>';
-    $('nb-after').textContent = 'More than half the outlets, '+a.ge_2x+'%, sit in tracts at least twice the national share. '+
-      'A quarter ('+a.ge_5x+'%) are at five times; '+a.ge_10x+'% at ten times or more.';
-    $('nb-right-lbl').textContent = 'Urban, metro-core, near a campus · '+fmt(demo.outlets_analyzed)+' storefronts measured†';
+      '<div class="row"><span>'+t('home.js.nb.us','US population')+'</span><div class="barwrap"><i style="width:'+Math.round(nat/host*100)+'%;background:var(--grey-base)"></i><b>'+nat+'%</b></div></div>'+
+      '<div class="row"><span>'+t('home.js.nb.host','Median host tract')+'</span><div class="barwrap"><i style="width:100%;background:var(--accent)"></i><b>'+host+'%</b></div></div>';
+    $('nb-after').textContent = t('home.js.nb.after',
+      'More than half the outlets, '+a.ge_2x+'%, sit in tracts at least twice the national share. '+
+      'A quarter ('+a.ge_5x+'%) are at five times; '+a.ge_10x+'% at ten times or more.',
+      {ge2:a.ge_2x, ge5:a.ge_5x, ge10:a.ge_10x});
+    $('nb-right-lbl').textContent = t('home.js.nb.rightlbl',
+      'Urban, metro-core, near a campus · '+fmt(demo.outlets_analyzed)+' storefronts measured†',
+      {n:fmt(demo.outlets_analyzed)});
     // arcs
     const arcs = [ {r:140,share:m.in_csa_pct,color:'var(--ink)'}, {r:110,share:a.ge_national,color:'var(--accent)'}, {r:80,share:u.within_1mi,color:'#8C8F8A'} ];
     const cx=160, cy=160; let svg='';
@@ -767,15 +795,19 @@ function animateGrandTotal(outlets, prevTotal){
       svg+='<path d="'+dl+'" fill="none" stroke="var(--paper)" stroke-width="16"/>';
       svg+='<path d="'+dl+'" fill="none" stroke="'+arc.color+'" stroke-width="16" stroke-dasharray="'+dash.toFixed(1)+' 1000"/>';
     }
-    svg+='<text x="160" y="150" text-anchor="middle" font-size="11" font-family="Schibsted Grotesk,sans-serif" fill="#2E302D">of '+fmt(demo.outlets_analyzed)+' storefronts</text>';
+    svg+='<text x="160" y="150" text-anchor="middle" font-size="11" font-family="Schibsted Grotesk,sans-serif" fill="#2E302D">'+t('home.js.nb.arcof','of '+fmt(demo.outlets_analyzed)+' storefronts',{n:fmt(demo.outlets_analyzed)})+'</text>';
     $('arcs').innerHTML = svg;
     $('arcdl').innerHTML =
-      '<dt class="cond">'+m.in_csa_pct+'%</dt><dd>in a major metro <span style="color:var(--muted)">(outer ring)</span></dd>'+
-      '<dt class="cond" style="color:var(--accent)">'+a.ge_national+'%</dt><dd>above the national Asian share</dd>'+
-      '<dt class="cond">'+u.within_1mi+'%</dt><dd>within a mile of a college campus</dd>';
-    $('nb-foot').textContent = m.urban_pct+'% are inside a Census urban area. Nearly a third ('+u.within_half_mi+
-      '%) are within half a mile of a campus; the median distance is '+u.median_miles+' miles.';
-    $('foot-dag').textContent = '† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS. Tract share resolved for '+fmt(demo.with_tract_asian)+' of '+fmt(demo.outlets_analyzed)+' storefronts.';
+      '<dt class="cond">'+m.in_csa_pct+'%</dt><dd>'+t('home.js.nb.arc1','in a major metro <span style="color:var(--muted)">(outer ring)</span>')+'</dd>'+
+      '<dt class="cond" style="color:var(--accent)">'+a.ge_national+'%</dt><dd>'+t('home.js.nb.arc2','above the national Asian share')+'</dd>'+
+      '<dt class="cond">'+u.within_1mi+'%</dt><dd>'+t('home.js.nb.arc3','within a mile of a college campus')+'</dd>';
+    $('nb-foot').textContent = t('home.js.nb.foot',
+      m.urban_pct+'% are inside a Census urban area. Nearly a third ('+u.within_half_mi+
+      '%) are within half a mile of a campus; the median distance is '+u.median_miles+' miles.',
+      {urban:m.urban_pct, half:u.within_half_mi, miles:u.median_miles});
+    $('foot-dag').textContent = t('home.js.foot.dag',
+      '† Derived, not counted: tract Asian share from US Census ACS B03002; metro and urban areas from Census geographies; campuses from IPEDS. Tract share resolved for '+fmt(demo.with_tract_asian)+' of '+fmt(demo.outlets_analyzed)+' storefronts.',
+      {n:fmt(demo.with_tract_asian), total:fmt(demo.outlets_analyzed)});
   }
 
   // Top metros table + headline
@@ -788,8 +820,12 @@ function animateGrandTotal(outlets, prevTotal){
     }).join('');
     if (top.length>=2) {
       const two=(top[0].n+top[1].n)/outlets;
-      const frac = two>=0.33?'more than a third':(two>=0.3?'nearly a third':(two>=0.25?'a quarter':'a large share'));
-      $('metro-head').textContent = top[0].name.split('-')[0]+' and '+top[1].name.split('-')[0]+' hold '+frac+' of the total.';
+      const fk = two>=0.33?'third_plus':(two>=0.3?'near_third':(two>=0.25?'quarter':'large'));
+      const fracEn = two>=0.33?'more than a third':(two>=0.3?'nearly a third':(two>=0.25?'a quarter':'a large share'));
+      const a0=top[0].name.split('-')[0], b0=top[1].name.split('-')[0];
+      $('metro-head').textContent = t('home.js.metro.head',
+        a0+' and '+b0+' hold '+fracEn+' of the total.',
+        {a:a0, b:b0, frac:t('home.js.frac.'+fk, fracEn)});
     }
   }
 
