@@ -59,7 +59,7 @@ async function main() {
   }
 
   let h = '<table class="reg"><thead><tr><th class="corner"></th>' +
-    spans.map(s => `<th class="region" colspan="${s.n}">${esc(s.r)}</th>`).join('') +
+    spans.map(s => `<th class="region" colspan="${s.n}">${esc(t('reg.region.'+s.r, s.r))}</th>`).join('') +
     '</tr><tr><th class="corner"></th>' +
     markets.map(m => `<th title="${esc(D.markets[m].name)}">${esc(m)}</th>`).join('') +
     '</tr></thead><tbody>';
@@ -69,7 +69,7 @@ async function main() {
   for (const c of chains) (byCat[catOf(c)] = byCat[catOf(c)] || []).push(c);
   const cats = [...CAT_ORDER.filter(c => byCat[c]), ...Object.keys(byCat).filter(c => !CAT_ORDER.includes(c))];
   for (const cat of cats) {
-    h += `<tr class="catrow"><th class="catcell" colspan="${markets.length + 1}">${esc(cat)}</th></tr>`;
+    h += `<tr class="catrow"><th class="catcell" colspan="${markets.length + 1}">${esc(t('reg.cat.'+cat, cat))}</th></tr>`;
     for (const c of byCat[cat]) {
       h += `<tr data-chain="${esc(c)}"><th class="chain">${chainLabel(D.chains[c])}</th>`;
       for (const m of markets) {
@@ -103,7 +103,7 @@ async function main() {
   } catch (e) { /* no map data: US column falls back to em-dashes */ }
 
   usView(chains, markets, cells, usCount);
-  document.getElementById('asof').textContent = `Last updated ${D.as_of}.`;
+  document.getElementById('asof').textContent = t('register.asof', `Last updated ${D.as_of}.`, {date:D.as_of});
   setupRegFilter();
 }
 
@@ -150,6 +150,7 @@ function applyRegFilter(q) {
 function setupRegFilter() {
   const box = document.getElementById('reg-filter');
   if (!box) return;
+  box.placeholder = t('register.filter.ph', box.placeholder);
   box.addEventListener('input', () => applyRegFilter(box.value));
   // Honor a ?q= query (the landing-map search links here pre-filtered for a chain that isn't on the
   // US map) or a value the browser restored on reload.
@@ -190,30 +191,32 @@ function usView(chains, markets, cells, usCount) {
     if (!w || w.n == null) return `<td class="num dash">&mdash;</td>`;
     // A "~" marks a reported figure not validated against a primary company filing.
     const fig = w.unverified
-      ? `<abbr class="est" title="Reported figure &mdash; not validated against a primary company filing">~${num(w.n)}</abbr>`
+      ? `<abbr class="est" title="${t('register.us.est.t','Reported figure — not validated against a primary company filing')}">~${num(w.n)}</abbr>`
       : num(w.n);
     return `<td class="num">${fig}` +
-      (w.as_of ? `<span class="asof">as of ${esc(w.as_of)}</span>` : '') + `</td>`;
+      (w.as_of ? `<span class="asof">${t('register.us.asof', `as of ${esc(w.as_of)}`, {date:esc(w.as_of)})}</span>` : '') + `</td>`;
   };
   const body = list => list.map(c =>
     `<tr data-chain="${esc(c)}"><td class="name"><b>${chainLabel(metaOf(c))}</b></td>${usCell(c)}${wwCell(c)}</tr>`).join('');
   const table = list =>
-    `<table class="ustable"><thead><tr><th>Chain</th>` +
-    `<th class="num">In the US</th><th class="num">Worldwide</th></tr></thead>` +
+    `<table class="ustable"><thead><tr><th>${t('register.us.th.chain','Chain')}</th>` +
+    `<th class="num">${t('register.us.th.inus','In the US')}</th><th class="num">${t('register.us.th.ww','Worldwide')}</th></tr></thead>` +
     `<tbody>${body(list)}</tbody></table>`;
 
   document.getElementById('usview').innerHTML =
-    `<section class="usbox"><h2>Already in the United States</h2>` +
-    `<p class="note small">Every Chinese chain this project tracks on the US map, A&ndash;Z. ` +
-    `The <strong>In the US</strong> column is collected daily and matches the ` +
-    `<a href="index.html">US map</a> exactly; <strong>Worldwide</strong> is the latest company-wide ` +
-    `store total reported in filings or the press, with the date it was reported. ` +
-    `A <span class="est">~</span> marks a reported figure not yet validated against a primary company filing.</p>` +
+    `<section class="usbox"><h2>${t('register.us.h1','Already in the United States')}</h2>` +
+    `<p class="note small">${t('register.us.note1',
+      `Every Chinese chain this project tracks on the US map, A&ndash;Z. ` +
+      `The <strong>In the US</strong> column is collected daily and matches the ` +
+      `<a href="index.html">US map</a> exactly; <strong>Worldwide</strong> is the latest company-wide ` +
+      `store total reported in filings or the press, with the date it was reported. ` +
+      `A <span class="est">~</span> marks a reported figure not yet validated against a primary company filing.`)}</p>` +
     table(here) + `</section>` +
-    (notHere.length ? `<section class="usbox watch"><h2>Expanding abroad, not yet in the US</h2>` +
-      `<p class="note small">The watchlist &mdash; Chinese chains that have opened outside China but ` +
-      `that we have not found in the United States. If one reaches America, it moves up to the list ` +
-      `above.</p>` + table(notHere) + `</section>` : '');
+    (notHere.length ? `<section class="usbox watch"><h2>${t('register.us.h2','Expanding abroad, not yet in the US')}</h2>` +
+      `<p class="note small">${t('register.us.note2',
+        `The watchlist &mdash; Chinese chains that have opened outside China but ` +
+        `that we have not found in the United States. If one reaches America, it moves up to the list above.`)}</p>` +
+      table(notHere) + `</section>` : '');
 }
 
 function cellClass(e) {
@@ -237,25 +240,25 @@ function cellText(e) {
 }
 
 function tip(ev, e, key) {
-  const t = document.getElementById('tip');
+  const tipEl = document.getElementById('tip');          // (renamed from t to not shadow the i18n t())
   const [c, m] = key.split('/');
   if (!e) {
-    t.innerHTML = `<b>${chainLabel(D.chains[c], { short: true })} · ${esc(D.markets[m].name)}</b>` +
-      `<div class="meta">Not looked at yet. This is not a claim of absence.</div>`;
+    tipEl.innerHTML = `<b>${chainLabel(D.chains[c], { short: true })} · ${esc(D.markets[m].name)}</b>` +
+      `<div class="meta">${t('reg.tip.notlooked','Not looked at yet. This is not a claim of absence.')}</div>`;
   } else {
     const bits = [];
-    if (e.first_opened) bits.push(`first opened ${esc(e.first_opened)} (${esc(e.precision)})`);
-    if (e.locations != null) bits.push(`${e.locations} locations as of ${esc(e.locations_as_of)}`);
-    bits.push(e.collected ? 'collected daily, not typed' : `${esc(e.confidence)} confidence`);
-    t.innerHTML = `<b>${chainLabel(D.chains[c], { short: true })} · ${esc(D.markets[m].name)}</b>` +
+    if (e.first_opened) bits.push(t('reg.tip.firstopened', `first opened ${esc(e.first_opened)} (${esc(e.precision)})`, {date:esc(e.first_opened), precision:esc(e.precision)}));
+    if (e.locations != null) bits.push(t('reg.tip.locations', `${e.locations} locations as of ${esc(e.locations_as_of)}`, {n:e.locations, date:esc(e.locations_as_of)}));
+    bits.push(e.collected ? t('reg.tip.collected','collected daily, not typed') : t('reg.tip.conf', `${esc(e.confidence)} confidence`, {conf: t('reg.conf.'+e.confidence, esc(e.confidence))}));
+    tipEl.innerHTML = `<b>${chainLabel(D.chains[c], { short: true })} · ${esc(D.markets[m].name)}</b>` +
       `${esc(e.status.replace('_', ' '))}: ${bits.join('; ')}` +
       (e.note ? `<div class="meta">${esc(e.note)}</div>` : '') +
-      (e.sources && e.sources.length ? `<div class="meta">${e.sources.length} source(s)</div>`
-        : `<div class="meta">no source cited</div>`);
+      (e.sources && e.sources.length ? `<div class="meta">${t('reg.tip.sources', `${e.sources.length} source(s)`, {n:e.sources.length})}</div>`
+        : `<div class="meta">${t('reg.tip.nosource','no source cited')}</div>`);
   }
-  t.hidden = false;
-  t.style.left = Math.min(ev.clientX + 14, innerWidth - 320) + 'px';
-  t.style.top = (ev.clientY + 14) + 'px';
+  tipEl.hidden = false;
+  tipEl.style.left = Math.min(ev.clientX + 14, innerWidth - 320) + 'px';
+  tipEl.style.top = (ev.clientY + 14) + 'px';
 }
 
 main();
