@@ -367,5 +367,22 @@
   "states.js.intro.all": "如今每个州和华盛顿特区都至少有一家中国品牌。",
   "states.js.intro.none": "以下地区仍为空白：{list}。",
   "states.js.modalin": "在{state}",
-  "states.js.noaddr": "这些门店暂无街道地址记录。"
+  "states.js.noaddr": "这些门店暂无街道地址记录。",
+
+  "head.centers.title": "同址聚集 — 中国连锁在美门市",
+  "head.centers.desc": "两家或以上中国源起品牌在同一建筑、商场或街区聚集之处——专业版内容。",
+  "centers.h1": "中国品牌的聚集地",
+  "centers.sub": "两家或以上中国源起品牌在同一建筑、商场或街区设有门店之处（专业版内容）。",
+  "centers.pro.label": "专业版功能",
+  "centers.pro.p1": "本站的每一家门店和见闻都经过地理编码。<strong>聚集</strong>指坐标相近的门店——例如同一建筑、商场或街区——并附上该中心的名称和业主（如已识别）。按排名列出的聚集清单，以及哪些业主在接纳这些租户的视图，属于我们的专业版内容。",
+  "centers.pro.free": "美国门店地图和统计始终免费。",
+  "centers.pro.join": "加入专业版等候名单",
+  "centers.pro.or": "或",
+  "centers.pro.openmap": "打开免费的美国地图",
+  "centers.hubs.intro": "中国源起品牌在美国集中的枢纽地区——并聚集成下方所列的同址中心。",
+  "centers.cap.flushing": "<strong style=\"color:var(--ink)\">纽约皇后区法拉盛</strong>——中国源起品牌密度最高的美国枢纽；18 个品牌的 Tangram 聚集地所在。",
+  "centers.cap.la": "<strong style=\"color:var(--ink)\">圣盖博谷（洛杉矶）</strong>——西海岸枢纽；我们的 Santa Anita、Rowland Heights 和 Monterey Park 聚集地均在此。",
+  "centers.foot.1": "<strong>Chains From China</strong>（中国连锁在美门市）是一个独立的商业项目。<strong>与本站提及的任何公司均无关联，未获其认可或赞助。</strong>品牌名称仅用于标识被统计的企业。",
+  "centers.foot.2": "聚集点由本项目每日采集的门店以及人工核实见闻的地理编码坐标计算得出；相距约 100 米以内的两家品牌视为共用一个中心。坐标来自美国人口普查地理编码器。海岸线与边界来自 <a href=\"https://www.naturalearthdata.com/\">Natural Earth</a>（公有领域）。",
+  "centers.foot.3": "<strong>Twoshoe Labs LLC</strong> 的项目 · <a href=\"mailto:info@twoshoelabs.com\">info@twoshoelabs.com</a>。© 2026 Twoshoe Labs LLC。"
 }
