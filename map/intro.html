@@ -131,9 +131,9 @@
 <div class="phero">
   <div class="wrap">
     <p class="census-line" data-census style="margin:0 0 12px"></p>
-    <p class="eyebrow">The chains</p>
-    <h1>Every Chinese chain we track in America</h1>
-    <p>Chinese retail and food brands trading in the United States — how many outlets each has,
+    <p class="eyebrow" data-i18n="intro.eyebrow">The chains</p>
+    <h1 data-i18n="intro.h1">Every Chinese chain we track in America</h1>
+    <p data-i18n="intro.lede">Chinese retail and food brands trading in the United States — how many outlets each has,
       what it sells, and when it arrived. Tap any chain for its full page.</p>
     <div class="psum" id="summary"></div>
   </div>
@@ -143,16 +143,16 @@
   <div class="controls">
     <div class="csearch"><input id="q" type="search" autocomplete="off" placeholder="Search by name or 中文…" aria-label="Search chains"></div>
     <select class="sortsel" id="sort" aria-label="Sort">
-      <option value="outlets">Most outlets</option>
-      <option value="newest">Newest arrival</option>
-      <option value="az">A–Z</option>
+      <option value="outlets" data-i18n="intro.sort.outlets">Most outlets</option>
+      <option value="newest" data-i18n="intro.sort.newest">Newest arrival</option>
+      <option value="az" data-i18n="intro.sort.az">A–Z</option>
     </select>
     <div class="segmented" id="viewtoggle" role="group" aria-label="View">
-      <button type="button" data-view="cards" aria-pressed="true">Cards</button>
-      <button type="button" data-view="table" aria-pressed="false">Table</button>
+      <button type="button" data-view="cards" aria-pressed="true" data-i18n="intro.view.cards">Cards</button>
+      <button type="button" data-view="table" aria-pressed="false" data-i18n="intro.view.table">Table</button>
     </div>
     <button type="button" id="frfilter" class="frfilter" aria-pressed="false"
-            title="Show only chains open to a US franchisee">Open to franchise</button>
+            title="Show only chains open to a US franchisee" data-i18n="intro.frfilter">Open to franchise</button>
   </div>
   <div class="secchips" id="secchips"></div>
   <div id="cards" class="cardgrid"></div>
@@ -162,10 +162,10 @@
 
 <footer class="sitefoot">
   <div class="wrap">
-    <p><b>Chains From China</b> is an independent commercial project — not affiliated with, endorsed by
+    <p data-i18n="foot.disc"><b>Chains From China</b> is an independent commercial project — not affiliated with, endorsed by
       or sponsored by any company named here. Outlet counts are collected daily from each chain's own
       locator and/or hand-verified, especially where a chain publishes no usable one.</p>
-    <p>&copy; 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
+    <p data-i18n="foot.copy">&copy; 2026 Twoshoe Labs LLC &middot; <a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a>.</p>
   </div>
 </footer>
 
@@ -191,7 +191,10 @@ let CHAINS = [];
   try { [gj, sj] = await Promise.all([
     fetch('data/stores.geojson' + DATAV).then(r=>r.json()),
     fetch('data/stores.json' + DATAV).then(r=>r.json()),
-  ]); } catch (e) { document.getElementById('cards').innerHTML = '<p class="emptymsg">Could not load chain data.</p>'; return; }
+  ]); } catch (e) { document.getElementById('cards').innerHTML = `<p class="emptymsg">${t('intro.loaderr','Could not load chain data.')}</p>`; return; }
+  // Localize attributes that data-i18n cannot bake (input placeholder, button title).
+  (function(){ const q=document.getElementById('q'); if(q) q.placeholder=t('intro.search.ph', q.placeholder);
+    const fr=document.getElementById('frfilter'); if(fr) fr.title=t('intro.frfilter.t', fr.title); })();
   const meta = sj.meta || {};
   const companies = (meta.companies && meta.companies.companies) || {};
 
@@ -236,10 +239,10 @@ function renderSummary() {
   const since23 = CHAINS.filter(c => c.year && c.year >= 2023).length;
   const el = document.getElementById('summary');
   el.innerHTML =
-    `<div class="s"><b>${n}</b><span>chains tracked</span></div>` +
-    `<div class="s"><b>${ny}</b><span>first opened in the NY area</span></div>` +
-    `<div class="s"><b>${flush}</b><span>of those in Flushing</span></div>` +
-    `<div class="s"><b>${since23}</b><span>arrived since 2023</span></div>`;
+    `<div class="s"><b>${n}</b><span>${t('intro.sum.tracked','chains tracked')}</span></div>` +
+    `<div class="s"><b>${ny}</b><span>${t('intro.sum.ny','first opened in the NY area')}</span></div>` +
+    `<div class="s"><b>${flush}</b><span>${t('intro.sum.flushing','of those in Flushing')}</span></div>` +
+    `<div class="s"><b>${since23}</b><span>${t('intro.sum.since23','arrived since 2023')}</span></div>`;
 }
 
 function renderSectorChips() {
@@ -249,7 +252,7 @@ function renderSectorChips() {
   const el = document.getElementById('secchips');
   el.innerHTML = secs.map(s =>
     `<button type="button" class="secchip" data-sec="${esc(s)}" aria-pressed="false">` +
-    `<span class="dot" style="background:${secColor(s)}"></span>${esc(SEC_LABEL[s] || s)} <span class="n">${by[s]}</span></button>`
+    `<span class="dot" style="background:${secColor(s)}"></span>${esc(secLabel(s))} <span class="n">${by[s]}</span></button>`
   ).join('');
   el.querySelectorAll('.secchip').forEach(ch => ch.addEventListener('click', () => {
     const s = ch.dataset.sec;
@@ -281,26 +284,26 @@ function cardHTML(c) {
   // Also-known-as: the romanized name plus any aliases, so a chain listed under its US trading name
   // (e.g. "Naisnow") is still recognizable by the name most people know (e.g. "Nayuki").
   const altNames = [c.rom, ...c.alts].filter(Boolean);
-  const altLine = altNames.length ? `<span class="calt">also ${esc(altNames.join(' · '))}</span>` : '';
+  const altLine = altNames.length ? `<span class="calt">${t('intro.card.also','also ')}${esc(altNames.join(' · '))}</span>` : '';
   return `<a class="ccard" href="chain/${esc(c.id)}/">` +
     `<div class="top">${logo}<div class="cname">${esc(c.name)}${c.zh ? `<span class="zh" lang="zh-Hans">${esc(c.zh)}</span>` : ''}${altLine}</div></div>` +
-    `<div class="cfig">${c.outlets}<span>US outlets</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
-    `<div class="cbadges"><span class="cbadge">${esc(SEC_LABEL[c.sector] || c.sector)}</span>` +
-      (c.franchise ? `<span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
+    `<div class="cfig">${c.outlets}<span>${t('intro.card.usoutlets','US outlets')}</span>${c.announced ? `<em>+${c.announced}</em>` : ''}</div>` +
+    `<div class="cbadges"><span class="cbadge">${esc(secLabel(c.sector))}</span>` +
+      (c.franchise ? `<span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? t('chain.fr.badge.fdd','Open to a US franchisee — registered US FDD on file') : t('chain.fr.badge.nofdd','Open to a US franchisee via a first-party US franchise page (FDD not confirmed)')}">${t('chain.fr.badge','Franchise')}</span>` : '') +
     `</div>` +
-    `<div class="csince">${c.since ? 'In the US since ' + esc(c.since) : 'US arrival not dated'}</div></a>`;
+    `<div class="csince">${c.since ? t('intro.card.since', 'In the US since ' + esc(c.since), {since:esc(c.since)}) : t('intro.card.nodate','US arrival not dated')}</div></a>`;
 }
 
 function tableHTML(list) {
   const rows = list.map(c =>
     `<tr><td><a href="chain/${esc(c.id)}/">${esc(c.name)}</a> <span lang="zh-Hans" style="color:var(--dim)">${esc(c.zh)}</span>` +
       ([c.rom, ...c.alts].filter(Boolean).length ? ` <span style="color:var(--faint);font-size:.82rem">(${esc([c.rom, ...c.alts].filter(Boolean).join(' · '))})</span>` : '') +
-      (c.franchise ? ` <span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? 'US FDD on file' : 'First-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') + `</td>` +
-    `<td>${esc(SEC_LABEL[c.sector] || c.sector)}</td>` +
+      (c.franchise ? ` <span class="frtag${c.fdd ? ' fdd' : ''}" title="${c.fdd ? t('intro.tbl.fdd','US FDD on file') : t('intro.tbl.nofdd','First-party US franchise page (FDD not confirmed)')}">${t('chain.fr.badge','Franchise')}</span>` : '') + `</td>` +
+    `<td>${esc(secLabel(c.sector))}</td>` +
     `<td class="num">${c.outlets}</td><td class="num">${c.announced ? '+' + c.announced : '—'}</td>` +
     `<td>${esc(c.since || '—')}</td></tr>`).join('');
-  return `<table class="ctable"><thead><tr><th>Chain</th><th>Sector</th><th>Outlets</th><th>Announced</th>` +
-    `<th>In the US since</th></tr></thead><tbody>${rows}</tbody></table>`;
+  return `<table class="ctable"><thead><tr><th>${t('intro.tbl.chain','Chain')}</th><th>${t('intro.tbl.sector','Sector')}</th><th>${t('intro.tbl.outlets','Outlets')}</th><th>${t('intro.tbl.announced','Announced')}</th>` +
+    `<th>${t('intro.tbl.since','In the US since')}</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function render() {
@@ -310,7 +313,7 @@ function render() {
   cards.classList.toggle('hidden', !isCards);
   table.classList.toggle('hidden', isCards);
   if (!list.length) {
-    empty.classList.remove('hidden'); empty.textContent = 'No chains match those filters.';
+    empty.classList.remove('hidden'); empty.textContent = t('intro.empty','No chains match those filters.');
     cards.innerHTML = ''; table.innerHTML = ''; return;
   }
   empty.classList.add('hidden');
