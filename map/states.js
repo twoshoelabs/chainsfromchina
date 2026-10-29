@@ -27,7 +27,7 @@ let SORT = 'most';
 
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
   (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const plural = (n) => (n === 1 ? 'outlet' : 'outlets');
+const plural = (n) => (window.CFC_LANG === 'zh' ? t('states.unit','outlets') : (n === 1 ? 'outlet' : 'outlets'));
 
 // One brand chip: a sector-ringed logo, the chain NAME and its outlet count. Clicking it opens that
 // chain's ADDRESSES in this state (not the generic profile) — what a reader actually wants after
@@ -37,7 +37,7 @@ function chip(c, extra, abbr) {
   const col = SECTOR[c.sector] || OTHER;
   return `<button type="button" class="bchip${extra ? ' extra' : ''}"${extra ? ' hidden' : ''} ` +
     `data-chain="${esc(c.chain)}" data-state="${esc(abbr)}" ` +
-    `title="${esc(c.name)} — ${c.n} ${plural(c.n)} in this state; click for addresses">` +
+    `title="${t('states.js.chiptitle', `${esc(c.name)} — ${c.n} ${plural(c.n)} in this state; click for addresses`, {name:esc(c.name), n:c.n})}">` +
     `<span class="blogo" data-chain="${esc(c.chain)}" data-col="${col}" style="border-color:${col}">` +
     `<img src="icons/${esc(c.chain)}.png${ICONV}" alt="" loading="lazy"></span>` +
     `<span class="bnm">${esc(c.name)}</span><span class="bn">${c.n}</span></button>`;
@@ -55,11 +55,11 @@ function render() {
     const rest = s.chains.slice(TOP_N);
     const restChips = rest.map((c) => chip(c, true, s.abbr)).join('');
     const more = rest.length
-      ? `<button type="button" class="st-more" aria-expanded="false">+${rest.length} more</button>` : '';
-    const soon = s.soon ? `<span class="st-soon">${s.soon} opening soon</span>` : '';
+      ? `<button type="button" class="st-more" aria-expanded="false">${t('states.js.more', `+${rest.length} more`, {n:rest.length})}</button>` : '';
+    const soon = s.soon ? `<span class="st-soon">${t('states.js.soon', `${s.soon} opening soon`, {n:s.soon})}</span>` : '';
     const total = s.total
       ? `${s.total.toLocaleString()} <span class="st-unit">${plural(s.total)}</span>`
-      : '<span class="st-none">No outlets yet</span>';
+      : `<span class="st-none">${t('states.js.none','No outlets yet')}</span>`;
     return `<div class="statecard${s.total ? '' : ' empty'}">` +
       `<div class="st-head"><span class="st-name">${esc(s.name)}<span class="st-abbr">${s.abbr}</span></span>` +
       `<span class="st-total">${total}${soon}</span></div>` +
@@ -83,7 +83,7 @@ function render() {
       const opening = btn.getAttribute('aria-expanded') !== 'true';
       extras.forEach((e) => { e.hidden = !opening; });
       btn.setAttribute('aria-expanded', String(opening));
-      btn.textContent = opening ? 'show less' : `+${extras.length} more`;
+      btn.textContent = opening ? t('states.js.showless','show less') : t('states.js.more', `+${extras.length} more`, {n:extras.length});
     });
   });
 }
@@ -108,7 +108,7 @@ async function init() {
   STATES = Object.keys(STATE_NAME).map((abbr) => {
     const a = agg[abbr] || { chains: {}, soon: 0 };
     const chains = Object.values(a.chains).sort((x, y) => y.n - x.n || x.name.localeCompare(y.name));
-    return { abbr, name: STATE_NAME[abbr], chains, total: chains.reduce((s, c) => s + c.n, 0), soon: a.soon };
+    return { abbr, name: stateName(abbr), chains, total: chains.reduce((s, c) => s + c.n, 0), soon: a.soon };
   });
 
   const covered = STATES.filter((s) => s.total > 0).length;
@@ -121,9 +121,12 @@ async function init() {
   const none = STATES.filter((s) => !s.total).map((s) => s.abbr);
   const intro = document.getElementById('intro');
   if (intro) {
-    intro.textContent = `${outlets.toLocaleString()} outlets of ${nChains} chains, across ${covered} of the 50 states and D.C. ` +
-      (gap === 0 ? 'Every state and D.C. now has at least one China-origin chain.'
-                 : `Still none in ${none.join(', ')}.`);
+    const noneNames = none.map((abbr) => window.CFC_LANG === 'zh' ? stateName(abbr) : abbr).join(window.CFC_LANG === 'zh' ? '、' : ', ');
+    intro.textContent = t('states.js.intro',
+      `${outlets.toLocaleString()} outlets of ${nChains} chains, across ${covered} of the 50 states and D.C. `,
+      {outlets:outlets.toLocaleString(), chains:nChains, covered:covered}) +
+      (gap === 0 ? t('states.js.intro.all','Every state and D.C. now has at least one China-origin chain.')
+                 : t('states.js.intro.none', `Still none in ${noneNames}.`, {list:noneNames}));
   }
 
   render();
@@ -147,7 +150,8 @@ function openAddresses(abbr, chain) {
   const items = [...(c.items || [])].sort((x, y) =>
     (x.city || '').localeCompare(y.city || '') || (x.address || '').localeCompare(y.address || ''));
 
-  M_TITLE.innerHTML = `<span class="m-name">${esc(c.name)}</span> in ${esc(s.name)}` +
+  M_TITLE.innerHTML = `<span class="m-name">${esc(c.name)}</span>` +
+    t('states.js.modalin', ` in ${esc(s.name)}`, {state:esc(s.name)}) +
     ` <span class="m-count">${c.n} ${plural(c.n)}</span>`;
   // City leads (the readable line), with the street address below it and lighter. The panel header
   // already says which state, so the row shows the city name alone, not "City, ST".
@@ -160,17 +164,17 @@ function openAddresses(abbr, chain) {
         return `<li><span class="m-city">${head}</span>` +
           (sub ? `<span class="m-addr">${sub}</span>` : '') + `</li>`;
       }).join('')
-    : '<li class="m-empty">No street addresses on file for these outlets.</li>';
+    : `<li class="m-empty">${t('states.js.noaddr','No street addresses on file for these outlets.')}</li>`;
 
   const pts = items.filter((i) => isFinite(i.lat) && isFinite(i.lon));
-  let href = `index.html#only=${encodeURIComponent(chain)}`;
+  let href = `${window.CFC_LANG === 'zh' ? 'zh/' : ''}index.html#only=${encodeURIComponent(chain)}`;
   if (pts.length) {
     const lat = pts.reduce((t, i) => t + i.lat, 0) / pts.length;
     const lon = pts.reduce((t, i) => t + i.lon, 0) / pts.length;
     href += `&c=${lon.toFixed(4)},${lat.toFixed(4)}&z=${pts.length === 1 ? 11 : 6}`;
   }
   M_MAP.href = href;
-  M_PROFILE.href = `chain/${encodeURIComponent(chain)}/`;
+  M_PROFILE.href = `${window.CFC_LANG === 'zh' ? 'zh/' : ''}chain/${encodeURIComponent(chain)}/`;
 
   MODAL.hidden = false;
   document.body.classList.add('modal-open');
