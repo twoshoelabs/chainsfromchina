@@ -159,8 +159,8 @@
 <body data-page="chains">
 
 <div class="wrap">
-  <nav class="crumb"><a href="intro.html">Chains</a> <span id="crumbsec"></span></nav>
-  <div id="profile"><p class="loading">Loading…</p></div>
+  <nav class="crumb"><a href="intro.html" data-i18n="chain.crumb.root">Chains</a> <span id="crumbsec"></span></nav>
+  <div id="profile"><p class="loading" data-i18n="chain.loading">Loading…</p></div>
 </div>
 
 <footer class="sitefoot">
@@ -217,19 +217,19 @@ function photosBlock(comp, m) {
     // the brand's channel). We still keep any public-domain Wikimedia US photo for the side-by-side,
     // so when an author set also carries a licensed photo the intro credits both sources.
     const src = ph.origin === 'author'
-      ? (anyLic ? 'Chains From China, taken on location in China, and Wikimedia Commons for the US, as credited'
-         : anyBrand ? `Chains From China, taken on location in China, and ${esc(m.name)}'s official channel, as credited`
-                : 'Chains From China, taken on location')
-      : anyLic && anyBrand ? `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`
-      : anyBrand ? `${esc(m.name)}'s official channel`
-      : 'Wikimedia Commons under the licenses noted';
-    let h = `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Photographs from ${src}; not affiliated with ${esc(m.name)}.</p>`;
+      ? (anyLic ? t('chain.photos.src.author.lic','Chains From China, taken on location in China, and Wikimedia Commons for the US, as credited')
+         : anyBrand ? t('chain.photos.src.author.brand', `Chains From China, taken on location in China, and ${esc(m.name)}'s official channel, as credited`, {name:esc(m.name)})
+                : t('chain.photos.src.author','Chains From China, taken on location'))
+      : anyLic && anyBrand ? t('chain.photos.src.licbrand', `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`, {name:esc(m.name)})
+      : anyBrand ? t('chain.photos.src.brand', `${esc(m.name)}'s official channel`, {name:esc(m.name)})
+      : t('chain.photos.src.lic','Wikimedia Commons under the licenses noted');
+    let h = `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">${t('chain.photos.intro', `Photographs from ${src}; not affiliated with ${esc(m.name)}.`, {src:src, name:esc(m.name)})}</p>`;
     // Optional caveat line — e.g. when the only photos to hand are of a format we don't count
     // (a vending/roboshop kiosk), used as an honest placeholder until a real store is shot.
     if (ph.note) h += `<p style="font-size:.82rem;color:var(--ink-2);margin:-8px 0 16px;padding:8px 12px;border-left:3px solid var(--ink);background:rgba(0,0,0,.045)">${esc(ph.note)}</p>`;
     if (ph.china && ph.us) {
       // Both sides → the "There and here" juxtaposition.
-      h += `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+      h += `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">${t('chain.photos.there','There and here')}</h3>` +
         `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
         photoFig(ph.china, '3/2', ph.china.label, true) +
         photoFig(ph.us, '3/2', ph.us.label, false) + `</div>`;
@@ -246,20 +246,20 @@ function photosBlock(comp, m) {
     return h;
   }
   // Placeholder illustrations (chains without a photo manifest yet)
-  return `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">Placeholder illustrations until real photographs of ${esc(m.name)} are shot.</p>` +
+  return `<p class="lead" style="font-size:.85rem;color:var(--dim);margin:-8px 0 16px">${t('chain.photos.ph.lead', `Placeholder illustrations until real photographs of ${esc(m.name)} are shot.`, {name:esc(m.name)})}</p>` +
     `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:20px">` +
-      `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">The first US storefront. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+      `<figure style="margin:0;width:min(300px,100%)"><div style="aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/portrait-first-us-outlet.webp" type="image/webp"><img src="photos/portrait-first-us-outlet.jpg" alt="Illustration of a chain's first US shopfront" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">${t('chain.photos.ph.firstus','The first US storefront.')} <span style="color:var(--faint)">${t('chain.photos.ph.placeholder','Placeholder')}</span></figcaption></figure>` +
       `<div style="flex:1 1 200px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start">` +
         ['thumb-night', 'thumb-interior', 'thumb-menu'].map((t) => `<div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${t}.webp" type="image/webp"><img src="photos/${t}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div>`).join('') +
       `</div></div>` +
-      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">There and here</h3>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">${t('chain.photos.there','There and here')}</h3>` +
       `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
-        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hans">郑州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In China. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
-        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">In the US. <span style="color:var(--faint)">Placeholder</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-china-storefront.webp" type="image/webp"><img src="photos/pair-china-storefront.jpg" alt="Illustration of a shopfront in China" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--zh)" lang="zh-Hans">郑州</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">${t('chain.photos.ph.incn','In China.')} <span style="color:var(--faint)">${t('chain.photos.ph.placeholder','Placeholder')}</span></figcaption></figure>` +
+        `<figure style="margin:0"><div style="position:relative;aspect-ratio:3/2;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/pair-us-storefront.webp" type="image/webp"><img src="photos/pair-us-storefront.jpg" alt="Illustration of a shopfront in the US" style="width:100%;height:100%;object-fit:cover;display:block"></picture><span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;font-family:var(--cond);font-stretch:62%;font-weight:800">[CITY, ST]</span></div><figcaption style="font-size:12px;color:var(--dim);padding-top:6px">${t('chain.photos.ph.inus','In the US.')} <span style="color:var(--faint)">${t('chain.photos.ph.placeholder','Placeholder')}</span></figcaption></figure>` +
       `</div>` +
-      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">Specimens</h3>` +
+      `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">${t('chain.photos.specimens','Specimens')}</h3>` +
       `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">` +
-        [['specimen-menu-us', 'US menu board'], ['specimen-menu-china', 'Menu board in China'], ['specimen-sign', 'Bilingual sign'], ['specimen-cup', 'Takeaway cup']].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">Fig. ${i + 1}. ${cap}</figcaption></figure>`).join('') +
+        [['specimen-menu-us', t('chain.photos.spec.menuus','US menu board')], ['specimen-menu-china', t('chain.photos.spec.menucn','Menu board in China')], ['specimen-sign', t('chain.photos.spec.sign','Bilingual sign')], ['specimen-cup', t('chain.photos.spec.cup','Takeaway cup')]].map(([s, cap], i) => `<figure style="margin:0"><div style="aspect-ratio:1;border:1px solid var(--ink);overflow:hidden;background:#D7DAD5"><picture><source srcset="photos/${s}.webp" type="image/webp"><img src="photos/${s}.jpg" alt="Illustration of ${esc(cap.toLowerCase())}" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-size:11px;color:var(--dim);padding-top:5px">${t('chain.photos.fig', 'Fig. '+(i + 1)+'. '+cap, {i:i+1, label:cap})}</figcaption></figure>`).join('') +
       `</div>`;
 }
 const secColor = s => getComputedStyle(document.documentElement).getPropertyValue('--sec-' + s).trim() || '#6b7280';
@@ -274,7 +274,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     new URLSearchParams(location.search).get('c') ||
     decodeURIComponent((location.pathname.match(/\/chain\/([^\/]+)\/?$/) || ['', ''])[1] || '');
   const box = document.getElementById('profile');
-  if (!id) { box.innerHTML = '<p class="loading">No chain selected. <a href="intro.html">Browse all chains →</a></p>'; return; }
+  if (!id) { box.innerHTML = `<p class="loading">${t('chain.err.nosel','No chain selected. <a href="intro.html">Browse all chains →</a>')}</p>`; return; }
   let gj, sj, reg, cen;
   try { [gj, sj, reg, cen] = await Promise.all([
     fetch('data/stores.geojson' + DATAV).then(r=>r.json()),
@@ -283,7 +283,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     // Co-tenancy is a Pro feature: centers.json is not published publicly, so tolerate its absence.
     // The "Neighbors" block is guarded on nb.length and simply hides when there is no cluster data.
     fetch('data/centers.json' + DATAV).then(r=>r.json()).catch(()=>({co_tenancy:[]})),
-  ]); } catch (e) { box.innerHTML = '<p class="loading">Could not load data.</p>'; return; }
+  ]); } catch (e) { box.innerHTML = `<p class="loading">${t('chain.err.load','Could not load data.')}</p>`; return; }
 
   const meta = sj.meta || {};
   const companies = (meta.companies && meta.companies.companies) || {};
@@ -293,7 +293,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (!m) {
     // Unknown/blank ?c= (e.g. a bare /chain.html) renders nothing real — keep it out of the index.
     document.head.insertAdjacentHTML('beforeend', '<meta name="robots" content="noindex">');
-    box.innerHTML = `<p class="loading">Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a></p>`; return;
+    box.innerHTML = `<p class="loading">${t('chain.err.unknown', `Unknown chain “${esc(id)}”. <a href="intro.html">Browse all chains →</a>`, {id:esc(id)})}</p>`; return;
   }
   const comp = companies[id] || {};
   // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, China A-share flag).
@@ -343,11 +343,11 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (comp.blurb) sents.push(comp.blurb.split(/(?<=\.)\s/)[0]);
   let cs = '';
   // "staffed" only where it needs disambiguating from unstaffed Robo Shop kiosks (chains with robos).
-  if (outlets) cs = `${outlets} ${robos ? 'staffed ' : ''}outlet${outlets > 1 ? 's are' : ' is'} open in the US`;
-  if (soon) cs += cs ? ` and ${soon} more are announced` : `${soon} announced, none open yet`;
-  if (cs) sents.push(cs + '.');
-  if (firstCity && comp.us_since) sents.push(`Its first US store opened in ${firstCity} in ${comp.us_since}.`);
-  const summary = sents.join(' ');
+  if (outlets) cs = t('chain.sum.open', `${outlets} ${robos ? 'staffed ' : ''}outlet${outlets > 1 ? 's are' : ' is'} open in the US`, {n:outlets});
+  if (soon) cs += cs ? t('chain.sum.soonMore', ` and ${soon} more are announced`, {n:soon}) : t('chain.sum.soonOnly', `${soon} announced, none open yet`, {n:soon});
+  if (cs) sents.push(cs + (window.CFC_LANG === 'zh' ? '。' : '.'));
+  if (firstCity && comp.us_since) sents.push(t('chain.sum.first', `Its first US store opened in ${firstCity} in ${comp.us_since}.`, {city:firstCity, year:comp.us_since}));
+  const summary = sents.join(window.CFC_LANG === 'zh' ? '' : ' ');
 
   const cnt = {};
   for (const f of gj.features) { const p = f.properties; const c = cnt[p.chain] || (cnt[p.chain] = { n: 0, sector: p.sector, name: p.name });
@@ -359,7 +359,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   // Only include a Chinese name that really is Chinese — a name_zh that is just the Latin name
   // (e.g. "52TOYS") would only repeat it.
   const zhName = (m.name_zh && /[㐀-鿿豈-﫿]/.test(m.name_zh)) ? m.name_zh : '';
-  document.title = `${m.name} ${zhName} in the US — Chains From China`.replace(/\s+/g, ' ');
+  document.title = (window.CFC_LANG === 'zh')
+    ? (zhName ? `${zhName}（${m.name}）在美国的门店 — 中国连锁在美门市` : `${m.name} 在美国的门店 — 中国连锁在美门市`)
+    : `${m.name} ${zhName} in the US — Chains From China`.replace(/\s+/g, ' ');
   var md = document.querySelector('meta[name="description"]');
   if (md && summary) md.setAttribute('content', summary);
   // SEO: the static HTML carries brand-level OG defaults; refine per chain so search engines that
@@ -381,13 +383,13 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       // and the sector tier has no standalone page to link to — so it stays in the visible breadcrumb
       // but is left out of the structured data to keep the trail valid.
       const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Chains', item: 'https://chainsfromchina.com/intro.html' },
+        { '@type': 'ListItem', position: 1, name: t('chain.crumb.root','Chains'), item: 'https://chainsfromchina.com/intro.html' },
         { '@type': 'ListItem', position: 2, name: m.name, item: base } ] };
       const sc = document.createElement('script'); sc.type = 'application/ld+json';
       sc.textContent = JSON.stringify(crumbs); document.head.appendChild(sc);
     } catch (e) {}
   })();
-  document.getElementById('crumbsec').textContent = '/ ' + (SEC_LABEL[sector] || sector) + ' / ' + m.name;
+  document.getElementById('crumbsec').textContent = '/ ' + secLabel(sector) + ' / ' + m.name;
 
   // The hero logo normally reuses the map-pin icon (icons/<id>.png), but a chain may set
   // comp.page_logo to show a different mark on the page than on the pin — e.g. Chef Fei uses its
@@ -395,8 +397,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const heroLogo = comp.page_logo ? `icons/${esc(comp.page_logo)}` : `icons/${esc(id)}.png`;
   const logoHTML = `<span class="logo" style="border-color:${secColor(sector)}" data-m="${esc(initials(m.name))}">` +
     `<img src="${heroLogo}${ICONV}" alt="" onerror="this.closest('.logo').classList.add('mono');this.closest('.logo').style.background='${secColor(sector)}';this.remove();"></span>`;
-  const aka = (m.aliases && m.aliases.length) ? `<div class="aka">Also: ${esc(m.aliases.join(', '))}</div>` : '';
-  const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>first US store${comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : ''}</span></div>` : '';
+  const aka = (m.aliases && m.aliases.length) ? `<div class="aka">${t('chain.aka','Also: ')}${esc(m.aliases.join(', '))}</div>` : '';
+  const _fcity = comp.first_outlet ? ', ' + esc(comp.first_outlet.split('—')[0].trim()) : '';
+  const firstStore = comp.first_outlet ? `<div class="s"><b style="font-size:1rem">${esc(comp.us_since || '—')}</b><span>${t('chain.stats.first', 'first US store' + _fcity, {city:_fcity})}</span></div>` : '';
 
   // Stock-listing badge (in the hero) + a full "Ownership & stock listing" section.
   const STAT = { listed: 'Publicly listed', parent_listed: 'Listed via parent group',
@@ -405,22 +408,23 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   if (lst) {
     if (lst.tickers && lst.tickers.length)
       listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.mainland ? ' · China A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
-    else if (lst.status === 'ipo_pending') listingBadge = `<span class="hb">IPO filed</span>`;
+    else if (lst.status === 'ipo_pending') listingBadge = `<span class="hb">${t('chain.listing.ipofiled','IPO filed')}</span>`;
 
-    const rows = [`<dt>Status</dt><dd>${STAT[lst.status] || lst.status}</dd>`];
+    const rows = [`<dt>${t('chain.listing.row.status','Status')}</dt><dd>${t('chain.stat.'+lst.status, STAT[lst.status] || lst.status)}</dd>`];
     if (lst.group && lst.relationship !== 'brand-is-listco' && lst.relationship !== 'brand-is-operator') {
-      const rel = lst.relationship === 'associate-of' ? 'Associate of' : lst.status === 'private' ? 'Part of' : 'Listed parent';
+      const rel = lst.relationship === 'associate-of' ? t('chain.listing.row.associate','Associate of')
+        : lst.status === 'private' ? t('chain.listing.row.partof','Part of') : t('chain.listing.row.parent','Listed parent');
       rows.push(`<dt>${rel}</dt><dd>${esc(lst.group)}${lst.group_zh ? ' <span class="zh" lang="zh-Hans">' + esc(lst.group_zh) + '</span>' : ''}</dd>`);
     }
     if (lst.tickers && lst.tickers.length)
-      rows.push(`<dt>${lst.tickers.length > 1 ? 'Tickers' : 'Ticker'}</dt><dd>${lst.tickers.map(t => `<b>${esc(t)}</b>`).join(' &middot; ')}` +
-        `${lst.disclosure ? ` &mdash; <a href="${esc(lst.disclosure)}" target="_blank" rel="noopener">filings</a>` : ''}</dd>`);
+      rows.push(`<dt>${lst.tickers.length > 1 ? t('chain.listing.row.tickers','Tickers') : t('chain.listing.row.ticker','Ticker')}</dt><dd>${lst.tickers.map(tk => `<b>${esc(tk)}</b>`).join(' &middot; ')}` +
+        `${lst.disclosure ? ` &mdash; <a href="${esc(lst.disclosure)}" target="_blank" rel="noopener">${t('chain.listing.row.filings','filings')}</a>` : ''}</dd>`);
     if (lst.sisters && lst.sisters.length)
-      rows.push(`<dt>Sister brand${lst.sisters.length > 1 ? 's' : ''}</dt><dd>${lst.sisters.map(s => `<a href="chain/${esc(s)}/">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
-    if (lst.note) rows.push(`<dt>Note</dt><dd>${esc(lst.note)}</dd>`);
+      rows.push(`<dt>${lst.sisters.length > 1 ? t('chain.listing.row.sister','Sister brands') : t('chain.listing.row.sister','Sister brand')}</dt><dd>${lst.sisters.map(s => `<a href="chain/${esc(s)}/">${esc(nameOf(s))}</a>`).join(', ')}</dd>`);
+    if (lst.note) rows.push(`<dt>${t('chain.listing.row.note','Note')}</dt><dd>${esc(lst.note)}</dd>`);
     const ashare = lst.us_inaccessible
-      ? `<p class="frline"><b>China A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} in China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.</p>` : '';
-    listingSec = `<section><h2>Ownership &amp; stock listing</h2>${ashare}<dl class="kv">${rows.join('')}</dl></section>`;
+      ? `<p class="frline">${t('chain.listing.ashare', `<b>China A-share.</b> ${esc(lst.group || m.name)}&rsquo;s shares trade on ${esc(lst.exchange)} in China &mdash; its regulatory filings are detailed but are rarely surfaced for US investors.`, {group:esc(lst.group || m.name), exchange:esc(lst.exchange)})}</p>` : '';
+    listingSec = `<section><h2>${t('chain.listing.h','Ownership &amp; stock listing')}</h2>${ashare}<dl class="kv">${rows.join('')}</dl></section>`;
   }
 
   box.innerHTML =
@@ -428,61 +432,60 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     `<div class="chero">${logoHTML}<div class="cheromain">` +
       `<h1>${esc(m.name)}` +
         (zhName ? ` <span class="zh" lang="zh-Hans">${esc(zhName)}</span>` : '') + `</h1>${aka}` +
-      `<div class="herobadges"><span class="hb">${esc(SEC_LABEL[sector] || sector)}</span>` +
-        (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? 'Open to a US franchisee — registered US FDD on file' : 'Open to a US franchisee via a first-party US franchise page (FDD not confirmed)'}">Franchise</span>` : '') +
+      `<div class="herobadges"><span class="hb">${esc(secLabel(sector))}</span>` +
+        (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? t('chain.fr.badge.fdd','Open to a US franchisee — registered US FDD on file') : t('chain.fr.badge.nofdd','Open to a US franchisee via a first-party US franchise page (FDD not confirmed)')}">${t('chain.fr.badge','Franchise')}</span>` : '') +
         listingBadge +
       `</div>` +
       (summary ? `<p class="summary">${esc(summary)}</p>` : '') +
     `</div></div>` +
     `<div class="actions">` +
-      `<a class="btn pro" href="index.html#pro">Follow</a>` +
-      `<button class="btn" type="button" onclick="cfcShare(this)">Share this page</button>` +
-      `<a class="btn" href="contribute.html?chain=${encodeURIComponent(m.name)}">Report a ${esc(m.name)} store</a>` +
+      `<a class="btn pro" href="index.html#pro">${t('chain.act.follow','Follow')}</a>` +
+      `<button class="btn" type="button" onclick="cfcShare(this)">${t('chain.act.share','Share this page')}</button>` +
+      `<a class="btn" href="contribute.html?chain=${encodeURIComponent(m.name)}">${t('chain.act.report', `Report a ${esc(m.name)} store`, {name:esc(m.name)})}</a>` +
     `</div>` +
     `<div class="stats">` +
-      `<div class="s"><b>${outlets}</b><span>open in the US</span></div>` +
-      (soon ? `<div class="s"><b class="soon">+${soon}</b><span>announced</span></div>` : '') +
-      `<div class="s"><b>${states.size}</b><span>state${states.size === 1 ? '' : 's'}</span></div>` +
-      `<div class="s"><b>${abroad.length}</b><span>markets abroad</span></div>` +
-      (robos ? `<div class="s"><b>${robos}</b><span>roboshops (not counted)</span></div>` : '') +
+      `<div class="s"><b>${outlets}</b><span>${t('chain.stats.open','open in the US')}</span></div>` +
+      (soon ? `<div class="s"><b class="soon">+${soon}</b><span>${t('chain.stats.announced','announced')}</span></div>` : '') +
+      `<div class="s"><b>${states.size}</b><span>${t('chain.stats.states', 'state'+(states.size === 1 ? '' : 's'))}</span></div>` +
+      `<div class="s"><b>${abroad.length}</b><span>${t('chain.stats.abroad','markets abroad')}</span></div>` +
+      (robos ? `<div class="s"><b>${robos}</b><span>${t('chain.stats.robos','roboshops (not counted)')}</span></div>` : '') +
       firstStore +
     `</div>` +
-    (robos ? `<p class="frline"><b>Roboshops:</b> ${robos} unstaffed vending machine${robos === 1 ? '' : 's'} ` +
-      `are tracked in the data but counted separately from staffed storefronts, and are not shown on the map.</p>` : '') +
-    (franchiseUS ? `<p class="frline"><b>Franchising:</b> ` +
-      (franchiseFDD ? 'open to a qualifying US franchisee, backed by a registered US FDD.'
-                    : 'open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).') +
+    (robos ? `<p class="frline">${t('chain.robos', `<b>Roboshops:</b> ${robos} unstaffed vending machine${robos === 1 ? '' : 's'} are tracked in the data but counted separately from staffed storefronts, and are not shown on the map.`, {n:robos})}</p>` : '') +
+    (franchiseUS ? `<p class="frline">${t('chain.fr.label','<b>Franchising:</b> ')}` +
+      (franchiseFDD ? t('chain.fr.fdd','open to a qualifying US franchisee, backed by a registered US FDD.')
+                    : t('chain.fr.nofdd','open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).')) +
       `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
-    `<section><h2>Where ${esc(m.name)} trades</h2>` +
-      (outlets + soon ? `<div id="map"></div>` : `<p class="lead">No US locations mapped yet.</p>`) +
+    `<section><h2>${t('chain.sec.trades', `Where ${esc(m.name)} trades`, {name:esc(m.name)})}</h2>` +
+      (outlets + soon ? `<div id="map"></div>` : `<p class="lead">${t('chain.sec.nomap','No US locations mapped yet.')}</p>`) +
       locationsHTML(feats) +
-      `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">Open the full US map →</a></p></section>` +
-    `<section><h2>Photographs</h2>` + photosBlock(comp, m) + `</section>` +
-    (comp.blurb ? `<section><h2>About</h2><p class="lead">${esc(comp.blurb)}</p>` +
+      `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">${t('chain.sec.fullmap','Open the full US map →')}</a></p></section>` +
+    `<section><h2>${t('chain.sec.photos','Photographs')}</h2>` + photosBlock(comp, m) + `</section>` +
+    (comp.blurb ? `<section><h2>${t('chain.sec.about','About')}</h2><p class="lead">${esc(comp.blurb)}</p>` +
       `<dl class="kv">` +
-        (comp.first_outlet ? `<dt>First US store</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
-        (comp.site_us ? `<dt>US site</dt><dd><a href="${esc(comp.site_us)}" target="_blank" rel="noopener">${esc(comp.site_us.replace(/^https?:\/\//,''))}</a></dd>` : '') +
-        (comp.site_cn ? `<dt>Site in China</dt><dd><a href="${esc(comp.site_cn)}" target="_blank" rel="noopener">${esc(comp.site_cn.replace(/^https?:\/\//,''))}</a> <span style="color:var(--faint)">(untested)</span></dd>` : '') +
+        (comp.first_outlet ? `<dt>${t('chain.kv.first','First US store')}</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
+        (comp.site_us ? `<dt>${t('chain.kv.ussite','US site')}</dt><dd><a href="${esc(comp.site_us)}" target="_blank" rel="noopener">${esc(comp.site_us.replace(/^https?:\/\//,''))}</a></dd>` : '') +
+        (comp.site_cn ? `<dt>${t('chain.kv.cnsite','Site in China')}</dt><dd><a href="${esc(comp.site_cn)}" target="_blank" rel="noopener">${esc(comp.site_cn.replace(/^https?:\/\//,''))}</a> <span style="color:var(--faint)">${t('chain.kv.untested','(untested)')}</span></dd>` : '') +
       `</dl></section>` : '') +
     listingSec +
     `<section><div class="cols">` +
-      `<div><h2>By state</h2>${byStateHTML(feats, sector)}</div>` +
+      `<div><h2>${t('chain.sec.bystate','By state')}</h2>${byStateHTML(feats, sector)}</div>` +
       `<div>` +
-        `<h2>Abroad</h2>${abroadHTML(abroad, abroadOther)}` +
-        (nb.length ? `<h2 style="margin-top:22px">Neighbors</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
+        `<h2>${t('chain.sec.abroad','Abroad')}</h2>${abroadHTML(abroad, abroadOther)}` +
+        (nb.length ? `<h2 style="margin-top:22px">${t('chain.sec.neighbors','Neighbors')}</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
       `</div>` +
     `</div></section>` +
-    (related.length ? `<section><h2>Related ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains</h2>` +
+    (related.length ? `<section><h2>${t('chain.sec.related', `Related ${esc(secLabel(sector).toLowerCase())} chains`, {sector:esc(secLabel(sector))})}</h2>` +
       `<div class="related">` + related.map(k =>
         `<a class="relcard" href="chain/${esc(k)}/"><span class="rring" style="border-color:${secColor(sector)}"></span>` +
         `<span>${esc(cnt[k].name)}</span><span class="rn">${cnt[k].n}</span></a>`).join('') + `</div>` +
-      `<p class="lead" style="margin-top:12px"><a href="intro.html?sector=${esc(sector)}">All ${sectorTotal} ${esc((SEC_LABEL[sector] || sector).toLowerCase())} chains →</a></p></section>` : '') +
-    `<section style="border-bottom:0"><h2>More, with Pro</h2>` +
+      `<p class="lead" style="margin-top:12px"><a href="intro.html?sector=${esc(sector)}">${t('chain.sec.allrelated', `All ${sectorTotal} ${esc(secLabel(sector).toLowerCase())} chains →`, {n:sectorTotal, sector:esc(secLabel(sector))})}</a></p></section>` : '') +
+    `<section style="border-bottom:0"><h2>${t('chain.sec.morepro','More, with Pro')}</h2>` +
       `<div class="promods">` +
-        `<div class="pmod"><div class="tag">PRO</div><h4>Daily history</h4><p>Open and announced counts for every day since the archive began.</p></div>` +
-        `<div class="pmod"><div class="tag">PRO</div><h4>Openings &amp; closings</h4><p>Every change for ${esc(m.name)}, dated, with address and center.</p></div>` +
-        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>Revenue estimate<span class="modeled">Modeled</span></h4><p>A per-outlet and US-total revenue range, with the method shown.</p></div>` +
-        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>Menu &amp; prices<span class="modeled">Modeled</span></h4><p>Tracked list prices for signature items versus the same in China.</p></div>` +
+        `<div class="pmod"><div class="tag">PRO</div><h4>${t('chain.pro.history.h','Daily history')}</h4><p>${t('chain.pro.history.d','Open and announced counts for every day since the archive began.')}</p></div>` +
+        `<div class="pmod"><div class="tag">PRO</div><h4>${t('chain.pro.changes.h','Openings &amp; closings')}</h4><p>${t('chain.pro.changes.d', `Every change for ${esc(m.name)}, dated, with address and center.`, {name:esc(m.name)})}</p></div>` +
+        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>${t('chain.pro.revenue.h','Revenue estimate')}<span class="modeled">${t('chain.modeled','Modeled')}</span></h4><p>${t('chain.pro.revenue.d','A per-outlet and US-total revenue range, with the method shown.')}</p></div>` +
+        `<div class="pmod"><div class="tag">PRO · SOON</div><h4>${t('chain.pro.prices.h','Menu &amp; prices')}<span class="modeled">${t('chain.modeled','Modeled')}</span></h4><p>${t('chain.pro.prices.d','Tracked list prices for signature items versus the same in China.')}</p></div>` +
       `</div></section>`;
 
   if (outlets + soon) drawMap(feats, sector, id, m.name);
@@ -506,14 +509,14 @@ function locationsHTML(feats) {
       (a.city || '').localeCompare(b.city || '') || (a.address || '').localeCompare(b.address || ''));
     const lines = items.map((p) => {
       const addr = [p.address, p.city].filter(Boolean).join(', ') || p.city || '';
-      const soon = p.status === 'coming_soon' ? ' <em style="font-style:normal;color:var(--amber)">· coming soon</em>' : '';
+      const soon = p.status === 'coming_soon' ? ` <em style="font-style:normal;color:var(--amber)">${t('chain.loc.soon',' · coming soon')}</em>` : '';
       return `<li style="margin:0 0 2px">${esc(addr)}${soon}</li>`;
     }).join('');
-    return `<div style="margin:0 0 10px"><b style="font-size:.85rem">${esc(STATE_NAMES[s] || s)}</b>` +
+    return `<div style="margin:0 0 10px"><b style="font-size:.85rem">${esc(stateName(s))}</b>` +
       `<ul style="list-style:none;padding:0;margin:4px 0 0;font-size:.82rem;color:var(--dim);line-height:1.5">${lines}</ul></div>`;
   }).join('');
   return `<details class="loclist" style="margin-top:12px;border-top:1px solid var(--rule);padding-top:10px">` +
-    `<summary style="cursor:pointer;font-size:.9rem;font-weight:600">All ${total} US location${total === 1 ? '' : 's'}, by state</summary>` +
+    `<summary style="cursor:pointer;font-size:.9rem;font-weight:600">${t('chain.loc.all', `All ${total} US location${total === 1 ? '' : 's'}, by state`, {n:total})}</summary>` +
     `<div style="margin-top:12px;columns:240px;column-gap:28px">${body}</div></details>`;
 }
 
@@ -528,47 +531,49 @@ function byStateHTML(feats, sector) {
     if (f.properties.city) b.cities.add(String(f.properties.city).trim());
   }
   const rows = Object.entries(by).sort((a, b) => (b[1].open + b[1].soon) - (a[1].open + a[1].soon));
-  if (!rows.length) return '<p class="lead">No located outlets yet.</p>';
+  if (!rows.length) return `<p class="lead">${t('chain.bystate.none','No located outlets yet.')}</p>`;
   const max = Math.max(...rows.map(([, v]) => v.open + v.soon)) || 1;
   const color = secColor(sector);
   // The cities per state are rendered as plain text (not just the canvas map / click popups) so search
   // engines index where the chain actually trades — this is what lets a "<chain> <city>" query match.
   return '<div class="bystate2">' + rows.map(([s, v]) => {
     const cities = [...v.cities].sort((a, b) => a.localeCompare(b)).join(', ');
-    return `<div class="bsrow"><span class="bsname">${esc(STATE_NAMES[s] || s)}</span>` +
+    return `<div class="bsrow"><span class="bsname">${esc(stateName(s))}</span>` +
       `<span class="bsbar"><span class="bsopen" style="width:${v.open / max * 100}%;background:${color}"></span>` +
       `<span class="bssoon" style="width:${v.soon / max * 100}%"></span></span>` +
       `<span class="bsnum">${v.open}${v.soon ? ` <em>+${v.soon}</em>` : ''}</span></div>` +
       (cities ? `<div class="bscities" style="font-size:.78rem;color:var(--dim);margin:-2px 0 8px;padding-left:2px">${esc(cities)}</div>` : '');
   }).join('') +
-    '</div><p class="lead" style="font-size:.78rem;margin-top:8px">Solid = open · <span style="color:var(--amber)">dashed = announced</span></p>';
+    '</div><p class="lead" style="font-size:.78rem;margin-top:8px">' + t('chain.bystate.legend','Solid = open · <span style="color:var(--amber)">dashed = announced</span>') + '</p>';
 }
 
 function abroadHTML(abroad, other) {
-  if (!abroad.length && !(other && other.length)) return '<p class="lead">No markets outside China recorded.</p>';
+  if (!abroad.length && !(other && other.length)) return `<p class="lead">${t('chain.abroad.none','No markets outside China recorded.')}</p>`;
   const present = abroad.map(a => {
     const cls = a.conf === 'high' ? 'hi' : a.conf === 'low' ? 'lo' : '';
-    return `<span class="flag ${cls}" title="${esc(a.name)}${a.conf ? ' · ' + esc(a.conf) + ' confidence' : ''}">${esc(a.name)}</span>`;
+    const ct = a.conf ? t('chain.abroad.conf', ' · ' + esc(a.conf) + ' confidence', {conf: t('chain.conf.'+a.conf, esc(a.conf))}) : '';
+    return `<span class="flag ${cls}" title="${esc(a.name)}${ct}">${esc(a.name)}</span>`;
   }).join('');
   const struck = (other || []).map(a => {
-    const label = a.status === 'announced' ? esc(a.name) + ' (announced)' : esc(a.name);
-    return `<span class="flag gone" title="${a.status === 'announced' ? 'Announced, not yet open' : 'Searched, none found'}">${label}</span>`;
+    const label = esc(a.name) + (a.status === 'announced' ? t('chain.abroad.announced',' (announced)') : '');
+    return `<span class="flag gone" title="${a.status === 'announced' ? t('chain.abroad.t.announced','Announced, not yet open') : t('chain.abroad.t.none','Searched, none found')}">${label}</span>`;
   }).join('');
   // Simple legend: sample chips showing what the shading means (our confidence the chain trades there).
-  const legend = '<p class="flag-legend">Confidence:' +
-    '<span class="flag hi">high</span>' +
-    '<span class="flag">medium</span>' +
-    '<span class="flag lo">low</span>' +
-    (struck ? '<span class="flag gone">none found</span>' : '') +
+  const legend = `<p class="flag-legend">${t('chain.abroad.legend','Confidence:')}` +
+    `<span class="flag hi">${t('chain.conf.high','high')}</span>` +
+    `<span class="flag">${t('chain.conf.medium','medium')}</span>` +
+    `<span class="flag lo">${t('chain.conf.low','low')}</span>` +
+    (struck ? `<span class="flag gone">${t('chain.conf.none','none found')}</span>` : '') +
     '</p>';
   return '<div class="flags">' + present + struck + '</div>' + legend;
 }
 
 function nbHTML(n) {
   const c = n.c;
-  const name = (c.center && c.center.name) || [c.city, c.state].filter(Boolean).join(', ') || 'Cluster';
+  const name = (c.center && c.center.name) || [c.city, c.state].filter(Boolean).join(', ') || t('chain.nb.cluster','Cluster');
+  const bc = c.brand_count || (c.brands || []).length;
   return `<a href="centers.html"><span>${esc(name)}<br><span class="meta">${esc(n.here)}</span></span>` +
-    `<span class="meta">${c.brand_count || (c.brands || []).length} brands</span></a>`;
+    `<span class="meta">${t('chain.nb.brands', bc + ' brands', {n:bc})}</span></a>`;
 }
 
 // name: cfcShare | purpose: share the chain page | arguments: btn | returns: nothing
@@ -577,7 +582,7 @@ function cfcShare(btn) {
   const url = location.href, title = document.title;
   if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
   if (navigator.clipboard) navigator.clipboard.writeText(url).catch(function () {});
-  const o = btn.textContent; btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = o; }, 1400);
+  const o = btn.textContent; btn.textContent = t('chain.share.copied','Link copied'); setTimeout(function () { btn.textContent = o; }, 1400);
 }
 
 // ---- Map: Protomaps basemap + logo-badge pins (parity with the main US map) ------------------
@@ -779,7 +784,7 @@ async function buildChainInsets(parent, mainMap, style, fc, logo, color, mono) {
     const md = document.createElement('div'); md.className = 'mi-map';
     const lbl = document.createElement('span'); lbl.className = 'mi-lbl'; lbl.textContent = ins.id;
     box.appendChild(md); box.appendChild(lbl); wrap.appendChild(box);
-    box.title = 'Zoom to ' + ins.label + ' on the map';
+    box.title = t('chain.map.zoomto', 'Zoom to ' + ins.label + ' on the map', {label: stateName(ins.id)});
     box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0');
     const flyTo = () => mainMap.fitBounds(ins.bounds, { padding: 30 });
     box.addEventListener('click', flyTo);
@@ -861,7 +866,7 @@ async function drawMap(feats, sector, id, name) {
     });
     map.on('click', 'pins', (e) => {
       const p = e.features[0].properties;
-      const st = p.status === 'coming_soon' ? 'Announced / coming soon' : 'Open';
+      const st = p.status === 'coming_soon' ? t('map.pin.announced','Announced / coming soon') : t('map.pin.open','Open');
       const chip = logo
         ? `<img src="icons/${esc(id)}.png${ICONV}" alt="" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto">`
         : '';
