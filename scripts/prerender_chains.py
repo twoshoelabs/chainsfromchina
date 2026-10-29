@@ -20,6 +20,7 @@ levels deep. GitHub Pages serves /chain/<id>/ from that index.html automatically
 Renderable = meta.chains (daily-collected) ∪ meta.blocked (hand-tracked US entrants) — exactly what
 chain.html itself keys off; register-only chains are skipped (chain.html shows "Unknown chain").
 """
+import hashlib
 import html
 import json
 import re
@@ -41,6 +42,32 @@ STATE_NAMES = {
     "VA": "Virginia", "WA": "Washington", "WV": "West Virginia", "WI": "Wisconsin", "WY": "Wyoming",
     "DC": "D.C.",
 }
+
+
+def _alts(en, zh):
+    """hreflang alternates linking an English page to its /zh/ twin (and x-default = English)."""
+    return ('<link rel="alternate" hreflang="en" href="%s">'
+            '<link rel="alternate" hreflang="zh-Hans" href="%s">'
+            '<link rel="alternate" hreflang="x-default" href="%s">') % (en, zh, en)
+
+
+_ZHLINK = re.compile(r'(href=")(/)?((?:[\w.-]+\.html(?:[#?][^"]*)?)|(?:chain/[^"]*)|)(")')
+
+
+def _zhlinks(h):
+    """Point in-page links (relative or root-absolute .html / chain/ / root) at the /zh/ tree; leave
+    assets (css/js/png/json/…) and absolute URLs alone. The <base> tag is restored by the caller."""
+    h = re.sub(r'href="/"', 'href="/zh/"', h)
+
+    def rep(m):
+        pre, slash, body, post = m.group(1), m.group(2), m.group(3), m.group(4)
+        if not body:
+            return pre + "/zh/" + post if slash else m.group(0)
+        base = body.split("#")[0].split("?")[0]
+        if base.endswith(".html") or base.startswith("chain/"):
+            return pre + "/zh/" + body + post
+        return m.group(0)
+    return _ZHLINK.sub(rep, h)
 
 
 def a(s):
@@ -103,6 +130,18 @@ def transform(template, cid, title, desc, canon, body):
 def main():
     out_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("map")
     template = (out_dir / "chain.html").read_text(encoding="utf-8")
+
+    # Chinese twin template + catalog (for /zh/chain/<id>/). Absent → skip the zh pass.
+    cat, zh_tpl = {}, None
+    cpath, spath = out_dir / "i18n.zh.json", out_dir / "zh-strings.js"
+    if cpath.exists() and spath.exists():
+        cat = {k: v for k, v in json.loads(cpath.read_text(encoding="utf-8")).items()
+               if not k.startswith("_")}
+        sref = "/zh-strings.js?v=" + hashlib.sha1(spath.read_bytes()).hexdigest()[:10]
+        zh_tpl = template.replace('<html lang="en">', '<html lang="zh-Hans">', 1)
+        zh_tpl = re.sub(r'(<script src="i18n\.js)', '<script src="%s"></script>\n\\1' % sref, zh_tpl, count=1)
+        zh_tpl = (zh_tpl.replace('content="en_US"', 'content="zh_CN"')
+                        .replace('"inLanguage":"en-US"', '"inLanguage":"zh-CN"'))
     sj = json.loads((out_dir / "data" / "stores.json").read_text(encoding="utf-8"))
     gj = json.loads((out_dir / "data" / "stores.geojson").read_text(encoding="utf-8"))
     meta = sj.get("meta", {})
@@ -148,28 +187,58 @@ def main():
             if key not in seen:
                 seen.add(key)
                 cities.append(f"{p['city']}, {p['state']}")
-        states = sorted({STATE_NAMES.get(p["state"], p["state"]) for p in live})
+        state_codes = sorted({p["state"] for p in live})
+        states = [STATE_NAMES.get(c, c) for c in state_codes]
 
         canon = f"{DOMAIN}/chain/{cid}/"
+        zh_canon = f"{DOMAIN}/zh/chain/{cid}/"
+        shown = cities[:60]
+
+        # --- English page ---
+        more = f" and {len(cities) - 60} more" if len(cities) > 60 else ""
         parts = [f'<h1>{t(name)}' + (f' <span class="zh" lang="zh-Hans">{t(zh)}</span>' if zh else "") + "</h1>"]
         if summary:
             parts.append(f'<p class="summary">{t(summary)}</p>')
         if cities:
-            shown = cities[:60]
-            more = f" and {len(cities) - 60} more" if len(cities) > 60 else ""
             parts.append(f'<p>Open in the US: {t("; ".join(shown))}{t(more)}.</p>')
         if states:
             parts.append(f'<p>US states with {t(name)} outlets: {t(", ".join(states))}.</p>')
         parts.append('<p><a href="/">Open the full US map →</a> · <a href="/intro.html">All chains →</a></p>')
-        body = "".join(parts)
-
-        page = transform(template, cid, title, desc, canon, body)
+        page = transform(template, cid, title, desc, canon, "".join(parts))
+        page = page.replace('<link rel="canonical"', _alts(canon, zh_canon) + '<link rel="canonical"', 1)
         dest = out_dir / "chain" / cid
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "index.html").write_text(page, encoding="utf-8")
         n += 1
 
-    print(f"prerendered {n} chain pages (/chain/<id>/)")
+        # --- Chinese twin (same data; the baked body is Chinese, English prose falls back) ---
+        if zh_tpl is not None:
+            nm_zh = zh or name
+            ztitle = (f"{zh}（{name}）在美国的门店 — 中国连锁在美门市" if zh
+                      else f"{name} 在美国的门店 — 中国连锁在美门市")
+            zcs = f"{outlets} 家门店在美国营业" if outlets else ""
+            if soon:
+                zcs += (f"，另有 {soon} 家已宣布" if zcs else f"{soon} 家已宣布，尚未开业")
+            zparts = ['<h1>' + (f'<span class="zh" lang="zh-Hans">{t(zh)}</span> ' if zh else "") + f'{t(name)}</h1>']
+            if zcs:
+                zparts.append(f'<p class="summary">{t(zcs)}。</p>')
+            if cities:
+                zmore = f"，另有 {len(cities) - 60} 个" if len(cities) > 60 else ""
+                zparts.append(f'<p>美国门店：{t("；".join(shown))}{t(zmore)}。</p>')
+            if state_codes:
+                st_zh = [cat.get("state." + c, STATE_NAMES.get(c, c)) for c in state_codes]
+                zparts.append(f'<p>已开门店所在州：{t("、".join(st_zh))}。</p>')
+            zparts.append('<p><a href="/zh/">打开美国全图 →</a> · <a href="/zh/intro.html">全部品牌 →</a></p>')
+            zdesc = (zcs + "。") if zcs else f"{nm_zh}：我们在美国追踪的中国品牌，含美国门店与海外分布。"
+            zpage = transform(zh_tpl, cid, ztitle, zdesc, zh_canon, "".join(zparts))
+            zpage = zpage.replace('<link rel="canonical"', _alts(canon, zh_canon) + '<link rel="canonical"', 1)
+            zpage = _zhlinks(zpage).replace('<base href="/zh/">', '<base href="/">')
+            zdest = out_dir / "zh" / "chain" / cid
+            zdest.mkdir(parents=True, exist_ok=True)
+            (zdest / "index.html").write_text(zpage, encoding="utf-8")
+
+    print(f"prerendered {n} chain pages (/chain/<id>/" +
+          (" + /zh/chain/<id>/" if zh_tpl is not None else "") + ")")
 
 
 if __name__ == "__main__":

@@ -71,10 +71,8 @@ rm -f "$TMP"/centers.js "$TMP"/data/centers.json
 echo "chainsfromchina.com" > "$TMP"/CNAME         # custom domain
 touch "$TMP"/.nojekyll                            # serve data/ and dot-paths as-is
 
-# SEO: regenerate sitemap.xml from the just-exported chain roster (static pages + every chain page),
-# with today's NY date as lastmod, so search engines see the current set on each deploy. robots.txt
-# (static, in map/) points crawlers here. Never fail the deploy over it.
-"$PY" scripts/gen_sitemap.py "$TMP" || echo "WARNING: sitemap generation failed"
+# (sitemap.xml is generated further below — after the Simplified-Chinese /zh/ tree is built — so it
+# can mirror every page's /zh/ twin with hreflang alternates. robots.txt (static) points crawlers here.)
 
 # Cache-bust local CSS/JS: append a per-deploy version query to every style.css/app.js
 # reference. Without this the CDN and browsers keep serving a stale stylesheet, so a redesign
@@ -92,6 +90,16 @@ ICONV="$(cat "$TMP"/icons/*.png 2>/dev/null | shasum | cut -c1-10)"
 DATAV="$(cat "$TMP"/data/*.json "$TMP"/us-states.geojson 2>/dev/null | shasum | cut -c1-10)"
 find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
   "s{(href=\"[\w.-]+\.css)\"}{\$1?v=$STAMP\"}g; s{(src=\"[\w.-]+\.js)\"}{\$1?v=$STAMP\"}g; s{__ICONV__}{$ICONV}g; s{__DATAV__}{$DATAV}g"
+
+# Simplified-Chinese mirror: build the /zh/ tree from the just-stamped English pages (one shared data
+# set via <base href="/">, baked [data-i18n], hreflang/canonical, /zh/-prefixed links) plus the
+# /zh-strings.js runtime catalog. Runs AFTER stamping so the zh pages inherit the stamped CSS/JS, and
+# BEFORE the sitemap + prerender so both pick up the zh tree. Never fail the deploy over it.
+"$PY" scripts/build_zh.py "$TMP" || echo "WARNING: zh mirror build failed"
+
+# SEO: regenerate sitemap.xml now (after build_zh) so it lists every page's English + /zh/ twin with
+# hreflang alternates, with today's NY date as lastmod. Never fail the deploy over it.
+"$PY" scripts/gen_sitemap.py "$TMP" || echo "WARNING: sitemap generation failed"
 
 # SEO: pre-render a real static page per chain at /chain/<id>/index.html from the just-stamped
 # chain.html template (unique title/description/canonical + crawlable body), so every chain indexes
