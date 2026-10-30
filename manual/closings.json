@@ -311,6 +311,55 @@
     },
     {
       "chain": "moge",
+      "name": "Montgomery Mall (Westfield Montgomery, Bethesda)",
+      "address": "7101 Democracy Blvd Spc 2154, Bethesda, MD 20817",
+      "city": "Bethesda",
+      "state": "MD",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Montgomery Mall (Westfield Montgomery food area); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
+      "chain": "moge",
+      "name": "Garden Grove (Chapman Ave, Pavilion Plaza)",
+      "address": "9820 Chapman Ave, Garden Grove, CA 92841",
+      "city": "Garden Grove",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Chapman (Pavilion Plaza); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing; removes it from the open count. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner (storefront still shows GRAND OPENING / OPEN banners in the listing photo — opened loudly, closed quietly). An aggregator status is recorded ONLY from a manually captured screenshot, never an automated query or scrape (platform ToS). Screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
       "name": "Long Beach (E Anaheim St)",
       "address": "4331 E Anaheim St, Long Beach, CA 90804",
       "city": "Long Beach",
