@@ -41,6 +41,8 @@ PERMANENTLY_CLOSED = {
     "140 little cypress drive ste 102, st johns, fl 32259",   # St Johns FL — Google: permanently closed (5 Oct 2026)
     "678 market st, lynnfield, ma 01940",                     # Lynnfield MA — Google: permanently closed (5 Oct 2026)
     "9820 chapman ave, garden grove, ca 92841",               # Garden Grove CA (Pavilion Plaza) — Google: permanently closed (31 Oct 2026)
+    "2000 guadalupe st, austin, tx 78705",                    # Austin TX — Google: permanently closed (31 Oct 2026)
+    "1919 north shepherd drive suite b, houston, tx 77008",   # Houston Heights TX — Google: permanently closed (31 Oct 2026)
 }
 
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
