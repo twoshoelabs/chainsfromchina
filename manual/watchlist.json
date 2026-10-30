@@ -16,7 +16,7 @@
   "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research.",
   "'us-flagship' = a single US brand-promotion flagship/showroom, NOT a chain — internal reference only, kept OFF the Register/census unless it becomes multi-store."
  ],
- "as_of": "2026-10-17",
+ "as_of": "2026-10-30",
  "categories": {
   "Tea": [
    {
@@ -826,6 +826,16 @@
     "markets": "",
     "note": "Home/lifestyle variety, contracted",
     "source": ""
+   },
+   {
+    "name": "MOMOTOY",
+    "name_zh": "MOMOTOY",
+    "hq": "Beijing (北京富有可期科技有限公司 / Fuyou Keqi)",
+    "china_stores": "unknown (young IP/art-toy brand)",
+    "status": "china",
+    "markets": "US (announced 2026, none open yet): Super Bowl 2026 'Hello World' pop-up; Toy Fair New York booth #6760 (Javits Center, Feb 14-17 2026); US launch event + North America first store announced for ~March 2026.",
+    "note": "Designer-toy / art-toy (潮玩) brand, same sector as Pop Mart / Top Toy / Rolife. Team from Tsinghua Academy of Fine Arts & Central Saint Martins. Core IPs: 墩墩兽 (Dundun Beast), 果核宇宙, 梨想身材, Diko 小迪, 双生元界, 绒林记. Named the US as its first global market. WATCH for its first PERMANENT US store — pop-ups/trade-show booths excluded (DREAME precedent). Added 2026-10-30.",
+    "source": "https://news.qq.com/rain/a/20260210A05NOT00"
    }
   ],
   "Grocery & convenience": [
