@@ -479,6 +479,18 @@
       "source": "Yelp listing (MaLuBianBian, 9102 Bellaire Blvd); brand site malubianbianhouston.com."
     },
     {
+      "chain": "malubianbian",
+      "name": "Seattle (Broadway, First Hill)",
+      "address": "120 Broadway, Seattle, WA 98122",
+      "city": "Seattle",
+      "state": "WA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "MLBB HOT POT Seattle (120 Broadway, First Hill, near Yesler Terrace); Google Business listing marked Permanently closed, observed 2026-10-30. Missed by the 18 Oct 2026 US closure sweep (never held as an open outlet). Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Operating-status read: Google Business listing 'MLBB HOT POT', 120 Broadway, Seattle, marked Permanently closed (hand screenshot 30 Oct 2026)."
+    },
+    {
       "chain": "heytea",
       "name": "Rowland Heights (Colima Rd)",
       "address": "18253 Colima Rd #103, Rowland Heights, CA 91748",
