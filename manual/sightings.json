@@ -2017,6 +2017,23 @@
    ]
   },
   {
+   "chain": "heytea",
+   "supplied_on": "2026-10-30",
+   "reviewed": "2026-10-30",
+   "source": "Operator-observed operating Google Business listing \"heytea gelato lab (863 Broadway Store)\" (hand screenshot, 30 Oct 2026).",
+   "scope": "HEYTEA (喜茶) gelato-concept store (its GELATO LAB format) at 863 Broadway on Union Square, Manhattan. Not previously held; nearest existing HEYTEA sightings are 128 2nd Ave and 10 Waverly Pl.",
+   "locations": [
+    {
+     "name": "HEYTEA gelato lab (863 Broadway)",
+     "address": "863 Broadway, New York, NY 10003",
+     "confidence": "confirmed",
+     "verified_by": "Operating Google Business listing \"heytea gelato lab (863 Broadway Store)\" open, 4.6 / 158 reviews (hand screenshot 30 Oct 2026)",
+     "lat": 40.737438,
+     "lon": -73.990313
+    }
+   ]
+  },
+  {
    "chain": "shuyi",
    "supplied_on": "2026-10-04",
    "reviewed": "2026-10-04",
