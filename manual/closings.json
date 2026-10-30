@@ -311,6 +311,18 @@
     },
     {
       "chain": "moge",
+      "name": "Long Beach (E Anaheim St)",
+      "address": "4331 E Anaheim St, Long Beach, CA 90804",
+      "city": "Long Beach",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Long Beach; closed on the ground. Google Business listing shows 'Temporarily closed' and Yelp shows 'Yelpers report this location has closed' (both hand-observed 31 Oct 2026). NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "confidence": "uncertain",
+      "source": "Google Business listing ('Temporarily closed') and Yelp listing ('Yelpers report this location has closed'), both hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
+      "chain": "moge",
       "name": "Lynnfield (MarketStreet)",
       "address": "678 Market St, Lynnfield, MA 01940",
       "city": "Lynnfield",
