@@ -27,6 +27,14 @@ _INPUT = quote(json.dumps({"0": {"json": None, "meta": {"values": ["undefined"]}
 ENDPOINT = f"https://join.mixueusfranchise.com/api/trpc/stores.getAll?batch=1&input={_INPUT}"
 EXPECTED_MIN = 5
 
+# Stores Mixue's own feed still marks coming_soon but that are OPEN and trading on the ground
+# (operator-verified against Google's live listing). We force them trading rather than leave a real
+# open store out of the count while Mixue's API lags. Keyed by Mixue store id; remove an entry once
+# the feed flips it to "open".
+FORCE_TRADING = {
+    "120001",   # Diamond Bar CA (1223 S Diamond Bar Blvd) — open per Google (11 reviews, 31 Oct 2026)
+}
+
 
 class MixueAdapter(Adapter):
     chain_id, name, name_zh = "mixue", "MIXUE", "蜜雪冰城"
@@ -58,7 +66,7 @@ class MixueAdapter(Adapter):
                 city=city, state=st, zip=zc,
                 lat=float(lat) if lat not in (None, "") else None,
                 lon=float(lon) if lon not in (None, "") else None,
-                trading=(s.get("status") == "open"),
+                trading=(s.get("status") == "open" or str(s["id"]) in FORCE_TRADING),
                 flags={"status": s.get("status"), "openingDate": s.get("openingDate")}))
         return out
 
