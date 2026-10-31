@@ -661,17 +661,18 @@ function countUp(els, to, from, dur){
   }
 }
 
-// Pick the start value and spin, on every load. Backs up only to about a week ago (prevTotal) —
-// never from zero, never further — so the climb is short and always seen.
+// Pick the start value and spin, on every load. Prefer the real ~week-ago figure (prevTotal); but a
+// flat or contracting week gives too small (or negative) a delta to read as a spin, so guarantee a
+// minimum climb by backing up a fixed amount. The start point is animation only — the real figure is
+// never changed (countUp sets aria-label to the true total, and reduced motion just shows it).
 function animateGrandTotal(outlets, prevTotal){
   const els = [$('hero-num'), $('L-open')];
-  const from = (prevTotal>0 && prevTotal<outlets) ? prevTotal : 0;
-  if (from>0){
-    const dur = Math.min(900, Math.max(650, (outlets-from)*16));   // quick, but long enough to read as a spin
-    countUp(els, outlets, from, dur);
-  } else {
-    els.forEach(el=> el && (el.textContent = fmt(outlets)));        // no sane backup figure -> just show it
-  }
+  if (!(outlets>0)){ els.forEach(el=> el && (el.textContent = fmt(outlets))); return; }
+  const MIN_SPIN = 20;                                             // always climb at least this far
+  let from = (prevTotal>0 && prevTotal<outlets) ? prevTotal : outlets;
+  if (outlets - from < MIN_SPIN) from = Math.max(0, outlets - MIN_SPIN);
+  const dur = Math.min(900, Math.max(650, (outlets-from)*16));     // quick, but long enough to read as a spin
+  countUp(els, outlets, from, dur);
 }
 
 (async function () {
