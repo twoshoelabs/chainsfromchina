@@ -1725,6 +1725,17 @@
    "franchise_available_us": 1,
    "fdd_available": 0,
    "franchise_note": "China 过桥米线 chain (ShiMiaoDao 十秒到), HQ Hangzhou; rapid US franchise/partner expansion. No US FDD confirmed yet."
+  },
+  "zhuguangyu": {
+   "name": "Zhu Guang Yu Hotpot",
+   "name_zh": "朱光玉火锅馆",
+   "aliases": [
+    "Zhu Guang Yu",
+    "Zhu Guang Yu Hot Pot",
+    "Zhuguangyu"
+   ],
+   "format": "hotpot",
+   "global": "Chongqing retro-themed Sichuan hot-pot chain (founded 2020 in Chongqing; ~243 China outlets by 2024; parent 重庆朱光玉餐饮管理有限公司). Overseas launch via Malaysia: a 2,500 m² Kuala Lumpur flagship opened Aug 2025, set as its Southeast-Asia headquarters, with a second Malaysia outlet in Nov 2025. A Melbourne (Australia) store and a Dubai (UAE) store were announced for late 2025. No US presence."
   }
  },
  "entries": [
@@ -9704,6 +9715,50 @@
    "sources": [
     "https://www.yzwb.net/news/ch/202609/t20260929_398212.html",
     "https://www.chapanda.com/"
+   ]
+  },
+  {
+   "chain": "zhuguangyu",
+   "market": "MY",
+   "status": "present",
+   "locations": 2,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-10-31",
+   "locations_as_of": "2026-10",
+   "note": "Launched in Kuala Lumpur Aug 2025 with a 2,500 m² flagship (its Southeast-Asia HQ); a second Malaysia outlet opened Nov 2025. The Bukit Bintang branch (119 Jln Pudu) is operator-observed on Google (4.6, ~1.6K reviews, open).",
+   "sources": [
+    "https://news.qq.com/rain/a/20250819A07KEG00",
+    "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html"
+   ]
+  },
+  {
+   "chain": "zhuguangyu",
+   "market": "AU",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-31",
+   "note": "A Melbourne store was announced for late 2025 (Dec) per a Nov 2025 Xinhua report; opening not yet confirmed.",
+   "sources": [
+    "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html"
+   ]
+  },
+  {
+   "chain": "zhuguangyu",
+   "market": "AE",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-31",
+   "note": "A Dubai first store was reported in preparation (Nov 2025); opening not yet confirmed.",
+   "sources": [
+    "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html"
    ]
   }
  ]
