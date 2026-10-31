@@ -2968,14 +2968,6 @@
      "lon": -71.028401
     },
     {
-     "name": "Irvine Spectrum Center",
-     "address": "670 Spectrum Center Dr Suite 751, Irvine, CA 92618",
-     "confidence": "confirmed",
-     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026; coords are a manual mall-centroid override (Census no match)",
-     "lat": 33.6497,
-     "lon": -117.7447
-    },
-    {
      "name": "Alderwood Mall (Lynnwood)",
      "address": "3000 184th St SW Suite 0918, Lynnwood, WA 98037",
      "confidence": "confirmed",

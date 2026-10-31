@@ -1209,6 +1209,18 @@
           "note": "Rolife's own store list still names this location (at a stale wholesale address)."
         }
       ]
+    },
+    {
+      "chain": "rolife",
+      "name": "Irvine Spectrum Center",
+      "address": "670 Spectrum Center Dr Ste 751, Irvine, CA 92618",
+      "city": "Irvine",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Rolife Irvine Spectrum Center; Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026. Removed from our open sightings (Rolife is hand-tracked) so it drops from the count and map; recorded as a closure per operator policy. Temporary signal — re-verify whether it reopens or flips to permanently closed. Rolife's own 'where to buy' list still named it (14 Oct 2026).",
+      "confidence": "uncertain",
+      "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
     }
   ]
 }
