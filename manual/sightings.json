@@ -2554,6 +2554,24 @@
    ]
   },
   {
+   "chain": "moge",
+   "supplied_on": "2026-10-31",
+   "reviewed": "2026-10-31",
+   "source": "Operator-observed operating Google listing (store not currently on mogeteeusa.com's collected locator).",
+   "scope": "A Moge Tee (愿茶) outlet the daily collected feed (mogeteeusa.com) misses: Orlando (Vista). Hand-verified so it still maps; auto-retires if the locator later lists it.",
+   "locations": [
+    {
+     "name": "Orlando (Vista Centre Shoppes)",
+     "address": "8558 Palm Pkwy, Orlando, FL 32836",
+     "confidence": "confirmed",
+     "verified_by": "Operator-observed operating Google Business listing \"MOGE TEE - Vista\" open, 4.1 / 141 reviews (hand screenshot 31 Oct 2026); brand site mogeteeusa.com.",
+     "lat": 28.384187,
+     "lon": -81.501563,
+     "coord_src": "Google Maps plus code 9FMX+M9 (decoded)"
+    }
+   ]
+  },
+  {
    "chain": "quanjude",
    "supplied_on": "2026-10-10",
    "reviewed": "2026-10-10",

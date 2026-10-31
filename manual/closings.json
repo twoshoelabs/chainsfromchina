@@ -385,6 +385,18 @@
     },
     {
       "chain": "moge",
+      "name": "San Antonio (Highland Hills, McCreless Corner)",
+      "address": "4138 New Braunfels Ave Ste 103, San Antonio, TX 78223",
+      "city": "San Antonio",
+      "state": "TX",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee - Highland Hills (McCreless Corner Shopping Center); closed. Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026; brand site mogeteeusa.com. NOT on Moge Tee's own locator, so it never entered our open census — no count change. Recorded as a closure on operator assessment; re-verify whether it reopens or flips to permanently closed.",
+      "confidence": "uncertain",
+      "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
+      "chain": "moge",
       "name": "Montgomery Mall (Westfield Montgomery, Bethesda)",
       "address": "7101 Democracy Blvd Spc 2154, Bethesda, MD 20817",
       "city": "Bethesda",
