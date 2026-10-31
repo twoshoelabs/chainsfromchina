@@ -1172,6 +1172,43 @@
       "opened": null,
       "closed_on": "2026-10-26",
       "closed_note": "Google Maps 永久歇業 / Permanently closed (4.3/215 reviews), tensecondsdenver.com. Was counted; removed. Owner screenshot 26 Oct 2026."
+    },
+    {
+      "chain": "rolife",
+      "name": "Galleria Dallas",
+      "address": "13350 Dallas Pkwy Ste 2230A, Dallas, TX 75240",
+      "city": "Dallas",
+      "state": "TX",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Rolife Galleria Dallas (mall retail store); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Removed from our open sightings (Rolife is hand-tracked, not locator-collected), so it drops from the count and the map. Rolife's own 'where to buy' list still names a 'Rolife Galleria Dallas' at a stale wholesale address (7410 Ambassador Row) — the open-loudly/close-quietly gap. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot (platform ToS)."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "Rolife 'where to buy' list",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Rolife's own store list still names this location (at a stale wholesale address)."
+        }
+      ]
     }
   ]
 }

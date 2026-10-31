@@ -3009,14 +3009,6 @@
      "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores."
     },
     {
-     "name": "Galleria Dallas",
-     "address": "13350 Dallas Pkwy Ste 2230A, Dallas, TX 75240",
-     "confidence": "confirmed",
-     "verified_by": "Google Business 'Rolife' operating, located in Galleria Dallas (5.0/1, Opens 10AM); brand locator names this store 'Rolife Galleria Dallas' but lists a stale/wholesale address (7410 Ambassador Row, Dallas Market Center district) — corrected to the actual mall retail address per Google (operator-observed 16 Oct 2026)",
-     "lat": 32.9305062,
-     "lon": -96.8209979
-    },
-    {
      "name": "Palisades Center (West Nyack)",
      "address": "1000 Palisades Center Dr, West Nyack, NY 10994",
      "confidence": "confirmed",
