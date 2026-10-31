@@ -1245,6 +1245,18 @@
       "closed_note": "MIXUE San Mateo; Google Business listing shows 'Temporarily closed' (5.0/1), hand-observed 31 Oct 2026. We hold this as pre_opening (announced, not yet counted) from Mixue's own locator, so no count change — the planned opening appears stalled or it opened only briefly. Mixue is adapter-collected, so the live roster status will resolve on its own; this is a hand note of the temp-closed signal. Re-verify whether it opens or goes permanently closed.",
       "confidence": "uncertain",
       "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
+    },
+    {
+      "chain": "dreame",
+      "name": "Brea Mall",
+      "address": "1065 Brea Mall Level 1, Brea, CA 92821",
+      "city": "Brea",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "DREAME Brea Mall; permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT previously held in our DREAME roster (we track Century City, UTC San Diego, Valley Fair, and Garden State Plaza Paramus), so no count change. A DREAME retail store that opened and closed without us capturing it. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026."
     }
   ]
 }
