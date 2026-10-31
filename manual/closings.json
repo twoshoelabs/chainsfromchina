@@ -494,6 +494,301 @@
       ]
     },
     {
+      "chain": "moge",
+      "name": "East Village (Cooper Sq)",
+      "address": "69 Cooper Sq, New York, NY 10003",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee East Village (Cooper Sq); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Chinatown (Canal St)",
+      "address": "90 Canal St, New York, NY 10002",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Chinatown (Canal St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Downtown Brooklyn (Lawrence St)",
+      "address": "140 Lawrence St, Brooklyn, NY 11201",
+      "city": "Brooklyn",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Downtown Brooklyn (Lawrence St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Flushing (38-03 Main St)",
+      "address": "38-03 Main St, Flushing, NY 11354",
+      "city": "Flushing",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Flushing (38-03 Main St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Williamsburg (N 4th St)",
+      "address": "76 N 4th St Store B, Brooklyn, NY 11249",
+      "city": "Brooklyn",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Williamsburg (N 4th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Brooklyn (705 59th St)",
+      "address": "705 59th St, Brooklyn, NY 11220",
+      "city": "Brooklyn",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Brooklyn (705 59th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Newark (Market St)",
+      "address": "194 Market St, Newark, NJ 07102",
+      "city": "Newark",
+      "state": "NJ",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Newark (Market St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Midtown (W 39th St)",
+      "address": "302 W 39th St, New York, NY 10018",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Midtown (W 39th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
+      "chain": "moge",
+      "name": "Fifth Avenue (275 5th Ave)",
+      "address": "275 5th Ave, New York, NY 10016",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Fifth Avenue (275 5th Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
+      "chain": "moge",
+      "name": "Greenwich Village (Bleecker St)",
+      "address": "168 Bleecker St, New York, NY 10012",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Greenwich Village (Bleecker St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+    },
+    {
       "chain": "dalongyi",
       "name": "Seattle (Woodlawn Ave NE)",
       "address": "7119 Woodlawn Ave NE, Seattle, WA 98115",

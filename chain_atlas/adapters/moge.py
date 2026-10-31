@@ -43,6 +43,13 @@ PERMANENTLY_CLOSED = {
     "9820 chapman ave, garden grove, ca 92841",               # Garden Grove CA (Pavilion Plaza) — Google: permanently closed (31 Oct 2026)
     "2000 guadalupe st, austin, tx 78705",                    # Austin TX — Google: permanently closed (31 Oct 2026)
     "1919 north shepherd drive suite b, houston, tx 77008",   # Houston Heights TX — Google: permanently closed (31 Oct 2026)
+    "69 cooper sq, new york, ny 10003",                       # East Village NY — Google: permanently closed (31 Oct 2026)
+    "90 canal st, new york, ny 10002",                        # Chinatown (Canal St) NY — Google: permanently closed (31 Oct 2026)
+    "140 lawrence st, brooklyn, ny 11201",                    # Downtown Brooklyn NY — Google: permanently closed (31 Oct 2026)
+    "38-03 main st, flushing, ny 11354",                      # Flushing (38-03 Main) NY — Google: permanently closed (31 Oct 2026)
+    "76 n 4th st, brooklyn, ny 11249",                        # Williamsburg NY — Google: permanently closed (31 Oct 2026)
+    "705 59th st unit d, brooklyn, ny 11220",                 # Brooklyn (705 59th) NY — Google: permanently closed (31 Oct 2026)
+    "194 market street, newark, nj",                          # Newark NJ — Google: permanently closed (31 Oct 2026)
 }
 
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
