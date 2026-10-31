@@ -2541,6 +2541,15 @@
      "lat": 39.9266,
      "lon": -75.0322,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
+    },
+    {
+     "name": "Rockville",
+     "address": "860 Festival St, Rockville, MD 20852",
+     "confidence": "confirmed",
+     "verified_by": "Operator-observed operating Google Business listing \"Molly Tea (Rockville)\" open, 4.8 / 779 reviews (hand screenshot 31 Oct 2026); brand site usa.mollytea.com. Molly Tea's first DC-area outlet.",
+     "lat": 39.063187,
+     "lon": -77.124188,
+     "coord_src": "Google Maps plus code 3V7G+78 (decoded)"
     }
    ]
   },
