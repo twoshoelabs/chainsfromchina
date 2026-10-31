@@ -1736,6 +1736,18 @@
    ],
    "format": "hotpot",
    "global": "Chongqing retro-themed Sichuan hot-pot chain (founded 2020 in Chongqing; ~243 China outlets by 2024; parent 重庆朱光玉餐饮管理有限公司). Overseas launch via Malaysia: a 2,500 m² Kuala Lumpur flagship opened Aug 2025, set as its Southeast-Asia headquarters, with a second Malaysia outlet in Nov 2025. A Melbourne (Australia) store and a Dubai (UAE) store were announced for late 2025. No US presence."
+  },
+  "sparkora": {
+   "name": "Sparkora BBQ",
+   "name_zh": "焰请·烤肉铺子",
+   "aliases": [
+    "Yanqing",
+    "焰请烤肉铺子",
+    "Yanqing BBQ",
+    "Sparkora"
+   ],
+   "format": "restaurant",
+   "global": "Haidilao Group's first barbecue sub-brand (Chinese name 焰请·烤肉铺子; trades overseas as 'Sparkora BBQ'). China-origin — first store Xi'an (高新万达广场), trial-opened Dec 2023 — expanding across new-first-tier cities (Hangzhou, etc.); beef-focused, party-themed with live DJs and in-store hair-braiding/washing. Operated by 四川悦食悦嗨餐饮管理有限公司 (75% held by a Haidilao subsidiary). Overseas from 2025: Malaysia (Sunway Pyramid + Sutera Mall, Johor Bahru) and Indonesia (Jakarta, Emporium Pluit). No US presence."
   }
  },
  "entries": [
@@ -9760,6 +9772,37 @@
    "sources": [
     "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html"
    ]
+  },
+  {
+   "chain": "sparkora",
+   "market": "MY",
+   "status": "present",
+   "locations": 2,
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-10-31",
+   "locations_as_of": "2026-10",
+   "note": "First overseas outlet at Sunway Pyramid (Petaling Jaya, Selangor), opened June 2025; a second at Sutera Mall (Johor Bahru). Operator-observed Google listing (4.9, ~2.8K reviews, open) + mall directory.",
+   "sources": [
+    "https://thesun.my/spotlight/new-opening-barbecue-brand-under-haidilao-group-sparkora-bbq-arrives-in-malaysia-OA14146899",
+    "https://www.sunwaypyramid.com/directory/sparkora-bbq"
+   ]
+  },
+  {
+   "chain": "sparkora",
+   "market": "ID",
+   "status": "present",
+   "locations": 1,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-10-31",
+   "note": "Jakarta outlet at Emporium Pluit Mall (North Jakarta), reported opening ~late 2025; re-verify store status.",
+   "sources": [
+    "https://speand.blogspot.com/2025/10/sparkora-bbq-emporium.html"
+   ],
+   "locations_as_of": "2026-10"
   }
  ]
 }
