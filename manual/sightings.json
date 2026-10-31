@@ -2034,6 +2034,33 @@
    ]
   },
   {
+   "chain": "heytea",
+   "supplied_on": "2026-10-31",
+   "reviewed": "2026-10-31",
+   "source": "Operator-observed operating Google Business listings (hand screenshots, 31 Oct 2026); stores not previously held in our HEYTEA roster.",
+   "scope": "Two San Diego-metro HEYTEA (喜茶) stores we were missing: Westfield UTC (La Jolla Village Dr) and Del Mar (One Paseo). Both open on Google.",
+   "locations": [
+    {
+     "name": "HEYTEA (Westfield UTC)",
+     "address": "4545 La Jolla Village Dr Ste E5, San Diego, CA 92122",
+     "confidence": "confirmed",
+     "verified_by": "Operating Google Business listing \"heytea (Westfield UTC)\" open, 3.5 / 166 reviews (hand screenshot 31 Oct 2026)",
+     "lat": 32.87042,
+     "lon": -117.209984,
+     "coord_src": "Nominatim (4545 La Jolla Village Dr)"
+    },
+    {
+     "name": "HEYTEA (Del Mar, One Paseo)",
+     "address": "12925 El Camino Real AA2, San Diego, CA 92130",
+     "confidence": "confirmed",
+     "verified_by": "Operating Google Business listing \"heytea (Del Mar)\" open, 4.3 / 261 reviews (hand screenshot 31 Oct 2026)",
+     "lat": 32.952585,
+     "lon": -117.232515,
+     "coord_src": "Nominatim (12925 El Camino Real)"
+    }
+   ]
+  },
+  {
    "chain": "shuyi",
    "supplied_on": "2026-10-04",
    "reviewed": "2026-10-04",
