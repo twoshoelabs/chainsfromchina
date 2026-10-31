@@ -1,0 +1,91 @@
+/* Chains From China — shared design system (Oct 2026 newspaper redesign).
+   Pairs with site.js, which injects the nameplate header on every page. Loaded after each page's
+   own CSS. Tokens here match the home page (index.html). */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Serif+SC:wght@500&family=Schibsted+Grotesk:wght@400..900&display=swap');
+
+:root {
+  --ground:#E3E5E1; --ink:#0E0F0E; --ink-2:#2E302D; --muted:#4F524E;
+  --grey-mid:#6E716C; --grey-light:#A3A6A1; --grey-base:#B3B6B1;
+  --map-dot:#C4C7C2; --map-ground:#EDEFEB; --paper:#FFFFFF;
+  --accent:#C94A35; --accent-text:#B8301C;
+  --sans:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --cond:'Archivo','Helvetica Neue',sans-serif;
+  --zh:'Noto Serif SC',serif;
+  /* sector rings, fixed order (kept for the map + chips) */
+  --sec-tea:#5E8C3A; --sec-coffee:#7A4E2D; --sec-food_drink:#B5462E; --sec-bakery:#C08A2B;
+  --sec-snacks:#D0702A; --sec-grocery_convenience:#2F8C8C; --sec-apparel:#6B4FA0;
+  --sec-beauty:#C4577A; --sec-lifestyle_variety:#2F5FA8; --sec-electronics:#3C7A9A; --sec-home:#7A8C3A;
+}
+
+/* ---- Nameplate header (injected by site.js as <header class="site-nav">) ------------------ */
+.site-nav { position:static; display:block; background:var(--ground); color:var(--ink);
+  max-width:1440px; width:100%; margin:0 auto; padding:14px clamp(16px,3vw,44px) 0; box-sizing:border-box;
+  border:0; font-family:var(--sans); white-space:normal; }
+.site-nav > * { max-width:none; margin:0; }
+.site-nav .np-issue { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 24px;
+  font-size:12px; color:var(--ink-2); padding-bottom:10px; border-bottom:1px solid var(--ink); }
+.site-nav .np-issue .np-sub { display:none; }
+@media (min-width:720px){ .site-nav .np-issue .np-sub { display:inline; } }
+.site-nav .np-row { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+  gap:10px 32px; padding:14px 0 12px; border-bottom:3px solid var(--ink); }
+.site-nav .np-wm { display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); }
+.site-nav .np-mark { font-family:var(--cond); font-stretch:62%; font-weight:900;
+  font-size:clamp(34px,5vw,64px); letter-spacing:-0.01em; line-height:.9; }
+.site-nav .np-zh { font-family:var(--zh); font-weight:500; font-size:18px; color:var(--muted); }
+.site-nav .np-nav { display:flex; flex-wrap:wrap; gap:0 22px; font-size:15px; font-weight:500; }
+.site-nav .np-nav a { padding:10px 0; text-decoration:none; color:var(--ink-2); }
+.site-nav .np-nav a:hover { color:var(--ink); }
+.site-nav .np-nav a[aria-current="page"] { color:var(--ink); text-decoration:underline;
+  text-decoration-thickness:2px; text-underline-offset:6px; }
+
+/* ---- Census eyebrow (the "Updated …" line, where a page still uses it) --------------------- */
+.census-line { font:400 12px/1.5 var(--sans); color:var(--muted); }
+
+/* ---- ⌘K search overlay -------------------------------------------------------------------- */
+.cfc-searchmodal { position:fixed; inset:0; z-index:2000; background:rgba(14,15,14,.45);
+  display:flex; align-items:flex-start; justify-content:center; padding:12vh 16px 16px; }
+.cfc-searchmodal[hidden] { display:none; }
+.cfc-sm-box { width:min(560px,100%); background:var(--ground); color:var(--ink); border:1px solid var(--ink);
+  overflow:hidden; font-family:var(--sans); }
+.cfc-sm-top { display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--ink); }
+.cfc-sm-top input { flex:1; border:0; font:1.05rem var(--sans); outline:none; background:transparent; color:var(--ink); }
+.cfc-sm-top kbd { font:500 11px var(--sans); color:var(--muted); border:1px solid var(--muted); padding:2px 6px; }
+.cfc-sm-list { max-height:56vh; overflow:auto; padding:6px; }
+.cfc-sm-grp { font:600 .66rem var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding:11px 10px 6px; }
+.cfc-sm-opt { display:flex; align-items:center; gap:10px; padding:10px; cursor:pointer; min-height:40px; }
+.cfc-sm-opt[aria-selected="true"], .cfc-sm-opt:hover { background:rgba(201,74,53,.12); }
+.cfc-sm-opt .ring { width:16px; height:16px; border-radius:50%; border:2px solid; flex:0 0 auto; }
+.cfc-sm-opt .nm { flex:1; } .cfc-sm-opt .meta { color:var(--muted); font-size:.8rem; } .cfc-sm-opt .ic { opacity:.5; }
+.cfc-sm-none, .cfc-sm-note { padding:12px; color:var(--muted); font-size:.9rem; }
+.cfc-sm-none b, .cfc-sm-note b { color:var(--ink); }
+
+/* ---- Status markers (flattened: square, hairline — no pill fills) -------------------------- */
+.cfc-badge { display:inline-flex; align-items:center; gap:5px; font:600 11px/1 var(--sans);
+  letter-spacing:.03em; text-transform:uppercase; padding:3px 6px; border-radius:0;
+  border:1px solid var(--ink); color:var(--ink); background:transparent; }
+.cfc-badge.counted { color:var(--ink); border-color:var(--ink); }
+.cfc-badge.hand { color:var(--muted); border-color:var(--muted); }
+.cfc-badge.announced { color:var(--accent-text); border-color:var(--accent-text); }
+.cfc-badge.pro { color:var(--ink); border-color:var(--ink); }
+.cfc-badge.modeled { color:var(--accent-text); border-color:var(--accent-text); border-style:dashed; }
+
+/* ---- Map + brand-list loading state ------------------------------------------------------- */
+.map-loading { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font:500 14px/1 var(--sans); background:var(--map-ground); }
+.tally-skel { display:flex; flex-direction:column; gap:10px; padding:6px 2px; }
+.tally-skel .skelrow { height:26px; background:linear-gradient(90deg,#d7dad5 25%,#e3e5e1 37%,#d7dad5 63%);
+  background-size:400% 100%; animation:cfcshimmer 1.3s ease infinite; }
+@keyframes cfcshimmer { 0% { background-position:100% 0; } 100% { background-position:0 0; } }
+
+/* ---- MapLibre controls + popup on sub-page maps (chain profile) → page tokens -------------- */
+.maplibregl-ctrl-group { background:var(--ground); border:1.5px solid var(--ink); border-radius:0; box-shadow:none; }
+.maplibregl-ctrl-group button { width:44px; height:44px; background:var(--ground); }
+.maplibregl-ctrl-group button + button { border-top:1px solid var(--ink); }
+.maplibregl-ctrl button:hover { background:#D7DAD5; }
+.maplibregl-popup-content { background:var(--ground); color:var(--ink); border:1.5px solid var(--ink);
+  border-radius:0; box-shadow:none; font-family:var(--sans); padding:12px 14px; font-size:14px; }
+.maplibregl-popup-tip { display:none; }
+.maplibregl-popup-close-button { color:var(--muted); font-size:18px; }
+.maplibregl-ctrl-scale { background:transparent; border:1.5px solid var(--ink); border-top:0; color:var(--ink); font:11px var(--sans); }
+.maplibregl-ctrl-attrib { background:rgba(227,229,225,.82); font-size:10px; }
+.maplibregl-ctrl-attrib a { color:var(--muted); }
