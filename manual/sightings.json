@@ -2061,6 +2061,24 @@
    ]
   },
   {
+   "chain": "heytea",
+   "supplied_on": "2026-10-31",
+   "reviewed": "2026-10-31",
+   "source": "Operator-observed operating Google Business listing \"heytea (Edison Festival Plaza)\" (hand screenshot, 31 Oct 2026); not previously held.",
+   "scope": "HEYTEA (喜茶) at Edison Festival Plaza, Edison NJ (1731 Lincoln Hwy) — a store we were missing. Distinct from the Molly Tea at 1777 NJ-27 nearby.",
+   "locations": [
+    {
+     "name": "HEYTEA (Edison Festival Plaza)",
+     "address": "1731 Lincoln Hwy, Edison, NJ 08817",
+     "confidence": "confirmed",
+     "verified_by": "Operating Google Business listing \"heytea (Edison Festival Plaza)\" open, 4.1 / 314 reviews (hand screenshot 31 Oct 2026)",
+     "lat": 40.512607,
+     "lon": -74.407863,
+     "coord_src": "Nominatim (HeyTea, 1731 Lincoln Hwy)"
+    }
+   ]
+  },
+  {
    "chain": "shuyi",
    "supplied_on": "2026-10-04",
    "reviewed": "2026-10-04",
