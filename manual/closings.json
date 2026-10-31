@@ -789,6 +789,117 @@
       "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
     },
     {
+      "chain": "moge",
+      "name": "Allston (Brighton Ave)",
+      "address": "164 Brighton Ave, Boston, MA 02134",
+      "city": "Boston",
+      "state": "MA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Allston (Brighton Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Seattle (University Way, U District)",
+      "address": "4334 University Way NE, Seattle, WA 98105",
+      "city": "Seattle",
+      "state": "WA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Seattle (University Way, U District); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
+      "chain": "moge",
+      "name": "Hermosa Beach (Hermosa Ave)",
+      "address": "1411 Hermosa Ave, Hermosa Beach, CA 90254",
+      "city": "Hermosa Beach",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Moge Tee Hermosa Beach (Hermosa Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+      "confidence": "confirmed",
+      "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
+      "known_closed_on": "2026-10-31",
+      "still_listed": true,
+      "still_listed_through": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "signal": "permanently_closed",
+          "source": "Google Business listing",
+          "source_type": "aggregator",
+          "method": "manual_screenshot",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "Hand-observed 'Permanently closed' banner. Aggregator status recorded ONLY from a manual screenshot, never an automated query (platform ToS); screenshot to be filed to the internal evidence store."
+        },
+        {
+          "date": "2026-10-31",
+          "signal": "listed_active",
+          "source": "mogeteeusa.com store locator",
+          "source_type": "first_party_locator",
+          "method": "manual_check",
+          "evidence_status": "pending",
+          "evidence_ref": null,
+          "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+        }
+      ]
+    },
+    {
       "chain": "dalongyi",
       "name": "Seattle (Woodlawn Ave NE)",
       "address": "7119 Woodlawn Ave NE, Seattle, WA 98115",

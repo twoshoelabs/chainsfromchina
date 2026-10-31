@@ -50,6 +50,9 @@ PERMANENTLY_CLOSED = {
     "76 n 4th st, brooklyn, ny 11249",                        # Williamsburg NY — Google: permanently closed (31 Oct 2026)
     "705 59th st unit d, brooklyn, ny 11220",                 # Brooklyn (705 59th) NY — Google: permanently closed (31 Oct 2026)
     "194 market street, newark, nj",                          # Newark NJ — Google: permanently closed (31 Oct 2026)
+    "164 brighton ave, boston, ma 02134",                     # Allston (Boston) MA — Google: permanently closed (31 Oct 2026)
+    "4334 university way northeast, seattle, wa 98105",       # Seattle (U District) WA — Google: permanently closed (31 Oct 2026)
+    "1411 hermosa ave, hermosa beach, ca",                    # Hermosa Beach CA — Google: permanently closed (31 Oct 2026)
 }
 
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
