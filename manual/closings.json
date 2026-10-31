@@ -1233,6 +1233,18 @@
       "closed_note": "HEYTEA Bayside; Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026. NOT previously held in our HEYTEA roster, so no count change. Recorded per operator flag; re-verify whether it reopens or flips to permanently closed. (Distinct from the Moge Tee Bayside at 43-19 Bell Blvd.)",
       "confidence": "uncertain",
       "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
+    },
+    {
+      "chain": "mixue",
+      "name": "San Mateo (B Street)",
+      "address": "110 South B Street, San Mateo, CA 94401",
+      "city": "San Mateo",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "MIXUE San Mateo; Google Business listing shows 'Temporarily closed' (5.0/1), hand-observed 31 Oct 2026. We hold this as pre_opening (announced, not yet counted) from Mixue's own locator, so no count change — the planned opening appears stalled or it opened only briefly. Mixue is adapter-collected, so the live roster status will resolve on its own; this is a hand note of the temp-closed signal. Re-verify whether it opens or goes permanently closed.",
+      "confidence": "uncertain",
+      "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
     }
   ]
 }
