@@ -1221,6 +1221,18 @@
       "closed_note": "Rolife Irvine Spectrum Center; Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026. Removed from our open sightings (Rolife is hand-tracked) so it drops from the count and map; recorded as a closure per operator policy. Temporary signal — re-verify whether it reopens or flips to permanently closed. Rolife's own 'where to buy' list still named it (14 Oct 2026).",
       "confidence": "uncertain",
       "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
+    },
+    {
+      "chain": "heytea",
+      "name": "Bayside (Bell Blvd)",
+      "address": "47-42 Bell Blvd, Bayside, NY 11361",
+      "city": "Bayside",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "HEYTEA Bayside; Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026. NOT previously held in our HEYTEA roster, so no count change. Recorded per operator flag; re-verify whether it reopens or flips to permanently closed. (Distinct from the Moge Tee Bayside at 43-19 Bell Blvd.)",
+      "confidence": "uncertain",
+      "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026."
     }
   ]
 }
