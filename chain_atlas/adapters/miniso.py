@@ -62,6 +62,22 @@ SPLIT_KM = 2.0
 _REAL_CODE = re.compile(r"US[A-Z0-9]{2,4}\Z")
 CLOSED_CODE = "Closed"
 
+# Stores that are shut on the ground but that Miniso's CMS still carries with a live code (it has
+# not yet flipped them to storeCode "Closed"). Operator-verified against Google's listing. Keyed by
+# this project's normalised address (norm_addr), trailing " USA" stripped. Drop an entry only once
+# a replacement store is actually trading there — e.g. a pre-listed mall return opening.
+PERMANENTLY_CLOSED = frozenset({
+    # Westfield Montgomery #1340, Bethesda MD — Google shows the unit permanently closed; MINISO
+    # relocated to Federal Plaza, Rockville (open). A return to the mall is only "coming soon".
+    "7101 DEMOCRACY BLVD STE 1340 BETHESDA MD 20817",
+})
+
+
+def _norm_row_addr(item) -> str:
+    addr = (item.get("plainTextAddress") or
+            (item.get("address") or {}).get("formatted") or "")
+    return (norm_addr(addr) or "").removesuffix(" USA")
+
 
 def _km(a, b):
     if not a or not b:
@@ -129,7 +145,9 @@ class MinisoAdapter(Adapter):
 
     def parse(self, raw) -> list[StoreRecord]:
         d = json.loads(raw) if isinstance(raw, (str, bytes)) else raw
-        rows = [r for r in (d.get("items") or []) if (r.get("storeCode") or "") != CLOSED_CODE]
+        rows = [r for r in (d.get("items") or [])
+                if (r.get("storeCode") or "") != CLOSED_CODE
+                and _norm_row_addr(r) not in PERMANENTLY_CLOSED]
 
         # Group by the identity key, then split any group whose members are too far apart to be
         # the same shop.

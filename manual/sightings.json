@@ -1944,7 +1944,7 @@
   {
    "chain": "miniso",
    "supplied_on": "2026-10-02",
-   "reviewed": "2026-10-02",
+   "reviewed": "2026-11-01",
    "source": "Operator manual pull from mall directories, for Miniso stores not yet on Miniso’s own locator (which the daily census reads).",
    "scope": "Manually-verified Miniso US locations not yet listed on Miniso’s own store locator. Held here as sightings so they show now; each retires automatically once the daily census covers the same spot (same chain within ~180 m), so there is no double-count and no manual step. Not a roster.",
    "locations": [
@@ -1955,6 +1955,15 @@
      "lon": -70.3341,
      "confidence": "confirmed",
      "verified_by": "The Maine Mall directory (mainemall.com/en/directory/10993) lists Miniso (Accessories); operator pull 2026-10-02. Not yet in Miniso’s own locator. Census has no range for 364 Maine Mall Rd, so the coordinate is the mall’s published building location (multiple mapping sources agree). Retires automatically when the census covers the spot."
+    },
+    {
+     "name": "Miniso (Westfield Montgomery) — return",
+     "address": "7101 Democracy Blvd, Bethesda, MD 20817",
+     "lat": 39.02419829999999,
+     "lon": -77.1451289,
+     "confidence": "uncertain",
+     "verified_by": "Westfield Montgomery official directory tags MINISO 'Coming soon' (1 Nov 2026). A return: the prior #1340 unit is permanently closed (Google) after MINISO relocated to Federal Plaza, Rockville. Held out of count until it actually opens; graduate to confirmed (or let the census cover it) when trading.",
+     "coord_src": "Westfield Montgomery centroid (shared w/ Pop Mart, HEYTEA)"
     }
    ]
   },

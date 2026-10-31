@@ -1257,6 +1257,18 @@
       "closed_note": "DREAME Brea Mall; permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT previously held in our DREAME roster (we track Century City, UTC San Diego, Valley Fair, and Garden State Plaza Paramus), so no count change. A DREAME retail store that opened and closed without us capturing it. Close date unknown.",
       "confidence": "confirmed",
       "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026."
+    },
+    {
+      "chain": "miniso",
+      "name": "Westfield Montgomery (Bethesda)",
+      "address": "7101 Democracy Blvd #1340, Bethesda, MD 20817",
+      "city": "Bethesda",
+      "state": "MD",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "MINISO Westfield Montgomery (#1340); permanently closed per Google ('Permanently closed'), hand-observed 1 Nov 2026. MINISO relocated to Federal Plaza, 12266 Rockville Pike, Rockville MD (open, confirmed same day) — that store stays in the count. DISCREPANCY: Miniso's own CMS locator still listed the #1340 unit with a live code (storeCode '#N/A', not flagged 'Closed'), so it was still in our open census. Fix: (1) added the address to the miniso adapter PERMANENTLY_CLOSED filter so it is never re-collected; (2) since the closure is confirmed (not an inferred absence), set the census store to 'closed' immediately rather than waiting out the 7-day absence aging — count 1122→1121 now. The mall directory tags MINISO 'Coming soon' (a future return); tracked as an 'uncertain' sighting (held out of count/map) until it opens. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Maps business listing ('Permanently closed' / 閉業), hand-observed 1 Nov 2026; Westfield Montgomery directory tags MINISO 'Coming soon' the same day; Miniso CMS locator still lists #1340 as live."
     }
   ]
 }
