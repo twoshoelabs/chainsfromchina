@@ -8,7 +8,7 @@ const OTHER = '#6b7280';
 const SECTOR = {
   tea: '#5E8C3A', coffee: '#7A4E2D', food_drink: '#B5462E', bakery: '#C08A2B',
   grocery_convenience: '#2F8C8C', snacks: '#D0702A', apparel: '#6B4FA0', beauty: '#C4577A',
-  lifestyle_variety: '#2F5FA8', electronics: '#3C7A9A', home: '#7A8C3A',
+  lifestyle_variety: '#2F5FA8', electronics: '#3C7A9A', home: '#7A8C3A', jewelry: '#B8860B',
 };
 const STATE_NAME = {
   AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California', CO: 'Colorado',

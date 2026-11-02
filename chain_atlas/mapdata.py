@@ -325,6 +325,7 @@ def export(out_dir: Path) -> dict:
             "bakery": "Bakery", "grocery_convenience": "Grocery / convenience", "snacks": "Snacks",
             "apparel": "Apparel & accessories", "beauty": "Beauty",
             "lifestyle_variety": "Lifestyle / variety", "electronics": "Electronics", "home": "Home",
+            "jewelry": "Jewelry",
         }
         _MON = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 

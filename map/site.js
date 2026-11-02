@@ -98,7 +98,7 @@
   // ---- ⌘K search overlay ---------------------------------------------------------------------
   var SEC_COLOR = { tea:'#5E8C3A', coffee:'#7A4E2D', food_drink:'#B5462E', bakery:'#C08A2B',
     grocery_convenience:'#2F8C8C', snacks:'#D0702A', apparel:'#6B4FA0', beauty:'#C4577A',
-    lifestyle_variety:'#2F5FA8', electronics:'#3C7A9A', home:'#7A8C3A' };
+    lifestyle_variety:'#2F5FA8', electronics:'#3C7A9A', home:'#7A8C3A', jewelry:'#B8860B' };
   // (sector labels now come from i18n.js secLabel(); SEC_COLOR above stays local.)
 
   var overlay = null, idxP = null, opts = [], sel = -1;

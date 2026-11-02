@@ -15,6 +15,7 @@
   --sec-tea:#5E8C3A; --sec-coffee:#7A4E2D; --sec-food_drink:#B5462E; --sec-bakery:#C08A2B;
   --sec-snacks:#D0702A; --sec-grocery_convenience:#2F8C8C; --sec-apparel:#6B4FA0;
   --sec-beauty:#C4577A; --sec-lifestyle_variety:#2F5FA8; --sec-electronics:#3C7A9A; --sec-home:#7A8C3A;
+  --sec-jewelry:#B8860B;
 }
 
 /* ---- Nameplate header (injected by site.js as <header class="site-nav">) ------------------ */

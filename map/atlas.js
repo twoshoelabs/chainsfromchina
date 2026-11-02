@@ -28,12 +28,14 @@ const SECTOR = {
   tea: '#5E8C3A', coffee: '#7A4E2D', food_drink: '#B5462E', bakery: '#C08A2B',
   grocery_convenience: '#2F8C8C', snacks: '#D0702A', apparel: '#6B4FA0', beauty: '#C4577A',
   lifestyle_variety: '#2F5FA8', electronics: '#3C7A9A', home: '#7A8C3A',
+  jewelry: '#B8860B',
 };
 const OTHER = '#6b7280';
 const SECTOR_LABEL = {
   tea: 'Tea', coffee: 'Coffee', food_drink: 'Food & drink', bakery: 'Bakery',
   grocery_convenience: 'Grocery', snacks: 'Snacks', apparel: 'Apparel', beauty: 'Beauty',
   lifestyle_variety: 'Lifestyle / toys', electronics: 'Electronics', home: 'Home',
+  jewelry: 'Jewelry',
 };
 const sectorColor = ['match', ['get', 'sector'],
   ...Object.entries(SECTOR).flatMap(([k, v]) => [k, v]), OTHER];

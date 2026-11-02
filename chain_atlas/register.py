@@ -47,7 +47,7 @@ PRECISION = {"day", "month", "year", None}
 # carries; `sector` is the retail category the intelligence product groups by. Most brands map
 # cleanly from format; a brand may override with an explicit `sector` in register.json.
 SECTORS = {"food_drink", "tea", "coffee", "bakery", "grocery_convenience", "snacks",
-           "apparel", "beauty", "lifestyle_variety", "electronics", "home"}
+           "apparel", "beauty", "lifestyle_variety", "electronics", "home", "jewelry"}
 SECTOR_BY_FORMAT = {
     "tea": "tea", "coffee": "coffee", "bakery": "bakery",
     "restaurant": "food_drink", "hotpot": "food_drink", "fastfood": "food_drink",
@@ -56,6 +56,7 @@ SECTOR_BY_FORMAT = {
     "convenience": "grocery_convenience", "supermarket": "grocery_convenience",
     "grocery": "grocery_convenience",
     "apparel": "apparel", "beauty": "beauty", "electronics": "electronics", "home": "home",
+    "jewelry": "jewelry",
 }
 
 

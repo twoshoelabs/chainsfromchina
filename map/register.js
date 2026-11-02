@@ -33,7 +33,7 @@ const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Snacks & Delis'
 const CAT_BY_FORMAT = { tea: 'Tea', coffee: 'Coffee', restaurant: 'Restaurants', hotpot: 'Restaurants',
   snack: 'Snacks & Delis', bakery: 'Bakery', toys: 'Toys & Pop Culture', lifestyle: 'Toys & Pop Culture',
   convenience: 'Grocery & Convenience', supermarket: 'Grocery & Convenience', grocery: 'Grocery & Convenience',
-  apparel: 'Apparel & Accessories', beauty: 'Beauty', electronics: 'Electronics' };
+  apparel: 'Apparel & Accessories', beauty: 'Beauty', electronics: 'Electronics', jewelry: 'Jewelry' };
 const CAT_OVERRIDE = { mixue: 'Ice Cream' };
 let D = null;
 const catOf = c => CAT_OVERRIDE[c] || CAT_BY_FORMAT[(D.chains[c] || {}).format] || 'Other';

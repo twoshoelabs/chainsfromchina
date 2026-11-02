@@ -978,9 +978,9 @@
   "laopu": {
    "name": "Laopu Gold",
    "name_zh": "老铺黄金",
-   "format": "apparel",
+   "format": "jewelry",
    "global": "Beijing heritage-gold jeweller; Hong Kong and Macau, plus a first true overseas store in Singapore (Jun 2025).",
-   "sector": "apparel",
+   "sector": "jewelry",
    "sub_category": "jewellery",
    "tickers": [
     "HKEX:6181"
@@ -5472,15 +5472,17 @@
    "chain": "laopu",
    "market": "SG",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Marina Bay Sands (opened 21 Jun 2025), first overseas store.",
+   "locations": 1,
+   "first_opened": "2025-06-21",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-01",
+   "note": "Marina Bay Sands (B2M-200, The Shoppes at Marina Bay Sands; opened 21 Jun 2025), first overseas store. Operating per Google Maps (4.5★/96 reviews), operator-observed 1 Nov 2026.",
    "sources": [
-    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
-   ]
+    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore",
+    "Google Maps operating listing (operator-observed 1 Nov 2026): Laopu Gold, 10 Bayfront Ave B2M-200, Marina Bay Sands, Singapore 018956"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "lining",

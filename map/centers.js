@@ -8,7 +8,7 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c =>
 const SECTOR_LABEL = {
   food_drink: 'Food & drink', tea: 'Tea', coffee: 'Coffee', bakery: 'Bakery',
   grocery_convenience: 'Grocery', snacks: 'Snacks', apparel: 'Apparel', beauty: 'Beauty',
-  lifestyle_variety: 'Lifestyle', electronics: 'Electronics', home: 'Home',
+  lifestyle_variety: 'Lifestyle', electronics: 'Electronics', home: 'Home', jewelry: 'Jewelry',
 };
 
 function placeCell(c) {

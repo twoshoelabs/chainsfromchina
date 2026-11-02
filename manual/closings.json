@@ -1269,6 +1269,30 @@
       "closed_note": "MINISO Westfield Montgomery (#1340); permanently closed per Google ('Permanently closed'), hand-observed 1 Nov 2026. MINISO relocated to Federal Plaza, 12266 Rockville Pike, Rockville MD (open, confirmed same day) — that store stays in the count. DISCREPANCY: Miniso's own CMS locator still listed the #1340 unit with a live code (storeCode '#N/A', not flagged 'Closed'), so it was still in our open census. Fix: (1) added the address to the miniso adapter PERMANENTLY_CLOSED filter so it is never re-collected; (2) since the closure is confirmed (not an inferred absence), set the census store to 'closed' immediately rather than waiting out the 7-day absence aging — count 1122→1121 now. The mall directory tags MINISO 'Coming soon' (a future return); tracked as an 'uncertain' sighting (held out of count/map) until it opens. Close date unknown.",
       "confidence": "confirmed",
       "source": "Google Maps business listing ('Permanently closed' / 閉業), hand-observed 1 Nov 2026; Westfield Montgomery directory tags MINISO 'Coming soon' the same day; Miniso CMS locator still lists #1340 as live."
+    },
+    {
+      "chain": "cotti",
+      "name": "Chinatown (77 Bayard St)",
+      "address": "77 Bayard St, New York, NY 10013",
+      "city": "New York",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Cotti Coffee Chinatown; permanently closed per Google ('Permanently closed' / 閉業, 2.8★/11 reviews) and Yelp ('Yelpers report this location has closed'), hand-observed 1 Nov 2026 (NY). NOT previously in our Cotti sightings roster (we track Columbus Circle, FiDi, Midtown, Chelsea, multiple Brooklyn/Flushing/Staten Island, etc.), so it never entered the open census — no count change. A Cotti location that opened and closed without us capturing it. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Maps business listing ('Permanently closed' / 閉業) + Yelp closed banner, hand-observed 1 Nov 2026 (NY)."
+    },
+    {
+      "chain": "chahalo",
+      "name": "Rockville (1403 Research Blvd)",
+      "address": "1403 Research Blvd Unit A1, Rockville, MD 20850",
+      "city": "Rockville",
+      "state": "MD",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "ChaHalo 茶话弄 Rockville; 'Temporarily closed' per Google (banner), operator-observed 2 Nov 2026 (NY). Was a confirmed operating sighting (counted) from the Oct 2026 tight-zoom re-sweep; flipped to uncertain and held out of the open count per our closures policy (record + remove from open list), -1 to the count. Also removed a stale duplicate 'announced' sighting for the same address. Re-confirm and restore if it reopens. Temporary per Google; close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Maps 'Temporarily closed' banner, hand-observed 2 Nov 2026 (NY)."
     }
   ]
 }

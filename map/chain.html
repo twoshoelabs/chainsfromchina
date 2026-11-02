@@ -43,7 +43,7 @@
     --mono:'Schibsted Grotesk',sans-serif; --cond:'Archivo','Helvetica Neue',sans-serif; --zh:'Noto Serif SC',serif;
     --sec-tea:#5E8C3A;--sec-coffee:#7A4E2D;--sec-food_drink:#B5462E;--sec-bakery:#C08A2B;
     --sec-snacks:#D0702A;--sec-grocery_convenience:#2F8C8C;--sec-apparel:#6B4FA0;--sec-beauty:#C4577A;
-    --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;
+    --sec-lifestyle_variety:#2F5FA8;--sec-electronics:#3C7A9A;--sec-home:#7A8C3A;--sec-jewelry:#B8860B;
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; }
@@ -178,7 +178,7 @@ const ICONV = window.CFC_ICON_V || '';   // logo cache-bust suffix, stamped per-
 const DATAV = window.CFC_DATA_V || '';   // data cache-bust suffix, stamped per-deploy (see index.html)
 const SEC_LABEL = { tea:'Tea', coffee:'Coffee', food_drink:'Food & drink', bakery:'Bakery',
   grocery_convenience:'Grocery', snacks:'Snacks', apparel:'Apparel', beauty:'Beauty',
-  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home' };
+  lifestyle_variety:'Lifestyle & toys', electronics:'Electronics', home:'Home', jewelry:'Jewelry' };
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
 
 // ---- Photographs: real, rights-cleared photos (per-chain manifest in companies.json `photos`),

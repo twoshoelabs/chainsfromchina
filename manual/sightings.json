@@ -519,7 +519,7 @@
   {
    "chain": "nayuki",
    "supplied_on": "2026-09-23",
-   "reviewed": "2026-10-18",
+   "reviewed": "2026-11-02",
    "source": "Web verification — Yelp review counts, DoorDash/Fantuan listings, and local press (iLoveTheUpperWestSide, QNS, boozyburbs). No first-party US site; naisnow.us is parked.",
    "scope": "Web-verified US locations. NaiSnow (奈雪的茶) entered the US in Oct 2025 and is expanding fast (it claims a 500-store US target over 3-5 years). Confirmed = operating per Yelp reviews and press; American Dream NJ is coming-soon. Not a complete roster.",
    "locations": [
@@ -567,6 +567,14 @@
      "lat": 34.067357,
      "lon": -118.134257,
      "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Times Square (241A W 42nd St)",
+     "address": "241A W 42nd St, New York, NY 10036",
+     "lat": 40.7569552,
+     "lon": -73.9887186,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'NaiSnow Tea and Bakery (Times Square)' (4.9★/147 reviews, Open, closes 11 PM); grand opening 23–25 Oct 2026, promoted as first US flagship. Operator-observed 2 Nov 2026 (NY). Across from Madame Tussauds."
     }
    ]
   },
@@ -807,7 +815,7 @@
   {
    "chain": "chahalo",
    "supplied_on": "2026-09-27",
-   "reviewed": "2026-10-08",
+   "reviewed": "2026-11-02",
    "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
    "scope": "Known US ChaHalo (茶话弄) outlets for a Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
    "locations": [
@@ -867,8 +875,8 @@
     {
      "name": "Rockville",
      "address": "1403 Research Blvd Unit A1, Rockville, MD 20850",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google Maps 'Temporarily closed' banner, operator-observed 2 Nov 2026 (NY). Was confirmed operating via tight-zoom re-sweep (Oct 2026); held out of the open count while temporarily closed — re-confirm if it reopens.",
      "lat": 39.0903,
      "lon": -77.17713,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -1764,12 +1772,6 @@
      "name": "Houston",
      "confidence": "confirmed",
      "verified_by": "Operator manual pull 2026-10-02: Yelp lists Chahalo at 9889 Bellaire Blvd Ste 111 (3.8★, 28 reviews), operating. Re-confirmed 2026-10-27: Google lists Chahalo 茶话弄 at this address (Dun Huang Plaza), operating — 4.9★, 871 reviews, +1 832-773-1315, Open · closes 11 PM."
-    },
-    {
-     "address": "1403 Research Blvd, Rockville, MD 20850",
-     "name": "Rockville",
-     "confidence": "uncertain",
-     "verified_by": "announced, not yet open (routine discovery 2026-10-01) — https://mocoshow.com/2026/06/11/update-on-marylands-first-chahalo/"
     },
     {
      "address": "37-06 Prince St, Flushing, NY 11354",
@@ -2780,7 +2782,7 @@
   {
    "chain": "jibeichuan",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-10-16",
+   "reviewed": "2026-11-02",
    "source": "Official US site jibeichuanny.com (lists its NYC stores) + operator-observed Google/Yelp listings for the San Leandro, CA store (14 Oct 2026).",
    "scope": "JiBeiChuan's (季北川花胶鸡汤米粉) known US outlets — three in NYC (Flushing, Manhattan, Brooklyn) from its official US site, plus one in San Leandro, CA. NOT necessarily a complete US roster; the brand publishes no machine-readable US locator. China-origin rice-noodle chain (Hangzhou, Zhejiang).",
    "locations": [
@@ -2903,6 +2905,14 @@
      "lat": 28.3982932,
      "lon": -81.4888943,
      "coord_src": "Google Maps place coordinates"
+    },
+    {
+     "name": "Bayside (NY)",
+     "address": "42-26 Bell Blvd, Bayside, NY 11361",
+     "lat": 40.7729967,
+     "lon": -73.7746681,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'JiBeiChuan Rice Noodle & Ramen' (4.8★/594 reviews, Open), operator-observed 2 Nov 2026 (NY). 42-26 Bell Blvd, Bayside, Queens."
     }
    ]
   },
@@ -2992,7 +3002,7 @@
   {
    "chain": "showminihotpot",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-10-14",
+   "reviewed": "2026-11-02",
    "source": "Brand site showminihotpot.com (store list) + Yelp / Uber Eats / Snackpass for Richardson; Yelp for Flushing (14 Oct 2026).",
    "scope": "Show Mini Hot Pot's (秀海福) US presence. Richardson, TX is CONFIRMED open. Its Flushing, NY US-debut store (136-72 Roosevelt Ave) is now PERMANENTLY CLOSED (logged in closings.json) — the brand's Richardson store keeps the chain in the US. San Gabriel CA (a Tawa Gateway tenant listing) is NOT on the brand's own site and is excluded; other US cities are announced coming-soon. China-origin Harbin malatang chain.",
    "locations": [
@@ -3003,6 +3013,14 @@
      "verified_by": "Yelp ('Show Mini Hot Pot', ~4.3 / 55 reviews) + Uber Eats (4.2 / 72) + Snackpass ordering + brand site posted hours (14 Oct 2026)",
      "lat": 33.001313,
      "lon": -96.700246
+    },
+    {
+     "name": "Irvine (Main Street Plaza)",
+     "address": "2540 Main St Ste L, Irvine, CA 92614",
+     "lat": 33.6821703,
+     "lon": -117.8426286,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'Show Hotpot 秀海福麻辣烫' (4.6★/560 reviews, opens 11:00; showhotpotogo.com), operator-observed 2 Nov 2026 (NY). Brand match confirmed (name/logo/site)."
     }
    ]
   },
@@ -3912,7 +3930,7 @@
   {
    "chain": "tenseconds",
    "supplied_on": "2026-10-19",
-   "reviewed": "2026-10-19",
+   "reviewed": "2026-11-02",
    "source": "Google Maps nationwide enumeration of operating Ten Seconds Yunnan Rice Noodle (十秒到) listings + official site en.shimiaodao.com (read 19 Oct 2026)",
    "scope": "US = 44 operating stores across 19 states (CA 8, TX 7, NY 8, NJ 2, WA 2, PA 2, MD 2, OR 2, NV/IL/OH/NC/GA/MA/CO/MI/HI/UT/VA 1 each). Operator-observed Maps operating listings = HIGH-confidence floor; count raised from 39 after tight-zoom NYC/VA re-sweep caught dense-metro stores the first national-ranking pass capped out. Permanently-closed excluded (Manhattan 245 W 46th St, San Gabriel 132 S Atlantic Blvd, Dublin CA 4288 Dublin Blvd, Fremont CA 34460 Fremont Blvd, Orlando FL 5080 W Colonial Dr). Confirmed-absent states: MN, CT, IN.",
    "locations": [
@@ -4338,6 +4356,14 @@
      "lat": 40.5714422,
      "lon": -74.1111265,
      "coord_src": "Google Maps place coordinates"
+    },
+    {
+     "name": "Mesa (AZ)",
+     "address": "1832 W Broadway Rd #104, Mesa, AZ 85202",
+     "lat": 33.4081555,
+     "lon": -111.8712938,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'Ten Seconds Noodle 十秒到米线' (4.7★/96 reviews), operator-observed 2 Nov 2026 (NY). First Arizona outlet in our roster."
     }
    ]
   }

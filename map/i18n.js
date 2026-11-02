@@ -35,7 +35,7 @@
   // lives in the catalog under sector.<code> / state.<CODE>.
   var SEC_EN = { tea: 'Tea', coffee: 'Coffee', food_drink: 'Food & drink', bakery: 'Bakery',
     grocery_convenience: 'Grocery', snacks: 'Snacks', apparel: 'Apparel', beauty: 'Beauty',
-    lifestyle_variety: 'Lifestyle & toys', electronics: 'Electronics', home: 'Home' };
+    lifestyle_variety: 'Lifestyle & toys', electronics: 'Electronics', home: 'Home', jewelry: 'Jewelry' };
   function secLabel(code) { return t('sector.' + code, SEC_EN[code] || code); }
 
   var STATE_EN = {
