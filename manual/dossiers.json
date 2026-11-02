@@ -326,10 +326,10 @@
   "nayuki": {
    "notes": [
     {
-     "text": "H1 2026 financials: revenue 1.893B RMB (-13.1%); adjusted net loss 97M RMB (still unprofitable); avg daily sales per directly-operated store 7,000 RMB (-7.9%), 286.7 orders/day, avg ticket 24.3 RMB. Overseas ~30 stores incl 7 in the US; PEAK monthly sales per US store >US$400k (a ceiling, NOT an AUV). Share price -35.9% YTD. US-side figure is the key Pro lead -> pull HKEX:2150 H1 2026 interim to verify and promote to a revenue.py anchor.",
+     "text": "H1 2026 financials: revenue 1.893B RMB (-13.1%); adjusted net loss 96.7M RMB (narrowed ~18%); 1,685 teahouses @ 30 Jun 2026; avg daily sales per China direct-operated store 7,000 RMB. US (~7 stores, all franchise): per-store monthly sales — mature ~US$250k, strong new ~US$350k, PEAK >US$400k. CRITICAL: the US figures are management commentary to press, NOT in the HKEX announcement, and no US cost/margin was disclosed. For a US AUV anchor use ~US$250k/mo (~US$3.0M/yr) mature-store central estimate, medium confidence; treat >US$400k as a ceiling. Not promotable to a revenue.py filing anchor (secondary/commentary provenance).",
      "as_of": "2026-06",
      "confidence": "medium",
-     "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
+     "source": "H1 2026 interim results announcement (HKEX:2150, 26 Aug 2026) for group financials [corroborated across 21Jingji / Sina Finance / Sohu]; US per-store figures are management commentary to trade press (Xinshijie / inewfood, Aug 2026), NOT in the formal announcement. Verified 2 Nov 2026 (NY)."
     }
    ]
   },
