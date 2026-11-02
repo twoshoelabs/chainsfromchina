@@ -20,7 +20,7 @@
   "the `financial_anchors` table (measured) and `china_stores.json` (counts). This file is prose.",
   "Validate with `python -m chain_atlas dossiers`."
  ],
- "as_of": "2026-10-15",
+ "as_of": "2026-11-02",
  "brands": {
   "mixue": {
    "history": {
@@ -53,6 +53,12 @@
      "as_of": "2025",
      "confidence": "medium",
      "source": "company marketing / reputable press"
+    },
+    {
+     "text": "H1 2026 financials: revenue 15.216B RMB (+2.3% YoY); net profit 2.319B RMB (-14.7%, first H1 decline since the Mar-2025 HKEX listing); overseas revenue 1.28B RMB (+18.2%, 8.4% of group); 4,378 overseas stores / 17 countries @ Jun-2026. Share price -58.6% YTD.",
+     "as_of": "2026-06",
+     "confidence": "medium",
+     "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
     }
    ]
   },
@@ -193,6 +199,14 @@
      "source": "press",
      "confidence": "low"
     }
+   ],
+   "notes": [
+    {
+     "text": "H1 2026 financials: revenue 6.961B RMB (+3.5%); net profit attributable 918M RMB (+22.6%), adjusted net profit 995M RMB (-23.9%); China same-store avg monthly GMV/store 338,300 RMB (-16.3% YoY, 7th consecutive quarterly decline); 399 overseas stores / 8 markets, Q2 overseas GMV 504M RMB (+114%). Share price +5.7% YTD.",
+     "as_of": "2026-06",
+     "confidence": "medium",
+     "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
+    }
    ]
   },
   "toys52": {
@@ -306,6 +320,26 @@
      "as_of": "2026-10-17",
      "source": "BON APPéTIT (BA) founder interview — Zhihu (面包王子)",
      "confidence": "medium"
+    }
+   ]
+  },
+  "nayuki": {
+   "notes": [
+    {
+     "text": "H1 2026 financials: revenue 1.893B RMB (-13.1%); adjusted net loss 97M RMB (still unprofitable); avg daily sales per directly-operated store 7,000 RMB (-7.9%), 286.7 orders/day, avg ticket 24.3 RMB. Overseas ~30 stores incl 7 in the US; PEAK monthly sales per US store >US$400k (a ceiling, NOT an AUV). Share price -35.9% YTD. US-side figure is the key Pro lead -> pull HKEX:2150 H1 2026 interim to verify and promote to a revenue.py anchor.",
+     "as_of": "2026-06",
+     "confidence": "medium",
+     "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
+    }
+   ]
+  },
+  "chabaidao": {
+   "notes": [
+    {
+     "text": "H1 2026 financials: revenue 2.655B RMB (+6.2%); net profit 336M RMB (+3.2%); gross margin 30.0% (down from 32.6%); 72 overseas stores / 13 countries. HK trading suspended 13 Oct 2026. Share price -36.3% YTD.",
+     "as_of": "2026-06",
+     "confidence": "medium",
+     "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
     }
    ]
   }

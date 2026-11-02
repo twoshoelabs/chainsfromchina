@@ -2,7 +2,7 @@
  "_readme": [
   "Reported outlet (store) counts INSIDE CHINA (and total/overseas where split) for the chains we track — a Pro-tier intelligence dimension (home-market scale vs US footprint). Sourced from PRIMARY filings (HKEX/SEC/cninfo, confidence 'high', with China/overseas splits) or company statements / reputable press (confidence 'medium', often a worldwide total). Every entry carries as_of + source. NOT public — Pro only; never written to map/data. Refresh the 'high' rows when the filings collector flags a new annual report; curate the 'medium' rows from company/press."
  ],
- "as_of": "2026-10-16",
+ "as_of": "2026-11-02",
  "brands": {
   "mixue": {
    "china": 55356,
@@ -10,7 +10,8 @@
    "total": 59823,
    "as_of": "2025-12-31",
    "source": "Mixue Group FY2025 annual results (HKEX:2097)",
-   "confidence": "high"
+   "confidence": "high",
+   "note": "H1 2026 interim (HKEX:2097, Jun 2026, via press): 4,378 overseas stores / 17 countries (FY2025 filing row above = 4,467 @ Dec-2025 — scopes may differ, do not merge); overseas revenue 1.28B RMB (+18.2%, 8.4% of group). Fujia (53% owned) grew 260 -> 3,500+ stores by end-Jul 2026."
   },
   "miniso": {
    "china": 4568,
@@ -36,7 +37,8 @@
    "total": 7453,
    "as_of": "2025-12-31",
    "source": "Chagee FY2025 Form 20-F (NASDAQ:CHA)",
-   "confidence": "high"
+   "confidence": "high",
+   "note": "H1 2026 interim (NASDAQ:CHA, Jun 2026, via press): 399 overseas stores / 8 markets (FY2025 filing row above = 345 @ Dec-2025); Q2 overseas GMV 504M RMB (+114% YoY)."
   },
   "luckin": {
    "china": 30888,
@@ -52,7 +54,7 @@
    "as_of": "2025-12-31",
    "source": "Nayuki FY2025 annual results (HKEX:2150)",
    "confidence": "high",
-   "note": "1,288 self-op + 358 franchise; China-focused, overseas not split out"
+   "note": "1,288 self-op + 358 franchise; China-focused, overseas not split out. H1 2026 interim (HKEX:2150, Jun 2026, via press): ~30 overseas stores incl 7 in the US; peak monthly sales per US store >US$400k (a ceiling, not an average)."
   },
   "chabaidao": {
    "china": 8621,
@@ -61,7 +63,7 @@
    "as_of": "2025-12-31",
    "source": "ChaPanda FY2025 Annual Report (HKEX:2555, 24 Apr 2026)",
    "confidence": "high",
-   "note": "overseas: 18 South Korea, 5 Malaysia, 3 Singapore, 3 Thailand, 2 Australia, 1 Hong Kong, 2 Macau, 2 France, 1 Spain, 1 United States — supersedes the FY2024 china:8395/overseas:14/total:8409 row"
+   "note": "overseas: 18 South Korea, 5 Malaysia, 3 Singapore, 3 Thailand, 2 Australia, 1 Hong Kong, 2 Macau, 2 France, 1 Spain, 1 United States — supersedes the FY2024 china:8395/overseas:14/total:8409 row. H1 2026 interim (HKEX:2555, Jun 2026, via press): 72 overseas stores / 13 countries (up from 38 @ Dec-2025); HK trading suspended 13 Oct 2026."
   },
   "aunteajenny": {
    "total": 11449,
@@ -346,6 +348,13 @@
    "source": "52TOYS HKEX IPO prospectus (A1, filed 22 May 2025), via 澎湃新闻 / 腾讯新闻 / 界面新闻",
    "confidence": "medium",
    "note": "Own-brand retail stores in China ONLY, and shrinking fast per the IPO prospectus: 19 (end-2022) → 15 (2023) → 10 (2024) → 5 (19 May 2025). 52TOYS (北京乐自天成, founded 2015; founders Chen Wei 陈威 CEO + Huang Jin 黄今) is a collectible-IP/blind-box maker selling mainly via DISTRIBUTION + third-party retail — own stores badly understate scale (revenue RMB463M (2022) → 482M (2023) → 630M (2024), but net losses WIDENED (RMB1.7M → 122M)). Plans 100+ own stores over 3–5 yrs. A Hong Kong Airport store opened 2026 (outside its home market). Figure is prospectus-grade but taken from press; verify vs the A1 PDF to mark high. The HKEX A1 behind these figures LAPSED 22 Nov 2025. See listings.toys52."
+  },
+  "guming": {
+   "total": 14360,
+   "as_of": "2026-06",
+   "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification",
+   "confidence": "medium",
+   "note": "Approximate: 13,500 stores (~94%) carry coffee machines per H1 2026 interim/press, implying ~14,360 total; coffee >20% of revenue. Not a primary count — refresh from Guming's H1 2026 interim (HKEX:1364) when pulled. Guming is US-watchlist (Park Slope lease), not yet open."
   }
  }
 }
