@@ -1293,6 +1293,18 @@
       "closed_note": "ChaHalo 茶话弄 Rockville; 'Temporarily closed' per Google (banner), operator-observed 2 Nov 2026 (NY). Was a confirmed operating sighting (counted) from the Oct 2026 tight-zoom re-sweep; flipped to uncertain and held out of the open count per our closures policy (record + remove from open list), -1 to the count. Also removed a stale duplicate 'announced' sighting for the same address. Re-confirm and restore if it reopens. Temporary per Google; close date unknown.",
       "confidence": "confirmed",
       "source": "Google Maps 'Temporarily closed' banner, hand-observed 2 Nov 2026 (NY)."
+    },
+    {
+      "chain": "yangs",
+      "name": "Santa Ana (Hutton Centre)",
+      "address": "2 Hutton Centre Dr Ste 202, Santa Ana, CA 92707",
+      "city": "Santa Ana",
+      "state": "CA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Yang's Braised Chicken Rice (杨铭宇黄焖鸡) Santa Ana; closed. Yelp shows 'Yelpers report this location has closed', and Google Maps now lists the exact unit (2 Hutton Centre Dr #202) as a DIFFERENT restaurant, 'Little Pan Santa Ana' (open, 4.5★/654) — i.e. replaced by a new tenant. Hand-observed 2 Nov 2026 (NY). NOT previously in our Yang's census (we track only the Tustin store; Yang's runs ~8 CA restaurants we do not individually track), so no count change. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Yelp closed banner + Google Maps (unit now 'Little Pan Santa Ana'), hand-observed 2 Nov 2026 (NY)."
     }
   ]
 }
