@@ -1312,16 +1312,20 @@
     "origin": "author",
     "china": {
      "file": "urbanrevivo/china.jpg",
-     "caption": "The outerwear floor at Urban Revivo's Shanghai flagship",
+     "caption": "The Urban Revivo flagship on a Shanghai shopping street",
      "label": "上海"
     },
     "gallery": [
      {
       "file": "urbanrevivo/g1.jpg",
-      "caption": "The womenswear hall, Urban Revivo Shanghai"
+      "caption": "The outerwear floor at the Shanghai flagship"
      },
      {
       "file": "urbanrevivo/g2.jpg",
+      "caption": "The womenswear hall, Shanghai"
+     },
+     {
+      "file": "urbanrevivo/g3.jpg",
       "caption": "Autumn collections on the women's floor, Shanghai"
      }
     ]
