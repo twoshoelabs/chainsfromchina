@@ -1121,14 +1121,18 @@
    "photos": {
     "origin": "author",
     "china": {
-     "file": "grandmashome/china.jpg?v=2",
-     "caption": "Grandma’s Home (外婆家) in a Shanghai mall — the dining room off the atrium, blond-wood tables under a ring chandelier, the brand’s green neon sign alongside.",
+     "file": "grandmashome/china.jpg?v=3",
+     "caption": "Grandma’s Home (外婆家) in a Shanghai mall — the green neon storefront across the atrium.",
      "label": "上海"
     },
     "gallery": [
      {
       "file": "grandmashome/g1.jpg?v=2",
       "caption": "The entrance and its waiting area — stools and red ghost chairs by a Monet-mural garden wall; the chain is known for the queues it draws."
+     },
+     {
+      "file": "grandmashome/g2.jpg?v=3",
+      "caption": "The dining room off the atrium — blond-wood tables under a ring chandelier, the brand’s green neon sign alongside."
      }
     ]
    }
