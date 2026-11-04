@@ -805,18 +805,31 @@
     },
     "gallery": [
      {
-      "file": "mollytea/g1.jpg?v=2",
-      "caption": "The order counter beneath the drinks screens, the brand’s pig mascot and pink gift bags alongside."
+      "file": "mollytea/gus1.jpg",
+      "caption": "The illuminated jasmine-flower emblem and the “以心动花香” (moved at heart by flower fragrance) wall inside the Rockville store."
      },
      {
-      "file": "mollytea/g3.jpg",
-      "caption": "The MOLLY STORE display of branded tumblers and gift bags, beside the pick-up counter and lounge seating."
+      "file": "mollytea/gus2.jpg",
+      "caption": "The order counter and drinks-menu screens at Rockville, the MOLLY STORE merch wall at right."
      },
      {
-      "file": "mollytea/g4.jpg?v=2",
-      "caption": "A mall-kiosk Molly Tea — the walk-up counter beneath its “一见茉莉 心生欢喜” (one look at jasmine, joy in the heart) line, pink gift bags on the bar."
+      "file": "mollytea/gus3.jpg",
+      "caption": "MOLLY STORE: branded tumblers, gift tins and zodiac enamel pins for sale beside the pickup counter."
+     },
+     {
+      "file": "mollytea/gus4.jpg",
+      "caption": "Molly, the brand’s flower-headed mascot, posed in a window booth at the Rockville store."
+     },
+     {
+      "file": "mollytea/g4.jpg",
+      "caption": "For contrast, a mall-kiosk Molly Tea in China — the walk-up counter beneath its “一见茉莉 心生欢喜” (one look at jasmine, joy in the heart) line."
      }
-    ]
+    ],
+    "us": {
+     "file": "mollytea/us.jpg",
+     "caption": "The Rockville storefront at Twinbrook Quarter — “MOLLY TEA 茉莉奶白 / Eastern Jasmine Tea” in brass, the brand’s pink flower cart by the door.",
+     "label": "Rockville, MD"
+    }
    }
   },
   "lelecha": {
