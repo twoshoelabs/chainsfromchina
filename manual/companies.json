@@ -1666,7 +1666,37 @@
    "photo": null,
    "photo_credit": null,
    "us_since": null,
-   "first_outlet": null
+   "first_outlet": null,
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "jibeichuan/us.jpg",
+     "caption": "The Germantown storefront — “Ji Bei Chuan 季北川 / NOODLE HOUSE 花胶鸡米粉” over brick, on Waters Road.",
+     "label": "Germantown, MD"
+    },
+    "gallery": [
+     {
+      "file": "jibeichuan/g1.jpg",
+      "caption": "A wall mural tracing the rice-noodle story — farmers, millers and chefs around the 季北川 (Ji Bei Chuan) banner."
+     },
+     {
+      "file": "jibeichuan/g2.jpg",
+      "caption": "The order counter and dining room, the brand’s 花胶汤米粉 (fish-maw soup rice-noodle) roundel on the wall."
+     },
+     {
+      "file": "jibeichuan/g3.jpg",
+      "caption": "The dining room beneath the 泡 · 磨 · 香 (soak · mill · fragrance) roundels, the noodle mural along the left wall."
+     },
+     {
+      "file": "jibeichuan/g4.jpg",
+      "caption": "The house motto — “我怀念家的味道” (I miss the taste of home), 大骨熔汤 营养健康 (bone-broth, wholesome) — above the tables."
+     },
+     {
+      "file": "jibeichuan/g5.jpg",
+      "caption": "The storefront in its Germantown block — ground-floor retail beneath apartments."
+     }
+    ]
+   }
   },
   "babakehouse": {
    "name": "BA Artisan Bakehouse",
