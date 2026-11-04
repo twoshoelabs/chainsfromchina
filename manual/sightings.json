@@ -2929,6 +2929,14 @@
      "lon": -77.5154256,
      "confidence": "confirmed",
      "verified_by": "Google Maps operating listing 'JBC RICE NOODLES & RAMEN' (4.7★/273 reviews), operator-observed 4 Nov 2026 (NY). JBC = 季北川/JiBeiChuan."
+    },
+    {
+     "name": "Philadelphia (Chinatown)",
+     "address": "930 Race St, Philadelphia, PA 19107",
+     "lat": 39.9552356,
+     "lon": -75.1554445,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'Ji Bei Chuan Philly' (4.7★/580 reviews), operator-observed 4 Nov 2026 (NY). 季北川."
     }
    ]
   },
