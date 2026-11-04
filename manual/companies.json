@@ -817,8 +817,8 @@
     },
     "gallery": [
      {
-      "file": "mollytea/gus1.jpg",
-      "caption": "The illuminated jasmine-flower emblem and the “以心动花香” (moved at heart by flower fragrance) wall inside the Rockville store."
+      "file": "mollytea/gus1.jpg?v=2",
+      "caption": "The illuminated MOLLY TEA wordmark and jasmine-flower emblem on the marbled feature wall inside the Rockville store."
      },
      {
       "file": "mollytea/gus2.jpg",
@@ -838,7 +838,7 @@
      }
     ],
     "us": {
-     "file": "mollytea/us.jpg",
+     "file": "mollytea/us.jpg?v=2",
      "caption": "The Rockville storefront at Twinbrook Quarter — “MOLLY TEA 茉莉奶白 / Eastern Jasmine Tea” in brass, the brand’s pink flower cart by the door.",
      "label": "Rockville, MD"
     }
