@@ -1305,6 +1305,18 @@
       "closed_note": "Yang's Braised Chicken Rice (杨铭宇黄焖鸡) Santa Ana; closed. Yelp shows 'Yelpers report this location has closed', and Google Maps now lists the exact unit (2 Hutton Centre Dr #202) as a DIFFERENT restaurant, 'Little Pan Santa Ana' (open, 4.5★/654) — i.e. replaced by a new tenant. Hand-observed 2 Nov 2026 (NY). NOT previously in our Yang's census (we track only the Tustin store; Yang's runs ~8 CA restaurants we do not individually track), so no count change. Close date unknown.",
       "confidence": "confirmed",
       "source": "Yelp closed banner + Google Maps (unit now 'Little Pan Santa Ana'), hand-observed 2 Nov 2026 (NY)."
+    },
+    {
+      "chain": "jibeichuan",
+      "name": "Edison (US-1)",
+      "address": "873 US-1, Edison, NJ 08817",
+      "city": "Edison",
+      "state": "NJ",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "JiBeiChuan / Ji Bei Chuan Rice Noodle Ramen (季北川) Edison NJ; permanently closed per Google ('Permanently closed' banner), operator-observed 2026-11-04 (NY). NOT previously in our JiBeiChuan census (we track the chain's other NY/NJ/CA/etc outlets), so no count change — a location that opened and closed without us capturing it. Close date unknown.",
+      "confidence": "confirmed",
+      "source": "Google Maps business listing ('Permanently closed'), hand-observed 2026-11-04 (NY)."
     }
   ]
 }
