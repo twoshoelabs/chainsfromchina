@@ -2782,7 +2782,7 @@
   {
    "chain": "jibeichuan",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-11-02",
+   "reviewed": "2026-11-04",
    "source": "Official US site jibeichuanny.com (lists its NYC stores) + operator-observed Google/Yelp listings for the San Leandro, CA store (14 Oct 2026).",
    "scope": "JiBeiChuan's (季北川花胶鸡汤米粉) known US outlets — three in NYC (Flushing, Manhattan, Brooklyn) from its official US site, plus one in San Leandro, CA. NOT necessarily a complete US roster; the brand publishes no machine-readable US locator. China-origin rice-noodle chain (Hangzhou, Zhejiang).",
    "locations": [
@@ -2913,6 +2913,22 @@
      "lon": -73.7746681,
      "confidence": "confirmed",
      "verified_by": "Google Maps operating listing 'JiBeiChuan Rice Noodle & Ramen' (4.8★/594 reviews, Open), operator-observed 2 Nov 2026 (NY). 42-26 Bell Blvd, Bayside, Queens."
+    },
+    {
+     "name": "Rochester (Marketplace)",
+     "address": "900 Jefferson Rd Ste 901, Rochester, NY 14623",
+     "lat": 43.0908386,
+     "lon": -77.6144699,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'JBC Rice Noodles & Ramen' (4.5★/172 reviews), operator-observed 4 Nov 2026 (NY). JBC = 季北川/JiBeiChuan."
+    },
+    {
+     "name": "Pittsford",
+     "address": "14 S Main St, Pittsford, NY 14534",
+     "lat": 43.0901432,
+     "lon": -77.5154256,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'JBC RICE NOODLES & RAMEN' (4.7★/273 reviews), operator-observed 4 Nov 2026 (NY). JBC = 季北川/JiBeiChuan."
     }
    ]
   },
