@@ -213,15 +213,27 @@
      "label": "上海"
     },
     "us": {
-     "file": "popmart/us.jpg",
-     "caption": "A US POP MART store (the Oculus, New York)",
-     "credit": "Thelabubucollector",
-     "license": "CC BY 4.0",
-     "license_url": "https://creativecommons.org/licenses/by/4.0",
-     "source": "https://commons.wikimedia.org/wiki/File%3ALabubu_Pop_Mart_store_in_New_York_City.jpg",
-     "label": "New York, NY"
+     "file": "popmart/us.jpg?v=2",
+     "caption": "The US store at Westfield Montgomery (Bethesda, MD) — the POP MART service counter beneath the artist-IP wall (THE MONSTERS, LABUBU, PEACH RIOT, SKULLPANDA, HIRONO).",
+     "label": "Bethesda, MD"
     },
     "gallery": [
+     {
+      "file": "popmart/gus1.jpg",
+      "caption": "Inside the Westfield Montgomery store, opening onto the mall concourse — a giant THE MONSTERS (Labubu) plush at the counter, Under Armour opposite."
+     },
+     {
+      "file": "popmart/gus2.jpg",
+      "caption": "The blind-box hall — Disney, Duckoo Farm and CRYBABY counters below the character-wall shelves."
+     },
+     {
+      "file": "popmart/gus3.jpg",
+      "caption": "A “HELLO MONTGOMERY” welcome easel by the CRYBABY “Cry Me an Ocean” window and the circular badge wall of mini-figures."
+     },
+     {
+      "file": "popmart/gus4.jpg",
+      "caption": "The MEGA LABUBU 400% tenth-anniversary collectible on its plinth above the plush blind-box cases."
+     },
      {
       "file": "popmart/g1.jpg?v=2",
       "caption": "Inside the immersive toy hall — tables of THE MONSTERS (Labubu) and other blind-box IPs under pink orb lights."
