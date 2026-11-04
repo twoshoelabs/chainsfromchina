@@ -403,9 +403,9 @@
       "state": "MD",
       "opened": null,
       "closed_on": null,
-      "closed_note": "Moge Tee Montgomery Mall (Westfield Montgomery food area); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+      "closed_note": "Moge Tee Montgomery Mall (Westfield Montgomery food area); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 5 Nov 2026: Google still shows the 'Möge Tee - Montgomery Mall' listing (3.4★/16 reviews, located in Westfield Montgomery) banner 'Permanently closed' — it did operate ('Located tight outside the food court' per a review) before closing.",
       "confidence": "confirmed",
-      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day; re-confirmed via Google Business panel 5 Nov 2026 ('Permanently closed', 16 reviews)."
     },
     {
       "chain": "moge",
