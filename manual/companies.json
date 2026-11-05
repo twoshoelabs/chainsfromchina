@@ -213,11 +213,15 @@
      "label": "上海"
     },
     "us": {
-     "file": "popmart/us.jpg?v=2",
-     "caption": "The US store at Westfield Montgomery (Bethesda, MD) — the POP MART service counter beneath the artist-IP wall (THE MONSTERS, LABUBU, PEACH RIOT, SKULLPANDA, HIRONO).",
-     "label": "Bethesda, MD"
+     "file": "popmart/us.jpg?v=3",
+     "label": "East Rutherford, NJ",
+     "caption": "The POP MART storefront at American Dream (East Rutherford, NJ) — the illuminated sign and character LED screens, blind-box shelves and an “After Dark” display within."
     },
     "gallery": [
+     {
+      "file": "popmart/gus5.jpg",
+      "caption": "The US store at Westfield Montgomery (Bethesda, MD) — the POP MART service counter beneath the artist-IP wall (THE MONSTERS, LABUBU, PEACH RIOT, SKULLPANDA, HIRONO)."
+     },
      {
       "file": "popmart/gus1.jpg",
       "caption": "Inside the Westfield Montgomery store, opening onto the mall concourse — a giant THE MONSTERS (Labubu) plush at the counter, Under Armour opposite."
