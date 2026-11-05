@@ -2113,7 +2113,37 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2022",
-   "first_outlet": "Miami Beach, FL — 1111 Lincoln Road"
+   "first_outlet": "Miami Beach, FL — 1111 Lincoln Road",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "yoyoso/us.jpg",
+     "label": "East Rutherford, NJ",
+     "caption": "The YOYOSO storefront at American Dream — the teal wordmark over the open shopfront, a wall of Hello Kitty plush bags and a “50% off” window."
+    },
+    "gallery": [
+     {
+      "file": "yoyoso/g1.jpg",
+      "caption": "The backlit brand panel — “YOYOSO.KR · 韩尚优品” — the Chinese name (Hánshàng Yōupǐn) beside the Korean “.KR” styling the brand leans on, though it is from Yiwu, Zhejiang."
+     },
+     {
+      "file": "yoyoso/g2.jpg",
+      "caption": "A Miniso-style variety range — bucket hats, printed umbrellas and stackable storage boxes along the aisle."
+     },
+     {
+      "file": "yoyoso/g3.jpg",
+      "caption": "A wall of Hello Kitty & Friends plush handbags ($19.99) by the entrance — the licensed-character merchandise YOYOSO leans on."
+     },
+     {
+      "file": "yoyoso/g4.jpg",
+      "caption": "The “YOYOSO · Aesthetics Design Brand” mural and a “Dream. Refresh. Repeat.” Coca-Cola wall behind the apparel racks."
+     },
+     {
+      "file": "yoyoso/g5.jpg",
+      "caption": "The breadth of a YOYOSO floor — a shoe wall, soft apparel and a boxed air-hockey table among the household and lifestyle goods."
+     }
+    ]
+   }
   }
  }
 }
