@@ -43,7 +43,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     ChicjocAdapter, DreameAdapter, ShowminihotpotAdapter, RolifeAdapter,
                     NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter, LittleSheepAdapter,
                     YaoyaoAdapter, YogostAdapter, XimivogueAdapter, DerucciAdapter,
-                    MogouyanAdapter, RbteaAdapter, TenSecondsAdapter)
+                    MogouyanAdapter, RbteaAdapter, TenSecondsAdapter,
+                    EpyayingAdapter, YoyosoAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -116,6 +117,8 @@ REGISTRY: list[Adapter] = [
     MogouyanAdapter(), # Lanzhou hand-pulled beef-noodle chain Mogouyan; first US store at Mall of America (18 Oct 2026) — see stubs.py
     RbteaAdapter(), # China-born-and-built bubble-tea chain R&B Tea (founders Rex & Bruce, first store Suzhou 2006); 40 US stores CA/TX/AZ/MI/SC/NC (19 Oct 2026) — see stubs.py
     TenSecondsAdapter(), # China-origin Yunnan 过桥米线 chain Ten Seconds / 十秒到 / ShiMiaoDao (HQ Hangzhou); ~39 US stores / 18 states, found via SGV malatang Maps scan (19 Oct 2026) — see stubs.py
+    EpyayingAdapter(), # Jiaxing/Zhejiang high-end womenswear EP YAYING 雅莹 (~800 China stores); first US store American Dream NJ, Dec 2022 (6 Nov 2026) — see stubs.py
+    YoyosoAdapter(), # Yiwu Miniso-style variety retailer YOYOSO 韩尚优品 (markets as Korean); US American Dream NJ + Lincoln Rd Miami (6 Nov 2026) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

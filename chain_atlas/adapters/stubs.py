@@ -1312,6 +1312,51 @@ class ChicjocAdapter(Adapter):
     RECHECK = ["https://www.chicjoc.com/store-locator.html"]
 
 
+class EpyayingAdapter(Adapter):
+    """
+    EP YAYING (雅莹) — added 2026-11-06. A high-end womenswear group from Jiaxing, Zhejiang (operator
+    Zhejiang Yaying Garments, 浙江雅莹集团; brand origins in a 1988 Jiaxing garment operation, "YAYING"
+    trademark registered 1995 by the founding Zhang family). Runs the EP (contemporary international)
+    and Yaying (Chinese-heritage) lines plus DOUBLOVE/N.Paia/EP KIDS; ~800 stores across 210+ cities in
+    China and Macau. China origin, in scope.
+
+    US presence: its first US store, at American Dream (East Rutherford, NJ, E103 Boutique Avenue),
+    opened Dec 2022. No machine-readable US locator; tracked via sightings.
+    """
+    chain_id, name, name_zh = "epyaying", "EP YAYING", "雅莹"
+    name_us = None
+    aliases = ("EP YAYING", "雅莹", "EP雅莹", "浙江雅莹", "Zhejiang Yaying", "Yaying")
+    parent, format = "EP Yaying (Zhejiang Yaying Garments, 浙江雅莹集团)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Jiaxing (Zhejiang) high-end womenswear group (EP YAYING 雅莹, ~800 China/Macau"
+                      " stores). First US store at American Dream (East Rutherford, NJ), Dec 2022. No"
+                      " machine-readable US locator, tracked via sightings (6 Nov 2026)")
+    RECHECK = ["https://www.epyaying-shop.com/pages/store-locator"]
+
+
+class YoyosoAdapter(Adapter):
+    """
+    YOYOSO (韩尚优品) — added 2026-11-06. A Miniso-style budget variety retailer founded 2014 (Ma Huan),
+    HQ Yiwu, Zhejiang. China origin that markets itself with a Korean identity (韩尚 = "Korean-chic"),
+    the same disguised-origin playbook as Miniso ("Japanese") and XIMIVOGUE ("Korean"); 1,000+ franchise
+    stores across 40+ countries. In scope.
+
+    US presence: two operating stores — American Dream (East Rutherford, NJ) and 1111 Lincoln Rd (Miami
+    Beach, FL, 2022). A former Astoria/LIC (Queens, NY) store is permanently closed. No machine-readable
+    US locator; tracked via sightings.
+    """
+    chain_id, name, name_zh = "yoyoso", "YOYOSO", "韩尚优品"
+    name_us = None
+    aliases = ("YOYOSO", "韩尚优品", "韓尚優品", "Hanshang Youpin")
+    parent, format = "YOYOSO (韩尚优品, Yiwu, Zhejiang)", "variety"
+    ENABLED = False
+    BLOCKED_REASON = ("Yiwu (Zhejiang) Miniso-style variety retailer (YOYOSO 韩尚优品; founded 2014,"
+                      " markets as Korean; 1,000+ franchise stores in 40+ countries). US: American Dream"
+                      " (NJ) + 1111 Lincoln Rd (Miami Beach, FL). No machine-readable US locator, tracked"
+                      " via sightings (6 Nov 2026)")
+    RECHECK = ["https://www.yoyoso.com/"]
+
+
 class DreameAdapter(Adapter):
     """
     DREAME (追觅科技) — added 2026-10-14. A Suzhou (Jiangsu) smart-home electronics brand
