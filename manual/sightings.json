@@ -4398,6 +4398,23 @@
      "verified_by": "Google Maps operating listing 'Ten Seconds Noodle 十秒到米线' (4.7★/96 reviews), operator-observed 2 Nov 2026 (NY). First Arizona outlet in our roster."
     }
    ]
+  },
+  {
+   "chain": "epyaying",
+   "supplied_on": "2026-11-06",
+   "reviewed": "2026-11-06",
+   "source": "Official EP Yaying US store locator (epyaying-shop.com) + WWD (Dec 2022) + EP Yaying third-anniversary PR (PR Newswire, Nov 2026).",
+   "scope": "EP YAYING's US presence — its first and (so far) only US store, at American Dream (East Rutherford, NJ), opened December 2022. China-origin Jiaxing/Zhejiang high-end womenswear group (雅莹).",
+   "locations": [
+    {
+     "name": "American Dream (Boutique Avenue)",
+     "address": "1 American Dream Way Suite E103, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "verified_by": "EP Yaying's own US store locator lists E103 Boutique Avenue, American Dream (+1 551-285-6398); first US store, opened Dec 2022 (WWD), third-anniversary PR Nov 2026 confirms still operating. In the mall's luxury wing (Saks/Hermès corridor), ~3,200 sq ft.",
+     "lat": 40.8088,
+     "lon": -74.0705
+    }
+   ]
   }
  ]
 }

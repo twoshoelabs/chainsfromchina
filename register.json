@@ -1748,6 +1748,23 @@
    ],
    "format": "restaurant",
    "global": "Haidilao Group's first barbecue sub-brand (Chinese name 焰请·烤肉铺子; trades overseas as 'Sparkora BBQ'). China-origin — first store Xi'an (高新万达广场), trial-opened Dec 2023 — expanding across new-first-tier cities (Hangzhou, etc.); beef-focused, party-themed with live DJs and in-store hair-braiding/washing. Operated by 四川悦食悦嗨餐饮管理有限公司 (75% held by a Haidilao subsidiary). Overseas from 2025: Malaysia (Sunway Pyramid + Sutera Mall, Johor Bahru) and Indonesia (Jakarta, Emporium Pluit). No US presence."
+  },
+  "epyaying": {
+   "name": "EP YAYING",
+   "name_intl": "EP YAYING",
+   "aliases": [
+    "雅莹",
+    "EP雅莹",
+    "浙江雅莹",
+    "Zhejiang Yaying",
+    "Yaying"
+   ],
+   "format": "apparel",
+   "global": "EP YAYING (雅莹) is a high-end womenswear group from Jiaxing, Zhejiang (operator Zhejiang Yaying Garments, 浙江雅莹集团; brand origins in a 1988 Jiaxing garment operation, the “YAYING” trademark registered 1995 by the founding Zhang family). It runs the EP (contemporary international) and Yaying (Chinese-heritage aesthetics) lines plus DOUBLOVE, N.Paia and EP KIDS, with ~800 stores across 210+ cities in China and Macau. Overseas since a 2019 Malaysia store; its first US store opened at American Dream (East Rutherford, NJ) in December 2022.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Jiaxing (Zhejiang) high-end womenswear chain; US-tracked via its first US store at American Dream, NJ (Dec 2022). Company-owned boutiques; no US franchise offer or FDD."
   }
  },
  "entries": [
@@ -9805,6 +9822,20 @@
     "https://speand.blogspot.com/2025/10/sparkora-bbq-emporium.html"
    ],
    "locations_as_of": "2026-10"
+  },
+  {
+   "chain": "epyaying",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-06",
+   "note": "EP Yaying's first overseas store (early 2019), per trade press at the time of its US debut.",
+   "sources": [
+    "https://wwd.com/business-news/retail/ep-yaying-american-dream-store-1235678236/"
+   ]
   }
  ]
 }

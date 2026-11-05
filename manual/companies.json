@@ -2030,6 +2030,18 @@
      }
     ]
    }
+  },
+  "epyaying": {
+   "name": "EP YAYING",
+   "name_zh": "雅莹",
+   "category": "Apparel",
+   "blurb": "EP YAYING (雅莹) is a high-end womenswear group from Jiaxing, Zhejiang (operator Zhejiang Yaying Garments, 浙江雅莹集团; brand origins in a 1988 Jiaxing garment operation, the “YAYING” trademark registered 1995 by the founding Zhang family). It runs the EP (contemporary international) and Yaying (Chinese-heritage aesthetics) lines plus DOUBLOVE, N.Paia and EP KIDS, with ~800 stores across 210+ cities in China and Macau. Overseas since a 2019 Malaysia store; its first US store opened at American Dream (East Rutherford, NJ) in December 2022.",
+   "site_cn": "https://www.epyaying.com/",
+   "site_us": "https://www.epyaying-shop.com/",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "December 2022",
+   "first_outlet": "East Rutherford, NJ — American Dream, E103 Boutique Avenue"
   }
  }
 }
