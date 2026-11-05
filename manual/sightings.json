@@ -3098,8 +3098,8 @@
     {
      "name": "American Dream (East Rutherford)",
      "address": "1 American Dream Way B108, East Rutherford, NJ 07073",
-     "confidence": "uncertain",
-     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026; coords are a manual mall-centroid override (Census no match)",
+     "confidence": "confirmed",
+     "verified_by": "Visited on site by the Chains From China project, 5 Nov 2026 (open and operating; Rolife storefront unit B108, the Ferris-wheel display, IP-character statue and the 3D-wooden-puzzle interior photographed). Previously 'uncertain' from the brand store list only; now confirmed on site.",
      "lat": 40.8109,
      "lon": -74.0688,
      "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores."

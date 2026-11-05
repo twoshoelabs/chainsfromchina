@@ -1813,6 +1813,10 @@
     },
     "gallery": [
      {
+      "file": "rolife/gus1.jpg",
+      "caption": "Inside — the “Rolife · things to life” wall and aisles of 3D wooden puzzles, DIY miniatures and blind-box IP toys."
+     },
+     {
       "file": "rolife/g1.jpg",
       "caption": "The shop floor: a central island of DIY dollhouse and music-box kits — Sanrio collabs among them — by a themed archway, model-kit shelves lining the walls."
      },
@@ -1824,7 +1828,12 @@
       "file": "rolife/g3.jpg",
       "caption": "The Nanci line — the brand's headline character as costumed plush and blind-box scenes."
      }
-    ]
+    ],
+    "us": {
+     "file": "rolife/us.jpg",
+     "label": "East Rutherford, NJ",
+     "caption": "The Rolife store at American Dream (unit B108) — the illuminated wordmark, a Ferris-wheel display and an IP-character statue out front."
+    }
    }
   },
   "nanhotpot": {
