@@ -1404,15 +1404,15 @@
     },
     {
       "chain": "derucci",
-      "name": "American Dream (Court G L1) — directory-only, not on site",
+      "name": "American Dream (Court G L1) — delisted, never confirmed open",
       "address": "1 American Dream Way, Court G Level 1, East Rutherford, NJ 07073",
       "city": "East Rutherford",
       "state": "NJ",
       "opened": null,
-      "closed_on": null,
-      "closed_note": "Mall-directory/on-site discrepancy: americandream.com/venue/derucci lists DeRUCCI (Court G Level 1, 'flagship and only store in New Jersey'), but it was NOT present on site 5 Nov 2026 (owner-observed; Court G is under a 'relocation'). Removed from the open count (was counted from the mall directory); held as an uncertain sighting pending re-verification. Likely never-opened or relocating, not a confirmed closure.",
-      "confidence": "uncertain",
-      "source": "Owner on-site observation 5 Nov 2026 vs americandream.com/venue/derucci mall directory listing."
+      "closed_on": "2026-11-06",
+      "closed_note": "DeRUCCI at American Dream (Court G Level 1) is gone: absent on site (owner-observed 5 Nov 2026) AND removed from the mall directory (americandream.com/venue/derucci) by 6 Nov 2026 (owner-confirmed). We had briefly counted it from that directory listing ('flagship and only store in New Jersey'); it was never verified open on the ground. Removed from the census and from the sightings roster. Likely a never-opened or relocated listing rather than an operated store that closed. Our confirmed US DeRUCCI = Arcadia CA + Flushing NY.",
+      "confidence": "confirmed",
+      "source": "Owner on-site observation (5 Nov 2026) + owner-confirmed removal from americandream.com directory (6 Nov 2026)."
     }
   ]
 }

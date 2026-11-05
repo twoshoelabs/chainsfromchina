@@ -3450,7 +3450,7 @@
    "supplied_on": "2026-10-18",
    "reviewed": "2026-10-18",
    "source": "DeRUCCI first-party store locator (global.derucci.com/shop) + The Shops at Skyview directory + Yelp",
-   "scope": "US TOP-confirmed = 2 (Arcadia CA Santa Anita; Flushing NY Sky View). A third, American Dream NJ (Court G L1), is on the mall directory but was NOT found on site 5 Nov 2026 — held as uncertain. Duluth GA on the locator pending address verification.",
+   "scope": "US TOP-confirmed = 2 (Arcadia CA Santa Anita; Flushing NY Sky View). An American Dream NJ listing (Court G L1) was removed — absent on site AND delisted from the mall directory by 6 Nov 2026 (never-opened/relocated, see closings). Duluth GA on the locator pending address verification.",
    "locations": [
     {
      "name": "DeRUCCI (Arcadia CA (The Shops at Santa Anita))",
@@ -3469,15 +3469,6 @@
      "lat": 40.76155,
      "lon": -73.84055,
      "coord_src": "Sky View Center centroid (manual; Census no-match on hyphenated Queens address)"
-    },
-    {
-     "name": "American Dream (NJ)",
-     "address": "1 American Dream Way, Court G Level 1, East Rutherford, NJ 07073",
-     "confidence": "uncertain",
-     "verified_by": "MALL-DIRECTORY/ON-SITE DISCREPANCY: americandream.com/venue/derucci lists DeRUCCI at Court G Level 1 ('flagship and only store in New Jersey'), but it was NOT found on site by the Chains From China project, 5 Nov 2026 (owner walked Court G, where a 'Court G relocation' is underway). Held out of the count and map pending re-verification — likely never-opened or relocating, not confirmed closed. Restore to confirmed if it opens.",
-     "lat": 40.808508,
-     "lon": -74.070214,
-     "coord_src": "American Dream mall centroid"
     }
    ]
   },
