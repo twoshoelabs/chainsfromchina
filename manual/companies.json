@@ -1852,7 +1852,33 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2026",
-   "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)"
+   "first_outlet": "East Rutherford, NJ — American Dream (US re-entry)",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "littlesheep/us.jpg",
+     "label": "East Rutherford, NJ",
+     "caption": "The American Dream restaurant (Unit A320) — the LITTLE SHEEP portal and the 小肥羊 blade sign over the host stand."
+    },
+    "gallery": [
+     {
+      "file": "littlesheep/g1.jpg",
+      "caption": "The brand’s origin on the wall — “LITTLE SHEEP HOT POT · The heart of a meal,” Mongolian-steppe yurts and the line “Baotou, Inner Mongolia, China · Since 1999,” beside the lounge."
+     },
+     {
+      "file": "littlesheep/g2.jpg",
+      "caption": "The dining room — brown-leather hot-pot booths with built-in induction wells, the long bar and a garland of flags behind."
+     },
+     {
+      "file": "littlesheep/g3.jpg",
+      "caption": "The frontage off the mall concourse — a Happy Hour wall and the 小肥羊 / LITTLE SHEEP HOT POT logo."
+     },
+     {
+      "file": "littlesheep/g4.jpg",
+      "caption": "The grinning-lamb emblem and grassland yurts of Little Sheep’s Inner Mongolian roots."
+     }
+    ]
+   }
   },
   "yaoyao": {
    "name": "YAOYAO",
