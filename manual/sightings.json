@@ -946,7 +946,7 @@
   {
    "chain": "toptoy",
    "supplied_on": "2026-09-28",
-   "reviewed": "2026-09-28",
+   "reviewed": "2026-11-06",
    "source": "The chain's own US store-locations page (gotoptoy.com), which lists a single US store.",
    "scope": "US TOP TOY outlets for a MINISO Group art-toy brand. Its first-party US locator lists one store (Times Square) as of 28 Sep 2026; JS-rendered, so recorded here rather than collected. Effectively complete at one store.",
    "locations": [
@@ -955,6 +955,14 @@
      "address": "1515 Broadway, New York, NY 10036",
      "confidence": "confirmed",
      "verified_by": "TOP TOY first-party US locator (gotoptoy.com) (28 Sep 2026)"
+    },
+    {
+     "name": "American Dream (coming soon)",
+     "address": "1 American Dream Way, East Rutherford, NJ 07073",
+     "confidence": "uncertain",
+     "lat": 40.808,
+     "lon": -74.0715,
+     "verified_by": "'TOP TOY — Coming Soon, A Leading Global Art Toy Brand' hoarding photographed on site by the Chains From China project, 5 Nov 2026 (under construction, not yet open; QR to gifttoptoy.com). Held out of the count and map until it opens — graduate to confirmed when trading."
     }
    ]
   },
@@ -3442,7 +3450,7 @@
    "supplied_on": "2026-10-18",
    "reviewed": "2026-10-18",
    "source": "DeRUCCI first-party store locator (global.derucci.com/shop) + The Shops at Skyview directory + Yelp",
-   "scope": "US confirmed = 2 with addresses (Arcadia CA Santa Anita; Flushing NY Sky View). Duluth GA (Atlanta) on the locator but no street address yet — lead to add.",
+   "scope": "US TOP-confirmed = 2 (Arcadia CA Santa Anita; Flushing NY Sky View). A third, American Dream NJ (Court G L1), is on the mall directory but was NOT found on site 5 Nov 2026 — held as uncertain. Duluth GA on the locator pending address verification.",
    "locations": [
     {
      "name": "DeRUCCI (Arcadia CA (The Shops at Santa Anita))",
@@ -3465,8 +3473,8 @@
     {
      "name": "American Dream (NJ)",
      "address": "1 American Dream Way, Court G Level 1, East Rutherford, NJ 07073",
-     "confidence": "confirmed",
-     "verified_by": "Official mall directory americandream.com/venue/derucci (\"flagship and only store in New Jersey\", Court G Level 1, open 11-9); owner screenshot 26 Oct 2026.",
+     "confidence": "uncertain",
+     "verified_by": "MALL-DIRECTORY/ON-SITE DISCREPANCY: americandream.com/venue/derucci lists DeRUCCI at Court G Level 1 ('flagship and only store in New Jersey'), but it was NOT found on site by the Chains From China project, 5 Nov 2026 (owner walked Court G, where a 'Court G relocation' is underway). Held out of the count and map pending re-verification — likely never-opened or relocating, not confirmed closed. Restore to confirmed if it opens.",
      "lat": 40.808508,
      "lon": -74.070214,
      "coord_src": "American Dream mall centroid"
