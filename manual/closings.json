@@ -1317,6 +1317,78 @@
       "closed_note": "JiBeiChuan / Ji Bei Chuan Rice Noodle Ramen (季北川) Edison NJ; permanently closed per Google ('Permanently closed' banner), operator-observed 2026-11-04 (NY). NOT previously in our JiBeiChuan census (we track the chain's other NY/NJ/CA/etc outlets), so no count change — a location that opened and closed without us capturing it. Close date unknown.",
       "confidence": "confirmed",
       "source": "Google Maps business listing ('Permanently closed'), hand-observed 2026-11-04 (NY)."
+    },
+    {
+      "chain": "moge",
+      "name": "Hermosa Beach",
+      "address": "1411 Hermosa Ave, Hermosa Beach, CA",
+      "city": "Hermosa Beach",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Hermosa Beach; permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Newark (Market St)",
+      "address": "194 Market Street, Newark, NJ",
+      "city": "Newark",
+      "state": "NJ",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Newark (Market St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Brooklyn (705 59th St)",
+      "address": "705 59th St unit d, Brooklyn, NY 11220",
+      "city": "Brooklyn",
+      "state": "NY",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Brooklyn (705 59th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Williamsburg (N 4th St)",
+      "address": "76 N 4th St, Brooklyn, NY 11249",
+      "city": "Brooklyn",
+      "state": "NY",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Williamsburg (N 4th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Houston Heights (Shepherd Dr)",
+      "address": "1919 North Shepherd Drive suite b, Houston, TX 77008",
+      "city": "Houston",
+      "state": "TX",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Houston Heights (Shepherd Dr); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Seattle (U District)",
+      "address": "4334 University Way Northeast, Seattle, WA 98105",
+      "city": "Seattle",
+      "state": "WA",
+      "opened": null,
+      "closed_on": "2026-10-31",
+      "closed_note": "Möge Tee Seattle (U District); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
     }
   ]
 }

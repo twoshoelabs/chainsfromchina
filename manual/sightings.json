@@ -2612,9 +2612,9 @@
   {
    "chain": "moge",
    "supplied_on": "2026-10-31",
-   "reviewed": "2026-10-31",
+   "reviewed": "2026-11-05",
    "source": "Operator-observed operating Google listing (store not currently on mogeteeusa.com's collected locator).",
-   "scope": "A Moge Tee (愿茶) outlet the daily collected feed (mogeteeusa.com) misses: Orlando (Vista). Hand-verified so it still maps; auto-retires if the locator later lists it.",
+   "scope": "Moge Tee (愿茶) outlets the daily collected feed (mogeteeusa.com) misses (Orlando Vista, Blacksburg, Aurora). Hand-verified so they still map; auto-retire if the locator later lists them.",
    "locations": [
     {
      "name": "Orlando (Vista Centre Shoppes)",
@@ -2633,6 +2633,14 @@
      "lat": 37.233187,
      "lon": -80.421813,
      "coord_src": "Google Maps plus code 6HMH+77 (decoded; confirmed vs Nominatim)"
+    },
+    {
+     "name": "Aurora (愿茶 x Poké)",
+     "address": "12600 E Colfax Ave, Aurora, CO 80011",
+     "lat": 39.7396229,
+     "lon": -104.8420226,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing 'MÖGE TEE 愿茶 x Poké' (4.5★/54 reviews, Open; +1 720-297-0800), operator-observed 5 Nov 2026 (NY). A Möge Tee × Poké combo store; absent from the mogeteeusa.com locator, hand-added so it counts."
     }
    ]
   },
