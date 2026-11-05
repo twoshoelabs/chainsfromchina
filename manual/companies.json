@@ -348,6 +348,18 @@
     },
     "gallery": [
      {
+      "file": "heytea/gus1.jpg",
+      "caption": "The order counter beneath HEYTEA’s signature backlit stone-tile ceiling, the neon sipping-figure mark above."
+     },
+     {
+      "file": "heytea/gus2.jpg",
+      "caption": "HEYTEA’s minimalist line-art order screens — a “strawberry rich chocolate” animation beside the live “served / preparing” board over the prep bar."
+     },
+     {
+      "file": "heytea/gus3.jpg",
+      "caption": "The brand’s “real tea · real milk · real sugar” cards at the register, with a “buy one, get one free” launch promo."
+     },
+     {
       "file": "heytea/g1.jpg?v=2",
       "caption": "The order counter beneath HEYTEA’s neon mark — a figure sipping tea — with the pastry case and self-order screen."
      },
@@ -367,7 +379,12 @@
       "file": "heytea/g5.jpg",
       "caption": "A HEYTEA on Shanghai’s Nanjing Road — beside one of the building’s bronze guardian beasts, with M Stand coffee next door."
      }
-    ]
+    ],
+    "us": {
+     "file": "heytea/us.jpg",
+     "label": "East Rutherford, NJ",
+     "caption": "The HEYTEA at American Dream (unit A113) — the illuminated wordmark and its tea-sipping line mark over the counter, a line of customers alongside."
+    }
    }
   },
   "cotti": {
