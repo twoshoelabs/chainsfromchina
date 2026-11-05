@@ -1398,9 +1398,9 @@
       "state": "NY",
       "opened": null,
       "closed_on": null,
-      "closed_note": "YOYOSO Astoria (Queens); permanently closed per Google ('闉業'/Permanently closed), operator-observed 6 Nov 2026. Never entered our open census (brand added to the roster 6 Nov 2026 with only its two operating US stores). No count change.",
+      "closed_note": "YOYOSO Astoria/Long Island City (Queens); permanently closed per Google ('Permanently closed' banner, 'Gift shop in New York', 3.0★/12 reviews), screenshot-confirmed 6 Nov 2026. Google labels it Long Island City; ZIP 11103 is Astoria. Never entered our open census (brand added 6 Nov 2026 with only its two operating US stores) — no count change.",
       "confidence": "confirmed",
-      "source": "Google Maps 'Permanently closed', hand-observed 6 Nov 2026."
+      "source": "Google Business panel ('Permanently closed', 12 reviews), hand-observed/screenshot 6 Nov 2026."
     }
   ]
 }
