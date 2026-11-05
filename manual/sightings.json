@@ -4415,6 +4415,31 @@
      "lon": -74.0705
     }
    ]
+  },
+  {
+   "chain": "yoyoso",
+   "supplied_on": "2026-11-06",
+   "reviewed": "2026-11-06",
+   "source": "Operator-observed Google Maps operating listings (6 Nov 2026) + owner observation at American Dream; YOYOSO = 韩尚优品 (Yiwu, Zhejiang).",
+   "scope": "YOYOSO's US outlets — two operating stores: American Dream (East Rutherford, NJ) and 1111 Lincoln Road (Miami Beach, FL). China-origin Yiwu variety retailer that markets as Korean (韩尚优品). A former Astoria (Queens, NY) store is permanently closed (see closings).",
+   "locations": [
+    {
+     "name": "American Dream",
+     "address": "1 American Dream Way, East Rutherford, NJ 07073",
+     "confidence": "confirmed",
+     "lat": 40.8082,
+     "lon": -74.071,
+     "verified_by": "Owner-observed on site + Google Maps operating listing 'YOYOSO American Dream' (3.6★/31 reviews, variety store, open), 6 Nov 2026."
+    },
+    {
+     "name": "Lincoln Road (Miami Beach)",
+     "address": "1111 Lincoln Rd, Miami Beach, FL 33139",
+     "confidence": "confirmed",
+     "lat": 25.7907641,
+     "lon": -80.1408192,
+     "verified_by": "Google Maps operating listing 'YOYOSO' (3.9★/47 reviews, open; +1 305-763-8294), operator-observed 6 Nov 2026. YOYOSO's first Florida store (Oct 2022)."
+    }
+   ]
   }
  ]
 }

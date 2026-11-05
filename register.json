@@ -1765,6 +1765,22 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Jiaxing (Zhejiang) high-end womenswear chain; US-tracked via its first US store at American Dream, NJ (Dec 2022). Company-owned boutiques; no US franchise offer or FDD."
+  },
+  "yoyoso": {
+   "name": "YOYOSO",
+   "name_intl": "YOYOSO",
+   "aliases": [
+    "韩尚优品",
+    "韓尚優品",
+    "Yoyoso",
+    "Hanshang Youpin"
+   ],
+   "format": "variety",
+   "global": "YOYOSO (韩尚优品) is a Miniso-style budget lifestyle/variety retailer founded in 2014 (founder Ma Huan) and headquartered in Yiwu, Zhejiang. Despite its Chinese origin it markets itself with a Korean design identity (韩尚 = ‘Korean-chic’), the same playbook as Miniso (‘Japanese’) and XIMIVOGUE. It runs 1,000+ franchise stores across 40+ countries. US stores: 1111 Lincoln Road (Miami Beach, opened 2022) and American Dream (East Rutherford, NJ); a former Astoria (Queens, NY) store has closed.",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "Yiwu (Zhejiang) Miniso-style variety retailer, franchise-driven (1,000+ stores in 40+ countries). US-tracked via its Miami Beach (Lincoln Rd) and American Dream (NJ) stores. Franchises offered internationally; no US FDD confirmed."
   }
  },
  "entries": [

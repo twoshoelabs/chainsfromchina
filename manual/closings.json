@@ -1389,6 +1389,18 @@
       "closed_note": "Möge Tee Seattle (U District); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. Part of the Oct-2026 Möge Tee US contraction. Was still listed on the brand locator (mogeteeusa.com) at the time, so it is filtered via the moge adapter PERMANENTLY_CLOSED set and the DB row was expedited to closed 5 Nov 2026 (it had been aging but was still counting as open).",
       "confidence": "confirmed",
       "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; DB closure expedited 5 Nov 2026."
+    },
+    {
+      "chain": "yoyoso",
+      "name": "Astoria (Steinway St)",
+      "address": "32-43 Steinway St, Astoria, NY 11103",
+      "city": "Astoria",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "YOYOSO Astoria (Queens); permanently closed per Google ('闉業'/Permanently closed), operator-observed 6 Nov 2026. Never entered our open census (brand added to the roster 6 Nov 2026 with only its two operating US stores). No count change.",
+      "confidence": "confirmed",
+      "source": "Google Maps 'Permanently closed', hand-observed 6 Nov 2026."
     }
   ]
 }

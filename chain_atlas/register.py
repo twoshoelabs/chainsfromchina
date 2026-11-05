@@ -52,7 +52,7 @@ SECTOR_BY_FORMAT = {
     "tea": "tea", "coffee": "coffee", "bakery": "bakery",
     "restaurant": "food_drink", "hotpot": "food_drink", "fastfood": "food_drink",
     "snack": "snacks",
-    "lifestyle": "lifestyle_variety", "toys": "lifestyle_variety",
+    "lifestyle": "lifestyle_variety", "toys": "lifestyle_variety", "variety": "lifestyle_variety",
     "convenience": "grocery_convenience", "supermarket": "grocery_convenience",
     "grocery": "grocery_convenience",
     "apparel": "apparel", "beauty": "beauty", "electronics": "electronics", "home": "home",
