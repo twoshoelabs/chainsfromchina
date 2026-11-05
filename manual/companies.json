@@ -2041,7 +2041,37 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "December 2022",
-   "first_outlet": "East Rutherford, NJ — American Dream, E103 Boutique Avenue"
+   "first_outlet": "East Rutherford, NJ — American Dream, E103 Boutique Avenue",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "epyaying/us.jpg",
+     "label": "East Rutherford, NJ",
+     "caption": "The American Dream storefront (E103 Boutique Avenue) — the blue “EP YAYING” sign over the window display, in the mall’s luxury wing alongside Coach."
+    },
+    "gallery": [
+     {
+      "file": "epyaying/g1.jpg",
+      "caption": "Inside the boutique — the copper-soffit hall, styled mannequins along a central runner, knitwear and tailored outerwear on the floor."
+     },
+     {
+      "file": "epyaying/g2.jpg",
+      "caption": "The store’s signature fixtures — slender black rods and floating onyx shelves holding bags and shoes beneath a warm copper ceiling."
+     },
+     {
+      "file": "epyaying/g3.jpg",
+      "caption": "The lounge and selling floor, with Coach across the mall’s luxury wing — EP Yaying trades in the Saks/Hermès corridor."
+     },
+     {
+      "file": "epyaying/g4.jpg",
+      "caption": "An EP YAYING jacket’s woven label and certification hang-tag — the brand tags each piece with an article code and size chart; this embroidered-collar jacket is made in China and retails for US$1,550."
+     },
+     {
+      "file": "epyaying/g5.jpg",
+      "caption": "Autumn looks on the floor — a mandarin-collar jacket over chambray and a taupe car coat, in EP Yaying’s muted palette."
+     }
+    ]
+   }
   },
   "yoyoso": {
    "name": "YOYOSO",
