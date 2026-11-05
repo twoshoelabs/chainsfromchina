@@ -1973,7 +1973,37 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2018",
-   "first_outlet": "New York (first overseas store)"
+   "first_outlet": "New York (first overseas store)",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "tenseconds/us.jpg",
+     "caption": "The Rockville storefront on Hungerford Drive — the lit “十秒到 · SHI MIAO DAO / 云南过桥米线 · Yunnan Rice Noodle” sign over unit 819.",
+     "label": "Rockville, MD"
+    },
+    "gallery": [
+     {
+      "file": "tenseconds/g1.jpg",
+      "caption": "The dining-room mural retelling the Yunnan legend of 过桥米线 (crossing-the-bridge rice noodle) — the scholar, the bridge, and the broth kept hot beneath a layer of oil."
+     },
+     {
+      "file": "tenseconds/g2.jpg",
+      "caption": "The order counter, with Yunnan touches — an embroidered minority tassel at left, a woven bamboo hat and gourds on the exposed brick."
+     },
+     {
+      "file": "tenseconds/g3.jpg",
+      "caption": "Yunnan ethnic-minority paintings and a woven back-basket on the brick wall."
+     },
+     {
+      "file": "tenseconds/g4.jpg",
+      "caption": "The window decal — “云南过桥米线 / Original Soup Rice Noodles with beef slices” beneath the red 十秒到 seal, by the door."
+     },
+     {
+      "file": "tenseconds/g5.jpg",
+      "caption": "The house 过桥米线 spread as pictured — the hot broth bowl, rice, beef slices and the sides you add at the table."
+     }
+    ]
+   }
   },
   "wallace": {
    "name": "Wallace",
