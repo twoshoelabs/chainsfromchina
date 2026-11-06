@@ -2310,6 +2310,40 @@
      }
     ]
    }
+  },
+  "zhengxin": {
+   "name": "Zhengxin Chicken Steak",
+   "name_zh": "正新鸡排",
+   "category": "Fried chicken",
+   "blurb": "Zhengxin Chicken Steak (正新鸡排) is a Chinese fried-chicken-cutlet (鸡排) chain that grew out of founder Chen Chuanwu's 1990s Wenzhou (Zhejiang) frozen-food business; the first branded store opened in Wenzhou in 2000. Franchised aggressively, it passed 10,000 stores in 2017 and peaked near 25,000 around 2021 — among China's largest chains by store count — before contracting to roughly 9,500 by 2026 amid food-safety and quality complaints; parent Zhengxin Food Group is reportedly pursuing a Hong Kong IPO. Its signature is the large spicy fried chicken breast. US presence is seven stores (CA, NY, MA); the Allston/Boston location bills itself the “Boston Flagship Store.”",
+   "site_cn": null,
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": null,
+   "first_outlet": null,
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "zhengxin/us.jpg",
+     "label": "Allston, MA",
+     "caption": "The Zhengxin Chicken Steak counter inside Boston's Novo Marketplace — the rooster logo over the red-tiled bar (its 'Boston Flagship Store'), the Cotti Coffee archway alongside."
+    },
+    "gallery": [
+     {
+      "file": "zhengxin/g1.jpg",
+      "caption": "The brand board — “Since 1995 · Freshly Made, Worth the Wait · 25,000+ stores worldwide,” with the Boston-lobster-hat chicken mascot."
+     },
+     {
+      "file": "zhengxin/g2.jpg",
+      "caption": "The menu leads with the signature spicy fried chicken breast (鸡排, $12.99 / $7.99), plus skewers, sandwiches, sides, ice cream and drinks."
+     },
+     {
+      "file": "zhengxin/g3.jpg",
+      "caption": "The red-tiled counter and order screens, the open kitchen behind — a food-hall stall in Allston's Novo Marketplace."
+     }
+    ]
+   }
   }
  }
 }

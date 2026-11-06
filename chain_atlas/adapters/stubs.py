@@ -915,24 +915,27 @@ class WallaceAdapter(Adapter):
 
 class ZhengxinAdapter(Adapter):
     """
-    Zhengxin Chicken Steak (正新鸡排) — added 2026-10-04. A fried-chicken-steak fast-food chain under
-    Zhengxin Food (Fujian), founded 2000; its store count passed 20,000 worldwide by 2019, one of
-    China's largest F&B chains. Chinese origin, in scope.
+    Zhengxin Chicken Steak (正新鸡排) — added 2026-10-04; register + companies record + photos 2026-11-07.
+    A fried-chicken-cutlet (鸡排) chain from Wenzhou, Zhejiang (first store 2000, out of founder Chen
+    Chuanwu's 1990s frozen-food business); franchised to a peak ~25,000 stores around 2021, one of
+    China's largest chains by store count, now contracting (~9,500 by 2026). Chinese origin, in scope.
+    (Earlier note said "Fujian"; corrected to Wenzhou/Zhejiang on 2026-11-07 research.)
 
     In the US since at least 2024 under its own English name, run by separate regional operators (a
     West-Coast arm at zhengxinca.com; East-Coast NYC stores order via MealKeyway). Open outlets in
-    California (San Diego, Milpitas, San Francisco) and New York (Flushing + two in Brooklyn); the
-    Chicago store is closed. No single national US locator, so tracked via sightings.
+    California (San Diego, Milpitas, San Francisco), New York (Flushing + two in Brooklyn) and the
+    Allston/Boston "Boston Flagship Store" (Novo Marketplace); the Chicago store is closed. No single
+    national US locator, so tracked via sightings.
     """
     chain_id, name, name_zh = "zhengxin", "Zhengxin Chicken Steak", "正新鸡排"
     name_us = "Zhengxin Chicken Steak"
-    aliases = ("Zheng Xin Chicken Steak", "Zhengxin Chicken", "正新鸡排")
-    parent, format = "Zhengxin Food (正新食品, Fujian)", "restaurant"
+    aliases = ("Zheng Xin Chicken Steak", "Zhengxin Chicken", "正新鸡排", "鸡排哥")
+    parent, format = "Zhengxin Food Group (正新集团, Wenzhou, Zhejiang)", "fastfood"
     ENABLED = False
-    BLOCKED_REASON = ("fried-chicken-steak chain (正新鸡排, Fujian, 2000; 20,000+ stores worldwide);"
+    BLOCKED_REASON = ("fried-chicken-cutlet chain (正新鸡排, Wenzhou/Zhejiang, 2000; peaked ~25,000 stores);"
                       " in the US under its own name via regional operators — open in CA (San Diego,"
-                      " Milpitas, San Francisco) and NY (Flushing + two Brooklyn), Chicago closed."
-                      " No single national locator. Tracked via sightings (4 Oct 2026)")
+                      " Milpitas, San Francisco), NY (Flushing + two Brooklyn) and Allston/Boston, Chicago"
+                      " closed. No single national locator. Tracked via sightings (4 Oct, updated 7 Nov 2026)")
     RECHECK = ["https://www.zhengxinca.com/"]
 
 

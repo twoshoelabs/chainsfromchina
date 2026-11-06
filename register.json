@@ -1781,6 +1781,23 @@
    "franchise_available_us": 1,
    "fdd_available": 0,
    "franchise_note": "Yiwu (Zhejiang) Miniso-style variety retailer, franchise-driven (1,000+ stores in 40+ countries). US-tracked via its Miami Beach (Lincoln Rd) and American Dream (NJ) stores. Franchises offered internationally; no US FDD confirmed."
+  },
+  "zhengxin": {
+   "name": "Zhengxin Chicken Steak",
+   "name_intl": "Zhengxin Chicken Steak",
+   "name_zh": "正新鸡排",
+   "aliases": [
+    "正新鸡排",
+    "正新",
+    "Zhengxin",
+    "鸡排哥"
+   ],
+   "format": "fastfood",
+   "global": "Zhengxin Chicken Steak (正新鸡排) is a Chinese fried-chicken-cutlet (鸡排) chain that grew out of founder Chen Chuanwu's 1990s Wenzhou (Zhejiang) frozen-food business; the first branded store opened in Wenzhou in 2000. Franchised aggressively, it passed 10,000 stores in 2017 and peaked near 25,000 around 2021 — among China's largest chains by store count — before contracting to roughly 9,500 by 2026 amid food-safety and quality complaints; parent Zhengxin Food Group is reportedly pursuing a Hong Kong IPO. Its signature is the large spicy fried chicken breast. US presence is seven stores (CA, NY, MA); the Allston/Boston location bills itself the “Boston Flagship Store.”",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "Wenzhou (Zhejiang) fried-chicken-cutlet chain, one of China's largest by store count (peaked ~25,000). US-tracked via 7 stores (CA/NY/MA); the Allston/Boston store is its 'Boston Flagship.' Franchise-driven in China; no US FDD confirmed."
   }
  },
  "entries": [
