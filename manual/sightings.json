@@ -1796,12 +1796,20 @@
      "verified_by": "Field screenshot 2026-10-05: Yelp lists ChaHalo 茶话弄 at 26-23 Jackson Ave (18 reviews, 26 photos), bubble tea, operating. Distinct from Nayuki/NaiSnow at 27-53 Jackson Ave on the same corridor.",
      "lat": 40.74747,
      "lon": -73.941599
+    },
+    {
+     "name": "Boston (Allston, Packard’s Corner)",
+     "address": "1026 Commonwealth Ave, Boston, MA 02215",
+     "lat": 42.3515709,
+     "lon": -71.121967,
+     "confidence": "confirmed",
+     "verified_by": "Visited on site by the Chains From China project, 7 Nov 2026 (open; 茶话弄/ChaHalo storefront, Chang’an-themed interior and menu photographed). Corroborated by Google Maps operating listing 'ChaHalo Boston' (5.0★/91 reviews, teahouse, +1 857-222-8070). A recent soft-launch opening in Allston (Commonwealth Ave, by Boston University). New outlet — no prior MA ChaHalo on file."
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01) and later field screenshots, source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads plus 2026-10-05 field screenshots; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
-   "reviewed": "2026-10-05"
+   "reviewed": "2026-11-07"
   },
   {
    "chain": "cotti",

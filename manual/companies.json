@@ -703,7 +703,33 @@
    "photo": "img/chahalo.jpg",
    "photo_credit": null,
    "us_since": "October 2025",
-   "first_outlet": "Rowland Heights, CA"
+   "first_outlet": "Rowland Heights, CA",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "chahalo/us.jpg",
+     "label": "Boston, MA",
+     "caption": "The ChaHalo storefront at 1026 Commonwealth Ave, Allston — a block from Boston University — the 茶话弄 wordmark and its reclining tea-sipper logo over the open door."
+    },
+    "gallery": [
+     {
+      "file": "chahalo/g1.jpg",
+      "caption": "Inside — the counter under a “SIP · CHAT · CHILL” sign and an orange Chang’an (Xi’an) city-wall mural, “Premium Selected Tea Leaves” at the register."
+     },
+     {
+      "file": "chahalo/g2.jpg",
+      "caption": "Staff pulling whole-leaf teas at the bar, the brand’s Tang-illustrated cups stacked alongside."
+     },
+     {
+      "file": "chahalo/g3.jpg",
+      "caption": "The shop on its Commonwealth Avenue block in the November rain, the Allston streetscape stretching toward BU."
+     },
+     {
+      "file": "chahalo/g4.jpg",
+      "caption": "The signature-drinks board — osmanthus and roasted-oolong milk teas, the “Changan” lychee series and whole-leaf brews; ChaHalo leans into Xi’an / Tang-dynasty branding."
+     }
+    ]
+   }
   },
   "xiaolongkan": {
    "name": "Shoo Loong Kan Hotpot",
