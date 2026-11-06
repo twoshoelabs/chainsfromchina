@@ -1413,6 +1413,30 @@
       "closed_note": "DeRUCCI at American Dream (Court G Level 1) is gone: absent on site (owner-observed 5 Nov 2026) AND removed from the mall directory (americandream.com/venue/derucci) by 6 Nov 2026 (owner-confirmed). We had briefly counted it from that directory listing ('flagship and only store in New Jersey'); it was never verified open on the ground. Removed from the census and from the sightings roster. Likely a never-opened or relocated listing rather than an operated store that closed. Our confirmed US DeRUCCI = Arcadia CA + Flushing NY.",
       "confidence": "confirmed",
       "source": "Owner on-site observation (5 Nov 2026) + owner-confirmed removal from americandream.com directory (6 Nov 2026)."
+    },
+    {
+      "chain": "moge",
+      "name": "Central Square (Cambridge)",
+      "address": "605 Massachusetts Ave, Cambridge, MA 02139",
+      "city": "Cambridge",
+      "state": "MA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Möge Tee Central Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (190 reviews). STILL listed on the brand locator (mogeteeusa.com, collected 6 Nov 2026), so added to the moge adapter PERMANENTLY_CLOSED filter and the DB row expedited to closed — it had been counting as open (−1 to the count). Part of the Oct–Nov 2026 Möge Tee US contraction.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Harvard Square (Cambridge)",
+      "address": "54 John F. Kennedy St, Cambridge, MA 02138",
+      "city": "Cambridge",
+      "state": "MA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Möge Tee Harvard Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (25 reviews). Not on our locator feed and was not in the open census — no count change; logged for the historical record / Möge Tee US contraction story.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
     }
   ]
 }
