@@ -408,6 +408,18 @@
     },
     "gallery": [
      {
+      "file": "cotti/gus1.jpg",
+      "caption": "The bar runs on automated Franke espresso machines — the model behind Cotti’s low prices — beneath the drinks menu and a seasonal “Pumpkin Treat” promo."
+     },
+     {
+      "file": "cotti/gus2.jpg",
+      "caption": "The price play: an Americano is $3.19 and a latte $4.69 — Cotti undercuts the US coffee majors, the Luckin-style discounting it carries from China."
+     },
+     {
+      "file": "cotti/gus3.jpg",
+      "caption": "The signature red “@” cup, a Café Latte waiting at pickup."
+     },
+     {
       "file": "cotti/g1.jpg?v=2",
       "caption": "How it sits on the mall floor: a compact Cotti counter with planter-screened bar seating along the concourse, opposite the shoe halls."
      },
@@ -419,7 +431,12 @@
       "file": "cotti/g3.jpg",
       "caption": "Cotti leans hard on celebrity marketing — a Yang Mi (杨幂) “Happy Mi's Day” stand of cup sleeves and cards."
      }
-    ]
+    ],
+    "us": {
+     "file": "cotti/us.jpg",
+     "label": "Boston, MA",
+     "caption": "Cotti at Boston’s Novo Marketplace — the red “@” target logo and the “Cotti Coffee Boston” counter under its archway, with café seating."
+    }
    }
   },
   "taier": {
