@@ -241,7 +241,7 @@ function photosBlock(comp, m) {
     }
     if (ph.gallery && ph.gallery.length) {
       h += `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">` +
-        ph.gallery.map((o) => photoFig(o, '3/2', '', false)).join('') + `</div>`;
+        ph.gallery.map((o) => photoFig(o, '3/2', o.label || '', false)).join('') + `</div>`;
     }
     return h;
   }

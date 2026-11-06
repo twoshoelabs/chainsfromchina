@@ -220,7 +220,8 @@
     "gallery": [
      {
       "file": "popmart/gus5.jpg",
-      "caption": "The US store at Westfield Montgomery (Bethesda, MD) — the POP MART service counter beneath the artist-IP wall (THE MONSTERS, LABUBU, PEACH RIOT, SKULLPANDA, HIRONO)."
+      "caption": "The US store at Westfield Montgomery (Bethesda, MD) — the POP MART service counter beneath the artist-IP wall (THE MONSTERS, LABUBU, PEACH RIOT, SKULLPANDA, HIRONO).",
+      "label": "Bethesda, MD"
      },
      {
       "file": "popmart/gus1.jpg",
@@ -2052,7 +2053,8 @@
      },
      {
       "file": "yogost/g5.jpg",
-      "caption": "The Allston storefront on Brighton Avenue (Boston) — the angled blue “HEY! I AM YOGOST” sign, a second US location on the neighborhood’s bubble-tea row."
+      "caption": "The Allston storefront on Brighton Avenue (Boston) — the angled blue “HEY! I AM YOGOST” sign, a second US location on the neighborhood’s bubble-tea row.",
+      "label": "Allston, MA"
      }
     ]
    }
