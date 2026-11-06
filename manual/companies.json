@@ -729,13 +729,13 @@
    "photos": {
     "origin": "author",
     "us": {
-     "file": "chahalo/us.jpg",
+     "file": "chahalo/us.jpg?v=2",
      "label": "Boston, MA",
      "caption": "The ChaHalo storefront at 1026 Commonwealth Ave, Allston — a block from Boston University — the 茶话弄 wordmark and its reclining tea-sipper logo over the open door."
     },
     "gallery": [
      {
-      "file": "chahalo/g1.jpg",
+      "file": "chahalo/g1.jpg?v=2",
       "caption": "Inside — the counter under a “SIP · CHAT · CHILL” sign and an orange Chang’an (Xi’an) city-wall mural, “Premium Selected Tea Leaves” at the register."
      },
      {
