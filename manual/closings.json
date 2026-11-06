@@ -1437,6 +1437,18 @@
       "closed_note": "Möge Tee Harvard Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (25 reviews). Not on our locator feed and was not in the open census — no count change; logged for the historical record / Möge Tee US contraction story.",
       "confidence": "confirmed",
       "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+    },
+    {
+      "chain": "moge",
+      "name": "Dedham (Legacy Place)",
+      "address": "752 Legacy Pl, Dedham, MA 02026",
+      "city": "Dedham",
+      "state": "MA",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Möge Tee Dedham (Legacy Place); permanently closed per Google, hand-observed 7 Nov 2026 (65 reviews). STILL on the brand locator (mogeteeusa.com, collected 6 Nov 2026) → added to PERMANENTLY_CLOSED + DB row expedited to closed (−1). Oct–Nov 2026 Möge Tee US contraction.",
+      "confidence": "confirmed",
+      "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
     }
   ]
 }

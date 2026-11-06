@@ -54,6 +54,7 @@ PERMANENTLY_CLOSED = {
     "4334 university way northeast, seattle, wa 98105",       # Seattle (U District) WA — Google: permanently closed (31 Oct 2026)
     "1411 hermosa ave, hermosa beach, ca",                    # Hermosa Beach CA — Google: permanently closed (31 Oct 2026)
     "605 massachusetts ave, cambridge, ma 02139",             # Central Square (Cambridge) MA — Google: permanently closed (7 Nov 2026; still on locator)
+    "752 legacy pl, dedham, ma 02026",                        # Dedham (Legacy Place) MA — Google: permanently closed (7 Nov 2026; still on locator)
 }
 
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
