@@ -1117,7 +1117,37 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "May 2022",
-   "first_outlet": "Boston — 580 Commonwealth Ave"
+   "first_outlet": "Boston — 580 Commonwealth Ave",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "shudaxia/us.jpg",
+     "label": "Boston, MA",
+     "caption": "The Shu Da Xia storefront on Commonwealth Avenue, a block from Boston University — the 蜀大侠 / “SHU DAXIA HOT POT” sign over the corner entrance."
+    },
+    "gallery": [
+     {
+      "file": "shudaxia/g1.jpg",
+      "caption": "The wuxia-themed dining room — a temple-gate “蜀大侠” archway, red lanterns and an armored-hero mascot by the bar."
+     },
+     {
+      "file": "shudaxia/g2.jpg",
+      "caption": "The $3 all-you-can-eat sauce bar — mix-your-own condiments beneath an ink-brush warrior mural, the panda-knight mascot on the poster."
+     },
+     {
+      "file": "shudaxia/g3.jpg",
+      "caption": "A wall of labeled house sauces (沙茶酱, 辣椒油, 海鲜酱…) and twin broadswords on a lattice screen, over the hot-pot tables."
+     },
+     {
+      "file": "shudaxia/g4.jpg",
+      "caption": "Granite hot-pot tables with induction wells and individual broth rings, under 蜀大侠 lanterns and a “不胜人间一场醉” banner."
+     },
+     {
+      "file": "shudaxia/g5.jpg",
+      "caption": "The restaurant on its Comm Ave plaza under a blaze of autumn ginkgo — the single US outlet of a Chengdu hot-pot chain (蜀大侠, “the Sichuan great knight”)."
+     }
+    ]
+   }
   },
   "xibei": {
    "name": "Xibei",
