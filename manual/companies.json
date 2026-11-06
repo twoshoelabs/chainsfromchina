@@ -1331,7 +1331,33 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "June 2019",
-   "first_outlet": "San Gabriel, CA — 250 W Valley Blvd (now closed)"
+   "first_outlet": "San Gabriel, CA — 250 W Valley Blvd (now closed)",
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "dalongyi/us.jpg",
+     "label": "Allston, MA",
+     "caption": "The Da Long Yi storefront at 137 Brighton Ave, Allston — the big 大龙燺 sign and red flame emblem over the door."
+    },
+    "gallery": [
+     {
+      "file": "dalongyi/g1.jpg",
+      "caption": "The “Da Long Yi Hot Pot” wordmark and flame logo on Brighton Avenue — Happy Lamb’s sign reflected across the street (Allston’s Chinese-chain row)."
+     },
+     {
+      "file": "dalongyi/g2.jpg",
+      "caption": "The restaurant in Allston Village, its 火锅 (hot pot) sign over the black awnings."
+     },
+     {
+      "file": "dalongyi/g3.jpg",
+      "caption": "The window menu — single / two / three-flavor pots, soup bases from mala beef tallow to Chinese herbal, and the full raw-ingredient spread."
+     },
+     {
+      "file": "dalongyi/g4.jpg",
+      "caption": "Open seven days until 1 a.m. — a late-night hot-pot spot by Boston’s student neighborhoods (dlyhotpot.com)."
+     }
+    ]
+   }
   },
   "shuyi": {
    "name": "Shuyi Grass Jelly & Tea",
