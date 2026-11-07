@@ -604,18 +604,46 @@
     },
     "gallery": [
      {
+      "file": "yangguofu/gus1.jpg",
+      "label": "Boston, MA",
+      "caption": "The self-serve bar — fresh vegetables, tofu and skewers beside the broth and condiment station, where diners fill a bowl to be weighed."
+     },
+     {
       "file": "yangguofu/g1.jpg",
-      "caption": "The self-serve bar — diners fill a bowl from rows of fresh vegetables, noodles, tofu and skewered meats; it is then weighed and cooked to order."
+      "caption": "The self-serve bar — diners fill a bowl from rows of fresh vegetables, noodles, tofu and skewered meats; it is then weighed and cooked to order.",
+      "label": "上海"
+     },
+     {
+      "file": "yangguofu/gus3.jpg",
+      "label": "Boston, MA",
+      "caption": "The dining room and order counter — overhead menu screens and the self-serve case beneath the orange brand wall."
      },
      {
       "file": "yangguofu/g2.jpg",
-      "caption": "The dining room beside the ingredient case, under the YANG GUO FU mural wall."
+      "caption": "The dining room beside the ingredient case, under the YANG GUO FU mural wall.",
+      "label": "上海"
+     },
+     {
+      "file": "yangguofu/gus2.jpg",
+      "label": "Boston, MA",
+      "caption": "The long refrigerated ingredient case under the orange YGF MALATANG mural and the brand’s green 杨 emblem."
+     },
+     {
+      "file": "yangguofu/gus4.jpg",
+      "label": "Boston, MA",
+      "caption": "The broth menu on screen — fish-maw chicken, tom yum and Guizhou spicy-and-sour — priced “pay by weight, $16.99/lb,” the chain’s signature format."
      },
      {
       "file": "yangguofu/g3.jpg",
-      "caption": "The cook line behind the orange 杨国福 curtain, finished bowls bagged for takeout."
+      "caption": "The cook line behind the orange 杨国福 curtain, finished bowls bagged for takeout.",
+      "label": "上海"
      }
-    ]
+    ],
+    "us": {
+     "file": "yangguofu/us.jpg",
+     "label": "Boston, MA",
+     "caption": "The storefront at 137 Massachusetts Avenue, Boston — the orange “YGF MALATANG / 楊國福 麻辣燙” awning over the self-serve malatang windows."
+    }
    }
   },
   "fishwithyou": {
