@@ -1,21 +1,21 @@
 {
- "outlets_analyzed": 1119,
- "with_tract_asian": 1059,
+ "outlets_analyzed": 1118,
+ "with_tract_asian": 1066,
  "national_pct_asian": 6.2,
  "asian_density": {
   "median_tract_pct": 16.5,
-  "ge_national": 76.6,
-  "ge_2x": 58.7,
-  "ge_5x": 31.3,
+  "ge_national": 76.8,
+  "ge_2x": 59.0,
+  "ge_5x": 31.2,
   "ge_10x": 11.6
  },
  "metro": {
   "urban_pct": 99.7,
-  "in_csa_pct": 89.8,
+  "in_csa_pct": 90.6,
   "top": [
    {
     "name": "New York-Newark, NY-NJ-CT-PA CSA",
-    "n": 210
+    "n": 214
    },
    {
     "name": "Los Angeles-Long Beach, CA CSA",
@@ -42,8 +42,8 @@
     "n": 35
    },
    {
-    "name": "Boston-Worcester-Providence, MA-RI-NH-CT CSA",
-    "n": 35
+    "name": "Washington-Baltimore-Arlington, DC-MD-VA-WV-PA CSA",
+    "n": 34
    }
   ]
  },
@@ -53,7 +53,7 @@
   "within_3mi": 87.6,
   "median_miles": 1.1
  },
- "generated": "2026-11-05",
+ "generated": "2026-11-06",
  "source": "stores.geojson (open storefronts the site counts; roboshops, announced-not-yet-open and unconfirmed sightings excluded)",
  "method": "Each located storefront joined to public, key-free sources: tract %Asian from US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, metro/urban from the US Census geographies endpoint, nearest campus from the Urban Institute IPEDS directory. Aggregates only; modeled, not measured."
 }

@@ -2325,13 +2325,13 @@
    "photos": {
     "origin": "author",
     "us": {
-     "file": "zhengxin/us.jpg",
+     "file": "zhengxin/us.jpg?v=2",
      "label": "Allston, MA",
      "caption": "The Zhengxin Chicken Steak counter inside Boston's Novo Marketplace — the rooster logo over the red-tiled bar (its 'Boston Flagship Store'), the Cotti Coffee archway alongside."
     },
     "gallery": [
      {
-      "file": "zhengxin/g1.jpg",
+      "file": "zhengxin/g1.jpg?v=2",
       "caption": "The brand board — “Since 1995 · Freshly Made, Worth the Wait · 25,000+ stores worldwide,” with the Boston-lobster-hat chicken mascot."
      },
      {
@@ -2341,6 +2341,10 @@
      {
       "file": "zhengxin/g3.jpg",
       "caption": "The red-tiled counter and order screens, the open kitchen behind — a food-hall stall in Allston's Novo Marketplace."
+     },
+     {
+      "file": "zhengxin/g4.jpg",
+      "caption": "The combo menu — packages A–E and a $139.99 chicken bucket — with the store's 122 Brighton Ave address."
      }
     ]
    }
