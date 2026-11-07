@@ -2353,6 +2353,44 @@
      }
     ]
    }
+  },
+  "happylamb": {
+   "name": "Happy Lamb Hot Pot",
+   "name_zh": "快乐小羊",
+   "category": "Hot pot",
+   "blurb": "Happy Lamb Hot Pot (快乐小羊) is an Inner-Mongolian-style hot pot chain re-founded in 2017 by Zhang Gang (张钢) — the original founder of Little Sheep (小肥羊) — after Yum! Brands acquired Little Sheep; the first store opened in Baotou, Inner Mongolia, in December 2017. It runs ~100+ all-you-can-eat restaurants across ~11 countries, with North American operations based in Houston, TX. (Distinct from Zhang's earlier Little Sheep, now Yum-owned.)",
+   "site_cn": null,
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null,
+   "us_since": null,
+   "first_outlet": null,
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "happylamb/us.jpg",
+     "label": "Cambridge, MA",
+     "caption": "The Happy Lamb Hot Pot storefront on Massachusetts Avenue, Cambridge (485 Mass Ave) — the lamb emblem and 快乐小羊 wordmark over the awning."
+    },
+    "gallery": [
+     {
+      "file": "happylamb/g1.jpg",
+      "caption": "The all-you-can-eat dining hall — green banquettes and induction hot-pot tables down a long room."
+     },
+     {
+      "file": "happylamb/g2.jpg",
+      "caption": "The self-serve ingredient bar and sauce station, an ornate Mongolian-style vessel on the marble (the brand’s Inner-Mongolian theme)."
+     },
+     {
+      "file": "happylamb/g3.jpg",
+      "caption": "The all-you-can-eat menu — Classic and Premium tiers (marbled lamb, Wagyu cap steak, lamb spine, tripe), with the 485 Mass Ave address."
+     },
+     {
+      "file": "happylamb/g4.jpg",
+      "caption": "Inside — the warm wood dining room and the service counter under a woven-lantern feature."
+     }
+    ]
+   }
   }
  }
 }
