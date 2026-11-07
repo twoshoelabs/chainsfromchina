@@ -1,0 +1,59 @@
+{
+ "outlets_analyzed": 1118,
+ "with_tract_asian": 1066,
+ "national_pct_asian": 6.2,
+ "asian_density": {
+  "median_tract_pct": 16.5,
+  "ge_national": 76.8,
+  "ge_2x": 59.0,
+  "ge_5x": 31.2,
+  "ge_10x": 11.6
+ },
+ "metro": {
+  "urban_pct": 99.7,
+  "in_csa_pct": 90.6,
+  "top": [
+   {
+    "name": "New York-Newark, NY-NJ-CT-PA CSA",
+    "n": 214
+   },
+   {
+    "name": "Los Angeles-Long Beach, CA CSA",
+    "n": 186
+   },
+   {
+    "name": "San Jose-San Francisco-Oakland, CA CSA",
+    "n": 95
+   },
+   {
+    "name": "Seattle-Tacoma, WA CSA",
+    "n": 42
+   },
+   {
+    "name": "Houston-The Woodlands, TX CSA",
+    "n": 39
+   },
+   {
+    "name": "Chicago-Naperville, IL-IN-WI CSA",
+    "n": 38
+   },
+   {
+    "name": "Dallas-Fort Worth, TX-OK CSA",
+    "n": 35
+   },
+   {
+    "name": "Washington-Baltimore-Arlington, DC-MD-VA-WV-PA CSA",
+    "n": 34
+   }
+  ]
+ },
+ "university": {
+  "within_half_mi": 32.1,
+  "within_1mi": 48.9,
+  "within_3mi": 87.6,
+  "median_miles": 1.1
+ },
+ "generated": "2026-11-06",
+ "source": "stores.geojson (open storefronts the site counts; roboshops, announced-not-yet-open and unconfirmed sightings excluded)",
+ "method": "Each located storefront joined to public, key-free sources: tract %Asian from US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, metro/urban from the US Census geographies endpoint, nearest campus from the Urban Institute IPEDS directory. Aggregates only; modeled, not measured."
+}
