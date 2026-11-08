@@ -3572,10 +3572,11 @@
      "name": "Gardena",
      "address": "1847 W Redondo Beach Blvd, Gardena, CA 90247",
      "confidence": "confirmed",
-     "verified_by": "Google/Yelp: GRAND OPENING Oct 19-20 2026 (R&B Tea House, 3.9 stars/337) - open; owner screenshot 19 Oct 2026.",
+     "verified_by": "Open. Grand opening Oct 19-20 2026 as R&B Tea House (Google/Yelp). Owner screenshot Nov 2026: Google now lists it as “Brew47 Tea & Coffee”, but storefront still reads “R&B Tea House” and menu is rbteax.square.site — same R&B operator trading under an alternate name. Watch for a full debrand.",
      "lat": 33.888284,
      "lon": -118.310057,
-     "coord_src": "Census geocoder (rbteausa.com address)"
+     "coord_src": "Census geocoder (rbteausa.com address)",
+     "also_known_as": "Brew47 Tea & Coffee"
     },
     {
      "name": "Riverside",
