@@ -3842,8 +3842,8 @@
     {
      "name": "Goldenwest",
      "address": "16065 Goldenwest St, Huntington Beach, CA 92647",
-     "confidence": "confirmed",
-     "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "CLOSED: Google Permanently closed (4.3 stars/15), owner screenshot Nov 2026 (brand locator rbteausa.com still listed it = stale). Held out of count.",
      "lat": 33.729135,
      "lon": -118.006848,
      "coord_src": "Census geocoder (rbteausa.com address)"

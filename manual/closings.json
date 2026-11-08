@@ -1461,6 +1461,18 @@
       "closed_note": "Google Permanently closed (3.8 stars/25), owner screenshot Nov 2026. On brand locator rbteausa.com but closed = locator lag.",
       "confidence": "confirmed",
       "source": "Owner screenshot (Google 'Permanently closed') Nov 2026; roster entry marked uncertain + held out of count."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea Goldenwest (Huntington Beach)",
+      "address": "16065 Goldenwest St, Huntington Beach, CA",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "opened": null,
+      "closed_on": "2026-11-09",
+      "closed_note": "Google Permanently closed (4.3 stars/15), owner screenshot Nov 2026. On brand locator rbteausa.com but closed = locator lag. Distinct from the open HB store at 18685 Main St.",
+      "confidence": "confirmed",
+      "source": "Owner screenshot (Google 'Permanently closed') Nov 2026; roster entry marked uncertain + held out of count."
     }
   ]
 }
