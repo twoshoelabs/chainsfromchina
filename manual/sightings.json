@@ -3698,8 +3698,8 @@
     {
      "name": "Chandler",
      "address": "2081 N Arizona Ave Suite 125, Chandler, AZ 85225",
-     "confidence": "confirmed",
-     "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "CLOSED: Google Permanently closed (3.8 stars/25), owner screenshot Nov 2026 (brand locator rbteausa.com still listed it = stale). Held out of count.",
      "lat": 33.336337,
      "lon": -111.841643,
      "coord_src": "Census geocoder (rbteausa.com address)"

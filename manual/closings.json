@@ -1449,6 +1449,18 @@
       "closed_note": "Möge Tee Dedham (Legacy Place); permanently closed per Google, hand-observed 7 Nov 2026 (65 reviews). STILL on the brand locator (mogeteeusa.com, collected 6 Nov 2026) → added to PERMANENTLY_CLOSED + DB row expedited to closed (−1). Oct–Nov 2026 Möge Tee US contraction.",
       "confidence": "confirmed",
       "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+    },
+    {
+      "chain": "rbtea",
+      "name": "R&B Tea Chandler",
+      "address": "2081 N Arizona Ave Ste 125, Chandler, AZ",
+      "city": "Chandler",
+      "state": "AZ",
+      "opened": null,
+      "closed_on": "2026-11-09",
+      "closed_note": "Google Permanently closed (3.8 stars/25), owner screenshot Nov 2026. On brand locator rbteausa.com but closed = locator lag.",
+      "confidence": "confirmed",
+      "source": "Owner screenshot (Google 'Permanently closed') Nov 2026; roster entry marked uncertain + held out of count."
     }
   ]
 }
