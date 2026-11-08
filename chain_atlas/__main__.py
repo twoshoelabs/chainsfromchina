@@ -124,6 +124,22 @@ def main(argv=None):
         centers.report(con, min_brands=int(opt("--min", 2)))
         return 0
 
+    if cmd == "locator":
+        # Locator Freshness leaderboard — how stale each chain's own store locator is.
+        from . import locator
+        import json as _json
+        sj = _json.loads((Path(__file__).resolve().parents[1] / "map" / "data" / "stores.json")
+                         .read_text(encoding="utf-8"))
+        meta = sj.get("meta", {})
+        open_by_chain: dict = {}
+        for src in (meta.get("by_state", {}), meta.get("by_state_hand", {})):
+            for st, info in src.items():
+                for c, v in (info.get("chains") or {}).items():
+                    open_by_chain[c] = open_by_chain.get(c, 0) + (
+                        (v.get("open", 0) + v.get("hand", 0)) if isinstance(v, dict) else int(v or 0))
+        locator.report(open_by_chain, meta.get("sightings", []))
+        return 0
+
     if cmd == "export":
         from .mapdata import export
         from . import register, geojson, db, demographics

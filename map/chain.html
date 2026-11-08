@@ -298,6 +298,9 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   const comp = companies[id] || {};
   // Stock-listing intelligence (exchange + ticker, listed parent, sister brands, China A-share flag).
   const lst = (meta.listings && meta.listings.brands && meta.listings.brands[id]) || null;
+  // Locator Freshness — how stale this chain's OWN store locator is (closed outlets it still lists).
+  const lf = (meta.locator && meta.locator[id]) || null;
+  const lfPct = lf ? Math.round(lf.freshness * 100) : null;
   const nameOf = (sid) => (companies[sid] && companies[sid].name) || (collected[sid] && collected[sid].name) ||
     ((reg.chains && reg.chains[sid]) ? (reg.chains[sid].name_us || reg.chains[sid].name) : null) || sid;
   const isCollected = !!collected[id];
@@ -449,8 +452,10 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<div class="s"><b>${states.size}</b><span>${t('chain.stats.states', 'state'+(states.size === 1 ? '' : 's'))}</span></div>` +
       `<div class="s"><b>${abroad.length}</b><span>${t('chain.stats.abroad','markets abroad')}</span></div>` +
       (robos ? `<div class="s"><b>${robos}</b><span>${t('chain.stats.robos','roboshops (not counted)')}</span></div>` : '') +
+      (lf ? `<div class="s" title="${t('chain.stats.locator.t', `${lf.stale} outlets we have verified closed still appear on this chain's own store locator`, {n:lf.stale})}"><b${lf.freshness < 0.85 ? ' style="color:var(--amber)"' : ''}>${lfPct}%</b><span>${t('chain.stats.locator','locator freshness')}</span></div>` : '') +
       firstStore +
     `</div>` +
+    (lf ? `<p class="frline">${t('chain.locator.note', `<b>Locator freshness ${lfPct}%:</b> ${lf.stale} outlet${lf.stale === 1 ? '' : 's'} we have verified closed still appear on ${esc(m.name)}&rsquo;s own store locator. A verified floor — the true figure may be higher.`, {pct:lfPct, n:lf.stale})}</p>` : '') +
     (robos ? `<p class="frline">${t('chain.robos', `<b>Roboshops:</b> ${robos} unstaffed vending machine${robos === 1 ? '' : 's'} are tracked in the data but counted separately from staffed storefronts, and are not shown on the map.`, {n:robos})}</p>` : '') +
     (franchiseUS ? `<p class="frline">${t('chain.fr.label','<b>Franchising:</b> ')}` +
       (franchiseFDD ? t('chain.fr.fdd','open to a qualifying US franchisee, backed by a registered US FDD.')
