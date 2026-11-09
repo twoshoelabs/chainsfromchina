@@ -1691,7 +1691,37 @@
    "site_cn": null,
    "site_us": "https://www.mogeteeusa.com/",
    "photo": null,
-   "photo_credit": null
+   "photo_credit": null,
+   "photos": {
+    "origin": "author",
+    "us": {
+     "file": "moge/us.jpg",
+     "label": "College Park, MD",
+     "caption": "The MÖGE TEE storefront in College Park, MD — the shop on the ground floor of a building near the University of Maryland."
+    },
+    "gallery": [
+     {
+      "file": "moge/gus1.jpg",
+      "label": "College Park, MD",
+      "caption": "The order counter behind a wall of living grass and white gauze — Möge Tee’s signature green backdrop."
+     },
+     {
+      "file": "moge/gus2.jpg",
+      "label": "College Park, MD",
+      "caption": "The seating room — exposed white brick and a curtain of customer Polaroids, each stamped “MÖGE TEE.”"
+     },
+     {
+      "file": "moge/gus3.jpg",
+      "label": "College Park, MD",
+      "caption": "The UJI matcha station, a plush mascot perched above the grass wall."
+     },
+     {
+      "file": "moge/gus4.jpg",
+      "label": "College Park, MD",
+      "caption": "Self-order kiosks — “Order & Pay Here” — against the grass-and-gauze wall."
+     }
+    ]
+   }
   },
   "juqi": {
    "name": "JUQI",
