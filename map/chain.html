@@ -228,7 +228,7 @@ function photosBlock(comp, m) {
     // the brand's channel). We still keep any public-domain Wikimedia US photo for the side-by-side,
     // so when an author set also carries a licensed photo the intro credits both sources.
     const src = ph.origin === 'author'
-      ? (anyLic ? t('chain.photos.src.author.lic','Chains From China, taken on location in China, and Wikimedia Commons for the US, as credited')
+      ? (anyLic ? t('chain.photos.src.author.lic','Chains From China, taken on location, and Wikimedia Commons, as credited')
          : anyBrand ? t('chain.photos.src.author.brand', `Chains From China, taken on location in China, and ${esc(m.name)}'s official channel, as credited`, {name:esc(m.name)})
                 : t('chain.photos.src.author','Chains From China, taken on location'))
       : anyLic && anyBrand ? t('chain.photos.src.licbrand', `Wikimedia Commons and ${esc(m.name)}'s official channel, as credited`, {name:esc(m.name)})
