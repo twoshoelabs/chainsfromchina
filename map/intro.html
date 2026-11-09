@@ -127,6 +127,10 @@
 </style>
 </head>
 <body data-page="chains">
+<!-- Static primary-nav fallback: the visible header is built by site.js (which hides this .masthead),
+     so a non-rendering crawler would otherwise see no nav links. Kept display:none to avoid any layout
+     shift; search engines still read and follow these links for discovery. -->
+<div class="masthead" style="display:none" aria-hidden="true"><a class="brand" href="index.html">Chains From China</a><nav><a class="navlink" href="index.html">US store map</a><a class="navlink" href="intro.html">Who they are</a><a class="navlink" href="register.html">International register</a><a class="navlink" href="centers.html">Co-tenancy</a><a class="navlink" href="method.html">Method</a><a class="navlink" href="contribute.html">Submit Info</a></nav></div>
 
 <div class="phero">
   <div class="wrap">
