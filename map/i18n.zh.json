@@ -526,5 +526,6 @@
  "c.ok.source": "谢谢——你提交的数据点已送交审核。",
  "c.ok.chain": "谢谢——你推荐的品牌已送交审核。",
  "c.foot.1": "<strong>中国连锁在美门市</strong>是一个独立的商业项目，与本站所列任何公司均无关联。",
- "centers.cap.novo": "<strong style=\"color:var(--ink)\">Novo Marketplace（波士顿·奥尔斯顿）</strong>——同一美食广场内，茉莉奶白、库迪咖啡与正新鸡排同场经营，一张照片即是共址聚集的写照。"
+ "centers.cap.novo": "<strong style=\"color:var(--ink)\">Novo Marketplace（波士顿·奥尔斯顿）</strong>——同一美食广场内，茉莉奶白、库迪咖啡与正新鸡排同场经营，一张照片即是共址聚集的写照。",
+ "centers.cap.ellicott": "<strong style=\"color:var(--ink)\">埃利科特城（马里兰州）</strong> — 鱼你在一起（Yonny）与十秒到共用同一排商铺门面（10040）：两家中国品牌同框。"
 }
