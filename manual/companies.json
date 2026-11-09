@@ -1474,7 +1474,7 @@
     },
     "gallery": [
      {
-      "file": "shuyi/gus1.jpg",
+      "file": "shuyi/gus1.jpg?v=2",
       "label": "Columbia, MD",
       "caption": "The signature — 书亩烧仙草 grass-jelly milk tea: “herbal grass jelly, daily-brewed loose-leaf tea, served with 6 toppings.”"
      },
@@ -1484,7 +1484,7 @@
       "caption": "Inside the US store — the pickup counter, self-order kiosks and window seating under the brand’s flower motif."
      },
      {
-      "file": "shuyi/gus3.jpg",
+      "file": "shuyi/gus3.jpg?v=2",
       "label": "Columbia, MD",
       "caption": "The grass-jelly menu — Shuyi, Coconut and Milk grass-jelly milk teas at $5.90, Bubble Cheese Milk Grass Jelly $6.00."
      },
@@ -1505,7 +1505,7 @@
     ],
     "origin": "author",
     "us": {
-     "file": "shuyi/us.jpg",
+     "file": "shuyi/us.jpg?v=2",
      "label": "Columbia, MD",
      "caption": "The Columbia, MD storefront — the red-and-white SHUYI 书亩 sign over the black awning at the Lakeside Office shops."
     }
