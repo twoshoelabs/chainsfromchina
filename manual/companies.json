@@ -666,22 +666,51 @@
     },
     "gallery": [
      {
+      "file": "fishwithyou/gus1.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The dining room under the brand wall — 鱼你在一起 中国酸菜鱼 / “Fish With You · Chinese Sauerkraut Fish” — marble tables and orange chairs."
+     },
+     {
+      "file": "fishwithyou/gus2.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The backlit “TOP 4” menu panel — the four signature sauerkraut-fish bowls lit along the wall."
+     },
+     {
+      "file": "fishwithyou/gus3.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The menu: Signature Hot-oil Sauerkraut Fish ($17.95), Laotan Sauerkraut Fish ($14.95) and Golden Soup Beef Slices ($16.95); rice is free."
+     },
+     {
+      "file": "fishwithyou/gus4.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The brand’s mascot — a grinning orange fish — by the window."
+     },
+     {
       "file": "fishwithyou/g1.jpg",
-      "caption": "The service window beneath an arch of fish-shaped lamps — pickled-cabbage fish ladled to order (取餐处, “take meals”)."
+      "caption": "The service window beneath an arch of fish-shaped lamps — pickled-cabbage fish ladled to order (取餐处, “take meals”).",
+      "label": "上海"
      },
      {
       "file": "fishwithyou/g2.jpg",
-      "caption": "The free self-serve rice station — a row of cookers under a wall featuring the chain’s founder."
+      "caption": "The free self-serve rice station — a row of cookers under a wall featuring the chain’s founder.",
+      "label": "上海"
      },
      {
       "file": "fishwithyou/g3.jpg",
-      "caption": "Booth seating and the house line on the wall: one serving of its sour-cabbage fish “goes with three bowls of rice.”"
+      "caption": "Booth seating and the house line on the wall: one serving of its sour-cabbage fish “goes with three bowls of rice.”",
+      "label": "上海"
      },
      {
       "file": "fishwithyou/g4.jpg",
-      "caption": "The brand’s roundel — two orange fish nose to nose, 下饭酸菜鱼 (“rice-friendly pickled-cabbage fish”)."
+      "caption": "The brand’s roundel — two orange fish nose to nose, 下饭酸菜鱼 (“rice-friendly pickled-cabbage fish”).",
+      "label": "上海"
      }
-    ]
+    ],
+    "us": {
+     "file": "fishwithyou/us.jpg",
+     "label": "Ellicott City, MD",
+     "caption": "The storefront in Ellicott City, MD — the orange 鱼你在一起 (Fish With You) twin-fish sign over the entrance, the windows papered with sauerkraut-fish specials."
+    }
    }
   },
   "yangs": {
