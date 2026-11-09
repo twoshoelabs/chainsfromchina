@@ -526,8 +526,5 @@
  "c.ok.source": "谢谢——你提交的数据点已送交审核。",
  "c.ok.chain": "谢谢——你推荐的品牌已送交审核。",
  "c.foot.1": "<strong>中国连锁在美门市</strong>是一个独立的商业项目，与本站所列任何公司均无关联。",
- "centers.cap.novo": "<strong style=\"color:var(--ink)\">Novo Marketplace（波士顿·奥尔斯顿）</strong>——同一美食广场内，茉莉奶白、库迪咖啡与正新鸡排同场经营，一张照片即是共址聚集的写照。",
- "chain.stats.locator": "官方门店表时效",
- "chain.stats.locator.t": "{n} 家已确认关闭的门店仍列于该品牌官方门店定位器上",
- "chain.locator.note": "<b>官方门店表时效 {pct}%：</b>该品牌官方门店定位器上仍有 {n} 家门店已被我们确认关闭。此为已核实下限，实际可能更高。"
+ "centers.cap.novo": "<strong style=\"color:var(--ink)\">Novo Marketplace（波士顿·奥尔斯顿）</strong>——同一美食广场内，茉莉奶白、库迪咖啡与正新鸡排同场经营，一张照片即是共址聚集的写照。"
 }

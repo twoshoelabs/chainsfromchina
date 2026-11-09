@@ -37,6 +37,27 @@ def _all_brands() -> list:
     return sorted(b for b in brands if b)
 
 
+_LOCATOR_CACHE = None
+
+
+def _locator_map() -> dict:
+    """Locator Freshness per brand (cached) — a Pro-tier data-quality metric: how stale each brand's
+    OWN store locator is (verified-closed outlets still listed). Open counts come from the canonical
+    census (by_state); stale from locator.py. Pro-walled; see locator.py and cfc-analytics-paywall."""
+    global _LOCATOR_CACHE
+    if _LOCATOR_CACHE is None:
+        from . import locator
+        meta = dossier._load("map/data/stores.json").get("meta", {})
+        open_by_chain: dict = {}
+        for src in (meta.get("by_state", {}), meta.get("by_state_hand", {})):
+            for _st, info in src.items():
+                for c, v in (info.get("chains") or {}).items():
+                    open_by_chain[c] = open_by_chain.get(c, 0) + (
+                        (v.get("open", 0) + v.get("hand", 0)) if isinstance(v, dict) else int(v or 0))
+        _LOCATOR_CACHE = locator.compute(open_by_chain, meta.get("sightings", []))
+    return _LOCATOR_CACHE
+
+
 def _brand_slice(con, brand: str, tier: str) -> dict:
     """
     name:      _brand_slice
@@ -68,11 +89,12 @@ def _brand_slice(con, brand: str, tier: str) -> dict:
     if rank == _RANK["observer"]:
         return out
 
-    # --- pro: + scale (splits/sources), economics, structure, narrative ---
+    # --- pro: + scale (splits/sources), economics, structure, narrative, locator freshness ---
     out["scale"] = d["scale"]
     out["economics"] = d["economics"]
     out["structure"] = d["structure"]
     out["narrative"] = d["narrative"]
+    out["locator"] = _locator_map().get(brand)   # data-quality: how stale the brand's own locator is
     if rank == _RANK["pro"]:
         return out
 

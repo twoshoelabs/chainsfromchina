@@ -421,6 +421,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  locator                                          Pro: Locator Freshness — how stale each chain's own store locator is (phantom closed listings)")
     print("  single-outlet [--md]                             chains with exactly ONE US store: toe-in-water vs shrank-to-one")
     print("  console [--port N] [--no-open]                   Pro: PRIVATE owner console (localhost) — submit data points + work the queue")
     print("  export-tier <public|observer|pro|intelligence> [--brand X] [--out DIR]   tier-gated export (pro/ = access-controlled)")

@@ -365,20 +365,10 @@ def export(out_dir: Path) -> dict:
                          " AND country='US' AND status!='withdrawn' GROUP BY chain_id"):
         geocoded[r["chain_id"]] = r["n"]
 
-    # Locator Freshness — how stale each chain's own store locator is (verified closed outlets
-    # still listed = phantom listings). Phantom side only; a verified floor. See locator.py.
-    try:
-        from . import locator as _locator
-        _open_by_chain: dict = {}
-        for _src in (by_state, by_state_hand):
-            for _st, _info in _src.items():
-                for _c, _v in (_info.get("chains") or {}).items():
-                    _open_by_chain[_c] = _open_by_chain.get(_c, 0) + (
-                        (_v.get("open", 0) + _v.get("hand", 0)) if isinstance(_v, dict) else int(_v or 0))
-        _locator_data = _locator.compute(_open_by_chain, sight)
-    except Exception:                                           # noqa: BLE001
-        _locator_data = {}
-
+    # NOTE: Locator Freshness (how stale each chain's own store locator is) is a PAID/Pro-tier
+    # data-quality metric — deliberately NOT written to the public stores.json. The generator stays
+    # in locator.py (CLI: `python -m chain_atlas locator`) and rides the access-controlled Pro
+    # export (tier_export, `pro` tier); it must never be emitted here. See cfc-analytics-paywall.
     meta = {
         "generated": con.execute("SELECT MAX(finished) f FROM runs").fetchone()["f"],
         "first_collected": cov["a"], "last_collected": cov["b"], "days_collected": cov["n"],
@@ -398,7 +388,6 @@ def export(out_dir: Path) -> dict:
             "closed": sum(1 for s in stores if s["status"] == "closed"),
         },
         "totals": us_totals(con),
-        "locator": _locator_data,
     }
     meta["sighting_note"] = (
         "Known locations of chains this project does not count. They are not in any total on "

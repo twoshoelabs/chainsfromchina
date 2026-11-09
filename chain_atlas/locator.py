@@ -1,5 +1,8 @@
 """Locator Freshness — how up to date a chain's OWN store locator is.
 
+PRO ONLY — a data-quality metric. It rides the access-controlled Pro export (tier_export, `pro`
+tier) and this CLI; it is NEVER written to the public map/data. See cfc-analytics-paywall.
+
 PHANTOM-LISTINGS METRIC (v1). Many chains' official store finders keep listing
 outlets that have already closed ("locator lag"). This measures that, per chain:
 
