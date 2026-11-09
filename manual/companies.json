@@ -2307,19 +2307,43 @@
     "gallery": [
      {
       "file": "tenseconds/g1.jpg",
-      "caption": "The dining-room mural retelling the Yunnan legend of 过桥米线 (crossing-the-bridge rice noodle) — the scholar, the bridge, and the broth kept hot beneath a layer of oil."
+      "caption": "The dining-room mural retelling the Yunnan legend of 过桥米线 (crossing-the-bridge rice noodle) — the scholar, the bridge, and the broth kept hot beneath a layer of oil.",
+      "label": "Rockville, MD"
      },
      {
       "file": "tenseconds/g2.jpg",
-      "caption": "The order counter, with Yunnan touches — an embroidered minority tassel at left, a woven bamboo hat and gourds on the exposed brick."
+      "caption": "The order counter, with Yunnan touches — an embroidered minority tassel at left, a woven bamboo hat and gourds on the exposed brick.",
+      "label": "Rockville, MD"
      },
      {
       "file": "tenseconds/g3.jpg",
-      "caption": "Yunnan ethnic-minority paintings and a woven back-basket on the brick wall."
+      "caption": "Yunnan ethnic-minority paintings and a woven back-basket on the brick wall.",
+      "label": "Rockville, MD"
      },
      {
       "file": "tenseconds/g4.jpg",
-      "caption": "The window decal — “云南过桥米线 / Original Soup Rice Noodles with beef slices” beneath the red 十秒到 seal, by the door."
+      "caption": "The window decal — “云南过桥米线 / Original Soup Rice Noodles with beef slices” beneath the red 十秒到 seal, by the door.",
+      "label": "Rockville, MD"
+     },
+     {
+      "file": "tenseconds/g5.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The Ellicott City entrance — the 十到秒 过桥米线 (Ten Seconds / Yunnan crossing-bridge rice noodle) door decal at the 10040 strip mall."
+     },
+     {
+      "file": "tenseconds/g6.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "A private arched booth — bamboo-screened walls, a round botanical window and the “鲜” (fresh) calligraphy above a marble table."
+     },
+     {
+      "file": "tenseconds/g7.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The dining room — rattan-arched booths, the order counter and the aquarium menu screens."
+     },
+     {
+      "file": "tenseconds/g8.jpg",
+      "label": "Ellicott City, MD",
+      "caption": "The menu — Yunnan crossing-bridge rice noodles by soup base (tomato, pork-bone, hot-and-sour), about $13–16 with beef, fish or tendon."
      }
     ]
    }
