@@ -156,6 +156,21 @@ def main():
         feats_by.setdefault(f["properties"].get("chain"), []).append(f)
 
     ids = sorted(set(collected) | set(blocked))
+
+    # Crawlable "all chains" index — a COMPLETE internal-link graph. The hub pages build their chain
+    # links in JS, so in the raw HTML Googlebot fetches, the chain pages are orphaned (linked only from
+    # the sitemap) and get stuck "Discovered/Crawled – currently not indexed". Baking a static list of
+    # every chain into each page's footer (which hydration leaves untouched) makes every chain page
+    # reachable by a non-rendering crawler, and lets readers jump between chains.
+    _name_by = {c: (collected.get(c) or blocked.get(c) or {}).get("name") or c for c in ids}
+    _order = sorted(ids, key=lambda c: _name_by[c].lower())
+    _links_en = " · ".join(f'<a href="/chain/{c}/">{t(_name_by[c])}</a>' for c in _order)
+    _links_zh = " · ".join(f'<a href="/zh/chain/{c}/">{t(_name_by[c])}</a>' for c in _order)
+    nav_en = ('<div class="wrap"><nav class="chainindex" aria-label="All tracked chains">'
+              '<b>Every chain we track:</b> ' + _links_en + '</nav></div>\n')
+    nav_zh = ('<div class="wrap"><nav class="chainindex" aria-label="All tracked chains">'
+              '<b>我们追踪的全部品牌：</b> ' + _links_zh + '</nav></div>\n')
+
     n = 0
     for cid in ids:
         m = collected.get(cid) or blocked.get(cid) or {}
@@ -206,6 +221,7 @@ def main():
         parts.append('<p><a href="/">Open the full US map →</a> · <a href="/intro.html">All chains →</a></p>')
         page = transform(template, cid, title, desc, canon, "".join(parts))
         page = page.replace('<link rel="canonical"', _alts(canon, zh_canon) + '<link rel="canonical"', 1)
+        page = page.replace('</footer>', nav_en + '</footer>', 1)   # crawlable all-chains index
         dest = out_dir / "chain" / cid
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "index.html").write_text(page, encoding="utf-8")
@@ -233,9 +249,18 @@ def main():
             zpage = transform(zh_tpl, cid, ztitle, zdesc, zh_canon, "".join(zparts))
             zpage = zpage.replace('<link rel="canonical"', _alts(canon, zh_canon) + '<link rel="canonical"', 1)
             zpage = _zhlinks(zpage).replace('<base href="/zh/">', '<base href="/">')
+            zpage = zpage.replace('</footer>', nav_zh + '</footer>', 1)   # nav already uses /zh/ links
             zdest = out_dir / "zh" / "chain" / cid
             zdest.mkdir(parents=True, exist_ok=True)
             (zdest / "index.html").write_text(zpage, encoding="utf-8")
+
+    # Also bake the index into the "all chains" hub pages, whose own chain links are JS-built and so
+    # invisible to a non-rendering crawler. (/zh/intro.html is built before this runs, so inject there too.)
+    for hub, nav in ((out_dir / "intro.html", nav_en), (out_dir / "zh" / "intro.html", nav_zh)):
+        if hub.exists():
+            ih = hub.read_text(encoding="utf-8")
+            if "chainindex" not in ih and "</footer>" in ih:
+                hub.write_text(ih.replace("</footer>", nav + "</footer>", 1), encoding="utf-8")
 
     print(f"prerendered {n} chain pages (/chain/<id>/" +
           (" + /zh/chain/<id>/" if zh_tpl is not None else "") + ")")
