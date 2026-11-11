@@ -1803,7 +1803,7 @@
    "name": "Rolife",
    "name_zh": "若来",
    "format": "toys",
-   "global": "IP-toy & DIY sub-brand of Robotime Group (若态科技, Suzhou; group founded 2007, Rolife launched 2017) — DIY miniature dollhouses, 3D wooden puzzles and IP art toys, with the headline character Nanci sold as blind boxes. Runs branded stores in China and overseas: a ~12-store US chain across seven states, plus Japan, Thailand and the Netherlands."
+   "global": "IP-toy & DIY sub-brand of Robotime Group (若态科技, Suzhou; group founded 2007, Rolife launched 2017) — DIY miniature dollhouses, 3D wooden puzzles and IP art toys, with the headline character Nanci sold as blind boxes. Runs branded stores in China and overseas: a ~12-store US chain across seven states, plus Japan, Thailand, the Netherlands and France."
   }
  },
  "entries": [
@@ -9880,16 +9880,16 @@
    "chain": "rolife",
    "market": "JP",
    "status": "present",
-   "locations": 1,
+   "locations": 2,
    "locations_as_of": "2026-11",
-   "first_opened": null,
-   "precision": null,
+   "first_opened": "2024-10",
+   "precision": "month",
    "confidence": "high",
    "reviewed": "2026-11-11",
-   "note": "One store on the brand's dedicated Japan site (rolife.co.jp) — Rolife サンシャインシティアルパ店 at Sunshine City ALPA B1, Higashi-Ikebukuro, Toshima-ku, Tokyo (10:00–20:00), run by Rolife Japan Co., Ltd. Note: the global rolifeonline.com locator additionally lists a Japan store in Osaka (Abeno); not independently verified here, so the Japan count may be understated.",
+   "note": "Two stores. First: Rolife Q's MALL (Osaka, inside ABC Craft at Abeno Q's Mall), opened 12 Oct 2024 per Robotime's official timeline and confirmed on Google Maps. Second: Rolife サンシャインシティアルパ店 at Sunshine City ALPA B1, Ikebukuro, Tokyo, run by Rolife Japan Co., Ltd. The two official sources list one store each (robotime.com shows only Osaka; rolife.co.jp shows only Ikebukuro).",
    "sources": [
-    "https://rolife.co.jp/shop/",
-    "https://www.rolifeonline.com/pages/retail-store"
+    "https://robotime.com/pages/where-to-find-us",
+    "https://rolife.co.jp/shop/"
    ]
   },
   {
@@ -9898,13 +9898,14 @@
    "status": "present",
    "locations": 9,
    "locations_as_of": "2026-11",
-   "first_opened": "2025-01",
+   "first_opened": "2024-10",
    "precision": "month",
    "confidence": "high",
    "reviewed": "2026-11-11",
-   "note": "The brand's official store locator lists 9 Thailand stores, mostly in greater-Bangkok malls — Siam Discovery, Icon Siam, Fashion Island, Central Westgate and Central Northville (Nonthaburi), The Mall Lifestyle Store Bangkae, a Bangkapi store, and Megabangna (as 'Rolife Happitat'). Market entry announced by the brand in Jan 2025 ('Rolife's Magical DIY World Has Arrived in Thailand', Central Westgate). Most are confirmed on Google Maps; Icon Siam appears only on the brand locator and could not be independently verified (possible stale listing), so the confirmed-open count is ~8.",
+   "note": "The brand's rolifeonline.com locator lists 9 Thailand stores across greater-Bangkok malls — Siam Discovery, Icon Siam, Fashion Island, Central Westgate and Central Northville (Nonthaburi), The Mall Lifestyle Store Bangkae, a Bangkapi store, and Megabangna (as 'Rolife Happitat'). First store: Central Westgate, opened 24 Oct 2024 (Robotime timeline); the brand publicly announced its Thailand arrival in Jan 2025. Robotime's own timeline lists only 3 TH openings vs the locator's 9. Most are confirmed on Google Maps; Icon Siam appears only on the locator and could not be independently verified, so confirmed-open is ~8.",
    "sources": [
     "https://www.rolifeonline.com/pages/retail-store",
+    "https://robotime.com/pages/where-to-find-us",
     "https://www.instagram.com/p/DEU2ZCdMgNY/"
    ]
   },
@@ -9914,13 +9915,29 @@
    "status": "present",
    "locations": 1,
    "locations_as_of": "2026-11",
-   "first_opened": null,
-   "precision": null,
+   "first_opened": "2025-05",
+   "precision": "month",
    "confidence": "high",
    "reviewed": "2026-11-11",
    "note": "One store — Robotime Brandstore Arnhem (Roggestraat 11, 6811 BB Arnhem), the group's Dutch flagship, which trades under the parent brand Robotime rather than the Rolife fascia. Listed on the official locator and well-reviewed on Google (110+ reviews).",
    "sources": [
+    "https://robotime.com/pages/where-to-find-us",
     "https://www.rolifeonline.com/pages/retail-store"
+   ]
+  },
+  {
+   "chain": "rolife",
+   "market": "FR",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026-08",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-11",
+   "note": "One store — Rolife at Galeries Lafayette, Paris, opened 1 Aug 2026 per Robotime's official 'where to find us' timeline (a concession in the Galeries Lafayette department store).",
+   "sources": [
+    "https://robotime.com/pages/where-to-find-us"
    ]
   }
  ]
