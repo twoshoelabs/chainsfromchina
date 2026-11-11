@@ -2046,19 +2046,23 @@
         "gallery": [
           {
             "file": "rolife/gus1.jpg",
-            "caption": "Inside — the “Rolife · things to life” wall and aisles of 3D wooden puzzles, DIY miniatures and blind-box IP toys."
+            "caption": "Inside — the “Rolife · things to life” wall and aisles of 3D wooden puzzles, DIY miniatures and blind-box IP toys.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "rolife/g1.jpg",
-            "caption": "The shop floor: a central island of DIY dollhouse and music-box kits — Sanrio collabs among them — by a themed archway, model-kit shelves lining the walls."
+            "caption": "The shop floor: a central island of DIY dollhouse and music-box kits — Sanrio collabs among them — by a themed archway, model-kit shelves lining the walls.",
+            "label": "Suzhou"
           },
           {
             "file": "rolife/g2.jpg",
-            "caption": "Rolife and ROKR's signature 3D builds on show — a wooden Eiffel Tower, a sakura treehouse and a cuckoo clock — above the boxed kits to assemble them."
+            "caption": "Rolife and ROKR's signature 3D builds on show — a wooden Eiffel Tower, a sakura treehouse and a cuckoo clock — above the boxed kits to assemble them.",
+            "label": "Suzhou"
           },
           {
             "file": "rolife/g3.jpg",
-            "caption": "The Nanci line — the brand's headline character as costumed plush and blind-box scenes."
+            "caption": "The Nanci line — the brand's headline character as costumed plush and blind-box scenes.",
+            "label": "Suzhou"
           }
         ],
         "us": {
