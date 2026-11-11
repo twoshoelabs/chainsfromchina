@@ -109,15 +109,20 @@ find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
 (
   cd "$TMP"
   git init -q
+  git remote add gh "$REPO"
+  # Learn the current gh-pages blob SHAs (tree only, no blob contents via --filter) so the
+  # push omits every unchanged file and sends just the delta. Without this, a fresh repo
+  # can't dedup against the server and force-pushes the whole ~70MB tree every deploy — a
+  # large single HTTPS POST that intermittently drops (curl 55/56, broken pipe / reset).
+  # Fall back to a shallow fetch (downloads blobs), then to no fetch (full push) if needed.
+  git fetch -q --depth=1 --filter=blob:none gh gh-pages 2>/dev/null \
+    || git fetch -q --depth=1 gh gh-pages 2>/dev/null || true
   git checkout -q -b gh-pages
   git add -A
   git -c user.name="Twoshoe Labs" -c user.email="hello@twoshoelabs.com" \
       commit -q -m "Deploy $(date -u +%FT%TZ)"
-  # This is a fresh repo, so it does NOT inherit the main checkout's git config.
-  # The whole ~70MB tree is force-pushed every deploy; over HTTP/2 the large single
-  # POST intermittently drops ("RPC failed; curl 55 ... Broken pipe"). Pin HTTP/1.1
-  # and a large postBuffer on the push itself so it completes reliably.
-  git -c http.version=HTTP/1.1 -c http.postBuffer=524288000 push -qf "$REPO" gh-pages
+  # HTTP/1.1 + large postBuffer as belt-and-braces for whatever still has to transfer.
+  git -c http.version=HTTP/1.1 -c http.postBuffer=524288000 push -qf gh gh-pages
 )
 rm -rf "$TMP"
 echo "deployed to gh-pages ($(date -u +%FT%TZ))"
