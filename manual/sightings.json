@@ -3085,7 +3085,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 42.220851,
-          "lon": -71.028401
+          "lon": -71.028401,
+          "opened": "2025-11-15"
         },
         {
           "name": "Alderwood Mall (Lynnwood)",
@@ -3093,7 +3094,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 47.831707,
-          "lon": -122.274529
+          "lon": -122.274529,
+          "opened": "2025-05-24"
         },
         {
           "name": "Westfield Southcenter (Tukwila)",
@@ -3101,7 +3103,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 47.458687,
-          "lon": -122.262418
+          "lon": -122.262418,
+          "opened": "2026-06-13"
         },
         {
           "name": "Westfield Topanga (Canoga Park)",
@@ -3109,7 +3112,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 34.189744,
-          "lon": -118.605749
+          "lon": -118.605749,
+          "opened": "2025-10-05"
         },
         {
           "name": "American Dream (East Rutherford)",
@@ -3118,7 +3122,8 @@
           "verified_by": "Visited on site by the Chains From China project, 5 Nov 2026 (open and operating; Rolife storefront unit B108, the Ferris-wheel display, IP-character statue and the 3D-wooden-puzzle interior photographed). Previously 'uncertain' from the brand store list only; now confirmed on site.",
           "lat": 40.8109,
           "lon": -74.0688,
-          "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores."
+          "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores.",
+          "opened": "2025-11-01"
         },
         {
           "name": "Westfield Valley Fair (Santa Clara)",
@@ -3126,7 +3131,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 37.323415,
-          "lon": -121.944779
+          "lon": -121.944779,
+          "opened": "2025-08-01"
         },
         {
           "name": "Fashion Centre at Pentagon City (Arlington)",
@@ -3134,7 +3140,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 38.864234,
-          "lon": -77.059032
+          "lon": -77.059032,
+          "opened": "2025-11-01"
         },
         {
           "name": "Newbury Street (Boston)",
@@ -3142,7 +3149,8 @@
           "confidence": "confirmed",
           "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
           "lat": 42.349966,
-          "lon": -71.080891
+          "lon": -71.080891,
+          "opened": "2026-06-09"
         },
         {
           "name": "Sherman Oaks",
@@ -3166,7 +3174,8 @@
           "confidence": "confirmed",
           "verified_by": "Google Business 'Rolife Christiana Mall' operating (4.9/119 reviews, toy store, located in Christiana Mall); Rolife's own grand-opening press release (rolifeus.com) — its FIRST US store, opened 18 Nov 2024 (operator-observed 16 Oct 2026)",
           "lat": 39.6806089,
-          "lon": -75.6514642
+          "lon": -75.6514642,
+          "opened": "2024-11-18"
         },
         {
           "name": "Westfield Galleria at Roseville",
@@ -3174,7 +3183,8 @@
           "confidence": "confirmed",
           "verified_by": "Google Business 'Rolife' operating (Open, 4.8/72 reviews, gift shop, located in Westfield Galleria at Roseville); brand locator listed this store under a wrong/duplicate (Irvine) address — corrected to the Google address (operator-observed 16 Oct 2026)",
           "lat": 38.7738908,
-          "lon": -121.2697546
+          "lon": -121.2697546,
+          "opened": "2025-10-12"
         },
         {
           "name": "Great Mall (Milpitas)",
@@ -3182,7 +3192,8 @@
           "confidence": "confirmed",
           "verified_by": "Google Business 'Rolife' operating (Open, 4.8/48 reviews, gift shop, located in Great Mall); brand locator listed this store under a wrong/duplicate (Alderwood) address — corrected to the Google address (operator-observed 16 Oct 2026)",
           "lat": 37.4164279,
-          "lon": -121.8948551
+          "lon": -121.8948551,
+          "opened": "2025-07-01"
         },
         {
           "name": "Pheasant Lane Mall (Nashua)",
@@ -3190,7 +3201,8 @@
           "confidence": "confirmed",
           "verified_by": "Google Business listing (operating; 'Rolife Pheasant Lane Mall', gift shop, located in Embox'em), 18 Oct 2026"
         }
-      ]
+      ],
+      "opened_source": "Per-store 'opened' dates from Robotime's official timeline, robotime.com/pages/where-to-find-us (read 2026-11-11). Stores absent from that timeline (Sherman Oaks, Mall of America, Pheasant Lane Mall) have no opened date."
     },
     {
       "chain": "nanhotpot",
