@@ -9886,9 +9886,41 @@
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-11-11",
-   "note": "One store — Rolife サンシャインシティアルパ店 at Sunshine City ALPA B1, Higashi-Ikebukuro, Toshima-ku, Tokyo (hours 10:00–20:00) — listed on the brand's official Japan site, run by Rolife Japan Co., Ltd. (consumer site + EC shop, alongside Robotime Japan).",
+   "note": "One store on the brand's dedicated Japan site (rolife.co.jp) — Rolife サンシャインシティアルパ店 at Sunshine City ALPA B1, Higashi-Ikebukuro, Toshima-ku, Tokyo (10:00–20:00), run by Rolife Japan Co., Ltd. Note: the global rolifeonline.com locator additionally lists a Japan store in Osaka (Abeno); not independently verified here, so the Japan count may be understated.",
    "sources": [
-    "https://rolife.co.jp/shop/"
+    "https://rolife.co.jp/shop/",
+    "https://www.rolifeonline.com/pages/retail-store"
+   ]
+  },
+  {
+   "chain": "rolife",
+   "market": "TH",
+   "status": "present",
+   "locations": 9,
+   "locations_as_of": "2026-11",
+   "first_opened": "2025-01",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-11",
+   "note": "The brand's official store locator lists 9 Thailand stores, mostly in greater-Bangkok malls — Siam Discovery, Icon Siam, Fashion Island, Central Westgate and Central Northville (Nonthaburi), The Mall Lifestyle Store Bangkae, a Bangkapi store, and Megabangna (as 'Rolife Happitat'). Market entry announced by the brand in Jan 2025 ('Rolife's Magical DIY World Has Arrived in Thailand', Central Westgate). Most are confirmed on Google Maps; Icon Siam appears only on the brand locator and could not be independently verified (possible stale listing), so the confirmed-open count is ~8.",
+   "sources": [
+    "https://www.rolifeonline.com/pages/retail-store",
+    "https://www.instagram.com/p/DEU2ZCdMgNY/"
+   ]
+  },
+  {
+   "chain": "rolife",
+   "market": "NL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-11",
+   "note": "One store — Robotime Brandstore Arnhem (Roggestraat 11, 6811 BB Arnhem), the group's Dutch flagship, which trades under the parent brand Robotime rather than the Rolife fascia. Listed on the official locator and well-reviewed on Google (110+ reviews).",
+   "sources": [
+    "https://www.rolifeonline.com/pages/retail-store"
    ]
   }
  ]
