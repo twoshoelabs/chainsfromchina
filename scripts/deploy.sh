@@ -113,7 +113,11 @@ find "$TMP" -name '*.html' -print0 | xargs -0 perl -pi -e \
   git add -A
   git -c user.name="Twoshoe Labs" -c user.email="hello@twoshoelabs.com" \
       commit -q -m "Deploy $(date -u +%FT%TZ)"
-  git push -qf "$REPO" gh-pages
+  # This is a fresh repo, so it does NOT inherit the main checkout's git config.
+  # The whole ~70MB tree is force-pushed every deploy; over HTTP/2 the large single
+  # POST intermittently drops ("RPC failed; curl 55 ... Broken pipe"). Pin HTTP/1.1
+  # and a large postBuffer on the push itself so it completes reliably.
+  git -c http.version=HTTP/1.1 -c http.postBuffer=524288000 push -qf "$REPO" gh-pages
 )
 rm -rf "$TMP"
 echo "deployed to gh-pages ($(date -u +%FT%TZ))"
