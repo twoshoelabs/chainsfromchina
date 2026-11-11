@@ -1798,6 +1798,12 @@
    "franchise_available_us": 1,
    "fdd_available": 0,
    "franchise_note": "Wenzhou (Zhejiang) fried-chicken-cutlet chain, one of China's largest by store count (peaked ~25,000). US-tracked via 7 stores (CA/NY/MA); the Allston/Boston store is its 'Boston Flagship.' Franchise-driven in China; no US FDD confirmed."
+  },
+  "rolife": {
+   "name": "Rolife",
+   "name_zh": "若来",
+   "format": "toys",
+   "global": "IP-toy & DIY sub-brand of Robotime Group (若态科技, Suzhou; group founded 2007, Rolife launched 2017) — DIY miniature dollhouses, 3D wooden puzzles and IP art toys, with the headline character Nanci sold as blind boxes. Runs branded stores in China and overseas: a ~12-store US chain across seven states, plus Japan, Thailand and the Netherlands."
   }
  },
  "entries": [
@@ -9868,6 +9874,21 @@
    "note": "EP Yaying's first overseas store (early 2019), per trade press at the time of its US debut.",
    "sources": [
     "https://wwd.com/business-news/retail/ep-yaying-american-dream-store-1235678236/"
+   ]
+  },
+  {
+   "chain": "rolife",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-11",
+   "note": "One store — Rolife サンシャインシティアルパ店 at Sunshine City ALPA B1, Higashi-Ikebukuro, Toshima-ku, Tokyo (hours 10:00–20:00) — listed on the brand's official Japan site, run by Rolife Japan Co., Ltd. (consumer site + EC shop, alongside Robotime Japan).",
+   "sources": [
+    "https://rolife.co.jp/shop/"
    ]
   }
  ]
