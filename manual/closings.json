@@ -1629,6 +1629,18 @@
       "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
       "confidence": "confirmed",
       "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+    },
+    {
+      "chain": "rolife",
+      "name": "Palisades Center (phantom locator listing)",
+      "address": "1000 Palisades Center Dr, West Nyack, NY 10994",
+      "city": "West Nyack",
+      "state": "NY",
+      "opened": null,
+      "closed_on": null,
+      "closed_note": "Never verified open — phantom on the brand's rolifeonline.com locator (USA). NOT in the Palisades Center mall directory (owner-checked 2026-11-11), absent from Robotime's official opening timeline, and no Google Maps business ('Rolife Palisades Center' resolves to the mall). Removed from the census. The locator still lists it = locator-freshness discrepancy.",
+      "confidence": "confirmed",
+      "source": "Owner checked Palisades Center directory 2026-11-11; Google Maps (no Rolife business); robotime.com/pages/where-to-find-us omits it; rolifeonline.com locator still lists it."
     }
   ]
 }

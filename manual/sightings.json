@@ -3121,14 +3121,6 @@
           "status_conflict": "American Dream's own directory shows Rolife as COMING SOON (18 Oct 2026) — landlord evidence it is not yet open — contradicting Rolife's own 'where to buy' list (14 Oct) that we counted from. Held out of the count pending an open-confirmation; first-party retail lists are known to include not-yet-open stores."
         },
         {
-          "name": "Palisades Center (West Nyack)",
-          "address": "1000 Palisades Center Dr, West Nyack, NY 10994",
-          "confidence": "uncertain",
-          "verified_by": "On the rolifeonline.com locator (USA) only, 14 Oct 2026 — but that locator is stale (still lists the closed Galleria Dallas and Irvine Spectrum). Absent from Robotime's official opening timeline (robotime.com/pages/where-to-find-us) and from Google Maps (a 'Rolife Palisades Center' search resolves to the mall, no such store). Held out of the count pending Maps/on-site verification (reconciliation 2026-11-11).",
-          "lat": 41.095552,
-          "lon": -73.959041
-        },
-        {
           "name": "Westfield Valley Fair (Santa Clara)",
           "address": "2855 Stevens Creek Blvd Suite 1305, Santa Clara, CA 95050",
           "confidence": "confirmed",
