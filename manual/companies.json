@@ -2045,6 +2045,26 @@
         },
         "gallery": [
           {
+            "file": "rolife/cm1.jpg",
+            "label": "Newark, DE",
+            "caption": "The storefront at Christiana Mall — the illuminated Rolife wordmark over the open unit, 40%-off banners and the DIY-miniature-house range glowing inside."
+          },
+          {
+            "file": "rolife/cm2.jpg",
+            "label": "Newark, DE",
+            "caption": "Inside — DIY-miniature-house posters along the wall, an island of boxed kits and glass cases of built ROKR mechanical models."
+          },
+          {
+            "file": "rolife/cm3.jpg",
+            "label": "Newark, DE",
+            "caption": "The build range on display — Christmas-village houses, music boxes, cuckoo clocks and a ROKR lighthouse, with the flat-pack boxes to assemble them below."
+          },
+          {
+            "file": "rolife/cm4.jpg",
+            "label": "Newark, DE",
+            "caption": "The Nanci blind-box and plush island — the brand's headline character (Nanci Puppy Club, Bear Inner World) in costumed scenes."
+          },
+          {
             "file": "rolife/gus1.jpg",
             "caption": "Inside — the “Rolife · things to life” wall and aisles of 3D wooden puzzles, DIY miniatures and blind-box IP toys.",
             "label": "East Rutherford, NJ"
