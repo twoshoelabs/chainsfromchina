@@ -27,7 +27,8 @@
         "china": {
           "file": "mixue/china.jpg?v=2",
           "caption": "Mixue (蜜雪冰城) on a Shanghai street corner — the Snow King sign over the walk-up window, its budget 3–5–7 yuan line on the banner.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "mixue/us.jpg",
@@ -74,7 +75,8 @@
         "china": {
           "file": "chagee/china.jpg?v=2",
           "caption": "CHAGEE (霸王茶姬) near Xintiandi, Shanghai — the opera-mask roundel on a brick-and-black storefront, by the Line 13 metro.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -116,7 +118,8 @@
         "china": {
           "file": "luckin/china.jpg?v=2",
           "caption": "Luckin Coffee (瑞幸咖啡) in a Shanghai mall — the walk-up kiosk under the deer logo, a barista at the espresso bar.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "luckin/us.jpg",
@@ -163,7 +166,8 @@
         "china": {
           "file": "miniso/china.jpg?v=2",
           "caption": "MINISO LAND, the brand’s flagship on Shanghai’s Nanjing Road — a carnival-façade “World’s No. 1 store” (全球壹号店), Peanuts hot-air-balloon sign and all.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "miniso/us.jpg",
@@ -210,7 +214,8 @@
         "china": {
           "file": "popmart/china.jpg?v=2",
           "caption": "POP MART (泡泡玛特) flagship in Shanghai — the illuminated crown-logo facade at night, blind-box toys glowing in the windows.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "popmart/us.jpg?v=3",
@@ -306,7 +311,8 @@
         "china": {
           "file": "haidilao/china-shanghai.jpg",
           "caption": "Haidilao Hot Pot (海底捞火锅) in a Shanghai mall — the Hi-logo entrance, the dining room glimpsed through the draft curtain.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "haidilao/us-houston.jpg",
@@ -345,7 +351,8 @@
         "china": {
           "file": "heytea/china.jpg?v=3",
           "caption": "HEYTEA (喜茶) in a Shanghai mall — the storefront under its neon sipping-figure mark, with the pastry case and lit bench seating.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -409,7 +416,8 @@
         "china": {
           "file": "cotti/china.jpg?v=2",
           "caption": "A Cotti Coffee (库迪咖啡) in a Shanghai department store — the counter under its logo, with actress Yang Mi, the brand's face, on the pillar poster.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -464,7 +472,8 @@
         "china": {
           "file": "taier/china.jpg?v=2",
           "caption": "Tai Er (太二酸菜鱼) in a Shanghai mall — the storefront under its signature woodcut mural, bar seating along the glass.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -498,7 +507,8 @@
         "china": {
           "file": "chabaidao/china.jpg?v=2",
           "caption": "Cha Panda (茶百道 / ChaPanda) on a Shanghai corner — the blue-panda storefront, the brand’s inflatable mascot by the door.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -532,7 +542,8 @@
         "china": {
           "file": "nayuki/china.jpg?v=3",
           "caption": "A Nayuki (奈雪的茶) — it trades in the US as NaiSnow — tucked inside a Shanghai department store's jewelry hall, its glass-walled tea lounge behind the gold counters.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -566,7 +577,8 @@
         "china": {
           "file": "juewei/china.jpg?v=2",
           "caption": "Juewei (绝味鸭脖) on a Shanghai street — the grab-and-go counter under its yellow sign, a chilled case of spiced braised snacks (“Dare Spicy!”).",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -600,7 +612,8 @@
         "china": {
           "file": "yangguofu/china.jpg",
           "caption": "Yang Guo Fu (杨国福麻辣烫) in a Shanghai mall — the lit storefront over the self-serve malatang bar and marble-table seating.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -611,7 +624,8 @@
           {
             "file": "yangguofu/g1.jpg",
             "caption": "The self-serve bar — diners fill a bowl from rows of fresh vegetables, noodles, tofu and skewered meats; it is then weighed and cooked to order.",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "yangguofu/gus3.jpg",
@@ -621,7 +635,8 @@
           {
             "file": "yangguofu/g2.jpg",
             "caption": "The dining room beside the ingredient case, under the YANG GUO FU mural wall.",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "yangguofu/gus2.jpg",
@@ -636,7 +651,8 @@
           {
             "file": "yangguofu/g3.jpg",
             "caption": "The cook line behind the orange 杨国福 curtain, finished bowls bagged for takeout.",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ],
         "us": {
@@ -662,7 +678,8 @@
         "china": {
           "file": "fishwithyou/china.jpg",
           "caption": "Fish With You (鱼你在一起) in a Shanghai mall food hall — the orange twin-fish storefront, “2,500 stores worldwide,” its open kitchen behind.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -688,22 +705,26 @@
           {
             "file": "fishwithyou/g1.jpg",
             "caption": "The service window beneath an arch of fish-shaped lamps — pickled-cabbage fish ladled to order (取餐处, “take meals”).",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "fishwithyou/g2.jpg",
             "caption": "The free self-serve rice station — a row of cookers under a wall featuring the chain’s founder.",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "fishwithyou/g3.jpg",
             "caption": "Booth seating and the house line on the wall: one serving of its sour-cabbage fish “goes with three bowls of rice.”",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "fishwithyou/g4.jpg",
             "caption": "The brand’s roundel — two orange fish nose to nose, 下饭酸菜鱼 (“rice-friendly pickled-cabbage fish”).",
-            "label": "上海"
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ],
         "us": {
@@ -741,7 +762,8 @@
         "china": {
           "file": "zhangliang/china.jpg?v=2",
           "caption": "Zhang Liang Malatang (张亮麻辣烫) in a Shanghai shopping-mall food hall — the illuminated storefront sign above the signature orange “b” dining nook.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "us": {
           "file": "zhangliang/us.jpg",
@@ -914,7 +936,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3AAuntea_Jenny_at_Huoying_%2820230227172743%29.jpg",
-          "label": "北京"
+          "label": "Beijing",
+          "label_zh": "北京"
         },
         "gallery": [
           {
@@ -944,7 +967,8 @@
         "china": {
           "file": "mollytea/china.jpg?v=2",
           "caption": "Molly Tea (茉莉奶白) on a Shanghai street — the storefront on a rainy evening, its mascot lit in the window.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1000,7 +1024,8 @@
         "china": {
           "file": "lelecha/china.jpg?v=2",
           "caption": "Lelecha (乐乐茶) in a Shanghai mall — the storefront under its hooded-figure mark, LELECHA 樂樂茶 in lights.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1037,7 +1062,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3ANong_Geng_Ji_Hunan_Cuisine_at_Beijing_Dawanglu_BollyWood_Hotel_%2820241101162415%29.jpg",
-          "label": "北京"
+          "label": "Beijing",
+          "label_zh": "北京"
         },
         "gallery": [
           {
@@ -1070,7 +1096,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3ABao%27s_Pastry_at_Guanqian_Street-20241023.jpg",
-          "label": "苏州"
+          "label": "Suzhou",
+          "label_zh": "苏州"
         },
         "gallery": [
           {
@@ -1108,7 +1135,8 @@
         "china": {
           "file": "toptoy/china.jpg?v=2",
           "caption": "TOP TOY’s self-styled “world’s first flagship” (全球首家旗舰店) on Shanghai’s Nanjing Road pedestrian street — a multi-floor trendy-toy megastore, its two-story window filled by a giant golden lucky-cat build.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1151,7 +1179,8 @@
         "china": {
           "file": "toys52/china.jpg",
           "caption": "A 52TOYS roboshop (vending) kiosk at Hongqiao, Shanghai",
-          "label": "上海虹桥"
+          "label": "Shanghai Hongqiao",
+          "label_zh": "上海虹桥"
         },
         "gallery": [
           {
@@ -1204,7 +1233,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3AInterior_of_Meizhou_Dongpo_Restaurant%2C_Xibeiwang_MIXC_One_6F_%2820240530192638%29.jpg",
-          "label": "北京"
+          "label": "Beijing",
+          "label_zh": "北京"
         },
         "gallery": [
           {
@@ -1284,7 +1314,8 @@
         "china": {
           "file": "xibei/china.jpg",
           "caption": "Xibei (西贝) at Feizhou International, Shanghai",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1318,7 +1349,8 @@
         "china": {
           "file": "grandmashome/china.jpg?v=3",
           "caption": "Grandma’s Home (外婆家) in a Shanghai mall — the green neon storefront across the atrium.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1348,7 +1380,8 @@
         "china": {
           "file": "xijiade/china.jpg?v=2",
           "caption": "Xijiade (喜家德虾仁水饺) in a Shanghai mall food hall — the curved service counter, “900 directly-run stores nationwide” overhead.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1394,7 +1427,8 @@
         "china": {
           "file": "feidachu/china.jpg?v=4",
           "caption": "Chef Fei (费大厨辣椒炒肉) flagship in a Shanghai mall — the green brand wall and open kitchen, rows of waiting chairs for the queue.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1470,7 +1504,8 @@
           "license": "CC BY 3.0",
           "license_url": "https://creativecommons.org/licenses/by/3.0",
           "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211123.jpg",
-          "label": "长沙"
+          "label": "Changsha",
+          "label_zh": "长沙"
         },
         "gallery": [
           {
@@ -1500,7 +1535,8 @@
             "license": "CC BY 3.0",
             "license_url": "https://creativecommons.org/licenses/by/3.0",
             "source": "https://commons.wikimedia.org/wiki/File%3AShuyi_Tealicious_20211210.jpg",
-            "label": "长沙"
+            "label": "Changsha",
+            "label_zh": "长沙"
           }
         ],
         "origin": "author",
@@ -1527,7 +1563,8 @@
         "china": {
           "file": "anta/china.jpg?v=2",
           "caption": "An ANTA (安踏) store in Shanghai",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1565,7 +1602,8 @@
         "china": {
           "file": "urbanrevivo/china.jpg",
           "caption": "The Urban Revivo flagship on a Shanghai shopping street",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1599,7 +1637,8 @@
         "china": {
           "file": "jnby/china.jpg?v=3",
           "caption": "JNBY in a Shanghai mall — the storefront under its signature grid of light panels, menswear styled at the entrance.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1633,7 +1672,8 @@
         "china": {
           "file": "meilleurmoment/china.jpg?v=3",
           "caption": "Meilleur Moment (麦檬 / MM) in a Shanghai mall — the MEILLEUR MM MOMENT storefront, mannequins and a styling table at the entrance.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1667,7 +1707,8 @@
         "china": {
           "file": "moreyogurt/china.jpg",
           "caption": "A More Yogurt (茉酸奶) kiosk in a Shanghai mall — fresh Hass avocados chilling in the case and the pear-shaped avocado mascot out front, under the brand’s pitch that one smoothie equals a whole avocado (一杯奶昔＝一颗牛油果).",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1767,7 +1808,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3AEntrance_lobby_of_Quanjude_Origin_Roast_Duck_Restaurant_%2820250323150212%29.jpg",
-          "label": "北京"
+          "label": "Beijing",
+          "label_zh": "北京"
         },
         "gallery": [
           {
@@ -1805,7 +1847,8 @@
         "china": {
           "file": "mamaxita/china.jpg?v=2",
           "caption": "Xita Laotaitai (西塔老太太 / Mama Xita BBQ) in a Shanghai mall — a curved-eave pavilion front over the open grill, its Korean charcoal-BBQ neon alongside.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1856,7 +1899,8 @@
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
           "source": "https://commons.wikimedia.org/wiki/File%3A%E6%8A%9A%E8%BF%9C%E7%9A%84%E5%86%B0%E9%9B%AA%E6%97%B6%E5%85%89.jpg",
-          "label": "抚远"
+          "label": "Fuyuan",
+          "label_zh": "抚远"
         },
         "gallery": [
           {
@@ -1887,7 +1931,8 @@
         "china": {
           "file": "walaida/china.jpg",
           "caption": "Walaida (蛙来哒) in a Shanghai mall food hall — the 紫苏牛蛙 (perilla bullfrog) counter under the red sign, with the brand’s frog-eyes mark.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -1979,7 +2024,8 @@
         "china": {
           "file": "chicjoc/china.jpg",
           "caption": "CHICJOC at Grand Gateway 66 (恒隆广场), Shanghai",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -2041,7 +2087,8 @@
         "china": {
           "file": "rolife/china.jpg",
           "caption": "A Rolife (若来) store in Suzhou, the brand's home city — a backlit wall of its ranges (DIY miniature houses, 3D wooden craft, art toys) above shelves of Nanci blind boxes and model kits.",
-          "label": "苏州"
+          "label": "Suzhou",
+          "label_zh": "苏州"
         },
         "gallery": [
           {
@@ -2191,7 +2238,8 @@
         "china": {
           "file": "dusu/china.jpg?v=3",
           "caption": "DUSU Shijia (读酥世家 / DUSU Pastry Family) — the flagship on a Shanghai corner; pastries baked and sold from the open window (“fresh-baked, hand-made, no additives”).",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {
@@ -2388,7 +2436,8 @@
         "china": {
           "file": "wallace/china.jpg",
           "caption": "Wallace (华莱士) on a Shanghai street — the red storefront, its W-rooster sign over the pick-up window and open counter.",
-          "label": "上海"
+          "label": "Shanghai",
+          "label_zh": "上海"
         },
         "gallery": [
           {

@@ -206,10 +206,15 @@ function photoCredit(o) {
   const body = o.license ? `${who}${who && lic ? ' / ' : ''}${lic}` : who;
   return `<span style="display:block;color:var(--faint);font-size:10px;margin-top:2px">${body}</span>`;
 }
-function photoFig(o, aspect, label, zh) {
+function photoFig(o, aspect) {
   if (!o || !o.file) return '';
-  const labFont = zh ? 'font-family:var(--zh)' : 'font-family:var(--cond);font-stretch:62%;font-weight:800';
-  const lab = label ? `<span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;${labFont}"${zh ? ' lang="zh-Hans"' : ''}>${esc(label)}</span>` : '';
+  // City labels: English on the English site; a Chinese label (label_zh) is used ONLY on the
+  // Chinese site. US-city labels carry no label_zh, so they stay English on both. The Chinese
+  // font + lang attribute apply only when we are actually showing the Chinese text.
+  const useZh = (window.CFC_LANG === 'zh') && !!o.label_zh;
+  const label = useZh ? o.label_zh : (o.label || '');
+  const labFont = useZh ? 'font-family:var(--zh)' : 'font-family:var(--cond);font-stretch:62%;font-weight:800';
+  const lab = label ? `<span style="position:absolute;left:10px;bottom:8px;background:var(--bg);padding:2px 7px;${labFont}"${useZh ? ' lang="zh-Hans"' : ''}>${esc(label)}</span>` : '';
   return `<figure style="margin:0"><div style="position:relative;aspect-ratio:${aspect};border:1px solid var(--ink);overflow:hidden;background:#D7DAD5">` +
     `<img src="photos/${esc(o.file)}" alt="${esc(o.caption || '')}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">${lab}</div>` +
     `<figcaption style="font-size:12px;color:var(--dim);padding-top:6px">${esc(o.caption || '')}${photoCredit(o)}</figcaption></figure>`;
@@ -242,17 +247,17 @@ function photosBlock(comp, m) {
       // Both sides → the "There and here" juxtaposition.
       h += `<h3 style="font-size:1rem;font-weight:700;margin:0 0 10px">${t('chain.photos.there','There and here')}</h3>` +
         `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-bottom:20px">` +
-        photoFig(ph.china, '3/2', ph.china.label, true) +
-        photoFig(ph.us, '3/2', ph.us.label, false) + `</div>`;
+        photoFig(ph.china, '3/2') +
+        photoFig(ph.us, '3/2') + `</div>`;
     } else if (ph.china || ph.us) {
       // Only one side available → a single lead storefront, no misleading pair heading.
       const one = ph.china || ph.us;
       h += `<div style="margin-bottom:20px;max-width:520px">` +
-        photoFig(one, '3/2', one.label, !!ph.china) + `</div>`;
+        photoFig(one, '3/2') + `</div>`;
     }
     if (ph.gallery && ph.gallery.length) {
       h += `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">` +
-        ph.gallery.map((o) => photoFig(o, '3/2', o.label || '', false)).join('') + `</div>`;
+        ph.gallery.map((o) => photoFig(o, '3/2')).join('') + `</div>`;
     }
     return h;
   }
