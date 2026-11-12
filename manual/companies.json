@@ -2617,31 +2617,35 @@
       "photos": {
         "origin": "author",
         "us": {
-          "file": "happylamb/us.jpg",
+          "file": "happylamb/us.jpg?v=2",
           "label": "Cambridge, MA",
           "caption": "The Happy Lamb Hot Pot storefront on Massachusetts Avenue, Cambridge (485 Mass Ave) — the lamb emblem and 快乐小羊 wordmark over the awning."
         },
         "gallery": [
           {
-            "file": "happylamb/g5.jpg",
+            "file": "happylamb/g5.jpg?v=2",
             "label": "Allston, MA",
             "caption": "The Allston location at 138 Brighton Ave — the Happy Lamb 快乐小羊 sign over an ornate green-marble entrance (a VIVA karaoke spot shares the building)."
           },
           {
-            "file": "happylamb/g1.jpg",
-            "caption": "The all-you-can-eat dining hall — green banquettes and induction hot-pot tables down a long room."
+            "file": "happylamb/g1.jpg?v=2",
+            "caption": "The all-you-can-eat dining hall — green banquettes and induction hot-pot tables down a long room.",
+            "label": "Cambridge, MA"
           },
           {
-            "file": "happylamb/g2.jpg",
-            "caption": "The self-serve ingredient bar and sauce station, an ornate Mongolian-style vessel on the marble (the brand’s Inner-Mongolian theme)."
+            "file": "happylamb/g2.jpg?v=2",
+            "caption": "The self-serve ingredient bar and sauce station, an ornate Mongolian-style vessel on the marble (the brand’s Inner-Mongolian theme).",
+            "label": "Cambridge, MA"
           },
           {
-            "file": "happylamb/g3.jpg?v=3",
-            "caption": "The all-you-can-eat menu — Classic and Premium tiers (marbled lamb, Wagyu cap steak, lamb spine, tripe), with the 485 Mass Ave address."
+            "file": "happylamb/g3.jpg?v=4",
+            "caption": "The all-you-can-eat menu — Classic and Premium tiers (marbled lamb, Wagyu cap steak, lamb spine, tripe), with the 485 Mass Ave address.",
+            "label": "Cambridge, MA"
           },
           {
-            "file": "happylamb/g4.jpg?v=2",
-            "caption": "Inside — the warm wood dining room and the service counter under a woven-lantern feature."
+            "file": "happylamb/g4.jpg?v=3",
+            "caption": "Inside — the warm wood dining room and the service counter under a woven-lantern feature.",
+            "label": "Cambridge, MA"
           }
         ]
       }
