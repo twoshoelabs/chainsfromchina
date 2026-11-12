@@ -1308,6 +1308,11 @@
           "label": "Shanghai",
           "label_zh": "上海"
         },
+        "us": {
+          "file": "toptoy/us.jpg",
+          "label": "East Rutherford, NJ",
+          "caption": "A “TOP TOY · Coming Soon” hoarding at American Dream (East Rutherford, NJ) — the brand’s art-toy characters and “A Leading Global Art Toy Brand” wrap on the future storefront; the US store is announced, not yet open."
+        },
         "gallery": [
           {
             "file": "toptoy/g1.jpg?v=3",
