@@ -44,7 +44,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     NanhotpotAdapter, HuaxiaoxiaoAdapter, ZhoumapoAdapter, LittleSheepAdapter,
                     YaoyaoAdapter, YogostAdapter, XimivogueAdapter, DerucciAdapter,
                     MogouyanAdapter, RbteaAdapter, TenSecondsAdapter,
-                    EpyayingAdapter, YoyosoAdapter)
+                    EpyayingAdapter, YoyosoAdapter, ChubbySkewersAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -119,6 +119,7 @@ REGISTRY: list[Adapter] = [
     TenSecondsAdapter(), # China-origin Yunnan 过桥米线 chain Ten Seconds / 十秒到 / ShiMiaoDao (HQ Hangzhou); ~39 US stores / 18 states, found via SGV malatang Maps scan (19 Oct 2026) — see stubs.py
     EpyayingAdapter(), # Jiaxing/Zhejiang high-end womenswear EP YAYING 雅莹 (~800 China stores); first US store American Dream NJ, Dec 2022 (6 Nov 2026) — see stubs.py
     YoyosoAdapter(), # Yiwu Miniso-style variety retailer YOYOSO 韩尚优品 (markets as Korean); US American Dream NJ + Lincoln Rd Miami (6 Nov 2026) — see stubs.py
+    ChubbySkewersAdapter(), # China-origin 东北 BBQ-skewer chain 幸福小串 / 地摊小炉子 (Chengdu); US arm "Chubby Skewers" via Chubby Group, 7 open outlets (6 states), tracked via complete-roster sighting (12 Nov 2026) — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

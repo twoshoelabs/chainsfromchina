@@ -2943,6 +2943,18 @@
           }
         ]
       }
+    },
+    "chubbyskewers": {
+      "name": "Chubby Skewers",
+      "name_zh": "幸福小串",
+      "category": "Chinese BBQ skewers (东北烧烤)",
+      "blurb": "Chubby Skewers is the US arm of 幸福小串 (Xingfu Xiaochuan, “Happiness Skewers” / 地摊小炉子), a China-origin Northeastern-style (东北) barbecue-skewer chain founded in Chengdu (brand principal 李三吉) that has grown to roughly 80–100+ stores across China on a semi-self-serve, cook-your-own-skewer format. In the US it trades as “Chubby Skewers Authentic Chinese BBQ,” operated by the US-based Chubby Group (David Zhao) while carrying the full 幸福小串 · 地摊小炉子 lockup and red seal. Seven US outlets are open across six states — Rowland Heights (its first US store), Las Vegas, Mesa, Chicago, Flushing and Manhattan — plus a Duluth, GA unit trading as “Yakitori by Chubby Skewers.”",
+      "site_cn": null,
+      "site_us": "https://chubbyskewers.com",
+      "photo": null,
+      "photo_credit": null,
+      "us_since": "2024",
+      "first_outlet": "Rowland Heights, CA (first US store)"
     }
   }
 }

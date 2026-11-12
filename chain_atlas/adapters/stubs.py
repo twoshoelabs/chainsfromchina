@@ -1695,3 +1695,39 @@ class TenSecondsAdapter(Adapter):
                       " operating US stores across 18 states confirmed via Google Maps (19 Oct 2026). Official US"
                       " locator is blog-style, not machine-readable, so tracked via sightings. In scope (China origin)")
     RECHECK = ["https://en.shimiaodao.com/usa/"]
+
+
+class ChubbySkewersAdapter(Adapter):
+    """
+    Chubby Skewers (幸福小串 / 地摊小炉子 — Xingfu Xiaochuan) — added 2026-11-12. The US arm of a
+    China-origin Northeastern-style (东北) BBQ-skewer chain: Chengdu-founded (first store by 九眼桥,
+    brand principal 李三吉), self-serve "street-stall little stove" (地摊小炉子) skewers, ~80–100+ stores
+    across China (Sichuan, Zhejiang, Beijing, Xinjiang, …), fast crowdfunding/employee-partner
+    expansion. China origin, in scope, sector food_drink.
+
+    In the US it trades as "Chubby Skewers Authentic Chinese BBQ," operated by the US-based Chubby
+    Group (David Zhao — which also runs its own US-created concepts Chubby Cattle / X Pot / Niku X /
+    Wagyu Factory, NOT in scope; cf. HiBakeAdapter, another China brand Chubby Group brought over).
+    The storefronts and logo carry the full 幸福小串 · 地摊小炉子 lockup and red seal, so this is the
+    real brand's US presence, not a name-borrow. 7 open US outlets from the brand's own locations page
+    (chubbyskewers.com/locations), each cross-checked operating on Google/Yelp: Rowland Heights CA
+    (first US), Las Vegas NV, Mesa AZ, Chicago IL, Flushing NY, Manhattan NY, and Duluth GA (trading
+    as "Yakitori by Chubby Skewers," same concept lightly restyled). San Gabriel CA is soft-opening-
+    soon (held uncertain) and Fremont CA is announced with no address (omitted). The locations page is
+    JavaScript-rendered (no machine-readable roster), so tracked via a hand-assembled complete-roster
+    sighting (complete_as_of 2026-11-12).
+    """
+    chain_id, name, name_zh = "chubbyskewers", "Chubby Skewers", "幸福小串"
+    name_us = "Chubby Skewers"
+    aliases = ("Chubby Skewers", "Chubby Skewers Authentic Chinese BBQ", "Chubby Skewer",
+               "Yakitori by Chubby Skewers", "幸福小串", "地摊小炉子", "Xingfu Xiaochuan", "Happiness Skewers")
+    parent, format = "Xingfu Xiaochuan (幸福小串 / 地摊小炉子, Chengdu); US operator Chubby Group", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Northeastern-style BBQ-skewer chain (幸福小串 / 地摊小炉子 / Xingfu"
+                      " Xiaochuan, Chengdu, ~80–100+ China stores). US arm trades as 'Chubby Skewers',"
+                      " operated by US-based Chubby Group but carrying the full 幸福小串 lockup/seal. 7 open"
+                      " US outlets (Rowland Heights CA, Las Vegas NV, Mesa AZ, Chicago IL, Flushing +"
+                      " Manhattan NY, Duluth GA); San Gabriel CA soft-opening, Fremont CA coming soon."
+                      " Locations page is JS-rendered, so tracked via a complete-roster sighting"
+                      " (12 Nov 2026). In scope (China origin)")
+    RECHECK = ["https://chubbyskewers.com/locations/"]

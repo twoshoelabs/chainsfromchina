@@ -1804,6 +1804,28 @@
    "name_zh": "若来",
    "format": "toys",
    "global": "IP-toy & DIY sub-brand of Robotime Group (若态科技, Suzhou; group founded 2007, Rolife launched 2017) — DIY miniature dollhouses, 3D wooden puzzles and IP art toys, with the headline character Nanci sold as blind boxes. Runs branded stores in China and overseas: a ~12-store US chain across seven states, plus Japan, Thailand, the Netherlands and France."
+  },
+  "chubbyskewers": {
+   "name": "Chubby Skewers",
+   "name_zh": "幸福小串",
+   "name_intl": "Chubby Skewers",
+   "name_us": "Chubby Skewers",
+   "aliases": [
+    "Chubby Skewers",
+    "Chubby Skewers Authentic Chinese BBQ",
+    "Chubby Skewer",
+    "Yakitori by Chubby Skewers",
+    "幸福小串",
+    "地摊小炉子",
+    "Xingfu Xiaochuan",
+    "Happiness Skewers"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Northeastern-style (东北) BBQ-skewer chain — 幸福小串 / 地摊小炉子 (Xingfu Xiaochuan), Chengdu-founded (brand principal 李三吉), ~80–100+ stores across China on a semi-self-serve, cook-your-own-skewer format. Its only overseas market is the US, where it trades as “Chubby Skewers Authentic Chinese BBQ” via the US-based Chubby Group (David Zhao) while carrying the full 幸福小串 · 地摊小炉子 lockup and red seal; 7 US outlets open across 6 states as of 12 Nov 2026.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China 东北 BBQ-skewer chain (幸福小串 / 地摊小炉子, Chengdu). The US arm 'Chubby Skewers' is operated by the US-based Chubby Group (David Zhao); the link to the China brand runs through that operator. No US FDD confirmed."
   }
  },
  "entries": [
