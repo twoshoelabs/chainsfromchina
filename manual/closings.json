@@ -1654,6 +1654,19 @@
    "sources": [
     "Google Maps 'Hey! I am Yogost' Pleasanton — Permanently closed (12 Nov 2026)"
    ]
+  },
+  {
+   "chain": "ximivogue",
+   "name": "Glendale Galleria",
+   "address": "100 Galleria Way, Glendale, CA 91210",
+   "city": "Glendale",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Google (operator-observed, 12 Nov 2026). Not in our counted roster — XIMIVOGUE's counted US set is Sugarloaf Mills GA + Woodfield Mall IL; Glendale Galleria was a reported-but-unverified location, now confirmed closed. Logged for closure statistics.",
+   "sources": [
+    "Google Maps 'Ximi Vogue' Glendale Galleria (100 Galleria Way) — Permanently closed (12 Nov 2026)"
+   ]
   }
  ]
 }
