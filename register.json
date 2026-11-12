@@ -2565,10 +2565,11 @@
    "locations_as_of": "2026-01",
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-21",
-   "note": "Aggregator count; see JP note.",
+   "confidence": "medium",
+   "reviewed": "2026-11-12",
+   "note": "Singapore flagship at 26 Sentosa Gateway (WEAVE #01-233) houses POP BAKERY — Pop Mart's F&B / café concept — operator-observed open (Google 4.7/440), Nov 2026. The earlier '12 stores' figure is an aggregator count (see JP note).",
    "sources": [
+    "Google Maps 'POP BAKERY' Sentosa (operator-observed, 12 Nov 2026)",
     "https://smartbuy.alibaba.com/popmart/where's-pop-mart"
    ]
   },

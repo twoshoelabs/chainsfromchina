@@ -342,6 +342,23 @@
      "source": "H1 2026 interim results relayed by industry press (BigGo finance, 15 Oct 2026, citing Zhaimen Catering Eye / Hongcan); pending primary-filing verification"
     }
    ]
+  },
+  "chubbyskewers": {
+   "history": {
+    "text": "幸福小串 (Xingfu Xiaochuan / “Happiness Skewers”, sub-brand 地摊小炉子) is a China-origin Northeastern-style (东北) BBQ-skewer chain founded in Chengdu (brand principal 李三吉), grown to ~80–100+ stores across China on a semi-self-serve, cook-your-own-skewer format. It entered the US as “Chubby Skewers” via the US-based Chubby Group, reaching 7 US outlets across 6 states by Nov 2026.",
+    "as_of": "2026-11",
+    "confidence": "medium",
+    "source": "chubbyskewers.com + Chinese press (Sohu/NetEase) on 幸福小串",
+    "source_url": "https://chubbyskewers.com/our-brand/"
+   },
+   "notes": [
+    {
+     "text": "STORY ANGLE (Pro / press): Chubby Group — the US F&B venture of David Zhao (co-founded 2016 with Haibin Yang & Joyce Li; ~70+ locations across 25+ brands) — is a standout example of a US company that specializes in bringing Chinese chains to America. It has imported at least TWO distinct China-origin brands: Chubby Skewers (幸福小串) and Hi Bake (嗨呗可, a Chengdu bakery), alongside a Japanese import (Chubby Tan = Japan's Gyutan no Lemon, where it acts as US distributor) and a stable of its own US-created Asian concepts (Chubby Cattle, Wagyu House, The X Pot, Niku X, Chubby Bowls). A pipeline worth watching for future China-brand US entries.",
+     "as_of": "2026-11",
+     "confidence": "medium",
+     "source": "Yahoo Finance (70+ locations / 25+ brands); Crunchbase (David Zhao); chubbyskewers.com; project HiBakeAdapter note; Chubby Tan = Gyutan no Lemon US distributor"
+    }
+   ]
   }
  }
 }
