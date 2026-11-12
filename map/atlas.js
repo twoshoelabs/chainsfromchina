@@ -96,6 +96,7 @@ const LOGO_CHAINS = new Set([
   'tenseconds',
   'epyaying',
   'yoyoso',
+  'chubbyskewers',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
