@@ -1925,12 +1925,22 @@
      "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (GSP) operating in Westfield Garden State Plaza, Level 2 A10 (4.1★, 250 reviews, +1 201-234-8549). Census cannot place the mall address, so the coordinate is the mall's documented location (40.91896, -74.07639).",
      "lat": 40.91896,
      "lon": -74.07639
+    },
+    {
+     "name": "HEYTEA (The Florida Mall, Orlando FL) — COMING SOON",
+     "address": "8001 S Orange Blossom Trail, Orlando, FL 32809",
+     "confidence": "uncertain",
+     "note": "Listed COMING SOON on The Florida Mall (Simon) directory, 13 Nov 2026 — not yet open. Would be HEYTEA first FL store. Flip to confirmed when it opens.",
+     "verified_by": "The Florida Mall directory (Simon), Coming Soon (13 Nov 2026)",
+     "lat": 28.45011,
+     "lon": -81.400723,
+     "coord_src": "US Census geocoder"
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
-   "reviewed": "2026-10-01"
+   "reviewed": "2026-11-13"
   },
   {
    "chain": "lelecha",
@@ -3459,9 +3469,9 @@
   {
    "chain": "ximivogue",
    "supplied_on": "2026-10-18",
-   "reviewed": "2026-10-18",
-   "source": "Simon brand page + mall directories (Sugarloaf Mills, Woodfield, Florida Mall, Dolphin Mall) + Yelp",
-   "scope": "US confirmed = 2, both verified in the mall's own directory: Sugarloaf Mills (Lawrenceville GA) + Woodfield Mall (Schaumburg IL). Florida Mall + Dolphin Mall REMOVED — not in those malls' current directories (Yelp listings were stale).",
+   "reviewed": "2026-11-13",
+   "source": "Simon brand page (/brands/ximi-vi) + mall directories (Sugarloaf Mills, Woodfield, Trumbull Mall)",
+   "scope": "US confirmed = 3: Sugarloaf Mills (Lawrenceville GA), Woodfield Mall (Schaumburg IL), Trumbull Mall (Trumbull CT; trades as XIMI-V, Lower Level). Simon brand index lists only these. Florida Mall + Dolphin Mall removed (Dolphin = former, now closed; Florida = stale Yelp). Glendale Galleria CA closed. Tanger Myrtle Beach SC confirmed NOT present.",
    "locations": [
     {
      "name": "XIMIVOGUE (Sugarloaf Mills (Lawrenceville GA))",
@@ -3480,6 +3490,15 @@
      "lat": 42.046417,
      "lon": -88.037125,
      "coord_src": "Woodfield Mall centroid (shared w/ Pop Mart Schaumburg; Census no-match)"
+    },
+    {
+     "name": "XIMI-V (Trumbull Mall (Trumbull CT))",
+     "address": "5065 Main St, Trumbull, CT 06611",
+     "confidence": "confirmed",
+     "verified_by": "Trumbull Mall directory (owner-observed, trades as XIMI-V, Lower Level) (13 Nov 2026)",
+     "lat": 41.229842,
+     "lon": -73.219924,
+     "coord_src": "US Census geocoder"
     }
    ]
   },
