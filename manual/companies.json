@@ -181,37 +181,45 @@
         "gallery": [
           {
             "file": "miniso/g1.jpg?v=2",
-            "caption": "A mall-floor MINISO — the red shopping-bag logo over a glass-brick facade of product icons (gifts, umbrellas, headphones), a “New Vintage” window display within."
+            "caption": "A mall-floor MINISO — the red shopping-bag logo over a glass-brick facade of product icons (gifts, umbrellas, headphones), a “New Vintage” window display within.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
-            "file": "miniso/g2.jpg",
-            "caption": "PLUSH WORLD — Miniso's signature wall of squishy plush, shelves of pigs, chicks and shiba dogs under a painted-sky lightbox."
+            "file": "miniso/g2.jpg?v=2",
+            "caption": "PLUSH WORLD — Miniso's signature wall of squishy plush, shelves of pigs, chicks and shiba dogs under a painted-sky lightbox.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
-            "file": "miniso/g3.jpg",
-            "caption": "Under the circular “HAPPY MINISO” sign — the open floor ringed by IP zones (Chiikawa, Zootopia, the LISA collab) and a tower of hair clips."
+            "file": "miniso/g3.jpg?v=2",
+            "caption": "Under the circular “HAPPY MINISO” sign — the open floor ringed by IP zones (Chiikawa, Zootopia, the LISA collab) and a tower of hair clips.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "miniso/g4.jpg",
-            "caption": "The licensed-IP corner — a LISA (of Blackpink) × MINISO collab wall beside Chiikawa, Zootopia and Toy Story (Lotso) merchandise."
+            "caption": "The licensed-IP corner — a LISA (of Blackpink) × MINISO collab wall beside Chiikawa, Zootopia and Toy Story (Lotso) merchandise.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
-            "file": "miniso/cm1.jpg",
+            "file": "miniso/cm1.jpg?v=2",
             "label": "Newark, DE",
             "caption": "The storefront at Christiana Mall — the red MINISO shopping-bag wordmark over glass, with the brand's heart-angel mascots and a Hello Kitty decal in the windows."
           },
           {
-            "file": "miniso/cm2.jpg",
+            "file": "miniso/cm2.jpg?v=2",
             "label": "Newark, DE",
             "caption": "By the entrance, a Netflix “K-Pop Demon Hunters” × MINISO cardboard standee — the licensed-IP tie-ins the chain runs on."
           },
           {
-            "file": "miniso/cm3.jpg",
+            "file": "miniso/cm3.jpg?v=2",
             "label": "Newark, DE",
             "caption": "Under the “MINISO · Life is for fun” lightbox — the signature red “Mystery Bags,” a sunglasses wall and the MINISO + Fashion campaign."
           },
           {
-            "file": "miniso/cm4.jpg",
+            "file": "miniso/cm4.jpg?v=2",
             "label": "Newark, DE",
             "caption": "The snack aisle — imported candy and drinks below a “Love Life, Love MINISO” cooler topped with a Kuromi figure, beside Disney Stitch and Winnie-the-Pooh plush."
           }
@@ -452,7 +460,7 @@
           },
           {
             "file": "cotti/gus3.jpg?v=6",
-            "caption": "The signature red “@” cup, a Café Latte waiting at pickup.",
+            "caption": "The signature red “@” Café Latte cup, set against the store backdrop — the archway, neon logo and café seating.",
             "label": "Boston, MA"
           },
           {
