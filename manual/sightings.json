@@ -2700,9 +2700,9 @@
   {
    "chain": "moge",
    "supplied_on": "2026-10-31",
-   "reviewed": "2026-11-05",
+   "reviewed": "2026-11-13",
    "source": "Operator-observed operating Google listing (store not currently on mogeteeusa.com's collected locator).",
-   "scope": "Moge Tee (愿茶) outlets the daily collected feed (mogeteeusa.com) misses (Orlando Vista, Blacksburg, Aurora). Hand-verified so they still map; auto-retire if the locator later lists them.",
+   "scope": "Moge Tee (愿茶) outlets the daily collected feed (mogeteeusa.com) misses (Orlando Vista, Blacksburg, Aurora). Hand-verified so they still map; auto-retire if the locator later lists them. + Pentagon City (Arlington VA).",
    "locations": [
     {
      "name": "Orlando (Vista Centre Shoppes)",
@@ -2729,6 +2729,15 @@
      "lon": -104.8420226,
      "confidence": "confirmed",
      "verified_by": "Google Maps operating listing 'MÖGE TEE 愿茶 x Poké' (4.5★/54 reviews, Open; +1 720-297-0800), operator-observed 5 Nov 2026 (NY). A Möge Tee × Poké combo store; absent from the mogeteeusa.com locator, hand-added so it counts."
+    },
+    {
+     "name": "Arlington (Fashion Centre at Pentagon City)",
+     "address": "1100 S Hayes St, Arlington, VA 22202",
+     "lat": 38.864234,
+     "lon": -77.059032,
+     "confidence": "confirmed",
+     "verified_by": "Fashion Centre at Pentagon City (Simon) store page shows full store hours, no 'coming soon' badge = open (owner-observed 13 Nov 2026). Not on mogeteeusa.com feed. Phone 703-966-5943.",
+     "coord_src": "US Census geocoder"
     }
    ]
   },
