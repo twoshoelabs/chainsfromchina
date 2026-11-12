@@ -1998,7 +1998,7 @@
   {
    "chain": "miniso",
    "supplied_on": "2026-10-02",
-   "reviewed": "2026-11-01",
+   "reviewed": "2026-11-13",
    "source": "Operator manual pull from mall directories, for Miniso stores not yet on Miniso’s own locator (which the daily census reads).",
    "scope": "Manually-verified Miniso US locations not yet listed on Miniso’s own store locator. Held here as sightings so they show now; each retires automatically once the daily census covers the same spot (same chain within ~180 m), so there is no double-count and no manual step. Not a roster.",
    "locations": [
@@ -2018,6 +2018,15 @@
      "confidence": "uncertain",
      "verified_by": "Westfield Montgomery official directory tags MINISO 'Coming soon' (1 Nov 2026). A return: the prior #1340 unit is permanently closed (Google) after MINISO relocated to Federal Plaza, Rockville. Held out of count until it actually opens; graduate to confirmed (or let the census cover it) when trading. On-site 4 Nov 2026 (Chains From China): confirmed still under construction / not yet open.",
      "coord_src": "Westfield Montgomery centroid (shared w/ Pop Mart, HEYTEA)"
+    },
+    {
+     "name": "Honolulu (Ala Moana Center)",
+     "address": "1450 Ala Moana Blvd, Honolulu, HI 96814",
+     "lat": 21.289751,
+     "lon": -157.84391,
+     "confidence": "confirmed",
+     "verified_by": "Ala Moana Center directory tags MINISO 'Now Open' (Level 3), owner-observed 13 Nov 2026. Not yet in Miniso's own locator (which the daily census reads). Retires automatically when the census covers the spot.",
+     "coord_src": "US Census geocoder (Ala Moana Center building)"
     }
    ]
   },
@@ -2566,9 +2575,9 @@
   {
    "chain": "mollytea",
    "supplied_on": "2026-10-10",
-   "reviewed": "2026-10-18",
+   "reviewed": "2026-11-13",
    "source": "Operator-observed Google listing (store not currently on usa.mollytea.com's collected locator).",
-   "scope": "A Molly Tea (茉莉奶白) outlet the daily collected feed (usa.mollytea.com) misses: San Gabriel. Hand-verified so it still maps; auto-retires if the locator later lists it.",
+   "scope": "A Molly Tea (茉莉奶白) outlet the daily collected feed (usa.mollytea.com) misses: San Gabriel. Hand-verified so it still maps; auto-retires if the locator later lists it. + Ala Moana Center HI (coming soon, held out of count).",
    "locations": [
     {
      "name": "San Gabriel",
@@ -2658,6 +2667,15 @@
      "lat": 39.063187,
      "lon": -77.124188,
      "coord_src": "Google Maps plus code 3V7G+78 (decoded)"
+    },
+    {
+     "name": "Molly Tea (Ala Moana Center) — COMING SOON",
+     "address": "1450 Ala Moana Blvd, Honolulu, HI 96814",
+     "lat": 21.289751,
+     "lon": -157.84391,
+     "confidence": "uncertain",
+     "verified_by": "Ala Moana Center directory tags MOLLY TEA 'Coming Soon' (owner-observed 13 Nov 2026) — not yet open, held out of count. Would be first HI Molly Tea.",
+     "coord_src": "US Census geocoder (Ala Moana Center building)"
     }
    ]
   },
