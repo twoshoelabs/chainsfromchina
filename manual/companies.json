@@ -81,23 +81,33 @@
         "gallery": [
           {
             "file": "chagee/g1.jpg?v=2",
-            "caption": "The entrance — the opera-mask roundel underfoot, a shelf of branded tumblers and bottles by the door."
+            "caption": "The entrance — the opera-mask roundel underfoot, a shelf of branded tumblers and bottles by the door.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chagee/g2.jpg?v=2",
-            "caption": "The open tea bar, baristas in CHAGEE black building fresh-milk teas to order."
+            "caption": "The open tea bar, baristas in CHAGEE black building fresh-milk teas to order.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chagee/g3.jpg?v=2",
-            "caption": "The counter under the menu screens, with the chain’s stacked gift-boxed tea sets."
+            "caption": "The counter under the menu screens, with the chain’s stacked gift-boxed tea sets.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chagee/g4.jpg",
-            "caption": "“China’s answer to Starbucks,” literally — a CHAGEE next door to a Starbucks in a Shanghai mall, Beijing Tongrentang across the way."
+            "caption": "“China’s answer to Starbucks,” literally — a CHAGEE next door to a Starbucks in a Shanghai mall, Beijing Tongrentang across the way.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chagee/g5.jpg",
-            "caption": "A CHAGEE flagship at night — the opera-mask roundel aglow over the plaza, with a whimsical “The Monsters” themed installation out front."
+            "caption": "A CHAGEE flagship at night — the opera-mask roundel aglow over the plaza, with a whimsical “The Monsters” themed installation out front.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -413,15 +423,18 @@
         "gallery": [
           {
             "file": "heytea/gus1.jpg",
-            "caption": "The order counter beneath HEYTEA’s signature backlit stone-tile ceiling, the neon sipping-figure mark above."
+            "caption": "The order counter beneath HEYTEA’s signature backlit stone-tile ceiling, the neon sipping-figure mark above.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "heytea/gus2.jpg",
-            "caption": "HEYTEA’s minimalist line-art order screens — a “strawberry rich chocolate” animation beside the live “served / preparing” board over the prep bar."
+            "caption": "HEYTEA’s minimalist line-art order screens — a “strawberry rich chocolate” animation beside the live “served / preparing” board over the prep bar.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "heytea/gus3.jpg",
-            "caption": "The brand’s “real tea · real milk · real sugar” cards at the register, with a “buy one, get one free” launch promo."
+            "caption": "The brand’s “real tea · real milk · real sugar” cards at the register, with a “buy one, get one free” launch promo.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "heytea/gus4.jpg",
@@ -430,23 +443,33 @@
           },
           {
             "file": "heytea/g1.jpg?v=2",
-            "caption": "The order counter beneath HEYTEA’s neon mark — a figure sipping tea — with the pastry case and self-order screen."
+            "caption": "The order counter beneath HEYTEA’s neon mark — a figure sipping tea — with the pastry case and self-order screen.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "heytea/g2.jpg",
-            "caption": "The B1 concourse outside the store, customers waiting on the lit benches under the HEYTEA mark."
+            "caption": "The B1 concourse outside the store, customers waiting on the lit benches under the HEYTEA mark.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "heytea/g3.jpg",
-            "caption": "The lit storefront and order window, the 喜茶製冰 tea-ice-cream line alongside."
+            "caption": "The lit storefront and order window, the 喜茶製冰 tea-ice-cream line alongside.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "heytea/g4.jpg",
-            "caption": "Inside: wood-slab stepped benches and terrazzo tables beneath HEYTEA’s big neon sipping-figure mark, the teaware wall and open bar beyond."
+            "caption": "Inside: wood-slab stepped benches and terrazzo tables beneath HEYTEA’s big neon sipping-figure mark, the teaware wall and open bar beyond.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "heytea/g5.jpg",
-            "caption": "A HEYTEA on Shanghai’s Nanjing Road — beside one of the building’s bronze guardian beasts, with M Stand coffee next door."
+            "caption": "A HEYTEA on Shanghai’s Nanjing Road — beside one of the building’s bronze guardian beasts, with M Stand coffee next door.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ],
         "us": {
