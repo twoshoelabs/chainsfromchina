@@ -2000,7 +2000,7 @@
    "supplied_on": "2026-10-02",
    "reviewed": "2026-11-13",
    "source": "Operator manual pull from mall directories, for Miniso stores not yet on Miniso’s own locator (which the daily census reads).",
-   "scope": "Manually-verified Miniso US locations not yet listed on Miniso’s own store locator. Held here as sightings so they show now; each retires automatically once the daily census covers the same spot (same chain within ~180 m), so there is no double-count and no manual step. Not a roster.",
+   "scope": "Manually-verified Miniso US locations not yet listed on Miniso’s own store locator. Held here as sightings so they show now; each retires automatically once the daily census covers the same spot (same chain within ~180 m), so there is no double-count and no manual step. Not a roster. Also now includes Puerto Rico (in scope as of 13 Nov 2026); PR stores hand-added with manual coords since the Census geocoder does not cover PR and the Miniso adapter does not yet pull PR.",
    "locations": [
     {
      "name": "South Portland (The Maine Mall)",
@@ -2027,6 +2027,24 @@
      "confidence": "confirmed",
      "verified_by": "Ala Moana Center directory tags MINISO 'Now Open' (Level 3), owner-observed 13 Nov 2026. Not yet in Miniso's own locator (which the daily census reads). Retires automatically when the census covers the spot.",
      "coord_src": "US Census geocoder (Ala Moana Center building)"
+    },
+    {
+     "name": "Carolina (Plaza Carolina)",
+     "address": "Plaza Carolina, Ave 65 de Infanteria, Carolina, PR 00987",
+     "lat": 18.3925,
+     "lon": -65.9744,
+     "confidence": "confirmed",
+     "verified_by": "Simon brand page (simon.com/brands/miniso) lists MINISO at this Simon-owned PR center (13 Nov 2026); Puerto Rico brought into scope this date. Manual coords (Census geocoder returns nothing for PR).",
+     "coord_src": "manual (mall centroid; Census has no PR coverage)"
+    },
+    {
+     "name": "Barceloneta (Puerto Rico Premium Outlets)",
+     "address": "1 Premium Outlets Blvd, Barceloneta, PR 00617",
+     "lat": 18.4388,
+     "lon": -66.5408,
+     "confidence": "confirmed",
+     "verified_by": "Simon brand page (simon.com/brands/miniso) lists MINISO at this Simon-owned PR center (13 Nov 2026); Puerto Rico brought into scope this date. Manual coords (Census geocoder returns nothing for PR).",
+     "coord_src": "manual (mall centroid; Census has no PR coverage)"
     }
    ]
   },
