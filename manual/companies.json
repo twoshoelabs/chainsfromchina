@@ -587,15 +587,21 @@
         "gallery": [
           {
             "file": "taier/g1.jpg?v=2",
-            "caption": "The open kitchen — “认真做鱼 · 欢迎观赏” (we take fish seriously — come watch); cooks work behind glass under the woodcut fish mark."
+            "caption": "The open kitchen — “认真做鱼 · 欢迎观赏” (we take fish seriously — come watch); cooks work behind glass under the woodcut fish mark.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "taier/g2.jpg",
-            "caption": "The dining room, glassed off the concourse, carrying the brand’s cheeky line “酸菜比鱼好吃” — the pickled greens beat the fish."
+            "caption": "The dining room, glassed off the concourse, carrying the brand’s cheeky line “酸菜比鱼好吃” — the pickled greens beat the fish.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "taier/g3.jpg",
-            "caption": "The pass and rice-cooker station — Wuchang premium rice and a help-yourself iced-tea urn."
+            "caption": "The pass and rice-cooker station — Wuchang premium rice and a help-yourself iced-tea urn.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -622,15 +628,21 @@
         "gallery": [
           {
             "file": "chabaidao/g1.jpg?v=3",
-            "caption": "A street-lane kiosk — the walk-up window beside the 胖妹面庄 noodle house."
+            "caption": "A street-lane kiosk — the walk-up window beside the 胖妹面庄 noodle house.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chabaidao/g2.jpg?v=3",
-            "caption": "Inside the kiosk: the ChaPanda wordmark wall, coffee machine and cup station."
+            "caption": "Inside the kiosk: the ChaPanda wordmark wall, coffee machine and cup station.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chabaidao/g3.jpg?v=3",
-            "caption": "The open bar, baristas building fresh-fruit teas under the day’s promos."
+            "caption": "The open bar, baristas building fresh-fruit teas under the day’s promos.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -698,15 +710,21 @@
         "gallery": [
           {
             "file": "juewei/g1.jpg?v=2",
-            "caption": "The deli case — dozens of trays of 卤味: spiced duck neck, wings and gizzards, lotus root, tofu skin and more, sold by weight."
+            "caption": "The deli case — dozens of trays of 卤味: spiced duck neck, wings and gizzards, lotus root, tofu skin and more, sold by weight.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "juewei/g2.jpg?v=2",
-            "caption": "The counter, where staff weigh and bag your pick; a food-safety broadcast plays on the screen above."
+            "caption": "The counter, where staff weigh and bag your pick; a food-safety broadcast plays on the screen above.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "juewei/g3.jpg",
-            "caption": "A closer look at the braised selection, glazed deep red in the chili brine."
+            "caption": "A closer look at the braised selection, glazed deep red in the chili brine.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -892,15 +910,21 @@
         "gallery": [
           {
             "file": "zhangliang/g1.jpg?v=2",
-            "caption": "The stall from the concourse: the open pick-your-own ingredient bar at left, with bone-broth counter and booth seating."
+            "caption": "The stall from the concourse: the open pick-your-own ingredient bar at left, with bone-broth counter and booth seating.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "zhangliang/g2.jpg",
-            "caption": "Inside — the signature orange “b” feature wall, bar seating, and the drinks case and order counter."
+            "caption": "Inside — the signature orange “b” feature wall, bar seating, and the drinks case and order counter.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "zhangliang/g3.jpg",
-            "caption": "The self-serve bar: diners fill a bowl from dozens of fresh skewered ingredients, cooked to order in spicy bone broth."
+            "caption": "The self-serve bar: diners fill a bowl from dozens of fresh skewered ingredients, cooked to order in spicy bone broth.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "zhangliang/us2.jpg",
@@ -935,19 +959,23 @@
         "gallery": [
           {
             "file": "chahalo/g1.jpg?v=2",
-            "caption": "Inside — the counter under a “SIP · CHAT · CHILL” sign and an orange Chang’an (Xi’an) city-wall mural, “Premium Selected Tea Leaves” at the register."
+            "caption": "Inside — the counter under a “SIP · CHAT · CHILL” sign and an orange Chang’an (Xi’an) city-wall mural, “Premium Selected Tea Leaves” at the register.",
+            "label": "Boston, MA"
           },
           {
             "file": "chahalo/g2.jpg",
-            "caption": "Staff pulling whole-leaf teas at the bar, the brand’s Tang-illustrated cups stacked alongside."
+            "caption": "Staff pulling whole-leaf teas at the bar, the brand’s Tang-illustrated cups stacked alongside.",
+            "label": "Boston, MA"
           },
           {
             "file": "chahalo/g3.jpg",
-            "caption": "The shop on its Commonwealth Avenue block in the November rain, the Allston streetscape stretching toward BU."
+            "caption": "The shop on its Commonwealth Avenue block in the November rain, the Allston streetscape stretching toward BU.",
+            "label": "Boston, MA"
           },
           {
             "file": "chahalo/g4.jpg",
-            "caption": "The signature-drinks board — osmanthus and roasted-oolong milk teas, the “Changan” lychee series and whole-leaf brews; ChaHalo leans into Xi’an / Tang-dynasty branding."
+            "caption": "The signature-drinks board — osmanthus and roasted-oolong milk teas, the “Changan” lychee series and whole-leaf brews; ChaHalo leans into Xi’an / Tang-dynasty branding.",
+            "label": "Boston, MA"
           }
         ]
       }
@@ -968,6 +996,8 @@
           {
             "file": "xiaolongkan/g1.jpg",
             "caption": "A Xiaolongkan (Shoo Loong Kan) hot pot in Madrid",
+            "label": "Madrid",
+            "label_zh": "马德里",
             "credit": "MNXANL",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -976,6 +1006,8 @@
           {
             "file": "xiaolongkan/g2.jpg",
             "caption": "A Shoo Loong Kan in Frankfurt",
+            "label": "Frankfurt",
+            "label_zh": "法兰克福",
             "credit": "Matti Blume",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1008,6 +1040,8 @@
           {
             "file": "liuyishou/g1.jpg",
             "caption": "A Liuyishou in Hong Kong",
+            "label": "Hong Kong",
+            "label_zh": "香港",
             "credit": "BOASHIM Grawongei",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1016,6 +1050,8 @@
           {
             "file": "liuyishou/g2.jpg",
             "caption": "A Liuyishou in Madrid",
+            "label": "Madrid",
+            "label_zh": "马德里",
             "credit": "MNXANL",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1058,6 +1094,8 @@
           {
             "file": "aunteajenny/g1.jpg",
             "caption": "An Auntea Jenny storefront in Beijing",
+            "label": "Beijing",
+            "label_zh": "北京",
             "credit": "N509FZ",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1088,19 +1126,23 @@
         "gallery": [
           {
             "file": "mollytea/gus1.jpg?v=3",
-            "caption": "The illuminated MOLLY TEA wordmark, jasmine-flower emblem and house motto — “以心动花香 / 接驳世界的共鸣” (moved at heart by flower fragrance; connecting the world’s resonance) — on the marbled feature wall inside the Rockville store."
+            "caption": "The illuminated MOLLY TEA wordmark, jasmine-flower emblem and house motto — “以心动花香 / 接驳世界的共鸣” (moved at heart by flower fragrance; connecting the world’s resonance) — on the marbled feature wall inside the Rockville store.",
+            "label": "Rockville, MD"
           },
           {
             "file": "mollytea/gus2.jpg",
-            "caption": "The order counter and drinks-menu screens at Rockville, the MOLLY STORE merch wall at right."
+            "caption": "The order counter and drinks-menu screens at Rockville, the MOLLY STORE merch wall at right.",
+            "label": "Rockville, MD"
           },
           {
             "file": "mollytea/gus3.jpg",
-            "caption": "MOLLY STORE: branded tumblers, gift tins and zodiac enamel pins for sale beside the pickup counter."
+            "caption": "MOLLY STORE: branded tumblers, gift tins and zodiac enamel pins for sale beside the pickup counter.",
+            "label": "Rockville, MD"
           },
           {
             "file": "mollytea/gus4.jpg",
-            "caption": "Molly, the brand’s flower-headed mascot, posed in a window booth at the Rockville store."
+            "caption": "Molly, the brand’s flower-headed mascot, posed in a window booth at the Rockville store.",
+            "label": "Rockville, MD"
           },
           {
             "file": "mollytea/g4.jpg",
@@ -1113,7 +1155,8 @@
           },
           {
             "file": "mollytea/gus5.jpg",
-            "caption": "Molly Tea’s signature giant tipped-over pink cup spilling flowers, beside the self-order kiosk at the same Allston stall (“New Experience of Oriental Tea”)."
+            "caption": "Molly Tea’s signature giant tipped-over pink cup spilling flowers, beside the self-order kiosk at the same Allston stall (“New Experience of Oriental Tea”).",
+            "label": "Rockville, MD"
           }
         ],
         "us": {
@@ -1145,15 +1188,21 @@
         "gallery": [
           {
             "file": "lelecha/g1.jpg?v=3",
-            "caption": "Inside: the tea bar set against a book-lined reading lounge — Lelecha’s “tea + book” (樂茶書) concept."
+            "caption": "Inside: the tea bar set against a book-lined reading lounge — Lelecha’s “tea + book” (樂茶書) concept.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "lelecha/g2.jpg?v=3",
-            "caption": "The reading corner — wooden stools and stone benches under the 樂 mark and “Stay young, stay curious.”"
+            "caption": "The reading corner — wooden stools and stone benches under the 樂 mark and “Stay young, stay curious.”",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "lelecha/g3.jpg?v=3",
-            "caption": "The counter below the “Oriental Happiness · Trend · Originality” neon, boxed tea gifts and milk on display."
+            "caption": "The counter below the “Oriental Happiness · Trend · Originality” neon, boxed tea gifts and milk on display.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1184,6 +1233,8 @@
           {
             "file": "nonggengji/g1.jpg",
             "caption": "A Nong Geng Ji in Beijing",
+            "label": "Beijing",
+            "label_zh": "北京",
             "credit": "N509FZ",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1218,6 +1269,8 @@
           {
             "file": "baospastry/g1.jpg",
             "caption": "A Bao's Pastry in Zhengzhou",
+            "label": "Zhengzhou",
+            "label_zh": "郑州",
             "credit": "Windmemories",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1226,6 +1279,8 @@
           {
             "file": "baospastry/g2.jpg",
             "caption": "Queues at a Bao's Pastry in Beijing",
+            "label": "Beijing",
+            "label_zh": "北京",
             "credit": "N509FZ",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1310,15 +1365,21 @@
         "gallery": [
           {
             "file": "toys52/g1.jpg",
-            "caption": "The BEASTBOX (猛兽匣) vending bay"
+            "caption": "The BEASTBOX (猛兽匣) vending bay",
+            "label": "Shanghai Hongqiao",
+            "label_zh": "上海虹桥"
           },
           {
             "file": "toys52/g2.jpg",
-            "caption": "A 52TOYS blind-box vending machine"
+            "caption": "A 52TOYS blind-box vending machine",
+            "label": "Shanghai Hongqiao",
+            "label_zh": "上海虹桥"
           },
           {
             "file": "toys52/g3.jpg",
-            "caption": "A diorama display built from 52TOYS kits"
+            "caption": "A diorama display built from 52TOYS kits",
+            "label": "Shanghai Hongqiao",
+            "label_zh": "上海虹桥"
           },
           {
             "file": "toys52/g4.jpg",
@@ -1402,23 +1463,28 @@
         "gallery": [
           {
             "file": "shudaxia/g1.jpg",
-            "caption": "The wuxia-themed dining room — a temple-gate “蜀大侠” archway, red lanterns and an armored-hero mascot by the bar."
+            "caption": "The wuxia-themed dining room — a temple-gate “蜀大侠” archway, red lanterns and an armored-hero mascot by the bar.",
+            "label": "Boston, MA"
           },
           {
             "file": "shudaxia/g2.jpg",
-            "caption": "The $3 all-you-can-eat sauce bar — mix-your-own condiments beneath an ink-brush warrior mural, the panda-knight mascot on the poster."
+            "caption": "The $3 all-you-can-eat sauce bar — mix-your-own condiments beneath an ink-brush warrior mural, the panda-knight mascot on the poster.",
+            "label": "Boston, MA"
           },
           {
             "file": "shudaxia/g3.jpg",
-            "caption": "A wall of labeled house sauces (沙茶酱, 辣椒油, 海鲜酱…) and twin broadswords on a lattice screen, over the hot-pot tables."
+            "caption": "A wall of labeled house sauces (沙茶酱, 辣椒油, 海鲜酱…) and twin broadswords on a lattice screen, over the hot-pot tables.",
+            "label": "Boston, MA"
           },
           {
             "file": "shudaxia/g4.jpg",
-            "caption": "Granite hot-pot tables with induction wells and individual broth rings, under 蜀大侠 lanterns and a “不胜人间一场醉” banner."
+            "caption": "Granite hot-pot tables with induction wells and individual broth rings, under 蜀大侠 lanterns and a “不胜人间一场醉” banner.",
+            "label": "Boston, MA"
           },
           {
             "file": "shudaxia/g5.jpg",
-            "caption": "The restaurant on its Comm Ave plaza under a blaze of autumn ginkgo — the single US outlet of a Chengdu hot-pot chain (蜀大侠, “the Sichuan great knight”)."
+            "caption": "The restaurant on its Comm Ave plaza under a blaze of autumn ginkgo — the single US outlet of a Chengdu hot-pot chain (蜀大侠, “the Sichuan great knight”).",
+            "label": "Boston, MA"
           }
         ]
       }
@@ -1445,15 +1511,21 @@
         "gallery": [
           {
             "file": "xibei/g1.jpg",
-            "caption": "The open kitchen — 蒙古牛排 and 小锅牛腩"
+            "caption": "The open kitchen — 蒙古牛排 and 小锅牛腩",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "xibei/g2.jpg",
-            "caption": "The red-gingham dining room"
+            "caption": "The red-gingham dining room",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "xibei/g3.jpg",
-            "caption": "In-store organic grocery and the kids'-meal corner"
+            "caption": "In-store organic grocery and the kids'-meal corner",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1480,11 +1552,15 @@
         "gallery": [
           {
             "file": "grandmashome/g1.jpg?v=2",
-            "caption": "The entrance and its waiting area — stools and red ghost chairs by a Monet-mural garden wall; the chain is known for the queues it draws."
+            "caption": "The entrance and its waiting area — stools and red ghost chairs by a Monet-mural garden wall; the chain is known for the queues it draws.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "grandmashome/g2.jpg?v=3",
-            "caption": "The dining room off the atrium — blond-wood tables under a ring chandelier, the brand’s green neon sign alongside."
+            "caption": "The dining room off the atrium — blond-wood tables under a ring chandelier, the brand’s green neon sign alongside.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1511,15 +1587,21 @@
         "gallery": [
           {
             "file": "xijiade/g1.jpg?v=2",
-            "caption": "The open kitchen — cooks fold shrimp dumplings to order behind a counter-bar, under a banner calling the brand “the face of Northeastern dumplings.”"
+            "caption": "The open kitchen — cooks fold shrimp dumplings to order behind a counter-bar, under a banner calling the brand “the face of Northeastern dumplings.”",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "xijiade/g2.jpg",
-            "caption": "Booth seating in the dining room, the open kitchen visible behind."
+            "caption": "Booth seating in the dining room, the open kitchen visible behind.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "xijiade/g3.jpg",
-            "caption": "The counter-bar runs the length of the open kitchen — a steady lunch queue along the mall concourse."
+            "caption": "The counter-bar runs the length of the open kitchen — a steady lunch queue along the mall concourse.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1558,15 +1640,21 @@
         "gallery": [
           {
             "file": "feidachu/g1.jpg?v=4",
-            "caption": "The open kitchen — a brigade of toque-wearing cooks stir-frying to order (“专业大厨炒,” cooked by professional chefs, not assembled)."
+            "caption": "The open kitchen — a brigade of toque-wearing cooks stir-frying to order (“专业大厨炒,” cooked by professional chefs, not assembled).",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "feidachu/g2.jpg?v=4",
-            "caption": "The brand’s line — “精选黑猪肉 · 专业大厨炒” (selected black pork, cooked by pro chefs); 200 company-run stores, dine-in only."
+            "caption": "The brand’s line — “精选黑猪肉 · 专业大厨炒” (selected black pork, cooked by pro chefs); 200 company-run stores, dine-in only.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "feidachu/g3.jpg?v=4",
-            "caption": "The signature counter: grain-fed Hunan black pork (黑猪肉) hung fresh, cooked to order."
+            "caption": "The signature counter: grain-fed Hunan black pork (黑猪肉) hung fresh, cooked to order.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       },
@@ -1593,19 +1681,23 @@
         "gallery": [
           {
             "file": "dalongyi/g1.jpg?v=2",
-            "caption": "The “大龙燺 / Da Long Yi Hot Pot” signage marching down the awnings at 137 Brighton Ave, Allston — the flame-logo wordmark and the repeated Chinese name, on a block it shares with Happy Lamb across the street (the neighborhood’s Chinese-chain row)."
+            "caption": "The “大龙燺 / Da Long Yi Hot Pot” signage marching down the awnings at 137 Brighton Ave, Allston — the flame-logo wordmark and the repeated Chinese name, on a block it shares with Happy Lamb across the street (the neighborhood’s Chinese-chain row).",
+            "label": "Allston, MA"
           },
           {
             "file": "dalongyi/g2.jpg",
-            "caption": "The restaurant in Allston Village, its 火锅 (hot pot) sign over the black awnings."
+            "caption": "The restaurant in Allston Village, its 火锅 (hot pot) sign over the black awnings.",
+            "label": "Allston, MA"
           },
           {
             "file": "dalongyi/g3.jpg",
-            "caption": "The window menu — single / two / three-flavor pots, soup bases from mala beef tallow to Chinese herbal, and the full raw-ingredient spread."
+            "caption": "The window menu — single / two / three-flavor pots, soup bases from mala beef tallow to Chinese herbal, and the full raw-ingredient spread.",
+            "label": "Allston, MA"
           },
           {
             "file": "dalongyi/g4.jpg",
-            "caption": "Open seven days until 1 a.m. — a late-night hot-pot spot by Boston’s student neighborhoods (dlyhotpot.com)."
+            "caption": "Open seven days until 1 a.m. — a late-night hot-pot spot by Boston’s student neighborhoods (dlyhotpot.com).",
+            "label": "Allston, MA"
           }
         ]
       }
@@ -1694,19 +1786,27 @@
         "gallery": [
           {
             "file": "anta/g1.jpg?v=3",
-            "caption": "Inside: a look staged on a plinth at the entrance, apparel walls on either side."
+            "caption": "Inside: a look staged on a plinth at the entrance, apparel walls on either side.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "anta/g2.jpg?v=3",
-            "caption": "The selling floor — training and lifestyle lines racked by color."
+            "caption": "The selling floor — training and lifestyle lines racked by color.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "anta/g3.jpg?v=3",
-            "caption": "A central display island of footwear and folded apparel."
+            "caption": "A central display island of footwear and folded apparel.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "anta/g4.jpg?v=3",
-            "caption": "The wider floor, team-sport and performance ranges along the walls."
+            "caption": "The wider floor, team-sport and performance ranges along the walls.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1733,15 +1833,21 @@
         "gallery": [
           {
             "file": "urbanrevivo/g1.jpg",
-            "caption": "The outerwear floor at the Shanghai flagship"
+            "caption": "The outerwear floor at the Shanghai flagship",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "urbanrevivo/g2.jpg",
-            "caption": "The womenswear hall, Shanghai"
+            "caption": "The womenswear hall, Shanghai",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "urbanrevivo/g3.jpg",
-            "caption": "Autumn collections on the women's floor, Shanghai"
+            "caption": "Autumn collections on the women's floor, Shanghai",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1768,15 +1874,21 @@
         "gallery": [
           {
             "file": "jnby/g1.jpg?v=3",
-            "caption": "The selling floor — designer knitwear and outerwear on open rails, a video lookbook and sculptural wood tables."
+            "caption": "The selling floor — designer knitwear and outerwear on open rails, a video lookbook and sculptural wood tables.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "jnby/g2.jpg?v=3",
-            "caption": "Autumn-winter looks on the forms — a deconstructed scarf-jacket and a cropped down puffer."
+            "caption": "Autumn-winter looks on the forms — a deconstructed scarf-jacket and a cropped down puffer.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "jnby/g3.jpg?v=3",
-            "caption": "The store seen from the gallery above, its RE VAN campaign (shot in New York) on the pillar alongside."
+            "caption": "The store seen from the gallery above, its RE VAN campaign (shot in New York) on the pillar alongside.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1803,15 +1915,21 @@
         "gallery": [
           {
             "file": "meilleurmoment/g1.jpg?v=3",
-            "caption": "The selling floor — knit and outerwear on open rails, the brand’s embossed clock-face wall and fitting rooms behind."
+            "caption": "The selling floor — knit and outerwear on open rails, the brand’s embossed clock-face wall and fitting rooms behind.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "meilleurmoment/g2.jpg?v=3",
-            "caption": "A wood-grid display wall of folded knits over a marble shelf of the brand’s skincare and accessories."
+            "caption": "A wood-grid display wall of folded knits over a marble shelf of the brand’s skincare and accessories.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "meilleurmoment/g3.jpg?v=3",
-            "caption": "The store on an upper level of the mall, its MM marquee facing the atrium."
+            "caption": "The store on an upper level of the mall, its MM marquee facing the atrium.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1838,11 +1956,15 @@
         "gallery": [
           {
             "file": "moreyogurt/g1.jpg",
-            "caption": "Behind the counter: staff blending to order beside the fresh-avocado prep station, under the “43° North Latitude” sign."
+            "caption": "Behind the counter: staff blending to order beside the fresh-avocado prep station, under the “43° North Latitude” sign.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "moreyogurt/g2.jpg",
-            "caption": "The brand’s avocado mascot — leaf sprig, apron and striped socks — waving customers in at the entrance."
+            "caption": "The brand’s avocado mascot — leaf sprig, apron and striped socks — waving customers in at the entrance.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -1940,6 +2062,8 @@
           {
             "file": "quanjude/g1.jpg",
             "caption": "A chef carving Beijing roast duck at Quanjude",
+            "label": "Beijing",
+            "label_zh": "北京",
             "credit": "Pixor",
             "license": "CC BY-SA 3.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
@@ -1948,6 +2072,8 @@
           {
             "file": "quanjude/g2.jpg",
             "caption": "Inside Quanjude's original Beijing restaurant",
+            "label": "Beijing",
+            "label_zh": "北京",
             "credit": "N509FZ",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1978,15 +2104,21 @@
         "gallery": [
           {
             "file": "mamaxita/g1.jpg?v=2",
-            "caption": "The chain’s namesake mascot — a sunglasses-wearing “old lady” clutching a slab of marbled beef by the door."
+            "caption": "The chain’s namesake mascot — a sunglasses-wearing “old lady” clutching a slab of marbled beef by the door.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "mamaxita/g2.jpg?v=3",
-            "caption": "Inside the pavilion — orange noren, booth tables with built-in clay grills, and staff in red at the pass."
+            "caption": "Inside the pavilion — orange noren, booth tables with built-in clay grills, and staff in red at the pass.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "mamaxita/g3.jpg",
             "caption": "A signature dish.",
+            "label": "Shanghai",
+            "label_zh": "上海",
             "credit": "Mama Xita BBQ",
             "source": "https://mamaxitabbq.com/"
           }
@@ -2062,19 +2194,27 @@
         "gallery": [
           {
             "file": "walaida/g1.jpg",
-            "caption": "The dine-in hall, themed as the “Walaida Super Game Arcade” — retro speakers, a neon frog-eyes sign and booth seating."
+            "caption": "The dine-in hall, themed as the “Walaida Super Game Arcade” — retro speakers, a neon frog-eyes sign and booth seating.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "walaida/g2.jpg",
-            "caption": "Booth seating in the arcade-themed dining room, under the chain’s “eat frog, eat Walaida” branding."
+            "caption": "Booth seating in the arcade-themed dining room, under the chain’s “eat frog, eat Walaida” branding.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "walaida/g3.jpg",
-            "caption": "The wall of honors — nine citations, among them “first in China” for perilla bullfrog and top frog-pot sales."
+            "caption": "The wall of honors — nine citations, among them “first in China” for perilla bullfrog and top frog-pot sales.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "walaida/g4.jpg",
-            "caption": "The brand’s neon frog mascot — “Happy in Walaida,” since 2010, Changsha."
+            "caption": "The brand’s neon frog mascot — “Happy in Walaida,” since 2010, Changsha.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -2100,23 +2240,28 @@
         "gallery": [
           {
             "file": "jibeichuan/g1.jpg",
-            "caption": "A wall mural tracing the rice-noodle story — farmers, millers and chefs around the 季北川 (Ji Bei Chuan) banner."
+            "caption": "A wall mural tracing the rice-noodle story — farmers, millers and chefs around the 季北川 (Ji Bei Chuan) banner.",
+            "label": "Germantown, MD"
           },
           {
             "file": "jibeichuan/g2.jpg",
-            "caption": "The order counter and dining room, the brand’s 花胶汤米粉 (fish-maw soup rice-noodle) roundel on the wall."
+            "caption": "The order counter and dining room, the brand’s 花胶汤米粉 (fish-maw soup rice-noodle) roundel on the wall.",
+            "label": "Germantown, MD"
           },
           {
             "file": "jibeichuan/g3.jpg",
-            "caption": "The dining room beneath the 泡 · 磨 · 香 (soak · mill · fragrance) roundels, the noodle mural along the left wall."
+            "caption": "The dining room beneath the 泡 · 磨 · 香 (soak · mill · fragrance) roundels, the noodle mural along the left wall.",
+            "label": "Germantown, MD"
           },
           {
             "file": "jibeichuan/g4.jpg",
-            "caption": "The house motto — “我怀念家的味道” (I miss the taste of home), 大骨熔汤 营养健康 (bone-broth, wholesome) — above the tables."
+            "caption": "The house motto — “我怀念家的味道” (I miss the taste of home), 大骨熔汤 营养健康 (bone-broth, wholesome) — above the tables.",
+            "label": "Germantown, MD"
           },
           {
             "file": "jibeichuan/g5.jpg",
-            "caption": "The storefront in its Germantown block — ground-floor retail beneath apartments."
+            "caption": "The storefront in its Germantown block — ground-floor retail beneath apartments.",
+            "label": "Germantown, MD"
           }
         ]
       }
@@ -2155,19 +2300,27 @@
         "gallery": [
           {
             "file": "chicjoc/g1.jpg?v=2",
-            "caption": "Inside: the season's looks staged on plinths, full-price rails along the walls."
+            "caption": "Inside: the season's looks staged on plinths, full-price rails along the walls.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chicjoc/g2.jpg?v=2",
-            "caption": "The selling floor — open rails around a central table of folded knits."
+            "caption": "The selling floor — open rails around a central table of folded knits.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chicjoc/g3.jpg?v=2",
-            "caption": "A styled display — a signature white dress on a plinth, the CHICJOC wall behind."
+            "caption": "A styled display — a signature white dress on a plinth, the CHICJOC wall behind.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "chicjoc/g4.jpg?v=2",
-            "caption": "Outerwear on the forms, a down coat and knit layered near the entrance."
+            "caption": "Outerwear on the forms, a down coat and knit layered near the entrance.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -2324,19 +2477,23 @@
         "gallery": [
           {
             "file": "littlesheep/g1.jpg",
-            "caption": "The brand’s origin on the wall — “LITTLE SHEEP HOT POT · The heart of a meal,” Mongolian-steppe yurts and the line “Baotou, Inner Mongolia, China · Since 1999,” beside the lounge."
+            "caption": "The brand’s origin on the wall — “LITTLE SHEEP HOT POT · The heart of a meal,” Mongolian-steppe yurts and the line “Baotou, Inner Mongolia, China · Since 1999,” beside the lounge.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "littlesheep/g2.jpg",
-            "caption": "The dining room — brown-leather hot-pot booths with built-in induction wells, the long bar and a garland of flags behind."
+            "caption": "The dining room — brown-leather hot-pot booths with built-in induction wells, the long bar and a garland of flags behind.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "littlesheep/g3.jpg",
-            "caption": "The frontage off the mall concourse — a Happy Hour wall and the 小肥羊 / LITTLE SHEEP HOT POT logo."
+            "caption": "The frontage off the mall concourse — a Happy Hour wall and the 小肥羊 / LITTLE SHEEP HOT POT logo.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "littlesheep/g4.jpg",
-            "caption": "The grinning-lamb emblem and grassland yurts of Little Sheep’s Inner Mongolian roots."
+            "caption": "The grinning-lamb emblem and grassland yurts of Little Sheep’s Inner Mongolian roots.",
+            "label": "East Rutherford, NJ"
           }
         ]
       }
@@ -2372,15 +2529,21 @@
         "gallery": [
           {
             "file": "dusu/g1.jpg?v=3",
-            "caption": "Inside: the display counter in front of the open bakery, the chain’s 读酥 gift boxes and best-seller board behind."
+            "caption": "Inside: the display counter in front of the open bakery, the chain’s 读酥 gift boxes and best-seller board behind.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "dusu/g2.jpg?v=3",
-            "caption": "The counter and open kitchen, where bakers finish Napoleon mille-feuille and the signature pork-chop buns."
+            "caption": "The counter and open kitchen, where bakers finish Napoleon mille-feuille and the signature pork-chop buns.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "dusu/g3.jpg?v=3",
-            "caption": "The case of signatures — butter 年糕 cakes, Biu-sauce pastries, egg rolls, 锅巴 crisps and walnut scones."
+            "caption": "The case of signatures — butter 年糕 cakes, Biu-sauce pastries, egg rolls, 锅巴 crisps and walnut scones.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -2412,19 +2575,23 @@
         "gallery": [
           {
             "file": "yogost/g1.jpg",
-            "caption": "The Yakult Yogurt Series — the brand’s monkey-chef mascot on “HEY! I AM YOGOST” bottles, by the yogurt dispensers."
+            "caption": "The Yakult Yogurt Series — the brand’s monkey-chef mascot on “HEY! I AM YOGOST” bottles, by the yogurt dispensers.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yogost/g2.jpg",
-            "caption": "The order counter — a “Welcome to Yogost (American Dream Mall)” screen and character cup-toppers on the register."
+            "caption": "The order counter — a “Welcome to Yogost (American Dream Mall)” screen and character cup-toppers on the register.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yogost/g3.jpg",
-            "caption": "The drinks menu — mochi yogurt, Yakult yogurt, yogurt smoothies, slushes and frozen-yogurt barks."
+            "caption": "The drinks menu — mochi yogurt, Yakult yogurt, yogurt smoothies, slushes and frozen-yogurt barks.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yogost/g4.jpg",
-            "caption": "The storefront under American Dream’s pink-lit canopy."
+            "caption": "The storefront under American Dream’s pink-lit canopy.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yogost/g6.jpg",
@@ -2433,7 +2600,8 @@
           },
           {
             "file": "yogost/g5.jpg?v=2",
-            "caption": "Inside the same Allston shop — the branded “HEY! I AM YOGOST / 好酸奶 嘶着喝” counter and the monkey-chef mascot."
+            "caption": "Inside the same Allston shop — the branded “HEY! I AM YOGOST / 好酸奶 嘶着喝” counter and the monkey-chef mascot.",
+            "label": "Allston, MA"
           }
         ]
       }
@@ -2570,11 +2738,15 @@
         "gallery": [
           {
             "file": "wallace/g1.jpg",
-            "caption": "The order counter and open kitchen — the house line “全鸡配汉堡” (whole chicken with burgers), food bagged to order behind the stainless pass."
+            "caption": "The order counter and open kitchen — the house line “全鸡配汉堡” (whole chicken with burgers), food bagged to order behind the stainless pass.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "wallace/g2.jpg",
-            "caption": "The dine-in area, marked by the brand’s orange neon W rooster; free Wi-Fi, bolted stools, quick turnover."
+            "caption": "The dine-in area, marked by the brand’s orange neon W rooster; free Wi-Fi, bolted stools, quick turnover.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -2600,23 +2772,28 @@
         "gallery": [
           {
             "file": "epyaying/g1.jpg",
-            "caption": "Inside the boutique — the copper-soffit hall, styled mannequins along a central runner, knitwear and tailored outerwear on the floor."
+            "caption": "Inside the boutique — the copper-soffit hall, styled mannequins along a central runner, knitwear and tailored outerwear on the floor.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "epyaying/g2.jpg",
-            "caption": "The store’s signature fixtures — slender black rods and floating onyx shelves holding bags and shoes beneath a warm copper ceiling."
+            "caption": "The store’s signature fixtures — slender black rods and floating onyx shelves holding bags and shoes beneath a warm copper ceiling.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "epyaying/g3.jpg",
-            "caption": "The lounge and selling floor, with Coach across the mall’s luxury wing — EP Yaying trades in the Saks/Hermès corridor."
+            "caption": "The lounge and selling floor, with Coach across the mall’s luxury wing — EP Yaying trades in the Saks/Hermès corridor.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "epyaying/g4.jpg",
-            "caption": "An EP YAYING jacket’s woven label and certification hang-tag — the brand tags each piece with an article code and size chart; this embroidered-collar jacket is made in China and retails for US$1,550."
+            "caption": "An EP YAYING jacket’s woven label and certification hang-tag — the brand tags each piece with an article code and size chart; this embroidered-collar jacket is made in China and retails for US$1,550.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "epyaying/g5.jpg",
-            "caption": "Autumn looks on the floor — a mandarin-collar jacket over chambray and a taupe car coat, in EP Yaying’s muted palette."
+            "caption": "Autumn looks on the floor — a mandarin-collar jacket over chambray and a taupe car coat, in EP Yaying’s muted palette.",
+            "label": "East Rutherford, NJ"
           }
         ]
       }
@@ -2642,23 +2819,28 @@
         "gallery": [
           {
             "file": "yoyoso/g1.jpg",
-            "caption": "The backlit brand panel — “YOYOSO.KR · 韩尚优品” — the Chinese name (Hánshàng Yōupǐn) beside the Korean “.KR” styling the brand leans on, though it is from Yiwu, Zhejiang."
+            "caption": "The backlit brand panel — “YOYOSO.KR · 韩尚优品” — the Chinese name (Hánshàng Yōupǐn) beside the Korean “.KR” styling the brand leans on, though it is from Yiwu, Zhejiang.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yoyoso/g2.jpg",
-            "caption": "A Miniso-style variety range — bucket hats, printed umbrellas and stackable storage boxes along the aisle."
+            "caption": "A Miniso-style variety range — bucket hats, printed umbrellas and stackable storage boxes along the aisle.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yoyoso/g3.jpg",
-            "caption": "A wall of Hello Kitty & Friends plush handbags ($19.99) by the entrance — the licensed-character merchandise YOYOSO leans on."
+            "caption": "A wall of Hello Kitty & Friends plush handbags ($19.99) by the entrance — the licensed-character merchandise YOYOSO leans on.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yoyoso/g4.jpg",
-            "caption": "The “YOYOSO · Aesthetics Design Brand” mural and a “Dream. Refresh. Repeat.” Coca-Cola wall behind the apparel racks."
+            "caption": "The “YOYOSO · Aesthetics Design Brand” mural and a “Dream. Refresh. Repeat.” Coca-Cola wall behind the apparel racks.",
+            "label": "East Rutherford, NJ"
           },
           {
             "file": "yoyoso/g5.jpg",
-            "caption": "The breadth of a YOYOSO floor — a shoe wall, soft apparel and a boxed air-hockey table among the household and lifestyle goods."
+            "caption": "The breadth of a YOYOSO floor — a shoe wall, soft apparel and a boxed air-hockey table among the household and lifestyle goods.",
+            "label": "East Rutherford, NJ"
           }
         ]
       }
@@ -2684,19 +2866,23 @@
         "gallery": [
           {
             "file": "zhengxin/g1.jpg?v=2",
-            "caption": "The brand board — “Since 1995 · Freshly Made, Worth the Wait · 25,000+ stores worldwide,” with the Boston-lobster-hat chicken mascot."
+            "caption": "The brand board — “Since 1995 · Freshly Made, Worth the Wait · 25,000+ stores worldwide,” with the Boston-lobster-hat chicken mascot.",
+            "label": "Allston, MA"
           },
           {
             "file": "zhengxin/g2.jpg",
-            "caption": "The menu leads with the signature spicy fried chicken breast (鸡排, $12.99 / $7.99), plus skewers, sandwiches, sides, ice cream and drinks."
+            "caption": "The menu leads with the signature spicy fried chicken breast (鸡排, $12.99 / $7.99), plus skewers, sandwiches, sides, ice cream and drinks.",
+            "label": "Allston, MA"
           },
           {
             "file": "zhengxin/g3.jpg",
-            "caption": "The red-tiled counter and order screens, the open kitchen behind — a food-hall stall in Allston's Novo Marketplace."
+            "caption": "The red-tiled counter and order screens, the open kitchen behind — a food-hall stall in Allston's Novo Marketplace.",
+            "label": "Allston, MA"
           },
           {
             "file": "zhengxin/g4.jpg",
-            "caption": "The combo menu — packages A–E and a $139.99 chicken bucket — with the store's 122 Brighton Ave address."
+            "caption": "The combo menu — packages A–E and a $139.99 chicken bucket — with the store's 122 Brighton Ave address.",
+            "label": "Allston, MA"
           }
         ]
       }
