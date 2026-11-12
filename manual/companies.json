@@ -1206,24 +1206,34 @@
         },
         "gallery": [
           {
-            "file": "toptoy/g1.jpg?v=2",
-            "caption": "The central “Global Trendy Toys” display island, ringed by brand bays under a mirrored, TOP TOY-stamped ceiling."
+            "file": "toptoy/g1.jpg?v=3",
+            "caption": "The central “Global Trendy Toys” display island, ringed by brand bays under a mirrored, TOP TOY-stamped ceiling.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "toptoy/g2.jpg",
-            "caption": "A giant retro-television vitrine framing one of the brand’s art-toy characters, beside the plush and capsule-toy aisles."
+            "caption": "A giant retro-television vitrine framing one of the brand’s art-toy characters, beside the plush and capsule-toy aisles.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "toptoy/g3.jpg",
-            "caption": "The “Pick & Build” building-blocks hall — mirror-walled and checkerboard-floored, lined with brick-built skylines of New York and Shanghai’s Oriental Pearl."
+            "caption": "The “Pick & Build” building-blocks hall — mirror-walled and checkerboard-floored, lined with brick-built skylines of New York and Shanghai’s Oriental Pearl.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "toptoy/g4.jpg",
-            "caption": "The “Join the Fun” capsule-machine wall — rows of gashapon beside a blind-box display cart."
+            "caption": "The “Join the Fun” capsule-machine wall — rows of gashapon beside a blind-box display cart.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "toptoy/g5.jpg",
-            "caption": "A blind-box aisle — Mochi-brand wall bays either side of the floor directory, a “Pillow Fights” display pedestal at center, the logo repeating overhead in the mirrored ceiling."
+            "caption": "A blind-box aisle — Mochi-brand wall bays either side of the floor directory, a “Pillow Fights” display pedestal at center, the logo repeating overhead in the mirrored ceiling.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
