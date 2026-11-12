@@ -1680,6 +1680,19 @@
    "sources": [
     "Owner report (12 Nov 2026) — former XIMIVOGUE at Dolphin Mall, Miami, now closed (absent from Dolphin Mall current directory)"
    ]
+  },
+  {
+   "chain": "miniso",
+   "name": "Brea Mall",
+   "address": "1065 Brea Mall Spc 2015, Brea, CA 92821",
+   "city": "Brea",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Google (operator-observed, 13 Nov 2026). Surfaced during the Simon brand-page cross-check; was NOT in our roster (Miniso locator omitted it), so stats/provenance only. No count change.",
+   "sources": [
+    "Google Maps 'MINISO USA' Brea Mall (1065 Brea Mall Spc 2015) — Permanently closed (13 Nov 2026)"
+   ]
   }
  ]
 }

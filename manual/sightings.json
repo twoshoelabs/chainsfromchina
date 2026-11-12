@@ -2045,6 +2045,60 @@
      "confidence": "confirmed",
      "verified_by": "Simon brand page (simon.com/brands/miniso) lists MINISO at this Simon-owned PR center (13 Nov 2026); Puerto Rico brought into scope this date. Manual coords (Census geocoder returns nothing for PR).",
      "coord_src": "manual (mall centroid; Census has no PR coverage)"
+    },
+    {
+     "name": "Coral Springs (Coral Square)",
+     "address": "9161 W Atlantic Blvd, Coral Springs, FL 33071",
+     "lat": 26.23827,
+     "lon": -80.24683,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing \"Open\" (owner-observed 13 Nov 2026) + Simon brand page; not yet on Miniso own locator. Retires automatically when the census covers the spot.",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Nashua (Pheasant Lane Mall)",
+     "address": "310 Daniel Webster Hwy, Nashua, NH 03060",
+     "lat": 42.70231,
+     "lon": -71.44071,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing \"Open\" (owner-observed 13 Nov 2026) + Simon brand page; not yet on Miniso own locator. Retires automatically when the census covers the spot.",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Mission Viejo (The Shops at Mission Viejo)",
+     "address": "555 Shops At Mission Viejo #003A, Mission Viejo, CA 92691",
+     "lat": 33.55966,
+     "lon": -117.67019,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing \"Open\" (owner-observed 13 Nov 2026) + Simon brand page; not yet on Miniso own locator. Retires automatically when the census covers the spot.",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Peabody (Northshore Mall)",
+     "address": "210 Andover St Spc E181A, Peabody, MA 01960",
+     "lat": 42.5386,
+     "lon": -70.934,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing \"Open\" (owner-observed 13 Nov 2026) + Simon brand page; not yet on Miniso own locator. Retires automatically when the census covers the spot.",
+     "coord_src": "manual (Northshore Mall centroid; Census no-match)"
+    },
+    {
+     "name": "Farmington (Westfarms)",
+     "address": "500 W Farms Mall #106, Farmington, CT 06032",
+     "lat": 41.7216,
+     "lon": -72.7637,
+     "confidence": "confirmed",
+     "verified_by": "Google Maps operating listing \"Open\" (owner-observed 13 Nov 2026) + Simon brand page; not yet on Miniso own locator. Retires automatically when the census covers the spot.",
+     "coord_src": "manual (Westfarms centroid; Census no-match)"
+    },
+    {
+     "name": "Lake Grove (Smith Haven Mall) — COMING SOON",
+     "address": "313 Smith Haven Mall, Lake Grove, NY 11755",
+     "lat": 40.859,
+     "lon": -73.1194,
+     "confidence": "uncertain",
+     "verified_by": "Smith Haven Mall (Simon) directory tags MINISO 'Coming Soon' (13 Nov 2026) — not yet open, held out of count.",
+     "coord_src": "manual (Smith Haven Mall centroid; Census no-match)"
     }
    ]
   },
