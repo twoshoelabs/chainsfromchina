@@ -678,22 +678,28 @@
         },
         "gallery": [
           {
-            "file": "nayuki/g1.jpg?v=2",
-            "caption": "The sit-down side — a plant-filled tea lounge with a soft-bread bakery case and the green NaiSnow (奈雪) mark on the merch shelf.",
+            "file": "nayuki/exterior.jpg",
             "label": "Shanghai",
-            "label_zh": "上海"
+            "label_zh": "上海",
+            "caption": "The street-facing café at night — the orange NAIXUE storefront and its planted terrace, the green 奈雪的茶 cube sign lit on the building corner."
           },
           {
-            "file": "nayuki/g2.jpg?v=2",
-            "caption": "The bakery-and-pick-up counter: tea dispensers, a Meituan courier collecting, the brand's premium tea-and-soft-bread format.",
+            "file": "nayuki/g1.jpg?v=3",
             "label": "Shanghai",
-            "label_zh": "上海"
+            "label_zh": "上海",
+            "caption": "The sit-down tea lounge — green tulip chairs and a botanical mural, opening through a glass door onto the department store's jewelry hall."
           },
           {
-            "file": "nayuki/g3.jpg",
-            "caption": "The NaiSnow (奈雪) identity — “Nature · Art · Imagination” — over a retail shelf of logo cups, nut snacks and a Gaspard et Lisa collab.",
+            "file": "nayuki/g2.jpg?v=3",
             "label": "Shanghai",
-            "label_zh": "上海"
+            "label_zh": "上海",
+            "caption": "The order-and-pickup counter — tea dispensers and the digital drink boards, the bakery case at left, a Meituan courier collecting a delivery."
+          },
+          {
+            "file": "nayuki/g3.jpg?v=2",
+            "label": "Shanghai",
+            "label_zh": "上海",
+            "caption": "The NaiSnow (奈雪) retail shelf — logo cups, soft-bread gift bags and nut snacks under the brand's “Nature · Art · Imagination” screen."
           }
         ]
       }
