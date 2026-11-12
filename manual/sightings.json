@@ -2099,6 +2099,15 @@
      "confidence": "uncertain",
      "verified_by": "Smith Haven Mall (Simon) directory tags MINISO 'Coming Soon' (13 Nov 2026) — not yet open, held out of count.",
      "coord_src": "manual (Smith Haven Mall centroid; Census no-match)"
+    },
+    {
+     "name": "Gurnee (Gurnee Mills) — COMING SOON",
+     "address": "6170 W Grand Ave, Gurnee, IL 60031",
+     "lat": 42.383325,
+     "lon": -87.954921,
+     "confidence": "uncertain",
+     "verified_by": "Gurnee Mills (Simon) directory tags MINISO 'Coming Soon' (Main Level, 13 Nov 2026) — not yet open, held out of count.",
+     "coord_src": "US Census geocoder"
     }
    ]
   },
