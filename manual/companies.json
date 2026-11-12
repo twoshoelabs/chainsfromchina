@@ -42,19 +42,27 @@
         "gallery": [
           {
             "file": "mixue/g1.jpg?v=2",
-            "caption": "Inside: the Snow King neon and a wall of packaged snacks, with a couple of red tables to sit."
+            "caption": "Inside: the Snow King neon and a wall of packaged snacks, with a couple of red tables to sit.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "mixue/g2.jpg?v=2",
-            "caption": "The counter — soft-serve and tea machines in the open prep bay, drinks made to order."
+            "caption": "The counter — soft-serve and tea machines in the open prep bay, drinks made to order.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "mixue/g3.jpg",
-            "caption": "A second branch: a walk-up kiosk on a mall’s lower level, with its 雪王咖啡 (Snow King coffee) line."
+            "caption": "A second branch: a walk-up kiosk on a mall’s lower level, with its 雪王咖啡 (Snow King coffee) line.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "mixue/g4.jpg",
-            "caption": "A standalone Mixue kiosk in Shanghai’s People’s Park on a rainy day — the giant Snow King mascot out front, the Tomorrow Square spire beyond."
+            "caption": "A standalone Mixue kiosk in Shanghai’s People’s Park on a rainy day — the giant Snow King mascot out front, the Tomorrow Square spire beyond.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -143,19 +151,27 @@
         "gallery": [
           {
             "file": "luckin/g1.jpg?v=2",
-            "caption": "Inside a larger store — the roast-and-grind bar under “High-quality Arabica, blended by WBC champions,” with booth seating and a coffee-cherry mosaic wall."
+            "caption": "Inside a larger store — the roast-and-grind bar under “High-quality Arabica, blended by WBC champions,” with booth seating and a coffee-cherry mosaic wall.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "luckin/g2.jpg?v=2",
-            "caption": "The lounge — window benches among planters, the coffee-plant mural running up the columns."
+            "caption": "The lounge — window benches among planters, the coffee-plant mural running up the columns.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "luckin/g3.jpg",
-            "caption": "A framed photo of a coffee estate set into the engraved coffee-botanical wall."
+            "caption": "A framed photo of a coffee estate set into the engraved coffee-botanical wall.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "luckin/g4.jpg",
-            "caption": "A street-corner Luckin on Shanghai’s Huanghe Road, tucked between a steamed-bun shop and a Guizhou noodle house."
+            "caption": "A street-corner Luckin on Shanghai’s Huanghe Road, tucked between a steamed-bun shop and a Guizhou noodle house.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -392,11 +408,15 @@
         "gallery": [
           {
             "file": "haidilao/gallery-service.jpg",
-            "caption": "The waiting lounge — Haidilao’s famous free perks, here a complimentary manicure while you wait for a table."
+            "caption": "The waiting lounge — Haidilao’s famous free perks, here a complimentary manicure while you wait for a table.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "haidilao/gallery-atrium.jpg",
-            "caption": "The brand’s gold Hi mark in a sky-lit atrium; Haidilao often anchors whole upper floors of a mall."
+            "caption": "The brand’s gold Hi mark in a sky-lit atrium; Haidilao often anchors whole upper floors of a mall.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
@@ -637,15 +657,21 @@
         "gallery": [
           {
             "file": "nayuki/g1.jpg?v=2",
-            "caption": "The sit-down side — a plant-filled tea lounge with a soft-bread bakery case and the green NaiSnow (奈雪) mark on the merch shelf."
+            "caption": "The sit-down side — a plant-filled tea lounge with a soft-bread bakery case and the green NaiSnow (奈雪) mark on the merch shelf.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "nayuki/g2.jpg?v=2",
-            "caption": "The bakery-and-pick-up counter: tea dispensers, a Meituan courier collecting, the brand's premium tea-and-soft-bread format."
+            "caption": "The bakery-and-pick-up counter: tea dispensers, a Meituan courier collecting, the brand's premium tea-and-soft-bread format.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           },
           {
             "file": "nayuki/g3.jpg",
-            "caption": "The NaiSnow (奈雪) identity — “Nature · Art · Imagination” — over a retail shelf of logo cups, nut snacks and a Gaspard et Lisa collab."
+            "caption": "The NaiSnow (奈雪) identity — “Nature · Art · Imagination” — over a retail shelf of logo cups, nut snacks and a Gaspard et Lisa collab.",
+            "label": "Shanghai",
+            "label_zh": "上海"
           }
         ]
       }
