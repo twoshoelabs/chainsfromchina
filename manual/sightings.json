@@ -316,7 +316,7 @@
    "complete_as_of": "2025-12-31",
    "complete_scope": "United States (franchise disclosure Item 20)",
    "source": "Franchise Disclosure Document of Captain Business Management Co., Limited (YGF / Yangguofu), Minnesota registration #11645 submission 35686-202603, Item 20 and Exhibit C. Item 20 states 23 franchised US outlets in 9 states as of 31 Dec 2025; Exhibit C lists their addresses, which reconcile exactly with the per-state counts.",
-   "scope": "A COMPLETE national roster as of 31 Dec 2025, taken from a legally-required filing — not collected daily and already low: the same FDD projects 37+ new US outlets for 2026. Nevada had one outlet open and close within 2025 and is not listed. Some addresses are recorded with a ZIP inferred from the city where the filing omitted it. Superseded the day ygfus.com publishes a locator this project can read. Field-reviewed 2026-10-02 against Google Maps: two filed outlets since permanently closed (Flushing NY, Rowland Heights CA) were removed, Orlando FL flagged unconfirmed pending re-check, and the Daly City suite and Boston ZIP corrected; the remaining filed outlets were confirmed still open. Added 12 Nov 2026 beyond the FDD: a new Frisco, TX outlet (9144 Prestmont Pl #210) that held its grand opening 6-9 Nov 2026 (IG @ygfmalatang.frisco; Google operating) — recorded by operator observation.",
+   "scope": "A COMPLETE national roster as of 31 Dec 2025, taken from a legally-required filing — not collected daily and already low: the same FDD projects 37+ new US outlets for 2026. Nevada had one outlet open and close within 2025 and is not listed. Some addresses are recorded with a ZIP inferred from the city where the filing omitted it. Superseded the day ygfus.com publishes a locator this project can read. Field-reviewed 2026-10-02 against Google Maps: two filed outlets since permanently closed (Flushing NY, Rowland Heights CA) were removed, Orlando FL flagged unconfirmed pending re-check, and the Daly City suite and Boston ZIP corrected; the remaining filed outlets were confirmed still open. Added 12 Nov 2026 beyond the FDD: a new Frisco, TX outlet (9144 Prestmont Pl #210) that held its grand opening 6-9 Nov 2026 (IG @ygfmalatang.frisco; Google operating) — recorded by operator observation. Re-swept 12 Nov 2026 (regional operator sites + press): added Pittsburgh PA (Squirrel Hill, soft-open 12 Nov) and Sunrise FL (ygfmiami.com, operating). A Las Vegas plan (3655 S Durango) now trades as the separate 'MalaTown' brand and is NOT counted. Texas confirmed complete at 2 (Katy + Frisco). No national locator exists; the US is a patchwork of regional operators, so this remains a best-effort reconciliation.",
    "locations": [
     {
      "name": "San Diego",
@@ -455,6 +455,23 @@
      "lat": 33.110625,
      "lon": -96.80415,
      "opened": "2026-11"
+    },
+    {
+     "name": "Pittsburgh (Squirrel Hill)",
+     "address": "5870 Forbes Ave, Pittsburgh, PA 15217",
+     "confidence": "confirmed",
+     "verified_by": "First Pittsburgh-area YGF, soft-opened 12 Nov 2026 at 5870 Forbes Ave (PennsylvAsia, 11 Nov 2026); brand's Squirrel Hill debut",
+     "lat": 40.437987,
+     "lon": -79.920427,
+     "opened": "2026-11"
+    },
+    {
+     "name": "Sunrise, FL",
+     "address": "2430 N University Dr, Sunrise, FL 33322",
+     "confidence": "confirmed",
+     "verified_by": "First-party operator site ygfmiami.com (South Florida / Miami-area YGF) with live reviews, operating 12 Nov 2026",
+     "lat": 26.154313,
+     "lon": -80.257032
     }
    ]
   },
