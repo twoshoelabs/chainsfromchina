@@ -2115,29 +2115,29 @@
       "photos": {
         "origin": "author",
         "china": {
-          "file": "rolife/china.jpg",
+          "file": "rolife/china.jpg?v=2",
           "caption": "A Rolife (若来) store in Suzhou, the brand's home city — a backlit wall of its ranges (DIY miniature houses, 3D wooden craft, art toys) above shelves of Nanci blind boxes and model kits.",
           "label": "Suzhou",
           "label_zh": "苏州"
         },
         "gallery": [
           {
-            "file": "rolife/cm1.jpg",
+            "file": "rolife/cm1.jpg?v=2",
             "label": "Newark, DE",
             "caption": "The storefront at Christiana Mall — the illuminated Rolife wordmark over the open unit, 40%-off banners and the DIY-miniature-house range glowing inside."
           },
           {
-            "file": "rolife/cm2.jpg",
+            "file": "rolife/cm2.jpg?v=2",
             "label": "Newark, DE",
             "caption": "Inside — DIY-miniature-house posters along the wall, an island of boxed kits and glass cases of built ROKR mechanical models."
           },
           {
-            "file": "rolife/cm3.jpg",
+            "file": "rolife/cm3.jpg?v=2",
             "label": "Newark, DE",
             "caption": "The build range on display — Christmas-village houses, music boxes, cuckoo clocks and a ROKR lighthouse, with the flat-pack boxes to assemble them below."
           },
           {
-            "file": "rolife/cm4.jpg",
+            "file": "rolife/cm4.jpg?v=2",
             "label": "Newark, DE",
             "caption": "The Nanci blind-box and plush island — the brand's headline character (Nanci Puppy Club, Bear Inner World) in costumed scenes."
           },
@@ -2147,19 +2147,22 @@
             "label": "East Rutherford, NJ"
           },
           {
-            "file": "rolife/g1.jpg",
+            "file": "rolife/g1.jpg?v=2",
             "caption": "The shop floor: a central island of DIY dollhouse and music-box kits — Sanrio collabs among them — by a themed archway, model-kit shelves lining the walls.",
-            "label": "Suzhou"
+            "label": "Suzhou",
+            "label_zh": "苏州"
           },
           {
-            "file": "rolife/g2.jpg",
+            "file": "rolife/g2.jpg?v=2",
             "caption": "Rolife and ROKR's signature 3D builds on show — a wooden Eiffel Tower, a sakura treehouse and a cuckoo clock — above the boxed kits to assemble them.",
-            "label": "Suzhou"
+            "label": "Suzhou",
+            "label_zh": "苏州"
           },
           {
-            "file": "rolife/g3.jpg",
+            "file": "rolife/g3.jpg?v=2",
             "caption": "The Nanci line — the brand's headline character as costumed plush and blind-box scenes.",
-            "label": "Suzhou"
+            "label": "Suzhou",
+            "label_zh": "苏州"
           }
         ],
         "us": {
