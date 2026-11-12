@@ -931,7 +931,7 @@
             "label_zh": "上海"
           },
           {
-            "file": "zhangliang/g2.jpg",
+            "file": "zhangliang/g2.jpg?v=2",
             "caption": "Inside — the signature orange “b” feature wall, bar seating, and the drinks case and order counter.",
             "label": "Shanghai",
             "label_zh": "上海"
@@ -1607,13 +1607,13 @@
         },
         "gallery": [
           {
-            "file": "xijiade/g1.jpg?v=2",
+            "file": "xijiade/g1.jpg?v=3",
             "caption": "The open kitchen — cooks fold shrimp dumplings to order behind a counter-bar, under a banner calling the brand “the face of Northeastern dumplings.”",
             "label": "Shanghai",
             "label_zh": "上海"
           },
           {
-            "file": "xijiade/g2.jpg",
+            "file": "xijiade/g2.jpg?v=2",
             "caption": "Booth seating in the dining room, the open kitchen visible behind.",
             "label": "Shanghai",
             "label_zh": "上海"
