@@ -1667,6 +1667,19 @@
    "sources": [
     "Google Maps 'Ximi Vogue' Glendale Galleria (100 Galleria Way) — Permanently closed (12 Nov 2026)"
    ]
+  },
+  {
+   "chain": "ximivogue",
+   "name": "Dolphin Mall",
+   "address": "11401 NW 12th St, Miami, FL 33172",
+   "city": "Miami",
+   "state": "FL",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Former location, now permanently closed. Earlier noted as a 'stale Yelp listing' but owner reports it was a genuine former store at Dolphin Mall. Not in our counted roster (XIMIVOGUE counted US set is Sugarloaf Mills GA + Woodfield Mall IL). Logged for closure statistics / provenance correction.",
+   "sources": [
+    "Owner report (12 Nov 2026) — former XIMIVOGUE at Dolphin Mall, Miami, now closed (absent from Dolphin Mall current directory)"
+   ]
   }
  ]
 }
