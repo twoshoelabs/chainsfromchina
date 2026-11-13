@@ -4685,8 +4685,8 @@
    "chain": "tanghuokungfu",
    "supplied_on": "2026-11-13",
    "reviewed": "2026-11-13",
-   "source": "Operator-observed Google/Yelp listings + brand research (Baidu Baike, SCMP).",
-   "scope": "汤火功夫 Tang Huo Kung Fu (malatang) US outlets. Confirmed open (operator-observed Google/Yelp): Los Angeles CA (Koreatown) + Flushing NY. US arm is CONTRACTING: Berkeley CA (2041 University Ave, \"Tanghuo Kungfu Mala Town\") and Sandy UT (816 E 9400 S) both reported permanently closed on Yelp (13 Nov 2026) — logged in closings. Not a complete roster.",
+   "source": "Operator-observed Google/Yelp listings + brand research (Baidu Baike, SCMP). Tight-zoom malatang re-sweep 13 Nov 2026 (Yelp/Apple Maps/press).",
+   "scope": "汤火功夫 Tang Huo Kung Fu (malatang) US outlets. Confirmed open: Los Angeles CA (Koreatown), Flushing NY, Columbus OH (Bethel Rd), Carrollton TX (first TX). Coming soon: San Diego Convoy (uncertain). Closed: Berkeley CA + Sandy UT (both Yelp-reported closed, logged). Tight-zoom re-sweep 13 Nov 2026; not guaranteed complete.",
    "locations": [
     {
      "name": "Los Angeles (Koreatown)",
@@ -4704,6 +4704,33 @@
      "lon": -73.81717,
      "confidence": "confirmed",
      "verified_by": "Yelp (Tang Huo Kung Fu, claimed) + storefront photo 汤火功夫 麻辣烫, operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Columbus (Bethel Rd / Olentangy Plaza)",
+     "address": "875 Bethel Rd Unit 6, Columbus, OH 43214",
+     "lat": 40.06319,
+     "lon": -83.04286,
+     "confidence": "confirmed",
+     "verified_by": "Yelp \"Tanghuo Kungfu Malatang\" (updated Oct 2026, 12 reviews, 28 photos), operator-observed open; counter inside Dayou Market (kiosk counts) (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Carrollton (Old Denton Rd)",
+     "address": "2701 Old Denton Rd Ste 164, Carrollton, TX 75007",
+     "lat": 32.99114,
+     "lon": -96.91007,
+     "confidence": "confirmed",
+     "verified_by": "Yelp \"Tanghuo Kungfu Malatang\" (updated Sep 2026, 46 reviews, 78 photos) + CultureMap Dallas (first TX); operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "San Diego (Convoy / Kearny Mesa) — COMING SOON",
+     "address": "4344 Convoy St Suite N, San Diego, CA 92111",
+     "lat": 32.8194,
+     "lon": -117.15508,
+     "confidence": "uncertain",
+     "verified_by": "SanDiegoVille (Mar 2026): planned at Convoy Village, opening \"later 2026\"; no grand opening confirmed — held out of count (13 Nov 2026).",
      "coord_src": "US Census geocoder"
     }
    ]
