@@ -1732,6 +1732,19 @@
    "sources": [
     "Yelp 'Dagu Rice Noodle' Alhambra (2 E Valley Blvd) — reported closed (13 Nov 2026)"
    ]
+  },
+  {
+   "chain": "dagu",
+   "name": "Cleveland (Payne Ave, Asiatown)",
+   "address": "3004 Payne Ave, Cleveland, OH 44114",
+   "city": "Cleveland",
+   "state": "OH",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Former Dagu Rice Noodle, now closed — the space at 3004 Payne Ave is occupied by an UNRELATED successor business, \"YYTime\" (Google labels it \"YYTime, formerly known as Dagu Rice Noodle\" because of the prior tenant; YYTime is not Dagu). Was never in the counted roster (lead/uncertain only). Logged for provenance.",
+   "sources": [
+    "Google 'YYTime (formerly known as Dagu Rice Noodle)', 3004 Payne Ave Cleveland (13 Nov 2026); owner confirms YYTime != Dagu, same location only"
+   ]
   }
  ]
 }

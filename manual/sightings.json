@@ -4740,7 +4740,7 @@
    "supplied_on": "2026-11-13",
    "reviewed": "2026-11-13",
    "source": "Operator-observed Google/Yelp + per-operator brand sites (daguusa.com, daiguny.com, noodledagu.com); tight-zoom US sweep 13 Nov 2026.",
-   "scope": "大鼓米线 Dagu Rice Noodle US outlets — fragmented regional-operator footprint, no national roster. Confirmed open: San Diego CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI, Quincy MA, State College PA. Alhambra CA closed (logged). Cleveland OH rebranded to \"YYTime (formerly Dagu)\" — held uncertain, not counted as Dagu. Not guaranteed complete.",
+   "scope": "大鼓米线 Dagu Rice Noodle US outlets — fragmented regional-operator footprint, no national roster. Confirmed open: San Diego CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI, Quincy MA, State College PA. Alhambra CA closed (logged). Cleveland OH (3004 Payne Ave) is a former Dagu, now closed — the space is an unrelated successor, YYTime (logged in closings). Not guaranteed complete.",
    "locations": [
     {
      "name": "San Diego (Convoy / Kearny Mesa)",
@@ -4803,15 +4803,6 @@
      "lon": -77.86114,
      "confidence": "confirmed",
      "verified_by": "Google (Dagu Rice Noodle 大鼓米线, 45 reviews), operator-observed open (13 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Cleveland (Payne Ave) — REBRANDED to YYTime",
-     "address": "3004 Payne Ave, Cleveland, OH 44114",
-     "lat": 41.50794,
-     "lon": -81.668416,
-     "confidence": "uncertain",
-     "verified_by": "Google lists it as \"YYTime (formerly known as Dagu Rice Noodle)\" (542 reviews, 13 Nov 2026) — the Dagu-branded store rebranded away; held out of count as a Dagu outlet.",
      "coord_src": "US Census geocoder"
     }
    ]
