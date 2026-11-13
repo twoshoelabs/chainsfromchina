@@ -4740,7 +4740,7 @@
    "supplied_on": "2026-11-13",
    "reviewed": "2026-11-13",
    "source": "Operator-observed Google/Yelp + per-operator brand sites (daguusa.com, daiguny.com, noodledagu.com); tight-zoom US sweep 13 Nov 2026.",
-   "scope": "大鼓米线 Dagu Rice Noodle US outlets — a fragmented regional-operator footprint, no national roster. Confirmed open (operator-observed / own site): San Diego CA, Alhambra CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI. Uncertain (thin aggregator, verify): Quincy MA, State College PA. Cleveland OH Asiatown reported opening mid-2026 — lead, no address, not mapped. Not guaranteed complete.",
+   "scope": "大鼓米线 Dagu Rice Noodle US outlets — a fragmented regional-operator footprint, no national roster. Confirmed open (operator-observed / own site): San Diego CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI. Uncertain (thin aggregator, verify): Quincy MA, State College PA. Cleveland OH Asiatown reported opening mid-2026 — lead, no address, not mapped. Not guaranteed complete. Alhambra CA closed (Yelp, 13 Nov 2026) — removed, logged.",
    "locations": [
     {
      "name": "San Diego (Convoy / Kearny Mesa)",
@@ -4749,15 +4749,6 @@
      "lon": -117.15457,
      "confidence": "confirmed",
      "verified_by": "Google (大鼓米线 Dagu Miishien, 447 reviews) + Yelp (400 reviews), operator-observed open (13 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Alhambra (E Valley Blvd)",
-     "address": "2 E Valley Blvd, Alhambra, CA 91801",
-     "lat": 34.07852,
-     "lon": -118.12292,
-     "confidence": "confirmed",
-     "verified_by": "Google (Dagu Rice Noodle, 23 reviews), operator-observed open (13 Nov 2026).",
      "coord_src": "US Census geocoder"
     },
     {

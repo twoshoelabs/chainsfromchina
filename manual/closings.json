@@ -1719,6 +1719,19 @@
    "sources": [
     "Yelp 'Tang Huo Kung Fu' Sandy UT — reported closed (13 Nov 2026)"
    ]
+  },
+  {
+   "chain": "dagu",
+   "name": "Alhambra (E Valley Blvd)",
+   "address": "2 E Valley Blvd, Alhambra, CA 91801",
+   "city": "Alhambra",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Yelp (\"Yelpers report this location has closed\", 13 Nov 2026). Was counted at onboarding; now removed (count 6->5).",
+   "sources": [
+    "Yelp 'Dagu Rice Noodle' Alhambra (2 E Valley Blvd) — reported closed (13 Nov 2026)"
+   ]
   }
  ]
 }
