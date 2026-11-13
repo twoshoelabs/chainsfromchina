@@ -377,6 +377,17 @@ def main(argv=None):
         dossiers.report()
         return 0
 
+    if cmd == "entry-models":
+        from . import entry_models
+        errs = entry_models.validate()
+        if errs:
+            print("us_entry_models.json invalid:")
+            for e in errs:
+                print("  " + e)
+            return 2
+        entry_models.report(full=("--full" in argv))
+        return 0
+
     if cmd == "filings":
         from . import db, filings
         con = db.connect()
@@ -421,6 +432,7 @@ def main(argv=None):
     print("  filings                                          watch SEC/HKEX/cninfo filings of US-present listed chains; signal new annual reports")
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
+    print("  entry-models [--full]                            Pro: US-entry/expansion model per chain + importer-group roster (Chubby Group etc.)")
     print("  locator                                          Pro: Locator Freshness — how stale each chain's own store locator is (phantom closed listings)")
     print("  single-outlet [--md]                             chains with exactly ONE US store: toe-in-water vs shrank-to-one")
     print("  console [--port N] [--no-open]                   Pro: PRIVATE owner console (localhost) — submit data points + work the queue")

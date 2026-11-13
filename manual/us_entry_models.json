@@ -1,0 +1,459 @@
+{
+ "_readme": [
+  "US-ENTRY / EXPANSION MODEL layer (Pro / intelligence tier). How each tracked China-origin",
+  "chain actually entered and scales in the US. NOT a public datum yet — surfaced via the",
+  "`entry-models` CLI and Pro export; keep out of the public map/register until decided.",
+  "",
+  "model vocabulary (see docs/us_entry_models.md):",
+  "  direct_subsidiary  - the brand's own US entity runs company-owned stores; no US franchising",
+  "  us_franchise       - an open US franchise program (FDD or first-party application)",
+  "  regional_operators - several independent US operators each run a cluster; no single national entity",
+  "  importer_group     - a US multi-brand venture that imports the brand (e.g. Chubby Group)",
+  "  authorized_partner - a single authorized flagship/licensee via a local partner",
+  "  distribution       - not branded retail (wholesale / gray-market); usually out of the outlet count",
+  "  unknown            - US-present but the entry mechanism is not yet established (needs research)",
+  "",
+  "confidence = high (explicit first-party/FDD/press evidence), medium (strong inference), low.",
+  "`operators` = US ventures that run one or more China brands; importer_group ones are the headline.",
+  "Only chains with US outlets are classified. as_of 2026-11-13."
+ ],
+ "as_of": "2026-11-13",
+ "operators": {
+  "chubby_group": {
+   "name": "Chubby Group",
+   "principal": "David Zhao (co-founded 2016 w/ Haibin Yang & Joyce Li)",
+   "type": "importer_group",
+   "scale": "~70+ locations across 25+ brands",
+   "china_brands_us": [
+    "chubbyskewers",
+    "hibake",
+    "mamaxita"
+   ],
+   "other": "Also a Japanese import (Chubby Tan = Japan's Gyutan no Lemon, US distributor) + US-created concepts (Chubby Cattle, Wagyu House, The X Pot, Niku X, Chubby Bowls) — out of scope.",
+   "note": "The clearest example of a US venture specializing in bringing China-origin chains to America. Watch for further China-brand US entries.",
+   "source": "chubbyskewers.com, hibakeusa (IG), register/dossier records"
+  },
+  "jiumaojiu": {
+   "name": "Jiumaojiu International (九毛九)",
+   "type": "brand_parent",
+   "china_brands_us": [
+    "taier"
+   ],
+   "note": "The Chinese parent operating its own brand's US stores directly (not a third-party importer)."
+  },
+  "super_hi": {
+   "name": "Super Hi International",
+   "type": "brand_parent",
+   "china_brands_us": [
+    "haidilao"
+   ],
+   "note": "Haidilao's own overseas arm; US stores company-owned."
+  },
+  "yum_china": {
+   "name": "Yum China",
+   "type": "brand_parent",
+   "china_brands_us": [
+    "littlesheep"
+   ],
+   "note": "Owns Little Sheep; re-entered the US (American Dream NJ)."
+  }
+ },
+ "chains": {
+  "popmart": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "Does not franchise anywhere; US wholly company-owned stores + robo-shops."
+  },
+  "miniso": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "US franchising since 2018 via Miniso Depot Franchisor LLC."
+  },
+  "mixue": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "Open US franchise — Snow King (US) Corp, join.mixueusfranchise.com."
+  },
+  "cotti": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "US franchise via Cotti Partners LLC (DE); 2026 US FDD."
+  },
+  "moge": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "Moge Tee USA Franchising LLC; US FDD (2022/2023)."
+  },
+  "heytea": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "First-party US 'partnership' franchise (aboutPartnersEn)."
+  },
+  "chagee": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "US deliberately company-owned (~CA stores); franchised only in China."
+  },
+  "luckin": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "US stores company-operated; no US franchise offer/FDD."
+  },
+  "haidilao": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "operator": "super_hi",
+   "basis": "US/NA company-owned via Super Hi International; franchising China-only."
+  },
+  "taier": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "operator": "jiumaojiu",
+   "basis": "US run directly by parent Jiumaojiu; Tai Er franchising is China-only."
+  },
+  "nayuki": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "US entry direct/company-operated; China 'Partner Plan' only."
+  },
+  "chabaidao": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "First US store (Flushing, Aug 2025) a direct rollout; franchised in China."
+  },
+  "chahalo": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "Entered US 2025 as company-driven expansion (NY/CA/TX/MD)."
+  },
+  "zhangliang": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "Open US franchise application on first-party site zlmalatang.us."
+  },
+  "yangguofu": {
+   "model": "regional_operators",
+   "confidence": "high",
+   "basis": "Open national franchise app (ygfus.com) BUT US stores run via independent regional operators (CA/WA/Miami sites); no national roster."
+  },
+  "zhengxin": {
+   "model": "regional_operators",
+   "confidence": "medium",
+   "basis": "US via separate regional operators (CA + NY clusters); one of China's largest franchised chains."
+  },
+  "xiaolongkan": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "First-party US franchise page shooloongkan.us/franchise."
+  },
+  "rbtea": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "R&B Tea USA (rbteausa.com) runs US ops + offers franchising."
+  },
+  "yangs": {
+   "model": "us_franchise",
+   "confidence": "high",
+   "basis": "Yang's Braised Chicken Rice USA — US franchising since ~2018."
+  },
+  "aunteajenny": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Overwhelmingly franchised (HKEX 2589); US estate franchise-run."
+  },
+  "yaoyao": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "China franchises since 2019; US 3 stores."
+  },
+  "yogost": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "China yogurt-drink chain; international franchise incl US."
+  },
+  "ximivogue": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Guangzhou variety retailer, franchise model."
+  },
+  "yoyoso": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Yiwu variety retailer, franchise-driven."
+  },
+  "tenseconds": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Rapid US franchise/partner rollout."
+  },
+  "mogouyan": {
+   "model": "us_franchise",
+   "confidence": "low",
+   "basis": "Canada-heavy; first US = Mall of America; model inferred."
+  },
+  "happylamb": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "US estate franchise-run (Little Sheep founder's re-creation)."
+  },
+  "malubianbian": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Heavily franchised (1,000+); ~5 US restaurants."
+  },
+  "fishwithyou": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Sauerkraut-fish franchise (2,700+); many US + public US franchise."
+  },
+  "mollytea": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "usa.mollytea.com US entity; 'US Franchise' positioning."
+  },
+  "liuyishou": {
+   "model": "us_franchise",
+   "confidence": "low",
+   "basis": "Globally franchised hotpot; US model inferred."
+  },
+  "wallace": {
+   "model": "us_franchise",
+   "confidence": "low",
+   "basis": "Walnut CA first-overseas + West Covina; franchise/regional inferred."
+  },
+  "chubbyskewers": {
+   "model": "importer_group",
+   "confidence": "high",
+   "operator": "chubby_group",
+   "basis": "US arm 'Chubby Skewers' run by Chubby Group (David Zhao)."
+  },
+  "hibake": {
+   "model": "importer_group",
+   "confidence": "high",
+   "operator": "chubby_group",
+   "basis": "First overseas store (Beverly Hills, Aug 2025) via US Chubby Group."
+  },
+  "mamaxita": {
+   "model": "importer_group",
+   "confidence": "high",
+   "operator": "chubby_group",
+   "basis": "Shenyang BBQ chain run in the US by Chubby Group (Bellevue WA, Temple City CA)."
+  },
+  "jnby": {
+   "model": "authorized_partner",
+   "confidence": "high",
+   "basis": "US stores run by JNBY USA / authorized partner (license); no US franchise."
+  },
+  "littlesheep": {
+   "model": "authorized_partner",
+   "confidence": "high",
+   "operator": "yum_china",
+   "basis": "Yum China re-entry (American Dream NJ)."
+  },
+  "zhoumapo": {
+   "model": "authorized_partner",
+   "confidence": "high",
+   "basis": "Authorized flagship trading as 'Mapo Asian Restaurant & Bar', Times Sq NYC."
+  },
+  "nanhotpot": {
+   "model": "authorized_partner",
+   "confidence": "medium",
+   "basis": "NA cooperative/franchise; identity likely-authorized not confirmed."
+  },
+  "dusu": {
+   "model": "authorized_partner",
+   "confidence": "medium",
+   "basis": "First US outlet a shop-in-shop counter inside Duo Duo Snacks (partner)."
+  },
+  "quanjude": {
+   "model": "authorized_partner",
+   "confidence": "low",
+   "basis": "Peking-duck heritage brand; single US flagship, likely licensed."
+  },
+  "anta": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "First US store (Beverly Hills 2026) directly operated — DTC pivot."
+  },
+  "babakehouse": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Yunnan bakery; US-tracked via Bellevue WA flagship."
+  },
+  "bingz": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Beijing roujiamo chain; US entry Oct 2026 (San Gabriel) brand-led."
+  },
+  "chicjoc": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Shanghai womenswear; two CA stores, brand-run."
+  },
+  "derucci": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Mattress/bedding chain; US showrooms NY/CA."
+  },
+  "epyaying": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Jiaxing womenswear; first US store brand-run (American Dream NJ)."
+  },
+  "meilleurmoment": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Eifini Group; US entry company-operated SoHo NYC flagship."
+  },
+  "urbanrevivo": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "US debut company-operated SoHo NYC flagship; no US FDD/franchise."
+  },
+  "nonggengji": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Hunan chain, direct-operated (Flushing NY + Rockville MD)."
+  },
+  "toys52": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "China IP-toy maker; two metro-Atlanta stores brand-run."
+  },
+  "toptoy": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "MINISO group's IP-toy brand; US store brand-run."
+  },
+  "rolife": {
+   "model": "direct_subsidiary",
+   "confidence": "low",
+   "basis": "Robotime IP-toy brand; 14 US mall stores; model inferred."
+  },
+  "dreame": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Smart-home electronics; 4 permanent US stores brand-run."
+  },
+  "moreyogurt": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "US entry (Tustin CA) brand-led; no US FDD or open franchise."
+  },
+  "meizhoudongpo": {
+   "model": "direct_subsidiary",
+   "confidence": "low",
+   "basis": "Sichuan sit-down chain; US model inferred (likely company/JV)."
+  },
+  "xibei": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Xibei Youmiancun US presence; mechanism not established."
+  },
+  "juewei": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Heavily franchised in China; only confirmed NA arm is Canada; US 2 unclear."
+  },
+  "teapulse": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "~7 NYC outlets; entity/mechanism not established."
+  },
+  "baospastry": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "dalongyi": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Sichuan hotpot; mechanism not established."
+  },
+  "dezhuang": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Chongqing hotpot/base; mechanism not established."
+  },
+  "feidachu": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "grandmashome": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "huaxiaoxiao": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Flushing overseas-first store; mechanism not established."
+  },
+  "jibeichuan": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "4 US (NYC + San Leandro); mechanism not established."
+  },
+  "juqi": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "leebai": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "lelecha": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "nanshan": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "NY panda-hotpot; mechanism not established."
+  },
+  "shanchenglameizi": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "showminihotpot": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Richardson TX; mechanism not established."
+  },
+  "shudaxia": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "1 US; mechanism not established."
+  },
+  "shuyi": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Not yet classified."
+  },
+  "walaida": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Flushing NY bullfrog restaurant; mechanism not established."
+  },
+  "xijiade": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "Dumpling chain; mechanism not established."
+  },
+  "bingxue": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Franchise-driven at home and abroad; new US entry (first store Davis CA)."
+  },
+  "makkee": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Chinese dessert-soup chain, franchise model; ~6 US outlets."
+  }
+ }
+}
