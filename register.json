@@ -10014,31 +10014,31 @@
    "chain": "dagu",
    "market": "CA",
    "status": "present",
-   "locations": null,
-   "locations_as_of": null,
+   "locations": 1,
+   "locations_as_of": "2026-11",
    "first_opened": "2017",
    "precision": "year",
    "confidence": "high",
    "reviewed": "2026-11-13",
-   "note": "Canada was an early overseas market (expansion began 2017). Edmonton AB (10408 Jasper Ave) is open and well-reviewed. Two Toronto ON stores have permanently closed — Downtown Dundas (115 Dundas St W) and Downtown Spadina (409 Spadina Ave, the unit now trades as the unrelated 西域小馆 Magical Taste of China).",
+   "note": "Early overseas market (since 2017) now heavily CONTRACTED — down to a single open store, Edmonton AB (10408 Jasper Ave). Permanently closed: Toronto ON (Downtown Dundas 115 Dundas St W; Downtown Spadina 409 Spadina Ave, unit now the unrelated 西域小馆 Magical Taste of China), Markham ON, Unionville ON (8362 Kennedy Rd), Calgary AB, Montreal QC, plus a further Ontario location.",
    "sources": [
-    "https://www.google.com/maps (Dagu Rice Noodle Edmonton, 10408 Jasper Ave — open, 593 reviews; Toronto Dundas + Spadina — permanently closed)"
+    "https://www.google.com/maps (Dagu Rice Noodle — Edmonton open; Toronto Dundas/Spadina, Markham, Unionville, Calgary, Montreal, Ontario all permanently closed)"
    ]
   },
   {
    "chain": "dagu",
    "market": "NZ",
    "status": "present",
-   "locations": null,
-   "locations_as_of": null,
+   "locations": 5,
+   "locations_as_of": "2026-11",
    "first_opened": null,
    "precision": null,
    "confidence": "high",
    "reviewed": "2026-11-13",
-   "note": "New Zealand present: Hamilton (36 Bryce Street, Hamilton Central) open and well-reviewed (215 Google reviews, trades as 大鼓米线). The brand runs a NZ site (daguricenoodle.co.nz) covering further NZ cities (Auckland, Christchurch, Wellington).",
+   "note": "Present and healthy: 5 operating stores — four in Auckland (Botany 451 Ti Rakau Dr, Henderson 4A/301 Lincoln Rd, Mt Eden 184 Dominion Rd, Albany 7a Triton Dr) and Hamilton (36 Bryce Street). Brand runs a NZ site (daguricenoodle.co.nz); further NZ cities may exist.",
    "sources": [
     "https://www.daguricenoodle.co.nz/",
-    "https://www.google.com/maps (Dagu Rice Noodle Hamilton 大鼓米线, 36 Bryce St — open)"
+    "https://www.google.com/maps (DAGU Rice Noodle NZ — Botany/Henderson/Mt Eden/Albany Auckland + Hamilton, all operating)"
    ]
   }
  ]
