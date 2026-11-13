@@ -4686,7 +4686,7 @@
    "supplied_on": "2026-11-13",
    "reviewed": "2026-11-13",
    "source": "Operator-observed Google/Yelp listings + brand research (Baidu Baike, SCMP).",
-   "scope": "汤火功夫 Tang Huo Kung Fu (malatang) US outlets. Confirmed open (operator-observed on Google/Yelp): Los Angeles CA (Koreatown) + Flushing NY. Berkeley CA (aggregator-only \"Tanghuo Kungfu Mala Town\") held uncertain. Sandy UT reported, no address — lead only, not mapped. Not a complete roster.",
+   "scope": "汤火功夫 Tang Huo Kung Fu (malatang) US outlets. Confirmed open (operator-observed Google/Yelp): Los Angeles CA (Koreatown) + Flushing NY. US arm is CONTRACTING: Berkeley CA (2041 University Ave, \"Tanghuo Kungfu Mala Town\") and Sandy UT (816 E 9400 S) both reported permanently closed on Yelp (13 Nov 2026) — logged in closings. Not a complete roster.",
    "locations": [
     {
      "name": "Los Angeles (Koreatown)",
@@ -4704,15 +4704,6 @@
      "lon": -73.81717,
      "confidence": "confirmed",
      "verified_by": "Yelp (Tang Huo Kung Fu, claimed) + storefront photo 汤火功夫 麻辣烫, operator-observed open (13 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Berkeley (University Ave) — unverified",
-     "address": "2041 University Ave, Berkeley, CA 94704",
-     "lat": 37.87209,
-     "lon": -122.26978,
-     "confidence": "uncertain",
-     "verified_by": "MapQuest aggregator listing \"Tanghuo Kungfu Mala Town\" (13 Nov 2026); not operator-confirmed — held out of count.",
      "coord_src": "US Census geocoder"
     }
    ]
