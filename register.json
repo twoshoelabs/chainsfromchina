@@ -1846,7 +1846,7 @@
    "format": "restaurant",
    "sector": "restaurant",
    "sub_category": "malatang",
-   "global": "China-origin 麻辣烫 (malatang / self-serve pay-by-weight instant hot pot) franchise chain — founded 2008, HQ Harbin, Heilongjiang (operating company 黑龙江汤火功夫餐饮有限公司). Fill-your-own-bowl malatang + kungfu snacks + fruit teas. ~2,600 franchised outlets globally by 2018 (brand figures); 600+ overseas by 2026, and especially large in South Korea (500+ stores). Overseas since 2012 (first store Seoul), later Japan, Australia, Hong Kong (first HK direct store Causeway Bay 2019), Southeast Asia and Central Asia (Kazakhstan/Uzbekistan). Entered North America ~2023-2024.",
+   "global": "China-origin 麻辣烫 (malatang / self-serve pay-by-weight instant hot pot) franchise chain — founded 2008, HQ Harbin, Heilongjiang (operating company 黑龙江汤火功夫餐饮有限公司). Fill-your-own-bowl malatang + kungfu snacks + fruit teas. ~2,600 franchised outlets globally by 2018 (brand figures); 600+ overseas by 2026, and its largest overseas presence in South Korea (a few dozen franchise units; the brand’s ‘500+’ figure is unverified and looks inflated vs observable listings). Overseas since 2012 (first store Seoul), later Japan, Australia, Hong Kong (first HK direct store Causeway Bay 2019), Southeast Asia and Central Asia (Kazakhstan/Uzbekistan). Entered North America ~2023-2024.",
    "operating_model": "franchise",
    "franchise_available_us": 0,
    "fdd_available": 0,
@@ -10048,12 +10048,12 @@
    "locations_as_of": null,
    "first_opened": "2012",
    "precision": "year",
-   "confidence": "high",
+   "confidence": "medium",
    "reviewed": "2026-11-13",
-   "note": "South Korea is Tang Huo Kung Fu’s FIRST and LARGEST overseas market — first overseas store Seoul 2012; the brand claims 500+ Korea stores by 2024 (brand figure, not independently verified; exact current count unpublished). Many operator-observed 탕화쿽푸 마라탕 franchise units: the Suwon (Gyeonggi-do) 본점 flagship plus Seoul branches (Seodaemun, Jung, Dongjak, Eunpyeong districts). All are the 탕화쿽푸 (Tang Huo Kung Fu) brand.",
+   "note": "South Korea is Tang Huo Kung Fu’s first and largest overseas market (first store Seoul 2012). Observable reality: Google Maps shows ~18-20 operating 탕화쿽푸 units — Seoul-heavy (Seodaemun, Jung, Dongjak, Eunpyeong, Mapo/공덕/연남/홍대, Yongsan, Yeongdeungpo, Dongdaemun) plus Suwon & Yongin (Gyeonggi), Busan and Gwangju. Franchise branch numbers run to at least ~#28 (용산28호점, 홍대7호점), so there are likely more than Maps surfaces — but the brand’s claimed “500+” Korea stores is UNVERIFIED and looks heavily inflated. Note: 한국탕화쿽푸 (Gangnam) is the Korea HQ office (not a store); 중경마라탕 is a different brand, excluded.",
    "sources": [
-    "https://baike.baidu.com/item/汤火功夫",
-    "https://www.google.com/maps (탕화쿽푸 마라탕 — Suwon 본점 + Seoul Seodaemun/Jung/Dongjak/Eunpyeong, operating)"
+    "https://www.google.com/maps (탕화쿽푸 마라탕 — ~18-20 Korea units; branch numbers to ~#28)",
+    "https://baike.baidu.com/item/汤火功夫 (brand ‘500+’ claim)"
    ]
   }
  ]
