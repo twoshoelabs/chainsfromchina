@@ -1762,3 +1762,34 @@ class TanghuoKungfuAdapter(Adapter):
                       " Koreatown + Flushing NY), Berkeley CA + Sandy UT reported/unverified. No"
                       " machine-readable US roster, tracked via sightings. In scope (China origin)")
     RECHECK = ["https://tanghuokungfula.com/", "https://tanghuokungfu.com/"]
+
+
+class DaguAdapter(Adapter):
+    """
+    大鼓米线 (Dagu Rice Noodle, "Big Drum Rice Noodle") — a China-origin Yunnan 过桥米线 (crossing-the-
+    bridge rice noodle) chain, founded Shanghai 2010; its name traces to a noodle shop near a Drum
+    Tower in Kunming. Build-your-own rice-noodle hot pot + fried snacks + boba/fruit tea + desserts.
+    ~500-800 stores worldwide (figures vary), mostly Asia; international since 2017 (Canada, US, NZ;
+    a Toronto store has since closed). China origin, in scope. Same 过桥米线 category as Ten Seconds
+    (十秒到) — distinct brand, do not conflate.
+
+    US footprint is a FRAGMENTED REGIONAL-OPERATOR patchwork — each store runs its own single-store
+    site (daguusa.com = Doraville GA, daiguny.com = Brooklyn NY, noodledagu.com = Ypsilanti MI), so
+    there is no national US roster to pull. Tracked via hand-assembled sightings. Confirmed open:
+    San Diego CA (Convoy), Alhambra CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI. Quincy
+    MA + State College PA reported on aggregators (uncertain). Cleveland OH Asiatown = a mid-2026
+    opening lead.
+    """
+    chain_id, name, name_zh = "dagu", "Dagu Rice Noodle", "大鼓米线"
+    name_us = "Dagu Rice Noodle"
+    aliases = ("Dagu Rice Noodle", "Dagu Rice Noodles", "Dagu Miishien", "DaGu Rice Noodle",
+               "大鼓米线", "大鼓", "大鼓米线&奶茶甜品")
+    parent, format = "Dagu Rice Noodle (大鼓米线, Shanghai, 2010; Yunnan 过桥米线)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Yunnan 过桥米线 rice-noodle chain (大鼓米线 / Dagu 'Big Drum', founded"
+                      " Shanghai 2010; ~500-800 stores worldwide). US footprint is a fragmented"
+                      " regional-operator patchwork (daguusa.com/daiguny.com/noodledagu.com), no"
+                      " national roster — tracked via sightings. 6 confirmed open (San Diego +"
+                      " Alhambra CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI); Quincy MA +"
+                      " State College PA uncertain. In scope (China origin)")
+    RECHECK = ["https://www.daguusa.com/", "https://www.daiguny.com/", "https://www.noodledagu.com/"]

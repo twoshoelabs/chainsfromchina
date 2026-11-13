@@ -1851,6 +1851,28 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "特许加盟 (franchise) chain with a global franchise system; US entry via franchise/operators. ≥2 confirmed US outlets (LA Koreatown + Flushing NY); Berkeley CA + Sandy UT reported, unverified. No US FDD confirmed."
+  },
+  "dagu": {
+   "name": "Dagu Rice Noodle",
+   "name_zh": "大鼓米线",
+   "name_us": "Dagu Rice Noodle",
+   "aliases": [
+    "Dagu Rice Noodle",
+    "Dagu Rice Noodles",
+    "Dagu Miishien",
+    "DaGu Rice Noodle",
+    "大鼓米线",
+    "大鼓",
+    "大鼓米线&奶茶甜品"
+   ],
+   "format": "restaurant",
+   "sector": "restaurant",
+   "sub_category": "yunnan rice noodle",
+   "global": "China-origin Yunnan 过桥米线 (crossing-the-bridge rice noodle) chain — 大鼓米线 (Dagu, \"Big Drum,\" named for a Drum Tower shop in Kunming), founded Shanghai 2010. Build-your-own rice-noodle hot pot plus fried snacks, boba/fruit tea and desserts. ~500-800 stores worldwide (figures vary), mostly in Asia; international since 2017 (Canada, US, New Zealand; a Toronto store has since closed). The US footprint is a fragmented regional-operator patchwork — separate per-store operator sites (daguusa.com Doraville GA, daiguny.com Brooklyn NY, noodledagu.com Ypsilanti MI), no national US entity. Same 过桥米线 category as Ten Seconds 十秒到 but a distinct brand.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Franchised / regional-operator chain; US outlets run by separate regional operators with their own single-store sites (no national US entity or roster). China-origin (Shanghai 2010). No US FDD confirmed."
   }
  },
  "entries": [

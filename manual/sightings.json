@@ -4734,6 +4734,87 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "dagu",
+   "supplied_on": "2026-11-13",
+   "reviewed": "2026-11-13",
+   "source": "Operator-observed Google/Yelp + per-operator brand sites (daguusa.com, daiguny.com, noodledagu.com); tight-zoom US sweep 13 Nov 2026.",
+   "scope": "大鼓米线 Dagu Rice Noodle US outlets — a fragmented regional-operator footprint, no national roster. Confirmed open (operator-observed / own site): San Diego CA, Alhambra CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI. Uncertain (thin aggregator, verify): Quincy MA, State College PA. Cleveland OH Asiatown reported opening mid-2026 — lead, no address, not mapped. Not guaranteed complete.",
+   "locations": [
+    {
+     "name": "San Diego (Convoy / Kearny Mesa)",
+     "address": "4690 Convoy St #108, San Diego, CA 92111",
+     "lat": 32.82639,
+     "lon": -117.15457,
+     "confidence": "confirmed",
+     "verified_by": "Google (大鼓米线 Dagu Miishien, 447 reviews) + Yelp (400 reviews), operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Alhambra (E Valley Blvd)",
+     "address": "2 E Valley Blvd, Alhambra, CA 91801",
+     "lat": 34.07852,
+     "lon": -118.12292,
+     "confidence": "confirmed",
+     "verified_by": "Google (Dagu Rice Noodle, 23 reviews), operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Doraville (Buford Hwy)",
+     "address": "5090 Buford Hwy NE Ste 110-111, Doraville, GA 30340",
+     "lat": 33.89144,
+     "lon": -84.28512,
+     "confidence": "confirmed",
+     "verified_by": "Own operator site daguusa.com + Yelp reviews, operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Brooklyn (18th Ave)",
+     "address": "8515 18th Ave, Brooklyn, NY 11214",
+     "lat": 40.60767,
+     "lon": -74.00203,
+     "confidence": "confirmed",
+     "verified_by": "Own operator site daiguny.com (Dagu Rice Noodle; also signed 煌都美食) (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Ypsilanti (Carpenter Rd)",
+     "address": "3765 Carpenter Rd, Ypsilanti, MI 48197",
+     "lat": 42.23513,
+     "lon": -83.6801,
+     "confidence": "confirmed",
+     "verified_by": "Brand site noodledagu.com + Apple Maps \"newly opened\" (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Madison (University Ave)",
+     "address": "604 University Ave, Madison, WI 53715",
+     "lat": 43.07326,
+     "lon": -89.3961,
+     "confidence": "confirmed",
+     "verified_by": "Yelp (updated May 2026, customer reviews), operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Quincy (Hancock St) — unverified",
+     "address": "663 Hancock St, Quincy, MA 02170",
+     "lat": 42.26774,
+     "lon": -71.01629,
+     "confidence": "uncertain",
+     "verified_by": "MenuStone aggregator listing only; not operator-confirmed — held out of count (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "State College (E College Ave) — unverified",
+     "address": "134 E College Ave, State College, PA 16801",
+     "lat": 40.7947,
+     "lon": -77.86114,
+     "confidence": "uncertain",
+     "verified_by": "Yiftee aggregator listing only; not operator-confirmed — held out of count (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }

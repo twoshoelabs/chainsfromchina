@@ -459,6 +459,11 @@
    "model": "us_franchise",
    "confidence": "medium",
    "basis": "Global franchise/加盟 chain (Harbin); US outlets via franchise/operators (LA, Flushing)."
+  },
+  "dagu": {
+   "model": "regional_operators",
+   "confidence": "high",
+   "basis": "US outlets run by separate regional operators, each with its own single-store site (daguusa.com/daiguny.com/noodledagu.com); no national US entity."
   }
  }
 }
