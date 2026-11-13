@@ -1827,6 +1827,30 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China 东北 BBQ-skewer chain (幸福小串 / 地摊小炉子, Chengdu). The US arm 'Chubby Skewers' is operated by the US-based Chubby Group (David Zhao); the link to the China brand runs through that operator. No US FDD confirmed."
+  },
+  "tanghuokungfu": {
+   "name": "Tang Huo Kung Fu",
+   "name_zh": "汤火功夫",
+   "name_us": "Tang Huo Kung Fu",
+   "aliases": [
+    "Tang Huo Kung Fu",
+    "Tanghuo Kungfu",
+    "TANGHUO KUNGFU",
+    "Tang Huo Kung Fu Spicy Hot Pot",
+    "Tanghuo Kungfu Instant Hotpot",
+    "Tanghuo Kungfu Mala Town",
+    "汤火功夫",
+    "汤火功夫麻辣烫",
+    "탕화쿵푸"
+   ],
+   "format": "restaurant",
+   "sector": "restaurant",
+   "sub_category": "malatang",
+   "global": "China-origin 麻辣烫 (malatang / self-serve pay-by-weight instant hot pot) franchise chain — founded 2008, HQ Harbin, Heilongjiang (operating company 黑龙江汤火功夫餐饮有限公司). Fill-your-own-bowl malatang + kungfu snacks + fruit teas. ~2,600 franchised outlets globally by 2018 (brand figures); 600+ overseas by 2026, and especially large in South Korea (500+ stores). Overseas since 2012 (first store Seoul), later Japan, Australia, Hong Kong (first HK direct store Causeway Bay 2019), Southeast Asia and Central Asia (Kazakhstan/Uzbekistan). Entered North America ~2023-2024.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "特许加盟 (franchise) chain with a global franchise system; US entry via franchise/operators. ≥2 confirmed US outlets (LA Koreatown + Flushing NY); Berkeley CA + Sandy UT reported, unverified. No US FDD confirmed."
   }
  },
  "entries": [

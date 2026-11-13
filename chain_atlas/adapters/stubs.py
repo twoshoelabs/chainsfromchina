@@ -1731,3 +1731,34 @@ class ChubbySkewersAdapter(Adapter):
                       " Locations page is JS-rendered, so tracked via a complete-roster sighting"
                       " (12 Nov 2026). In scope (China origin)")
     RECHECK = ["https://chubbyskewers.com/locations/"]
+
+
+class TanghuoKungfuAdapter(Adapter):
+    """
+    汤火功夫 (Tanghuo Kungfu, "Soup Fire Kung Fu") — a China-origin 麻辣烫 (malatang / self-serve
+    pay-by-weight instant hot pot) franchise chain, founded 2008, HQ Harbin, Heilongjiang (operating
+    company 黑龙江汤火功夫餐饮有限公司). Fill-your-own-bowl malatang + kungfu snacks + fruit teas; a
+    global 加盟 (franchise) system — ~2,600 outlets worldwide by 2018 (brand figures), 600+ overseas by
+    2026, and especially large in South Korea (500+). Overseas since 2012 (first store Seoul), later
+    Japan, Australia, Hong Kong (Causeway Bay 2019), SE Asia and Central Asia. China origin, in scope.
+
+    US: entered North America ~2023-2024; trades as "Tang Huo Kung Fu" / "Tanghuo Kungfu Instant
+    Hotpot" / "Tang Huo Kung Fu Spicy Hot Pot." Confirmed open US outlets (operator-observed on
+    Google/Yelp): Los Angeles CA (Koreatown, 3450 W 6th St) and Flushing NY (149-05 Northern Blvd).
+    Berkeley CA (2041 University Ave, "Tanghuo Kungfu Mala Town") and Sandy UT are reported on
+    aggregators but unverified (held uncertain / not counted). No machine-readable US roster, so
+    tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "tanghuokungfu", "Tang Huo Kung Fu", "汤火功夫"
+    name_us = "Tang Huo Kung Fu"
+    aliases = ("Tang Huo Kung Fu", "Tanghuo Kungfu", "TANGHUO KUNGFU",
+               "Tang Huo Kung Fu Spicy Hot Pot", "Tanghuo Kungfu Instant Hotpot",
+               "Tanghuo Kungfu Mala Town", "汤火功夫", "汤火功夫麻辣烫", "탕화쿵푸")
+    parent, format = "Heilongjiang Tanghuo Kungfu Catering Co. (黑龙江汤火功夫餐饮有限公司, Harbin)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin malatang (麻辣烫) franchise chain (汤火功夫 / Tanghuo Kungfu, founded"
+                      " 2008, HQ Harbin, Heilongjiang; ~2,600 global outlets, 600+ overseas, 500+ in"
+                      " South Korea). US arm trades as 'Tang Huo Kung Fu' — 2 confirmed outlets (LA"
+                      " Koreatown + Flushing NY), Berkeley CA + Sandy UT reported/unverified. No"
+                      " machine-readable US roster, tracked via sightings. In scope (China origin)")
+    RECHECK = ["https://tanghuokungfula.com/", "https://tanghuokungfu.com/"]

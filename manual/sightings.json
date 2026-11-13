@@ -4680,6 +4680,42 @@
      "lon": -118.103668
     }
    ]
+  },
+  {
+   "chain": "tanghuokungfu",
+   "supplied_on": "2026-11-13",
+   "reviewed": "2026-11-13",
+   "source": "Operator-observed Google/Yelp listings + brand research (Baidu Baike, SCMP).",
+   "scope": "汤火功夫 Tang Huo Kung Fu (malatang) US outlets. Confirmed open (operator-observed on Google/Yelp): Los Angeles CA (Koreatown) + Flushing NY. Berkeley CA (aggregator-only \"Tanghuo Kungfu Mala Town\") held uncertain. Sandy UT reported, no address — lead only, not mapped. Not a complete roster.",
+   "locations": [
+    {
+     "name": "Los Angeles (Koreatown)",
+     "address": "3450 W 6th St Ste 110, Los Angeles, CA 90020",
+     "lat": 34.06353,
+     "lon": -118.29671,
+     "confidence": "confirmed",
+     "verified_by": "Google (Tang Huo Kung Fu Spicy Hot Pot, 180 reviews) + Yelp, operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Flushing (Northern Blvd)",
+     "address": "149-05 Northern Blvd, Flushing, NY 11354",
+     "lat": 40.76541,
+     "lon": -73.81717,
+     "confidence": "confirmed",
+     "verified_by": "Yelp (Tang Huo Kung Fu, claimed) + storefront photo 汤火功夫 麻辣烫, operator-observed open (13 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Berkeley (University Ave) — unverified",
+     "address": "2041 University Ave, Berkeley, CA 94704",
+     "lat": 37.87209,
+     "lon": -122.26978,
+     "confidence": "uncertain",
+     "verified_by": "MapQuest aggregator listing \"Tanghuo Kungfu Mala Town\" (13 Nov 2026); not operator-confirmed — held out of count.",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }

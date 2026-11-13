@@ -454,6 +454,11 @@
    "model": "us_franchise",
    "confidence": "medium",
    "basis": "Chinese dessert-soup chain, franchise model; ~6 US outlets."
+  },
+  "tanghuokungfu": {
+   "model": "us_franchise",
+   "confidence": "medium",
+   "basis": "Global franchise/加盟 chain (Harbin); US outlets via franchise/operators (LA, Flushing)."
   }
  }
 }
