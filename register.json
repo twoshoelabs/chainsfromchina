@@ -10020,7 +10020,7 @@
    "precision": "year",
    "confidence": "high",
    "reviewed": "2026-11-13",
-   "note": "Early overseas market (since 2017) now heavily CONTRACTED — down to a single open store, Edmonton AB (10408 Jasper Ave). Permanently closed: Toronto ON (Downtown Dundas 115 Dundas St W; Downtown Spadina 409 Spadina Ave, unit now the unrelated 西域小馆 Magical Taste of China), Markham ON, Unionville ON (8362 Kennedy Rd), Calgary AB, Montreal QC, plus a further Ontario location.",
+   "note": "Early overseas market (since 2017) now heavily CONTRACTED — down to a single open store, Edmonton AB (10408 Jasper Ave). Permanently closed (all per Google): Toronto ON Downtown Dundas (115 Dundas St W), Toronto ON Downtown Spadina (409 Spadina Ave — unit now the unrelated 西域小馆 Magical Taste of China), Markham ON, Unionville ON (8362 Kennedy Rd), Calgary AB, Montreal QC, and a further Greater-Toronto-area unit (647 listing).",
    "sources": [
     "https://www.google.com/maps (Dagu Rice Noodle — Edmonton open; Toronto Dundas/Spadina, Markham, Unionville, Calgary, Montreal, Ontario all permanently closed)"
    ]
@@ -10038,6 +10038,22 @@
    "note": "Present and healthy: the brand NZ site (daguricenoodle.co.nz, \"Where to find us\") lists exactly 5 stores — four in Auckland (Botany 451 Ti Rakau Dr; Henderson 301 Lincoln Rd; Mt Eden 184 Dominion Rd; Albany 7 Triton Dr, Rosedale) and Hamilton (36 Bryce St, Hamilton Central). No other NZ cities on the brand locator (earlier Christchurch/Wellington hints not supported).",
    "sources": [
     "https://www.daguricenoodle.co.nz/"
+   ]
+  },
+  {
+   "chain": "tanghuokungfu",
+   "market": "KR",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": "2012",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-13",
+   "note": "South Korea is Tang Huo Kung Fu’s FIRST and LARGEST overseas market — first overseas store Seoul 2012; the brand claims 500+ Korea stores by 2024 (brand figure, not independently verified; exact current count unpublished). Many operator-observed 탕화쿽푸 마라탕 franchise units: the Suwon (Gyeonggi-do) 본점 flagship plus Seoul branches (Seodaemun, Jung, Dongjak, Eunpyeong districts). All are the 탕화쿽푸 (Tang Huo Kung Fu) brand.",
+   "sources": [
+    "https://baike.baidu.com/item/汤火功夫",
+    "https://www.google.com/maps (탕화쿽푸 마라탕 — Suwon 본점 + Seoul Seodaemun/Jung/Dongjak/Eunpyeong, operating)"
    ]
   }
  ]
