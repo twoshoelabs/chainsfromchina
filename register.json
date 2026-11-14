@@ -1957,6 +1957,25 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Premium Shanghai hot pot chain; US stores are company-operated via The Dolar Shop International Group (Manhattan + Bellevue WA). No US franchise offer or FDD confirmed."
+  },
+  "xiangtianxia": {
+   "name": "Xiang Hotpot",
+   "name_zh": "香天下",
+   "aliases": [
+    "香天下",
+    "香天下火锅",
+    "Xiang Hotpot",
+    "Xiang Tian Xia",
+    "Xiang Tian Xia Hotpot",
+    "Spice World Hot Pot",
+    "Spice World Hotpot"
+   ],
+   "format": "hotpot",
+   "global": "China-origin Sichuan hot pot chain (operator 四川香天下餐饮管理集团 / Sichuan Xiang Tian Xia Catering Group). It grew from 金川火锅, founded 2003 in Nanchong, Sichuan by 朱全 (Zhu Quan), later renamed/developed as 香天下; ~600-700 stores globally across 30+ sub-brands, known for rich butter and spicy broths and theatrical 'cute' pot-bases. Trades overseas in English as 'Spice World Hot Pot' (and 'Xiang Hotpot' in the US). Overseas footprint includes the US, Canada, Singapore, Australia and more. US: Brooklyn NY (open); Flushing NY (New World Mall) closed.",
+   "operating_model": "franchise_and_company",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Large Sichuan hot pot chain (franchise-heavy in China). US presence tracked via its Brooklyn NY restaurant; exact US ownership (company vs licensee) unconfirmed. No US FDD confirmed."
   }
  },
  "entries": [
@@ -10199,6 +10218,21 @@
    "note": "Sydney — Haymarket (Chinatown), Level 3, 1909 Dining Precinct, 9-13 Hay Street, NSW.",
    "sources": [
     "https://www.dolarshop.com/location"
+   ]
+  },
+  {
+   "chain": "xiangtianxia",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Brisbane — Sunnybank QLD, listed as '香天下火锅 / The X Hot Pot'. Brand also claims Canada / Singapore / France / Italy / Taiwan / HK historically; Singapore (Clarke Quay, 'Spice World') reported closed. Only Brisbane recorded here pending verification of the others.",
+   "sources": [
+    "https://the-x-hot-pot.wheree.com/"
    ]
   }
  ]

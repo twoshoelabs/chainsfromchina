@@ -474,6 +474,11 @@
    "model": "direct_subsidiary",
    "confidence": "high",
    "basis": "US stores company-operated by The Dolar Shop International Group (the brand's own overseas arm); not franchised."
+  },
+  "xiangtianxia": {
+   "model": "authorized_partner",
+   "confidence": "low",
+   "basis": "US Brooklyn restaurant operates under the 香天下 brand; company-owned vs licensee/franchise not confirmed (brand is franchise-heavy in China)."
   }
  }
 }

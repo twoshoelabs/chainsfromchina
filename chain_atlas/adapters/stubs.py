@@ -1873,3 +1873,27 @@ class DolarShopAdapter(Adapter):
                       " East Village + Bellevue WA, both open; Flushing NY closed. Also Canada (Richmond"
                       " + Burnaby BC) and Australia (Sydney). Tracked via sightings. In scope")
     RECHECK = ["https://www.dolarshop.com/location"]
+
+
+class XiangTianXiaAdapter(Adapter):
+    """
+    香天下 (Xiang Tian Xia / "Xiang Hotpot"; abroad "Spice World Hot Pot") — a China-origin Sichuan
+    hot pot chain, operator 四川香天下餐饮管理集团. Grew from 金川火锅 (founded 2003, Nanchong, Sichuan,
+    by 朱全 Zhu Quan), later renamed/developed as 香天下; ~600-700 stores worldwide across 30+ sub-
+    brands, known for butter/spicy broths and theatrical pot-bases. China origin, in scope.
+
+    US: Brooklyn NY (5816 Fort Hamilton Pkwy, operator-observed open, Google 4.8/4,798). Flushing NY
+    (136-20 Roosevelt Ave, New World Mall) closed (Yelp CLOSED, Mar 2026). Abroad: Australia (Brisbane)
+    + historically Canada/Singapore/France/Italy/Taiwan/HK. No machine-readable US roster, so tracked
+    via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "xiangtianxia", "Xiang Hotpot", "香天下"
+    name_us = "Xiang Hotpot"
+    aliases = ("Xiang Hotpot", "Xiang Tian Xia", "Spice World Hot Pot", "香天下", "香天下火锅")
+    parent, format = "Sichuan Xiang Tian Xia Catering Group (四川香天下餐饮管理集团)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Sichuan hot pot chain (香天下 / Xiang Hotpot, from 金川火锅 founded 2003"
+                      " Nanchong Sichuan; ~600-700 stores worldwide, 30+ sub-brands; abroad as 'Spice"
+                      " World Hot Pot'). US: Brooklyn NY open; Flushing NY closed. Also Australia +"
+                      " claimed CA/SG/FR/IT/TW/HK. Tracked via sightings. In scope")
+    RECHECK = ["https://chowbusmkt.wixsite.com/xianghotpot"]

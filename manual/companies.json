@@ -3000,6 +3000,15 @@
    "blurb": "The Dolar Shop (豆捞坊) is a premium China-origin hot pot chain built on an individual-pot, premium-ingredient format. It was founded in October 2004 in Shanghai (operator Shanghai Feidelao Catering Management); the name “Dolar” / 豆捞 is a pun drawn from a Macau-dialect phrase and the brand's origin story invokes Macau, but the company was founded and is headquartered in Shanghai. It has grown to roughly 160 stores across China. Abroad it operates through The Dolar Shop International Group, with US restaurants in Manhattan's East Village (its US flagship, opened December 2020) and Bellevue, Washington (at The Bravern), plus locations in Canada (Richmond and Burnaby, BC) and Australia (Sydney).",
    "site_us": "https://www.dolarshop.com/",
    "us_since": "2020"
+  },
+  "xiangtianxia": {
+   "name": "Xiang Hotpot",
+   "name_zh": "香天下",
+   "category": "Hot pot (Sichuan)",
+   "category_zh": "火锅（川味）",
+   "blurb": "Xiang Hotpot (香天下) is a China-origin Sichuan hot pot chain run by the Sichuan Xiang Tian Xia Catering Group. It grew from 金川火锅, a hot pot restaurant founded in 2003 in Nanchong, Sichuan by Zhu Quan (朱全), which was later renamed and built into 香天下 — today roughly 600-700 restaurants worldwide across more than 30 sub-brands, known for rich butter and spicy broths and playful, theatrical pot-bases. It trades overseas in English as 'Spice World Hot Pot' and, in the US, as 'Xiang Hotpot.' Its US location is in Brooklyn (Fort Hamilton Parkway); an earlier Flushing restaurant in New World Mall has closed.",
+   "site_us": "https://chowbusmkt.wixsite.com/xianghotpot",
+   "us_since": "2018"
   }
  }
 }

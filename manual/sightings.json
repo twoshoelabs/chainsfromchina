@@ -4890,6 +4890,24 @@
      "coord_src": "manual (Google place)"
     }
    ]
+  },
+  {
+   "chain": "xiangtianxia",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Google/Yelp/OpenTable + owner screenshot (14 Nov 2026).",
+   "scope": "香天下 / Xiang Hotpot US outlets. 1 open: Brooklyn NY (5816 Fort Hamilton Pkwy). Flushing NY (136-20 Roosevelt Ave, New World Mall) closed (Yelp CLOSED, Mar 2026).",
+   "locations": [
+    {
+     "name": "Brooklyn (Fort Hamilton Pkwy)",
+     "address": "5816 Fort Hamilton Pkwy, Brooklyn, NY 11219",
+     "lat": 40.63535,
+     "lon": -73.99705,
+     "confidence": "confirmed",
+     "verified_by": "Google (Xiang Hotpot-Brooklyn, 4.8/4,798 reviews, open) + Yelp (Sept 2026, reservations open) + OpenTable (14 Nov 2026).",
+     "coord_src": "manual (Fort Hamilton Pkwy nr 58th St)"
+    }
+   ]
   }
  ]
 }
