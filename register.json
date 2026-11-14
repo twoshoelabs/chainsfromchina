@@ -2036,6 +2036,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Large China (Guangdong) Yunnan rice-noodle chain. US tracked via its Fremont CA restaurant; Canada via Metro Vancouver. US ownership (company vs licensee) unconfirmed; no US FDD."
+  },
+  "aganguokui": {
+   "name": "A Gan Guo Kui",
+   "name_zh": "阿甘锅盔",
+   "name_intl": "A Gan Guo Kui",
+   "aliases": [
+    "阿甘锅盔",
+    "阿甘鍋盔",
+    "A Gan Guo Kui",
+    "Agan Guokui",
+    "阿甘"
+   ],
+   "format": "bakery",
+   "global": "China-origin 锅盔 (guokui — a baked, crispy stuffed flatbread) snack chain, operator 上海多串餐饮管理有限公司, founded May 2014, HQ Shanghai (Xuhui); first store on Shanghai's Liuzhou Rd. The guokui itself hails from Jingzhou, Hubei; the brand name plays on 《阿甘正传》 (Forrest Gump) and co-founder 甘向阳. Built a franchise system from 2018 and grew to ~1,200+ stores across 180+ Chinese cities (2020), with a 2023 push into lower-tier markets (a 3-year, 3,000-store plan). Overseas: Singapore (Funan, open), Australia (Sydney/Burwood, open); Malaysia (Kota Damansara, Selangor) exited. No US presence.",
+   "operating_model": "franchise_and_company",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shanghai) guokui flatbread chain (franchise-heavy). Tracked abroad via Singapore + Australia; Malaysia exited. No US presence or FDD."
   }
  },
  "entries": [
@@ -10337,6 +10355,50 @@
    "note": "Metro Vancouver (3), trading as 'Meetrice Noodle' / 蒙自源: Richmond (8580 Alexandra Rd #1080), Burnaby (Kingsway) and Vancouver (4488 Main St). Per Vancouver Is Awesome the Burnaby store opened the year before Richmond.",
    "sources": [
     "https://www.vancouverisawesome.com/food-and-drink/meetrice-chinese-noodles-richmond-bc-1945790"
+   ]
+  },
+  {
+   "chain": "aganguokui",
+   "market": "SG",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Singapore — Funan mall (107 North Bridge Rd, #B2-K05, Funan, Singapore 179105), operator-observed open (Google, 3.8/240).",
+   "sources": [
+    "https://www.google.com/maps (阿甘锅盔 A Gan Guo Kui — Funan, Singapore, open)"
+   ]
+  },
+  {
+   "chain": "aganguokui",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Australia — Sydney, Burwood Chinatown (Shop 18, 127-133 Burwood Rd, Burwood NSW 2134), operator-observed open (Google).",
+   "sources": [
+    "https://www.google.com/maps (阿甘锅盔 — Burwood NSW, open)"
+   ]
+  },
+  {
+   "chain": "aganguokui",
+   "market": "MY",
+   "status": "exited",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Malaysia exited — Kota Damansara (No. 11, Jalan PJU 5/10, 47810 Petaling Jaya, Selangor) marked Permanently closed on Google (14 Nov 2026).",
+   "sources": [
+    "https://www.google.com/maps (A Gan Guo Kui Kota Damansara — Permanently closed)"
    ]
   }
  ]
