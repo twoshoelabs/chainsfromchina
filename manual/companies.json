@@ -2972,6 +2972,15 @@
    "category_zh": "过桥米线",
    "blurb": "Dagu Rice Noodle (大鼓米线, \"Big Drum Rice Noodle\") is a China-origin chain built on Yunnan \"crossing-the-bridge\" rice noodles (过桥米线), founded in Shanghai in 2010 — its name traces to a noodle shop near a Drum Tower in Kunming. Diners build their own rice-noodle hot pot, with fried snacks, boba and fruit teas, and iced desserts alongside. It reports several hundred stores worldwide (mostly in Asia) and expanded internationally from 2017. New Zealand is a stronghold — five stores across Auckland (Botany, Henderson, Mt Eden, Albany) and Hamilton. Canada has contracted sharply, down to a single Edmonton store after closures in Toronto, Markham, Calgary and Montreal. In the United States its stores are run by separate regional operators.",
    "us_since": "2017"
+  },
+  "vevor": {
+   "name": "VEVOR",
+   "name_zh": "",
+   "category": "Tools & home improvement (China-based wholesaler)",
+   "category_zh": "工具/家居",
+   "blurb": "VEVOR is a China-based (Shanghai, founded 2007) factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods, selling mainly online through vevor.com and marketplaces. In March 2026 it opened its first-ever physical store — a 32,000-square-foot omnichannel flagship in Houston, Texas — as a test of US brick-and-mortar retail. It is a new breed for this tracker: a US physical-retail debut by a China-based online wholesaler rather than a China retail chain expanding abroad, so it is listed for monitoring but not yet counted in the US outlet total.",
+   "site_us": "https://www.vevor.com/",
+   "us_since": "2026"
   }
  }
 }

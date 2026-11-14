@@ -1873,6 +1873,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Franchised / regional-operator chain; US outlets run by separate regional operators with their own single-store sites (no national US entity or roster). China-origin (Shanghai 2010). No US FDD confirmed."
+  },
+  "vevor": {
+   "name": "VEVOR",
+   "name_zh": "",
+   "name_us": "VEVOR",
+   "aliases": [
+    "VEVOR",
+    "VEVOR Home Improvement Store",
+    "VEVOR Tools"
+   ],
+   "format": "home",
+   "sector": "home",
+   "sub_category": "tools & home improvement",
+   "global": "VEVOR is a China-based factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods — founded 2007, HQ Shanghai (operating entity Shanghai Sishun E-commerce Co.). It sells overwhelmingly ONLINE (vevor.com + Amazon/eBay/Walmart), not through retail stores in China. In March 2026 it opened its first-ever physical store anywhere — a ~32,000 sq ft omnichannel \"flagship\" in Houston TX (10951 FM 1960 W) — with more US locations signaled but none yet named. A NEW BREED for this tracker: a US physical-retail debut by a China-based online wholesaler, rather than a China retail chain extending abroad. Listed here for monitoring and explicitly NOT counted in the US outlet total — revisit if it builds a genuine multi-store US chain.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-based (Shanghai) factory-direct e-commerce wholesaler; one US flagship store (Houston, Mar 2026), online-first otherwise. No China retail stores. Monitoring-only — NOT counted in the US total until a real US chain forms."
   }
  },
  "entries": [

@@ -1793,3 +1793,31 @@ class DaguAdapter(Adapter):
                       " Alhambra CA, Doraville GA, Brooklyn NY, Ypsilanti MI, Madison WI); Quincy MA +"
                       " State College PA uncertain. In scope (China origin)")
     RECHECK = ["https://www.daguusa.com/", "https://www.daiguny.com/", "https://www.noodledagu.com/"]
+
+
+class VevorAdapter(Adapter):
+    """
+    VEVOR — a China-based (Shanghai, founded 2007; operating entity Shanghai Sishun E-commerce Co.)
+    factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods.
+    It sells overwhelmingly ONLINE (vevor.com + Amazon/eBay/Walmart) and runs NO retail stores in
+    China. In March 2026 it opened its FIRST-ever physical store anywhere — a ~32,000 sq ft omnichannel
+    flagship in Houston TX (10951 FM 1960 W) — with more US locations signaled but none yet named.
+
+    A NEW BREED for this tracker: a US physical-retail debut by a China-based online wholesaler, not a
+    China retail chain extending abroad. Per the DTC scope rule it would normally be OUT, but by owner
+    decision (2026-11-14) it is LISTED for monitoring on the Chains page while explicitly NOT COUNTED
+    in the US outlet total (no sighting is recorded, so it stays at 0). Revisit and count only if it
+    builds a genuine multi-store US chain.
+    """
+    chain_id, name, name_zh = "vevor", "VEVOR", ""
+    name_us = "VEVOR"
+    aliases = ("VEVOR", "VEVOR Home Improvement Store", "VEVOR Tools")
+    parent, format = "Shanghai Sishun E-commerce Co. (VEVOR, Shanghai, 2007)", "home"
+    ENABLED = False
+    BLOCKED_REASON = ("China-based Shanghai e-commerce wholesaler (tools/home-improvement, founded"
+                      " 2007); online-first with NO China retail stores. Opened its first physical"
+                      " store anywhere — a Houston TX omnichannel flagship (Mar 2026). NEW BREED:"
+                      " US physical-retail debut of a China online wholesaler. Owner decision"
+                      " (14 Nov 2026): list for MONITORING, NOT counted in the US total (no sighting);"
+                      " revisit if a real multi-store US chain forms")
+    RECHECK = ["https://www.vevor.com/pages/store"]
