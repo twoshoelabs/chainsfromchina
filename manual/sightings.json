@@ -4814,8 +4814,8 @@
    "chain": "ziyan",
    "supplied_on": "2026-11-14",
    "reviewed": "2026-11-14",
-   "source": "Operator-observed Google/Yelp listings + press (Ziyan US launch, Apr 2025).",
-   "scope": "紫燕百味鸡 Ziyan (卤味) US outlets, all NY-metro, operator-observed open: Flushing NY (136-55 Roosevelt Ave, first NA store Apr 2025), Manhattan Chinatown (147 Mott St), Jersey City NJ (525 Washington Blvd, Newport Centre). Not guaranteed complete.",
+   "source": "Operator-observed Google/Yelp listings + press (Ziyan US launch, Apr 2025). Re-sweep 14 Nov 2026 (Apple Maps / Fantuan).",
+   "scope": "紫燕百味鸡 Ziyan (卤味) US outlets, all NY-metro, operator-observed open: Flushing NY (136-55 Roosevelt Ave, first NA store Apr 2025), Manhattan Chinatown (147 Mott St), Jersey City NJ (525 Washington Blvd, Newport Centre). Re-sweep 14 Nov 2026 found two UNVERIFIED leads held out of count: Long Island City (Jacx food hall, Apple Maps) and Edison NJ (Fantuan). Not guaranteed complete.",
    "locations": [
     {
      "name": "Flushing (Roosevelt Ave)",
@@ -4842,6 +4842,24 @@
      "lon": -74.03467,
      "confidence": "confirmed",
      "verified_by": "Google (Ziyan Chicken 紫燕百味鸡 Jersey City, 79 reviews, Newport Centre), operator-observed open (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Long Island City (Jacx & Co food hall) — unverified",
+     "address": "28-17 Jackson Ave, Long Island City, NY 11101",
+     "lat": 40.74836,
+     "lon": -73.93912,
+     "confidence": "uncertain",
+     "verified_by": "Apple Maps lists a 'Ziyan Chicken' stall at the Jacx & Co food hall; not confirmed on Google/Yelp and absent from older Jacx vendor lists — held out of count pending verification (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Edison (Lincoln Hwy) — unverified",
+     "address": "1777 Lincoln Hwy, Edison, NJ 08817",
+     "lat": 40.51284,
+     "lon": -74.40593,
+     "confidence": "uncertain",
+     "verified_by": "Fantuan delivery-platform listing 'Ziyan Chicken (Edison)'; details flagged inconsistent, no operator-observed storefront confirmed — held out of count pending verification (14 Nov 2026).",
      "coord_src": "US Census geocoder"
     }
    ]
