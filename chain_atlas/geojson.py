@@ -100,6 +100,7 @@ def build(con, d: dict | None = None) -> dict:
             "chain": r["chain_id"],
             "name": bm.get("name") or r["name"] or r["chain_id"],
             "sector": bm.get("sector"),
+            "lane": bm.get("lane"),             # 'brand_flagship' for the Brand Flagships roof, else null
             "fr": bm.get("franchise"),          # 1 = open to a US franchisee, 0 = not, null = unknown
             "fdd": bm.get("fdd"),           # 1 = registered US FDD on file, else 0/null
             "kind": "store",
@@ -126,6 +127,7 @@ def build(con, d: dict | None = None) -> dict:
             "chain": s["chain"],
             "name": bm.get("name") or s["chain"],
             "sector": bm.get("sector"),
+            "lane": bm.get("lane"),             # 'brand_flagship' for the Brand Flagships roof, else null
             "fr": bm.get("franchise"),          # 1 = open to a US franchisee, 0 = not, null = unknown
             "fdd": bm.get("fdd"),           # 1 = registered US FDD on file, else 0/null
             "kind": "sighting",

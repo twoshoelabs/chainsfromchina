@@ -426,6 +426,7 @@
           <tr><td data-i18n="home.ledger.open">Outlets open</td><td class="v tot" id="L-open"></td></tr>
           <tr class="sub"><td class="k2" data-i18n="home.ledger.mapped">on the map</td><td class="v" id="L-mapped"></td></tr>
           <tr class="sub"><td class="k2" data-i18n="home.ledger.unaddr">awaiting an address</td><td class="v" id="L-unaddr"></td></tr>
+          <tr class="sub"><td class="k2" data-i18n="home.ledger.flagship">incl. brand flagships</td><td class="v" id="L-flagship"></td></tr>
           <tr><td data-i18n="home.ledger.chains">Chains tracked</td><td class="v tot" id="L-chains"></td></tr>
           <tr><td data-i18n="home.ledger.sectors">Sectors</td><td class="v tot" id="L-sectors"></td></tr>
           <tr><td><span data-i18n="home.ledger.ann">Announced, not yet open</span><sup>2</sup></td><td class="v tot" id="L-ann"></td></tr>
@@ -706,9 +707,11 @@ function animateGrandTotal(outlets, prevTotal){
   const mapped = (T.mapped!=null) ? T.mapped : outlets;
   const unaddr = (T.unmapped!=null) ? T.unmapped : 0;
   const bySector = {}; const chainSet = new Set();
+  let bfOutlets = 0; const bfChains = new Set();
   for (const f of feats) { if (!isLocated(f)) continue; const p=f.properties;
     const s = bySector[p.sector] || (bySector[p.sector]={outlets:0,chains:new Set()});
-    s.outlets++; s.chains.add(p.chain); chainSet.add(p.chain); }
+    s.outlets++; s.chains.add(p.chain); chainSet.add(p.chain);
+    if (p.lane==='brand_flagship') { bfOutlets++; bfChains.add(p.chain); } }
   const secRows = Object.entries(bySector).sort((a,b)=>b[1].outlets-a[1].outlets);
   const nChains = chainSet.size, nSectors = secRows.length;
   animateGrandTotal(outlets, T.prev);         // hero-num + L-open: spin up on a first/after-a-while visit
@@ -716,6 +719,12 @@ function animateGrandTotal(outlets, prevTotal){
   $('L-mapped').textContent = fmt(mapped);
   $('L-unaddr').textContent = fmt(unaddr); $('L-chains').textContent = fmt(nChains);
   $('L-sectors').textContent = fmt(nSectors);
+  // Brand Flagships: China product / tech / DTC brands running their own-name US retail (DREAME,
+  // DeRUCCI, Fioboc, VEVOR, OPPEIN, DJI) — a subset of outlets, surfaced as its own ledger line.
+  const Lflag = $('L-flagship');
+  if (Lflag) { const row = Lflag.closest('tr');
+    if (bfOutlets > 0) { Lflag.textContent = fmt(bfOutlets); Lflag.title = fmt(bfChains.size) + ' brands'; }
+    else if (row) { row.style.display = 'none'; } }
 
   // Announced
   const annBy = {}; for (const f of feats) if (f.properties.status==='coming_soon') annBy[f.properties.chain]=(annBy[f.properties.chain]||0)+1;

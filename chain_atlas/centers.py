@@ -92,6 +92,17 @@ def _brand_meta(d: dict) -> dict:
                                 "sector": register.SECTOR_BY_FORMAT.get(getattr(a, "format", None))}
     except Exception:                                            # noqa: BLE001
         pass
+    # Brand-flagship lane lives in companies.json (it spans register chains AND adapter-only
+    # brands like DREAME that have no register entry), so stamp it onto every known chain here.
+    try:
+        comps = json.loads(
+            (Path(__file__).resolve().parents[1] / "manual" / "companies.json").read_text(encoding="utf-8")
+        ).get("companies", {})
+        for cid, co in comps.items():
+            if cid in meta and co.get("lane"):
+                meta[cid]["lane"] = co["lane"]
+    except Exception:                                            # noqa: BLE001
+        pass
     return meta
 
 

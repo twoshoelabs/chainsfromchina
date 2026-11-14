@@ -2341,7 +2341,8 @@
    "photo_credit": null,
    "us_since": "2024",
    "first_outlet": "Los Angeles, CA — Westfield Century City",
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "consumer_store"
   },
   "showminihotpot": {
    "name": "Show Mini Hot Pot",
@@ -2635,7 +2636,8 @@
    "photo_credit": null,
    "us_since": "2023",
    "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)",
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "showroom"
   },
   "mogouyan": {
    "name": "Mogouyan Hand-Pulled Noodle",
@@ -2983,7 +2985,8 @@
    "blurb": "VEVOR is a China-based (Shanghai, founded 2007) factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods, sold mainly online via vevor.com and marketplaces. In March 2026 it opened its first-ever physical store — a 32,000-square-foot omnichannel flagship in Houston, Texas. That store is noted here for monitoring but is deliberately NOT mapped or counted in the US outlet total, because VEVOR operates no brick-and-mortar stores in China: by this tracker's scope rule, a China brand's US outlets count only when it runs physical retail in China that extends abroad. VEVOR is the opposite — a China online wholesaler debuting physical retail in the US — a new breed we are watching but not yet tallying. We'll revisit if it builds a genuine multi-store US chain.",
    "site_us": "https://www.vevor.com/",
    "us_since": "2026",
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "consumer_store"
   },
   "ziyan": {
    "name": "Ziyan Chicken",
@@ -3064,7 +3067,8 @@
    "blurb": "Fioboc (菲奥博克) is a China-origin online fast-fashion apparel brand, run by Shenzhen Fiaoboke Clothing Technology, a subsidiary of Guangzhou Jiale Information Technology (founded 2016). It began as a pure cross-border, direct-to-consumer e-commerce brand — selling through Shopify and independent sites across North America, Europe and Southeast Asia — with no physical stores in China, built around a 'FabriTech' / 'Always Fits' apparel pitch. In 2026 it opened its first physical stores, a US mall chain in California: Westfield Valley Fair (Santa Clara), Westfield Galleria at Roseville, and Glendale Galleria. It is the first example of a new breed in this tracker: a China online/DTC brand that builds a real multi-store US physical retail chain.",
    "site_us": "https://www.fioboc.com/",
    "us_since": "2026",
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "consumer_store"
   },
   "oppein": {
    "name": "OPPEIN",
@@ -3074,7 +3078,8 @@
    "blurb": "OPPEIN (欧派家居) is a China-origin home-furnishings manufacturer — custom kitchen cabinets, wardrobes and vanities — founded in Guangzhou in 1994 and listed in Shanghai (SSE 603833), among the world's largest cabinetry makers. In the US it operates through OPPEIN Home USA, running design showrooms in Paramus, New Jersey and San Jose, California (serving NJ/NY/CT/PA and the Bay Area) rather than exporting a store format — a 'Brand Flagship' presence.",
    "site_us": "https://oppeinhomeusa.com/",
    "us_since": null,
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "showroom"
   },
   "dji": {
    "name": "DJI",
@@ -3084,7 +3089,8 @@
    "blurb": "DJI (大疆) is a China-origin aerial-imaging company — SZ DJI Technology, founded in Shenzhen in 2006 by Frank Wang — and the world's largest consumer-drone maker. It opened its first US own-brand store, a concept/flagship on Manhattan's Fifth Avenue (685 Fifth Ave) in March 2024, operated with authorized partner Camrise; other US 'DJI stores' are third-party authorized resellers. It's tracked here as a 'Brand Flagship.'",
    "site_us": "https://store.dji.com/",
    "us_since": "2024",
-   "lane": "brand_flagship"
+   "lane": "brand_flagship",
+   "flagship_type": "flagship"
   }
  }
 }
