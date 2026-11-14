@@ -143,6 +143,54 @@
   "SA": {
    "name": "Saudi Arabia",
    "region": "Gulf"
+  },
+  "BR": {
+   "name": "Brazil",
+   "region": "Latin America"
+  },
+  "CZ": {
+   "name": "Czech Republic",
+   "region": "Europe"
+  },
+  "EC": {
+   "name": "Ecuador",
+   "region": "Latin America"
+  },
+  "GE": {
+   "name": "Georgia",
+   "region": "Europe"
+  },
+  "IN": {
+   "name": "India",
+   "region": "South Asia"
+  },
+  "LA": {
+   "name": "Laos",
+   "region": "Southeast Asia"
+  },
+  "NI": {
+   "name": "Nicaragua",
+   "region": "Latin America"
+  },
+  "PA": {
+   "name": "Panama",
+   "region": "Latin America"
+  },
+  "PE": {
+   "name": "Peru",
+   "region": "Latin America"
+  },
+  "UY": {
+   "name": "Uruguay",
+   "region": "Latin America"
+  },
+  "VE": {
+   "name": "Venezuela",
+   "region": "Latin America"
+  },
+  "XK": {
+   "name": "Kosovo",
+   "region": "Europe"
   }
  },
  "chains": {
@@ -2172,6 +2220,186 @@
    "fdd_available": 0,
    "franchise_note": "China (Shenzhen) drone/imaging maker; US via a single Fifth Avenue NYC flagship (authorized-partner-operated). Brand Flagship. No US franchise or FDD.",
    "lane": "brand_flagship"
+  },
+  "baospastry": {
+   "name": "Bao's Pastry",
+   "name_intl": "Bao's Pastry",
+   "name_zh": "鲍师傅",
+   "aliases": [
+    "Bao's Pastry",
+    "鲍师傅",
+    "Bao Shifu",
+    "鲍师傅糕点"
+   ],
+   "format": "bakery",
+   "global": "A Beijing-headquartered bakery chain founded by Bao Caisheng about two decades ago, famous in China for its pork-floss cakes and cream-filled sponge, with more than 100 outlets. Its first US store opened in Flushing, Queens in late 2025.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Beijing pork-floss pastry chain; largely directly-operated. US-tracked via sightings; no US FDD."
+  },
+  "dalongyi": {
+   "name": "Dalongyi",
+   "name_intl": "Da Long Yi Hot Pot",
+   "name_zh": "大龙燚",
+   "aliases": [
+    "Da Long Yi Hot Pot",
+    "Dalongyi",
+    "大龙燚",
+    "Da Long Yi",
+    "Dalongyi Hot Pot"
+   ],
+   "format": "hotpot",
+   "global": "A Chengdu hot-pot chain founded in 2013 in the city's Yulin district, grown through franchising to a claimed 2,000-plus stores with outlets abroad. Known for numbing-spicy Sichuan broth. Its US outlets run as independent franchises; two — in Long Island City and Boston — are currently open after earlier California and Seattle stores closed.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Chengdu hotpot franchise; US-tracked via sightings; no US FDD confirmed.",
+   "name_us": "Da Long Yi Hot Pot"
+  },
+  "dreame": {
+   "name": "DREAME",
+   "name_intl": "DREAME",
+   "name_zh": "追觅",
+   "aliases": [
+    "DREAME",
+    "Dreame",
+    "追觅",
+    "追觅科技",
+    "Dreame Technology"
+   ],
+   "format": "electronics",
+   "global": "A Suzhou (Jiangsu) smart-home electronics brand (Dreame Technology, 追觅科技; Xiaomi-ecosystem origin) known for robot vacuums, cordless stick vacuums, wet/dry cleaners and hair dryers. In the US it runs a growing branded retail chain of smart-home stores — a chain rather than a single flagship — with permanent locations at Westfield Century City (Los Angeles), Westfield UTC (San Diego), Westfield Valley Fair (Santa Clara) and Garden State Plaza (Paramus, NJ), alongside temporary pop-ups.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Suzhou smart-home electronics brand; own-brand stores/flagships. US-tracked via sightings (Brand Flagship)."
+  },
+  "liuyishou": {
+   "name": "Liuyishou Hot Pot",
+   "name_intl": "Liuyishou Hot Pot",
+   "name_zh": "刘一手火锅",
+   "aliases": [
+    "Liuyishou Hot Pot",
+    "刘一手火锅",
+    "Liuyishou",
+    "Liu Yi Shou"
+   ],
+   "format": "hotpot",
+   "global": "A Chongqing hotpot chain founded in 2000, one of China's largest with thousands of outlets, known for its buttery mala broth and beef. It trades across North America as \"Liuyishou Hot Pot\" and publishes its own site with a page per city; its US outlets run from Boston and New York to California, Texas, Illinois and Washington.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Chongqing hotpot chain, franchise-heavy; strong Canada footprint. US-tracked via sightings; no US FDD confirmed."
+  },
+  "mollytea": {
+   "name": "Molly Tea",
+   "name_intl": "Molly Tea",
+   "name_zh": "茉莉奶白",
+   "aliases": [
+    "Molly Tea",
+    "茉莉奶白",
+    "Moli Naibai"
+   ],
+   "format": "tea",
+   "global": "A Chinese premium milk-tea chain founded in 2021, known for its jasmine-tea \"milk white\" drinks and fast overseas growth across Asia, Australia and North America. Its US outlets, trading as \"Molly Tea\", run across California and into Washington, Texas, Illinois, Georgia, Nevada, New Jersey, Pennsylvania and beyond.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Premium milk-tea chain; fast overseas franchise growth. US-tracked via sightings; no US FDD confirmed."
+  },
+  "quanjude": {
+   "name": "Quanjude",
+   "name_intl": "Quanjude",
+   "name_zh": "全聚德",
+   "aliases": [
+    "Quanjude",
+    "iDEN",
+    "iDEN & Quanjude",
+    "iDEN Fifth",
+    "iDen",
+    "全聚德",
+    "Quanjude Beijing Duck"
+   ],
+   "format": "restaurant",
+   "global": "The Beijing roast-duck institution (全聚德), founded 1864, whose hanging-oven Peking duck method is a National Intangible Cultural Heritage. A state-owned chain with 100+ outlets in China; its US flagship opened in Midtown Manhattan under the upscale 'iDEN' concept (iDEN & Quanjude).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "State-owned Beijing roast-duck institution (est. 1864). US-tracked via sightings; no US FDD."
+  },
+  "shuyi": {
+   "name": "Shuyi Tealicious",
+   "name_intl": "Shuyi Grass Jelly & Tea",
+   "name_zh": "书亦烧仙草",
+   "aliases": [
+    "Shuyi Grass Jelly & Tea",
+    "Shuyi Tealicious",
+    "书亦烧仙草",
+    "Shuyi Shaixiancao",
+    "Shuyi Grass Jelly and Tea"
+   ],
+   "format": "tea",
+   "global": "A grass-jelly milk-tea chain founded in 2007 in Chengdu by Wang Bin, whose signature drinks pile a cup half-full with grass jelly and other toppings; one of China's largest tea chains, with several thousand stores. Its US shops, trading as 'Shuyi Grass Jelly & Tea', are franchise-run — four are open — in Virginia, Maryland and the Bay Area — after the original San Mateo store closed.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Chengdu grass-jelly milk-tea franchise. US-tracked via sightings; no US FDD confirmed.",
+   "name_us": "Shuyi Grass Jelly & Tea"
+  },
+  "toptoy": {
+   "name": "TOP TOY",
+   "name_intl": "TOP TOY",
+   "name_zh": "TOP TOY",
+   "aliases": [
+    "TOP TOY",
+    "TOPTOY"
+   ],
+   "format": "toys",
+   "global": "A Chinese art-toy and blind-box retailer launched in 2020 by MINISO Group, carrying its own IPs alongside licensed lines from Sanrio, Disney and others. It opened its first US store in Times Square, New York.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "MINISO Group art-toy retailer; company-operated + partners. US-tracked via sightings; no US FDD."
+  },
+  "wallace": {
+   "name": "Wallace",
+   "name_intl": "Wallace Chicken",
+   "name_zh": "华莱士",
+   "aliases": [
+    "Wallace Chicken",
+    "Wallace",
+    "华莱士",
+    "Wallace Burger & Chicken",
+    "Hualaishi",
+    "华莱士炸鸡"
+   ],
+   "format": "restaurant",
+   "global": "A Western-style fast-food chain — fried chicken, burgers and fries — founded in Fuzhou in 2001 by the Hua brothers under Fujian Wallace Food Co. With roughly 20,000 outlets across China, it is widely billed as “China’s KFC”. Its first store outside China opened 17 November 2024 in Walnut, California, with a second in West Covina.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Fuzhou Western-style fast-food chain (~20,000 China stores), franchise-heavy. US-tracked via sightings; no US FDD confirmed.",
+   "name_us": "Wallace Chicken"
+  },
+  "xijiade": {
+   "name": "Xijiade",
+   "name_intl": "Dumpling Xi",
+   "name_zh": "喜家德",
+   "aliases": [
+    "Dumpling Xi",
+    "Xijiade",
+    "喜家德",
+    "Xi Jia De",
+    "喜家德水饺"
+   ],
+   "format": "restaurant",
+   "global": "A Northeastern-China shrimp-dumpling chain founded in 2002 in Hegang, Heilongjiang by Gao Defu, with 800-plus directly-operated stores. It trades in America as 'Dumpling Xi', opening its first US store in Flushing, Queens in February 2025 and a second in the East Village that July.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Northeastern-China shrimp-dumpling chain, directly-operated; trades in the US as Dumpling Xi. US-tracked via sightings; no US FDD.",
+   "name_us": "Dumpling Xi"
   }
  },
  "entries": [
@@ -10592,6 +10820,938 @@
    "note": "Canada — Vancouver, BC (Lao Feng Xiang Jewelry Canada, lfxjewelry.ca).",
    "sources": [
     "https://lfxjewelry.ca/"
+   ]
+  },
+  {
+   "chain": "baospastry",
+   "market": "SG",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2025-09",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "First overseas store at Paya Lebar Square inside Scarlett Supermarket (Beijing pork-floss/seaweed bakery), opened mid-2025. Malaysia (Sunway Pyramid) announced for late 2026 but not yet open.",
+   "sources": [
+    "https://sethlui.com/baos-pastry-singapore/"
+   ]
+  },
+  {
+   "chain": "dalongyi",
+   "market": "AU",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2013",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Melbourne CBD (398 Elizabeth St) + Sydney Haymarket. At least 2 outlets.",
+   "sources": [
+    "https://whatson.melbourne.vic.gov.au/eat-and-drink/da-long-yi",
+    "https://www.quandoo.com.au/place/da-long-yi-hotpot-sydney-58429"
+   ]
+  },
+  {
+   "chain": "dalongyi",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Richmond Hill, ON (350 Highway 7) — reported first Canadian location (2019), still in 2022 roundups.",
+   "sources": [
+    "https://www.blogto.com/eat_drink/2019/01/chinese-hot-pot-dalongyi-toronto"
+   ]
+  },
+  {
+   "chain": "dalongyi",
+   "market": "GB",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Da Long Yi, Fitzrovia London — Deliveroo UK menu (GBP). No standalone address independently confirmed.",
+   "sources": [
+    "https://deliveroo.co.uk/menu/London/fitzrovia/da-long-yi-hot-pot-mms"
+   ]
+  },
+  {
+   "chain": "dalongyi",
+   "market": "SG",
+   "status": "exited",
+   "locations": null,
+   "locations_as_of": "2018",
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Orchard Central (181 Orchard Rd #08-08) opened 2018; Burpple lists CLOSED while some directories still show it — treat as likely exited/uncertain.",
+   "sources": [
+    "https://www.burpple.com/da-long-yi-hotpot"
+   ]
+  },
+  {
+   "chain": "derucci",
+   "market": "IT",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": "2015-04",
+   "precision": "month",
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "'DeRUCCI Milano' 800m2 brand flagship near Castello Sforzesco, Milan, opened Apr 2015; current status unconfirmed.",
+   "sources": [
+    "https://www.archilovers.com/projects/181972/deruccimilano.html"
+   ]
+  },
+  {
+   "chain": "derucci",
+   "market": "MY",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026-04",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "First Malaysian flagship 'Sleep Experience Centre', Bangsar, Kuala Lumpur, opened 2 Apr 2026 (with Getha; ~30 locations planned).",
+   "sources": [
+    "https://marketingmagazine.com.my/?p=144984"
+   ]
+  },
+  {
+   "chain": "derucci",
+   "market": "SG",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "DeRUCCI-branded showrooms (Changi Gallery, Dunearn pop-up) via distributor Maxcoil; own-brand-labeled, not third-party concession. Also sold through COURTS/Harvey Norman (distribution, excluded).",
+   "sources": [
+    "https://www.maxcoil.com.sg/pages/brand/derucci"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "HK",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2016",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "DJI flagship at Tower 535 Causeway Bay (~10,000 sqft, 2016) + DJI-branded concept store New Town Plaza (opened 3 Jul 2026). Own-brand flagships/concept stores counted; resellers excluded.",
+   "sources": [
+    "https://www.dji.com/newsroom/news/dji-to-open-flagship-store-in-hong-kong"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026-10",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "'DJI & Hasselblad Concept Store', Omotesando, Tokyo, opened 31 Oct 2026 — DJI-branded concept store (Japan's first), operated by authorized distributor Sekido.",
+   "sources": [
+    "https://dronexl.co/2026/10/30/dji-hasselblad-tokyo-omotesando-concept-store-japan-first/"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "KR",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": "2016-03",
+   "precision": "month",
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "DJI Korea flagship, Hongdae, Seoul (opened Mar 2016). 2016-era sourcing; current status not re-confirmed.",
+   "sources": [
+    "https://www.dji.com/newsroom/news/dji-expands-into-korea-market-with-launch-of-flagship-store-in-hongdae"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "AE",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-01",
+   "first_opened": "2025-04",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Two standalone flagships: Dubai Hills Mall (first MEA flagship, 24 Apr 2025) + Mall of the Emirates. Dubai Mall 3rd announced, not confirmed.",
+   "sources": [
+    "https://www.zawya.com/en/press-release/companies-news/dreame-technology-opens-new-flagship-store-at-mall-of-the-emirates-accelerating-growth-in-uae-luxury-smart-home-market-xgrblvjg"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "MY",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Dreame store at Sunway Carnival Mall, Penang; official MY channel dreame.my.",
+   "sources": [
+    "https://www.sunwaycarnival.com/directory/dreame"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "PH",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-04",
+   "first_opened": "2026-03",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "First offline flagship opened 20 Mar 2026 (after a smaller SM Fairview store).",
+   "sources": [
+    "https://mb.com.ph/2026/04/04/dreame-opens-ph-flagship-store-showcases-ai-powered-smart-home-tech"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "SG",
+   "status": "present",
+   "locations": 4,
+   "locations_as_of": "2026-09",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Dreame-brand flagships; 4th at Suntec City opened 26 Sep 2026 (confirmed); SingPost Centre/Westgate/Funan reported, partially confirmed.",
+   "sources": [
+    "https://www.thailand-business-news.com/pr-news/dreame-technology-opens-new-flagship-store-at-suntec-city-expanding-smart-living-experience-in-singapore"
+   ]
+  },
+  {
+   "chain": "liuyishou",
+   "market": "AE",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Yicai Global reports Liuyishou opened its first Dubai outlet; official NA site lists Dubai as a market. No specific street address located.",
+   "sources": [
+    "https://www.yicaiglobal.com/news/chinese-hot-pot-chains-in-middle-east-adapt-to-local-culture-to-attract-more-clients"
+   ]
+  },
+  {
+   "chain": "liuyishou",
+   "market": "CA",
+   "status": "present",
+   "locations": 9,
+   "locations_as_of": "2026-11",
+   "first_opened": "2014-08",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Official NA site lists 9 Canadian outlets: Vancouver (Robson St downtown), Richmond BC, Burnaby, Edmonton, Ottawa, Montreal, Toronto downtown, Richmond Hill, Scarborough. Entered North America via Richmond BC Aug 2014.",
+   "sources": [
+    "https://www.liuyishouna.com/our-story",
+    "https://www.destinationvancouver.com/places-to-eat/liuyishou-hot-pot-burnaby"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "AU",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2025-04",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Entered Australia late 2024 (Sydney); by April 2025 ~3 Melbourne stores incl. a Swanston St flagship. Press reporting, floor ~3.",
+   "sources": [
+    "https://insideretail.com.au/?p=69265"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "CA",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2026-04",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Canada stores in Toronto and Edmonton through 2025; Richmond BC opened 18 Apr 2026. No consolidated count; floor ~3.",
+   "sources": [
+    "https://dailyhive.com/vancouver/molly-tea"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "GB",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2025-03",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "UK entry early 2025: London Chinatown store + a Birmingham opening reported March 2025.",
+   "sources": [
+    "https://www.worldcoffeeportal.com/news/chinas-molly-tea-enters-uk-with-store-in-londons-chinatown/"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "ID",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2025-11",
+   "first_opened": "2025-11",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Two Jakarta stores opened 21 Nov 2025 (Gandaria City + Mall Kelapa Gading) via local partner Jasmine Journey Indonesia.",
+   "sources": [
+    "https://www.rli.uk.com/?p=216061"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "SG",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-03",
+   "first_opened": "2026-03",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "First Singapore store at Orchard Central (largest SE Asian store), grand opening 6 Mar 2026. A Raffles Place 2nd outlet reported but unconfirmed; floor 1.",
+   "sources": [
+    "https://insideretail.asia/2026/03/04/chinas-molly-tea-enters-singapore-opening-largest-se-asian-store-yet/"
+   ]
+  },
+  {
+   "chain": "mollytea",
+   "market": "TH",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2024-09",
+   "first_opened": "2024-09",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Bangkok store opened September 2024; Thailand cited as an operating market. No specific mall/count given.",
+   "sources": [
+    "https://www.rli.uk.com/molly-tea-enters-indonesia"
+   ]
+  },
+  {
+   "chain": "oppein",
+   "market": "AE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "OPPEIN Dubai (+ Abu Dhabi) showroom / GCC regional base; named among franchise showrooms opened since Feb 2024.",
+   "sources": [
+    "https://abnnewswire.net/press/en/128809/Celebrating-30-Years-Oppein%E2%80%99s-Journey-to-a-Global-Industry-Leader.html"
+   ]
+  },
+  {
+   "chain": "oppein",
+   "market": "PA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2024-06",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "OPPEIN flagship, Panama City, opened ~Jun 2024; named in OPPEIN franchise-openings release.",
+   "sources": [
+    "https://abnnewswire.net/press/en/128809/Celebrating-30-Years-Oppein%E2%80%99s-Journey-to-a-Global-Industry-Leader.html"
+   ]
+  },
+  {
+   "chain": "oppein",
+   "market": "PH",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-12",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "OPPEIN Philippines showroom at W City Center, BGC, opened 5 Dec 2023. Own-brand showroom.",
+   "sources": [
+    "https://propertyreport.ph/?p=33048"
+   ]
+  },
+  {
+   "chain": "quanjude",
+   "market": "AU",
+   "status": "exited",
+   "locations": 0,
+   "locations_as_of": "2023",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Melbourne (299 Queen St) + Sydney (World Square) both permanently closed by ~2023.",
+   "sources": [
+    "https://concreteplayground.com/sydney/restaurants/quanjude"
+   ]
+  },
+  {
+   "chain": "quanjude",
+   "market": "CA",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Vancouver 'iDen & QuanJuDe Beijing Duck House' (2808 Cambie St, 2019, Michelin-listed) + Toronto/Markham (7095 Woodbine Ave, 2017).",
+   "sources": [
+    "https://www.retail-insider.com/retail-insider/2019/10/prestigious-chinese-restaurant-quanjude-opens-in-vancouver"
+   ]
+  },
+  {
+   "chain": "quanjude",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Older sources (SCMP/TravelChinaGuide) cite a HK branch (TST/Central/Wan Chai); current status unconfirmed, possibly closed.",
+   "sources": [
+    "https://www.scmp.com/article/541468/hong-kong-quanjude-roast-duck-restaurant"
+   ]
+  },
+  {
+   "chain": "quanjude",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": null,
+   "first_opened": "2004",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Tokyo since 2004; older snapshot cites 3 Tokyo restaurants, current count unverified.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Quanjude"
+   ]
+  },
+  {
+   "chain": "shuyi",
+   "market": "ID",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2024-06",
+   "first_opened": "2024-06",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "First Indonesia store opened June 2024 at Margo City Mall, Depok (West Java) per Chinese press. Floor 1.",
+   "sources": [
+    "https://www.baijing.cn/article/49212"
+   ]
+  },
+  {
+   "chain": "shuyi",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2024-08",
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Shuyi in Malaysia (entered 2023 per Caixin); cited at The Exchange TRX mall, Kuala Lumpur. No official count.",
+   "sources": [
+    "https://www.caixinglobal.com/2024-08-21/in-depth-a-new-chinese-food-and-beverage-wave-hits-southeast-asia-102228393.html"
+   ]
+  },
+  {
+   "chain": "toptoy",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-04",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Jakarta: shop-in-shop in Miniso Land Central Park, then standalone at Casablanca Raya, Tebet, South Jakarta.",
+   "sources": [
+    "https://gotoptoy.com/blogs/news/toptoy-opens-new-store-in-indonesia-a-thrilling-milestone-for-fans"
+   ]
+  },
+  {
+   "chain": "toptoy",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-04",
+   "first_opened": "2025-08",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "First Japan store: TOPTOY Sunshine City Tokyo, Ikebukuro (ALPA 2F), grand opening 30 Aug 2025.",
+   "sources": [
+    "https://gotoptoy.com/blogs/news/toptoy-to-open-first-retail-store-in-japan-at-sunshine-city-tokyo"
+   ]
+  },
+  {
+   "chain": "toptoy",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-04",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Malaysia listed among opened overseas markets in later TOP TOY releases; exact timing uncertain.",
+   "sources": [
+    "https://gotoptoy.com/blogs/news/toptoy-to-open-first-retail-store-in-japan-at-sunshine-city-tokyo"
+   ]
+  },
+  {
+   "chain": "toptoy",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-04",
+   "first_opened": "2024-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "First Thailand store opened 19 Oct 2024, Bangkok (The Mall Lifestore Bangkapi). Part of ~39 overseas stores company-wide.",
+   "sources": [
+    "https://gotoptoy.com/blogs/news/toptoy-celebrates-its-first-store-opening-in-thailand"
+   ]
+  },
+  {
+   "chain": "wallace",
+   "market": "HK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-06",
+   "first_opened": "2026-06",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "First HK store opened 18 Jun 2026 at Kowloon City Plaza (九龙城广场), B1 atrium.",
+   "sources": [
+    "https://global.hk01.com/%E7%A4%BE%E6%9C%83%E6%96%B0%E8%81%9E/60361953/"
+   ]
+  },
+  {
+   "chain": "xijiade",
+   "market": "ES",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2025-03",
+   "first_opened": "2025-01",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Barcelona = Xijiade (Dumpling Xi) first overseas store, opened 23 Jan 2025. Madrid announced, not confirmed open.",
+   "sources": [
+    "https://equalocean.com/news/2025032721447-dumpling-xi-expands-overseas-grand-opening-new-york-flushing-store"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "AE",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "UAE named as a current store market on the official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "BR",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Brazil: first store 2019. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "CZ",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2024",
+   "first_opened": "2024-06",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Czech Republic: Prague store Jun 2024. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "GB",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "United Kingdom named as a current store market on the official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "GE",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2024-12",
+   "first_opened": "2024-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Georgia: new store Dec 2024. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2020-07",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Indonesia (Jakarta first store Jul 2020; upgraded stores reopened Nov 2023). Official newsroom.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "IT",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2024-09",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Italy: Naples store Sep 2024; Verona store. Official newsroom.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "KH",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025-05",
+   "first_opened": "2025-05",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Cambodia: store at Prince Mall, May 2025. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "NI",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2022-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Nicaragua: store opened Dec 2022. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "PA",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025-04",
+   "first_opened": "2025-04",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Panama: launched Apr 2025. Official newsroom.",
+   "sources": [
+    "https://en.ximiso.com/newsDetail/XIMIVOGUE New Store in Panama"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "PE",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025-10",
+   "first_opened": "2025-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Peru: Lima store grand opening 16 Oct 2025. Official newsroom.",
+   "sources": [
+    "https://ximiso.com/newsDetail/XIMIVOGUE New Store in Peru"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "UY",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2021-08",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Uruguay: Ciudad de la Costa franchise store Aug 2021. Official newsroom.",
+   "sources": [
+    "https://en.ximiso.com/newsDetail/XIMIVOGUE New Store in Uruguay"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "VE",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025",
+   "first_opened": "2021-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Venezuela: Caracas store Dec 2021. Official brand page.",
+   "sources": [
+    "https://www.ximiso.com/brand"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "XK",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2025-05",
+   "first_opened": "2025-05",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Kosovo: store opened May 2025. Official newsroom.",
+   "sources": [
+    "https://cn.ximiso.com/newsDetail/New XIMIVOGUE Store in Kosovo"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "EC",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2023",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Ecuador: dedicated 'YOYOSO Ecuador' mobile app (2022/23) indicates ongoing local operation; also in the 2020 market list.",
+   "sources": [
+    "https://apps.apple.com/at/app/yoyoso-ecuador/id1666987066"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "IN",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2020",
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "India: 2018 licensing deal with Tablez (LuLu Group) to open 30 stores; current count unverified.",
+   "sources": [
+    "https://in.fashionnetwork.com/news/Chinese-brand-yoyoso-partners-with-tablez-for-indian-entry,1005105.html"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "MX",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2020-02",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Mexico among YOYOSO markets per 2020 Retail Insider snapshot; not re-verified.",
+   "sources": [
+    "https://retail-insider.com/retail-insider/2020/02/chinese-variety-retailer-yoyoso-to-enter-canada-with-plans-for-multiple-storefronts/"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2020-02",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Malaysia among YOYOSO markets per 2020 Retail Insider snapshot (1,000+ stores / 30 countries); not re-verified for 2025-26.",
+   "sources": [
+    "https://retail-insider.com/retail-insider/2020/02/chinese-variety-retailer-yoyoso-to-enter-canada-with-plans-for-multiple-storefronts/"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "PH",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2020-02",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Philippines among YOYOSO markets per 2020 Retail Insider snapshot; not re-verified.",
+   "sources": [
+    "https://retail-insider.com/retail-insider/2020/02/chinese-variety-retailer-yoyoso-to-enter-canada-with-plans-for-multiple-storefronts/"
+   ]
+  },
+  {
+   "chain": "zhengxin",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2023-04",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Directly-operated Canada stores reported open by end-Apr 2023 (36Kr). Current status unverified.",
+   "sources": [
+    "https://36kr.jp/238974/"
+   ]
+  },
+  {
+   "chain": "zhengxin",
+   "market": "ID",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2023-04",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Directly-operated Indonesia stores reported open by end-Apr 2023 (36Kr). Current status unverified.",
+   "sources": [
+    "https://36kr.jp/238974/"
+   ]
+  },
+  {
+   "chain": "zhengxin",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2023-05",
+   "first_opened": "2023-05",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "First Japan store opened 18 May 2023 in Takadanobaba, Tokyo. Later Japan expansion unverified.",
+   "sources": [
+    "https://36kr.jp/238974/"
+   ]
+  },
+  {
+   "chain": "zhengxin",
+   "market": "LA",
+   "status": "present",
+   "locations": 8,
+   "locations_as_of": "2023",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "2023 reporting: largest overseas franchisee operated ~8 stores in Laos. Current status unverified (chain contracted ~60% domestically since 2021).",
+   "sources": [
+    "https://www.36kr.com/p/3844094594812162"
+   ]
+  },
+  {
+   "chain": "zhengxin",
+   "market": "VN",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2023-04",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-14",
+   "note": "Directly-operated Vietnam stores reported open by end-Apr 2023 (36Kr). Count/cities unknown; current status unverified.",
+   "sources": [
+    "https://36kr.jp/238974/"
    ]
   }
  ]
