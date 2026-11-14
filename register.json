@@ -1411,11 +1411,12 @@
     "老碼頭"
    ],
    "format": "hotpot",
-   "global": "China-origin Sichuan hotpot chain (Chengdu; known for a clear 'no-sediment' red-oil broth 無渣紅油湯底, ranked among Chengdu's top hotpot brands). Entered Hong Kong May 2018 with a ~10,000 sq ft Mong Kok flagship; exited HK in 2024 after six years. No known US presence.",
+   "global": "China-origin Sichuan hotpot chain (Chengdu, founded Oct 2001; known for a clear 'no-sediment' red-oil broth 無渣紅油湯底, ranked among Chengdu's top hotpot brands). Overseas expansion began 2019. US = 3 restaurants: 'Los Angeles' (Rowland Heights, 18938 Labin Ct), Irvine CA (Stonecreek Plaza) and Bellevue WA (Soma Towers). Earlier entered Hong Kong May 2018 with a ~10,000 sq ft Mong Kok flagship but exited HK in 2024 after six years.",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "China (Chengdu) Sichuan hotpot; entered HK 2018, exited 2024. No US presence."
+   "franchise_note": "China (Chengdu) Sichuan hotpot; US = 3 company-operated restaurants (Rowland Heights + Irvine CA, Bellevue WA). Entered HK 2018, exited 2024. No US FDD confirmed.",
+   "name_us": "Lao Ma Tou Hot Pot"
   },
   "lmm": {
    "name": "LMM",

@@ -1897,3 +1897,27 @@ class XiangTianXiaAdapter(Adapter):
                       " World Hot Pot'). US: Brooklyn NY open; Flushing NY closed. Also Australia +"
                       " claimed CA/SG/FR/IT/TW/HK. Tracked via sightings. In scope")
     RECHECK = ["https://chowbusmkt.wixsite.com/xianghotpot"]
+
+
+class LaoMaTouAdapter(Adapter):
+    """
+    老码头火锅 (Lao Ma Tou Hot Pot, "Old Dock") — a China-origin Sichuan hot pot chain, originated in
+    Chengdu Oct 2001, known for a clear 'no-sediment' red-oil broth (無渣紅油湯底) and ranked among
+    Chengdu's top hot pot brands. Overseas expansion began 2019. China origin, in scope. Already in the
+    register (previously HK-only, exited 2024); US presence added 2026-11-14.
+
+    US = 3, company-operated (per the brand's US site): Rowland Heights CA (18938 Labin Ct — the brand
+    calls it 'Los Angeles'), Irvine CA (4230 Barranca Pkwy) and Bellevue WA (288 106th Ave NE, Soma
+    Towers), all operator-observed open. Earlier Mong Kok HK flagship (2018) exited 2024. No machine-
+    readable US roster, so tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "laomatou", "Lao Ma Tou Hot Pot", "老码头火锅"
+    name_us = "Lao Ma Tou Hot Pot"
+    aliases = ("Lao Ma Tou Hot Pot", "Lao Ma Tou", "老码头火锅", "老碼頭火鍋", "老码头", "老碼頭")
+    parent, format = "Chengdu Lao Ma Tou (成都老码头)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Sichuan hot pot chain (老码头 / Lao Ma Tou, Chengdu since 2001;"
+                      " clear 'no-sediment' red-oil broth). Overseas since 2019. US = 3: Rowland Heights"
+                      " + Irvine CA, Bellevue WA, all open. Earlier HK (Mong Kok 2018, exited 2024)."
+                      " Tracked via sightings. In scope")
+    RECHECK = ["https://www.laomatoubellevue.com/"]

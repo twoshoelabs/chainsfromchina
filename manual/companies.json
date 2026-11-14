@@ -3009,6 +3009,15 @@
    "blurb": "Xiang Hotpot (香天下) is a China-origin Sichuan hot pot chain run by the Sichuan Xiang Tian Xia Catering Group. It grew from 金川火锅, a hot pot restaurant founded in 2003 in Nanchong, Sichuan by Zhu Quan (朱全), which was later renamed and built into 香天下 — today roughly 600-700 restaurants worldwide across more than 30 sub-brands, known for rich butter and spicy broths and playful, theatrical pot-bases. It trades overseas in English as 'Spice World Hot Pot' and, in the US, as 'Xiang Hotpot.' Its US location is in Brooklyn (Fort Hamilton Parkway); an earlier Flushing restaurant in New World Mall has closed.",
    "site_us": "https://chowbusmkt.wixsite.com/xianghotpot",
    "us_since": "2018"
+  },
+  "laomatou": {
+   "name": "Lao Ma Tou Hot Pot",
+   "name_zh": "老码头火锅",
+   "category": "Hot pot (Sichuan)",
+   "category_zh": "火锅（川味）",
+   "blurb": "Lao Ma Tou Hot Pot (老码头火锅, 'Old Dock') is a China-origin Sichuan hot pot chain that originated in Chengdu in October 2001, known for a clear 'no-sediment' red-oil broth and ranked among Chengdu's top hot pot brands. It began expanding abroad in 2019. In the US it runs three restaurants — Rowland Heights (which the brand calls its 'Los Angeles' location) and Irvine in California, and Bellevue, Washington (Soma Towers). It earlier operated a large Mong Kok flagship in Hong Kong (2018) but exited that market in 2024.",
+   "site_us": "https://www.laomatoubellevue.com/",
+   "us_since": "2019"
   }
  }
 }

@@ -479,6 +479,11 @@
    "model": "authorized_partner",
    "confidence": "low",
    "basis": "US Brooklyn restaurant operates under the 香天下 brand; company-owned vs licensee/franchise not confirmed (brand is franchise-heavy in China)."
+  },
+  "laomatou": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Brand's own US site presents the 3 US restaurants (LA/Rowland Heights, Irvine, Bellevue) as its own overseas expansion since 2019; company-operated."
   }
  }
 }

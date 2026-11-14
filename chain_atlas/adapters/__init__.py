@@ -46,7 +46,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     MogouyanAdapter, RbteaAdapter, TenSecondsAdapter,
                     EpyayingAdapter, YoyosoAdapter, ChubbySkewersAdapter,
                     TanghuoKungfuAdapter, DaguAdapter, VevorAdapter, ZiyanAdapter,
-                    DolarShopAdapter, XiangTianXiaAdapter)
+                    DolarShopAdapter, XiangTianXiaAdapter, LaoMaTouAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -128,6 +128,7 @@ REGISTRY: list[Adapter] = [
     ZiyanAdapter(), # China-origin 卤味 braised-deli chain 紫燕百味鸡 (Shanghai, SSE 603057); US 2025 — 3 NY-metro (Flushing/Manhattan/Jersey City), tracked via sightings — see stubs.py
     DolarShopAdapter(), # China-origin premium hot pot 豆捞坊 (Shanghai 2004, ~160+ China stores); US company-operated — Manhattan + Bellevue WA, tracked via sightings — see stubs.py
     XiangTianXiaAdapter(), # China-origin Sichuan hot pot 香天下 / Xiang Hotpot (from 金川火锅 2003, ~600-700 stores worldwide); US — Brooklyn NY (Flushing closed), tracked via sightings — see stubs.py
+    LaoMaTouAdapter(), # China-origin Sichuan hot pot 老码头 / Lao Ma Tou (Chengdu 2001); US — Rowland Heights + Irvine CA, Bellevue WA, tracked via sightings — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

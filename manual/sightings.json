@@ -4908,6 +4908,42 @@
      "coord_src": "manual (Fort Hamilton Pkwy nr 58th St)"
     }
    ]
+  },
+  {
+   "chain": "laomatou",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Brand US site (laomatoubellevue.com — 'Los Angeles, Irvine and Bellevue, 3 locations') + Google/Yelp; owner screenshots (14 Nov 2026).",
+   "scope": "老码头 / Lao Ma Tou Hot Pot US outlets (China-origin Chengdu Sichuan hotpot, overseas since 2019). 3 open: Rowland Heights CA (the brand's 'Los Angeles'), Irvine CA, Bellevue WA.",
+   "locations": [
+    {
+     "name": "Rowland Heights (Pearl of the East Plaza) — brand 'Los Angeles'",
+     "address": "18938 Labin Ct #101A, Rowland Heights, CA 91748",
+     "lat": 33.992027,
+     "lon": -117.889898,
+     "confidence": "confirmed",
+     "verified_by": "Google (Lao Ma Tou Hot Pot - Rowland Heights, 4.1/251) + Yelp (Updated Nov 2026) + brand site lists 'Los Angeles' (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Irvine (Stonecreek Plaza)",
+     "address": "4230 Barranca Pkwy, Irvine, CA 92604",
+     "lat": 33.6936,
+     "lon": -117.7847,
+     "confidence": "confirmed",
+     "verified_by": "Google (老碼頭火鍋 Irvine, 4.5/282) + brand site lists Irvine (14 Nov 2026).",
+     "coord_src": "manual (Barranca Pkwy nr Culver Dr; Census returned none)"
+    },
+    {
+     "name": "Bellevue WA (Soma Towers)",
+     "address": "288 106th Ave NE Ste 200, Bellevue, WA 98004",
+     "lat": 47.612824,
+     "lon": -122.198796,
+     "confidence": "confirmed",
+     "verified_by": "Yelp (Updated Oct 2026, open 11:30-22:00, 180 reviews) + brand site domain laomatoubellevue.com (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }
