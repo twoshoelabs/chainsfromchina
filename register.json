@@ -1887,7 +1887,7 @@
    "format": "home",
    "sector": "home",
    "sub_category": "tools & home improvement",
-   "global": "VEVOR is a China-based factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods — founded 2007, HQ Shanghai (operating entity Shanghai Sishun E-commerce Co.). It sells overwhelmingly ONLINE (vevor.com + Amazon/eBay/Walmart) and runs NO brick-and-mortar stores in China. In March 2026 it opened its first-ever physical store anywhere — a ~32,000 sq ft omnichannel flagship in Houston TX — with more US locations signaled but none yet named. A NEW BREED for this tracker: a US physical-retail debut by a China online wholesaler, not a China retail chain extending abroad. Because it has no China retail stores, it does NOT qualify for the US outlet count under our scope rule — it is listed here for monitoring only, with its Houston store noted but not mapped or tallied. Revisit if it builds a genuine multi-store US chain.",
+   "global": "VEVOR is a China-based factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods — founded 2007, HQ Shanghai (operating entity Shanghai Sishun E-commerce Co.). It sells overwhelmingly ONLINE (vevor.com + Amazon/eBay/Walmart) and runs NO brick-and-mortar stores in China. In March 2026 it opened its first-ever physical store anywhere — a ~32,000 sq ft omnichannel flagship in Houston TX — with more US locations signaled but none yet named. A NEW BREED for this tracker: a US physical-retail debut by a China online wholesaler, not a China retail chain extending abroad. Because it has no China retail stores, it does NOT qualify for the US outlet count under our scope rule — it is listed here for monitoring only, with its Houston store noted but not mapped or tallied. Revisit if it builds a genuine multi-store US chain. [BREED NOTE 2026-11-14: this is the single-flagship, NEAR-THRESHOLD case of the 'DTC/online-to-US-physical' breed — a China online brand opening US physical retail. It stays NOT counted while it has just the one Houston store; it crosses into the counted census (like Fioboc's 3-store CA chain) once it runs a genuine MULTI-STORE US physical chain.]",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
@@ -2093,6 +2093,22 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Shanghai) heritage jewelry chain (SSE 600612). US tracked via its Fifth Avenue NYC flagship; also Australia + Canada. No US FDD."
+  },
+  "fioboc": {
+   "name": "Fioboc",
+   "name_zh": "菲奥博克",
+   "name_intl": "Fioboc",
+   "aliases": [
+    "Fioboc",
+    "菲奥博克",
+    "FIOBOC"
+   ],
+   "format": "apparel",
+   "global": "China-origin online fast-fashion apparel brand (operator 深圳菲奥博克服装科技, a subsidiary of 广州嘉乐信息技术 / Guangzhou Jiale, founded 2016; cross-border DTC since 2018, HQ Guangzhou). It began as a pure cross-border DTC/e-commerce 'brand matrix' (Shopify / independent sites) with NO brick-and-mortar stores in China. In 2026 it opened a MULTI-STORE US PHYSICAL retail chain — Westfield Valley Fair (Santa Clara), Westfield Galleria at Roseville, and Glendale Galleria, all California. This is the 'DTC-to-US-physical' breed: a China online/DTC brand that builds a real US store chain despite having no China retail — counted here on the strength of its US physical chain (contrast VEVOR, a single-flagship near-threshold case).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin DTC apparel brand running its own US mall stores (3 in CA). No US franchise or FDD. Counted under the 'DTC-to-US-physical' breed (a China online brand that built a multi-store US physical chain)."
   }
  },
  "entries": [

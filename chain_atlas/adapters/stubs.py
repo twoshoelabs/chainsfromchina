@@ -1945,6 +1945,30 @@ class MengziyuanAdapter(Adapter):
     RECHECK = ["https://www.meetricenoodlefremont.com/"]
 
 
+class FiobocAdapter(Adapter):
+    """
+    Fioboc (菲奥博克) — a China-origin online fast-fashion apparel brand, operator 深圳菲奥博克服装科技
+    (subsidiary of 广州嘉乐信息技术 / Guangzhou Jiale, founded 2016). Began as a pure cross-border DTC/
+    e-commerce 'brand matrix' (Shopify / independent sites) with NO China brick-and-mortar. In 2026 it
+    opened a MULTI-STORE US physical chain — the 'DTC-to-US-physical' breed (a China online brand that
+    builds a real US store chain despite no China retail; counted on the strength of the US chain, vs
+    VEVOR which is the single-flagship near-threshold case). China origin, in scope (owner call).
+
+    US: 3 California mall stores (Westfield Valley Fair / Santa Clara, Westfield Galleria at Roseville,
+    Glendale Galleria). No machine-readable roster beyond the brand locator, tracked via sightings.
+    """
+    chain_id, name, name_zh = "fioboc", "Fioboc", "菲奥博克"
+    name_us = "Fioboc"
+    aliases = ("Fioboc", "FIOBOC", "菲奥博克")
+    parent, format = "Guangzhou Jiale Information Technology (广州嘉乐信息技术)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin online fast-fashion brand (Fioboc / 菲奥博克, 深圳菲奥博克服装科技 /"
+                      " 广州嘉乐信息技术). Pure DTC with NO China B&M, but opened a 3-store US physical"
+                      " chain in CA (Valley Fair, Roseville, Glendale Galleria) — the 'DTC-to-US-physical'"
+                      " breed, counted. Tracked via sightings. In scope")
+    RECHECK = ["https://www.fioboc.com/pages/fioboc-stores"]
+
+
 class LaoFengXiangAdapter(Adapter):
     """
     老凤祥 / Lao Feng Xiang — China's oldest jewelry company, founded 1848 in Shanghai (operator Shanghai

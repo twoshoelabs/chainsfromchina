@@ -5079,6 +5079,42 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "fioboc",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Brand store locator (fioboc.com/pages/fioboc-stores) + owner company profile (14 Nov 2026).",
+   "scope": "Fioboc 菲奥博克 US outlets — its own 2026 US physical retail chain, 3 California mall stores. China-origin DTC brand (Guangzhou Jiale / Shenzhen Fiaoboke) counted under the 'DTC-to-US-physical' breed.",
+   "locations": [
+    {
+     "name": "Santa Clara (Westfield Valley Fair)",
+     "address": "2855 Stevens Creek Blvd Space #1101, Santa Clara, CA 95050",
+     "lat": 37.323415,
+     "lon": -121.944779,
+     "confidence": "confirmed",
+     "verified_by": "Brand locator (grand opening 2026) + Westfield Valley Fair (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Roseville (Westfield Galleria at Roseville)",
+     "address": "1151 Galleria Blvd Space #157, Roseville, CA 95678",
+     "lat": 38.7712,
+     "lon": -121.266,
+     "confidence": "confirmed",
+     "verified_by": "Brand locator (grand opening 2026), Westfield Galleria at Roseville (14 Nov 2026).",
+     "coord_src": "manual (mall; Census returned none)"
+    },
+    {
+     "name": "Glendale (Glendale Galleria)",
+     "address": "2170 Glendale Galleria, Glendale, CA 91204",
+     "lat": 34.1466,
+     "lon": -118.2558,
+     "confidence": "confirmed",
+     "verified_by": "Brand locator (grand opening 2026) + Glendale Galleria directory ('Fioboc — Now Open') (14 Nov 2026).",
+     "coord_src": "manual (mall; Census returned none)"
+    }
+   ]
   }
  ]
 }

@@ -499,6 +499,11 @@
    "model": "direct_subsidiary",
    "confidence": "medium",
    "basis": "Prestige Fifth Avenue NYC flagship presented as the brand's own US store; company-operated (exact structure unconfirmed)."
+  },
+  "fioboc": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "Runs its own US mall stores (3 CA) directly; the 'DTC-to-US-physical' breed — a China online/DTC brand (no China B&M) that built a multi-store US physical chain."
   }
  }
 }

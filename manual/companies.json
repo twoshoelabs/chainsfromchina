@@ -3053,6 +3053,15 @@
    "blurb": "Lao Feng Xiang (老凤祥) is China's oldest jewelry company, founded in Shanghai in 1848 as the Feng Xiang silver shop. Now listed as Shanghai Lao Feng Xiang Co., Ltd. (SSE 600612), it is one of China's largest jewelers — roughly 2,700-3,000+ gold, jade and jewelry stores across nearly every Chinese province, second in scale only to Chow Tai Fook. Overseas it operates a Fifth Avenue flagship in New York, along with stores in Sydney, Australia and Vancouver, Canada.",
    "site_us": "https://www.laofengxiang.com/",
    "us_since": null
+  },
+  "fioboc": {
+   "name": "Fioboc",
+   "name_zh": "菲奥博克",
+   "category": "Fast-fashion apparel (DTC)",
+   "category_zh": "快时尚服装（DTC）",
+   "blurb": "Fioboc (菲奥博克) is a China-origin online fast-fashion apparel brand, run by Shenzhen Fiaoboke Clothing Technology, a subsidiary of Guangzhou Jiale Information Technology (founded 2016). It began as a pure cross-border, direct-to-consumer e-commerce brand — selling through Shopify and independent sites across North America, Europe and Southeast Asia — with no physical stores in China, built around a 'FabriTech' / 'Always Fits' apparel pitch. In 2026 it opened its first physical stores, a US mall chain in California: Westfield Valley Fair (Santa Clara), Westfield Galleria at Roseville, and Glendale Galleria. It is the first example of a new breed in this tracker: a China online/DTC brand that builds a real multi-store US physical retail chain.",
+   "site_us": "https://www.fioboc.com/",
+   "us_since": "2026"
   }
  }
 }
