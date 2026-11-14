@@ -1,0 +1,10 @@
+# chainsfromchina.com — an independent daily census of China-origin retail/F&B chains in the US.
+# Crawlers are welcome. JS, CSS, photos and /data/*.json are intentionally left crawlable so
+# search engines can render the client-side chain pages. Only orphaned dev/alt pages are blocked.
+User-agent: *
+Allow: /
+Disallow: /classic.html
+Disallow: /index-classic-hero.html
+Disallow: /atlas.html
+
+Sitemap: https://chainsfromchina.com/sitemap.xml
