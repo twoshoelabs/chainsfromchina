@@ -2068,11 +2068,11 @@
     "有米"
    ],
    "format": "tea",
-   "global": "Yogurt-drink chain known for slow-fermented yogurt blended with chewy purple rice. Chinese-founded and operated — operator 茶家（上海）餐饮管理 (Chajia Shanghai); a Chinese team developed the product (partly in China) and made the brand's international debut in Sydney, Australia in 2018, where it went viral, before opening in China (first store Shanghai's Qibao Old Street) and franchising worldwide to ~600 stores across 11 countries. Treated as China-origin (owner call 2026-11-14). Its US footprint grew fast then contracted sharply — many US stores closed, a handful still operating. Overseas also in Australia, Malaysia, Singapore and more.",
+   "global": "Yogurt-drink chain (slow-fermented yogurt blended with chewy purple rice) with an UNUSUAL HISTORY: though Chinese-founded and run by a Shanghai operating company (茶家（上海）餐饮管理 / Chajia Shanghai), it made its first appearance not in China but in Sydney, Australia (2018) — a Chinese team launched it there and it went viral — and only afterward opened in China (first store on Shanghai's Qibao Old Street) and franchised worldwide to ~600 stores across 11 countries. We classify it as China-origin (Chinese founder + Shanghai operating company; owner call 2026-11-14) while noting the Sydney debut. Its US franchise network expanded fast then contracted sharply — many stores have closed, a handful still operate (CA/NY/WA/TX). Abroad also in Australia, Malaysia, Singapore and more.",
    "operating_model": "franchise",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "Franchise-heavy purple-rice yogurt-drink brand; US stores are independent franchisees, many now closed. Tracked via hand-assembled sightings. No US FDD confirmed."
+   "franchise_note": "Franchise-heavy purple-rice yogurt-drink brand with an unusual Sydney-first history (classified China-origin: Chinese founder + Shanghai operating company 茶家上海). US stores are independent franchisees, many now closed. Tracked via sightings. No US FDD confirmed."
   }
  },
  "entries": [
@@ -10430,7 +10430,7 @@
    "precision": "year",
    "confidence": "high",
    "reviewed": "2026-11-14",
-   "note": "Australia — Sydney, Haymarket (Chinatown); the brand's original launch market (2018). Operator-observed open.",
+   "note": "Australia — Sydney, Haymarket (Shop 6, 683-689 George St, Sydney NSW 2000), the brand's original launch market (2018); operator-observed open (Google 4.1/1,061).",
    "sources": [
     "https://www.google.com/maps (Yomie's Rice x Yogurt — Haymarket, Sydney, open)"
    ]
