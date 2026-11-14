@@ -1977,6 +1977,26 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Large Sichuan hot pot chain (franchise-heavy in China). US presence tracked via its Brooklyn NY restaurant; exact US ownership (company vs licensee) unconfirmed. No US FDD confirmed."
+  },
+  "huangjihuang": {
+   "name": "Simmer Huang",
+   "name_zh": "黄记煌",
+   "name_intl": "Simmer Huang",
+   "aliases": [
+    "黄记煌",
+    "黃記煌",
+    "黄记煌三汁焖锅",
+    "黃記煌三汁燜鍋",
+    "Simmer Huang",
+    "Huang Ji Huang",
+    "三汁焖锅"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Beijing casual-dining chain built on its signature 三汁焖锅 (three-sauce 'simmer pot', a saucy dry-pot cooked to order at the table), founded 2004 in Beijing by Huang Geng. Yum China took a controlling stake in the Huang Ji Huang business in 2020 and holds its non-China rights (2021); ~600+ stores at its China peak (same Yum China-owned, China-origin basis as Little Sheep). Overseas it reached the US, UK, Malaysia and more. US: entered ~2017 (Flushing NY, Temple City CA, Bellevue WA) but has since fully EXITED — all US restaurants closed. Still operating in the UK (London, Canary Wharf). Malaysia (Pavilion KL) closed.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin Beijing simmer-pot chain (Yum China-controlled). US entered ~2017 and fully exited (all closed). Tracked abroad via its UK restaurant. No US presence or FDD."
   }
  },
  "entries": [
@@ -10234,6 +10254,35 @@
    "note": "Brisbane — Sunnybank QLD, listed as '香天下火锅 / The X Hot Pot'. Brand also claims Canada / Singapore / France / Italy / Taiwan / HK historically; Singapore (Clarke Quay, 'Spice World') reported closed. Only Brisbane recorded here pending verification of the others.",
    "sources": [
     "https://the-x-hot-pot.wheree.com/"
+   ]
+  },
+  {
+   "chain": "huangjihuang",
+   "market": "GB",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "London — Canary Wharf (Unit 1, 30 Baltimore Wharf, Limeharbour, E14 9RH). Owner-confirmed open via Google (4.5/916, active order buttons, 14 Nov 2026); note some delivery directories (Uber Eats, Tripadvisor) lagged showing it closed in late 2025 — re-verify periodically.",
+   "sources": [
+    "https://www.opentable.co.uk/restaurant/profile/355425"
+   ]
+  },
+  {
+   "chain": "huangjihuang",
+   "market": "MY",
+   "status": "exited",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Malaysia exited — Pavilion Kuala Lumpur (Lot 8.101.00, Jln Bukit Bintang) marked Permanently closed on Google (14 Nov 2026).",
+   "sources": [
+    "https://www.google.com/maps (Simmer Huang Pavilion KL — Permanently closed)"
    ]
   }
  ]

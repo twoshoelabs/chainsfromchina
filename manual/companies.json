@@ -3018,6 +3018,14 @@
    "blurb": "Lao Ma Tou Hot Pot (老码头火锅, 'Old Dock') is a China-origin Sichuan hot pot chain that originated in Chengdu in October 2001, known for a clear 'no-sediment' red-oil broth and ranked among Chengdu's top hot pot brands. It began expanding abroad in 2019. In the US it runs three restaurants — Rowland Heights (which the brand calls its 'Los Angeles' location) and Irvine in California, and Bellevue, Washington (Soma Towers). It earlier operated a large Mong Kok flagship in Hong Kong (2018) but exited that market in 2024.",
    "site_us": "https://www.laomatoubellevue.com/",
    "us_since": "2019"
+  },
+  "huangjihuang": {
+   "name": "Simmer Huang",
+   "name_zh": "黄记煌",
+   "category": "Simmer pot / dry pot",
+   "category_zh": "三汁焖锅",
+   "blurb": "Simmer Huang (黄记煌) is a China-origin Beijing casual-dining chain known for its signature 三汁焖锅 — a 'three-sauce simmer pot,' a saucy dry-pot of meats, seafood and vegetables cooked to order at the table. Founded in Beijing in 2004 by Huang Geng, it grew to hundreds of restaurants across China; Yum China took a controlling stake in the business in 2020. It expanded overseas to the US, UK and Malaysia, but has fully exited the US — its Flushing (New York), Temple City (California) and Bellevue (Washington) restaurants have all closed. It still operates in London (Canary Wharf); its Malaysia location (Pavilion Kuala Lumpur) has closed.",
+   "us_since": null
   }
  }
 }

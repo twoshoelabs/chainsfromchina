@@ -1778,6 +1778,36 @@
    "opened": null,
    "closed_on": null,
    "closed_note": "Permanently closed — Yelp marks the New World Mall unit CLOSED (updated Mar 2026). Was a well-known NY Xiang Hotpot / 香天下 location. Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "huangjihuang",
+   "name": "Temple City (5728 Rosemead Blvd)",
+   "address": "5728 Rosemead Blvd Unit 107, Temple City, CA 91780",
+   "city": "Temple City",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Closed — Yelp 'Yelpers report this location has closed' (updated Mar 2026). Part of Simmer Huang's full US exit (entered ~2017). Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "huangjihuang",
+   "name": "Bellevue (Bellevue Marketplace)",
+   "address": "14603 NE 20th St #6, Bellevue, WA 98007",
+   "city": "Bellevue",
+   "state": "WA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Google (14 Nov 2026). Part of Simmer Huang's full US exit (entered ~2017). Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "huangjihuang",
+   "name": "Flushing (136-55 37th Ave)",
+   "address": "136-55 37th Ave, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed per Google/MapQuest; Yelp reports closed (Mar 2026). Part of Simmer Huang's full US exit (entered ~2017). Recorded 14 Nov 2026."
   }
  ]
 }
