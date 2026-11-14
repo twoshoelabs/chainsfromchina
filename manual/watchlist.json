@@ -16,7 +16,7 @@
   "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research.",
   "'us-flagship' = a single US brand-promotion flagship/showroom, NOT a chain — internal reference only, kept OFF the Register/census unless it becomes multi-store."
  ],
- "as_of": "2026-10-30",
+ "as_of": "2026-11-14",
  "categories": {
   "Tea": [
    {
@@ -98,6 +98,18 @@
     "markets": "Abroad: HK, Malaysia, Singapore. US: Tustin CA (first US store, ~Jun 2026)",
     "note": "Tracked (chain_id 'moreyogurt'), added 2026-09-29. Trades in the US as \"More Yogurt\" (name_us) — confirmed 2026-10-05 to keep that US name; a different US identity from the China name is the norm here (cf. ChaPanda=TeaByDo, Naixue=NaiSnow, Juewei=Juewei Yabo).",
     "source": "https://news.qq.com/rain/a/20240228A066SU00"
+   }
+  ],
+  "Beverages & CPG": [
+   {
+    "name": "Wang Lao Ji / WALOVI",
+    "name_zh": "王老吉",
+    "hq": "Guangzhou",
+    "china_stores": "—",
+    "status": "us-flagship",
+    "markets": "US: single brand store/'museum' — Walovi Herbal Tea Museum, 275 5th Ave, NYC",
+    "note": "SINGLE brand-experience flagship ('Walovi Herbal Tea Museum' 王老吉凉茶博物馆), NOT a retail chain — INTERNAL REFERENCE ONLY; do NOT add to the Register or census unless it becomes a multi-store chain. China-origin 凉茶 (herbal-tea) packaged-beverage brand, Guangzhou, since 1828 (operator 广州王老吉大健康 / 广药集团); famous red-can herbal drink. International brand name WALOVI (2023). A separate Wang Lao Ji tea house at 240-236 Grand St, NYC is permanently closed. Decision 14 Nov 2026: NOT counted (CPG beverage brand, not a store chain).",
+    "source": "https://www.walovi.com/"
    }
   ],
   "Coffee": [

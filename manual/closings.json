@@ -1810,6 +1810,36 @@
    "closed_note": "Permanently closed per Google/MapQuest; Yelp reports closed (Mar 2026). Part of Simmer Huang's full US exit (entered ~2017). Recorded 14 Nov 2026."
   },
   {
+   "chain": "mujosh",
+   "name": "Westfield San Francisco Centre (865 Market St)",
+   "address": "865 Market St, Space 300, San Francisco, CA 94103",
+   "city": "San Francisco",
+   "state": "CA",
+   "opened": "2018",
+   "closed_on": null,
+   "closed_note": "Permanently closed. Opened 2018 in MUJOSH's US debut; part of MUJOSH's full US physical exit (now US online-only, mujosh.us). Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "mujosh",
+   "name": "Stoneridge Mall (Pleasanton)",
+   "address": "1 Stoneridge Mall Rd, Pleasanton, CA 94588",
+   "city": "Pleasanton",
+   "state": "CA",
+   "opened": "2018",
+   "closed_on": null,
+   "closed_note": "Closed. Opened 2018 in MUJOSH's US debut; not in the current Stoneridge directory — part of MUJOSH's full US physical exit (now US online-only, mujosh.us). Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "mujosh",
+   "name": "Glendale Galleria (Space 2207)",
+   "address": "2207 Glendale Galleria, Glendale, CA 91210",
+   "city": "Glendale",
+   "state": "CA",
+   "opened": "2018",
+   "closed_on": null,
+   "closed_note": "Closed — no longer in the Glendale Galleria directory (14 Nov 2026). Opened 2018 in MUJOSH's US debut; part of MUJOSH's full US physical exit (now US online-only, mujosh.us). Recorded 14 Nov 2026."
+  },
+  {
    "chain": "henjiuyiqian",
    "name": "Arcadia (168 Las Tunas Dr)",
    "address": "168 Las Tunas Dr Ste 101-102, Arcadia, CA 91007",
