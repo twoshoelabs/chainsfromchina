@@ -2340,7 +2340,8 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2024",
-   "first_outlet": "Los Angeles, CA — Westfield Century City"
+   "first_outlet": "Los Angeles, CA — Westfield Century City",
+   "lane": "brand_flagship"
   },
   "showminihotpot": {
    "name": "Show Mini Hot Pot",
@@ -2633,7 +2634,8 @@
    "photo": null,
    "photo_credit": null,
    "us_since": "2023",
-   "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)"
+   "first_outlet": "Arcadia CA (Santa Anita) / Flushing NY (Sky View)",
+   "lane": "brand_flagship"
   },
   "mogouyan": {
    "name": "Mogouyan Hand-Pulled Noodle",
@@ -2981,7 +2983,8 @@
    "blurb": "VEVOR is a China-based (Shanghai, founded 2007) factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods, sold mainly online via vevor.com and marketplaces. In March 2026 it opened its first-ever physical store — a 32,000-square-foot omnichannel flagship in Houston, Texas. That store is noted here for monitoring but is deliberately NOT mapped or counted in the US outlet total, because VEVOR operates no brick-and-mortar stores in China: by this tracker's scope rule, a China brand's US outlets count only when it runs physical retail in China that extends abroad. VEVOR is the opposite — a China online wholesaler debuting physical retail in the US — a new breed we are watching but not yet tallying. We'll revisit if it builds a genuine multi-store US chain.",
    "site_us": "https://www.vevor.com/",
    "us_since": "2026",
-   "us_note": "Not mapped or counted here. VEVOR runs no brick-and-mortar stores in China — it is an online wholesaler — so by this tracker's scope rule (which counts a China brand's US outlets only when it operates physical retail in China that extends abroad) it does not qualify for the US outlet total. Its one US store (Houston, opened Mar 2026) is listed for monitoring only; revisit if a real multi-store US chain forms."
+   "us_note": "Not mapped or counted here. VEVOR runs no brick-and-mortar stores in China — it is an online wholesaler — so by this tracker's scope rule (which counts a China brand's US outlets only when it operates physical retail in China that extends abroad) it does not qualify for the US outlet total. Its one US store (Houston, opened Mar 2026) is listed for monitoring only; revisit if a real multi-store US chain forms.",
+   "lane": "brand_flagship"
   },
   "ziyan": {
    "name": "Ziyan Chicken",
@@ -3061,7 +3064,8 @@
    "category_zh": "快时尚服装（DTC）",
    "blurb": "Fioboc (菲奥博克) is a China-origin online fast-fashion apparel brand, run by Shenzhen Fiaoboke Clothing Technology, a subsidiary of Guangzhou Jiale Information Technology (founded 2016). It began as a pure cross-border, direct-to-consumer e-commerce brand — selling through Shopify and independent sites across North America, Europe and Southeast Asia — with no physical stores in China, built around a 'FabriTech' / 'Always Fits' apparel pitch. In 2026 it opened its first physical stores, a US mall chain in California: Westfield Valley Fair (Santa Clara), Westfield Galleria at Roseville, and Glendale Galleria. It is the first example of a new breed in this tracker: a China online/DTC brand that builds a real multi-store US physical retail chain.",
    "site_us": "https://www.fioboc.com/",
-   "us_since": "2026"
+   "us_since": "2026",
+   "lane": "brand_flagship"
   }
  }
 }

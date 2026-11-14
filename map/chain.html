@@ -72,6 +72,9 @@
   /* Franchise badge in the hero — filled = US FDD on file, outline = first-party page only. */
   .hb.fr { color: var(--teal); border-color: var(--teal); }
   .hb.fr.fdd { background: var(--teal); color: #fff; }
+  /* "Brand flagship" lens — China product/tech/DTC brands building US brand retail (flagships,
+     showrooms, a DTC brand's first store chain), as distinct from store-format chain exporters. */
+  .hb.bf { background: #6d4bd8; color: #fff; border-color: #6d4bd8; }
   .frline { margin: 16px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.55; }
   .frline b { color: var(--teal); font-weight: 600; }
   .summary { margin: 12px 0 0; font-size: 1.05rem; color: var(--ink); max-width: 60ch; }
@@ -469,6 +472,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `<h1>${esc(m.name)}` +
         (zhName ? ` <span class="zh" lang="zh-Hans">${esc(zhName)}</span>` : '') + `</h1>${aka}` +
       `<div class="herobadges"><span class="hb">${esc(secLabel(sector))}</span>` +
+        (comp.lane === 'brand_flagship' ? `<span class="hb bf" title="${t('chain.lane.bf.title','A China product, tech or DTC brand building US brand retail (flagships, showrooms or a first store chain) — not a store-format chain exporter')}">${t('chain.lane.bf','Brand flagship')}</span>` : '') +
         (franchiseUS ? `<span class="hb fr${franchiseFDD ? ' fdd' : ''}" title="${franchiseFDD ? t('chain.fr.badge.fdd','Open to a US franchisee — registered US FDD on file') : t('chain.fr.badge.nofdd','Open to a US franchisee via a first-party US franchise page (FDD not confirmed)')}">${t('chain.fr.badge','Franchise')}</span>` : '') +
         listingBadge +
       `</div>` +
