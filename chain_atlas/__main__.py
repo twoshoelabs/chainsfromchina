@@ -388,6 +388,17 @@ def main(argv=None):
         entry_models.report(full=("--full" in argv))
         return 0
 
+    if cmd == "pro-landing":
+        from . import pro_landing
+        errs = pro_landing.validate()
+        if errs:
+            print("pro_landing.json invalid:")
+            for e in errs:
+                print("  " + e)
+            return 2
+        pro_landing.report(full=("--full" in argv))
+        return 0
+
     if cmd == "filings":
         from . import db, filings
         con = db.connect()
@@ -433,6 +444,7 @@ def main(argv=None):
     print("  china-stores                                     Pro: reported China store counts vs US footprint (home-market scale / runway)")
     print("  openings                                         Pro: opening pace (net stores/year, %) derived from dated store counts")
     print("  entry-models [--full]                            Pro: US-entry/expansion model per chain + importer-group roster (Chubby Group etc.)")
+    print("  pro-landing [--full]                             Pro: US landing-readiness score (A-F) + non-compete store-count caps per chain")
     print("  locator                                          Pro: Locator Freshness — how stale each chain's own store locator is (phantom closed listings)")
     print("  single-outlet [--md]                             chains with exactly ONE US store: toe-in-water vs shrank-to-one")
     print("  console [--port N] [--no-open]                   Pro: PRIVATE owner console (localhost) — submit data points + work the queue")

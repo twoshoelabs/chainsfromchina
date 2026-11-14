@@ -1,0 +1,127 @@
+{
+  "_readme": [
+    "US LANDING intelligence (Pro / intelligence tier). NOT public — kept out of map/data; surfaced via",
+    "the `pro-landing` CLI. Two datasets keyed by chain_id:",
+    "",
+    "1) noncompete_cap — a realistic US store-count CEILING for a brand, driven by category non-compete /",
+    "   radius clauses in US malls & plazas (the public map shows outlets that EXIST; this estimates how",
+    "   many can EVER exist). US landlords grant category exclusivity (one coffee / one bubble-tea / one",
+    "   dumpling brand per venue), so a late-entrant's addressable venue universe is capped. Fields:",
+    "   category, incumbent_blockers[], channel_access{a_malls,strip_plazas,street,food_court,campus,",
+    "   grocery_anchored: blocked|limited|open}, cap_estimate{low,high}, cap_method, basis, confidence, as_of.",
+    "",
+    "2) landing_readiness — an EXECUTION-quality grade for how well a brand is set up to scale in the US.",
+    "   Seven 0-5 dimensions (see rubric) roll up to a 0-100 score + A-F grade (COMPUTED by the module, not",
+    "   stored, so weights stay consistent). stage = preparing|trial|expansion|steady|contracting|exited.",
+    "   risk_flags[] call out the article's failure patterns (no FDD, no territory protection, franchisee-",
+    "   built supply chain, cannibalization, overexpansion). Fields: stage, dimensions{<dim>:{value,score,",
+    "   note}}, risk_flags[], confidence, as_of.",
+    "",
+    "Source insight: Zhixiang Chuhai (知象出海) 2026 interviews with the US-landing service layer (site",
+    "selection, construction/approval, marketing, capital). See memory cfc-pro-landing-ecosystem."
+  ],
+  "as_of": "2026-11",
+  "rubric": {
+    "readiness_dimensions": {
+      "entry_model":          {"weight": 0.15, "scale": {"5": "company-direct (controls quality/territory)", "3": "mixed direct+franchise", "1": "pure franchise, horse-racing"}},
+      "fdd_discipline":       {"weight": 0.15, "scale": {"5": "registered US FDD on file", "3": "first-party franchise page, FDD unconfirmed", "1": "franchising with NO FDD (illegal)", "na": "does not franchise (score as direct strength)"}},
+      "territory_protection": {"weight": 0.20, "scale": {"5": "clear radius/territory grants", "3": "partial/informal", "1": "none — franchisees cannibalize (2 stores / 500m)"}},
+      "supply_chain":         {"weight": 0.20, "scale": {"5": "central US supply chain / commissary", "3": "hybrid", "1": "each franchisee builds own", "0": "none"}},
+      "us_ops_team":          {"weight": 0.10, "scale": {"5": "experienced US landing team", "3": "thin", "1": "2 junior hires running it"}},
+      "localization":         {"weight": 0.10, "scale": {"5": "US menu/marketing/pricing adapted", "3": "partial", "1": "copy-paste China playbook"}},
+      "pace_discipline":      {"weight": 0.10, "scale": {"5": "measured, site-by-site", "3": "aggressive but controlled", "1": "overexpanded then retrenched"}}
+    },
+    "grade_bands": {"A": 85, "B": 70, "C": 55, "D": 40, "F": 0}
+  },
+
+  "noncompete_cap": {
+    "luckin": {
+      "category": "coffee",
+      "incumbent_blockers": ["Starbucks", "Dunkin'"],
+      "channel_access": {"a_malls": "blocked", "strip_plazas": "limited", "street": "open", "food_court": "limited", "campus": "limited", "grocery_anchored": "limited"},
+      "cap_estimate": {"low": 300, "high": 800},
+      "cap_method": "Starbucks holds category exclusivity in most A-malls/anchored plazas and gas-station traffic is taken, so coffee is pushed to street + secondary. Cap scales with urban-street density in top metros, not mall count.",
+      "basis": "Article: 'if a Starbucks has already opened in a plaza, it will not allow Luckin to enter' + Luckin is starting from Manhattan street shops.",
+      "confidence": "medium",
+      "as_of": "2026-11"
+    },
+    "cotti": {
+      "category": "coffee",
+      "incumbent_blockers": ["Starbucks", "Dunkin'"],
+      "channel_access": {"a_malls": "blocked", "strip_plazas": "limited", "street": "open", "food_court": "limited", "campus": "open", "grocery_anchored": "limited"},
+      "cap_estimate": {"low": 150, "high": 500},
+      "cap_method": "Same coffee non-compete wall as Luckin; franchise model can push density but faces the same prime-venue exclusion.",
+      "basis": "Coffee category exclusivity; Cotti opened street/secondary (Brooklyn first store).",
+      "confidence": "low",
+      "as_of": "2026-11"
+    },
+    "chagee": {
+      "category": "bubble_tea",
+      "incumbent_blockers": ["one-bubble-tea-per-plaza clauses"],
+      "channel_access": {"a_malls": "limited", "strip_plazas": "limited", "street": "open", "food_court": "limited", "campus": "open", "grocery_anchored": "open"},
+      "cap_estimate": {"low": 200, "high": 600},
+      "cap_method": "Plazas/malls grant one bubble-tea brand exclusivity, so the venue universe is split across many tea chains; cap set by Asian-heavy + campus + street venues where it can win the single tea slot.",
+      "basis": "Article: a plaza 'will not allow you to open a second' tea/dumpling brand; aggressive $5-6 pricing helps win the slot.",
+      "confidence": "low",
+      "as_of": "2026-11"
+    },
+    "mixue": {
+      "category": "bubble_tea",
+      "incumbent_blockers": ["one-bubble-tea-per-plaza clauses"],
+      "channel_access": {"a_malls": "blocked", "strip_plazas": "limited", "street": "open", "food_court": "limited", "campus": "open", "grocery_anchored": "open"},
+      "cap_estimate": {"low": 200, "high": 1000},
+      "cap_method": "Low price supports high store count IF it can find small franchisees + cheap street/secondary sites; capped by the US scarcity of mom-and-pop operators and the one-tea-per-plaza rule.",
+      "basis": "Article: Mixue wants mom-and-pop franchisees ('where can we find these in the US?'); low price is the growth lever (cf. Dunkin' 9,000 stores).",
+      "confidence": "low",
+      "as_of": "2026-11"
+    }
+  },
+
+  "landing_readiness": {
+    "luckin": {
+      "stage": "expansion",
+      "dimensions": {
+        "entry_model":          {"value": "direct", "score": 5, "note": "First 10 US stores company-direct."},
+        "fdd_discipline":       {"value": "na", "score": 5, "note": "Direct, not franchising US yet."},
+        "territory_protection": {"value": "yes", "score": 5, "note": "Company-owned, no franchisee cannibalization."},
+        "supply_chain":         {"value": "central", "score": 4, "note": "Coffee has strong local procurement; no kitchen build."},
+        "us_ops_team":          {"value": "strong", "score": 4, "note": "Served by experienced landing/construction partners (QWA)."},
+        "localization":         {"value": "strong", "score": 4, "note": "Internet/app marketing strategy suited to US; 'has the right feeling.'"},
+        "pace_discipline":      {"value": "measured", "score": 4, "note": "Manhattan street-first, direct, then adjust."}
+      },
+      "risk_flags": [],
+      "confidence": "medium",
+      "as_of": "2026-11"
+    },
+    "mixue": {
+      "stage": "expansion",
+      "dimensions": {
+        "entry_model":          {"value": "franchise", "score": 2, "note": "Mom-and-pop franchise model, supply-chain-monetized."},
+        "fdd_discipline":       {"value": "filed", "score": 4, "note": "Operates a US franchise program."},
+        "territory_protection": {"value": "partial", "score": 3, "note": "Franchise-led; US territory discipline unproven."},
+        "supply_chain":         {"value": "central", "score": 5, "note": "Core strength — makes money on the supply chain, not the store."},
+        "us_ops_team":          {"value": "thin", "score": 2, "note": "China mindset; franchisee-recruitment gap in US."},
+        "localization":         {"value": "partial", "score": 3, "note": "Price is the lever (cf. Dunkin' low-price playbook)."},
+        "pace_discipline":      {"value": "aggressive", "score": 3, "note": "Wants many small franchisees; US operator supply is the bottleneck."}
+      },
+      "risk_flags": ["us_franchisee_supply_gap"],
+      "confidence": "low",
+      "as_of": "2026-11"
+    },
+    "cotti": {
+      "stage": "expansion",
+      "dimensions": {
+        "entry_model":          {"value": "mixed", "score": 3, "note": "Franchise-heavy globally; early US."},
+        "fdd_discipline":       {"value": "none", "score": 2, "note": "US FDD unconfirmed."},
+        "territory_protection": {"value": "unknown", "score": 2, "note": "Unproven US territory discipline."},
+        "supply_chain":         {"value": "hybrid", "score": 3, "note": "Coffee local procurement advantage."},
+        "us_ops_team":          {"value": "thin", "score": 2, "note": "Early-stage US team."},
+        "localization":         {"value": "partial", "score": 3, "note": "Brooklyn first store; aggressive pricing."},
+        "pace_discipline":      {"value": "aggressive", "score": 3, "note": "2 stores opened 2025."}
+      },
+      "risk_flags": ["fdd_unconfirmed"],
+      "confidence": "low",
+      "as_of": "2026-11"
+    }
+  }
+}
