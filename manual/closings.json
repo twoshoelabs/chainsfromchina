@@ -1745,6 +1745,19 @@
    "sources": [
     "Google 'YYTime (formerly known as Dagu Rice Noodle)', 3004 Payne Ave Cleveland (13 Nov 2026); owner confirms YYTime != Dagu, same location only"
    ]
+  },
+  {
+   "chain": "xijiade",
+   "name": "East Village (71 4th Ave)",
+   "address": "71 4th Ave, New York, NY 10003",
+   "city": "New York",
+   "state": "NY",
+   "opened": "2025-07",
+   "closed_on": null,
+   "closed_note": "Temporarily closed per Google (operator-observed, 14 Nov 2026). Xijiade 喜家德 / \"Dumpling Xi\" East Village store (opened ~Jul 2025). Removed from the open US count (2->1; Flushing remains). \"Temporarily\" not \"permanently\" closed — revisit; re-add if it reopens.",
+   "sources": [
+    "Google Maps 'Dumpling Xi' 71 4th Ave New York NY — Temporarily closed (14 Nov 2026)"
+   ]
   }
  ]
 }

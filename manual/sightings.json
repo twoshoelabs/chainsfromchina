@@ -1307,21 +1307,15 @@
   {
    "chain": "xijiade",
    "supplied_on": "2026-09-29",
-   "reviewed": "2026-09-29",
+   "reviewed": "2026-11-14",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
-   "scope": "Two New York City outlets identified as open, trading as 'Dumpling Xi' (Flushing, first US Feb 2025; East Village, Jul 2025). Not a complete roster.",
+   "scope": "One New York City outlet open, trading as 'Dumpling Xi': Flushing (37-02 Prince St, first US Feb 2025). The East Village store (71 4th Ave, opened Jul 2025) is now TEMPORARILY CLOSED (Google, 14 Nov 2026) — removed from the open count, logged; revisit if it reopens. Not a complete roster.",
    "locations": [
     {
      "name": "Flushing",
      "address": "37-02 Prince St, Flushing, NY 11354",
      "confidence": "confirmed",
      "verified_by": "web-verified, official US site + Yelp active Jul 2026; opened 12 Feb 2025 (29 Sep 2026)"
-    },
-    {
-     "name": "East Village",
-     "address": "71 4th Ave, New York, NY 10003",
-     "confidence": "confirmed",
-     "verified_by": "web-verified, press + Yelp active Sep 2026; opened 1 Jul 2025 (29 Sep 2026)"
     }
    ]
   },
