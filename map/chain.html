@@ -480,7 +480,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
                     : t('chain.fr.nofdd','open to a qualifying US franchisee via a first-party US franchise page (no registered FDD confirmed).')) +
       `${franchiseNote ? ' ' + esc(franchiseNote) : ''}</p>` : '') +
     `<section><h2>${t('chain.sec.trades', `Where ${esc(m.name)} trades`, {name:esc(m.name)})}</h2>` +
-      (outlets + soon ? `<div id="map"></div>` : `<p class="lead">${t('chain.sec.nomap','No US locations mapped yet.')}</p>`) +
+      (outlets + soon ? `<div id="map"></div>` : `<p class="lead">${comp.us_note ? esc(comp.us_note) : t('chain.sec.nomap','No US locations mapped yet.')}</p>`) +
       locationsHTML(feats) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">${t('chain.sec.fullmap','Open the full US map →')}</a></p></section>` +
     `<section><h2>${t('chain.sec.photos','Photographs')}</h2>` + photosBlock(comp, m) + `</section>` +
@@ -492,7 +492,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       `</dl></section>` : '') +
     listingSec +
     `<section><div class="cols">` +
-      `<div><h2>${t('chain.sec.bystate','By state')}</h2>${byStateHTML(feats, sector)}</div>` +
+      `<div><h2>${t('chain.sec.bystate','By state')}</h2>${(comp.us_note && !(feats && feats.length)) ? `<p class="lead">${esc(comp.us_note)}</p>` : byStateHTML(feats, sector)}</div>` +
       `<div>` +
         `<h2>${t('chain.sec.abroad','Abroad')}</h2>${abroadHTML(abroad, abroadOther)}` +
         (nb.length ? `<h2 style="margin-top:22px">${t('chain.sec.neighbors','Neighbors')}</h2><div class="nb">${nb.map(nbHTML).join('')}</div>` : '') +
