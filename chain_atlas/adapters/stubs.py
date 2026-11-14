@@ -1943,3 +1943,28 @@ class MengziyuanAdapter(Adapter):
                       " ~1,000+ China stores, '米线大王'). US: Fremont CA open; Fairfax VA closed. Canada:"
                       " Metro Vancouver (Richmond/Burnaby/Vancouver BC). Tracked via sightings. In scope")
     RECHECK = ["https://www.meetricenoodlefremont.com/"]
+
+
+class YomiesAdapter(Adapter):
+    """
+    有米酸奶 / Yomie's Rice x Yogurt — a yogurt-drink brand (slow-fermented yogurt + chewy purple rice).
+    Chinese-founded/operated (operator 茶家上海餐饮管理 / Chajia Shanghai); debuted internationally in
+    Sydney 2018, went viral, then opened in China (first store Shanghai Qibao Old Street) and franchised
+    to ~600 stores / 11 countries. Treated as China-origin (owner call 2026-11-14), in scope.
+
+    US: franchise-heavy, expanded fast then contracted hard. First pass (operator-observed open):
+    Arcadia CA, Brooklyn NY, Tukwila WA, Carrollton + Plano TX. More open CA stores (San Diego, Rowland
+    Heights, Irvine, Millbrae) pending address verification. Many US stores permanently closed (Flushing/
+    Elmhurst NY, Annandale VA, Allston MA, Rowland Heights 'Yes Plaza' CA). Abroad: Australia, Malaysia.
+    No machine-readable US roster, tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "yomies", "Yomie's Rice x Yogurt", "有米酸奶"
+    name_us = "Yomie's Rice x Yogurt"
+    aliases = ("Yomie's Rice x Yogurt", "Yomie's Rice X Yogurt", "Yomies", "有米酸奶", "有米")
+    parent, format = "Chajia (Shanghai) Catering (茶家上海)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("Purple-rice yogurt-drink brand (有米酸奶 / Yomie's; operator 茶家上海; debuted Sydney"
+                      " 2018, ~600 stores/11 countries; China-origin per owner call). US franchise network"
+                      " expanded then contracted — some open (Arcadia CA, Brooklyn NY, Tukwila WA, TX),"
+                      " many closed. Abroad AU + MY. Tracked via sightings. In scope")
+    RECHECK = ["https://www.yomiesriceyogurt.com/"]

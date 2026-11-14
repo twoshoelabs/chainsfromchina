@@ -3035,6 +3035,14 @@
    "blurb": "Meet Rice Noodle (蒙自源) is a China-origin chain built on Yunnan 'crossing-the-bridge' rice noodles (过桥米线). Founded in 2001 in Dongguan, Guangdong by Li Hongwei and named after Mengzi — the Yunnan city where the dish originated — it grew to more than 1,000 restaurants across 80-plus Chinese cities, the rice-noodle category's first 'thousand-store' brand (nicknamed the 'Rice Noodle King'). Abroad it trades as 'Meet Rice Noodle' / 'Meetrice Noodle,' with a US restaurant in Fremont, California (an earlier Fairfax, Virginia location has closed) and three in Metro Vancouver, Canada (Richmond, Burnaby and Vancouver).",
    "site_us": "https://www.meetricenoodlefremont.com/",
    "us_since": null
+  },
+  "yomies": {
+   "name": "Yomie's Rice x Yogurt",
+   "name_zh": "有米酸奶",
+   "category": "Yogurt drinks (purple rice)",
+   "category_zh": "酸奶饮品（紫米）",
+   "blurb": "Yomie's Rice x Yogurt (有米酸奶) is a yogurt-drink chain built around slow-fermented yogurt blended with chewy purple rice. Chinese-founded and operated — its operating company is Chajia (Shanghai) Catering (茶家上海) — it made its international debut in Sydney, Australia in 2018, where it drew huge queues, then opened in China (first store on Shanghai's Qibao Old Street) and franchised worldwide to roughly 600 stores across 11 countries. In the US its franchise network expanded quickly and then contracted sharply: many locations have closed, while a handful continue to operate.",
+   "us_since": "2019"
   }
  }
 }
