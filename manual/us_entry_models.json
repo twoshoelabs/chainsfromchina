@@ -464,6 +464,11 @@
    "model": "regional_operators",
    "confidence": "high",
    "basis": "US outlets run by separate regional operators, each with its own single-store site (daguusa.com/daiguny.com/noodledagu.com); no national US entity."
+  },
+  "ziyan": {
+   "model": "direct_subsidiary",
+   "confidence": "low",
+   "basis": "Brand-led NA entry 2025 — three NY-metro stores opened in quick succession; mechanism inferred (no US franchise offer confirmed)."
   }
  }
 }

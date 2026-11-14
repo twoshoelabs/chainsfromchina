@@ -4809,6 +4809,42 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "ziyan",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Operator-observed Google/Yelp listings + press (Ziyan US launch, Apr 2025).",
+   "scope": "紫燕百味鸡 Ziyan (卤味) US outlets, all NY-metro, operator-observed open: Flushing NY (136-55 Roosevelt Ave, first NA store Apr 2025), Manhattan Chinatown (147 Mott St), Jersey City NJ (525 Washington Blvd, Newport Centre). Not guaranteed complete.",
+   "locations": [
+    {
+     "name": "Flushing (Roosevelt Ave)",
+     "address": "136-55 Roosevelt Ave, Flushing, NY 11354",
+     "lat": 40.76012,
+     "lon": -73.82817,
+     "confidence": "confirmed",
+     "verified_by": "Yelp (Ziyan Baiwei Chicken, open) + storefront ZIYANFOODS 紫燕百味鸡; first NA store Apr 2025 (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Manhattan (Chinatown, Mott St)",
+     "address": "147 Mott St, New York, NY 10013",
+     "lat": 40.71893,
+     "lon": -73.99661,
+     "confidence": "confirmed",
+     "verified_by": "Google (Ziyan Chicken 紫燕百味鸡 Manhattan, 393 reviews), operator-observed open (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Jersey City (Newport Centre)",
+     "address": "525 Washington Blvd Ste E, Jersey City, NJ 07310",
+     "lat": 40.72759,
+     "lon": -74.03467,
+     "confidence": "confirmed",
+     "verified_by": "Google (Ziyan Chicken 紫燕百味鸡 Jersey City, 79 reviews, Newport Centre), operator-observed open (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }

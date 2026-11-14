@@ -1821,3 +1821,28 @@ class VevorAdapter(Adapter):
                       " (14 Nov 2026): list for MONITORING, NOT counted in the US total (no sighting);"
                       " revisit if a real multi-store US chain forms")
     RECHECK = ["https://www.vevor.com/pages/store"]
+
+
+class ZiyanAdapter(Adapter):
+    """
+    紫燕百味鸡 (Ziyan / Ziyan Foods) — a China-origin 卤味 (braised & marinated cold-deli) chain,
+    founded 1989 (Zhong family, Sichuan/Jiangsu roots), HQ Shanghai; Shanghai-listed (SSE 603057,
+    2022). ~6,000+ stores across 200+ Chinese cities; signature 夫妻肺片 + "baiwei" (hundred-flavor)
+    chicken. Same category as Juewei and Zhou Hei Ya. China origin, in scope.
+
+    US: entered 2025 (brand-led NA debut) with a NY-metro cluster — Flushing NY (136-55 Roosevelt Ave,
+    first NA store, Apr 2025), Manhattan Chinatown (147 Mott St) and Jersey City NJ (525 Washington
+    Blvd, Newport Centre), all operator-observed open. Also in Australia (Melbourne). No machine-
+    readable US roster, so tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "ziyan", "Ziyan Chicken", "紫燕百味鸡"
+    name_us = "Ziyan Chicken"
+    aliases = ("Ziyan Chicken", "Ziyan Baiwei Chicken", "Ziyan", "ZIYANFOODS", "Ziyan Foods",
+               "紫燕百味鸡", "紫燕")
+    parent, format = "Ziyan Foods (紫燕食品集团, Shanghai; SSE 603057)", "snack"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin 卤味 braised-deli chain (紫燕百味鸡 / Ziyan, founded 1989, HQ"
+                      " Shanghai, SSE 603057; ~6,000+ China stores; signature 夫妻肺片). US entry 2025,"
+                      " NY-metro: Flushing + Manhattan Chinatown NY + Jersey City NJ, all open; also"
+                      " Melbourne AU. No machine-readable US roster, tracked via sightings. In scope")
+    RECHECK = ["https://www.ziyanfoods.com/"]

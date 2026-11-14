@@ -1891,6 +1891,31 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-based (Shanghai) factory-direct e-commerce wholesaler; one US flagship store (Houston, Mar 2026), online-first otherwise. No China retail stores. Monitoring-only — NOT counted in the US total until a real US chain forms."
+  },
+  "ziyan": {
+   "name": "Ziyan Chicken",
+   "name_zh": "紫燕百味鸡",
+   "name_us": "Ziyan Chicken",
+   "aliases": [
+    "Ziyan Chicken",
+    "Ziyan Baiwei Chicken",
+    "Ziyan",
+    "ZIYANFOODS",
+    "Ziyan Foods",
+    "紫燕百味鸡",
+    "紫燕"
+   ],
+   "format": "snack",
+   "sector": "snacks",
+   "sub_category": "braised deli (卤味)",
+   "tickers": [
+    "SSE:603057"
+   ],
+   "global": "China-origin 卤味 (braised/marinated cold-deli) chain — 紫燕百味鸡 (Ziyan Foods), founded 1989 (Zhong family, Sichuan/Jiangsu roots), HQ Shanghai; Shanghai-listed (SSE 603057, 2022). ~6,000+ stores across 200+ Chinese cities; signature dish 夫妻肺片 (fuqi feipian) plus its baiwei (hundred-flavor) chicken. Overseas since 2025: the US (first North American store Flushing NY, April 2025) and Australia (Melbourne). Same China 卤味 category as Juewei and Zhou Hei Ya.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China 卤味 franchise chain (加盟, ~6,000+ stores); US entry 2025 (NY-metro cluster). No US franchise offer or FDD confirmed."
   }
  },
  "entries": [
@@ -10072,6 +10097,21 @@
    "sources": [
     "https://www.google.com/maps (탕화쿽푸 마라탕 — ~18-20 Korea units; branch numbers to ~#28)",
     "https://baike.baidu.com/item/汤火功夫 (brand ‘500+’ claim)"
+   ]
+  },
+  {
+   "chain": "ziyan",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Melbourne (City store, 447 Elizabeth St, VIC 3000) open and operating — ZIYANFOODS storefront, operator-observed on Google.",
+   "sources": [
+    "https://www.google.com/maps (Ziyan chicken 紫燕百味鸡 City店, 447 Elizabeth St Melbourne — open)"
    ]
   }
  ]

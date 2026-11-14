@@ -2981,6 +2981,15 @@
    "blurb": "VEVOR is a China-based (Shanghai, founded 2007) factory-direct cross-border e-commerce wholesaler of tools, equipment and home-improvement goods, selling mainly online through vevor.com and marketplaces. In March 2026 it opened its first-ever physical store — a 32,000-square-foot omnichannel flagship in Houston, Texas — as a test of US brick-and-mortar retail. It is a new breed for this tracker: a US physical-retail debut by a China-based online wholesaler rather than a China retail chain expanding abroad, so it is listed for monitoring but not yet counted in the US outlet total.",
    "site_us": "https://www.vevor.com/",
    "us_since": "2026"
+  },
+  "ziyan": {
+   "name": "Ziyan Chicken",
+   "name_zh": "紫燕百味鸡",
+   "category": "Braised deli / cold dishes (卤味)",
+   "category_zh": "卤味",
+   "blurb": "Ziyan (紫燕百味鸡 / Ziyan Foods) is a China-origin 卤味 chain — braised and marinated cold deli dishes — founded in 1989 and headquartered in Shanghai, where it is publicly listed (Shanghai Stock Exchange, 603057). It has grown to more than 6,000 stores across China, best known for its 夫妻肺片 (sliced beef and offal in chili oil) and its \"hundred-flavor\" baiwei chicken. It began expanding overseas in 2025, opening its first North American stores in the New York metro area (Flushing, Manhattan Chinatown and Jersey City) and a store in Melbourne, Australia.",
+   "site_us": "",
+   "us_since": "2025"
   }
  }
 }
