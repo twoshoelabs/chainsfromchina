@@ -494,6 +494,11 @@
    "model": "us_franchise",
    "confidence": "medium",
    "basis": "China brand that opened global franchising in 2018; US stores are independent franchisees across several states, with their own US sites (bengongstea.us / bengongteaus.com)."
+  },
+  "laofengxiang": {
+   "model": "direct_subsidiary",
+   "confidence": "medium",
+   "basis": "Prestige Fifth Avenue NYC flagship presented as the brand's own US store; company-operated (exact structure unconfirmed)."
   }
  }
 }

@@ -5061,6 +5061,24 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "laofengxiang",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Google + owner screenshot + GIA/Wikipedia (14 Nov 2026).",
+   "scope": "老凤祥 / Lao Feng Xiang US outlets. 1 confirmed: the Fifth Avenue flagship, Manhattan. Re-sweep for any other US stores.",
+   "locations": [
+    {
+     "name": "Manhattan (Fifth Avenue flagship)",
+     "address": "585 5th Ave, New York, NY 10017",
+     "lat": 40.756942,
+     "lon": -73.978274,
+     "confidence": "confirmed",
+     "verified_by": "Google (Lao Feng Xiang - LFX Jewelry, 585 5th Ave, jewelry store, 26 reviews) + owner screenshot (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }

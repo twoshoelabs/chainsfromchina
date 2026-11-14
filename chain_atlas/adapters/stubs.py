@@ -1945,6 +1945,26 @@ class MengziyuanAdapter(Adapter):
     RECHECK = ["https://www.meetricenoodlefremont.com/"]
 
 
+class LaoFengXiangAdapter(Adapter):
+    """
+    老凤祥 / Lao Feng Xiang — China's oldest jewelry company, founded 1848 in Shanghai (operator Shanghai
+    Lao Feng Xiang Co., SSE 600612); ~2,700-3,000+ gold/jewelry stores across China, 2nd only to Chow
+    Tai Fook. China origin, in scope. NOT the same as 老铺黄金 Laopu Gold (a different jeweler, `laopu`).
+
+    US: Fifth Avenue flagship (585 5th Ave, Manhattan), operator-observed. Abroad: Australia (Sydney) +
+    Canada (Vancouver). No machine-readable US roster, tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "laofengxiang", "Lao Feng Xiang", "老凤祥"
+    name_us = "Lao Feng Xiang"
+    aliases = ("Lao Feng Xiang", "LFX Jewelry", "LFX", "老凤祥", "老鳳祥")
+    parent, format = "Shanghai Lao Feng Xiang Co., Ltd. (上海老凤祥, SSE 600612)", "jewelry"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin heritage jewelry chain (老凤祥 / Lao Feng Xiang, Shanghai 1848, SSE"
+                      " 600612; ~2,700-3,000+ China stores). US: Fifth Avenue NYC flagship; abroad"
+                      " Australia (Sydney) + Canada (Vancouver). Tracked via sightings. In scope")
+    RECHECK = ["https://www.laofengxiang.com/"]
+
+
 class BenGongAdapter(Adapter):
     """
     本宫的茶 / BenGong's Tea — a China-origin "new Chinese-style" (新中式) tea-drink chain, operator

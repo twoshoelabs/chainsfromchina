@@ -2074,6 +2074,25 @@
    "franchise_available_us": 1,
    "fdd_available": 0,
    "franchise_note": "China (Guangzhou) new-Chinese-style tea chain; opened global franchising 2018. US stores are independent franchisees across several states (own US sites bengongstea.us / bengongteaus.com). Tracked via sightings. No US FDD confirmed."
+  },
+  "laofengxiang": {
+   "name": "Lao Feng Xiang",
+   "name_zh": "老凤祥",
+   "name_intl": "Lao Feng Xiang",
+   "aliases": [
+    "老凤祥",
+    "老鳳祥",
+    "Lao Feng Xiang",
+    "LFX Jewelry",
+    "LFX",
+    "Laofengxiang"
+   ],
+   "format": "jewelry",
+   "global": "China's oldest jewelry company — founded 1848 in Shanghai (originally the Feng Xiang 凤祥 silver shop), operator Shanghai Lao Feng Xiang Co., Ltd. (上海老凤祥, SSE 600612). A gold/jade/jewelry retailer and one of China's largest jewelers (~2,700-3,000+ stores, second only to Chow Tai Fook), present in almost every Chinese province. Overseas: a US flagship on Fifth Avenue, New York, plus stores in Sydney (Australia) and Vancouver (Canada).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shanghai) heritage jewelry chain (SSE 600612). US tracked via its Fifth Avenue NYC flagship; also Australia + Canada. No US FDD."
   }
  },
  "entries": [
@@ -10464,6 +10483,36 @@
    "note": "Canada — Vancouver, BC (Ben Gong's Tea 本宫的茶), operator-observed open (Google 2.8/208).",
    "sources": [
     "https://www.google.com/maps (Ben Gong's Tea 本宫的茶 — Vancouver BC)"
+   ]
+  },
+  {
+   "chain": "laofengxiang",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-14",
+   "note": "Australia — Sydney (per the brand's overseas footprint; Lao Feng Xiang Sydney).",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Lao_Feng_Xiang"
+   ]
+  },
+  {
+   "chain": "laofengxiang",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Canada — Vancouver, BC (Lao Feng Xiang Jewelry Canada, lfxjewelry.ca).",
+   "sources": [
+    "https://lfxjewelry.ca/"
    ]
   }
  ]
