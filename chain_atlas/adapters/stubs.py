@@ -2052,18 +2052,18 @@ class BenGongAdapter(Adapter):
     RECHECK = ["https://www.bengongstea.us/order"]
 
 
-class SemirAdapter(Adapter):
+class BalabalaAdapter(Adapter):
     """
     Balabala (巴拉巴拉) — the kidswear brand of the Wenzhou mass-apparel group 森马服饰 / Semir Group
     (SZSE 002563); China's largest kidswear brand, ~4,800 stores across ~15 markets. China origin, in
     scope. The group's physical retail abroad — and in the US — runs overwhelmingly under the Balabala
-    banner, so Balabala is the display name (the chain_id stays `semir`, the group). Parent Semir.
+    banner, so the chain is tracked under Balabala (chain_id `balabala`). Parent Semir.
 
     US: first store opened at Stoneridge Shopping Center (Pleasanton CA), trading as Balabala
     (operator-observed Simon mall directory). Previously Global-register only. No machine-readable US
     roster, so tracked via hand-assembled sightings.
     """
-    chain_id, name, name_zh = "semir", "Balabala", "巴拉巴拉"
+    chain_id, name, name_zh = "balabala", "Balabala", "巴拉巴拉"
     name_us = "Balabala"
     aliases = ("Balabala", "巴拉巴拉", "Semir", "森马", "森马服饰", "Semir Group")
     parent, format = "Semir Group (森马服饰, Wenzhou; SZSE 002563)", "apparel"

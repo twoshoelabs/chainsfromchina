@@ -993,7 +993,7 @@
    "fdd_available": 0,
    "franchise_note": "US reach is marketplaces + own DTC e-commerce; no US retail franchise."
   },
-  "semir": {
+  "balabala": {
    "name": "Balabala",
    "name_us": "Balabala",
    "name_zh": "巴拉巴拉",
@@ -5992,7 +5992,7 @@
    ]
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "HK",
    "status": "present",
    "locations": 13,
@@ -6008,7 +6008,7 @@
    "locations_as_of": "2026-10"
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "SG",
    "status": "present",
    "locations": null,
@@ -6022,7 +6022,7 @@
    ]
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "MY",
    "status": "present",
    "locations": null,
@@ -6036,7 +6036,7 @@
    ]
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "VN",
    "status": "present",
    "locations": null,
@@ -6050,7 +6050,7 @@
    ]
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "KH",
    "status": "present",
    "locations": null,
@@ -6980,7 +6980,7 @@
    ]
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "SA",
    "status": "present",
    "locations": null,
@@ -8191,7 +8191,7 @@
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
   },
   {
-   "chain": "semir",
+   "chain": "balabala",
    "market": "AE",
    "status": "no_evidence",
    "locations": null,

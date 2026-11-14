@@ -110,7 +110,7 @@ const LOGO_CHAINS = new Set([
   'dji',
   'oppein',
   'fioboc',
-  'semir',
+  'balabala',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
