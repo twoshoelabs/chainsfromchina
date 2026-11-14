@@ -2054,25 +2054,6 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Shanghai) guokui flatbread chain (franchise-heavy). Tracked abroad via Singapore + Australia; Malaysia exited. No US presence or FDD."
-  },
-  "yomies": {
-   "name": "Yomie's Rice x Yogurt",
-   "name_zh": "有米酸奶",
-   "name_intl": "Yomie's Rice x Yogurt",
-   "aliases": [
-    "有米酸奶",
-    "Yomie's Rice x Yogurt",
-    "Yomie's Rice X Yogurt",
-    "Yomies",
-    "Yomie",
-    "有米"
-   ],
-   "format": "tea",
-   "global": "Yogurt-drink chain (slow-fermented yogurt blended with chewy purple rice) with an UNUSUAL HISTORY: though Chinese-founded and run by a Shanghai operating company (茶家（上海）餐饮管理 / Chajia Shanghai), it made its first appearance not in China but in Sydney, Australia (2018) — a Chinese team launched it there and it went viral — and only afterward opened in China (first store on Shanghai's Qibao Old Street) and franchised worldwide to ~600 stores across 11 countries. We classify it as China-origin (Chinese founder + Shanghai operating company; owner call 2026-11-14) while noting the Sydney debut. Its US franchise network expanded fast then contracted sharply — many stores have closed, a handful still operate (CA/NY/WA/TX). Abroad also in Australia, Malaysia, Singapore and more.",
-   "operating_model": "franchise",
-   "franchise_available_us": 0,
-   "fdd_available": 0,
-   "franchise_note": "Franchise-heavy purple-rice yogurt-drink brand with an unusual Sydney-first history (classified China-origin: Chinese founder + Shanghai operating company 茶家上海). US stores are independent franchisees, many now closed. Tracked via sightings. No US FDD confirmed."
   }
  },
  "entries": [
@@ -10418,36 +10399,6 @@
    "note": "Malaysia exited — Kota Damansara (No. 11, Jalan PJU 5/10, 47810 Petaling Jaya, Selangor) marked Permanently closed on Google (14 Nov 2026).",
    "sources": [
     "https://www.google.com/maps (A Gan Guo Kui Kota Damansara — Permanently closed)"
-   ]
-  },
-  {
-   "chain": "yomies",
-   "market": "AU",
-   "status": "present",
-   "locations": 1,
-   "locations_as_of": "2026-11",
-   "first_opened": "2018",
-   "precision": "year",
-   "confidence": "high",
-   "reviewed": "2026-11-14",
-   "note": "Australia — Sydney, Haymarket (Shop 6, 683-689 George St, Sydney NSW 2000), the brand's original launch market (2018); operator-observed open (Google 4.1/1,061).",
-   "sources": [
-    "https://www.google.com/maps (Yomie's Rice x Yogurt — Haymarket, Sydney, open)"
-   ]
-  },
-  {
-   "chain": "yomies",
-   "market": "MY",
-   "status": "present",
-   "locations": 1,
-   "locations_as_of": "2026-11",
-   "first_opened": null,
-   "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-11-14",
-   "note": "Malaysia — Penang, Icon City (8G Jln Icon City, Bukit Mertajam), operator-observed open (Google 4.5/121). First MY store was Penang (2019).",
-   "sources": [
-    "https://www.google.com/maps (Yomie's Rice X Yogurt @ Icon City, Penang, open)"
    ]
   }
  ]

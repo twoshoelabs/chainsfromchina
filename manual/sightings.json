@@ -4962,60 +4962,6 @@
      "coord_src": "manual (Warm Springs Blvd, Fremont; Census returned none)"
     }
    ]
-  },
-  {
-   "chain": "yomies",
-   "supplied_on": "2026-11-14",
-   "reviewed": "2026-11-14",
-   "source": "Google/Yelp + delivery platforms; owner screenshots (14 Nov 2026).",
-   "scope": "有米酸奶 / Yomie's Rice x Yogurt US outlets. FIRST PASS — 5 operator-observed open with verified addresses mapped here. Additional open CA stores seen on Google but NOT yet address-verified (San Diego, Rowland Heights, Irvine, Millbrae) are held pending verification. Houston TX (9788 Bellaire Blvd) is temporarily closed. Many US stores are permanently closed (see closings): Flushing + Elmhurst NY, Annandale VA, Allston MA, Rowland Heights 'Yes Plaza' CA.",
-   "locations": [
-    {
-     "name": "Arcadia CA (Duke Bakery)",
-     "address": "713 W Duarte Rd, Arcadia, CA 91007",
-     "lat": 34.126058,
-     "lon": -118.055409,
-     "confidence": "confirmed",
-     "verified_by": "Google (Yomie Arcadia 有米酸奶, 4.5/85, open) (14 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Brooklyn NY (8th Ave)",
-     "address": "5215 8th Ave, Brooklyn, NY 11220",
-     "lat": 40.639847,
-     "lon": -74.004934,
-     "confidence": "confirmed",
-     "verified_by": "Google (Yomie's Rice x Yogurt 有米酸奶, 3.8/67, open) (14 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Tukwila WA (Southcenter Mall)",
-     "address": "2800 Southcenter Mall, Tukwila, WA 98188",
-     "lat": 47.458687,
-     "lon": -122.262418,
-     "confidence": "confirmed",
-     "verified_by": "Google (有米酸奶 Yomie's Rice X Yogurt Southcenter, 2.5/66, open) (14 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Carrollton TX",
-     "address": "2532 Old Denton Rd #106, Carrollton, TX 75006",
-     "lat": 32.979898,
-     "lon": -96.909749,
-     "confidence": "confirmed",
-     "verified_by": "Google (Yomie's Rice x Yogurt | 有米酸奶 Carrollton, 4.7/49, open) + Postmates (14 Nov 2026).",
-     "coord_src": "US Census geocoder"
-    },
-    {
-     "name": "Plano TX (Coit Rd)",
-     "address": "2049 Coit Rd #300F, Plano, TX 75075",
-     "lat": 33.029566,
-     "lon": -96.770246,
-     "confidence": "confirmed",
-     "verified_by": "Google (Yomie's Rice x Yogurt | 有米酸奶 Plano, open) + Uber Eats/Beyond Menu (14 Nov 2026). Address slightly conflicting across platforms (2001 vs 2049 Coit Rd).",
-     "coord_src": "US Census geocoder"
-    }
-   ]
   }
  ]
 }
