@@ -1943,3 +1943,26 @@ class MengziyuanAdapter(Adapter):
                       " ~1,000+ China stores, '米线大王'). US: Fremont CA open; Fairfax VA closed. Canada:"
                       " Metro Vancouver (Richmond/Burnaby/Vancouver BC). Tracked via sightings. In scope")
     RECHECK = ["https://www.meetricenoodlefremont.com/"]
+
+
+class BenGongAdapter(Adapter):
+    """
+    本宫的茶 / BenGong's Tea — a China-origin "new Chinese-style" (新中式) tea-drink chain, operator
+    广州本宫餐饮服务有限公司 (Guangzhou Bengong Catering), founded 2015 in Guangzhou; 国风 identity,
+    Wuyi/Fujian tea bases + fresh fruit/milk. Opened global franchising 2018. China origin, in scope.
+
+    US: independent franchisees across several states (own US sites bengongstea.us / bengongteaus.com).
+    First pass (operator-observed open): Sykesville + Gaithersburg + Ellicott City MD, Garden Grove CA,
+    Morrisville NC. Additional official-list stores pending address verification (Centreville + Annandale
+    VA, Arcadia + San Diego CA, Frisco TX, Winter Springs FL). Abroad: Japan (Kyoto). No machine-readable
+    US roster, tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "bengong", "BenGong's Tea", "本宫的茶"
+    name_us = "BenGong's Tea"
+    aliases = ("BenGong's Tea", "Bengong's Tea", "Ben Gong's Tea", "本宫的茶", "本宫")
+    parent, format = "Guangzhou Bengong Catering Service (广州本宫餐饮服务)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin new-Chinese-style tea chain (本宫的茶 / BenGong's Tea, Guangzhou 2015;"
+                      " global franchising since 2018). US franchisees across MD/VA/CA/NC/TX/FL; abroad"
+                      " Japan (Kyoto). Tracked via sightings. In scope")
+    RECHECK = ["https://www.bengongstea.us/order"]

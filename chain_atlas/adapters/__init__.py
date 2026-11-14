@@ -47,7 +47,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     EpyayingAdapter, YoyosoAdapter, ChubbySkewersAdapter,
                     TanghuoKungfuAdapter, DaguAdapter, VevorAdapter, ZiyanAdapter,
                     DolarShopAdapter, XiangTianXiaAdapter, LaoMaTouAdapter,
-                    MengziyuanAdapter)
+                    MengziyuanAdapter, BenGongAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -131,6 +131,7 @@ REGISTRY: list[Adapter] = [
     XiangTianXiaAdapter(), # China-origin Sichuan hot pot 香天下 / Xiang Hotpot (from 金川火锅 2003, ~600-700 stores worldwide); US — Brooklyn NY (Flushing closed), tracked via sightings — see stubs.py
     LaoMaTouAdapter(), # China-origin Sichuan hot pot 老码头 / Lao Ma Tou (Chengdu 2001); US — Rowland Heights + Irvine CA, Bellevue WA, tracked via sightings — see stubs.py
     MengziyuanAdapter(), # China-origin Yunnan rice-noodle 蒙自源 / Meet Rice Noodle (Dongguan 2001, ~1,000+ stores); US — Fremont CA (Fairfax VA closed), Canada Metro Vancouver, tracked via sightings — see stubs.py
+    BenGongAdapter(), # China-origin new-Chinese-style tea 本宫的茶 / BenGong's Tea (Guangzhou 2015, global franchise 2018); US franchisees MD/VA/CA/NC/TX/FL, Japan abroad, tracked via sightings — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

@@ -3035,6 +3035,15 @@
    "blurb": "Meet Rice Noodle (蒙自源) is a China-origin chain built on Yunnan 'crossing-the-bridge' rice noodles (过桥米线). Founded in 2001 in Dongguan, Guangdong by Li Hongwei and named after Mengzi — the Yunnan city where the dish originated — it grew to more than 1,000 restaurants across 80-plus Chinese cities, the rice-noodle category's first 'thousand-store' brand (nicknamed the 'Rice Noodle King'). Abroad it trades as 'Meet Rice Noodle' / 'Meetrice Noodle,' with a US restaurant in Fremont, California (an earlier Fairfax, Virginia location has closed) and three in Metro Vancouver, Canada (Richmond, Burnaby and Vancouver).",
    "site_us": "https://www.meetricenoodlefremont.com/",
    "us_since": null
+  },
+  "bengong": {
+   "name": "BenGong's Tea",
+   "name_zh": "本宫的茶",
+   "category": "New Chinese-style tea",
+   "category_zh": "新中式茶饮",
+   "blurb": "BenGong's Tea (本宫的茶) is a China-origin \"new Chinese-style\" tea-drink chain, run by Guangzhou Bengong Catering Service and founded in Guangzhou in 2015. It targets young consumers with a national-style (国风) identity that fuses traditional Chinese culture with a light-luxury look, built on Wuyi Mountain and Fujian tea bases with fresh fruit and milk. After expanding across China from 2016 and upgrading its supply chain in 2017, it opened global franchising in 2018. In the US it operates through independent franchisees across Maryland, Virginia, California, North Carolina, Texas and Florida; it also has a store in Kyoto, Japan.",
+   "site_us": "https://www.bengongstea.us/",
+   "us_since": null
   }
  }
 }

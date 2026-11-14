@@ -2054,6 +2054,26 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Shanghai) guokui flatbread chain (franchise-heavy). Tracked abroad via Singapore + Australia; Malaysia exited. No US presence or FDD."
+  },
+  "bengong": {
+   "name": "BenGong's Tea",
+   "name_zh": "本宫的茶",
+   "name_intl": "BenGong's Tea",
+   "aliases": [
+    "本宫的茶",
+    "本宮的茶",
+    "BenGong's Tea",
+    "Bengong's Tea",
+    "Ben Gong's Tea",
+    "BenGong Tea",
+    "本宫"
+   ],
+   "format": "tea",
+   "global": "China-origin 'new Chinese-style' (新中式) tea-drink chain, operator 广州本宫餐饮服务有限公司 (Guangzhou Bengong Catering), founded 2015 in Guangzhou; positioned to young consumers with a traditional-Chinese-culture-meets-light-luxury 国风 identity ('中茶新做'), using Wuyi Mountain / Fujian tea bases with fresh fruit and milk. Expanded from 2016 to Beijing/Guangzhou and overseas, upgraded supply chain 2017, and opened GLOBAL FRANCHISING in 2018 (co-founder incl. singer Hu Haiquan 胡海泉, since exited; company had later tax/contract-dispute troubles). US presence via franchisees across MD/VA/CA/NC/TX/FL; also Japan.",
+   "operating_model": "franchise",
+   "franchise_available_us": 1,
+   "fdd_available": 0,
+   "franchise_note": "China (Guangzhou) new-Chinese-style tea chain; opened global franchising 2018. US stores are independent franchisees across several states (own US sites bengongstea.us / bengongteaus.com). Tracked via sightings. No US FDD confirmed."
   }
  },
  "entries": [
@@ -10399,6 +10419,21 @@
    "note": "Malaysia exited — Kota Damansara (No. 11, Jalan PJU 5/10, 47810 Petaling Jaya, Selangor) marked Permanently closed on Google (14 Nov 2026).",
    "sources": [
     "https://www.google.com/maps (A Gan Guo Kui Kota Damansara — Permanently closed)"
+   ]
+  },
+  {
+   "chain": "bengong",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Japan — Kyoto (275 Asukaicho, Kamigyo Ward), operator-observed open (Google 4.3/146).",
+   "sources": [
+    "https://www.google.com/maps (本宫的茶 BenGong's Tea — Kyoto, open)"
    ]
   }
  ]

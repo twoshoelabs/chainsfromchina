@@ -4962,6 +4962,60 @@
      "coord_src": "manual (Warm Springs Blvd, Fremont; Census returned none)"
     }
    ]
+  },
+  {
+   "chain": "bengong",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Official US sites (bengongstea.us/order, bengongteaus.com) + Google/Yelp; owner screenshots + Baidu Baike (14 Nov 2026).",
+   "scope": "本宫的茶 / BenGong's Tea US outlets (China-origin franchise). FIRST PASS — 5 operator-observed open with verified addresses mapped here. Additional stores on the official order list are held pending address verification: Centreville VA, Annandale VA, Arcadia CA, San Diego CA, Frisco TX, Winter Springs FL. Multiple US franchisees/sites.",
+   "locations": [
+    {
+     "name": "Sykesville MD",
+     "address": "1213 Liberty Rd Ste H, Sykesville, MD 21784",
+     "lat": 39.405296,
+     "lon": -76.955187,
+     "confidence": "confirmed",
+     "verified_by": "Google (Bengong's Tea Sykesville, 4.3/102, open) (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Gaithersburg MD (Spectrum Town Center)",
+     "address": "108 Paramount Park Dr, Gaithersburg, MD 20879",
+     "lat": 39.159725,
+     "lon": -77.221424,
+     "confidence": "confirmed",
+     "verified_by": "Google (Bengong's Tea, 4.4/553, open) + official site (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Ellicott City MD (Princess Shopping Center)",
+     "address": "10045 Baltimore National Pike Ste A10, Ellicott City, MD 21042",
+     "lat": 39.279154,
+     "lon": -76.858101,
+     "confidence": "confirmed",
+     "verified_by": "Google (Bengong's Tea, 4.4/355, open) + official site (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Garden Grove CA (Euclid Retail Center)",
+     "address": "14291 Euclid St Ste D107, Garden Grove, CA 92843",
+     "lat": 33.7625,
+     "lon": -117.9405,
+     "confidence": "confirmed",
+     "verified_by": "Google (BenGong's Tea Garden Grove CA, 4.0/42, open) (14 Nov 2026).",
+     "coord_src": "manual (Euclid St; Census returned none)"
+    },
+    {
+     "name": "Morrisville NC",
+     "address": "4141 Davis Dr, Morrisville, NC 27560",
+     "lat": 35.838011,
+     "lon": -78.856049,
+     "confidence": "confirmed",
+     "verified_by": "Google (Bengong's Tea Morrisville, 4.4/165, open) (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }
