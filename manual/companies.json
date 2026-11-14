@@ -1857,6 +1857,19 @@
     ]
    }
   },
+  "semir": {
+   "name": "Balabala",
+   "name_zh": "巴拉巴拉",
+   "category": "Children's apparel & footwear",
+   "category_zh": "童装",
+   "blurb": "Balabala (巴拉巴拉) is the children's-wear banner of the Semir Group (森马服饰), a Wenzhou-based mass-apparel company and China's largest kidswear brand, with a retail footprint of roughly 4,800 stores across some 15 countries and regions. Semir's physical retail abroad — and now in the United States — operates almost entirely under the Balabala name. Its first US store opened at Stoneridge Shopping Center in Pleasanton, California.",
+   "us_since": "2026",
+   "first_outlet": "Pleasanton, CA — Stoneridge Shopping Center, as Balabala",
+   "site_cn": "https://www.balabala.com.cn/",
+   "site_us": null,
+   "photo": null,
+   "photo_credit": null
+  },
   "jnby": {
    "name": "JNBY",
    "name_zh": "江南布衣",
