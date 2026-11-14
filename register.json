@@ -1997,6 +1997,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin Beijing simmer-pot chain (Yum China-controlled). US entered ~2017 and fully exited (all closed). Tracked abroad via its UK restaurant. No US presence or FDD."
+  },
+  "henjiuyiqian": {
+   "name": "Long Time Ago BBQ",
+   "name_zh": "很久以前",
+   "name_intl": "Long Time Ago BBQ",
+   "aliases": [
+    "很久以前",
+    "很久以前羊肉串",
+    "Long Time Ago BBQ",
+    "Long Time Ago BBQ Bar",
+    "Hen Jiu Yi Qian"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Beijing BBQ / lamb-skewer (烧烤 / 羊肉串) chain, founded 2008 in Beijing (Shunyi) by Song Ji (宋吉); known for smokeless barbecue and an immersive nightlife-style setting (dubbed the 'Haidilao of BBQ') and popular with Korean tourists. ~148 directly-operated stores (Beijing/Shanghai-heavy; it pulled back from franchising to direct operation); operator share-reformed to 北京很久以前餐饮管理集团股份有限公司 in 2026 and is viewed as an IPO candidate ('烧烤第一股'). US: a single Arcadia CA restaurant ('Long Time Ago BBQ Bar', 168 Las Tunas Dr) entered and has since CLOSED — its status as an authorized US outlet (vs a licensee) is unconfirmed. No current US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Beijing) BBQ/skewer chain; one US store (Arcadia CA) opened and closed. No current US presence or FDD; US authorization unconfirmed."
   }
  },
  "entries": [
