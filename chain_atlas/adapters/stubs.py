@@ -2050,3 +2050,26 @@ class BenGongAdapter(Adapter):
                       " global franchising since 2018). US franchisees across MD/VA/CA/NC/TX/FL; abroad"
                       " Japan (Kyoto). Tracked via sightings. In scope")
     RECHECK = ["https://www.bengongstea.us/order"]
+
+
+class SemirAdapter(Adapter):
+    """
+    Semir (森马) / Balabala (巴拉巴拉) — the Wenzhou mass-apparel group 森马服饰 (SZSE 002563): Semir
+    adult casual + Balabala kidswear (China's largest kidswear brand, ~4,800 stores across ~15
+    markets). China origin, in scope. The register models the whole group as chain `semir`; its
+    physical retail abroad — and now in the US — runs overwhelmingly under the Balabala banner, so the
+    US display name is Balabala (name_us).
+
+    US: first store opened at Stoneridge Shopping Center (Pleasanton CA), trading as Balabala
+    (operator-observed Simon mall directory). Previously Global-register only. No machine-readable US
+    roster, so tracked via hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "semir", "Semir", "森马"
+    name_us = "Balabala"
+    aliases = ("Semir", "森马", "森马服饰", "Semir Group", "Balabala", "巴拉巴拉")
+    parent, format = "Semir Group (森马服饰, Wenzhou; SZSE 002563)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Wenzhou apparel group (森马服饰 / Semir + Balabala 巴拉巴拉 kidswear,"
+                      " SZSE 002563; ~4,800 stores). US retail trades as Balabala — first US store at"
+                      " Stoneridge Shopping Center, Pleasanton CA. Tracked via sightings. In scope")
+    RECHECK = ["https://www.balabala.com.cn/"]
