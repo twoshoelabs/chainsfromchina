@@ -1916,6 +1916,29 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China 卤味 franchise chain (加盟, ~6,000+ stores); US entry 2025 (NY-metro cluster). No US franchise offer or FDD confirmed."
+  },
+  "fishinrice": {
+   "name": "Fish in Rice",
+   "name_intl": "Fish in Rice",
+   "name_zh": "淘米捞",
+   "aliases": [
+    "淘米漁",
+    "淘米渔",
+    "淘米捞",
+    "淘米撈",
+    "米汤脆鲩鱼火锅",
+    "米湯脆鯇魚火鍋",
+    "中山脆肉鲩",
+    "Tao Mi Lao",
+    "Taomilao",
+    "Taomiyu"
+   ],
+   "format": "hotpot",
+   "global": "China-origin congee-base grass-carp (脆肉鲩/脆鯇) hotpot chain, founded 2013 in Shenzhen (operator Shenzhen Taomilao Catering; home-market name 淘米捞 / Tao Mi Lao, in the Zhongshan 中山脆肉鲩 tradition, brand-upgraded 2018). Signature rice-congee (米汤) broth cooked with crispy grass carp. A regional Guangdong chain (Shenzhen + Huizhou). It went outside its home market for the first time in 2026, opening in Hong Kong (trading as 淘米漁 / Fish in Rice; operator Fish in Rice (HK) Catering Ltd) — per Invest Hong Kong, its first store outside China. No US presence.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Shenzhen) grass-carp hotpot chain; tracked abroad via its Hong Kong stores. No US presence, franchise offer, or FDD confirmed."
   }
  },
  "entries": [
@@ -10112,6 +10135,22 @@
    "note": "Melbourne (City store, 447 Elizabeth St, VIC 3000) open and operating — ZIYANFOODS storefront, operator-observed on Google.",
    "sources": [
     "https://www.google.com/maps (Ziyan chicken 紫燕百味鸡 City店, 447 Elizabeth St Melbourne — open)"
+   ]
+  },
+  {
+   "chain": "fishinrice",
+   "market": "HK",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "First market outside China. Invest Hong Kong announced the brand's first HK store (its first anywhere outside China) in March 2026; a second branch opened at Whampoa (黃埔天地), Hung Hom, around September 2026. Two OpenRice-listed branches currently open: Tseung Kwan O (East Point City 東港城, 1/F shop 160, New Territories) and Hung Hom (Whampoa, Kowloon). HK operator: Fish in Rice (HK) Catering Ltd.",
+   "sources": [
+    "https://www.investhk.gov.hk/en/news/hot-pot-brand-fish-in-rice-opens-first-store-outside-mainland-in-hong-kong/",
+    "https://www.openrice.com/en/hongkong/r-fish-in-rice-hung-hom-guangdong-hot-pot-r1143896"
    ]
   }
  ]
