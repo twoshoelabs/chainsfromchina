@@ -248,10 +248,12 @@ let CHAINS = [];
 })();
 
 function renderSummary() {
-  const n = CHAINS.length;
-  const ny = CHAINS.filter(c => c.ny).length;
-  const flush = CHAINS.filter(c => c.flushing).length;
-  const since23 = CHAINS.filter(c => c.year && c.year >= 2023).length;
+  // Store-format chains are the headline census; Brand Flagships are counted on their own line.
+  const store = CHAINS.filter(c => !c.flagship);
+  const n = store.length;
+  const ny = store.filter(c => c.ny).length;
+  const flush = store.filter(c => c.flushing).length;
+  const since23 = store.filter(c => c.year && c.year >= 2023).length;
   // Brand Flagships breakdown — how much of the count is the product-brand lane vs store-format chains.
   const bf = CHAINS.filter(c => c.flagship);
   const bfOut = bf.reduce((s, c) => s + c.outlets, 0);

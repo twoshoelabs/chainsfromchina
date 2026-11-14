@@ -97,6 +97,22 @@ def census_covers(points, lon, lat, meters: float = _GRADUATE_M) -> bool:
     return any(abs(plat - lat) <= dlat and abs(plon - lon) <= dlon for plon, plat in points)
 
 
+from functools import lru_cache
+
+
+@lru_cache(maxsize=1)
+def _flagship_chains() -> frozenset:
+    """Chain ids in the Brand Flagships lane (companies.json lane='brand_flagship')."""
+    import json as _json
+    from pathlib import Path as _Path
+    try:
+        co = _json.loads((_Path(__file__).resolve().parents[1] / "manual" / "companies.json")
+                         .read_text(encoding="utf-8")).get("companies", {})
+        return frozenset(c for c, v in co.items() if v.get("lane") == "brand_flagship")
+    except Exception:                                           # noqa: BLE001
+        return frozenset()
+
+
 def us_totals(con) -> dict:
     """
     name:      us_totals
@@ -123,20 +139,35 @@ def us_totals(con) -> dict:
         " FROM stores WHERE country='US'").fetchone()
     open_, announced, open_mapped = r["o"] or 0, r["p"] or 0, r["og"] or 0
     roboshops = r["robo"] or 0
+    # Brand-flagship outlets are a SEPARATE lens: a China product/tech/DTC brand running its own-name
+    # US retail (DREAME, DeRUCCI, DJI, OPPEIN, VEVOR, Fioboc) — not a store-format chain. They stay
+    # tracked and mapped, but are kept OUT of the governing outlet total and reported on their own as
+    # `flagships`. They are all sightings (their adapters are disabled), so filtering here suffices.
+    flag = _flagship_chains()
     hand = hand_mapped = 0
+    flagships = flagships_mapped = 0
+    flag_chains = set()
     cpts = census_points(con)
     for s in _sightings(cache_only=True):
         if s.get("confidence") == "uncertain" or not s.get("state"):
             continue
         if census_covers(cpts.get(s["chain"], []), s.get("lon"), s.get("lat")):
             continue                               # graduated to the census — retired here
+        if s["chain"] in flag:
+            flagships += 1
+            flag_chains.add(s["chain"])
+            if s.get("lat") is not None:
+                flagships_mapped += 1
+            continue
         hand += 1
         if s.get("lat") is not None:
             hand_mapped += 1
     outlets, mapped = open_ + hand, open_mapped + hand_mapped
     return {"open": open_, "hand": hand, "announced": announced,
             "outlets": outlets, "mapped": mapped, "unmapped": outlets - mapped,
-            "roboshops": roboshops}
+            "roboshops": roboshops,
+            "flagships": flagships, "flagships_mapped": flagships_mapped,
+            "flagship_chains": len(flag_chains)}
 
 
 def outlets_asof(con, days_ago: int = 7) -> dict:
@@ -162,6 +193,7 @@ def outlets_asof(con, days_ago: int = 7) -> dict:
         " AND first_seen IS NOT NULL AND substr(first_seen,1,10) <= ?"
         " AND (closed_on IS NULL OR substr(closed_on,1,10) > ?)", (d, d)).fetchone()["n"] or 0
     cpts = census_points(con)
+    flag = _flagship_chains()
     hand = 0
     for s in _sightings(cache_only=True):
         if s.get("confidence") == "uncertain" or not s.get("state"):
@@ -169,6 +201,8 @@ def outlets_asof(con, days_ago: int = 7) -> dict:
         if (s.get("supplied_on") or "9999") > d:
             continue
         if census_covers(cpts.get(s["chain"], []), s.get("lon"), s.get("lat")):
+            continue
+        if s["chain"] in flag:                     # brand flagships are a separate lens (see us_totals)
             continue
         hand += 1
     return {"outlets": collected + hand, "as_of": d}

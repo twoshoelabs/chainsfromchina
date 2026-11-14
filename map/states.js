@@ -98,6 +98,7 @@ async function init() {
     const a = agg[st] || (agg[st] = { chains: {}, soon: 0 });
     if (p.status === 'coming_soon') { a.soon++; continue; }
     if (p.kind !== 'store' && p.kind !== 'sighting') continue;
+    if (p.lane === 'brand_flagship') continue;   // separate lens — out of the governing by-state count
     const c = a.chains[p.chain] || (a.chains[p.chain] = { chain: p.chain, name: p.name || p.chain, sector: p.sector, n: 0, items: [] });
     c.n++;
     if (p.name) c.name = p.name;
@@ -115,7 +116,8 @@ async function init() {
   const outlets = STATES.reduce((s, x) => s + x.total, 0);
   const nChains = new Set(fc.features.filter((f) => {
     const p = f.properties;
-    return p.state && p.status !== 'coming_soon' && (p.kind === 'store' || p.kind === 'sighting');
+    return p.state && p.status !== 'coming_soon' && (p.kind === 'store' || p.kind === 'sighting')
+      && p.lane !== 'brand_flagship';
   }).map((f) => f.properties.chain)).size;
   const gap = 51 - covered;
   const none = STATES.filter((s) => !s.total).map((s) => s.abbr);

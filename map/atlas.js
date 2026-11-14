@@ -441,6 +441,13 @@ async function init() {
 
   // Fetch our data once; we reuse it for the source, the per-brand icons, and the count line.
   const fc = await fetch('data/stores.geojson' + DATAV).then((r) => r.json());
+  // Brand Flagships (a China product/tech/DTC brand's own-name US retail — DREAME, DeRUCCI, DJI,
+  // OPPEIN, VEVOR, Fioboc) are a SEPARATE lens, kept out of the governing count and off this map;
+  // they live in the Chains directory's Brand Flagships section. Drop them from every map surface
+  // (source, clusters, per-brand tally, filter panel) in one place here.
+  if (Array.isArray(fc.features)) {
+    fc.features = fc.features.filter((f) => f.properties.lane !== 'brand_flagship');
+  }
   // Alternate search terms per chain (Chinese name, in-market names, aliases like "Shanghai Auntie")
   // so the hero search finds a brand by more than its display name — the register filter's twin.
   window.CHAIN_ALIASES = (fc.meta && fc.meta.aliases) || {};

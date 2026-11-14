@@ -79,6 +79,8 @@ def _outlets(geojson_path: Path):
         p = f.get("properties", {})
         if p.get("status") == "coming_soon":        # announced, not yet open — held out of every count
             continue
+        if p.get("lane") == "brand_flagship":       # separate lens — matches the governing count (excludes them)
+            continue
         out.append({"chain": p.get("chain"), "lon": round(c[0], 6), "lat": round(c[1], 6),
                     "state": p.get("state"), "sector": p.get("sector")})
     return out
