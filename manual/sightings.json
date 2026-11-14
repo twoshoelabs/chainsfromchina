@@ -2673,9 +2673,8 @@
     },
     {
      "name": "Molly Tea (Glendale Galleria)",
-     "address": "1181 Galleria Way, Glendale, CA 91210",
-     "confidence": "uncertain",
-     "verified_by": "Glendale Galleria directory tags Molly Tea 'Coming Soon' (18 Oct 2026) — not yet open, held out of count",
+     "address": "1166 Galleria Way, Glendale, CA 91210",
+     "verified_by": "Operator-observed Google listing — now open and operating (4.8★, 55 reviews, regular hours), Glendale Galleria; promoted from the 18 Oct 2026 'Coming Soon' hold (14 Nov 2026)",
      "lat": 34.1463,
      "lon": -118.2568,
      "coord_src": "Glendale Galleria centroid"
