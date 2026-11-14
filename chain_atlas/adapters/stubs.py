@@ -1921,3 +1921,25 @@ class LaoMaTouAdapter(Adapter):
                       " + Irvine CA, Bellevue WA, all open. Earlier HK (Mong Kok 2018, exited 2024)."
                       " Tracked via sightings. In scope")
     RECHECK = ["https://www.laomatoubellevue.com/"]
+
+
+class MengziyuanAdapter(Adapter):
+    """
+    蒙自源 (Meet Rice Noodle / Meetrice Noodle) — a China-origin Yunnan rice-noodle (过桥米线) chain,
+    founded 2001 in Dongguan, Guangdong by Li Hongwei (operator 蒙自源（广东）餐饮集团). Named after
+    Mengzi in Yunnan; ~1,000+ stores across 80+ China cities (the category's first 'thousand-store'
+    brand, 米线大王). China origin, in scope. NOT Tam Jai 譚仔 (HK) and NOT Canada-origin Yunshang.
+
+    US: Fremont CA (46260 Warm Springs Blvd, operator-observed open, Google 4.6/138). Fairfax VA closed.
+    Abroad: Canada (Metro Vancouver — Richmond, Burnaby, Vancouver, BC). A North Massapequa NY 'Meet
+    Rice' is an unrelated business, not this brand. No machine-readable US roster, tracked via sightings.
+    """
+    chain_id, name, name_zh = "mengziyuan", "Meet Rice Noodle", "蒙自源"
+    name_us = "Meet Rice Noodle"
+    aliases = ("Meet Rice Noodle", "Meetrice Noodle", "Meetrice", "蒙自源", "蒙自源米线大王", "蒙自源云南米线")
+    parent, format = "蒙自源（广东）餐饮集团 (Mengziyuan Guangdong Catering Group)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Yunnan rice-noodle chain (蒙自源 / Meet Rice Noodle, Dongguan 2001,"
+                      " ~1,000+ China stores, '米线大王'). US: Fremont CA open; Fairfax VA closed. Canada:"
+                      " Metro Vancouver (Richmond/Burnaby/Vancouver BC). Tracked via sightings. In scope")
+    RECHECK = ["https://www.meetricenoodlefremont.com/"]

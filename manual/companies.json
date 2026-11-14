@@ -3026,6 +3026,15 @@
    "category_zh": "三汁焖锅",
    "blurb": "Simmer Huang (黄记煌) is a China-origin Beijing casual-dining chain known for its signature 三汁焖锅 — a 'three-sauce simmer pot,' a saucy dry-pot of meats, seafood and vegetables cooked to order at the table. Founded in Beijing in 2004 by Huang Geng, it grew to hundreds of restaurants across China; Yum China took a controlling stake in the business in 2020. It expanded overseas to the US, UK and Malaysia, but has fully exited the US — its Flushing (New York), Temple City (California) and Bellevue (Washington) restaurants have all closed. It still operates in London (Canary Wharf); its Malaysia location (Pavilion Kuala Lumpur) has closed.",
    "us_since": null
+  },
+  "mengziyuan": {
+   "name": "Meet Rice Noodle",
+   "name_zh": "蒙自源",
+   "category": "Yunnan rice noodles (过桥米线)",
+   "category_zh": "云南过桥米线",
+   "blurb": "Meet Rice Noodle (蒙自源) is a China-origin chain built on Yunnan 'crossing-the-bridge' rice noodles (过桥米线). Founded in 2001 in Dongguan, Guangdong by Li Hongwei and named after Mengzi — the Yunnan city where the dish originated — it grew to more than 1,000 restaurants across 80-plus Chinese cities, the rice-noodle category's first 'thousand-store' brand (nicknamed the 'Rice Noodle King'). Abroad it trades as 'Meet Rice Noodle' / 'Meetrice Noodle,' with a US restaurant in Fremont, California (an earlier Fairfax, Virginia location has closed) and three in Metro Vancouver, Canada (Richmond, Burnaby and Vancouver).",
+   "site_us": "https://www.meetricenoodlefremont.com/",
+   "us_since": null
   }
  }
 }

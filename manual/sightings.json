@@ -4944,6 +4944,24 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "mengziyuan",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Google/Yelp + brand site meetricenoodlefremont.com; owner screenshots (14 Nov 2026).",
+   "scope": "蒙自源 / Meet Rice Noodle US outlets. 1 open: Fremont CA. Fairfax VA closed. A North Massapequa NY 'Meet Rice' is a different, unrelated business (not 蒙自源).",
+   "locations": [
+    {
+     "name": "Fremont CA (Warm Springs)",
+     "address": "46260 Warm Springs Blvd Unit 545, Fremont, CA 94539",
+     "lat": 37.48968,
+     "lon": -121.92852,
+     "confidence": "confirmed",
+     "verified_by": "Google (Meet Rice Noodle 蒙自源米线大王, 4.6/138, open) + brand site meetricenoodlefremont.com + Yelp (Updated Nov 2026) (14 Nov 2026).",
+     "coord_src": "manual (Warm Springs Blvd, Fremont; Census returned none)"
+    }
+   ]
   }
  ]
 }

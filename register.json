@@ -2015,6 +2015,27 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Beijing) BBQ/skewer chain; one US store (Arcadia CA) opened and closed. No current US presence or FDD; US authorization unconfirmed."
+  },
+  "mengziyuan": {
+   "name": "Meet Rice Noodle",
+   "name_zh": "蒙自源",
+   "name_intl": "Meet Rice Noodle",
+   "aliases": [
+    "蒙自源",
+    "蒙自源米线大王",
+    "蒙自源云南米线",
+    "蒙自源过桥米线",
+    "Meet Rice Noodle",
+    "Meetrice Noodle",
+    "Meetrice",
+    "Mengziyuan"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Yunnan rice-noodle (过桥米线 crossing-the-bridge) chain, founded 2001 in Dongguan, Guangdong by Li Hongwei (operator 蒙自源（广东）餐饮集团). Named after Mengzi in Yunnan, the dish's home; grew to ~1,000+ stores across 80+ Chinese cities (the rice-noodle category's first 'thousand-store' brand, nicknamed 米线大王 / 'Rice Noodle King'). Trades overseas as 'Meet Rice Noodle' / 'Meetrice Noodle'. US: Fremont CA (open); Fairfax VA closed. Canada: Metro Vancouver (Richmond, Burnaby, Vancouver, BC). Not to be confused with Tam Jai 譚仔 (a separate HK brand) or Canada-origin Yunshang 云尚米线.",
+   "operating_model": "franchise_and_company",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Large China (Guangdong) Yunnan rice-noodle chain. US tracked via its Fremont CA restaurant; Canada via Metro Vancouver. US ownership (company vs licensee) unconfirmed; no US FDD."
   }
  },
  "entries": [
@@ -10301,6 +10322,21 @@
    "note": "Malaysia exited — Pavilion Kuala Lumpur (Lot 8.101.00, Jln Bukit Bintang) marked Permanently closed on Google (14 Nov 2026).",
    "sources": [
     "https://www.google.com/maps (Simmer Huang Pavilion KL — Permanently closed)"
+   ]
+  },
+  {
+   "chain": "mengziyuan",
+   "market": "CA",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Metro Vancouver (3), trading as 'Meetrice Noodle' / 蒙自源: Richmond (8580 Alexandra Rd #1080), Burnaby (Kingsway) and Vancouver (4488 Main St). Per Vancouver Is Awesome the Burnaby store opened the year before Richmond.",
+   "sources": [
+    "https://www.vancouverisawesome.com/food-and-drink/meetrice-chinese-noodles-richmond-bc-1945790"
    ]
   }
  ]
