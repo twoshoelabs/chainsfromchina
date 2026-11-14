@@ -5137,16 +5137,17 @@
    "chain": "semir",
    "supplied_on": "2026-11-14",
    "reviewed": "2026-11-14",
-   "source": "Operator-observed Simon mall directory (Stoneridge Shopping Center store page for Balabala, with store hours).",
-   "scope": "Semir/森马 group's first US store, trading as Balabala (巴拉巴拉) — its kidswear banner, under which all its overseas/HK retail operates. 1 counted: Stoneridge Shopping Center, Pleasanton CA. Previously Global-register only (no US presence). Re-sweep for more US Balabala stores.",
+   "source": "Operator-observed Simon mall directory (Stoneridge Shopping Center store page for Balabala, with store hours) + local press/social confirming the opening (@balabala_california; sactownsupermom IG, 18 Jul 2026).",
+   "scope": "Semir/森马 group's first US store, trading as Balabala (巴拉巴拉) — its kidswear banner, under which all its overseas/HK retail operates. Opened ~July 2026 (its first-ever US store). 1 counted: Stoneridge Shopping Center, Pleasanton CA. Previously Global-register only (no US presence). Re-sweep for more US Balabala stores.",
    "locations": [
     {
      "name": "Balabala — Stoneridge Shopping Center (Pleasanton)",
      "address": "1 Stoneridge Mall Rd, Pleasanton, CA 94588",
      "lat": 37.6966,
      "lon": -121.9287,
+     "first_opened": "2026-07",
      "confidence": "confirmed",
-     "verified_by": "Simon mall directory lists a Balabala store at Stoneridge with full store hours (operator-observed, 14 Nov 2026); first US outlet for the Semir/Balabala group.",
+     "verified_by": "Simon mall directory lists a Balabala store at Stoneridge with full store hours (operator-observed, 14 Nov 2026); confirmed as the brand's first-ever US store, opened ~July 2026, via @balabala_california and a sactownsupermom IG post (18 Jul 2026, 'first-ever U.S. Balabala store in the East Bay ... Stoneridge Shopping Center in Pleasanton').",
      "coord_src": "manual (Stoneridge Shopping Center centroid, Pleasanton CA; Census returned none)"
     }
    ]
