@@ -509,6 +509,16 @@
    "model": "direct_subsidiary",
    "confidence": "high",
    "basis": "Runs its own US omnichannel flagship (Houston); 'DTC/online-to-US-physical' Brand Flagship (no China B&M)."
+  },
+  "oppein": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "OPPEIN Home USA runs its own US design showrooms (Paramus NJ + San Jose CA). Brand Flagship."
+  },
+  "dji": {
+   "model": "authorized_partner",
+   "confidence": "medium",
+   "basis": "US Fifth Avenue flagship is DJI-branded but operated with authorized partner Camrise; other US 'DJI stores' are third-party resellers. Brand Flagship."
   }
  }
 }

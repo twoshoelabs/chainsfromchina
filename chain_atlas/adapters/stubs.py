@@ -1968,6 +1968,47 @@ class FiobocAdapter(Adapter):
     RECHECK = ["https://www.fioboc.com/pages/fioboc-stores"]
 
 
+class OppeinAdapter(Adapter):
+    """
+    OPPEIN (欧派家居) — China-origin home-furnishings manufacturer (custom kitchen cabinets, wardrobes,
+    vanities), founded 1994 Guangzhou (SSE 603833), among the world's largest cabinetry makers. A 'Brand
+    Flagship' (lane=brand_flagship): US design showrooms via OPPEIN Home USA, not a store-format export.
+    Counted (owner 2026-11-14), same model as DeRUCCI showrooms.
+
+    US = 2 design showrooms: Paramus NJ (117 E Route 4) + San Jose CA (291 E Brokaw Rd). Tracked via
+    sightings.
+    """
+    chain_id, name, name_zh = "oppein", "OPPEIN", "欧派家居"
+    name_us = "OPPEIN Home USA"
+    aliases = ("OPPEIN", "欧派家居", "欧派", "Oppein Home USA")
+    parent, format = "OPPEIN Home Group (欧派家居集团, Guangzhou, SSE 603833)", "furniture"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin cabinetry/home-furnishings manufacturer (欧派家居 / OPPEIN, Guangzhou"
+                      " 1994, SSE 603833). Brand Flagship — US design showrooms (Paramus NJ + San Jose CA)"
+                      " via OPPEIN Home USA. Counted. Tracked via sightings. In scope")
+    RECHECK = ["https://oppeinhomeusa.com/"]
+
+
+class DjiAdapter(Adapter):
+    """
+    DJI (大疆) — China-origin aerial-imaging / drone maker, SZ DJI Technology, founded 2006 Shenzhen
+    (Frank Wang); world's largest consumer-drone company. A 'Brand Flagship' (lane=brand_flagship): its
+    first US own-brand store is a Fifth Avenue concept/flagship (685 5th Ave, NYC, Mar 2024, operated
+    with authorized partner Camrise). Counted (owner 2026-11-14). Other US 'DJI stores' (SF Jackson Sq,
+    Garden State Plaza) are third-party authorized resellers — NOT counted. Tracked via sightings.
+    """
+    chain_id, name, name_zh = "dji", "DJI", "大疆"
+    name_us = "DJI"
+    aliases = ("DJI", "大疆", "大疆创新", "DJI Store")
+    parent, format = "SZ DJI Technology (大疆创新, Shenzhen, 2006)", "electronics"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin drone/aerial-imaging maker (DJI / 大疆, Shenzhen 2006; world's largest"
+                      " consumer-drone company). Brand Flagship — US Fifth Avenue NYC concept/flagship"
+                      " (685 5th Ave, Mar 2024, authorized-partner-operated). Counted. Third-party DJI"
+                      " resellers not counted. Tracked via sightings. In scope")
+    RECHECK = ["https://store.dji.com/"]
+
+
 class LaoFengXiangAdapter(Adapter):
     """
     老凤祥 / Lao Feng Xiang — China's oldest jewelry company, founded 1848 in Shanghai (operator Shanghai

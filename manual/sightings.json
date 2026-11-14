@@ -5133,6 +5133,51 @@
      "coord_src": "manual (FM 1960 W / Jones Rd, Houston; Census returned none)"
     }
    ]
+  },
+  {
+   "chain": "oppein",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Brand site (oppeinhomeusa.com / oppeinhome.com find-our-showroom) + Google/owner screenshot (14 Nov 2026).",
+   "scope": "OPPEIN 欧派家居 US design showrooms (Brand Flagship). 2 confirmed: Paramus NJ + San Jose CA.",
+   "locations": [
+    {
+     "name": "Paramus NJ (OPPEIN Home USA showroom)",
+     "address": "117 E Route 4, Paramus, NJ 07652",
+     "lat": 40.917666,
+     "lon": -74.060309,
+     "confidence": "confirmed",
+     "verified_by": "Google (Oppein Home USA, cabinet store, 4.8/30) + brand site (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "San Jose CA (Bay Area showroom)",
+     "address": "291 E Brokaw Rd, San Jose, CA 95131",
+     "lat": 37.377303,
+     "lon": -121.913338,
+     "confidence": "confirmed",
+     "verified_by": "Brand site 'find our showroom' (Bay Area showroom) (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
+  },
+  {
+   "chain": "dji",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Press (DJI first US store, Mar 2024) + djinyc.com + Google/Apple/Yelp (14 Nov 2026).",
+   "scope": "DJI 大疆 US own-brand store (Brand Flagship). 1 confirmed: the Fifth Avenue concept/flagship (685 5th Ave, NYC), operated with authorized partner Camrise. Third-party authorized resellers (SF Jackson Square, Garden State Plaza) are NOT counted.",
+   "locations": [
+    {
+     "name": "Manhattan (Fifth Avenue flagship/concept store)",
+     "address": "685 5th Ave, New York, NY 10022",
+     "lat": 40.760887,
+     "lon": -73.975399,
+     "confidence": "confirmed",
+     "verified_by": "Press (DJI first US store, opened Mar 2024) + djinyc.com + Apple/Yelp (operating, Aug 2026) (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }

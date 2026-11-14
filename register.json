@@ -2109,6 +2109,43 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin DTC apparel brand running its own US mall stores (3 in CA). No US franchise or FDD. Counted under the 'DTC-to-US-physical' breed (a China online brand that built a multi-store US physical chain)."
+  },
+  "oppein": {
+   "name": "OPPEIN",
+   "name_zh": "欧派家居",
+   "name_intl": "OPPEIN",
+   "aliases": [
+    "OPPEIN",
+    "欧派家居",
+    "欧派",
+    "Oppein Home",
+    "OPPEIN Home USA"
+   ],
+   "format": "furniture",
+   "global": "China-origin home-furnishings manufacturer — kitchen cabinets, wardrobes and vanities — founded 1994 in Guangzhou (Shanghai-listed, SSE 603833); one of the world's largest cabinetry makers. A 'Brand Flagship': rather than exporting a store format, it runs US design showrooms through its arm OPPEIN Home USA — Paramus NJ and San Jose CA — serving NJ/NY/CT/PA and the Bay Area. Counted on the strength of its US showroom outlets (same model as DeRUCCI).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Guangzhou) cabinetry manufacturer (SSE 603833); US via its own design showrooms (Paramus NJ + San Jose CA). Brand Flagship. No US franchise or FDD.",
+   "lane": "brand_flagship"
+  },
+  "dji": {
+   "name": "DJI",
+   "name_zh": "大疆",
+   "name_intl": "DJI",
+   "aliases": [
+    "DJI",
+    "大疆",
+    "大疆创新",
+    "DJI Store"
+   ],
+   "format": "electronics",
+   "global": "China-origin aerial-imaging / drone and camera-gimbal maker — SZ DJI Technology, founded 2006 in Shenzhen by Frank Wang; the world's largest consumer-drone company. A 'Brand Flagship': it opened its first US own-brand store, a concept/flagship on Fifth Avenue in Manhattan (685 Fifth Ave, Mar 2024, operated with authorized partner Camrise). Other US 'DJI stores' are third-party authorized resellers (not counted). Counted on the strength of its Fifth Avenue flagship.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shenzhen) drone/imaging maker; US via a single Fifth Avenue NYC flagship (authorized-partner-operated). Brand Flagship. No US franchise or FDD.",
+   "lane": "brand_flagship"
   }
  },
  "entries": [

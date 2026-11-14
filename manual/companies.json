@@ -3065,6 +3065,26 @@
    "site_us": "https://www.fioboc.com/",
    "us_since": "2026",
    "lane": "brand_flagship"
+  },
+  "oppein": {
+   "name": "OPPEIN",
+   "name_zh": "欧派家居",
+   "category": "Home furnishings (cabinetry)",
+   "category_zh": "家居（定制橱柜）",
+   "blurb": "OPPEIN (欧派家居) is a China-origin home-furnishings manufacturer — custom kitchen cabinets, wardrobes and vanities — founded in Guangzhou in 1994 and listed in Shanghai (SSE 603833), among the world's largest cabinetry makers. In the US it operates through OPPEIN Home USA, running design showrooms in Paramus, New Jersey and San Jose, California (serving NJ/NY/CT/PA and the Bay Area) rather than exporting a store format — a 'Brand Flagship' presence.",
+   "site_us": "https://oppeinhomeusa.com/",
+   "us_since": null,
+   "lane": "brand_flagship"
+  },
+  "dji": {
+   "name": "DJI",
+   "name_zh": "大疆",
+   "category": "Drones & imaging tech",
+   "category_zh": "无人机与影像科技",
+   "blurb": "DJI (大疆) is a China-origin aerial-imaging company — SZ DJI Technology, founded in Shenzhen in 2006 by Frank Wang — and the world's largest consumer-drone maker. It opened its first US own-brand store, a concept/flagship on Manhattan's Fifth Avenue (685 Fifth Ave) in March 2024, operated with authorized partner Camrise; other US 'DJI stores' are third-party authorized resellers. It's tracked here as a 'Brand Flagship.'",
+   "site_us": "https://store.dji.com/",
+   "us_since": "2024",
+   "lane": "brand_flagship"
   }
  }
 }

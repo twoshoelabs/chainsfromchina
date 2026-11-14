@@ -48,7 +48,7 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     TanghuoKungfuAdapter, DaguAdapter, VevorAdapter, ZiyanAdapter,
                     DolarShopAdapter, XiangTianXiaAdapter, LaoMaTouAdapter,
                     MengziyuanAdapter, BenGongAdapter, LaoFengXiangAdapter,
-                    FiobocAdapter)
+                    FiobocAdapter, OppeinAdapter, DjiAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -135,6 +135,8 @@ REGISTRY: list[Adapter] = [
     BenGongAdapter(), # China-origin new-Chinese-style tea 本宫的茶 / BenGong's Tea (Guangzhou 2015, global franchise 2018); US franchisees MD/VA/CA/NC/TX/FL, Japan abroad, tracked via sightings — see stubs.py
     LaoFengXiangAdapter(), # China-origin heritage jewelry 老凤祥 / Lao Feng Xiang (Shanghai 1848, SSE 600612); US — Fifth Ave NYC flagship, Australia+Canada abroad, tracked via sightings — see stubs.py
     FiobocAdapter(), # China-origin DTC fast-fashion Fioboc / 菲奥博克 (Guangzhou Jiale); 'DTC-to-US-physical' breed — 3 CA mall stores, tracked via sightings — see stubs.py
+    OppeinAdapter(), # China-origin cabinetry manufacturer 欧派家居 / OPPEIN (Guangzhou 1994, SSE 603833); Brand Flagship — 2 US design showrooms (Paramus NJ + San Jose CA), tracked via sightings — see stubs.py
+    DjiAdapter(), # China-origin drone/imaging maker 大疆 / DJI (Shenzhen 2006); Brand Flagship — Fifth Ave NYC flagship, tracked via sightings — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py
