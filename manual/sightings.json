@@ -5115,6 +5115,24 @@
      "coord_src": "manual (mall; Census returned none)"
     }
    ]
+  },
+  {
+   "chain": "vevor",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Owner screenshot + press (VEVOR Houston omnichannel flagship, opened Mar 2026).",
+   "scope": "VEVOR US outlets. 1 counted: the Houston TX omnichannel flagship (its first B&M store anywhere). China online/tools wholesaler counted under the Brand Flagships lens (a China DTC/online brand's US physical outlet). More US locations signaled — re-sweep.",
+   "locations": [
+    {
+     "name": "Houston TX (omnichannel flagship)",
+     "address": "10951 FM 1960 W, Houston, TX 77065",
+     "lat": 29.9675,
+     "lon": -95.581,
+     "confidence": "confirmed",
+     "verified_by": "Owner-observed + press (~32,000 sq ft omnichannel flagship, opened Mar 2026) (14 Nov 2026).",
+     "coord_src": "manual (FM 1960 W / Jones Rd, Houston; Census returned none)"
+    }
+   ]
   }
  ]
 }

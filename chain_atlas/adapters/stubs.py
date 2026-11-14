@@ -1803,11 +1803,11 @@ class VevorAdapter(Adapter):
     China. In March 2026 it opened its FIRST-ever physical store anywhere — a ~32,000 sq ft omnichannel
     flagship in Houston TX (10951 FM 1960 W) — with more US locations signaled but none yet named.
 
-    A NEW BREED for this tracker: a US physical-retail debut by a China-based online wholesaler, not a
-    China retail chain extending abroad. Per the DTC scope rule it would normally be OUT, but by owner
-    decision (2026-11-14) it is LISTED for monitoring on the Chains page while explicitly NOT COUNTED
-    in the US outlet total (no sighting is recorded, so it stays at 0). Revisit and count only if it
-    builds a genuine multi-store US chain.
+    A 'Brand Flagship': a US physical-retail debut by a China-based online wholesaler, not a China
+    retail chain extending abroad. Per the plain DTC scope rule it would be OUT, but once it planted a
+    real B&M US outlet it is COUNTED (owner call 2026-11-14) under the Brand Flagships lens — a China
+    online/DTC brand's US physical store counts (no multi-store threshold; a single genuine flagship
+    counts, consistent with DREAME/DeRUCCI/Fioboc). US = 1 (Houston), tracked via a sighting.
     """
     chain_id, name, name_zh = "vevor", "VEVOR", ""
     name_us = "VEVOR"
@@ -1816,10 +1816,9 @@ class VevorAdapter(Adapter):
     ENABLED = False
     BLOCKED_REASON = ("China-based Shanghai e-commerce wholesaler (tools/home-improvement, founded"
                       " 2007); online-first with NO China retail stores. Opened its first physical"
-                      " store anywhere — a Houston TX omnichannel flagship (Mar 2026). NEW BREED:"
-                      " US physical-retail debut of a China online wholesaler. Owner decision"
-                      " (14 Nov 2026): list for MONITORING, NOT counted in the US total (no sighting);"
-                      " revisit if a real multi-store US chain forms")
+                      " store anywhere — a Houston TX omnichannel flagship (Mar 2026). 'Brand Flagship':"
+                      " a China online/DTC brand's US physical outlet — COUNTED (owner 14 Nov 2026),"
+                      " US = 1 (Houston), tracked via sightings")
     RECHECK = ["https://www.vevor.com/pages/store"]
 
 

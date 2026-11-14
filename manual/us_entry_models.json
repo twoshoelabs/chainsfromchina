@@ -504,6 +504,11 @@
    "model": "direct_subsidiary",
    "confidence": "high",
    "basis": "Runs its own US mall stores (3 CA) directly; the 'DTC-to-US-physical' breed — a China online/DTC brand (no China B&M) that built a multi-store US physical chain."
+  },
+  "vevor": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "Runs its own US omnichannel flagship (Houston); 'DTC/online-to-US-physical' Brand Flagship (no China B&M)."
   }
  }
 }
