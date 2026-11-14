@@ -1939,6 +1939,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin (Shenzhen) grass-carp hotpot chain; tracked abroad via its Hong Kong stores. No US presence, franchise offer, or FDD confirmed."
+  },
+  "dolarshop": {
+   "name": "The Dolar Shop",
+   "name_zh": "豆捞坊",
+   "aliases": [
+    "豆捞坊",
+    "豆撈坊",
+    "Dolar Shop",
+    "The Dolar Shop",
+    "肥得捞",
+    "上海肥得捞"
+   ],
+   "format": "hotpot",
+   "global": "Premium China-origin hot pot chain (individual-pot, premium-ingredient format), founded October 2004 in Shanghai (operator 上海肥得捞餐饮管理 / Shanghai Feidelao Catering Management). The name 豆捞 / \"Dolar\" is a pun on a Macau-dialect phrase and the brand's origin story invokes Macau, but the company was founded and is headquartered in Shanghai — China-origin under our scope. ~160+ stores across China (about 168 incl. sub-brands, early 2026). Overseas via The Dolar Shop International Group: US (Manhattan + Bellevue WA), Canada (Richmond BC + Burnaby BC) and Australia (Sydney).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Premium Shanghai hot pot chain; US stores are company-operated via The Dolar Shop International Group (Manhattan + Bellevue WA). No US franchise offer or FDD confirmed."
   }
  },
  "entries": [
@@ -10151,6 +10169,36 @@
    "sources": [
     "https://www.investhk.gov.hk/en/news/hot-pot-brand-fish-in-rice-opens-first-store-outside-mainland-in-hong-kong/",
     "https://www.openrice.com/en/hongkong/r-fish-in-rice-hung-hom-guangdong-hot-pot-r1143896"
+   ]
+  },
+  {
+   "chain": "dolarshop",
+   "market": "CA",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Two Metro Vancouver stores on the brand's own international locator: Richmond BC (5300 No. 3 Road, Unit 720) and Burnaby BC (6078 Silver Dr, the page branded 'authentic Macau hotpot' — despite the slug it is a Burnaby, BC address).",
+   "sources": [
+    "https://www.dolarshop.com/location"
+   ]
+  },
+  {
+   "chain": "dolarshop",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Sydney — Haymarket (Chinatown), Level 3, 1909 Dining Precinct, 9-13 Hay Street, NSW.",
+   "sources": [
+    "https://www.dolarshop.com/location"
    ]
   }
  ]

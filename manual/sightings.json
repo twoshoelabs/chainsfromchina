@@ -4863,6 +4863,33 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "dolarshop",
+   "supplied_on": "2026-11-14",
+   "reviewed": "2026-11-14",
+   "source": "Brand international locator (dolarshop.com/location) + Google/Yelp; owner screenshots (14 Nov 2026).",
+   "scope": "The Dolar Shop 豆捞坊 US outlets (company-operated via The Dolar Shop International Group). 2 open: Manhattan (East Village) + Bellevue WA (branded 'Seattle', at The Bravern). Flushing NY (36-36 Prince St) closed — unit became CHOCHO Hot Pot.",
+   "locations": [
+    {
+     "name": "Manhattan (East Village)",
+     "address": "55 3rd Ave, New York, NY 10003",
+     "lat": 40.73056,
+     "lon": -73.98896,
+     "confidence": "confirmed",
+     "verified_by": "Brand locator + Google (The Dolar Shop Hot Pot Manhattan, 628 reviews, open); US flagship opened Dec 2020 (14 Nov 2026).",
+     "coord_src": "manual (3rd Ave & E 11th St)"
+    },
+    {
+     "name": "Bellevue WA (The Bravern)",
+     "address": "700 110th Ave NE Ste 190, Bellevue, WA 98004",
+     "lat": 47.61568,
+     "lon": -122.19327,
+     "confidence": "confirmed",
+     "verified_by": "Brand locator (branded 'Seattle') + Google (The Dolar Shop, 1,163 reviews, open), The Bravern (14 Nov 2026).",
+     "coord_src": "manual (Google place)"
+    }
+   ]
   }
  ]
 }

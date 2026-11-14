@@ -1758,6 +1758,16 @@
    "sources": [
     "Google Maps 'Dumpling Xi' 71 4th Ave New York NY — Temporarily closed (14 Nov 2026)"
    ]
+  },
+  {
+   "chain": "dolarshop",
+   "name": "Flushing (36-36 Prince St)",
+   "address": "36-36 Prince St, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Permanently closed — the 36-36 Prince St unit (an early US Dolar Shop) now trades as CHOCHO Hot Pot (itself subsequently closed per Yelp, Oct 2026). Omitted from the brand's current international locator. Recorded 14 Nov 2026."
   }
  ]
 }

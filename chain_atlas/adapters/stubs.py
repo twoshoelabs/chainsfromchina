@@ -1846,3 +1846,30 @@ class ZiyanAdapter(Adapter):
                       " NY-metro: Flushing + Manhattan Chinatown NY + Jersey City NJ, all open; also"
                       " Melbourne AU. No machine-readable US roster, tracked via sightings. In scope")
     RECHECK = ["https://www.ziyanfoods.com/"]
+
+
+class DolarShopAdapter(Adapter):
+    """
+    The Dolar Shop (豆捞坊) — a premium China-origin hot pot chain (individual-pot, premium-ingredient
+    format), founded October 2004 in Shanghai (operator 上海肥得捞餐饮管理 / Shanghai Feidelao). The
+    name 豆捞/"Dolar" is a Macau-dialect pun and the brand's story invokes Macau, but the company was
+    founded and is HQ'd in Shanghai — China origin, in scope. ~160+ China stores (≈168 incl. sub-
+    brands, early 2026).
+
+    US: company-operated via The Dolar Shop International Group — Manhattan East Village (55 3rd Ave,
+    US flagship, Dec 2020) and Bellevue WA (700 110th Ave NE, The Bravern, branded "Seattle"), both
+    operator-observed open. Flushing NY (36-36 Prince St) closed (became CHOCHO). Abroad: Canada
+    (Richmond BC + Burnaby BC) and Australia (Sydney). No machine-readable US roster, so tracked via
+    hand-assembled sightings.
+    """
+    chain_id, name, name_zh = "dolarshop", "The Dolar Shop", "豆捞坊"
+    name_us = "The Dolar Shop"
+    aliases = ("The Dolar Shop", "Dolar Shop", "豆捞坊", "豆撈坊", "肥得捞")
+    parent, format = "Shanghai Feidelao Catering Management (上海肥得捞)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin premium hot pot chain (豆捞坊 / The Dolar Shop, founded 2004 Shanghai,"
+                      " ~160+ China stores; name is a Macau-dialect pun but company is Shanghai-founded"
+                      " and HQ'd). US company-operated via The Dolar Shop International Group: Manhattan"
+                      " East Village + Bellevue WA, both open; Flushing NY closed. Also Canada (Richmond"
+                      " + Burnaby BC) and Australia (Sydney). Tracked via sightings. In scope")
+    RECHECK = ["https://www.dolarshop.com/location"]

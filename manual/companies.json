@@ -2991,6 +2991,15 @@
    "blurb": "Ziyan (紫燕百味鸡 / Ziyan Foods) is a China-origin 卤味 chain — braised and marinated cold deli dishes — founded in 1989 and headquartered in Shanghai, where it is publicly listed (Shanghai Stock Exchange, 603057). It has grown to more than 6,000 stores across China, best known for its 夫妻肺片 (sliced beef and offal in chili oil) and its \"hundred-flavor\" baiwei chicken. It began expanding overseas in 2025, opening its first North American stores across the New York metro area (Flushing, Manhattan Chinatown, Jersey City, Long Island City and Edison, New Jersey) and a store in Melbourne, Australia.",
    "site_us": "",
    "us_since": "2025"
+  },
+  "dolarshop": {
+   "name": "The Dolar Shop",
+   "name_zh": "豆捞坊",
+   "category": "Hot pot (premium individual-pot)",
+   "category_zh": "火锅（高端一人一锅）",
+   "blurb": "The Dolar Shop (豆捞坊) is a premium China-origin hot pot chain built on an individual-pot, premium-ingredient format. It was founded in October 2004 in Shanghai (operator Shanghai Feidelao Catering Management); the name “Dolar” / 豆捞 is a pun drawn from a Macau-dialect phrase and the brand's origin story invokes Macau, but the company was founded and is headquartered in Shanghai. It has grown to roughly 160 stores across China. Abroad it operates through The Dolar Shop International Group, with US restaurants in Manhattan's East Village (its US flagship, opened December 2020) and Bellevue, Washington (at The Bravern), plus locations in Canada (Richmond and Burnaby, BC) and Australia (Sydney).",
+   "site_us": "https://www.dolarshop.com/",
+   "us_since": "2020"
   }
  }
 }

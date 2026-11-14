@@ -469,6 +469,11 @@
    "model": "direct_subsidiary",
    "confidence": "low",
    "basis": "Brand-led NA entry 2025 — three NY-metro stores opened in quick succession; mechanism inferred (no US franchise offer confirmed)."
+  },
+  "dolarshop": {
+   "model": "direct_subsidiary",
+   "confidence": "high",
+   "basis": "US stores company-operated by The Dolar Shop International Group (the brand's own overseas arm); not franchised."
   }
  }
 }
