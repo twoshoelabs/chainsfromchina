@@ -80,12 +80,30 @@ def t(s):
     return html.escape(str(s), quote=False)
 
 
+def _lead_sentence(text):
+    """First sentence of text. Treats '. ' (or '。') as a boundary only OUTSIDE
+    parentheses, so an abbreviation like 'est.' inside '(...)' can't truncate the
+    lead mid-parenthesis (which left an unbalanced '(' in the summary)."""
+    depth = 0
+    for i, ch in enumerate(text):
+        if ch in "([（【":
+            depth += 1
+        elif ch in ")]）】":
+            if depth:
+                depth -= 1
+        elif ch == "。" and depth == 0:
+            return text[:i + 1]
+        elif ch == "." and depth == 0 and i + 1 < len(text) and text[i + 1].isspace():
+            return text[:i + 1]
+    return text
+
+
 def summary_for(m, comp, outlets, soon, has_robos):
     """Replicate chain.html's one-sentence data summary (blurb + counts + first store)."""
     sents = []
     blurb = (comp.get("blurb") or "").strip()
     if blurb:
-        sents.append(re.split(r"(?<=\.)\s", blurb)[0])
+        sents.append(_lead_sentence(blurb))
     cs = ""
     if outlets:
         staffed = "staffed " if has_robos else ""
