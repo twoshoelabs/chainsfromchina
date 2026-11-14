@@ -10435,6 +10435,36 @@
    "sources": [
     "https://www.google.com/maps (本宫的茶 BenGong's Tea — Kyoto, open)"
    ]
+  },
+  {
+   "chain": "bengong",
+   "market": "MY",
+   "status": "present",
+   "locations": 5,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Malaysia (5), trading as 'Ben Gong's Tea & Dessert' 本宫的茶: Kuala Lumpur; Kota Damansara (Petaling Jaya, Selangor); Johor Bahru, Iskandar Puteri and Masai (all Johor). Operator-observed open (Google).",
+   "sources": [
+    "https://www.google.com/maps (Ben Gong's Tea & Dessert 本宫的茶 — Malaysia)"
+   ]
+  },
+  {
+   "chain": "bengong",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-14",
+   "note": "Canada — Vancouver, BC (Ben Gong's Tea 本宫的茶), operator-observed open (Google 2.8/208).",
+   "sources": [
+    "https://www.google.com/maps (Ben Gong's Tea 本宫的茶 — Vancouver BC)"
+   ]
   }
  ]
 }

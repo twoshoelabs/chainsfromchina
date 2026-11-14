@@ -4968,7 +4968,7 @@
    "supplied_on": "2026-11-14",
    "reviewed": "2026-11-14",
    "source": "Official US sites (bengongstea.us/order, bengongteaus.com) + Google/Yelp; owner screenshots + Baidu Baike (14 Nov 2026).",
-   "scope": "本宫的茶 / BenGong's Tea US outlets (China-origin franchise). 9 operator-observed open with verified addresses mapped (MD×3, VA×2, CA×2, NC, TX). Winter Springs FL permanently closed (see closings). Only Arcadia CA (on the official order list) still held pending address verification. Multiple US franchisees/sites (bengongstea.us / bengongteaus.com).",
+   "scope": "本宫的茶 / BenGong's Tea US outlets (China-origin franchise). 10 operator-observed open with verified addresses mapped (MD×3, VA×2, CA×3, NC, TX). Winter Springs FL permanently closed. US roster now complete per the official order list. Multiple US franchisees/sites (bengongstea.us / bengongteaus.com).",
    "locations": [
     {
      "name": "Sykesville MD",
@@ -5049,6 +5049,15 @@
      "lon": -96.802392,
      "confidence": "confirmed",
      "verified_by": "Google (BenGong's Tea Frisco TX, 4.0/194, open), 99 Ranch Frisco (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Arcadia CA (Huntington Dr)",
+     "address": "411 E Huntington Dr Ste 113, Arcadia, CA 91006",
+     "lat": 34.140231,
+     "lon": -118.021619,
+     "confidence": "confirmed",
+     "verified_by": "Google (BenGong's Tea Arcadia CA, 4.3/165, open) + official site (14 Nov 2026).",
      "coord_src": "US Census geocoder"
     }
    ]
