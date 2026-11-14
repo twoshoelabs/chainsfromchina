@@ -1309,13 +1309,22 @@
    "supplied_on": "2026-09-29",
    "reviewed": "2026-11-14",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
-   "scope": "One New York City outlet open, trading as 'Dumpling Xi': Flushing (37-02 Prince St, first US Feb 2025). The East Village store (71 4th Ave, opened Jul 2025) is now TEMPORARILY CLOSED (Google, 14 Nov 2026) — removed from the open count, logged; revisit if it reopens. Not a complete roster.",
+   "scope": "Xijiade 喜家德 trades in the US as 'Dumpling Xi'. OPEN: Flushing (37-02 Prince St, first US Feb 2025). TEMPORARILY CLOSED: East Village (71 4th Ave, opened Jul 2025 — logged). COMING SOON: Mountain View CA (735 Villa St, first California) — uncertain, held out of count. Brand site dumplingxius.com is single-store (Flushing only); no other US locations found. Not guaranteed complete.",
    "locations": [
     {
      "name": "Flushing",
      "address": "37-02 Prince St, Flushing, NY 11354",
      "confidence": "confirmed",
      "verified_by": "web-verified, official US site + Yelp active Jul 2026; opened 12 Feb 2025 (29 Sep 2026)"
+    },
+    {
+     "name": "Mountain View (Villa St) — COMING SOON",
+     "address": "735 Villa St, Mountain View, CA 94041",
+     "lat": 37.3935,
+     "lon": -122.07833,
+     "confidence": "uncertain",
+     "verified_by": "Silicon Valley Business Journal: Dumpling Xi's first California restaurant, planned in the former Fiesta Del Mar Too space on Villa Street, downtown Mountain View (Grand Opening signage). Not yet open — held out of count (14 Nov 2026).",
+     "coord_src": "US Census geocoder"
     }
    ]
   },
