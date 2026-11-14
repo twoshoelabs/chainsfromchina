@@ -994,19 +994,19 @@
    "franchise_note": "US reach is marketplaces + own DTC e-commerce; no US retail franchise."
   },
   "semir": {
-   "name": "Semir",
+   "name": "Balabala",
    "name_us": "Balabala",
-   "name_zh": "森马",
+   "name_zh": "巴拉巴拉",
    "aliases": [
-    "森马",
-    "Semir",
-    "Balabala",
     "巴拉巴拉",
+    "Balabala",
+    "Semir",
+    "森马",
     "Semir Group",
     "森马服饰"
    ],
    "format": "apparel",
-   "global": "Wenzhou mass-apparel group (森马服饰): Semir adult casual + Balabala 巴拉巴拉 kidswear (China's largest kidswear brand). 100+ overseas stores across ~15 markets — overseas (and now US) retail runs overwhelmingly under the Balabala banner. US: first store opened ~July 2026 at Stoneridge Shopping Center (Pleasanton CA), trading as Balabala — its first-ever US outlet.",
+   "global": "Balabala (巴拉巴拉) is the kidswear brand of the Wenzhou mass-apparel group 森马服饰 / Semir Group (parent; SZSE 002563) — China's largest kidswear brand. 100+ overseas stores across ~15 markets; the group's overseas, HK and US retail runs overwhelmingly under the Balabala banner (the Semir-adult line stays largely domestic). US: first store opened ~July 2026 at Stoneridge Shopping Center (Pleasanton CA) — its first-ever US outlet.",
    "sector": "apparel",
    "sub_category": "mass apparel / kidswear (Balabala)",
    "tickers": [

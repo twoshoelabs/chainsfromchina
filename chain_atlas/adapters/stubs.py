@@ -2054,19 +2054,18 @@ class BenGongAdapter(Adapter):
 
 class SemirAdapter(Adapter):
     """
-    Semir (森马) / Balabala (巴拉巴拉) — the Wenzhou mass-apparel group 森马服饰 (SZSE 002563): Semir
-    adult casual + Balabala kidswear (China's largest kidswear brand, ~4,800 stores across ~15
-    markets). China origin, in scope. The register models the whole group as chain `semir`; its
-    physical retail abroad — and now in the US — runs overwhelmingly under the Balabala banner, so the
-    US display name is Balabala (name_us).
+    Balabala (巴拉巴拉) — the kidswear brand of the Wenzhou mass-apparel group 森马服饰 / Semir Group
+    (SZSE 002563); China's largest kidswear brand, ~4,800 stores across ~15 markets. China origin, in
+    scope. The group's physical retail abroad — and in the US — runs overwhelmingly under the Balabala
+    banner, so Balabala is the display name (the chain_id stays `semir`, the group). Parent Semir.
 
     US: first store opened at Stoneridge Shopping Center (Pleasanton CA), trading as Balabala
     (operator-observed Simon mall directory). Previously Global-register only. No machine-readable US
     roster, so tracked via hand-assembled sightings.
     """
-    chain_id, name, name_zh = "semir", "Semir", "森马"
+    chain_id, name, name_zh = "semir", "Balabala", "巴拉巴拉"
     name_us = "Balabala"
-    aliases = ("Semir", "森马", "森马服饰", "Semir Group", "Balabala", "巴拉巴拉")
+    aliases = ("Balabala", "巴拉巴拉", "Semir", "森马", "森马服饰", "Semir Group")
     parent, format = "Semir Group (森马服饰, Wenzhou; SZSE 002563)", "apparel"
     ENABLED = False
     BLOCKED_REASON = ("China-origin Wenzhou apparel group (森马服饰 / Semir + Balabala 巴拉巴拉 kidswear,"
