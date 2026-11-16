@@ -25,6 +25,12 @@ STATIC = [
     ("/contribute.html", "monthly", "0.4"),
 ]
 
+# Static pages that have NO /zh/ counterpart (English-only; e.g. the legal terms page). Emitted
+# without a zh URL and without hreflang alternates so the sitemap never points at a 404.
+STATIC_EN_ONLY = [
+    ("/terms.html", "yearly", "0.3"),
+]
+
 
 def today_ny():
     try:
@@ -59,6 +65,7 @@ def main():
 
     # (english path, zh path, changefreq, priority) for every page
     pages = [(loc, "/zh/" if loc == "/" else "/zh" + loc, cf, pr) for loc, cf, pr in STATIC]
+    pages += [(loc, None, cf, pr) for loc, cf, pr in STATIC_EN_ONLY]   # English-only, no zh URL
     for cid in chain_ids(out_dir):
         c = escape(cid)
         pages.append((f"/chain/{c}/", f"/zh/chain/{c}/", "weekly", "0.6"))
@@ -76,13 +83,14 @@ def main():
 
     n = 0
     for en_loc, zh_loc, cf, pr in pages:
-        en_url, zh_url = DOMAIN + en_loc, DOMAIN + zh_loc
-        locs = [en_url] + ([zh_url] if has_zh else [])
+        en_url = DOMAIN + en_loc
+        zh_url = DOMAIN + zh_loc if zh_loc else None
+        locs = [en_url] + ([zh_url] if (has_zh and zh_loc) else [])
         for loc in locs:
             lines.append(
                 f"  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod>"
                 f"<changefreq>{cf}</changefreq><priority>{pr}</priority>"
-                f"{alts(en_url, zh_url)}</url>")
+                f"{alts(en_url, zh_url) if zh_loc else ''}</url>")
             n += 1
     lines.append("</urlset>\n")
     (out_dir / "sitemap.xml").write_text("\n".join(lines), encoding="utf-8")
