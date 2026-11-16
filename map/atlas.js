@@ -111,6 +111,7 @@ const LOGO_CHAINS = new Set([
   'oppein',
   'fioboc',
   'balabala',
+  'tongrentang',
 ]);
 
 const DPR = 2;            // render badges at 2× for crisp icons on retina
