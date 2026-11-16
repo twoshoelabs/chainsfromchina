@@ -141,7 +141,7 @@ def build(con, d: dict | None = None) -> dict:
     # `days` is how many distinct days the census has actually run — the homepage's "DAY N".
     days = con.execute("SELECT COUNT(DISTINCT obs_date) AS n FROM runs WHERE status='ok'").fetchone()
     gen = con.execute("SELECT MAX(finished) AS f FROM runs").fetchone()   # NY-time finish (run.py uses TZ)
-    from .mapdata import us_totals, outlets_asof   # one canonical total, shared with stores.json
+    from .mapdata import us_totals, outlets_asof, DATA_LICENSE   # one canonical total + license, shared with stores.json
     totals = us_totals(con)
     # ~a week ago, so the homepage counter can spin up to today. If that window has no delta — a flat
     # week, e.g. after a collection gap or when recent entries were backdated to real opening dates —
@@ -185,6 +185,7 @@ def build(con, d: dict | None = None) -> dict:
                      "days": days["n"] if days else None,
                      "generated": gen["f"] if gen else None,
                      "totals": totals,
+                     "license": DATA_LICENSE,
                      "aliases": aliases}}
 
 

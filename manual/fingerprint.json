@@ -1,0 +1,21 @@
+{
+ "_readme": "INTERNAL canary registry for the public dataset. NOT published and NOT read by the export. Each entry names a real, correct record whose exact representation in the public data is a deliberate, documented fingerprint: an idiosyncratic-but-accurate value (a hand-set manual coordinate to full precision, a specific name or unit formatting) that a bulk copier reproduces verbatim. If these exact values appear in a third-party dataset, that is evidence of copying this source. Do NOT 'tidy' or round these values; changing them weakens the fingerprint. Add a new canary whenever you set a hand coordinate the Census cannot produce, or choose an idiosyncratic record representation. See docs/fingerprint.md.",
+ "canaries": [
+  {
+   "record": "laofengxiang:flushing-new-world-mall",
+   "type": "manual_coordinate",
+   "store": "Lao Feng Xiang (New World Mall), 136-20 Roosevelt Ave #108, Flushing, NY 11354",
+   "value": {"lat": 40.7596, "lon": -73.8307},
+   "note": "New World Mall unit the US Census geocoder cannot resolve; lat/lon set by hand. Any third-party dataset carrying this exact pair for a Lao Feng Xiang Flushing store is reproducing our hand-set value, not geocoding it.",
+   "added": "2026-11-17"
+  },
+  {
+   "record": "balabala:stoneridge-pleasanton",
+   "type": "manual_coordinate",
+   "store": "Balabala (Stoneridge Shopping Center), 1 Stoneridge Mall Rd, Pleasanton, CA 94588",
+   "value": {"lat": 37.6966, "lon": -121.9287},
+   "note": "Mall location the Census cannot geocode; coordinates hand-set. Verbatim reproduction elsewhere is evidence of copying.",
+   "added": "2026-11-17"
+  }
+ ]
+}

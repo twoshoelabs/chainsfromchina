@@ -202,4 +202,25 @@
       e.preventDefault(); openModal();
     }
   });
+
+  // ---- Footer: attribution + the data-use / terms link (shared across every page) -------------
+  // Styled inline so this needs no CSS-file change. English strings fall back via tt() on /zh/.
+  if (!document.querySelector('.site-foot')) {
+    var foot = document.createElement('footer');
+    foot.className = 'site-foot';
+    foot.style.cssText = 'max-width:1100px;margin:48px auto 24px;padding:14px 20px 0;' +
+      'border-top:1px solid var(--rule,#dcd7cc);display:flex;flex-wrap:wrap;gap:6px 20px;' +
+      'align-items:baseline;justify-content:space-between;' +
+      'font:400 13px/1.5 var(--sans,"Libre Franklin",system-ui,sans-serif);color:var(--muted,#6b6b6b)';
+    var fnav = '<nav style="display:flex;flex-wrap:wrap;gap:6px 16px">' +
+      '<a href="' + P + 'method.html">' + esc(tt('nav.method', 'Method')) + '</a>' +
+      '<a href="/terms.html">' + esc(tt('foot.terms', 'Terms & data use')) + '</a>' +
+      '<a href="' + P + 'contribute.html">' + esc(tt('foot.submit', 'Submit info')) + '</a>' +
+      '<a href="mailto:info@twoshoelabs.com">info@twoshoelabs.com</a></nav>';
+    var fnote = '<span>© ' + new Date().getFullYear() + ' Twoshoe Labs LLC · ' +
+      esc(tt('foot.license', 'Free to view and cite with attribution. No bulk extraction or redistribution.')) +
+      '</span>';
+    foot.innerHTML = fnote + fnav;
+    document.body.appendChild(foot);
+  }
 })();

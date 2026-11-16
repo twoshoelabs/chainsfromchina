@@ -30,13 +30,37 @@ A store with no coordinate is NOT dropped. It is counted in `unlocated` per chai
 can see that Luckin's 22 New York stores are absent from the map for a reason that is about the
 locator and not about Luckin.
 """
+import hashlib
 import json
 import re
 from pathlib import Path
 
 from . import db
 from .adapters import REGISTRY
-from .profiles import PROFILES, AS_OF as PROFILES_AS_OF
+
+# Public-data license / attribution, stamped into every public feed (stores.json, stores.geojson)
+# and imported by geojson.py so both carry the identical notice. This is the in-data anchor for the
+# terms of use at map/terms.html: a visible watermark that travels with the data and the thing a
+# bulk copier has to strip (stripping it only strengthens a copying claim). See docs/fingerprint.md.
+DATA_LICENSE = {
+    "source": "https://chainsfromchina.com",
+    "holder": "Twoshoe Labs LLC",
+    "terms": "https://chainsfromchina.com/terms.html",
+    "usage": ("Free to view and to cite with attribution to chainsfromchina.com. Bulk extraction, "
+              "scraping, redistribution, or republication of this dataset, in whole or in "
+              "substantial part, is not permitted without written permission. Revenue, capacity, "
+              "and comparative (Pro) estimates are licensed separately and are not included here."),
+}
+
+
+def _fingerprint(stores: list, generated: str) -> str:
+    """A per-snapshot signature: cfc-<date>-<16 hex of sha256(canonical stores)>. It travels with a
+    verbatim copy and ties that copy to a dated point in our own git/ledger history. Record-level
+    canaries (manual/fingerprint.json) are the strip-resistant half; this is the cheap overt half."""
+    payload = json.dumps(stores, ensure_ascii=False, sort_keys=True)
+    sig = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+    day = (generated or "")[:10]
+    return f"cfc-{day}-{sig}"
 
 # Collected store names come verbatim from each chain's own locator, which often repeats the brand
 # and a format descriptor: "MIXUE-Union Square Store", "Haidilao Hot Pot Dallas", "CHAGEE Modern
@@ -415,7 +439,7 @@ def export(out_dir: Path) -> dict:
         "companies": _companies,
         "listings": _listings,
         "by_state": by_state, "by_state_hand": by_state_hand, "no_state": no_state,
-        "profiles": PROFILES, "profiles_as_of": PROFILES_AS_OF,
+        "license": DATA_LICENSE,
         "counts": {
             "open": sum(1 for s in stores if s["status"] == "active"),
             "coming_soon": sum(1 for s in stores if s["status"] == "pre_opening"),
@@ -427,6 +451,7 @@ def export(out_dir: Path) -> dict:
         "Known locations of chains this project does not count. They are not in any total on "
         "this page and never enter the archive: a partial roster in the census would turn every "
         "later discovery into an opening that never happened.")
+    meta["fingerprint"] = _fingerprint(stores, meta["generated"])
     (out_dir / "stores.json").write_text(
         json.dumps({"meta": meta, "stores": stores}, ensure_ascii=False, indent=1))
     (out_dir / "events.json").write_text(

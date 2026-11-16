@@ -177,7 +177,7 @@
  "home.foot.1": "一旦确认某品牌在美国有营业门店即计入。品牌名称仅用于标识被统计的企业，不代表任何关联关系。",
  "home.foot.2": "新宣布的门店在核实前不计入任何总数。",
  "home.foot.3": "† 推算，不计入：人口普查区亚裔比例来自美国人口普查 ACS B03002；都会区与城市化区域来自人口普查地理划分；校园来自 IPEDS。",
- "home.colophon": "字体采用 Schibsted Grotesk 与 Archivo。© 2026 Twoshoe Labs LLC · <a href=\"mailto:info@twoshoelabs.com\">info@twoshoelabs.com</a>。",
+ "home.colophon": "字体采用 Schibsted Grotesk 与 Archivo。© 2026 Twoshoe Labs LLC · <a href=\"/terms.html\">条款与数据使用</a> · <a href=\"mailto:info@twoshoelabs.com\">info@twoshoelabs.com</a>。",
  "home.js.announced": "显示 {n} 家已宣布",
  "home.js.sec.head": "{word}个{sector}品牌经营着全部 {total} 家门店中的 {n} 家。",
  "home.js.sec.ctx1": "{sector}的品牌数最多（{c} 个），但它们合计只有 {n} 家门店。",
