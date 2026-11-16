@@ -5066,7 +5066,7 @@
    "supplied_on": "2026-11-14",
    "reviewed": "2026-11-14",
    "source": "Google + owner screenshot + GIA/Wikipedia (14 Nov 2026).",
-   "scope": "老凤祥 / Lao Feng Xiang US outlets. 1 confirmed: the Fifth Avenue flagship, Manhattan. Re-sweep for any other US stores.",
+   "scope": "老凤祥 / Lao Feng Xiang US outlets. 2 confirmed: the Fifth Avenue flagship (Manhattan) and the New World Mall store (Flushing). Re-sweep for any other US stores.",
    "locations": [
     {
      "name": "Manhattan (Fifth Avenue flagship)",
@@ -5076,6 +5076,15 @@
      "confidence": "confirmed",
      "verified_by": "Google (Lao Feng Xiang - LFX Jewelry, 585 5th Ave, jewelry store, 26 reviews) + owner screenshot (14 Nov 2026).",
      "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Flushing (New World Mall)",
+     "address": "136-20 Roosevelt Ave #108, Flushing, NY 11354",
+     "lat": 40.759600,
+     "lon": -73.830700,
+     "confidence": "confirmed",
+     "verified_by": "Google (Lao Feng Xiang - LFX Jewelry, 136-20 Roosevelt Ave #108, jewelry store in New World Mall, 4.6 / 208 reviews) + owner screenshot (16 Nov 2026); genuine branch per LFX's own heritage page (expanded to Flushing, Queens). Distinct from Luk Fook (#112-116, same mall).",
+     "coord_src": "manual (New World Mall; Census can't geocode the mall unit)"
     }
    ]
   },
