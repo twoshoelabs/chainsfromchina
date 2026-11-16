@@ -1445,6 +1445,24 @@
    "ir": "",
    "note": "鲍师傅糕点 (Beijing); private, no listing.",
    "sisters": []
+  },
+  "tongrentang": {
+   "status": "listed",
+   "tickers": [
+    "SSE:600085",
+    "HKEX:1666",
+    "HKEX:3613"
+   ],
+   "exchange": "SSE",
+   "relationship": "brand-is-listco",
+   "group": "Tong Ren Tang (Group) Co., Ltd.",
+   "group_zh": "北京同仁堂集团",
+   "mainland": true,
+   "us_inaccessible": false,
+   "disclosure": "https://www.sse.com.cn",
+   "ir": "https://cm.tongrentang.com/en/",
+   "note": "State-owned Tong Ren Tang (Group). Flagship China A-share = China Beijing Tong Ren Tang (SSE:600085); Tong Ren Tang Technologies = HKEX:1666; the overseas/US stores run under Beijing Tong Ren Tang Chinese Medicine = HKEX:3613 (the accessible exposure).",
+   "sisters": []
   }
  }
 }
