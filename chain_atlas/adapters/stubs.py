@@ -2029,6 +2029,32 @@ class LaoFengXiangAdapter(Adapter):
     RECHECK = ["https://www.laofengxiang.com/"]
 
 
+class TongRenTangAdapter(Adapter):
+    """
+    北京同仁堂 / Beijing Tong Ren Tang — China's most famous traditional-Chinese-medicine (TCM)
+    pharmacy, founded 1669 in Beijing (a Qing-dynasty imperial pharmacy); state-owned under the Tong
+    Ren Tang (Group) Co. ~1,000 retail pharmacies across China. Overseas retail/clinics run through the
+    HK-listed international arm Beijing Tong Ren Tang Chinese Medicine Co. (HKEX 3613). China origin, in
+    scope. NOT the same as the separate Tianjin Tong Ren Tang 天津同仁堂 (a distinct company).
+
+    US: three retail storefronts (Flushing + Brooklyn NY, Temple City CA), operator-observed via the
+    official locator. A San Francisco TCM clinic (1515 Scott St) is genuine but faded (held uncertain).
+    No machine-readable US roster, tracked via hand-assembled sightings. First pharmacy-sector chain.
+    """
+    chain_id, name, name_zh = "tongrentang", "Tong Ren Tang", "北京同仁堂"
+    name_us = "Beijing Tong Ren Tang"
+    aliases = ("Tong Ren Tang", "Beijing Tong Ren Tang", "北京同仁堂", "同仁堂", "同仁堂国药",
+               "Beijing Tong Ren Tang Chinese Medicine")
+    parent = "Tong Ren Tang (Group) Co., Ltd. (北京同仁堂集团; SSE 600085 / HKEX 1666 / HKEX 3613)"
+    format = "pharmacy"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin traditional-Chinese-medicine pharmacy chain (北京同仁堂 / Beijing Tong"
+                      " Ren Tang, Beijing 1669, state-owned; ~1,000 China stores). US: 3 retail"
+                      " storefronts (Flushing + Brooklyn NY, Temple City CA); SF clinic held uncertain."
+                      " Tracked via sightings. In scope")
+    RECHECK = ["https://cm.tongrentang.com/en/linksList/425/1.html"]
+
+
 class BenGongAdapter(Adapter):
     """
     本宫的茶 / BenGong's Tea — a China-origin "new Chinese-style" (新中式) tea-drink chain, operator

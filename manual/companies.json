@@ -3112,6 +3112,15 @@
    "us_since": "2024",
    "lane": "brand_flagship",
    "flagship_type": "flagship"
+  },
+  "tongrentang": {
+   "name": "Beijing Tong Ren Tang",
+   "name_zh": "北京同仁堂",
+   "category": "Pharmacy / traditional Chinese medicine",
+   "category_zh": "中药 / 药店",
+   "blurb": "Beijing Tong Ren Tang (北京同仁堂) is China's most famous traditional-Chinese-medicine pharmacy, founded in 1669 as a Qing-dynasty imperial pharmacy and still state-owned today. The Tong Ren Tang (Group) sits behind several listed arms — China Beijing Tong Ren Tang (SSE 600085), Tong Ren Tang Technologies (HKEX 1666) and the overseas unit Beijing Tong Ren Tang Chinese Medicine (HKEX 3613) — and runs on the order of a thousand retail pharmacies across China. In the US it operates herbal-medicine storefronts in Flushing and Brooklyn (New York) and Temple City (Los Angeles County); a San Francisco clinic opened in 2016 but now appears faded. It is distinct from the separate Tianjin Tong Ren Tang.",
+   "site_us": "https://cm.tongrentang.com/en/",
+   "us_since": "2016"
   }
  }
 }

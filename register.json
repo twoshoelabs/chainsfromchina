@@ -2400,6 +2400,25 @@
    "fdd_available": 0,
    "franchise_note": "Northeastern-China shrimp-dumpling chain, directly-operated; trades in the US as Dumpling Xi. US-tracked via sightings; no US FDD.",
    "name_us": "Dumpling Xi"
+  },
+  "tongrentang": {
+   "name": "Tong Ren Tang",
+   "name_zh": "北京同仁堂",
+   "name_intl": "Beijing Tong Ren Tang",
+   "aliases": [
+    "北京同仁堂",
+    "同仁堂",
+    "Tong Ren Tang",
+    "Beijing Tong Ren Tang",
+    "同仁堂国药",
+    "Beijing Tong Ren Tang Chinese Medicine"
+   ],
+   "format": "pharmacy",
+   "global": "China's most famous traditional-Chinese-medicine (TCM) pharmacy — founded 1669 in Beijing as a Qing-dynasty imperial pharmacy; state-owned under the Tong Ren Tang (Group) Co. Listed arms: China Beijing Tong Ren Tang (SSE 600085), Tong Ren Tang Technologies (HKEX 1666) and the overseas unit Beijing Tong Ren Tang Chinese Medicine (HKEX 3613). ~1,000 retail pharmacies across China plus an overseas network (~30+ branches across ~25 countries/regions). Overseas includes the US (New York + Temple City CA) and Canada (Ontario). NOT the separate Tianjin Tong Ren Tang 天津同仁堂.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Beijing) state-owned TCM pharmacy chain (founded 1669; SSE 600085 / HKEX 3613 intl arm). US tracked via 3 storefronts; also Canada. No US FDD."
   }
  },
  "entries": [
@@ -11752,6 +11771,21 @@
    "note": "Directly-operated Vietnam stores reported open by end-Apr 2023 (36Kr). Count/cities unknown; current status unverified.",
    "sources": [
     "https://36kr.jp/238974/"
+   ]
+  },
+  {
+   "chain": "tongrentang",
+   "market": "CA",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-17",
+   "note": "Canada — Ontario: Mississauga (719 Central Pkwy W) + Richmond Hill (1070 Major Mackenzie Dr E), both 中药店 with official websites.",
+   "sources": [
+    "https://cm.tongrentang.com/"
    ]
   }
  ]

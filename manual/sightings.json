@@ -5205,6 +5205,51 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "tongrentang",
+   "supplied_on": "2026-11-17",
+   "reviewed": "2026-11-17",
+   "source": "Official international-arm locator (cm.tongrentang.com) + Google Maps verification + owner screenshot (17 Nov 2026).",
+   "scope": "北京同仁堂 / Beijing Tong Ren Tang US outlets. 3 confirmed open retail storefronts: Flushing + Brooklyn (NY) and Temple City (CA). The San Francisco clinic (1515 Scott St) is genuine but faded — held uncertain, not counted. The Madison Ave NYC address is the US office, not a store (excluded). NOT the separate Tianjin Tong Ren Tang 天津同仁堂. Re-sweep for other US stores.",
+   "locations": [
+    {
+     "name": "Flushing (41st Ave)",
+     "address": "136-75 41st Ave, Flushing, NY 11355",
+     "lat": 40.759176,
+     "lon": -73.826921,
+     "confidence": "confirmed",
+     "verified_by": "Official locator + Google (Beijing Tong Ren Tang 北京同仁堂, herbal-medicine shop, 2.4/10 reviews, recent activity).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Brooklyn (Sunset Park)",
+     "address": "4311 8th Ave, Brooklyn, NY 11232",
+     "lat": 40.644909,
+     "lon": -73.999667,
+     "confidence": "confirmed",
+     "verified_by": "Official locator + Google (storefront photo with 北京同仁堂 signage; herb store, held by parent group).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Temple City (Las Tunas Dr)",
+     "address": "9670 E Las Tunas Dr, Temple City, CA 91780",
+     "lat": 34.106924,
+     "lon": -118.058736,
+     "confidence": "confirmed",
+     "verified_by": "Official locator + Google (Tong Ren Tang Acupuncture Herbs, 3.8/17 reviews; listing links to cm.tongrentang.com).",
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "San Francisco (Scott St)",
+     "address": "1515 Scott St, San Francisco, CA 94115",
+     "lat": 37.783928,
+     "lon": -122.437966,
+     "confidence": "uncertain",
+     "verified_by": "Google (Beijing Tong Ren Tang Medical Center, TCM clinic, 2.3/3 reviews ~3 yrs old; 北京同仁堂 ribbon-cutting signage) + owner screenshot (17 Nov 2026). Genuine per 2016 China Daily SF-opening press, but off the current official locator and clinic-format — held uncertain pending a status check.",
+     "coord_src": "US Census geocoder"
+    }
+   ]
   }
  ]
 }
