@@ -446,7 +446,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
   let listingBadge = '', listingSec = '';
   if (lst) {
     if (lst.tickers && lst.tickers.length)
-      listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.mainland ? ' · China A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
+      listingBadge = `<span class="hb listed" title="${esc((lst.group || m.name) + (lst.china_a_share ? ' · China A-share' : ''))}">${esc(lst.tickers[0])}${lst.tickers.length > 1 ? ' +' + (lst.tickers.length - 1) : ''}</span>`;
     else if (lst.status === 'ipo_pending') listingBadge = `<span class="hb">${t('chain.listing.ipofiled','IPO filed')}</span>`;
 
     const rows = [`<dt>${t('chain.listing.row.status','Status')}</dt><dd>${t('chain.stat.'+lst.status, STAT[lst.status] || lst.status)}</dd>`];

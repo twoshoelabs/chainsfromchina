@@ -123,7 +123,7 @@ def _structure(con, brand: str) -> dict:
                    "status": listing.get("status"),
                    "parent": listing.get("group"),          # the parent group NAME (never the relationship slug)
                    "parent_zh": listing.get("group_zh"), "sisters": listing.get("sisters"),
-                   "china_a_share": bool(listing.get("mainland")), "ir": listing.get("ir")}
+                   "china_a_share": bool(listing.get("china_a_share")), "ir": listing.get("ir")}
     operating_model = _load("register.json").get("chains", {}).get(brand, {}).get("operating_model")
     from . import apps
     us_app = apps.record_of(brand)
