@@ -22,7 +22,7 @@
     ['cotenancy', 'centers.html', tt('nav.cotenancy', 'Co-tenancy')],
     ['global', 'register.html', tt('nav.global', 'Global')],
     ['method', 'method.html', tt('nav.method', 'Method')],
-    ['pro', 'index.html#pro', tt('nav.pro', 'Pro')],
+    ['pro', '/pro.html', tt('nav.pro', 'Pro')],   // absolute: pro.html has no /zh/ counterpart
   ];
   var cur = (document.body.getAttribute('data-page') || '').trim();
 
@@ -40,7 +40,8 @@
 
   // ---- Header: newspaper nameplate (shared with the home page) ------------------------------
   var nav = PAGES.map(function (p) {
-    return '<a href="' + P + p[1] + '"' + (p[0] === cur ? ' aria-current="page"' : '') + '>' + p[2] + '</a>';
+    var href = p[1].charAt(0) === '/' ? p[1] : (P + p[1]);   // '/'-prefixed = absolute, skip the /zh/ prefix
+    return '<a href="' + href + '"' + (p[0] === cur ? ' aria-current="page"' : '') + '>' + p[2] + '</a>';
   }).join('');
 
   var header = document.createElement('header');
