@@ -1806,6 +1806,18 @@
    "opened": null,
    "closed_on": null,
    "closed_note": "Permanently closed per Google (14 Nov 2026). Was on the official US order list. Recorded 14 Nov 2026."
+  },
+  {
+   "chain": "jibeichuan",
+   "name": "Houston (Bellaire Blvd)",
+   "address": "9888 Bellaire Blvd Ste 126, Houston, TX 77036",
+   "city": "Houston",
+   "state": "TX",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "JiBeiChuan Rice Noodles (季北川) Houston Chinatown outlet (9888 Bellaire Blvd Ste 126; own site jibeichuanricenoodles.com, 4.4/47 Yelp, 369 photos). Now REPORTED CLOSED but NOT independently confirmed: Yelp shows the soft community flag 'Yelpers report this location has closed' (not a Google/Yelp 'Permanently closed' status). We never tracked this store as open (not on the brand's US roster), so no count change. Re-verify via Google 'Permanently closed' before treating as confirmed.",
+   "confidence": "medium",
+   "source": "Yelp business page 'Jibeichuan Rice Noodles' (Houston) — 'Yelpers report this location has closed' (hand screenshot 20 Nov 2026)."
   }
  ]
 }

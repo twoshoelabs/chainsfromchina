@@ -2419,6 +2419,27 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China (Beijing) state-owned TCM pharmacy chain (founded 1669; SSE 600085 / HKEX 3613 intl arm). US tracked via 3 storefronts; also Canada. No US FDD."
+  },
+  "yuanjiyunjiao": {
+   "name": "Yuanji Yunjiao",
+   "name_intl": "Yuen Kee Dumpling",
+   "name_zh": "袁记云饺",
+   "aliases": [
+    "袁记云饺",
+    "袁记饺子",
+    "Yuanji Yunjiao",
+    "Yuanji Dumpling",
+    "Yuan Ji Yun Jiao",
+    "Yuen Kee Dumpling",
+    "袁记食品",
+    "Yuanji Food"
+   ],
+   "format": "restaurant",
+   "global": "China-origin fresh-dumpling and wonton chain, founded 2012 in Guangzhou (Liwan) by Yuan Lianghong; operator 袁记食品集团 (Yuanji Food Group), with central kitchens in Foshan and Suzhou. A 'cooked-and-raw' hybrid of fast-food counter and fresh retail — made-to-order Cantonese dumplings (水饺), wontons (云吞) and noodles to eat in or take home raw; media call it a 'budget Din Tai Fung.' Heavily franchised (over 95% of stores): about 4,266 stores as of Sept 2025 per its Hong Kong IPO prospectus, which claims it is the world's largest Chinese fast-food chain by store count (IPO filed Jan 2026, not yet listed). Its first store outside Greater China opened in Singapore (Fortune Centre) in Dec 2024, now its largest overseas market; also present in Thailand, Malaysia and the UK, with 40+ stores in Hong Kong. A US store in Manhattan has been announced but is not confirmed open. NOT the same as 袁记串串香 Yuanji Chuanchuanxiang, a separate Chengdu skewer-hotpot chain.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Guangzhou) fresh-dumpling/wonton fast-food chain, heavily franchised (over 95%); ~4,266 China stores (Sept 2025 IPO prospectus). Tracked abroad via Singapore/Thailand/Malaysia/UK. A US (Manhattan) store has been announced but is not confirmed open; no US FDD. NOT 袁记串串香 (the skewer-hotpot brand)."
   }
  },
  "entries": [
@@ -11786,6 +11807,82 @@
    "note": "Canada — Ontario: Mississauga (719 Central Pkwy W) + Richmond Hill (1070 Major Mackenzie Dr E), both 中药店 with official websites.",
    "sources": [
     "https://cm.tongrentang.com/"
+   ]
+  },
+  {
+   "chain": "yuanjiyunjiao",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026-11",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-20",
+   "note": "First store outside Greater China: Fortune Centre (190 Middle Rd), Dec 2024. Now its largest overseas market — a 2026 report cited ~47 operating Singapore stores (an earlier Jan 2026 count was ~10); the number is growing and uncertain, so left unquantified here. Branches include Funan, IMM, Westgate, AMK Hub, Clementi, Chinatown Point, 313@Somerset, and VivoCity/Mandai Food Republic food courts.",
+   "sources": [
+    "https://www.mothership.sg/2026/01/yuen-kee-dumpling-free-meals-monthly/",
+    "https://www.investhk.gov.hk/en/our-clients/yuan-ji-hong-kong-limited/"
+   ]
+  },
+  {
+   "chain": "yuanjiyunjiao",
+   "market": "TH",
+   "status": "present",
+   "locations": 14,
+   "locations_as_of": "2026",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-20",
+   "note": "First Thailand store in Bangkok (Sathorn), Dec 2025; about 14 stores reported across Thailand in 2026.",
+   "sources": [
+    "https://www.sznews.com/news/content/2026-10/10/content_32188689.htm"
+   ]
+  },
+  {
+   "chain": "yuanjiyunjiao",
+   "market": "MY",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-07",
+   "first_opened": "2026",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "First Malaysia store at Sri Petaling, Kuala Lumpur, July 2026; a second was planned for Kota Kemuning.",
+   "sources": [
+    "https://www.malaymail.com/news/eat-drink/2026/07/06/"
+   ]
+  },
+  {
+   "chain": "yuanjiyunjiao",
+   "market": "GB",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-20",
+   "note": "First UK store opened around May 2026 near Liverpool Street, London.",
+   "sources": [
+    "https://www.sznews.com/news/content/2026-10/10/content_32188689.htm"
+   ]
+  },
+  {
+   "chain": "yuanjiyunjiao",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "locations_as_of": "2026",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "Over 40 stores in Hong Kong, an early and large market for the brand and the springboard for its overseas expansion.",
+   "sources": [
+    "https://www.thebambooworks.com/?p=56963"
    ]
   }
  ]
