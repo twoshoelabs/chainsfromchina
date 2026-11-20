@@ -11844,13 +11844,13 @@
    "chain": "yuanjiyunjiao",
    "market": "MY",
    "status": "present",
-   "locations": 1,
-   "locations_as_of": "2026-07",
+   "locations": 6,
+   "locations_as_of": "2026-11",
    "first_opened": "2026",
    "precision": "month",
-   "confidence": "high",
+   "confidence": "medium",
    "reviewed": "2026-11-20",
-   "note": "First Malaysia store at Sri Petaling, Kuala Lumpur, July 2026; a second was planned for Kota Kemuning.",
+   "note": "First Malaysia store at Sri Petaling, Kuala Lumpur, July 2026; the brand scaled quickly across KL/Selangor — Google shows ~6 open stores: Sri Petaling and Pavilion (Bukit Jalil) in KL, plus SS2 (Petaling Jaya), SS15 (Subang Jaya), Cheras, and Kota Kemuning (Shah Alam) in Selangor. Count growing.",
    "sources": [
     "https://www.malaymail.com/news/eat-drink/2026/07/06/"
    ]
