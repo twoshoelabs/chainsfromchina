@@ -2482,6 +2482,24 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin (Zibo, Shandong; HQ Shanghai) Yunnan-style rice-noodle chain, ~600 China stores. Expanded to Japan in 2018 then exited (last store permanently closed). No US presence or FDD confirmed."
+  },
+  "meiweimeike": {
+   "name": "Meiweimeike",
+   "name_intl": "Meiweimeike",
+   "name_zh": "每味每客",
+   "aliases": [
+    "每味每客",
+    "Meiweimeike",
+    "Mei Wei Mei Ke",
+    "每味每客重庆麻辣烫",
+    "重庆麻辣烫"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Chongqing malatang (重庆麻辣烫) chain, founded 2012 and headquartered in Chongqing (Shapingba 沙坪坝); built around reviving traditional Chongqing malatang, signature chili-oil spicy beef (油泼麻辣牛肉), one-person-one-pot self-select format with its own supply-chain facility. Around 400 stores across 17 Chinese provinces and municipalities. Overseas: entered Japan in July 2026, opening its first Japan store at Yodobashi Ikebukuro, Tokyo, importing its soup bases from China. A malatang brand — do not confuse with the convenience retailer Meiyijia 美宜佳.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Chongqing 2012) malatang chain (~400 China stores, 17 provinces). Tracked abroad via its first Japan store (Ikebukuro, Jul 2026). No US presence or FDD confirmed."
   }
  },
  "entries": [
@@ -11972,6 +11990,37 @@
    "sources": [
     "https://www.jetro.go.jp/en/invest/newsroom/2018/d82f4fba6e470e7e.html",
     "https://www.jiemian.com/article/4444626.html"
+   ]
+  },
+  {
+   "chain": "xiaolongkan",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2020",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-20",
+   "note": "One open Tokyo store: Ueno (上野店, 7-3-2 Ueno, Taito-ku; SHOO LOONG KAN / ショウロンカン, Tabelog live hours + active reservations). The earlier Shinjuku/Kabukicho store (T-Wing 8-9F) is permanently closed — the operation relocated to Ueno. First Japan entry ~2020-2021 (not firmly dated).",
+   "sources": [
+    "https://retty.me/restaurant/100001587253/"
+   ]
+  },
+  {
+   "chain": "meiweimeike",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "Japan is Meiweimeike's first overseas market: its first Japan store (日本1号店) opened 3 July 2026 at Yodobashi Ikebukuro Building 8F (1-28-1 Minami-Ikebukuro, Toshima-ku, Tokyo), importing its six soup bases from China. Currently a single Ikebukuro store.",
+   "sources": [
+    "https://gourmet.watch.impress.co.jp/docs/news/2120985.html",
+    "https://m.tech.china.com/hea/articles/20260327/202603271834830.html"
    ]
   }
  ]
