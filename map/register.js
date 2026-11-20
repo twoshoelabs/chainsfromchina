@@ -25,7 +25,7 @@ const chainLabel = (c, opts = {}) => {
   return `${esc(trading)}${zh}${also}`;
 };
 
-const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Europe'];
+const REGION_ORDER = ['East Asia', 'Southeast Asia', 'Central Asia', 'Gulf', 'Oceania', 'North America', 'Europe', 'Latin America', 'South Asia'];
 // The same retail-type buckets the landing page groups its chains by, so the matrix reads the
 // same way — tea with tea, toys with toys — and every chain (US or only-abroad) lands in its type.
 const CAT_ORDER = ['Tea', 'Coffee', 'Ice Cream', 'Restaurants', 'Snacks & Delis', 'Bakery',
