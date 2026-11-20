@@ -3351,15 +3351,16 @@
   {
    "chain": "heytea",
    "market": "JP",
-   "status": "present",
+   "status": "exited",
    "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Named among the eight overseas countries.",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "HEYTEA opened its first Japan store in Osaka (Doton Plaza, Shinsaichi/Shinsaibashi) in 2025 but has exited: that store was listed permanently closed by about April 2026 (owner screenshot 20 Nov 2026), and no other Japan stores are found. Japan prices neared Y1,000/cup against low awareness.",
    "sources": [
-    "https://www.foodtalks.cn/en/news/58458"
+    "https://36kr.jp/503643/",
+    "https://www.tmtpost.com/8075658.html"
    ]
   },
   {
@@ -3625,15 +3626,15 @@
   {
    "chain": "nayuki",
    "market": "JP",
-   "status": "present",
+   "status": "exited",
    "locations": null,
-   "first_opened": "2020-06",
-   "precision": "month",
+   "first_opened": "2021",
+   "precision": "year",
    "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "First Japanese cafe at Zero Gate, Osaka.",
+   "reviewed": "2026-11-20",
+   "note": "Nayuki (奈雪的茶) opened a single Japan cafe at Zero Gate, Dotonbori, Osaka in 2021 and quietly exited about a year later; that store is now permanently closed (owner screenshot 20 Nov 2026).",
    "sources": [
-    "https://insideretail.asia/2020/06/25/chinese-tea-chain-nayuki-launches-in-japan/"
+    "https://www.tmtpost.com/8075658.html"
    ]
   },
   {
