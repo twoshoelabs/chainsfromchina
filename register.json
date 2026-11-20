@@ -2440,6 +2440,48 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin (Guangzhou) fresh-dumpling/wonton fast-food chain, heavily franchised (over 95%); ~4,266 China stores (Sept 2025 IPO prospectus). Tracked abroad via Singapore/Thailand/Malaysia/UK. A US (Manhattan) store has been announced but is not confirmed open; no US FDD. NOT 袁记串串香 (the skewer-hotpot brand)."
+  },
+  "mazilu": {
+   "name": "Mazilu Lanzhou Beef Noodles",
+   "name_intl": "Mazilu",
+   "name_zh": "马子禄牛肉面",
+   "aliases": [
+    "马子禄",
+    "馬子禄",
+    "馬子祿",
+    "马子禄牛肉面",
+    "Mazilu",
+    "Mazilu Lanzhou Beef Noodles",
+    "兰州牛肉拉面",
+    "马子禄牛肉拉面"
+   ],
+   "format": "restaurant",
+   "global": "China-origin heritage Lanzhou hand-pulled beef-noodle (兰州牛肉拉面, halal clear-broth 清汤牛肉面) house, in the Ma-family lineage that originated the dish: Ma Baozi 马保子 began selling clear-broth beef noodles in Lanzhou around 1915, and the 马子禄 signboard was formally hung in 1954 (company established 2001; a Ministry of Commerce 'China Time-honored Brand' / 中华老字号 since 2011). A premium heritage franchise with branches in several major Chinese cities (no published chain-wide total). Overseas: Japan only — two Tokyo stores (Jinbocho, opened Aug 2017, and Shinjuku/Kabukicho), carrying the authentic Lanzhou recipe under a licensed Japanese operator. NOT the modern Shanghai Lanzhou-ramen startups (马记永 Ma Jiyong, 陈香贵, 张拉拉).",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Lanzhou) heritage beef-noodle brand (中华老字号, 1954 signboard). Tracked abroad via two Tokyo stores. No US presence, franchise offer, or FDD confirmed."
+  },
+  "axiangmixian": {
+   "name": "A Xiang Mixian",
+   "name_intl": "A Xiang Mixian",
+   "name_zh": "阿香米线",
+   "aliases": [
+    "阿香米线",
+    "阿香米線",
+    "阿香",
+    "A Xiang Mixian",
+    "A'Xiang",
+    "Axiang Mixian",
+    "アーシャンミーシェン",
+    "过桥米线"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Yunnan-style clay-pot crossing-bridge rice-noodle (云南风味瓦罐过桥米线) chain, founded 2000 in Zibo, Shandong by He Yong 何勇 (who ran 阿香拉面 from ~1996 first); operator He Yong Group 何勇集团, headquartered in Shanghai, franchising from 2022. Roughly 600 stores across China, mostly in shopping centers. The name describes the Yunnan cuisine, not the founding place. Overseas: it expanded to Japan via a parent subsidiary (阿香日本株式会社, 2017; first store at AEON Lake Town, Koshigaya, Saitama, Apr 2018) but has since fully exited — its last Japan store (Takadanobaba, Tokyo) is permanently closed, leaving no overseas presence. NOT 稲香米線 / 阿蘇米線 (different brands), and distinct from Dagu 大鼓米线 and Ten Seconds 十秒到.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Zibo, Shandong; HQ Shanghai) Yunnan-style rice-noodle chain, ~600 China stores. Expanded to Japan in 2018 then exited (last store permanently closed). No US presence or FDD confirmed."
   }
  },
  "entries": [
@@ -11898,6 +11940,38 @@
    "note": "Indonesia — a Zhangliang Malatang flagship operates at Agora Mall, Central Jakarta (Google 4.9 / 959 reviews, operator-observed + owner screenshot 20 Nov 2026). Likely more outlets; exact count not pinned.",
    "sources": [
     "https://www.google.com/maps/search/Zhangliang+Malatang+Agora+Mall+Jakarta"
+   ]
+  },
+  {
+   "chain": "mazilu",
+   "market": "JP",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "Japan is Mazilu's only overseas market: two Tokyo stores — Jinbocho (神保町, Kanda Jinbocho; opened Aug 2017, Google 4.1/2,563, halal-certified) and Shinjuku/Kabukicho (馬子禄牛肉面, Google 4.7/1,476). An earlier Tokyo Station branch (c.2017) is gone. Run under a licensed Japanese operator (Kiyono Retsu) carrying the authentic Lanzhou recipe.",
+   "sources": [
+    "https://soranews24.com/2017/08/23/one-of-chinas-most-loved-ramen-restaurants-takes-on-japan-we-try-it-out-on-opening-day/",
+    "https://visit-chiyoda.tokyo/app/en/spot/detail/775"
+   ]
+  },
+  {
+   "chain": "axiangmixian",
+   "market": "JP",
+   "status": "exited",
+   "locations": null,
+   "locations_as_of": "2026-11",
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-20",
+   "note": "Japan was A Xiang's first and only overseas market: parent He Yong Group set up 阿香日本株式会社 (2017) and opened its first store at AEON Lake Town, Koshigaya, Saitama on 26 Apr 2018, planning 10+ stores. It has since fully exited — the last Japan store, Takadanobaba (Shinjuku, Tokyo), is permanently closed (Google Maps 永久歇業, 4.1/139, checked 20 Nov 2026); the Koshigaya store is gone. A stale Uber Eats listing still shows Takadanobaba operating — do not rely on it.",
+   "sources": [
+    "https://www.jetro.go.jp/en/invest/newsroom/2018/d82f4fba6e470e7e.html",
+    "https://www.jiemian.com/article/4444626.html"
    ]
   }
  ]
