@@ -29,6 +29,7 @@ STATIC = [
 # without a zh URL and without hreflang alternates so the sitemap never points at a 404.
 STATIC_EN_ONLY = [
     ("/terms.html", "yearly", "0.3"),
+    ("/pro.html", "monthly", "0.6"),
 ]
 
 
