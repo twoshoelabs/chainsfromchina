@@ -195,6 +195,14 @@
   "SE": {
    "name": "Sweden",
    "region": "Europe"
+  },
+  "QA": {
+   "name": "Qatar",
+   "region": "Gulf"
+  },
+  "BN": {
+   "name": "Brunei",
+   "region": "Southeast Asia"
   }
  },
  "chains": {
@@ -2766,15 +2774,16 @@
   {
    "chain": "zhangliang",
    "market": "MX",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-26",
-   "note": "Named as one of the three countries in its own brand news claim of 42 North American outlets (US, Canada, Mexico, 11 Sep 2026); no Mexican city, count or opening date is published.",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "Mexico rests only on the chain's own brand-news claim of 42 North American outlets naming US/Canada/Mexico (11 Sep 2026) with no Mexican city, store, count or opening date. Independent searches by English and Chinese name (Nov 2026) found no brand-operated Mexican outlet. Downgraded present->no_evidence pending a locatable store.",
    "sources": [
-    "https://www.zlmlt.com/Brand_News.html"
+    "https://www.zlmlt.com/Brand_News.html",
+    "https://kr-asia.com/hotpot-malatang-bubble-tea-chinese-dining-chains-expand-abroad-to-win-over-global-palates"
    ]
   },
   {
@@ -2903,29 +2912,33 @@
    "chain": "mixue",
    "market": "KR",
    "status": "present",
-   "locations": null,
+   "locations": 16,
    "first_opened": "2022",
    "precision": "year",
    "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Entered South Korea and Japan by the end of 2022. No country-level count published.",
+   "reviewed": "2026-11-21",
+   "note": "Entered South Korea end-2022; grew slowly to ~16 stores by early 2026 (7 by Sept 2024), mostly around Seoul university districts. No official first-party country count published.",
    "sources": [
-    "https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea"
-   ]
+    "https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea",
+    "https://www.tmtpost.com/8053613.html"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "mixue",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": "2022",
    "precision": "year",
    "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Entered South Korea and Japan by the end of 2022.",
+   "reviewed": "2026-11-21",
+   "note": "Present but sharply contracting: only 4 stores remained across Japan as of June 2026 (per Nikkei via Chinese trade press), far below the ~1,000-store 2028 target. Entered Japan end-2022. Kobe store reopened after a renovation. China-origin (Zhengzhou).",
    "sources": [
-    "https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea"
-   ]
+    "https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea",
+    "https://www.huxiu.com/article/4874291.html"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "mixue",
@@ -3360,54 +3373,59 @@
    "chain": "heytea",
    "market": "GB",
    "status": "present",
-   "locations": null,
+   "locations": 6,
    "first_opened": "2023-08",
    "precision": "month",
-   "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "London Chinatown, August 2023 — HEYTEA's first store outside Asia.",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "About 6 London stores as of 2026. First UK store opened Chinatown (Shaftesbury Ave) Aug 2023; New Oxford Street 2024; a second Chinatown site plus a two-story HEYTEA Lab at 118-120 Shaftesbury Ave opened 30 Oct 2026, reported to bring the London total to six.",
    "sources": [
-    "https://insideretail.asia/2023/08/08/heytea-opens-first-store-outside-china-in-london/"
-   ]
+    "https://insideretail.asia/2023/08/08/heytea-opens-first-store-outside-china-in-london/",
+    "https://www.restaurantonline.co.uk/Article/2026/06/01/heytea-to-open-second-chinatown-site/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "heytea",
    "market": "AU",
    "status": "present",
    "locations": null,
-   "first_opened": "2023-10",
-   "precision": "month",
+   "first_opened": "2023",
+   "precision": "year",
    "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Opened about two months after London.",
+   "reviewed": "2026-11-21",
+   "note": "Present in Melbourne and Sydney. First Australian store opened on Swanston St, Melbourne in 2023; a Sydney flagship at 569 George St (CBD) opened Jul 2024. No reliable current market-specific store count found.",
    "sources": [
-    "https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html"
+    "https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html",
+    "https://insideretail.com.au/ir-pro/heytea-ceo-we-plan-to-really-shake-up-sydneys-beverage-scene-202408"
    ]
   },
   {
    "chain": "heytea",
    "market": "CA",
    "status": "present",
-   "locations": null,
-   "first_opened": "2023-10",
-   "precision": "month",
+   "locations": 6,
+   "first_opened": "2023",
+   "precision": "year",
    "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Announced alongside the Australian entry.",
+   "reviewed": "2026-11-21",
+   "note": "6 stores nationwide per HEYTEA's Feb 2026 press release. Entered Canada via Vancouver in 2023; expanded across the Vancouver and Toronto areas; first Canadian HEYTEA Lab opened at CF Toronto Eaton Centre 16 Feb 2026.",
    "sources": [
-    "https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html"
-   ]
+    "https://www.streetinsider.com/Press+Releases/HEYTEA+Ramps+Up+International+Expansion+With+New+Stores+in+the+UK,+Australia+and+Canada/22317447.html",
+    "https://retail-insider.com/retail-insider/2026/02/heytea-opens-first-canadian-lab-in-toronto/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "heytea",
    "market": "FR",
-   "status": "present",
+   "status": "exited",
    "locations": null,
    "first_opened": "2024-07",
    "precision": "month",
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Paris, timed to the eve of the Olympics.",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "No permanent store. Only a 2024 Paris Olympics summer pop-up with BAO Family at 10 rue Breguet (11th arr.), open ~12 Jul-15 Aug 2024 and described by HEYTEA as a market test. No permanent France location as of Nov 2026.",
    "sources": [
     "https://www.scmp.com/business/china-business/article/3270301/chinese-new-style-tea-hits-paris-tencent-backed-heytea-opens-shop-eve-olympics"
    ]
@@ -3416,15 +3434,17 @@
    "chain": "heytea",
    "market": "KR",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "locations": 5,
+   "first_opened": "2024-03",
+   "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "Named among the eight overseas countries.",
+   "reviewed": "2026-11-21",
+   "note": "5 Seoul stores per Oct 2026 Korea Herald: Gangnam, Myeong-dong, Hongdae, Garosugil, Konkuk University. First store opened Apgujeong/Gangnam Mar 2024; Myeong-dong concept store Oct 2024.",
    "sources": [
-    "https://www.foodtalks.cn/en/news/58458"
-   ]
+    "https://www.foodtalks.cn/en/news/58458",
+    "https://www.koreaherald.com/article/10569496"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "heytea",
@@ -3477,17 +3497,18 @@
    "chain": "haidilao",
    "market": "KR",
    "status": "present",
-   "locations": 7,
-   "first_opened": null,
-   "precision": null,
+   "locations": 12,
+   "first_opened": "2014",
+   "precision": "year",
    "confidence": "high",
-   "reviewed": "2026-09-21",
-   "note": "Count read on 21 Sep 2026 from Super Hi's own /eportal/earth/list endpoint, which backs the 'Global Stores' panel on its corporate site. CAVEAT WORTH KEEPING: the field names are swapped in their CMS — the store count sits in a field called `ownedCountries` and the city count in `ownedCities`. Read literally it is nonsense (Singapore in 17 countries). The reading used here is checked by arithmetic: the second field sums to 114 across 14 countries, against the site's own headline of '110+ global stores' in '14 operating countries'. The Cambodia row is corrupt — the global total was typed into its city field — and is ignored. See the Japan note — the 13 is a combined figure.",
+   "reviewed": "2026-11-21",
+   "note": "12 company-operated Haidilao restaurants nationwide in South Korea as of Oct 2026 (Korea Herald, 17 Oct 2026), with a Cheongnyangni location planned; entered Korea 2014 (Myeongdong, Seoul). Supersedes the older 7-store figure and the combined Japan+Korea '13' reading.",
    "sources": [
     "https://www.superhiinternational.com/eportal/earth/list?country=SuperHi&language=en-SuperHi",
-    "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/"
+    "https://thebambooworks.com/super-hi-boils-up-overseas-with-new-york-listing-application/",
+    "https://biz.heraldcorp.com/article/10905315"
    ],
-   "locations_as_of": "2026-09-21"
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "haidilao",
@@ -3692,14 +3713,15 @@
    "market": "CA",
    "status": "present",
    "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-21",
-   "note": "Named in a list of markets entered or targeted; not separately confirmed.",
+   "first_opened": "2022",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "Confirmed present in Metro Vancouver, BC (not just 'named in a list'): Juewei broke ground in North America with a Delta production plant and ~4 retail outlets from Apr 2022, including a store at 1280 Robson St, Vancouver. No store traceable in Toronto. Trades as Juewei; China-origin duck-neck chain.",
    "sources": [
     "https://en.wikipedia.org/wiki/Juewei_Duck_Neck",
-    "https://www.juewei.com.sg/"
+    "https://www.juewei.com.sg/",
+    "https://www.britishcolumbia.ca/news-stories/juewei-food-co-adding-flavour-to-b-c-s-food-scene/"
    ]
   },
   {
@@ -4039,12 +4061,16 @@
    "chain": "coucou",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": "2021-12",
    "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-29",
-   "note": "Suntec City Dec 2021, Jewel Changi 2022; i12 Katong closed 2026; ~2 open (Aug 2025)."
+   "reviewed": "2026-11-21",
+   "note": "Two open Singapore outlets per Chope directory (2026): Suntec City (3 Temasek Blvd #03-332/337) and Jewel Changi Airport (78 Airport Blvd #02-208/209). First SG store opened Suntec City Dec 2021; Jewel opened Apr 2022; i12 Katong closed 2026.",
+   "locations_as_of": "2026-11",
+   "sources": [
+    "https://www.chope.co/singapore-restaurants/pages/coucouhotpotlocations"
+   ]
   },
   {
    "chain": "laowang",
@@ -4253,13 +4279,16 @@
   {
    "chain": "cooltoy",
    "market": "TH",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": "2024",
    "precision": "year",
    "confidence": "low",
-   "reviewed": "2026-09-29",
-   "note": "Reported first overseas store in Thailand in 2024 (vendor press, weak sourcing); an Apr 2025 EmSphere Bangkok pop-up for its Tun Tun Zai IP was temporary — a permanent store is unconfirmed."
+   "reviewed": "2026-11-21",
+   "note": "No brand-operated permanent Cool Toy (酷乐潮玩) store in Thailand could be confirmed (searched EN/ZH, Nov 2026). The 2024 'first overseas store' claim traces only to weak vendor press; the Apr 2025 EmSphere Bangkok activation for its Tun Tun Zai IP was a temporary pop-up. Thai art-toy coverage is dominated by Pop Mart, not Cool Toy.",
+   "sources": [
+    "https://insideretail.asia/?p=72363"
+   ]
   },
   {
    "chain": "muwu",
@@ -5247,17 +5276,18 @@
    "chain": "chagee",
    "market": "KR",
    "status": "present",
-   "locations": 8,
-   "first_opened": "2026-05",
+   "locations": 11,
+   "first_opened": "2026-04",
    "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-10-18",
-   "note": "8 open South Korea outlets per CHAGEE's own store locator (chagee.co.kr, Oct 2026) — ALL in Seoul (Gangnam flagship, Yeoksam, Sinchon, Seoul City Hall, Jongno, Konkuk Univ., Yongsan I'Park Mall, Shinsegae Dept. Gangnam). An early-stage Seoul-only entry. (First-party locator — useful but not definitive; cross-check against operator-observed.)",
+   "reviewed": "2026-11-21",
+   "note": "South Korea has grown past the 8 on CHAGEE's Oct 2026 locator: Korea Herald reported 10 Seoul-area stores by 3 Oct 2026 (10th = Seoul National Univ. Station), and CHAGEE's own 17 Nov 2026 review cites ~11 Korean stores within 6 months of the ~Apr 2026 Seoul launch, with the new 'Rooted in Tea' design debuting at Lotte Mall Cheongnyangni (Oct 2026). All Seoul/metro. Count rising fast.",
    "sources": [
     "https://www.chinadaily.com.cn/a/202603/20/WS69bcaab5a310d6866eb3ee0d.html",
-    "https://chagee.co.kr/kr/en/stores"
+    "https://chagee.co.kr/kr/en/stores",
+    "https://en.jiemian.com/article/14092305.html"
    ],
-   "locations_as_of": "2026-10"
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "chagee",
@@ -5357,16 +5387,17 @@
    "chain": "luckin",
    "market": "MY",
    "status": "present",
-   "locations": 70,
-   "first_opened": "2025",
-   "precision": "year",
-   "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "Franchise entry with Hextar (announced Nov 2024); about 70 stores by end-2025 per its FY2025 20-F.",
+   "locations": 120,
+   "first_opened": "2025-01",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "Franchise entry via Hextar (subsidiary Global Aroma holds the exclusive license from Luckin Singapore); debuted Kuala Lumpur Jan 2025. Network passed 100 outlets by mid-2026 and ~120 nationwide by late 2026, expanding beyond the Klang Valley into southern Malaysia; stated target ~200 by 2028. (Prior note's ~70 from the FY2025 20-F is now stale.)",
    "sources": [
-    "https://investor.luckincoffee.com/"
+    "https://investor.luckincoffee.com/",
+    "https://newswav.com/article/luckin-coffee-passes-120-outlets-heads-south-A2607_wo6G14"
    ],
-   "locations_as_of": "2025-12"
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "luckin",
@@ -6086,29 +6117,33 @@
    "chain": "meilleurmoment",
    "market": "FR",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Boutique in France.",
+   "reviewed": "2026-11-21",
+   "note": "Three Paris boutiques confirmed (rue Saint-Honore, rue de Rennes, rue des Francs-Bourgeois); brand owned by Hangzhou parent Eifini, expanding in France.",
    "sources": [
-    "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/"
-   ]
+    "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/",
+    "https://fashionunited.fr/actualite/retail/meilleur-moment-le-geant-chinois-eifini-propulse-sa-marque-vers-linternational/2025032637609"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "meilleurmoment",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Store in Singapore.",
+   "reviewed": "2026-11-21",
+   "note": "Multiple brand-operated stores verified via mall directories: Jewel Changi Airport (B1-226/227), Plaza Singapura, and Tampines Mall.",
    "sources": [
-    "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/"
-   ]
+    "https://wwd.com/fashion-news/fashion-scoops/meilleur-moment-new-york-flagship-1237254256/",
+    "https://www.jewelchangiairport.com/en/shop/meilleur-moment.html"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "bosideng",
@@ -6200,15 +6235,17 @@
    "chain": "xtep",
    "market": "MY",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "locations": 7,
+   "first_opened": "2024-11",
+   "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Six mono-brand stores (KL, Penang, Johor Bahru, Kuantan, Shah Alam) from Nov 2024.",
+   "reviewed": "2026-11-21",
+   "note": "First Malaysia mono-brand store soft-opened in Puchong, Selangor on 6 Nov 2024; six more mono-brand stores announced 24 Apr 2026 (KL, Penang, Johor Bahru, Kuantan, Shah Alam), for ~7 open. Company plans to reach 13 outlets (adding Pavilion KL and IOI City Mall). Retail+Community running-club format.",
    "sources": [
-    "https://www.globalxtep.com/news/xtep-fortifies-southeast-asia-push-with-6-new-stores-in-malaysia/"
-   ]
+    "https://www.globalxtep.com/news/xtep-fortifies-southeast-asia-push-with-6-new-stores-in-malaysia/",
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/04/24/leading-global-performance-running-brand-xtep-fortifies-south-east-asia-push-with-six-new-stores"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "xtep",
@@ -6228,31 +6265,34 @@
    "chain": "laopu",
    "market": "HK",
    "status": "present",
-   "locations": 3,
+   "locations": 4,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-18",
-   "note": "At least 3 open HK stores, hand-counted Oct 2026 (Google): Silvercord (TST), Central, and Harbour City II店 (TST). A 4th LAOPU GOLD listing was partially visible and the 'II店' implies a Harbour City I店 — likely more; re-verify. China-origin gold-jewelry chain (老铺黄金, Beijing; HKEX-listed 2024).",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "4 open HK stores as of mid-2026 (KrASIA, June 2026): includes Harbour City/Canton Road, Silvercord/TST, Central, and the IFC flagship (3rd store, opened late 2025). Updated from 3.",
    "sources": [
     "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore",
-    "Google listings (老铺黄金 Laopu Gold, >=3 open HK stores Oct 2026)"
+    "Google listings (老铺黄金 Laopu Gold, >=3 open HK stores Oct 2026)",
+    "https://kr-asia.com/after-a-breakout-year-can-laopu-gold-become-chinas-answer-to-hermes"
    ],
-   "locations_as_of": "2026-10"
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "laopu",
    "market": "MO",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Existing Macau stores.",
+   "reviewed": "2026-11-21",
+   "note": "3 Macau stores as of mid-2026 per KrASIA (June 2026 store breakdown: 4 HK, 3 Macau, 1 Singapore, rest China).",
    "sources": [
-    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore"
-   ]
+    "https://jingdaily.com/intels/2025-06/19/lao-pu-gold-opens-1st-overseas-store-in-singapore",
+    "https://kr-asia.com/after-a-breakout-year-can-laopu-gold-become-chinas-answer-to-hermes"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "laopu",
@@ -6456,13 +6496,14 @@
    "market": "ES",
    "status": "present",
    "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "first_opened": "2025-09",
+   "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Deepest EU market; first own-brand store in Madrid.",
+   "reviewed": "2026-11-21",
+   "note": "Deepest EU market; Xiaomi's first directly managed Spanish store opened at CC La Gavia, Madrid (27 Sep 2025), since expanded (Islazul and Caleido in Madrid; Gran Via 2 in Barcelona), alongside the existing authorized Mi Store network.",
    "sources": [
-    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/",
+    "https://www.tuexperto.com/2025/09/16/xiaomi-store-tienda-oficial-la-gavia-centro-comercial-madrid-espana/"
    ]
   },
   {
@@ -6483,28 +6524,31 @@
    "chain": "xiaomi",
    "market": "FR",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "locations": 3,
+   "first_opened": "2025-11",
+   "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Mi Stores.",
+   "reviewed": "2026-11-21",
+   "note": "After a 2023 retrenchment, Xiaomi opened three brand-operated stores in Ile-de-France at the end of 2025: Creteil Soleil (inaugurated 21 Nov 2025), Qwartz, and a third site.",
    "sources": [
-    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
-   ]
+    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/",
+    "https://www.lsa-conso.fr/high-tech-xiaomi-le-numero-trois-des-smartphones-ouvre-3-magasins-en-france-mais-ou-exactement,463316"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "xiaomi",
    "market": "DE",
    "status": "present",
    "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "first_opened": "2025-08",
+   "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Mi Stores.",
+   "reviewed": "2026-11-21",
+   "note": "Xiaomi's first self-operated German store opened at Limbecker Platz, Essen (Aug 2025, official opening 26 Sep 2025); a second followed in Cologne in late 2025. Munich (Stachus) continues as an authorized store.",
    "sources": [
-    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
+    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/",
+    "https://www.notebookcheck.net/Xiaomi-s-first-store-in-Germany-is-opening-with-exclusive-deals-on-new-15T-series-phones-and-more.1122858.0.html"
    ]
   },
   {
@@ -6525,15 +6569,17 @@
    "chain": "xiaomi",
    "market": "GB",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Mi Stores.",
+   "reviewed": "2026-11-21",
+   "note": "UK physical retail re-established after the 2020 Westfield London closure; Xiaomi opened its second London store at Westfield White City (grand opening 29 May 2026), so at least two London Xiaomi Stores operate.",
    "sources": [
-    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/"
-   ]
+    "https://www.justretail.news/noticias/retail-xiaomi-100-tiendas-mi-store-europa-occidental/",
+    "https://retailtechinnovationhub.com/home/2026/5/19/xiaomi-opens-its-second-store-in-london-as-chinese-consumer-electronics-firm-lands-at-westfield-white-city"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "huawei",
@@ -6967,15 +7013,17 @@
    "chain": "xiaomi",
    "market": "AE",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "Mi Store flagship at The Dubai Mall (opened Apr 2023, then its largest outside China/India) plus a second Dubai store.",
+   "locations": 3,
+   "first_opened": "2023-04",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "The Dubai Mall flagship (opened Apr 2023) remains, joined by newer Dubai stores at Ibn Battuta Mall (Oct 2025) and Al Ghurair Centre (Jan 2026); at least three Xiaomi Stores in Dubai.",
    "sources": [
-    "https://www.thenationalnews.com/business/technology/2023/04/27/xiaomi-opens-biggest-middle-east-store-in-dubai-to-boost-regional-footprint/"
-   ]
+    "https://www.thenationalnews.com/business/technology/2023/04/27/xiaomi-opens-biggest-middle-east-store-in-dubai-to-boost-regional-footprint/",
+    "https://www.mi.com/ae-en/event/xiaomi-store2-grand-opening"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "huawei",
@@ -9264,15 +9312,17 @@
    "chain": "happylamb",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "note": "First-party Singapore site (happylambhotpot.sg) presents a Singapore operation; specific outlet count not pinned here.",
-   "reviewed": "2026-10-05",
+   "confidence": "high",
+   "note": "One outlet: Pacific Plaza, #02-10, 9 Scotts Road, Orchard (happylambhotpot.sg); operating 2025.",
+   "reviewed": "2026-11-21",
    "sources": [
-    "https://www.happylambhotpot.sg/en/"
-   ]
+    "https://www.happylambhotpot.sg/en/",
+    "https://singmalls.app/en/malls/pacific-plaza/merchants/pacific-plaza-happy-lamb"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "happylamb",
@@ -9291,29 +9341,31 @@
   {
    "chain": "happylamb",
    "market": "MY",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
    "confidence": "low",
-   "note": "Brand lists Kuala Lumpur among its markets; a specific outlet was not independently pinned.",
-   "reviewed": "2026-10-05",
+   "note": "Brand self-lists Kuala Lumpur, but no brand-operated Happy Lamb outlet was findable (only an unconfirmed lamb-hotpot aggregator listing, Nov 2026). Treated as unconfirmed self-listing, same pattern as JP.",
+   "reviewed": "2026-11-21",
    "sources": [
-    "https://happylambhotpot.com/"
+    "https://happylambhotpot.com/",
+    "https://eatigo.com/en/branches/3377882438282"
    ]
   },
   {
    "chain": "happylamb",
    "market": "PH",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "note": "Brand lists Manila among its markets; a specific outlet was not independently pinned.",
-   "reviewed": "2026-10-05",
+   "confidence": "medium",
+   "note": "Brand self-lists Manila, but no brand-operated Happy Lamb outlet was findable in Philippine mall directories or aggregators (Nov 2026). Treated as unconfirmed self-listing.",
+   "reviewed": "2026-11-21",
    "sources": [
-    "https://happylambhotpot.com/"
+    "https://happylambhotpot.com/",
+    "https://www.tatlerasia.com/dining/food/where-to-eat-hot-pot-in-metro-manila"
    ]
   },
   {
@@ -9333,15 +9385,16 @@
   {
    "chain": "happylamb",
    "market": "TW",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "note": "Brand lists Taiwan among its markets; a specific outlet was not independently pinned.",
-   "reviewed": "2026-10-05",
+   "confidence": "medium",
+   "note": "Brand self-lists Taiwan, but no brand-operated Happy Lamb outlet was findable on Google Maps or review sites (Nov 2026). Treated as unconfirmed self-listing, same pattern as JP.",
+   "reviewed": "2026-11-21",
    "sources": [
-    "https://happylambhotpot.com/"
+    "https://happylambhotpot.com/",
+    "https://guide.michelin.com/en/taipei-region/taipei/restaurant/lin-s-vegetable-lamb-hotpot"
    ]
   },
   {
@@ -9401,6 +9454,20 @@
    "note": "Trade press reports Chagee pushing into Central Asia with a first Kazakhstan store; open status and date not independently confirmed, so held as announced pending a first-party or dated confirmation.",
    "sources": [
     "https://kr-asia.com/brewing-success-abroad-chinese-tea-brands-set-sights-on-southeast-asia"
+   ]
+  },
+  {
+   "chain": "chagee",
+   "market": "BN",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "NEW market not in register: Brunei is CHAGEE's 8th Asia Pacific market, announced 17 Nov 2026 with its first two stores in Kiulap and Madang (one report states the first store opened 17 Nov 2026). Brand-operated entry; treat as present/just-opened, verify both locations open.",
+   "sources": [
+    "https://vir.com.vn/chagee-enters-brunei-expanding-presence-to-eight-asia-pacific-markets-165372.html"
    ]
   },
   {
@@ -9498,6 +9565,20 @@
    "confidence": "low",
    "reviewed": "2026-10-05",
    "note": "Searched by English and Chinese (库迪咖啡) names (2026-10-05); no Poland store found."
+  },
+  {
+   "chain": "cotti",
+   "market": "QA",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "Qatar (Doha) is repeatedly listed among Cotti's current operating markets (named in the batch's own SA note and in Gulf News coverage of its global footprint), but there is no QA entry in the batch. Brand-operated/franchise presence; no market-specific count found.",
+   "sources": [
+    "https://gulfnews.com/business/corporate-news/cotti-coffee-accelerates-global-footprint-with-flagship-store-in-iconic-dubai-mall-1.500373885"
+   ]
   },
   {
    "chain": "luckin",
@@ -9976,6 +10057,21 @@
    ]
   },
   {
+   "chain": "toys52",
+   "market": "TH",
+   "status": "present",
+   "locations": 7,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "52TOYS runs brand-operated standalone stores in Thailand: first at Bangkok Emsphere (Dec 2023), 7th at Seacon Square (1 Aug 2025); a Shanghai Daily piece cites up to 10 Bangkok stores. Clear brand-operated physical presence, no TH entry in batch.",
+   "sources": [
+    "https://news.pedaily.cn/20250804/111861.shtml"
+   ],
+   "locations_as_of": "2026-11"
+  },
+  {
    "chain": "aunteajenny",
    "market": "HK",
    "status": "no_evidence",
@@ -10126,17 +10222,19 @@
   {
    "chain": "hla",
    "market": "HK",
-   "status": "announced",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
+   "status": "present",
+   "locations": 1,
+   "first_opened": "2026",
+   "precision": "year",
    "confidence": "medium",
-   "reviewed": "2026-10-18",
-   "note": "First HK store SIGNED but NOT yet open as of Oct 2026 — 77 Queen's Road Central (中旅大廈), ~HK$400K/mo, ~3,202 sq ft (took over a Korean womenswear unit that left end-2024; rent ~38% above the prior lease). Per hk01 the shop was still under fit-out ('裝修中，即將開業'). The Google listing exists but shows a scaffolding/construction photo, no hours and no reviews — consistent with a not-yet-open store. Re-check for opening.",
+   "reviewed": "2026-11-21",
+   "note": "First HK store at 77 Queen's Road Central was under fit-out in April 2026; a 30 Jul 2026 trade report titled '香港首店落地' describes the HK first store as established, using the HLA Concept international-minimalist format. Appears open; exact opening date not confirmed.",
    "sources": [
     "https://global.hk01.com/地产楼市/60341122/男人的衣柜-海澜之家-40万租中环街舖开首店-较旧租升近四成",
-    "Google listing (海瀾之家, 77 Queen's Rd Central — construction photo, no hours, no reviews)"
-   ]
+    "Google listing (海瀾之家, 77 Queen's Rd Central — construction photo, no hours, no reviews)",
+    "https://t.cj.sina.com.cn/articles/view/7574126060/1c373fdec00101m7zu"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "hla",
@@ -10675,15 +10773,17 @@
    "chain": "heytea",
    "market": "TH",
    "status": "present",
-   "locations": null,
-   "first_opened": "2026-09-25",
-   "precision": "day",
+   "locations": 1,
+   "first_opened": "2026-09",
+   "precision": "month",
    "confidence": "high",
-   "reviewed": "2026-10-26",
-   "note": "HEYTEA's first Thailand store opened 25 Sep 2026 at Central World, Bangkok; local consumers reportedly queued ~3 hours and the Tourism Authority of Thailand publicly welcomed the entry.",
+   "reviewed": "2026-11-21",
+   "note": "First Thailand store opened late Sep 2026 at CentralWorld, Bangkok (1st-floor Beacon zone) as a HEYTEA Lab, the brand's third Lab outside China and first in Southeast Asia.",
    "sources": [
-    "https://www.yzwb.net/news/ch/202609/t20260929_398212.html"
-   ]
+    "https://www.yzwb.net/news/ch/202609/t20260929_398212.html",
+    "https://insideretail.asia/2026/09/28/heytea-enters-thailand-with-first-southeast-asian-lab-concept/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "chabaidao",
@@ -10719,16 +10819,18 @@
   {
    "chain": "zhuguangyu",
    "market": "AU",
-   "status": "announced",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-10-31",
-   "note": "A Melbourne store was announced for late 2025 (Dec) per a Nov 2025 Xinhua report; opening not yet confirmed.",
+   "status": "present",
+   "locations": 1,
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "Melbourne store now OPEN at 422 Queen Street (its Southern Hemisphere debut), covered as newly opened by Sitchu on 1 Apr 2026. Was 'announced' for late-2025; opened early 2026.",
    "sources": [
-    "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html"
-   ]
+    "http://www.news.cn/food/20251210/973d8c1a9d0d4eaa9c6da8dce07da3d6/c.html",
+    "https://sitchu.com.au/?p=379324"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "zhuguangyu",
@@ -11575,31 +11677,33 @@
   {
    "chain": "quanjude",
    "market": "HK",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "locations_as_of": null,
    "first_opened": null,
    "precision": null,
    "confidence": "low",
-   "reviewed": "2026-11-14",
-   "note": "Older sources (SCMP/TravelChinaGuide) cite a HK branch (TST/Central/Wan Chai); current status unconfirmed, possibly closed.",
+   "reviewed": "2026-11-21",
+   "note": "No currently-open brand-operated Quanjude located in Hong Kong. Only stale/undated listings and secondhand mentions; no OpenRice store page or 2026 confirmation of an operating HK branch.",
    "sources": [
-    "https://www.scmp.com/article/541468/hong-kong-quanjude-roast-duck-restaurant"
+    "https://www.scmp.com/article/541468/hong-kong-quanjude-roast-duck-restaurant",
+    "https://www.openrice.com/en/hongkong"
    ]
   },
   {
    "chain": "quanjude",
    "market": "JP",
    "status": "present",
-   "locations": null,
-   "locations_as_of": null,
+   "locations": 2,
+   "locations_as_of": "2026-11",
    "first_opened": "2004",
    "precision": "year",
-   "confidence": "medium",
-   "reviewed": "2026-11-14",
-   "note": "Tokyo since 2004; older snapshot cites 3 Tokyo restaurants, current count unverified.",
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Ginza (全聚徳 銀座店) and Marunouchi (全聚徳 丸ビル店) remain open and bookable in 2026; the former Roppongi branch was renamed 'China Four Seasons Roppongi' effective 1 Oct and no longer trades as Quanjude. At least 2 Tokyo Quanjude-branded outlets confirmed.",
    "sources": [
-    "https://en.wikipedia.org/wiki/Quanjude"
+    "https://en.wikipedia.org/wiki/Quanjude",
+    "https://r.gnavi.co.jp/9pxxw8cd0000/"
    ]
   },
   {
@@ -12148,14 +12252,15 @@
    "market": "GB",
    "status": "present",
    "locations": 1,
-   "locations_as_of": "2026",
-   "first_opened": "2026",
-   "precision": "year",
-   "confidence": "medium",
-   "reviewed": "2026-11-20",
-   "note": "First UK store opened around May 2026 near Liverpool Street, London.",
+   "locations_as_of": "2026-11",
+   "first_opened": "2026-05-04",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "First UK store opened 4 May 2026 at 122 Middlesex St, London E1 7HY, beside Liverpool Street station; retail-dumpling plus eat-in format, the brand's first European market. Still 1 UK store.",
    "sources": [
-    "https://www.sznews.com/news/content/2026-10/10/content_32188689.htm"
+    "https://www.sznews.com/news/content/2026-10/10/content_32188689.htm",
+    "https://www.bjnews.com.cn/detail/1778243885168941.html"
    ]
   },
   {
