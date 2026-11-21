@@ -4692,16 +4692,17 @@
    "chain": "xiaogujiejie",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": null,
    "precision": null,
-   "confidence": "low",
-   "reviewed": "2026-09-29",
-   "note": "Company and trade press list this market among its overseas stores; not independently confirmed.",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "At least four Japan outlets (Tabelog, Nov 2026): Kawasaki honten (Kawasaki-ku, Sunago 1-1-19) — the brand's first directly operated Japan store — plus Tokyo (Ueno/Okachimachi, Ueno 6-3-13), Osaka (Nipponbashi/Dotonbori, Dotonbori 1-chome-higashi 7-24) and Nagoya (Meieki, by Nagoya Station). Several more Tabelog listings suggest the true total is higher.",
    "sources": [
     "https://hebei.ifeng.com/c/8vvPL7yMucG",
     "https://www.foodtalks.cn/company/xiao_gu_jie_jie"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "xiaogujiejie",
