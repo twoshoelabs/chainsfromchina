@@ -4946,16 +4946,17 @@
    "chain": "mstand",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": "2025-07-26",
    "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "First overseas store opened 26 Jul 2025 in Kyoto (near Sanjo Bridge); more Kyoto stores followed that autumn.",
+   "reviewed": "2026-11-21",
+   "note": "First overseas store opened 26 Jul 2025 in Kyoto, in the historic Nanzenji preservation area (M Stand 京都店, 69-1 Nanzenji Kusakawacho); at least three Kyoto locations now operate (Nanzenji, the Sanjo Kamogawa Terrace cafe, and Shijo Kawaramachi).",
    "sources": [
     "https://www.waug.com/en/magazines/1521",
     "https://tabelog.com/en/kyoto/A2601/A260301/26043410/"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "meiyijia",
