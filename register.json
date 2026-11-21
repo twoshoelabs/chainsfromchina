@@ -7157,6 +7157,22 @@
    ]
   },
   {
+   "chain": "urbanrevivo",
+   "market": "JP",
+   "status": "present",
+   "locations": 1,
+   "first_opened": "2026-01-30",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "First Japan store opened 30 Jan 2026 at AEON LakeTown Kaze (2F), Koshigaya, Saitama — the brand's Japan debut.",
+   "sources": [
+    "https://www.threads.com/@urbanrevivo/post/DT-q6EIgp_k/",
+    "https://fashionunited.in/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090351317"
+   ],
+   "locations_as_of": "2026-11"
+  },
+  {
    "chain": "heytea",
    "market": "AE",
    "status": "no_evidence",
@@ -8268,6 +8284,21 @@
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
   },
   {
+   "chain": "jnby",
+   "market": "JP",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2006",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-21",
+   "note": "Japan presence since 2006; a standalone store operates at JNBY Kyoto LaQue (Shijo-dori, Shimogyo-ku) and JNBY JAPAN runs active retail and online. Full Japan store count not independently pinned.",
+   "sources": [
+    "https://jnbyplus.com/pages/global-stores",
+    "https://www.instagram.com/jnby_japan/"
+   ]
+  },
+  {
    "chain": "meilleurmoment",
    "market": "AE",
    "status": "no_evidence",
@@ -8387,6 +8418,22 @@
    "confidence": "low",
    "reviewed": "2026-10-02",
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+  },
+  {
+   "chain": "icicle",
+   "market": "JP",
+   "status": "present",
+   "locations": 2,
+   "first_opened": "2021-09-01",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "Two department-store boutiques: Osaka (Hankyu Umeda honten, 6F) — the brand's first Japan store, opened 1 Sep 2021 — and Tokyo (Isetan Shinjuku, 4F). ICICLE announced plans to reach five Japan stores.",
+   "sources": [
+    "https://luxe.co/post/167568",
+    "https://luxe.co/post/233233"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "cabbeen",
