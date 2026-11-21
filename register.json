@@ -6346,15 +6346,17 @@
    "chain": "cabbeen",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 2,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Pavilion Bukit Jalil and Sunway Velocity.",
+   "reviewed": "2026-11-21",
+   "note": "Two KL outlets — Pavilion Bukit Jalil and Sunway Velocity — run by CABBEEN FASHION (M) Sdn Bhd (verified @cabbeen.my).",
    "sources": [
-    "https://malaysia.news.yahoo.com/chinese-menswear-label-cabbeen-eyes-013143919.html"
-   ]
+    "https://malaysia.news.yahoo.com/chinese-menswear-label-cabbeen-eyes-013143919.html",
+    "https://www.instagram.com/cabbeen.my/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "florasis",
