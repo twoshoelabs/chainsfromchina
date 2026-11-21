@@ -34,8 +34,11 @@
   .pro-why li { font: 400 15px/1.5 var(--serif); margin: 0 0 4px; }
   .cform fieldset { border: 1px solid var(--rule,#dcd7cc); border-radius: 10px; padding: 12px 14px 4px; margin: 0 0 14px; }
   .cform legend { font: 700 14px/1.2 var(--sans); padding: 0 6px; }
-  .optrow { display: flex; gap: 9px; align-items: flex-start; margin: 0 0 9px; font: 400 15px/1.4 var(--serif); cursor: pointer; }
-  .optrow input { margin-top: 3px; flex: 0 0 auto; }
+  /* scope under .cform so these beat the generic .cform label{display:block} and
+     .cform input{width:100%} rules in style.css (which are for the text fields) */
+  .cform label.optrow { display: flex; gap: 9px; align-items: flex-start; margin: 0 0 9px; font: 400 15px/1.4 var(--serif); cursor: pointer; }
+  .cform .optrow input { width: auto; margin: 3px 0 0; flex: 0 0 auto; }
+  .cform .optrow span { flex: 1 1 auto; }
   .optrow .ot-tag { font-weight: 700; }
   .pro-note { font: 400 13px/1.5 var(--sans); color: var(--muted,#6b6b6b); }
   .req { color: #C94A35; }
