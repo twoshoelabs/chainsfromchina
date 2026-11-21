@@ -6362,15 +6362,16 @@
    "chain": "florasis",
    "market": "JP",
    "status": "present",
-   "locations": null,
-   "first_opened": null,
-   "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-30",
-   "note": "Ginza Six flagship, Tokyo (Jan 2025).",
+   "locations": 1,
+   "first_opened": "2025-01",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "The brand's first overseas flagship and its only physical flagship store, at GINZA SIX B1F (Ginza 6-10-1, Chuo-ku, Tokyo), opened Jan 2025; concept space themed on the Chinese garden ('隐园').",
    "sources": [
     "https://www.chinadaily.com.cn/a/202501/27/WS67975094a310a2ab06ea99d2.html"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "florasis",
