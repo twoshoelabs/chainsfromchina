@@ -191,6 +191,10 @@
   "XK": {
    "name": "Kosovo",
    "region": "Europe"
+  },
+  "SE": {
+   "name": "Sweden",
+   "region": "Europe"
   }
  },
  "chains": {
@@ -9189,6 +9193,21 @@
    "sources": [
     "https://happylambhotpot.com/"
    ]
+  },
+  {
+   "chain": "happylamb",
+   "market": "SE",
+   "status": "present",
+   "locations": 1,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "One open Stockholm store, hand-verified Nov 2026 (Google): Klara Norra kyrkogata 19, 111 22 Stockholm; first-party site happylamb.se.",
+   "sources": [
+    "https://happylamb.se/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "mixue",
