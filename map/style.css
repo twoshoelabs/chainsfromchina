@@ -177,6 +177,7 @@ td.c-yes.c-low{background:color-mix(in srgb, var(--accent) 4%, var(--surface))}
 td.c-noev{color:var(--muted)}
 td.c-none{color:var(--rule)}
 td.c-soon{background:var(--surface)}          /* announced, not yet open — a plain cell, not a "yes" */
+td.c-exit{color:color-mix(in srgb, var(--closed) 55%, var(--muted)); font-weight:700}  /* entered, then exited — a muted brick-red × */
 .soon{color:var(--soon); font-weight:600}     /* the hollow ring marking an announced market */
 .dotmark{color:var(--muted); opacity:.5}
 .conf{font-size:10px; vertical-align:super; margin-left:1px; font-weight:400}
