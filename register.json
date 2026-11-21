@@ -9123,13 +9123,13 @@
   {
    "chain": "happylamb",
    "market": "JP",
-   "status": "present",
+   "status": "no_evidence",
    "locations": null,
    "first_opened": null,
    "precision": null,
    "confidence": "low",
-   "note": "Brand lists Japan among its operating countries; a specific outlet was not independently pinned.",
-   "reviewed": "2026-10-05",
+   "note": "The brand's own site lists Japan among its operating countries, but a search by English, Chinese (快乐小羊) and Japanese (ハッピーラム) names found no actual Japan outlet on Tabelog, Google or elsewhere (2026-11-21). All verifiable locations are in the US, Canada and Sweden. Treated as unconfirmed self-listing, not a confirmed market.",
+   "reviewed": "2026-11-21",
    "sources": [
     "https://happylambhotpot.com/"
    ]
