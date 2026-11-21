@@ -3883,7 +3883,7 @@
    "chain": "luckycup",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2025-08",
    "precision": "month",
    "confidence": "high",
@@ -3891,7 +3891,8 @@
    "note": "First overseas store in Puchong, Selangor ~Aug 2025 (1 open + 4 announced, franchise), part of Mixue's overseas push. 幸运咖 is Mixue's coffee sub-brand.",
    "sources": [
     "https://equalocean.com/news/2025082621640"
-   ]
+   ],
+   "locations_as_of": "2025-08"
   },
   {
    "chain": "yujianxiaomian",
@@ -4180,7 +4181,7 @@
    "chain": "colorist",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -4188,7 +4189,8 @@
    "note": "First overseas store (Dec 2024).",
    "sources": [
     "https://insideretail.asia/2025/11/06/kk-group-targets-the-philippines-eyes-southeast-asia-growth/"
-   ]
+   ],
+   "locations_as_of": "2024-12"
   },
   {
    "chain": "colorist",
@@ -4611,7 +4613,7 @@
    "chain": "haidilao",
    "market": "MO",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -4619,7 +4621,8 @@
    "note": "At least one Macau location (Sands Cotai Central); operated by the parent, not Super Hi.",
    "sources": [
     "https://www.openrice.com/en/macau/r-haidilao-hot-pot-coloane-taipa-sichuan-hot-pot-r648644/"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yuanji",
@@ -4807,7 +4810,7 @@
    "chain": "laoxiangji",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2026-04-22",
    "precision": "day",
    "confidence": "high",
@@ -4815,7 +4818,8 @@
    "note": "First overseas store opened 22 Apr 2026 at IOI City Mall, Putrajaya; trades as Lausanjee. Confirmed still operating (Google Maps listing).",
    "sources": [
     "https://global.chinadaily.com.cn/a/202604/29/WS69f1bd97a310d6866eb4641f.html"
-   ]
+   ],
+   "locations_as_of": "2026-04"
   },
   {
    "chain": "laoxiangji",
@@ -4835,7 +4839,7 @@
    "chain": "manling",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2025-06",
    "precision": "month",
    "confidence": "medium",
@@ -4843,7 +4847,8 @@
    "note": "First overseas store, Kuala Lumpur, June 2025.",
    "sources": [
     "https://m.163.com/dy/article/KQ80E8AB052287C5.html"
-   ]
+   ],
+   "locations_as_of": "2025-06"
   },
   {
    "chain": "manling",
@@ -4956,7 +4961,7 @@
    "chain": "meiyijia",
    "market": "VN",
    "status": "present",
-   "locations": null,
+   "locations": 35,
    "first_opened": "2026-03",
    "precision": "month",
    "confidence": "high",
@@ -4965,7 +4970,8 @@
    "sources": [
     "https://insideretail.asia/2026/05/05/chinas-meiyijia-enters-vietnam/",
     "https://insideretail.asia/2026/09/08/meiyijia-takes-ohmee-into-petrolimex-fuel-stations/"
-   ]
+   ],
+   "locations_as_of": "2026-09"
   },
   {
    "chain": "meiyijia",
@@ -5120,7 +5126,7 @@
    "chain": "mixue",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 330,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -5128,7 +5134,8 @@
    "note": ">330 stores per the brand's Malaysia site.",
    "sources": [
     "http://www.mixuemalaysia.com/about"
-   ]
+   ],
+   "locations_as_of": "2026-06"
   },
   {
    "chain": "mixue",
@@ -5329,7 +5336,7 @@
    "chain": "luckin",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 70,
    "first_opened": "2025",
    "precision": "year",
    "confidence": "high",
@@ -5337,7 +5344,8 @@
    "note": "Franchise entry with Hextar (announced Nov 2024); about 70 stores by end-2025 per its FY2025 20-F.",
    "sources": [
     "https://investor.luckincoffee.com/"
-   ]
+   ],
+   "locations_as_of": "2025-12"
   },
   {
    "chain": "luckin",
@@ -5583,7 +5591,7 @@
    "chain": "miniso",
    "market": "VN",
    "status": "present",
-   "locations": null,
+   "locations": 80,
    "first_opened": "2014",
    "precision": "year",
    "confidence": "high",
@@ -5591,7 +5599,8 @@
    "note": "80+ stores across ~30 provinces.",
    "sources": [
     "https://www.miniso.com/"
-   ]
+   ],
+   "locations_as_of": "2026-06"
   },
   {
    "chain": "miniso",
@@ -5625,7 +5634,7 @@
    "chain": "miniso",
    "market": "ID",
    "status": "present",
-   "locations": null,
+   "locations": 300,
    "first_opened": "2017",
    "precision": "year",
    "confidence": "high",
@@ -5633,7 +5642,8 @@
    "note": "One of MINISO's largest overseas markets (~300 stores); the world's-largest MINISO opened in Jakarta (Aug 2024).",
    "sources": [
     "https://www.miniso.com/"
-   ]
+   ],
+   "locations_as_of": "2026-06"
   },
   {
    "chain": "miniso",
@@ -5965,7 +5975,7 @@
    "chain": "urbanrevivo",
    "market": "TH",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -5973,7 +5983,8 @@
    "note": "One Bangkok flagship (Dec 2024).",
    "sources": [
     "https://fashionunited.com/news/retail/urban-revivo-expands-globally-with-new-stores-in-major-fashion-capitals/2025090368027"
-   ]
+   ],
+   "locations_as_of": "2024-12"
   },
   {
    "chain": "urbanrevivo",
@@ -6742,7 +6753,7 @@
    "chain": "zhangliang",
    "market": "SG",
    "status": "present",
-   "locations": null,
+   "locations": 13,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
@@ -6751,7 +6762,8 @@
    "sources": [
     "https://www.capitaland.com/sg/malls/bedokmall/en/stores/zhang-liang-malatang.html",
     "https://www.barchart.com/story/news/33157298/singapore-franchise-owner-zou-lexin-the-crosscultural-business-of-13-zhang-liang-malatang-stores"
-   ]
+   ],
+   "locations_as_of": "2026-06"
   },
   {
    "chain": "zhangliang",
@@ -6846,7 +6858,7 @@
    "chain": "malubianbian",
    "market": "KH",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -6854,7 +6866,8 @@
    "note": "A Phnom Penh flagship (50 Street 322), described on the brand's own page as the only official flagship store in Cambodia.",
    "sources": [
     "https://www.facebook.com/p/MaluBianbian-Chuanchuan-Hotpot%E9%A9%AC%E8%B7%AF%E8%BE%B9%E8%BE%B9%E4%B8%B2%E4%B8%B2%E7%81%AB%E9%94%85-61550267565865/"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "malubianbian",
@@ -9387,7 +9400,7 @@
    "chain": "teapulse",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
@@ -9395,7 +9408,8 @@
    "reviewed": "2026-10-06",
    "sources": [
     "https://www.google.com/maps/search/Jidong+Herbal+Jelly+Ota+Tokyo"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "teapulse",
@@ -9909,7 +9923,7 @@
    "chain": "luobo",
    "market": "HK",
    "status": "exited",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2024-02",
    "precision": "month",
    "confidence": "low",
@@ -9919,7 +9933,8 @@
     "https://www.stheadline.com/food/3355202/",
     "https://hk.finance.yahoo.com/news/雷聲大-內地餐飲攻港水土不服-旺角現退租潮-蘿蔔向南-開業4月就冇做-063000936.html",
     "Google listing (蘿蔔向南, Dundas Square, permanently closed)"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "tosummer",
@@ -10037,7 +10052,7 @@
    "chain": "fufuland",
    "market": "HK",
    "status": "exited",
-   "locations": null,
+   "locations": 11,
    "first_opened": null,
    "precision": null,
    "confidence": "high",
@@ -10048,13 +10063,14 @@
     "https://www.stheadline.com/food/3623726/",
     "Google listings (fufuland HK stores permanently closed; last Tai Wai store closed Jul 2026)",
     "cmkgp.com.hk/flagship-brand/fufuland-souffle-pancakes (brand own-site store list — stale/locator-lag)"
-   ]
+   ],
+   "locations_as_of": "2026-06"
   },
   {
    "chain": "laoxianghao",
    "market": "HK",
    "status": "exited",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2024",
    "precision": "year",
    "confidence": "medium",
@@ -10064,7 +10080,8 @@
     "https://www.openrice.com/en/hongkong/r-lao-xiang-hao-mong-kok-hunan-r888952",
     "https://www.stheadline.com/food/3623726/",
     "OpenRice listing (老湘好 LAO XIANG HAO, Mong Kok — Closed)"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "xishu",
@@ -10091,7 +10108,7 @@
    "chain": "luofen",
    "market": "HK",
    "status": "exited",
-   "locations": null,
+   "locations": 1,
    "first_opened": "2023",
    "precision": "year",
    "confidence": "medium",
@@ -10100,13 +10117,14 @@
    "sources": [
     "https://www.stheadline.com/food/3623726/",
     "Google/OpenRice (羅粉世家, Cheung Sha Wan — permanently closed)"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "meowbbq",
    "market": "HK",
    "status": "exited",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
    "confidence": "medium",
@@ -10115,7 +10133,8 @@
    "sources": [
     "https://www.openrice.com/en/hongkong/r-meow-bbq-mong-kok",
     "OpenRice listing (貓抓烤肉 Meow BBQ, Mong Kok — Closed)"
-   ]
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "meowbbq",
@@ -11935,8 +11954,8 @@
    "chain": "yuanjiyunjiao",
    "market": "HK",
    "status": "present",
-   "locations": null,
-   "locations_as_of": "2026",
+   "locations": 40,
+   "locations_as_of": "2026-11",
    "first_opened": null,
    "precision": null,
    "confidence": "high",
