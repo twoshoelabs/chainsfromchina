@@ -7101,6 +7101,18 @@
    ]
   },
   {
+   "chain": "xtep",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for an Xtep Japan store (2026-11): none found. 'STEP SPORTS Tokyo' is an unrelated brand, not Xtep (特步).",
+   "sources": []
+  },
+  {
    "chain": "balabala",
    "market": "SA",
    "status": "present",
@@ -8273,6 +8285,18 @@
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
   },
   {
+   "chain": "anta",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for an ANTA-operated Japan store (English/Chinese/Japanese, 2026-11): ANTA products are sold in Japan only via third-party resellers (e.g. Goxip). No brand-operated outlet found.",
+   "sources": []
+  },
+  {
    "chain": "jnby",
    "market": "SA",
    "status": "no_evidence",
@@ -8341,6 +8365,18 @@
    "confidence": "low",
    "reviewed": "2026-10-02",
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+  },
+  {
+   "chain": "bosideng",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for a Bosideng Japan store (2026-11): a 2018 trade article listed Tokyo among its overseas cities and its site has a Japan section, but no current Japan store address could be verified — only resellers (Ubuy) sell there. Revisit if a Tokyo flagship is confirmed.",
+   "sources": []
   },
   {
    "chain": "balabala",
@@ -10324,6 +10360,18 @@
    "sources": [
     "https://www.lininghk.com/store-locator/"
    ]
+  },
+  {
+   "chain": "lining",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for a Li-Ning Japan store (2026-11): only online resellers (Ubuy, Shein) carry Li-Ning in Japan; no brand-operated physical store found.",
+   "sources": []
   },
   {
    "chain": "yangguofu",
