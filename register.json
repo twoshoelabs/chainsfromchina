@@ -2523,6 +2523,20 @@
    ]
   },
   {
+   "chain": "chicjoc",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "CHICJOC held a Japan media/showroom debut in Sep 2023 and runs a Japan-facing Instagram and staged online store; Tokyo is named among its planned expansion cities. But its first overseas physical store was Los Angeles (Beverly Center, Nov 2024) and no confirmed physical Japan outlet exists yet (2026-11).",
+   "sources": [
+    "https://prtimes.jp/main/html/rd/p/000000001.000128464.html"
+   ]
+  },
+  {
    "chain": "babakehouse",
    "market": "AE",
    "status": "present",
@@ -8345,6 +8359,18 @@
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
   },
   {
+   "chain": "meilleurmoment",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for a Meilleur Moment (麦檬) Japan store (2026-11): none found.",
+   "sources": []
+  },
+  {
    "chain": "bosideng",
    "market": "AE",
    "status": "no_evidence",
@@ -8390,6 +8416,18 @@
    "note": "Searched by English and Chinese name for a UAE outlet (2026-10-02); none found."
   },
   {
+   "chain": "balabala",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Balabala runs a Japanese-language web store (balabala.com/ja) selling to Japan online, but no physical Japan outlet was found (2026-11).",
+   "sources": []
+  },
+  {
    "chain": "laopu",
    "market": "AE",
    "status": "no_evidence",
@@ -8432,6 +8470,18 @@
    "confidence": "low",
    "reviewed": "2026-10-02",
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+  },
+  {
+   "chain": "moco",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for a MO&Co. (EPO Fashion Group) Japan store (2026-11): the group cites Asia/Europe/North America presence but names no Japan outlet; none found.",
+   "sources": []
   },
   {
    "chain": "icicle",
@@ -8492,6 +8542,18 @@
    "confidence": "low",
    "reviewed": "2026-10-02",
    "note": "Searched by English and Chinese name for a Saudi Arabia outlet (2026-10-02); none found."
+  },
+  {
+   "chain": "cabbeen",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Searched for a Cabbeen (卡宾) Japan store (2026-11): none found. Vintage Cabbeen resells in Japan, but there is no brand-operated outlet.",
+   "sources": []
   },
   {
    "chain": "florasis",
@@ -10074,6 +10136,20 @@
    ]
   },
   {
+   "chain": "hla",
+   "market": "JP",
+   "status": "exited",
+   "locations": null,
+   "first_opened": "2019-04",
+   "precision": "month",
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Entered Japan Apr 2019 with a first store at AEON Mall Musashi-Murayama, Tokyo (1F, ~186.5 sqm), using 'HLA' branding; a second (Mito, Ibaraki) was planned. It no longer appears in that mall's current directory and is absent from the brand's 2025 overseas roster (which lists Sydney and Dubai, not Japan) — appears to have exited.",
+   "sources": [
+    "https://www.fashionsnap.com/article/2019-04-06/hla-open/"
+   ]
+  },
+  {
    "chain": "nonggengji",
    "market": "HK",
    "status": "present",
@@ -10709,6 +10785,18 @@
    "sources": [
     "https://wwd.com/business-news/retail/ep-yaying-american-dream-store-1235678236/"
    ]
+  },
+  {
+   "chain": "epyaying",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "EP YAYING's own boutique list covers China, Hong Kong (Harbour City) and the US (New Jersey); Japan does not appear (2026-11). No Japan outlet found.",
+   "sources": []
   },
   {
    "chain": "rolife",
@@ -12158,6 +12246,30 @@
     "https://gourmet.watch.impress.co.jp/docs/news/2120985.html",
     "https://m.tech.china.com/hea/articles/20260327/202603271834830.html"
    ]
+  },
+  {
+   "chain": "mujosh",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "A 2019 brand profile listed Japan among its markets (high-end malls/department stores), but no current Japan store is verifiable (2026-11) — only resale and China listings surface. The brand has been contracting internationally (its US physical stores closed).",
+   "sources": []
+  },
+  {
+   "chain": "fioboc",
+   "market": "JP",
+   "status": "no_evidence",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-21",
+   "note": "Fioboc is a DTC brand; searched for a physical Japan store (2026-11) and found none (results were unrelated F.O. / F.O.B Japanese brands).",
+   "sources": []
   }
  ]
 }
