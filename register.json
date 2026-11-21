@@ -3556,16 +3556,17 @@
    "chain": "yangs",
    "market": "JP",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-09-21",
-   "note": "As above.",
+   "confidence": "high",
+   "reviewed": "2026-11-21",
+   "note": "At least four Japan outlets (Tabelog / Uber Eats, Nov 2026): Osaka Uchihonmachi (Chuo-ku, Uchihonmachi 2-3-8) — billed as Japan's first store — plus Tokyo Takadanobaba (Shinjuku-ku, Takadanobaba 2-14-14), Osaka Nipponbashi (Chuo-ku, Nipponbashi 2-8-16) and Tokyo Akabane (Kita-ku, Akabane-minami 1-7-3). Trades in Japan as 'Yang's Braised Chicken Rice'.",
    "sources": [
-    "https://www.qsrmagazine.com/news/6000-unit-yang-s-braised-chicken-rice-debuting-us/",
-    "https://www.qsrmagazine.com/news/yang-s-braised-chicken-rice-looks-expand-california/"
-   ]
+    "https://tabelog.com/tw/tokyo/A1305/A130503/13242365/",
+    "https://tabelog.com/tw/osaka/A2701/A270202/27112200/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangs",
