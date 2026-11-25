@@ -16,7 +16,7 @@
   "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research.",
   "'us-flagship' = a single US brand-promotion flagship/showroom, NOT a chain — internal reference only, kept OFF the Register/census unless it becomes multi-store."
  ],
- "as_of": "2026-11-24",
+ "as_of": "2026-11-25",
  "categories": {
   "Tea": [
    {
@@ -1084,7 +1084,7 @@
     "china_stores": "~500-600 worldwide (SZSE-listed 301177.SZ, founded 2010)",
     "status": "abroad",
     "markets": "Abroad: Paris (Carrousel du Louvre), Singapore (Capitol), Hong Kong (ELEMENTS). US: online since Apr 2024 but NO US brick-and-mortar yet — first US flagship COMING SOON Dec 2026 at Westfield Garden State Plaza, Paramus NJ.",
-    "note": "China-origin fine-jewelry chain ('One Love, One Lifetime' / 迪阿股份). US B&M not open yet — PROMOTE to tracked when the GSP flagship opens (DR-monogram logo already staged at map/icons/darryring.png). Found in the GSP mall-directory sweep 2026-11-22.",
+    "note": "China-origin fine-jewelry chain ('One Love, One Lifetime' / 迪阿股份). US B&M not open yet — PROMOTE to tracked when the GSP flagship opens (DR-monogram logo already staged at map/icons/darryring.png). Found in the GSP mall-directory sweep 2026-11-22. CLOSE WATCH (2026-11-25): Westfield Garden State Plaza's directory now shows Darry Ring with a 'New' badge and as live from 23 Nov 2026, but the owner confirms it is opening and NOT yet actually open. Check often; promote to a tracked chain the day it is seen trading, and set its opened_on in manual/mall_openings.json status_overrides so it counts as a new mall opening.",
     "source": "https://us.darryring.com/about/find-store"
    }
   ]

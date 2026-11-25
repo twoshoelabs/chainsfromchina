@@ -893,38 +893,50 @@ function animateGrandTotal(outlets, prevTotal){
 (async function () {
   const DATAV = window.CFC_DATA_V || '';
   let m; try { m = await fetch('data/mall_openings.json' + DATAV).then(r => r.json()); } catch (e) { return; }
-  if (!m || !m.openings_captured) return;
+  if (!m || m.method !== 'snapshot' || !m.malls_baselined) return;
   const sec = document.getElementById('mallopen');
   const head = document.getElementById('mo-head');
   const foot = document.getElementById('mo-foot');
   if (!sec || !head || !foot) return;
   const t = window.t || function (k, en, v) { return en.replace(/\{(\w+)\}/g, function (_, n) { return v[n]; }); };
   const zh = window.CFC_LANG === 'zh';
-  const pct = m.china_origin_share != null ? Math.round(m.china_origin_share * 100) + '%' : '—';
-  // TIME FRAME, stated in plain sight: the dates the mall directories were read. Taken from the malls
-  // read in full (the ones the count is built on); a date string is formatted in UTC so the host's
-  // zone can never shift it by a day.
-  const days = (m.per_mall || []).filter(function (x) { return x.complete && x.swept_on; })
-    .map(function (x) { return x.swept_on; }).sort();
+  const num = function (n) { return Number(n).toLocaleString(zh ? 'zh-CN' : 'en-US'); };
+  // Dates are plain YYYY-MM-DD strings, formatted in UTC so the reader's zone can never shift them.
   const fmt = function (iso) {
     const d = new Date(iso + 'T00:00:00Z');
     return zh ? d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
               : d.getUTCDate() + ' ' + d.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' }) + ' ' + d.getUTCFullYear();
   };
-  const first = days[0] || m.as_of, last = days[days.length - 1] || m.as_of;
-  const when = first === last ? t('home.js.mall.on', 'on {d}', { d: fmt(first) })
-                              : t('home.js.mall.between', 'between {a} and {b}', { a: fmt(first), b: fmt(last) });
-  // Headline: the share, with the sample in plain sight so a small n reads honestly.
-  head.innerHTML = t('home.js.mall.head',
-    '<strong>{n} of {total}</strong> stores that top US malls listed as new or coming soon are China-origin chains — <strong>{pct}</strong>.',
-    { n: m.china_origin_openings, total: m.openings_captured, pct: pct });
-  const names = (m.china_origin_openings_list || []).map(function (o) { return o.name; });
-  const uniq = names.filter(function (v, i) { return names.indexOf(v) === i; });
-  foot.textContent =
-    t('home.js.mall.foot',
-      'Counted from each mall’s own “New” and “Coming Soon” tags, as the malls listed them {when}. Each mall decides how long a store keeps its “New” tag, so this is a snapshot of what was tagged then, not a count over a fixed period. Based on the {done} of {all} top US malls read in full so far; more are added as each is read. Top malls skew premium and Asian-metro, so this runs higher than an all-US-mall average.',
-      { when: when, done: m.malls_with_complete_sweep, all: m.malls_tracked })
-    + (uniq.length ? ' ' + t('home.js.mall.logged', 'China-origin openings logged: {names}.', { names: uniq.join(zh ? '、' : ', ') }) : '');
+  const sep = zh ? '、' : ', ';
+  const start = fmt(m.tracking_since), last = fmt(m.latest_reading);
+  const skew = t('home.js.mall.skew', 'Top malls skew premium and Asian-metro, so shares here run higher than an all-US-mall average.');
+  if (m.malls_compared) {
+    // A comparison exists: stores trading at the latest reading that were not trading at the baseline.
+    const names = (m.opened_china_origin_list || []).map(function (o) { return o.name; })
+      .filter(function (v, i, a) { return a.indexOf(v) === i; });
+    const pct = m.opened_china_origin_share != null ? Math.round(m.opened_china_origin_share * 100) + '%' : '—';
+    head.innerHTML = m.opened
+      ? t('home.js.mall.head', '<strong>{c} of {n}</strong> stores that opened at top US malls since {start} are China-origin chains — <strong>{pct}</strong>.',
+          { c: num(m.opened_china_origin), n: num(m.opened), start: start, pct: pct })
+      : t('home.js.mall.head0', 'No new stores opened at the top US malls we re-read between {start} and {last}.', { start: start, last: last });
+    foot.textContent =
+      t('home.js.mall.foot', 'Counted by comparing each mall’s full store list on {last} with the list we recorded on {start}, across {k} of the {all} top US malls we follow. A store counts as newly opened if it is trading now and was not on {start}. Over the same period {closed} stores left.',
+        { start: start, last: last, k: m.malls_compared, all: m.malls_tracked, closed: num(m.closed) })
+      + (names.length ? ' ' + t('home.js.mall.logged', 'China-origin openings: {names}.', { names: names.join(sep) }) : '')
+      + ' ' + skew;
+  } else {
+    // Baseline only: say plainly when tracking began and that the first comparison is still to come.
+    const soon = (m.coming_soon_china_origin_list || []).map(function (o) { return o.name + ' (' + o.mall + ')'; });
+    head.innerHTML = t('home.js.mall.base.head',
+      'Tracking began on {start}: <strong>{total}</strong> stores on record at {k} top US malls, <strong>{cn}</strong> of them China-origin chains.',
+      { start: start, total: num(m.stores_at_baseline), k: m.malls_baselined, cn: num(m.china_origin_at_baseline) });
+    foot.textContent =
+      t('home.js.mall.base.foot', 'On {start} we recorded every store listed at {k} of the {all} top US malls we follow. Each later reading of the same directories is compared with that list, to count how many stores opened since that date and how many are China-origin chains. The first comparison follows the next reading.',
+        { start: start, k: m.malls_baselined, all: m.malls_tracked })
+      + (m.coming_soon ? ' ' + t('home.js.mall.base.soon', 'Listed as coming soon on that date: {n} stores.', { n: num(m.coming_soon) }) : '')
+      + (soon.length ? ' ' + t('home.js.mall.base.soonc', 'China-origin among them: {names}.', { names: soon.join(sep) }) : '')
+      + ' ' + skew;
+  }
   sec.hidden = false;
 })();
 </script>

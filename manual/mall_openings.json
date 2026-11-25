@@ -1,20 +1,23 @@
 {
  "_readme": [
-  "MALL OPENINGS TRACKER — the China-origin share of NEW store openings at 25 of the top US malls.",
+  "MALL OPENINGS TRACKER — how many new stores open at the top US malls we follow, and how many of them are China-origin chains.",
   "",
-  "METHOD: periodically read each mall's own online directory and capture EVERY tenant tagged",
-  "'New' / 'Now Open' / 'Coming Soon' (the openings). Flag each as china_origin (matched to the",
-  "register's tracked China-origin chains) or not. The headline metric = china-origin openings /",
-  "all captured openings, across malls whose latest sweep is 'complete' (captured ALL new tags).",
+  "METHOD SINCE 24 NOV 2026 (owner's design): SNAPSHOT COMPARISON. On a start date we record every store a mall lists",
+  "(the BASELINE). We re-read the directory periodically and compare the newest list with the baseline: a store trading",
+  "now that was not trading at the baseline is a NEW OPENING in that window; one trading at the baseline and gone now is",
+  "a closure. Each opening is marked China-origin by an exact name match to the register's chains (overridable in",
+  "`tenant_overrides`). Snapshots live in manual/mall_snapshots/<mall-id>/<date>.json and are never edited.",
+  "Capture: `python -m chain_atlas mall-snapshot` reads every mall whose row has a `directory` reader (Westfield so far).",
+  "Malls without a scripted reader need a hand capture into the same file format; until then they have no baseline and",
+  "are left out of the comparison. Code: chain_atlas/mall_snapshots.py.",
   "",
-  "Universe is '25 of the top US malls' (by size/prominence) — NOT 'all US malls'. Because top",
-  "malls skew premium/Asian-metro, the china-origin share runs higher than an all-US-mall average;",
-  "label it precisely. Pop-ups and temporary activations are NOT counted as openings.",
+  "Universe is '25 of the top US malls' (by size/prominence) — NOT 'all US malls'. Top malls skew premium/Asian-metro, so",
+  "the China-origin share runs higher than an all-US-mall average; label it precisely. Pop-ups are not openings.",
   "",
-  "'complete': true = this sweep captured the mall's full New/Coming-Soon set (counts toward the",
-  "denominator). false = only the china-origin openings were captured (numerator only; excluded",
-  "from the share). Use the LATEST sweep per mall. status: 'open' (now open) | 'coming_soon'.",
-  "Internal source file; the computed metric is exported + shown on the public site."
+  "LEGACY (`sweeps`): the earlier method captured only tenants a mall TAGGED 'New' / 'Coming Soon' on the sweep date.",
+  "It has no defined time frame (each mall decides how long a store stays tagged), so it is no longer the headline; it is",
+  "published as `tagged`, dated, only until the first snapshot comparison exists. 'complete': true = the sweep captured",
+  "the mall's full tagged set."
  ],
  "as_of": "2026-11-22",
  "universe_label": "25 of the top US malls",
@@ -53,7 +56,11 @@
    "id": "garden-state-plaza",
    "name": "Westfield Garden State Plaza",
    "operator": "Unibail-Rodamco-Westfield",
-   "metro": "Paramus, NJ"
+   "metro": "Paramus, NJ",
+   "directory": {
+    "type": "westfield",
+    "slug": "gardenstateplaza"
+   }
   },
   {
    "id": "aventura",
@@ -77,7 +84,11 @@
    "id": "valley-fair",
    "name": "Westfield Valley Fair",
    "operator": "Unibail-Rodamco-Westfield",
-   "metro": "Santa Clara, CA"
+   "metro": "Santa Clara, CA",
+   "directory": {
+    "type": "westfield",
+    "slug": "valleyfair"
+   }
   },
   {
    "id": "houston-galleria",
@@ -101,7 +112,11 @@
    "id": "century-city",
    "name": "Westfield Century City",
    "operator": "Unibail-Rodamco-Westfield",
-   "metro": "Los Angeles, CA"
+   "metro": "Los Angeles, CA",
+   "directory": {
+    "type": "westfield",
+    "slug": "centurycity"
+   }
   },
   {
    "id": "northpark",
@@ -125,7 +140,11 @@
    "id": "topanga",
    "name": "Westfield Topanga",
    "operator": "Unibail-Rodamco-Westfield",
-   "metro": "Canoga Park, CA"
+   "metro": "Canoga Park, CA",
+   "directory": {
+    "type": "westfield",
+    "slug": "topanga"
+   }
   },
   {
    "id": "glendale-galleria",
@@ -309,5 +328,37 @@
     }
    ]
   }
- ]
+ ],
+ "tenant_overrides": {
+  "Darry Ring": {
+   "china_origin": true,
+   "chain": "darryring",
+   "note": "DR / 迪阿, Shenzhen jeweler; on the watchlist, not yet a register chain"
+  },
+  "CHAGEE Modern Teahouse": {
+   "china_origin": true,
+   "chain": "chagee"
+  },
+  "Meizhou Dongpo": {
+   "china_origin": true,
+   "chain": "meizhoudongpo"
+  }
+ },
+ "status_overrides": {
+  "garden-state-plaza": {
+   "84451": {
+    "name": "Darry Ring",
+    "open": false,
+    "opened_on": null,
+    "note": "Directory shows it live with a 'New' badge from 23 Nov 2026, but the owner confirms (25 Nov 2026) the store is opening and not yet actually open. Set opened_on to the real date once it is seen trading; it then counts as a new opening since the baseline."
+   }
+  },
+  "valley-fair": {
+   "83444": {
+    "name": "Rolife",
+    "open": true,
+    "note": "Directory holds it in an undated non-live state, but the store is open — Westfield's own page lists daily hours; owner-confirmed 25 Nov 2026."
+   }
+  }
+ }
 }

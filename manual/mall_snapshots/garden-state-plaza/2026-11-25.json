@@ -1,0 +1,2518 @@
+{
+ "mall": "garden-state-plaza",
+ "captured_on": "2026-11-25",
+ "source": "westfield.com/en/united-states/gardenstateplaza — stores, food & drink, entertainment",
+ "method": "script (first-party directory page, robots-permitted)",
+ "tenants": [
+  {
+   "id": "58345",
+   "name": "16 Handles",
+   "kind": "restaurants",
+   "slug": "16-handles",
+   "level": "Level 2",
+   "starts_at": "2016-02-04",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "86498",
+   "name": "5.11",
+   "kind": "retailers",
+   "slug": "511",
+   "level": null,
+   "starts_at": "2026-11-24",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79633",
+   "name": "A Sneaker City",
+   "kind": "retailers",
+   "slug": "a-sneaker-city",
+   "level": "Level 1",
+   "starts_at": "2023-11-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6581",
+   "name": "Abercrombie & Fitch",
+   "kind": "retailers",
+   "slug": "abercrombie-and-fitch",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6582",
+   "name": "Abercrombie kids",
+   "kind": "retailers",
+   "slug": "abercrombie-kids",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "44131",
+   "name": "Adidas",
+   "kind": "retailers",
+   "slug": "adidas",
+   "level": "Level 2",
+   "starts_at": "2022-12-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75548",
+   "name": "Aerie",
+   "kind": "retailers",
+   "slug": "aerie",
+   "level": "Level 2",
+   "starts_at": "2021-09-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81075",
+   "name": "Aeropostale",
+   "kind": "retailers",
+   "slug": "aeropostale",
+   "level": "Level 1",
+   "starts_at": "2024-07-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "74934",
+   "name": "Aesop",
+   "kind": "retailers",
+   "slug": "aesop",
+   "level": "Level 1",
+   "starts_at": "2021-07-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75045",
+   "name": "Aetrex",
+   "kind": "retailers",
+   "slug": "aetrex",
+   "level": "Level 2",
+   "starts_at": "2021-03-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6586",
+   "name": "Against All Odds",
+   "kind": "retailers",
+   "slug": "against-all-odds",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "80445",
+   "name": "Akiba House",
+   "kind": "retailers",
+   "slug": "akiba-house",
+   "level": "Level 1",
+   "starts_at": "2024-04-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75660",
+   "name": "Akira",
+   "kind": "retailers",
+   "slug": "akira",
+   "level": "Level 2",
+   "starts_at": "2021-08-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6587",
+   "name": "Aldo",
+   "kind": "retailers",
+   "slug": "aldo",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "73702",
+   "name": "All Saints",
+   "kind": "retailers",
+   "slug": "all-saints",
+   "level": "Level 2",
+   "starts_at": "2020-06-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78568",
+   "name": "Alo Yoga",
+   "kind": "retailers",
+   "slug": "alo-yoga",
+   "level": "Level 2",
+   "starts_at": "2023-05-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "60978",
+   "name": "AMC Theatres",
+   "kind": "retailers",
+   "slug": "amc-theatres",
+   "level": "Level 2",
+   "starts_at": "2017-05-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6589",
+   "name": "American Eagle Outfitters",
+   "kind": "retailers",
+   "slug": "american-eagle-outfitters",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6590",
+   "name": "Ann Taylor",
+   "kind": "retailers",
+   "slug": "ann-taylor",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "27351",
+   "name": "Apple",
+   "kind": "retailers",
+   "slug": "apple",
+   "level": "Level 2",
+   "starts_at": "2006-02-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79814",
+   "name": "Arc’teryx",
+   "kind": "retailers",
+   "slug": "arcteryx",
+   "level": "Level 2",
+   "starts_at": "2024-01-02",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "44053",
+   "name": "Aritzia",
+   "kind": "retailers",
+   "slug": "aritzia",
+   "level": "Level 2",
+   "starts_at": "2011-04-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83072",
+   "name": "AT&T",
+   "kind": "retailers",
+   "slug": "atandt",
+   "level": "Level 1",
+   "starts_at": "2025-04-18",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "31175",
+   "name": "Auntie Anne's Pretzels",
+   "kind": "restaurants",
+   "slug": "auntie-annes-pretzels",
+   "level": "Level 1",
+   "starts_at": "2024-02-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6597",
+   "name": "babyGap",
+   "kind": "retailers",
+   "slug": "babygap",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "50758",
+   "name": "Baked by Melissa",
+   "kind": "restaurants",
+   "slug": "baked-by-melissa",
+   "level": "Level 2",
+   "starts_at": "2013-04-09",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6601",
+   "name": "Banana Republic",
+   "kind": "retailers",
+   "slug": "banana-republic",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6611",
+   "name": "Banter by Piercing Pagoda",
+   "kind": "retailers",
+   "slug": "banter-by-piercing-pagoda",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83674",
+   "name": "Bao Babies",
+   "kind": "restaurants",
+   "slug": "bao-babies",
+   "level": "Level 2",
+   "starts_at": "2025-11-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6604",
+   "name": "Bath & Body Works",
+   "kind": "retailers",
+   "slug": "bath-and-body-works",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85229",
+   "name": "Blue Bottle Coffee",
+   "kind": "restaurants",
+   "slug": "blue-bottle-coffee",
+   "level": null,
+   "starts_at": "2026-09-09",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77922",
+   "name": "Blue Nile",
+   "kind": "retailers",
+   "slug": "blue-nile",
+   "level": "Level 1, Near Luxury Wing",
+   "starts_at": "2022-08-04",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "59708",
+   "name": "BOSS",
+   "kind": "retailers",
+   "slug": "boss",
+   "level": "Level 1, Near Luxury Wing",
+   "starts_at": "2018-07-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78698",
+   "name": "BouBou",
+   "kind": "retailers",
+   "slug": "boubou",
+   "level": "Level 1",
+   "starts_at": "2023-03-06",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6618",
+   "name": "Bourbon Street Grille",
+   "kind": "restaurants",
+   "slug": "bourbon-street-grille",
+   "level": "Food Court",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78420",
+   "name": "Breitling",
+   "kind": "retailers",
+   "slug": "breitling",
+   "level": "Level 1, Near Luxury Wing",
+   "starts_at": "2023-06-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "60854",
+   "name": "Brow Art 23",
+   "kind": "retailers",
+   "slug": "brow-art-23",
+   "level": "Level 1",
+   "starts_at": "2017-04-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56882",
+   "name": "Burberry",
+   "kind": "retailers",
+   "slug": "burberry",
+   "level": "Level 1, Near luxury Wing",
+   "starts_at": "2015-06-02",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6623",
+   "name": "California Pizza Kitchen",
+   "kind": "restaurants",
+   "slug": "california-pizza-kitchen",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75753",
+   "name": "Calzedonia",
+   "kind": "retailers",
+   "slug": "calzedonia",
+   "level": "Level 1",
+   "starts_at": "2021-09-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62355",
+   "name": "Carlito's Barbecue Taqueria",
+   "kind": "restaurants",
+   "slug": "carlitos-barbecue-taqueria",
+   "level": "Level 2",
+   "starts_at": "2018-11-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "28415",
+   "name": "Champs Sports",
+   "kind": "retailers",
+   "slug": "champs-sports",
+   "level": "Level 1",
+   "starts_at": "2026-09-12",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62278",
+   "name": "Charles Tyrwhitt",
+   "kind": "retailers",
+   "slug": "charles-tyrwhitt",
+   "level": "Level 2",
+   "starts_at": "2018-07-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58524",
+   "name": "Charleys",
+   "kind": "restaurants",
+   "slug": "charleys",
+   "level": "Food Court",
+   "starts_at": "2016-03-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56784",
+   "name": "Chick-fil-A",
+   "kind": "restaurants",
+   "slug": "chick-fil-a",
+   "level": "Food Court",
+   "starts_at": "2015-05-18",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6632",
+   "name": "Chili's",
+   "kind": "restaurants",
+   "slug": "chilis",
+   "level": "Exterior of the Center",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "47373",
+   "name": "Chipotle",
+   "kind": "restaurants",
+   "slug": "chipotle",
+   "level": "Food Court",
+   "starts_at": "2012-04-30",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79514",
+   "name": "Cinnabon",
+   "kind": "restaurants",
+   "slug": "cinnabon",
+   "level": "Level 1",
+   "starts_at": "2024-02-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6636",
+   "name": "Claire's Boutique",
+   "kind": "retailers",
+   "slug": "claires-boutique",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "16760",
+   "name": "Clarks",
+   "kind": "retailers",
+   "slug": "clarks",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6638",
+   "name": "Coach",
+   "kind": "retailers",
+   "slug": "coach",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6639",
+   "name": "Cohen's Fashion Optical",
+   "kind": "retailers",
+   "slug": "cohens-fashion-optical",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83174",
+   "name": "Columbia",
+   "kind": "retailers",
+   "slug": "columbia",
+   "level": "Level 2",
+   "starts_at": "2025-05-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "44772",
+   "name": "Cotton On",
+   "kind": "retailers",
+   "slug": "cotton-on",
+   "level": "Level 1",
+   "starts_at": "2011-08-06",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79990",
+   "name": "Crocs",
+   "kind": "retailers",
+   "slug": "crocs",
+   "level": "Level 1",
+   "starts_at": "2024-04-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56988",
+   "name": "Currency Exchange International",
+   "kind": "retailers",
+   "slug": "currency-exchange-international",
+   "level": "Level 2",
+   "starts_at": "2015-06-30",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "74373",
+   "name": "Custom Apparel Company",
+   "kind": "retailers",
+   "slug": "custom-apparel-company",
+   "level": "Level 1",
+   "starts_at": "2020-10-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84451",
+   "name": "Darry Ring",
+   "kind": "retailers",
+   "slug": "darry-ring",
+   "level": "Level 1",
+   "starts_at": "2026-11-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75364",
+   "name": "Diesel",
+   "kind": "retailers",
+   "slug": "diesel",
+   "level": "Level 1",
+   "starts_at": "2021-06-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85678",
+   "name": "DIGISO",
+   "kind": "retailers",
+   "slug": "digiso",
+   "level": null,
+   "starts_at": "2026-08-29",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56873",
+   "name": "Disney Store - Limited Time",
+   "kind": "retailers",
+   "slug": "disney-store-limited-time",
+   "level": null,
+   "starts_at": "2026-09-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "82813",
+   "name": "Dopamine Land",
+   "kind": "entertainment",
+   "slug": "dopamine-land",
+   "level": "Level 1",
+   "starts_at": "2025-03-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "61880",
+   "name": "Dr. Martens",
+   "kind": "retailers",
+   "slug": "dr-martens",
+   "level": "Level 1",
+   "starts_at": "2017-11-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83144",
+   "name": "DREAME",
+   "kind": "retailers",
+   "slug": "dreame",
+   "level": "Level 2",
+   "starts_at": "2025-05-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58082",
+   "name": "Drybar",
+   "kind": "retailers",
+   "slug": "drybar",
+   "level": "Level 2",
+   "starts_at": "2015-11-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85809",
+   "name": "Dumpling Cafe",
+   "kind": "restaurants",
+   "slug": "dumpling-cafe",
+   "level": null,
+   "starts_at": "2026-10-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58488",
+   "name": "Dunkin'",
+   "kind": "restaurants",
+   "slug": "dunkin",
+   "level": "Level 2",
+   "starts_at": "2019-10-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "82761",
+   "name": "E.A.K. Ramen",
+   "kind": "restaurants",
+   "slug": "eak-ramen",
+   "level": "Level 2",
+   "starts_at": "2025-02-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77443",
+   "name": "Eddie V's Prime Seafood",
+   "kind": "restaurants",
+   "slug": "eddie-vs-prime-seafood",
+   "level": "Level 2, Exterior Entrance ",
+   "starts_at": "2022-05-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85642",
+   "name": "Edikted",
+   "kind": "retailers",
+   "slug": "edikted",
+   "level": null,
+   "starts_at": "2026-09-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85459",
+   "name": "Escapology",
+   "kind": "entertainment",
+   "slug": "escapology",
+   "level": null,
+   "starts_at": "2026-10-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "40404",
+   "name": "Everything But Water",
+   "kind": "retailers",
+   "slug": "everything-but-water",
+   "level": "Level 2",
+   "starts_at": "2020-11-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83751",
+   "name": "Evry Jewels",
+   "kind": "retailers",
+   "slug": "evry-jewels",
+   "level": "Level 2",
+   "starts_at": "2025-10-24",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81531",
+   "name": "Express Auto Spa",
+   "kind": "retailers",
+   "slug": "express-auto-spa",
+   "level": "Inside Parking Garage B",
+   "starts_at": "2024-10-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58837",
+   "name": "Express Men",
+   "kind": "retailers",
+   "slug": "express-men",
+   "level": "Level 1",
+   "starts_at": "2016-04-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6657",
+   "name": "Eye To Eye Vision Center",
+   "kind": "retailers",
+   "slug": "eye-to-eye-vision-center",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "61309",
+   "name": "Fabletics",
+   "kind": "retailers",
+   "slug": "fabletics",
+   "level": "Level 2",
+   "starts_at": "2017-11-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "48006",
+   "name": "Fashionable Pets",
+   "kind": "retailers",
+   "slug": "fashionable-pets",
+   "level": "Level 2",
+   "starts_at": "2012-07-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56871",
+   "name": "Ferragamo",
+   "kind": "retailers",
+   "slug": "ferragamo",
+   "level": "Level 1, Luxury Wing",
+   "starts_at": "2015-06-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83365",
+   "name": "FireHouse Subs",
+   "kind": "restaurants",
+   "slug": "firehouse-subs",
+   "level": "Food Court",
+   "starts_at": "2025-07-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62557",
+   "name": "Five Guys Burgers & Fries",
+   "kind": "restaurants",
+   "slug": "five-guys-burgers-and-fries",
+   "level": "Food Court",
+   "starts_at": "2019-01-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79924",
+   "name": "Fix & Repair",
+   "kind": "retailers",
+   "slug": "fix-and-repair",
+   "level": "level 2",
+   "starts_at": "2024-01-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "60123",
+   "name": "Fix-n-Go",
+   "kind": "retailers",
+   "slug": "fix-n-go",
+   "level": "Level 1, Level 2",
+   "starts_at": "2016-11-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77507",
+   "name": "Fogo de Chao",
+   "kind": "restaurants",
+   "slug": "fogo-de-chao",
+   "level": "Level 2",
+   "starts_at": "2023-02-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6662",
+   "name": "Foot Locker",
+   "kind": "retailers",
+   "slug": "foot-locker",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77939",
+   "name": "Foot Locker, House of Hoops",
+   "kind": "retailers",
+   "slug": "foot-locker-house-of-hoops",
+   "level": "Level 1",
+   "starts_at": "2022-11-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56665",
+   "name": "G-Star Raw",
+   "kind": "retailers",
+   "slug": "g-star-raw",
+   "level": "Level 2",
+   "starts_at": "2015-10-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "42600",
+   "name": "Gamestop",
+   "kind": "retailers",
+   "slug": "gamestop",
+   "level": "Level 2",
+   "starts_at": "2010-10-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6670",
+   "name": "Gap",
+   "kind": "retailers",
+   "slug": "gap",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6671",
+   "name": "Gap Kids",
+   "kind": "retailers",
+   "slug": "gap-kids",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "35866",
+   "name": "Garage",
+   "kind": "retailers",
+   "slug": "garage",
+   "level": "Level 1",
+   "starts_at": "2008-10-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "63059",
+   "name": "Gilly Hicks",
+   "kind": "retailers",
+   "slug": "gilly-hicks",
+   "level": "Level 2",
+   "starts_at": "2019-07-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "86392",
+   "name": "Gio&Mi",
+   "kind": "retailers",
+   "slug": "gioandmi",
+   "level": null,
+   "starts_at": "2026-12-01",
+   "ends_at": null,
+   "state": "preview"
+  },
+  {
+   "id": "58761",
+   "name": "Glam",
+   "kind": "retailers",
+   "slug": "glam",
+   "level": "Level 2",
+   "starts_at": "2016-05-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "80588",
+   "name": "Go Playland",
+   "kind": "retailers",
+   "slug": "go-playland",
+   "level": "Level 2",
+   "starts_at": "2024-05-17",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79479",
+   "name": "GOAT USA",
+   "kind": "retailers",
+   "slug": "goat-usa",
+   "level": "Level 2",
+   "starts_at": "2023-10-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62655",
+   "name": "Gong Cha",
+   "kind": "restaurants",
+   "slug": "gong-cha",
+   "level": "Level 2",
+   "starts_at": "2018-11-28",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79299",
+   "name": "gorjana",
+   "kind": "retailers",
+   "slug": "gorjana",
+   "level": "Level 2",
+   "starts_at": "2023-12-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "31649",
+   "name": "Grand Lux Cafe",
+   "kind": "restaurants",
+   "slug": "grand-lux-cafe",
+   "level": "Level 1",
+   "starts_at": "2007-08-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "37596",
+   "name": "Gucci",
+   "kind": "retailers",
+   "slug": "gucci",
+   "level": "Level 1, Luxury Wing",
+   "starts_at": "2009-06-18",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6680",
+   "name": "Gymboree",
+   "kind": "retailers",
+   "slug": "gymboree",
+   "level": "Level 2",
+   "starts_at": "2024-10-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "22062",
+   "name": "H&M",
+   "kind": "retailers",
+   "slug": "handm",
+   "level": "Level 2",
+   "starts_at": "2004-09-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75070",
+   "name": "Haagen Dazs",
+   "kind": "restaurants",
+   "slug": "haagen-dazs",
+   "level": "Level 1, 2 & Food Court",
+   "starts_at": "2021-03-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "40163",
+   "name": "Helzberg Diamonds",
+   "kind": "retailers",
+   "slug": "helzberg-diamonds",
+   "level": "Level 2",
+   "starts_at": "2010-04-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84330",
+   "name": "HEYTEA",
+   "kind": "restaurants",
+   "slug": "heytea",
+   "level": "Level 2",
+   "starts_at": "2026-01-29",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "73734",
+   "name": "Hive & Colony",
+   "kind": "retailers",
+   "slug": "hive-and-colony",
+   "level": "Level 1",
+   "starts_at": "2020-05-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84329",
+   "name": "HOKA",
+   "kind": "retailers",
+   "slug": "hoka",
+   "level": "Level 2",
+   "starts_at": "2026-03-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6685",
+   "name": "Hollister Co.",
+   "kind": "retailers",
+   "slug": "hollister-co",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78214",
+   "name": "Honey Birdette",
+   "kind": "retailers",
+   "slug": "honey-birdette",
+   "level": "Level 2",
+   "starts_at": "2023-01-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "82848",
+   "name": "Horae!",
+   "kind": "entertainment",
+   "slug": "horae",
+   "level": "Level 1",
+   "starts_at": "2025-03-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6686",
+   "name": "Hot Topic",
+   "kind": "retailers",
+   "slug": "hot-topic",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "63025",
+   "name": "Indochino",
+   "kind": "retailers",
+   "slug": "indochino",
+   "level": "Level 1",
+   "starts_at": "2019-09-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "60282",
+   "name": "Intimissimi",
+   "kind": "retailers",
+   "slug": "intimissimi",
+   "level": "Level 1",
+   "starts_at": "2016-12-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "15268",
+   "name": "J. Jill",
+   "kind": "retailers",
+   "slug": "j-jill",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6692",
+   "name": "J.Crew",
+   "kind": "retailers",
+   "slug": "jcrew",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "73033",
+   "name": "Janie And Jack",
+   "kind": "retailers",
+   "slug": "janie-and-jack",
+   "level": "Level 2",
+   "starts_at": "2019-12-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83240",
+   "name": "JD Sports",
+   "kind": "retailers",
+   "slug": "jd-sports",
+   "level": "Level 1 ",
+   "starts_at": null,
+   "ends_at": null,
+   "state": "preview"
+  },
+  {
+   "id": "85274",
+   "name": "Joogstarz",
+   "kind": "retailers",
+   "slug": "joogstarz",
+   "level": null,
+   "starts_at": "2026-07-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6699",
+   "name": "Journeys",
+   "kind": "retailers",
+   "slug": "journeys",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6700",
+   "name": "Journeys Kidz",
+   "kind": "retailers",
+   "slug": "journeys-kidz",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58274",
+   "name": "Kate Spade New York",
+   "kind": "retailers",
+   "slug": "kate-spade-new-york",
+   "level": "Level 2",
+   "starts_at": "2016-01-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6703",
+   "name": "Kay Jewelers",
+   "kind": "retailers",
+   "slug": "kay-jewelers",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78725",
+   "name": "Kendra Scott",
+   "kind": "retailers",
+   "slug": "kendra-scott",
+   "level": "Level 2",
+   "starts_at": "2023-05-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62787",
+   "name": "Kickclusive",
+   "kind": "retailers",
+   "slug": "kickclusive",
+   "level": "Level 1 ",
+   "starts_at": "2019-02-07",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "36203",
+   "name": "Kids Foot Locker",
+   "kind": "retailers",
+   "slug": "kids-foot-locker",
+   "level": "Level 1",
+   "starts_at": "2008-12-04",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "35974",
+   "name": "Kiehl's",
+   "kind": "retailers",
+   "slug": "kiehls",
+   "level": "Level 1",
+   "starts_at": "2008-11-09",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75675",
+   "name": "Kim's Tailor Express",
+   "kind": "retailers",
+   "slug": "kims-tailor-express",
+   "level": "Level 1 ",
+   "starts_at": "2021-08-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84452",
+   "name": "Kong Dog",
+   "kind": "restaurants",
+   "slug": "kong-dog",
+   "level": "Food Court",
+   "starts_at": "2026-03-30",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58252",
+   "name": "Kung Fu Tea",
+   "kind": "restaurants",
+   "slug": "kung-fu-tea",
+   "level": "Level 1",
+   "starts_at": "2016-01-04",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79993",
+   "name": "Kura Revolving Sushi Bar",
+   "kind": "restaurants",
+   "slug": "kura-revolving-sushi-bar",
+   "level": "Level 2",
+   "starts_at": "2025-02-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6717",
+   "name": "L'OCCITANE en Provence",
+   "kind": "retailers",
+   "slug": "loccitane-en-provence",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "26798",
+   "name": "La-Vi Nails",
+   "kind": "retailers",
+   "slug": "la-vi-nails",
+   "level": "Level 1 ",
+   "starts_at": "2020-01-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "73733",
+   "name": "Laced Up",
+   "kind": "retailers",
+   "slug": "laced-up",
+   "level": "Level 1",
+   "starts_at": "2020-06-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "22065",
+   "name": "Lacoste",
+   "kind": "retailers",
+   "slug": "lacoste",
+   "level": "Level 2",
+   "starts_at": "2004-09-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83273",
+   "name": "Leather and Shoes",
+   "kind": "retailers",
+   "slug": "leather-and-shoes",
+   "level": "Level 1",
+   "starts_at": "2025-06-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "37015",
+   "name": "LEGO®",
+   "kind": "retailers",
+   "slug": "legor",
+   "level": "Level 2",
+   "starts_at": "2009-03-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6712",
+   "name": "LensCrafters",
+   "kind": "retailers",
+   "slug": "lenscrafters",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "86489",
+   "name": "Levi's Store",
+   "kind": "retailers",
+   "slug": "levis-store",
+   "level": null,
+   "starts_at": "2026-12-01",
+   "ends_at": null,
+   "state": "preview"
+  },
+  {
+   "id": "6714",
+   "name": "Lids",
+   "kind": "retailers",
+   "slug": "lids",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85603",
+   "name": "Liv Breads",
+   "kind": "restaurants",
+   "slug": "liv-breads",
+   "level": null,
+   "starts_at": "2026-11-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "26793",
+   "name": "LOFT",
+   "kind": "retailers",
+   "slug": "loft",
+   "level": "Level 2",
+   "starts_at": "2005-12-06",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62524",
+   "name": "Lou & Grey",
+   "kind": "retailers",
+   "slug": "lou-and-grey",
+   "level": "Level 2",
+   "starts_at": "2018-11-28",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6593",
+   "name": "Louis Vuitton",
+   "kind": "retailers",
+   "slug": "louis-vuitton",
+   "level": "Level 1, Luxury Wing ",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78450",
+   "name": "Lovisa",
+   "kind": "retailers",
+   "slug": "lovisa",
+   "level": "Level 1",
+   "starts_at": "2023-01-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "22068",
+   "name": "Lucky Brand Jeans",
+   "kind": "retailers",
+   "slug": "lucky-brand-jeans",
+   "level": "Level 2",
+   "starts_at": "2022-08-26",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62073",
+   "name": "lululemon",
+   "kind": "retailers",
+   "slug": "lululemon",
+   "level": "Level 2",
+   "starts_at": "2018-01-29",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "53298",
+   "name": "LUSH Handmade Cosmetics",
+   "kind": "retailers",
+   "slug": "lush-handmade-cosmetics",
+   "level": "Level 2",
+   "starts_at": "2014-03-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79997",
+   "name": "Läderach",
+   "kind": "retailers",
+   "slug": "laderach",
+   "level": "Level 2",
+   "starts_at": "2024-08-17",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6720",
+   "name": "Macy's",
+   "kind": "retailers",
+   "slug": "macys",
+   "level": "Level 1 & 2 ",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "44054",
+   "name": "Madewell",
+   "kind": "retailers",
+   "slug": "madewell",
+   "level": "Level 2",
+   "starts_at": "2011-04-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75219",
+   "name": "Madison Reed",
+   "kind": "retailers",
+   "slug": "madison-reed",
+   "level": "Level 2",
+   "starts_at": "2021-05-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79995",
+   "name": "Mango",
+   "kind": "retailers",
+   "slug": "mango",
+   "level": "Level 2",
+   "starts_at": "2024-09-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75786",
+   "name": "Marc Enzo",
+   "kind": "retailers",
+   "slug": "marc-enzo",
+   "level": "Level 1",
+   "starts_at": "2021-04-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84276",
+   "name": "Mavi",
+   "kind": "retailers",
+   "slug": "mavi",
+   "level": "Level 2",
+   "starts_at": "2026-01-02",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "51305",
+   "name": "McDonald's",
+   "kind": "restaurants",
+   "slug": "mcdonalds",
+   "level": "Level 1, Near Food Court",
+   "starts_at": "2013-06-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62501",
+   "name": "MCM",
+   "kind": "retailers",
+   "slug": "mcm",
+   "level": "Level 1, Luxury wing ",
+   "starts_at": "2018-11-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83416",
+   "name": "Mejuri",
+   "kind": "retailers",
+   "slug": "mejuri",
+   "level": "Level 2",
+   "starts_at": "2025-07-25",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "33476",
+   "name": "Michael Kors",
+   "kind": "retailers",
+   "slug": "michael-kors",
+   "level": "Level 2",
+   "starts_at": "2026-10-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75963",
+   "name": "Miniso",
+   "kind": "retailers",
+   "slug": "miniso",
+   "level": "1",
+   "starts_at": "2026-10-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6733",
+   "name": "Neiman Marcus",
+   "kind": "retailers",
+   "slug": "neiman-marcus",
+   "level": "Level 1 & 2, Near luxury Wing",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "37030",
+   "name": "Neiman Marcus - The Rotunda",
+   "kind": "restaurants",
+   "slug": "neiman-marcus-the-rotunda",
+   "level": "Level 3",
+   "starts_at": "2009-03-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "61074",
+   "name": "Nespresso",
+   "kind": "retailers",
+   "slug": "nespresso",
+   "level": "Level 2",
+   "starts_at": "2017-09-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "37070",
+   "name": "New You Massage",
+   "kind": "retailers",
+   "slug": "new-you-massage",
+   "level": "Level 1 & 2",
+   "starts_at": "2009-04-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "35916",
+   "name": "Nordstrom",
+   "kind": "retailers",
+   "slug": "nordstrom",
+   "level": "Level 1 & 2",
+   "starts_at": "2008-11-07",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "57774",
+   "name": "Nordstrom Bazille Restaurant",
+   "kind": "restaurants",
+   "slug": "nordstrom-bazille-restaurant",
+   "level": "Level 1",
+   "starts_at": "2015-10-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "50246",
+   "name": "Nordstrom E-Bar",
+   "kind": "retailers",
+   "slug": "nordstrom-e-bar",
+   "level": "Level 1",
+   "starts_at": "2013-01-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "28595",
+   "name": "Oakley",
+   "kind": "retailers",
+   "slug": "oakley",
+   "level": "Level 2",
+   "starts_at": "2006-07-25",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75768",
+   "name": "OFFLINE by Aerie",
+   "kind": "retailers",
+   "slug": "offline-by-aerie",
+   "level": "Level 2",
+   "starts_at": "2021-09-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75392",
+   "name": "Old Navy",
+   "kind": "retailers",
+   "slug": "old-navy",
+   "level": "Level 1",
+   "starts_at": "2021-06-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6739",
+   "name": "PacSun",
+   "kind": "retailers",
+   "slug": "pacsun",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "38059",
+   "name": "Pandora",
+   "kind": "retailers",
+   "slug": "pandora",
+   "level": "Level 1",
+   "starts_at": "2009-08-25",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "86543",
+   "name": "Paul Fredrick",
+   "kind": "retailers",
+   "slug": "paul-fredrick",
+   "level": null,
+   "starts_at": "2026-11-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "55517",
+   "name": "PINK",
+   "kind": "retailers",
+   "slug": "pink",
+   "level": "Level 1",
+   "starts_at": "2015-09-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62522",
+   "name": "Pokéworks",
+   "kind": "restaurants",
+   "slug": "pokeworks",
+   "level": "Level 1",
+   "starts_at": "2019-01-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85085",
+   "name": "POP MART",
+   "kind": "retailers",
+   "slug": "pop-mart",
+   "level": null,
+   "starts_at": "2026-05-18",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79996",
+   "name": "Popeyes",
+   "kind": "restaurants",
+   "slug": "popeyes",
+   "level": "Food Court",
+   "starts_at": "2024-11-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77943",
+   "name": "Posh Accessories",
+   "kind": "retailers",
+   "slug": "posh-accessories",
+   "level": "Level 2",
+   "starts_at": "2022-12-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83027",
+   "name": "Power Up Arena",
+   "kind": "entertainment",
+   "slug": "power-up-arena",
+   "level": "Level 2",
+   "starts_at": "2025-04-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "74863",
+   "name": "Psycho Bunny",
+   "kind": "retailers",
+   "slug": "psycho-bunny",
+   "level": "Level 2 ",
+   "starts_at": "2021-03-24",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79991",
+   "name": "Ray-Ban",
+   "kind": "retailers",
+   "slug": "ray-ban",
+   "level": "Level 2",
+   "starts_at": "2024-08-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77824",
+   "name": "Razer",
+   "kind": "retailers",
+   "slug": "razer",
+   "level": "Level 2",
+   "starts_at": "2022-07-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62959",
+   "name": "Real Fruit Bubble Tea",
+   "kind": "restaurants",
+   "slug": "real-fruit-bubble-tea",
+   "level": "Level 1",
+   "starts_at": "2019-05-28",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79994",
+   "name": "Rothy's",
+   "kind": "retailers",
+   "slug": "rothys",
+   "level": "Level 2",
+   "starts_at": "2024-06-06",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "31241",
+   "name": "Ruby Thai Kitchen",
+   "kind": "restaurants",
+   "slug": "ruby-thai-kitchen",
+   "level": "Level 1",
+   "starts_at": "2007-07-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75721",
+   "name": "Rumi",
+   "kind": "retailers",
+   "slug": "rumi",
+   "level": "Level 2",
+   "starts_at": "2021-09-24",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83381",
+   "name": "Saba Rugs & Flooring",
+   "kind": "retailers",
+   "slug": "saba-rugs-and-flooring",
+   "level": "Level 1",
+   "starts_at": "2025-08-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56646",
+   "name": "Sam Edelman",
+   "kind": "retailers",
+   "slug": "sam-edelman",
+   "level": "Level 2 ",
+   "starts_at": "2015-09-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62907",
+   "name": "SAYKI",
+   "kind": "retailers",
+   "slug": "sayki",
+   "level": "Level 1",
+   "starts_at": "2019-04-19",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77492",
+   "name": "Seasons 52",
+   "kind": "restaurants",
+   "slug": "seasons-52",
+   "level": "Level 2",
+   "starts_at": "2022-04-29",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6779",
+   "name": "Sephora",
+   "kind": "retailers",
+   "slug": "sephora",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "54901",
+   "name": "Shake Shack",
+   "kind": "restaurants",
+   "slug": "shake-shack",
+   "level": "Level 2",
+   "starts_at": "2015-09-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "82838",
+   "name": "SKIMS",
+   "kind": "retailers",
+   "slug": "skims",
+   "level": "Level 2",
+   "starts_at": "2025-03-12",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6785",
+   "name": "Sleep Number",
+   "kind": "retailers",
+   "slug": "sleep-number",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81521",
+   "name": "Slimee",
+   "kind": "retailers",
+   "slug": "slimee",
+   "level": "Level 1",
+   "starts_at": "2024-10-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "40164",
+   "name": "Soma",
+   "kind": "retailers",
+   "slug": "soma",
+   "level": "Level 1",
+   "starts_at": "2010-04-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6789",
+   "name": "Spencer's",
+   "kind": "retailers",
+   "slug": "spencers",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "53318",
+   "name": "Starbucks",
+   "kind": "restaurants",
+   "slug": "starbucks",
+   "level": "Level 2",
+   "starts_at": "2014-03-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6792",
+   "name": "Steve Madden",
+   "kind": "retailers",
+   "slug": "steve-madden",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6793",
+   "name": "Street Corner News",
+   "kind": "retailers",
+   "slug": "street-corner-news",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "86422",
+   "name": "Studs",
+   "kind": "retailers",
+   "slug": "studs",
+   "level": null,
+   "starts_at": "2026-12-01",
+   "ends_at": null,
+   "state": "preview"
+  },
+  {
+   "id": "77944",
+   "name": "Sugar Bear",
+   "kind": "restaurants",
+   "slug": "sugar-bear",
+   "level": "Level 1",
+   "starts_at": "2022-08-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77433",
+   "name": "Suki Hana",
+   "kind": "restaurants",
+   "slug": "suki-hana",
+   "level": "Level 1",
+   "starts_at": "2022-02-28",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84345",
+   "name": "Sukoshi",
+   "kind": "retailers",
+   "slug": "sukoshi",
+   "level": "Level 2",
+   "starts_at": "2026-03-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6798",
+   "name": "Sunglass Hut",
+   "kind": "retailers",
+   "slug": "sunglass-hut",
+   "level": "Level 1",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "15270",
+   "name": "Swarovski",
+   "kind": "retailers",
+   "slug": "swarovski",
+   "level": "Level 1",
+   "starts_at": "2023-05-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6800",
+   "name": "Swatch",
+   "kind": "retailers",
+   "slug": "swatch",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79652",
+   "name": "T-Mobile",
+   "kind": "retailers",
+   "slug": "t-mobile",
+   "level": "Level 1",
+   "starts_at": "2023-11-27",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "49606",
+   "name": "Tesla Motors",
+   "kind": "retailers",
+   "slug": "tesla-motors",
+   "level": "Level 2",
+   "starts_at": "2012-10-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "42602",
+   "name": "The Capital Grille",
+   "kind": "restaurants",
+   "slug": "the-capital-grille",
+   "level": "Level 2",
+   "starts_at": "2010-10-07",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56647",
+   "name": "The North Face",
+   "kind": "retailers",
+   "slug": "the-north-face",
+   "level": "Level 2",
+   "starts_at": "2015-09-11",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "75315",
+   "name": "The Nuts Factory",
+   "kind": "restaurants",
+   "slug": "the-nuts-factory",
+   "level": "Level 1 ",
+   "starts_at": "2021-05-17",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83522",
+   "name": "The Sharp Notes",
+   "kind": "retailers",
+   "slug": "the-sharp-notes",
+   "level": "Level 2",
+   "starts_at": null,
+   "ends_at": null,
+   "state": "preview"
+  },
+  {
+   "id": "86475",
+   "name": "The Twin Closet",
+   "kind": "retailers",
+   "slug": "the-twin-closet",
+   "level": null,
+   "starts_at": "2026-11-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "85230",
+   "name": "Thirdlove",
+   "kind": "retailers",
+   "slug": "thirdlove",
+   "level": null,
+   "starts_at": "2026-10-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81523",
+   "name": "Thursday Boot Co.",
+   "kind": "retailers",
+   "slug": "thursday-boot-co",
+   "level": "Level 1",
+   "starts_at": "2024-11-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "50793",
+   "name": "Tiffany & Co.",
+   "kind": "retailers",
+   "slug": "tiffany-and-co",
+   "level": "Level 1, Luxury Wing",
+   "starts_at": "2013-04-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "72612",
+   "name": "Tillys",
+   "kind": "retailers",
+   "slug": "tillys",
+   "level": "Level 1",
+   "starts_at": "2019-12-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "56733",
+   "name": "Timberland",
+   "kind": "retailers",
+   "slug": "timberland",
+   "level": "Level 2",
+   "starts_at": "2015-10-21",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62406",
+   "name": "Tojo's Kitchen",
+   "kind": "restaurants",
+   "slug": "tojos-kitchen",
+   "level": "Level 1",
+   "starts_at": "2019-06-09",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "47370",
+   "name": "Tommy Bahama",
+   "kind": "retailers",
+   "slug": "tommy-bahama",
+   "level": "Level 1",
+   "starts_at": "2012-05-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "53312",
+   "name": "Tory Burch",
+   "kind": "retailers",
+   "slug": "tory-burch",
+   "level": "Level 2",
+   "starts_at": "2014-03-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "38343",
+   "name": "Tous",
+   "kind": "retailers",
+   "slug": "tous",
+   "level": "Level 1",
+   "starts_at": "2009-09-29",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "80589",
+   "name": "Toy Republic",
+   "kind": "retailers",
+   "slug": "toy-republic",
+   "level": "Level 1",
+   "starts_at": "2024-05-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77723",
+   "name": "TravisMathew",
+   "kind": "retailers",
+   "slug": "travismathew",
+   "level": "Level 2",
+   "starts_at": "2022-10-07",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "32586",
+   "name": "Tumi",
+   "kind": "retailers",
+   "slug": "tumi",
+   "level": "Level 1, Near Luxury Wing",
+   "starts_at": "2007-11-30",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62994",
+   "name": "UGG",
+   "kind": "retailers",
+   "slug": "ugg",
+   "level": "Level 2",
+   "starts_at": "2019-06-17",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62518",
+   "name": "UNTUCKit",
+   "kind": "retailers",
+   "slug": "untuckit",
+   "level": "Level 2",
+   "starts_at": "2018-11-23",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "53323",
+   "name": "Urban Outfitters",
+   "kind": "retailers",
+   "slug": "urban-outfitters",
+   "level": "Level 2",
+   "starts_at": "2014-03-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "6813",
+   "name": "Vans",
+   "kind": "retailers",
+   "slug": "vans",
+   "level": "Level 2",
+   "starts_at": "2003-03-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "77942",
+   "name": "Variazoni",
+   "kind": "retailers",
+   "slug": "variazoni",
+   "level": "Level 2",
+   "starts_at": "2022-08-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78831",
+   "name": "Venchi",
+   "kind": "restaurants",
+   "slug": "venchi",
+   "level": "Level 1",
+   "starts_at": "2023-07-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "58246",
+   "name": "Verizon Wireless",
+   "kind": "retailers",
+   "slug": "verizon-wireless",
+   "level": "Level 2",
+   "starts_at": "2016-04-13",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "54289",
+   "name": "Victoria's Secret",
+   "kind": "retailers",
+   "slug": "victorias-secret",
+   "level": "Level 1",
+   "starts_at": "2016-01-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "59672",
+   "name": "Vineyard Vines",
+   "kind": "retailers",
+   "slug": "vineyard-vines",
+   "level": "Level 1",
+   "starts_at": "2016-10-31",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84614",
+   "name": "Vivaia",
+   "kind": "retailers",
+   "slug": "vivaia",
+   "level": "Level 2",
+   "starts_at": "2026-05-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "84346",
+   "name": "VR360",
+   "kind": "entertainment",
+   "slug": "vr360",
+   "level": "Level 2",
+   "starts_at": "2026-01-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "83331",
+   "name": "Vuori",
+   "kind": "retailers",
+   "slug": "vuori",
+   "level": "Level 2",
+   "starts_at": "2025-07-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62459",
+   "name": "Warby Parker",
+   "kind": "retailers",
+   "slug": "warby-parker",
+   "level": "Level 1",
+   "starts_at": "2018-09-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62843",
+   "name": "Weekend Max Mara",
+   "kind": "retailers",
+   "slug": "weekend-max-mara",
+   "level": "Level 1",
+   "starts_at": "2019-04-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "27075",
+   "name": "Wetzel's Pretzels",
+   "kind": "restaurants",
+   "slug": "wetzels-pretzels",
+   "level": "4 Locations, Level 1 & 2 ",
+   "starts_at": "2006-01-05",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "38694",
+   "name": "White House | Black Market",
+   "kind": "retailers",
+   "slug": "white-house-or-black-market",
+   "level": "Level 2",
+   "starts_at": "2009-10-22",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "79681",
+   "name": "Wilson Sporting Goods",
+   "kind": "retailers",
+   "slug": "wilson-sporting-goods",
+   "level": "Level 2",
+   "starts_at": "2023-12-08",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "78824",
+   "name": "Windsor",
+   "kind": "retailers",
+   "slug": "windsor",
+   "level": "Level 1",
+   "starts_at": "2023-08-10",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81522",
+   "name": "YETI",
+   "kind": "retailers",
+   "slug": "yeti",
+   "level": "Level 2",
+   "starts_at": "2024-11-14",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "81524",
+   "name": "YL Beauty",
+   "kind": "retailers",
+   "slug": "yl-beauty",
+   "level": "Level 2",
+   "starts_at": "2024-10-16",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "76199",
+   "name": "Yogybee",
+   "kind": "restaurants",
+   "slug": "yogybee",
+   "level": "Level 2",
+   "starts_at": "2021-12-20",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "63132",
+   "name": "Yong Kang Street",
+   "kind": "restaurants",
+   "slug": "yong-kang-street",
+   "level": "Level 1",
+   "starts_at": "2019-07-01",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "73955",
+   "name": "ZAGG",
+   "kind": "retailers",
+   "slug": "zagg",
+   "level": "Level 2",
+   "starts_at": "2020-07-03",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "59436",
+   "name": "Zara",
+   "kind": "retailers",
+   "slug": "zara",
+   "level": "Level 1 & 2 ",
+   "starts_at": "2016-11-15",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "62771",
+   "name": "ZEN Diamond",
+   "kind": "retailers",
+   "slug": "zen-diamond",
+   "level": "Level 1",
+   "starts_at": "2019-09-09",
+   "ends_at": null,
+   "state": "live"
+  },
+  {
+   "id": "30586",
+   "name": "Zumiez",
+   "kind": "retailers",
+   "slug": "zumiez",
+   "level": "Level 2",
+   "starts_at": "2007-04-04",
+   "ends_at": null,
+   "state": "live"
+  }
+ ]
+}

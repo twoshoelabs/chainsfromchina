@@ -1852,12 +1852,21 @@
      "lat": 28.45011,
      "lon": -81.400723,
      "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "HEYTEA (Westfield Century City) — COMING SOON, opens 1 Dec 2026",
+     "address": "10250 Santa Monica Blvd, Los Angeles, CA 90067",
+     "confidence": "uncertain",
+     "verified_by": "Westfield Century City's own directory lists HEYTEA, Level 2, with a 'Coming soon' badge and a start date of 1 Dec 2026 (hours shown from that Tuesday); owner-confirmed 2026-11-25 that it opens next Tuesday. Held out of the count until it is seen trading.",
+     "lat": 34.058846,
+     "lon": -118.418988,
+     "coord_src": "Westfield Century City (shared with other tenants at the same address)"
     }
    ],
    "scope": "New US locations from the project's discovery routine (2026-10-01), source-cited. Confirmed = open per a first-party store site or press report; uncertain = reported or coming-soon, held out of totals until confirmed. Not a complete roster.",
    "source": "Discovery routine 2026-10-01 web-search leads; per-location source in verified_by.",
    "supplied_on": "2026-10-01",
-   "reviewed": "2026-11-13"
+   "reviewed": "2026-11-25"
   },
   {
    "chain": "lelecha",
@@ -3173,7 +3182,7 @@
      "name": "Westfield Valley Fair (Santa Clara)",
      "address": "2855 Stevens Creek Blvd Suite 1305, Santa Clara, CA 95050",
      "confidence": "confirmed",
-     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026",
+     "verified_by": "Rolife's own 'where to buy' store list (rolifeonline.com/pages/retail-store, USA section), 14 Oct 2026 Re-checked 2026-11-25: Westfield Valley Fair's own page for Rolife lists daily hours (10 AM–9 PM; closed Thanksgiving) and the owner confirms it is open. (The directory's internal record holds it in a non-live state, which is why the mall snapshot flagged it.)",
      "lat": 37.323415,
      "lon": -121.944779,
      "opened": "2025-08-01"

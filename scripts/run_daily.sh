@@ -11,6 +11,11 @@ if ! "$PY" -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)' 2>/
 fi
 "$PY" -m chain_atlas run
 rc=$?
+# Mall tenant snapshots (owner's method, Nov 2026): re-read each script-readable mall directory about
+# once a month and save a dated snapshot; export then compares the newest snapshot with the baseline
+# to count new openings and how many are China-origin. `--due 28` is a no-op on every day a mall's
+# latest snapshot is younger than 28 days, so this costs nothing most days. Non-fatal.
+"$PY" -m chain_atlas mall-snapshot --due 28 || true
 "$PY" -m chain_atlas export
 # PRO alerts (pillar 2): detect today's changes across every layer (census + sightings + register +
 # scale + filings) and surface any NOT yet delivered — a new US entrant, an outlet open/close, an

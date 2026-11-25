@@ -206,6 +206,15 @@ def main(argv=None):
     if cmd == "mall-openings":
         from . import mall_openings
         return mall_openings.report()
+    if cmd == "mall-snapshot":
+        from . import mall_openings
+        if "--file" in argv:                      # mall-snapshot --file <mall-id> <saved.html> [--on YYYY-MM-DD]
+            i = argv.index("--file")
+            return mall_openings.import_file(argv[i + 1], argv[i + 2], opt("--on", None))
+        due = opt("--due", None)
+        skip = {"--due", str(due)} if due is not None else set()
+        ids = [x for x in argv[1:] if not x.startswith("-") and x not in skip]
+        return mall_openings.snapshot(ids or None, int(due) if due is not None else None)
 
     if cmd == "single-outlet":
         from . import single_outlet
