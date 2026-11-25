@@ -406,6 +406,7 @@ def export(out_dir: Path) -> dict:
                 "name_zh": _c.get("name_zh") or "",
                 "category": _SECTOR_LABEL.get(_reg.sector_of(_c)),
                 "blurb": _c.get("global") or "",
+                "blurb_zh": _c.get("global_zh") or "",
                 "us_since": _fmt_since(_c.get("us_entry_date")),
                 "first_outlet": None,
                 "site_cn": None, "site_us": None,

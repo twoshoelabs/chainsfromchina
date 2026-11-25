@@ -561,6 +561,13 @@
     </section>
   </div>
 
+  <!-- 6b · CHINA-ORIGIN SHARE OF NEW MALL OPENINGS -->
+  <section id="mallopen" style="padding:30px 0 32px;border-bottom:1px solid var(--ink)" hidden>
+    <p class="seclabel red">New mall openings</p>
+    <h2 class="find sm" id="mo-head" style="margin-bottom:12px"></h2>
+    <p class="after" id="mo-foot" style="margin-top:4px"></p>
+  </section>
+
   <!-- PHOTO · Sightings this week (placeholder) -->
   <section style="padding:30px 0 32px;border-bottom:1px solid var(--ink)">
     <div class="photohead">
@@ -876,6 +883,30 @@ function animateGrandTotal(outlets, prevTotal){
     '<figure><div class="ph-frame r32">' +
     '<img src="photos/' + s.f + '" alt="' + s.alt + '" loading="lazy"></div>' +
     '<figcaption><b>' + s.chain + '</b>, ' + s.city + '<br><span class="meta">' + sCredit(s) + '</span></figcaption></figure>').join('');
+})();
+</script>
+<!-- China-origin share of new mall openings (self-contained; data/mall_openings.json) -->
+<script>
+(async function () {
+  const DATAV = window.CFC_DATA_V || '';
+  let m; try { m = await fetch('data/mall_openings.json' + DATAV).then(r => r.json()); } catch (e) { return; }
+  if (!m || !m.openings_captured) return;
+  const sec = document.getElementById('mallopen');
+  const head = document.getElementById('mo-head');
+  const foot = document.getElementById('mo-foot');
+  if (!sec || !head || !foot) return;
+  const pct = m.china_origin_share != null ? Math.round(m.china_origin_share * 100) + '%' : '—';
+  // Headline: the share, with the sample in plain sight so a small n reads honestly.
+  head.innerHTML = '<strong>' + m.china_origin_openings + ' of ' + m.openings_captured + '</strong> new store'
+    + ' openings tracked across ' + m.universe_label + ' are China-origin chains — <strong>' + pct + '</strong>.';
+  const names = (m.china_origin_openings_list || []).map(function (o) { return o.name; });
+  const uniq = names.filter(function (v, i) { return names.indexOf(v) === i; });
+  foot.textContent =
+    'Counted from each mall’s own “New” and “Coming Soon” listings, across '
+    + m.malls_with_complete_sweep + ' of ' + m.malls_tracked + ' malls fully swept so far (growing). '
+    + 'Top malls skew premium and Asian-metro, so this runs higher than an all-US-mall average. '
+    + (uniq.length ? 'China-origin openings logged: ' + uniq.join(', ') + '.' : '');
+  sec.hidden = false;
 })();
 </script>
 <!-- Cloudflare Web Analytics -->

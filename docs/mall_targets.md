@@ -12,7 +12,7 @@ whose only China tenant is a Miniso the adapter already has (Columbia, Oakridge)
 (Leesburg) and affluent non-Asian centers. Match tenants against register.json `chains`; flag unknown
 China-looking names as new-chain candidates. Scope: China-ORIGIN only — exclude Taiwan (Gong cha, Kung
 Fu Tea, Sushi Express, Din Tai Fung, Shihlin, Duan's Kitchen, TP Tea, 99 Ranch), Korea, Japan, and
-US-founded (Panda Express, Chubby Cattle, MUMU Hot Pot, Nan Xiang) + DTC-only brands with no China B&M
+US-founded (Panda Express, Chubby Cattle, MUMU Hot Pot, Nan Xiang, Dun Huang / DH Noodles [Flushing 2015], Feng Cha [Prosper TX 2017], Ellicor gift shop [NY-based reseller], Six Ping Bakery [Houston-local]) + Hong-Kong-origin (Hui Lau Shan 許留山, Luk Fook 六福, Chow Tai Fook 周大福) + DTC-only brands with no China B&M
 (Shein, Cider, Vivaia — see the DTC scope rule).
 
 ---
@@ -44,6 +44,30 @@ Don't re-sweep flagships just for Miniso/Pop Mart — the adapters have those.
 
 ---
 
+## CLOSE-WATCH corridors (check every pass, not on rotation)
+
+Places where China-origin chains open and close fast enough that a monthly rotation misses the story.
+Treat each like Tangram: look at it on EVERY sweep and in any session that touches the metro, record
+openings, coming-soon signs, closures, and one chain replacing another at the same address.
+
+### Convoy Street, San Diego (Kearny Mesa / Convoy District) — added 2026-11-25 at the owner's request
+- **Why:** dense strip-plaza corridor with constant turnover; in Nov 2026 alone one store was found closed,
+  one "open" pin turned out to be coming-soon, and an earlier closure's unit is being taken by another chain.
+- **Counted now (5):** Yonny / Fish With You — 3904 Convoy St #101 · TeaByDo (ChaPanda) — 4425 Convoy St #216 ·
+  Zhengxin Chicken Steak — 4609 Convoy St Ste C · Dagu Rice Noodle — 4690 Convoy St #108 ·
+  Liuyishou Hot Pot — 4690 Convoy St Ste B105-B106.
+- **Coming soon, not counted (2):** ChaHalo — 4698 Convoy St #105 (own Instagram says "Coming soon", 2026-11-25) ·
+  Tang Huo Kung Fu — 4344 Convoy St Suite N.
+- **Closed (2):** Juewei — 4698 Convoy St · Shancheng Lameizi — 4225 Convoy St (Convoy Center), logged 2026-11-25.
+- **Possible succession to confirm:** Juewei closed at 4698 Convoy St and ChaHalo is opening at 4698 #105 —
+  same unit or just the same plaza?
+- **How to check:** no tenant directory exists. Use the Google-Maps-area pass described under "Non-enclosed
+  centers" (interactive browser; categories bubble tea, malatang, hot pot, Chinese bakery/dessert, rice
+  noodles), plus each tracked chain's own listing. A map pin alone is NOT proof of trading — require reviews
+  and posted hours, and treat "Temporarily closed" with no reviews as not yet open.
+- **Limit:** the monthly cloud routine cannot run the Maps pass. It should still search local opening news
+  for "Convoy St" each run and flag leads; the Maps pass itself is a session task.
+
 ## California — San Francisco Bay Area (very high density)
 - **Westfield Valley Fair** (Santa Clara) — flagship; Heytea, Pop Mart, Miniso, Rolife, DREAME, Tai Er
 - **Great Mall** (Milpitas, Simon) — Miniso, Rolife
@@ -71,7 +95,7 @@ Don't re-sweep flagships just for Miniso/Pop Mart — the adapters have those.
 - **Westminster / Little Saigon** (Viet-heavy; lower China-chain yield)
 
 ## California — San Diego & Sacramento
-- **Pacific Pearl Plaza / Convoy District** (San Diego) — Asian F&B hub
+- **Pacific Pearl Plaza / Convoy District** (San Diego) — Asian F&B hub — **CLOSE-WATCH, see the top of this file**
 - **Westfield UTC** (San Diego); **Mira Mesa** plazas
 - **Sacramento** — 99 Ranch / Asian plaza clusters (Elk Grove, Natomas)
 

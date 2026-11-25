@@ -68,6 +68,19 @@ PERMANENTLY_CLOSED = {
     "901 market st 2nd fl, philadelphia, pa 19107",  # Möge Tee — Philadelphia (Fashion District) — Google: permanently closed (9 Nov 2026; still on locator)
     "3140 s wadsworth ct unit 115, lakewood, co",  # Möge Tee — Lakewood — Yelp: reports closed (owner-confirmed) (9 Nov 2026; still on locator)
     "754 asp avenue, norman, ok",  # Möge Tee — Norman — Yelp: reports closed (owner-confirmed) (9 Nov 2026; still on locator)
+    "5796 sunset dr, miami, fl 33143",  # Möge Tee — South Miami — Yelp: reports closed (owner-confirmed) (24 Nov 2026; still on locator)
+    "29040 us-290 suite a01, cypress, tx 77433",  # Möge Tee — Cypress (Fairfield Town Center) — Google: permanently closed (24 Nov 2026; still on locator)
+    "971 amsterdam avenue, new york, ny",  # Möge Tee — Manhattan Valley (971 Amsterdam Ave) — Google: closed; newest Yelp review ~2 years old (owner call 24 Nov 2026; still on locator as NOW OPEN)
+}
+
+# Addresses the locator gets wrong, corrected by hand. Keyed like PERMANENTLY_CLOSED (lower-cased,
+# whitespace-collapsed locator address) -> the address to record instead. The matching DB row was
+# re-keyed to the corrected address at the same time, so the correction creates no false
+# closure/opening pair.
+#   Houston Chinatown — locator says "ste 148"; the store's own Google listing (operating, 4.0 / 156
+#   reviews) gives Ste 150. Operator-corrected 24 Nov 2026.
+ADDRESS_CORRECTIONS = {
+    "9888 bellaire blvd ste 148, houston, tx 77036": "9888 Bellaire Blvd Ste 150, Houston, TX 77036",
 }
 
 _WARMUP = re.compile(r'id="wix-warmup-data"[^>]*>(.*?)</script>', re.S)
@@ -168,6 +181,7 @@ class MogeTeeAdapter(Adapter):
                 addr = re.sub(r",?\s*USA\.?\s*$", "", s["addr"]).strip()
                 if re.sub(r"\s+", " ", addr).lower() in PERMANENTLY_CLOSED:
                     continue                                  # listed on the locator but closed on the ground
+                addr = ADDRESS_CORRECTIONS.get(re.sub(r"\s+", " ", addr).lower(), addr)
                 city, st, zc = split_tail(addr)
                 out.append(StoreRecord(store_code=None, name=s["name"], addr_raw=addr,
                                        city=city, state=st, zip=zc, trading=s["trading"]))

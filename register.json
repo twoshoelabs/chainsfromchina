@@ -203,6 +203,130 @@
   "BN": {
    "name": "Brunei",
    "region": "Southeast Asia"
+  },
+  "AT": {
+   "name": "Austria",
+   "region": "Europe"
+  },
+  "HU": {
+   "name": "Hungary",
+   "region": "Europe"
+  },
+  "PT": {
+   "name": "Portugal",
+   "region": "Europe"
+  },
+  "DK": {
+   "name": "Denmark",
+   "region": "Europe"
+  },
+  "LU": {
+   "name": "Luxembourg",
+   "region": "Europe"
+  },
+  "MN": {
+   "name": "Mongolia",
+   "region": "East Asia"
+  },
+  "CO": {
+   "name": "Colombia",
+   "region": "Latin America"
+  },
+  "CL": {
+   "name": "Chile",
+   "region": "Latin America"
+  },
+  "AR": {
+   "name": "Argentina",
+   "region": "Latin America"
+  },
+  "BO": {
+   "name": "Bolivia",
+   "region": "Latin America"
+  },
+  "CR": {
+   "name": "Costa Rica",
+   "region": "Latin America"
+  },
+  "GT": {
+   "name": "Guatemala",
+   "region": "Latin America"
+  },
+  "HN": {
+   "name": "Honduras",
+   "region": "Latin America"
+  },
+  "TT": {
+   "name": "Trinidad & Tobago",
+   "region": "Latin America"
+  },
+  "PK": {
+   "name": "Pakistan",
+   "region": "South Asia"
+  },
+  "BD": {
+   "name": "Bangladesh",
+   "region": "South Asia"
+  },
+  "LK": {
+   "name": "Sri Lanka",
+   "region": "South Asia"
+  },
+  "NP": {
+   "name": "Nepal",
+   "region": "South Asia"
+  },
+  "RO": {
+   "name": "Romania",
+   "region": "Europe"
+  },
+  "GR": {
+   "name": "Greece",
+   "region": "Europe"
+  },
+  "RS": {
+   "name": "Serbia",
+   "region": "Europe"
+  },
+  "HR": {
+   "name": "Croatia",
+   "region": "Europe"
+  },
+  "SI": {
+   "name": "Slovenia",
+   "region": "Europe"
+  },
+  "SK": {
+   "name": "Slovakia",
+   "region": "Europe"
+  },
+  "BG": {
+   "name": "Bulgaria",
+   "region": "Europe"
+  },
+  "UA": {
+   "name": "Ukraine",
+   "region": "Europe"
+  },
+  "BY": {
+   "name": "Belarus",
+   "region": "Europe"
+  },
+  "RU": {
+   "name": "Russia",
+   "region": "Europe"
+  },
+  "LV": {
+   "name": "Latvia",
+   "region": "Europe"
+  },
+  "EE": {
+   "name": "Estonia",
+   "region": "Europe"
+  },
+  "MK": {
+   "name": "North Macedonia",
+   "region": "Europe"
   }
  },
  "chains": {
@@ -1629,24 +1753,6 @@
    "fdd_available": 0,
    "franchise_note": "China (Shenzhen) pickled-fish chain (franchises since 2019); US 3 stores (Chicago Michelin Bib + 2 CA); HK fully exited."
   },
-  "baoshifu": {
-   "name": "Bao Shifu",
-   "name_zh": "鲍师傅",
-   "name_intl": "Bao Shifu",
-   "aliases": [
-    "鮑師傅",
-    "鲍师傅",
-    "Bao Shifu",
-    "Baoshifu",
-    "鲍师傅糕点"
-   ],
-   "format": "bakery",
-   "global": "China-origin bakery/pastry chain famous for its seaweed meat-floss cakes (海苔肉松小贝) — founded 2004 in Beijing by Bao Caisheng (鲍才胜); direct-operated (~100+ stores in China; well known for its anti-counterfeit trademark battles against copycats). Entering Hong Kong — first store site-selected at APM, Kwun Tong (not yet open). No known US presence.",
-   "operating_model": "company_owned",
-   "franchise_available_us": 0,
-   "fdd_available": 0,
-   "franchise_note": "China (Beijing) pastry chain, direct-operated (refused franchising to curb copycats); HK first store announced (APM Kwun Tong), not yet open. No US presence."
-  },
   "tanyaxue": {
    "name": "Tan Ya Xue",
    "name_zh": "谭鸭血老火锅",
@@ -2022,7 +2128,7 @@
     "上海肥得捞"
    ],
    "format": "hotpot",
-   "global": "Premium China-origin hot pot chain (individual-pot, premium-ingredient format), founded October 2004 in Shanghai (operator 上海肥得捞餐饮管理 / Shanghai Feidelao Catering Management). The name 豆捞 / \"Dolar\" is a pun on a Macau-dialect phrase and the brand's origin story invokes Macau, but the company was founded and is headquartered in Shanghai — China-origin under our scope. ~160+ stores across China (about 168 incl. sub-brands, early 2026). Overseas via The Dolar Shop International Group: US (Manhattan + Bellevue WA), Canada (Richmond BC + Burnaby BC) and Australia (Sydney).",
+   "global": "Premium China-origin hot pot chain (individual-pot, premium-ingredient format), founded October 2004 in Shanghai (operator 上海肥得捞餐饮管理 / Shanghai Feidelao Catering Management). The name 豆捞 / \"Dolar\" is a pun on a Macau-dialect phrase and the brand's origin story invokes Macau, but the company was founded and is headquartered in Shanghai — China-origin under our scope. ~160+ stores across China (about 168 incl. sub-brands, early 2026). Overseas via The Dolar Shop International Group: US (Manhattan + Bellevue WA), Canada (Richmond BC; Burnaby BC/Station Square closing 30 Dec 2026) and Australia (Sydney).",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
@@ -2241,14 +2347,16 @@
     "Bao's Pastry",
     "鲍师傅",
     "Bao Shifu",
-    "鲍师傅糕点"
+    "鲍师傅糕点",
+    "鮑師傅",
+    "Baoshifu"
    ],
    "format": "bakery",
-   "global": "A Beijing-headquartered bakery chain founded by Bao Caisheng about two decades ago, famous in China for its pork-floss cakes and cream-filled sponge, with more than 100 outlets. Its first US store opened in Flushing, Queens in late 2025.",
+   "global": "China-origin bakery/pastry chain, founded 2004 in Beijing by Bao Caisheng (鲍才胜), famous for its seaweed meat-floss cakes (海苔肉松小贝) and cream-filled sponge. Largely direct-operated (~100+ stores in China) and well known for aggressive anti-counterfeit trademark battles against the many copycat 'Bao's/Bao Shifu' lookalikes. First US store opened in Flushing, Queens in late 2025. Overseas expansion: Singapore (Paya Lebar Square, 2025; a Westgate flagship followed), Hong Kong (first store site-selected at APM, Kwun Tong — announced, not yet open), and Malaysia (first official outlet announced for Sunway Pyramid, Selangor, ~December 2026). Note: several unrelated Malaysian lookalike bakeries (e.g. Petaling Street, Georgetown) are NOT the real brand.",
    "operating_model": "company_owned",
    "franchise_available_us": 0,
    "fdd_available": 0,
-   "franchise_note": "Beijing pork-floss pastry chain; largely directly-operated. US-tracked via sightings; no US FDD."
+   "franchise_note": "Beijing seaweed/pork-floss pastry chain (founder 鲍才胜, 2004); direct-operated and refuses franchising to curb copycats. US-tracked via a Flushing sighting; abroad in Singapore, with Hong Kong and Malaysia stores announced. No US FDD."
   },
   "dalongyi": {
    "name": "Dalongyi",
@@ -2512,6 +2620,129 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "China-origin (Chongqing 2012) malatang chain (~400 China stores, 17 provinces). Tracked abroad via its first Japan store (Ikebukuro, Jul 2026). No US presence or FDD confirmed."
+  },
+  "vivaia": {
+   "name": "VIVAIA",
+   "name_zh": "",
+   "name_us": "VIVAIA",
+   "aliases": [
+    "VIVAIA",
+    "Vivaia"
+   ],
+   "format": "apparel",
+   "sector": "apparel",
+   "global": "VIVAIA is a China-incubated direct-to-consumer footwear brand (machine-washable flats and shoes made from recycled materials) — founded 2020, incubated by Starlink (a Shenzhen, China company; ByteDance/Sequoia-backed) and manufacturing all its products in China, but run as a cross-border DTC/export brand (vivaia.com + marketplaces) selling in 60+ countries with NO brick-and-mortar stores in its home China market. From 2025 it built a US PHYSICAL retail chain: SoHo New York (68 Prince St, first US store, Apr 2025), Roosevelt Field (Garden City NY), Westfield Garden State Plaza (Paramus NJ), Westfield Valley Fair (Santa Clara CA) and The Florida Mall (Orlando FL) — 5 VIVAIA-branded US stores. This is the 'DTC-to-US-physical' breed (a China online/DTC brand with no China retail that builds a real US store chain), counted under the Brand Flagships lens alongside Fioboc and VEVOR. Von Maur concessions and Nordstrom/Dillard's wholesale are excluded (not VIVAIA-branded standalone stores).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-incubated DTC footwear brand running its own US mall/street stores (5). No US franchise or FDD. Counted under the 'DTC-to-US-physical' Brand Flagships breed (China online brand, no China B&M, builds a US physical chain)."
+  },
+  "smfk": {
+   "name": "SMFK",
+   "name_intl": "SMFK",
+   "aliases": [
+    "SMFK",
+    "Not for Sale"
+   ],
+   "format": "apparel",
+   "global": "Beijing contemporary-fashion label (founded 2016 by Sam Ren 任祎 and Frank Liu; operator Yichen Fashion Design (Beijing) Co.). Minimalist streetwear-to-designer womenswear and menswear under the motto “Not for Sale”; ~50 directly-run boutiques across ~35 Chinese cities. Overseas since Jan 2024 — Australia (Sydney), Canada (Richmond BC) and the US (two Los Angeles-area stores: a Beverly Hills flagship and Westfield Century City). No Chinese brand name (uses SMFK).",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Beijing womenswear/streetwear chain; US-tracked via its two Los Angeles-area boutiques (Beverly Hills flagship + Westfield Century City), with stores in Sydney and Richmond BC abroad. No US franchise offer or FDD."
+  },
+  "chanbaimei": {
+   "name": "Chan Bai Mei",
+   "name_intl": "Chan Bai Mei",
+   "aliases": [
+    "馋百妹",
+    "馋白妹",
+    "馋百妹山楂",
+    "馋百妹糖葫芦",
+    "Chan Bai Mei",
+    "candied hawthorn",
+    "tanghulu",
+    "冰糖葫芦",
+    "山楂"
+   ],
+   "format": "snack",
+   "global": "China-origin candied-hawthorn chain (冰糖葫芦/山楂鲜果茶; hawthorn-girl mascot). Operates in China (e.g. Guangzhou 光明广场) and expanded to the US (Flushing NY head store + mall counters in CA/NV/PA/FL/NJ) and Germany (Düsseldorf). Brand shown as both 馋百妹 and 馋白妹.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China candied-hawthorn (tanghulu) chain; US-tracked via its Flushing head store + mall counters. No US franchise offer or FDD confirmed."
+  },
+  "singchoikee": {
+   "name": "Sing Choi Kee",
+   "name_intl": "Sing Choi Kee",
+   "aliases": [
+    "星财记",
+    "Sing Choi Kee",
+    "香港冰室",
+    "茶餐厅",
+    "冰室"
+   ],
+   "format": "restaurant",
+   "global": "China-origin Hong-Kong-style café (香港冰室/茶餐厅) chain from Fujian (first store in Fujian, China; 16–20+ China stores). HK-themed 港餐 concept but a mainland Fuzhou operator (cf. Makkee). It runs an explicit 'Sing Choi Kee America' (星财记美国) expansion — EB-5 investor/franchise model, US franchisor 'Sing Choi Kee Franchise Inc.' — confirming the US stores are the same brand. US: Flushing/Tangram, West Nyack (Palisades), Albany, Malden MA. US uses a fox mascot (China uses a cat) — same-brand US localization.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Fujian HK-style café chain; US-tracked via its 3 stores (Flushing/Tangram, Palisades Center, Malden MA). No US franchise offer or FDD confirmed."
+  },
+  "olight": {
+   "name": "Olight",
+   "name_zh": "傲雷",
+   "name_intl": "Olight",
+   "aliases": [
+    "Olight",
+    "傲雷",
+    "Olight Store"
+   ],
+   "format": "electronics",
+   "global": "China-origin flashlight / EDC-gear maker (傲雷; founded 2007 in Shenzhen by Fox Fan, HQ Zhongshan, Guangdong). A 'Brand Flagship': it opened its first US own-brand store — billed as the world's first 'flashlight experience store' — at Fashion Show in Las Vegas in Sep 2024. Sells globally online; other US sales are via resellers (not counted). Counted on the strength of its Las Vegas flagship.",
+   "operating_model": "company_owned",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China (Shenzhen) flashlight/EDC maker; US via a single Las Vegas experience-store flagship. Brand Flagship. No US franchise or FDD.",
+   "lane": "brand_flagship"
+  },
+  "xishi": {
+   "name": "XISHI",
+   "name_zh": "喜识",
+   "aliases": [
+    "Xishi",
+    "Xi Shi",
+    "喜识糖葫芦",
+    "喜识冰糖葫芦",
+    "XISHI Tanghulu"
+   ],
+   "format": "snack",
+   "global": "China-origin candied-haws (冰糖葫芦/tanghulu) and yogurt-dessert chain, founded September 2003 in Shijiazhuang (Hebei); operator Shijiazhuang Xishi Catering Enterprise Management Co., Ltd. Famous for skewered fruit (traditionally hawthorn, plus strawberry and grape) in a glossy hard-sugar shell, alongside yogurt cubes and soft-serve yogurt parfaits. A franchise brand with a large China footprint — the operator reports 700+ stores across 30+ provinces (press commonly cites 300+ worldwide), so counts conflict and no single figure is asserted. Also present in Spain and South Korea. Entered North America for the first time in October 2025, opening inside Crystal Mall in Burnaby, British Columbia (its first Canadian and first North American store). No US presence.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "China-origin (Shijiazhuang, 2003) tanghulu/yogurt-dessert franchise; tracked abroad via its first North American store in Burnaby BC. No US location, open US franchise offer, or FDD confirmed."
+  },
+  "taning": {
+   "name": "TANING",
+   "name_intl": "TANING",
+   "name_zh": "挞柠",
+   "name_us": "TANING Lemon Tea",
+   "aliases": [
+    "TANING",
+    "Taning",
+    "Taning Lemon Tea",
+    "挞柠",
+    "撻檸",
+    "挞柠手打柠檬茶",
+    "手打柠檬茶"
+   ],
+   "format": "tea",
+   "global": "China-origin lemon-tea chain founded in Guangzhou in 2017 (parent 味满多 / Weimanduo restaurant group), built on Cantonese-style hand-pounded lemon tea and now sold as fruit-and-vegetable tea. The brand claims more than 1,000 stores — a self-reported figure that its own pages state inconsistently — and lists 13 markets. Its first overseas store was in Hanoi in 2019 (Vietnam is not on its current market list). US: Flushing and Brooklyn NY, Sunnyvale CA. Not Ningji 柠季 or NingQi 柠気.",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Guangzhou lemon-tea chain that franchises in China and recruits overseas partners; the operator of its US stores is not identified and no US franchise offer or FDD has been found."
   }
  },
  "entries": [
@@ -6657,61 +6888,73 @@
    "chain": "yangguofu",
    "market": "GB",
    "status": "present",
-   "locations": null,
+   "locations": 6,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "At least two London restaurants under the Yangguofu Malatang name: an early branch in Hammersmith (8 Hammersmith Broadway) and a two-storey site in Chinatown (47-49 Charing Cross Road) that opened in August 2025.",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "At least two London restaurants under the Yangguofu Malatang name: an early branch in Hammersmith (8 Hammersmith Broadway) and a two-storey site in Chinatown (47-49 Charing Cross Road) that opened in August 2025. Reconciled to the brand's official store locator (6 listed: London (Hammersmith, Chinatown), Edinburgh, Newcastle, Southampton, Manchester).",
    "sources": [
     "https://www.hot-dinners.com/2025080614398/Gastroblog/Latest-news/yangguofu-malatang-opens-chinatown-london-hotpot",
-    "https://www.theinfatuation.com/london/reviews/yangguofu-malatang-chinatown"
-   ]
+    "https://www.theinfatuation.com/london/reviews/yangguofu-malatang-chinatown",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
    "market": "FR",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "In at least three French cities: Paris (13th and 9th arrondissements), Lille, and Strasbourg, where its first store opened on 23 May 2026 and was reported as the chain's third French city.",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "In at least three French cities: Paris (13th and 9th arrondissements), Lille, and Strasbourg, where its first store opened on 23 May 2026 and was reported as the chain's third French city. Reconciled to the brand's official store locator (4 listed: Paris, Lille, Strasbourg, Lyon).",
    "sources": [
     "https://www.pariszigzag.fr/bar-restaurant/restaurant/yang-guo-fu/",
-    "https://lexpress-franchise.com/actualites/yang-guo-fu-ouvre-son-premier-restaurant-a-strasbourg-troisieme-ville-francaise-pour-lenseigne-de-malatang/"
-   ]
+    "https://lexpress-franchise.com/actualites/yang-guo-fu-ouvre-son-premier-restaurant-a-strasbourg-troisieme-ville-francaise-pour-lenseigne-de-malatang/",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
    "market": "MY",
    "status": "present",
-   "locations": null,
+   "locations": 11,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "Multiple Klang Valley outlets since 2023 — Pavilion KL / Pavilion Elite, 1 Utama, SS2 and IOI City Mall — operated 'no pork no lard' for the local market.",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Multiple Klang Valley outlets since 2023 — Pavilion KL / Pavilion Elite, 1 Utama, SS2 and IOI City Mall — operated 'no pork no lard' for the local market. Reconciled to the brand's official store locator (11 listed: KL Pavilion, PJ (SS2, Sunway Pyramid), Putrajaya IOI City, Shah Alam, JB (Toppen + Aeon), Ipoh, Kuching, Penang, Malacca).",
    "sources": [
     "https://www.pavilion-kl.com/store/yang-guo-fu/",
-    "https://www.malaysianfoodie.com/2023/10/yang-guo-fu-pavilion-bukit-bintang.html"
-   ]
+    "https://www.malaysianfoodie.com/2023/10/yang-guo-fu-pavilion-bukit-bintang.html",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
    "market": "AU",
    "status": "present",
-   "locations": null,
+   "locations": 7,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "Several Sydney locations — the Dixon House food court on Sussex Street (CBD), 708 George Street in Haymarket, and Burwood (127-133 Burwood Road).",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Several Sydney locations — the Dixon House food court on Sussex Street (CBD), 708 George Street in Haymarket, and Burwood (127-133 Burwood Road). Reconciled to the brand's official store locator (7 listed: Sydney (Kingsford, Haymarket, Burwood), Canberra, Adelaide (Mawson Lakes, flagship, Firle)).",
    "sources": [
     "https://www.broadsheet.com.au/sydney/food-and-drink/article/local-knowledge-yang-guo-fu-malatang",
-    "https://www.tripadvisor.com.au/Restaurant_Review-g1899976-d14246242-Reviews-Yang_Guo_Fu_Ma_La_Tang-Burwood_Greater_Sydney_New_South_Wales.html"
-   ]
+    "https://www.tripadvisor.com.au/Restaurant_Review-g1899976-d14246242-Reviews-Yang_Guo_Fu_Ma_La_Tang-Burwood_Greater_Sydney_New_South_Wales.html",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
@@ -6721,8 +6964,8 @@
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-10-18",
-   "note": "Two open HK stores, hand-verified Oct 2026 (Google): Central and Wan Chai. China-origin malatang chain (杨国福麻辣烫).",
+   "reviewed": "2026-11-22",
+   "note": "Two open HK stores, hand-verified Oct 2026 (Google): Central and Wan Chai. China-origin malatang chain (杨国福麻辣烫). (Brand locator lists ~3 HK stores; kept at 2 hand-verified open.)",
    "sources": [
     "https://www.openrice.com/en/hongkong/r-%E6%A5%8A%E5%9C%8B%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%87%99-central-northeastern-r809941",
     "https://www.foodpanda.hk/zh/chain/cw0ii/yang-guo-fu-mala-tang",
@@ -6734,45 +6977,53 @@
    "chain": "yangguofu",
    "market": "NL",
    "status": "present",
-   "locations": null,
+   "locations": 3,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "Two Dutch cities run through the brand's European arm (yangguofueurope.com): Rotterdam, in the Markthal as 'Hotbowl Yangguofu Malatang' (Verlengde Nieuwstraat 87), and Eindhoven (Nieuwstraat 27).",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Two Dutch cities run through the brand's European arm (yangguofueurope.com): Rotterdam, in the Markthal as 'Hotbowl Yangguofu Malatang' (Verlengde Nieuwstraat 87), and Eindhoven (Nieuwstraat 27). Reconciled to the brand's official store locator (3 listed: Rotterdam, Eindhoven, Amsterdam).",
    "sources": [
     "https://www.yangguofueurope.com/en/",
-    "https://www.hotbowl.nl/menu"
-   ]
+    "https://www.hotbowl.nl/menu",
+    "https://ygfglobal.com/en/locations"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
    "market": "BE",
    "status": "present",
-   "locations": null,
+   "locations": 5,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "Brussels (Rue Ernest Solvay 6, Ixelles — billed as the first malatang in Belgium) and Antwerp, run through the brand's European arm.",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Brussels (Rue Ernest Solvay 6, Ixelles — billed as the first malatang in Belgium) and Antwerp, run through the brand's European arm. Reconciled to the brand's official store locator (5 listed: Brussels x2, Antwerp, Leuven, Liège).",
    "sources": [
     "https://yangguofu-resto.be/",
-    "https://restaurantguru.com/Yangguofu-Malatang-%E6%9D%A8%E5%9B%BD%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%83%AB-Ixelles"
-   ]
+    "https://restaurantguru.com/Yangguofu-Malatang-%E6%9D%A8%E5%9B%BD%E7%A6%8F%E9%BA%BB%E8%BE%A3%E7%83%AB-Ixelles",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
    "market": "TW",
    "status": "present",
-   "locations": null,
+   "locations": 4,
    "first_opened": null,
    "precision": null,
-   "confidence": "high",
-   "reviewed": "2026-10-02",
-   "note": "At least two Taipei stores: the Nangang 'first store' (南港首店, No. 280 Section 2 Nangang Road, Nangang District) and a Xinyi / Taipei Arena-area store (市府巨蛋店, off Section 4 Zhongxiao East Road, Xinyi District).",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "At least two Taipei stores: the Nangang 'first store' (南港首店, No. 280 Section 2 Nangang Road, Nangang District) and a Xinyi / Taipei Arena-area store (市府巨蛋店, off Section 4 Zhongxiao East Road, Xinyi District). Reconciled to the brand's official store locator (4 listed: Taipei x2, Keelung, New Taipei (Xizhi)).",
    "sources": [
-    "https://vjjourney.com/yang-guo-fu/"
-   ]
+    "https://vjjourney.com/yang-guo-fu/",
+    "https://ygfglobal.com/en/locations",
+    "https://www.yangguofueurope.com/en/"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "yangguofu",
@@ -7138,6 +7389,201 @@
    ]
   },
   {
+   "chain": "huawei",
+   "market": "PL",
+   "status": "exited",
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Flagship Huawei store in Arkadia mall, Warsaw (opened Dec 2018, first in CEE) closed Feb 1 2023; press framed it as Huawei (and Xiaomi) pulling brand stores. Only service points remain.",
+   "sources": [
+    "https://gsmonline.pl/artykuly/huawei-juz-zamknal-swoj-flagowy-salon-w-warszawie",
+    "https://www.gsmonline.pl/artykuly/samsung-otwiera-w-polsce-kolejny-brand-store-swoje-sklepy-zamykaja-huawei-i-xiaomi"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "BR",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Official 'Loja Autorizada Huawei' opened Aug 2025 at Shopping Center Norte, Sao Paulo (celebrated 1 year Aug 2026); plus pop-up at Shopping Cidade SP. Full flagship 'Experience Store' announced June 2025 but not yet open.",
+   "sources": [
+    "https://canaltech.com.br/smartphone/huawei-amplia-presenca-no-brasil-com-nova-loja-em-sao-paulo/",
+    "https://mercadoeconsumo.com.br/05/08/2025/noticias-varejo/huawei-inaugura-sua-primeira-pop-up-store-no-brasil-em-shopping-de-sao-paulo/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "EC",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2022",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei's first Ecuador experience store opened 2022 on level 1 of C.C. El Recreo, Quito. No closure found; Guayaquil has only HONOR (separate brand).",
+   "sources": [
+    "https://primicias.ec/noticias/patrocinado/la-experiencia-huawei-llego-al-centro-comercial-el-recreo"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "PE",
+   "status": "present",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Multi-store Experience Store network in Peru from Feb 2017 (MegaPlaza, Mall del Sur, Jockey Plaza, Plaza San Miguel, Mall Aventura Santa Anita; 8+ by 2020). No closure found; exact current count unverified.",
+   "sources": [
+    "https://www.peru-retail.com/huawei-inauguro-primera-tienda-experiencia-peru/",
+    "https://www.peru-retail.com/la-tienda-mas-grande-de-huawei-abre-en-el-centro-comercial-plaza-san-miguel/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "DE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2021",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Official Huawei store locator currently lists one HUAWEI Flagship Store: Berlin, Kurfuerstendamm 11, 10719 Berlin (opened 2021). An earlier Experience Store at Centro Oberhausen was also opened; current status not confirmed on the live locator, consistent with Huawei's Western-Europe retrenchment. Counted floor = 1 (Berlin confirmed live).",
+   "sources": [
+    "https://consumer.huawei.com/de/retail/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "CO",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience stores in Colombia (~11; Bogotá malls).",
+   "sources": [
+    "https://consumer.huawei.com/co/retail/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "CL",
+   "status": "exited",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei had ~10 brand stores in Chile (2021) but closed its retail there Sept 2022; /cl/ site now service-only.",
+   "sources": [
+    "https://www.peru-retail.com/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "AR",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience presence in Buenos Aires (Unicenter).",
+   "sources": [
+    "https://consumer.huawei.com/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "BO",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience stores in Bolivia (~7 with partners; La Paz, Santa Cruz, Cochabamba).",
+   "sources": [
+    "https://consumer.huawei.com/bo/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "CR",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience stores in Costa Rica (3-4; San José, Alajuela).",
+   "sources": [
+    "https://consumer.huawei.com/cr/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "GT",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience store(s) in Guatemala City (Miraflores, Plaza DQ).",
+   "sources": [
+    "https://consumer.huawei.com/gt/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "LK",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei experience stores in Sri Lanka via Singer (Colombo One Galle Face flagship, Majestic City, Kandy).",
+   "sources": [
+    "https://www.ft.lk/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "SI",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei Authorized Experience Store, Ljubljana (CityPark).",
+   "sources": [
+    "https://consumer.huawei.com/si/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "RU",
+   "status": "exited",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei began closing its branded stores and Vmall in Russia June–Aug 2022.",
+   "sources": [
+    "https://tass.com/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "PA",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience store in Panama City.",
+   "sources": [
+    "https://consumer.huawei.com/pa/"
+   ]
+  },
+  {
+   "chain": "huawei",
+   "market": "MX",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Huawei authorized experience stores in Mexico (~11 on locator; CDMX, Guadalajara, Monterrey, Cancún).",
+   "sources": [
+    "https://consumer.huawei.com/mx/retail/"
+   ]
+  },
+  {
    "chain": "lining",
    "market": "SA",
    "status": "present",
@@ -7176,6 +7622,22 @@
    "reviewed": "2026-11-21",
    "note": "Searched for an Xtep Japan store (2026-11): none found. 'STEP SPORTS Tokyo' is an unrelated brand, not Xtep (特步).",
    "sources": []
+  },
+  {
+   "chain": "xtep",
+   "market": "IN",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2022",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Xtep entered India's offline market with its first store in Mumbai (Nov 2022) and has expanded brick-and-mortar retail since; interviews cite roughly 50 India stores (undated). Floor set to 1 (clearly multiple but exact current count unconfirmed).",
+   "sources": [
+    "https://in.fashionnetwork.com/news/Xtep-enters-India-s-offline-market-with-its-first-store-in-Mumbai,1457045.html",
+    "https://dfupublications.com/news/apparel/xtep-india-expands-reach-with-retail-boost-digital-enhancement"
+   ]
   },
   {
    "chain": "balabala",
@@ -8362,6 +8824,23 @@
    "sources": []
   },
   {
+   "chain": "anta",
+   "market": "IN",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Anta re-entered India via local partner Brandman Retail; first exclusive brand store launched at AIPL Joy Gallery, Gurgaon (reported Aug 2026). Franchisee targets ~22 stores by 2027, longer-term ~150. Floor set to 1 confirmed open store.",
+   "sources": [
+    "https://www.franchiseindia.com/insights/en/news/anta-steps-into-india-with-debut-store-in-gurgaon-backed-by-brandman-retail.59609",
+    "https://jingdaily.com/intels/2026-04/28/china-s-anta-sports-returns-to-india-with-10-stores-planned",
+    "https://bwretailworld.com/sector/fashion-lifestyle/anta-doubles-india-store-target-to-22-eyes-150-stores"
+   ]
+  },
+  {
    "chain": "jnby",
    "market": "SA",
    "status": "no_evidence",
@@ -8385,6 +8864,22 @@
    "sources": [
     "https://jnbyplus.com/pages/global-stores",
     "https://www.instagram.com/jnby_japan/"
+   ]
+  },
+  {
+   "chain": "jnby",
+   "market": "DE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "JNBY's first German monobrand store: Bikini Berlin (114 sqm, first floor above the main entrance facing Kaiser-Wilhelm-Gedaechtniskirche). Previously sold in Germany only wholesale (About You, Konen, Myclassico). first_opened year approximate from trade press.",
+   "sources": [
+    "https://www.bikiniberlin.de/en/shopping/jnby/",
+    "https://www.textilwirtschaft.de/retail/jnby-daunen-im-bikini-132120"
    ]
   },
   {
@@ -9519,6 +10014,351 @@
    ]
   },
   {
+   "chain": "miniso",
+   "market": "GE",
+   "status": "present",
+   "locations": 5,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "MINISO Georgia LLC operating since May 2023; multiple Tbilisi locations (Saburtalo, Didi Dighomi, Gldani City Mall, Varketili) plus Rustavi, Batumi and Gori stores per delivery-platform listings.",
+   "sources": [
+    "https://kss.unglobalcompact.org/what-is-gc/participants/157741-MINISO-Georgia-LLC",
+    "https://wolt.com/en/geo/tbilisi/brand/miniso",
+    "https://glovoapp.com/it/ge/batumi/stores/miniso-1"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "SE",
+   "status": "announced",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "First Sweden store announced at Westfield Mall of Scandinavia, Stockholm (MINISO FRIENDS blind-box concept); press says doors open 'later this year / end of 2026', not confirmed open as of research date.",
+   "sources": [
+    "https://www.westfield.com/en/sweden/mallofscandinavia/news/swedens-first-miniso-store-opens-at-westfield-mall-of-scandinavia-the-ultimate-destination-for-blind-boxes/137510",
+    "https://news.cision.com/se/unibail-rodamco-westfield/r/miniso-enters-sweden-with-its-first-store-at-westfield-mall-of-scandinavia---debuting-the-latest-con,c4367982"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "BR",
+   "status": "present",
+   "locations": 50,
+   "locations_as_of": "2019",
+   "first_opened": "2017-08",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "First store opened Aug 2017 at Shopping Ibirapuera, Sao Paulo; company reported 50+ stores (mostly Sao Paulo/Rio) by 2019. Conservative floor; likely higher now.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO",
+    "https://insideretail.asia/?p=33290"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "EC",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2024",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Entered Ecuador via Grupo Acosta with first store at Quicentro Shopping, Quito; further Quito and Guayaquil openings planned.",
+   "sources": [
+    "https://www.modaes.com/empresa/miniso-desembarca-en-ecuador-con-su-primera-tienda-en-quito-en-plena-apuesta-por-latinoamerica",
+    "https://www.ttrdata.com/en/radar/aggregated/Miniso-launches-operations-in-Ecuador-opening-first-store-in-Quito/275115"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "NI",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2021",
+   "first_opened": "2021-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Operated via local partner CIRI Nicaragua; first store at Centro Comercial Galerias Santo Domingo opened December 2021.",
+   "sources": [
+    "https://chambers.com/articles/ciri-nicaragua-a-new-shopping-concept-in-the-country"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "PA",
+   "status": "exited",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "First store opened Jan 2018 at Albrook Mall; Panama America (2022) reports stores closed during the pandemic and did not reopen. A re-entry to Panama was later floated in trade press but no open store confirmed. Note: 'largest Central America store' reports refer to Costa Rica (Multiplaza del Este, Curridabat), not Panama.",
+   "sources": [
+    "https://www.panamaamerica.com.pa/economia/miniso-la-tienda-que-llena-de-nostalgia-los-panamenos-admite-sus-raices-chinas-1211276",
+    "https://www.pardinilaw.com/EN/padela/news/199/miniso-opens-its-first-store-in-panama-with-legal-advice-of-pardini-amp-asociados/EN/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "PE",
+   "status": "present",
+   "locations": 39,
+   "locations_as_of": "2025",
+   "first_opened": "2018-05",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "First store May 2018 at Jockey Plaza, Lima; trade press reports 40-47 stores nationwide. Conservative floor of 39 (store #39 at La Rambla explicitly cited).",
+   "sources": [
+    "https://www.peru-retail.com/miniso-alcanza-las-47-tiendas-en-peru-con-una-nueva-apertura-donde-esta-ubicada/",
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "UY",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2023",
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Entered Uruguay with first two stores; plan to reach ~15 outlets over five years. Uruguay listed among MINISO's active Latin American markets.",
+   "sources": [
+    "https://www.modaes.com/empresa/miniso-sigue-imparable-en-latinoamerica-desembarca-en-uruguay-con-dos-tiendas.html",
+    "https://ecosistemastartup.com/?p=112892"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "IN",
+   "status": "present",
+   "locations": 200,
+   "locations_as_of": "2024",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Entered India 2017; company reported 200+ stores across 120+ cities by 2022-2024, including flagship at DLF Mall of India and airport stores.",
+   "sources": [
+    "https://www.aap.com.au/aapreleases/cision20220831ae59500",
+    "https://aap.com.au/aapreleases/cision20240229ae49169/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "CO",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO across Colombia — ~100-store milestone announced 2026 (Bogotá, Medellín, Bello). Count approximate.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "CL",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Chile — ~48 stores; first LatAm flagship at Costanera Center (Santiago, Oct 2023); targeting 60 by 2027.",
+   "sources": [
+    "https://blog.investchile.gob.cl/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "AR",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO re-entered Argentina (third store, Plaza Oeste Shopping, Buenos Aires metro); low-single-digit count so far.",
+   "sources": [
+    "https://mercado.com.ar/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "BO",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Bolivia (~10 stores by 2020). Count dated.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "CR",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Costa Rica (10+; \"largest store in Central America\", Multiplaza del Este, Nov 2025).",
+   "sources": [
+    "https://delfino.cr/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "GT",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Guatemala (\"MINISO Land\", Oakland Place, Oct 2025).",
+   "sources": [
+    "https://emisorasunidas.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "HN",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Honduras (among the first Central American markets MINISO entered).",
+   "sources": [
+    "https://www.peru-retail.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "TT",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Trinidad & Tobago (first store Gulf City Mall, San Fernando, Sept 2023).",
+   "sources": [
+    "https://www.guardian.co.tt/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "PK",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Pakistan via franchise (~68 reported; Karachi, Lahore, Islamabad). Count dated.",
+   "sources": [
+    "https://aurora.dawn.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "BD",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Bangladesh (entered 2017/18; Dhaka flagship Bashundhara City; Chattogram).",
+   "sources": [
+    "https://www.tbsnews.net/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "LK",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Sri Lanka via master franchisee Abans (~6 showrooms; Colombo, Kurunegala).",
+   "sources": [
+    "https://www.ft.lk/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "NP",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Nepal (Kathmandu flagship Rising Mall, Patan). Sources dated; verify.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "RO",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Romania (first store Bucharest 2018; multiple — Mega Mall, Veranda, Iris Titan).",
+   "sources": [
+    "https://seenews.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "GR",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO in Greece (Athens; European expansion 2024).",
+   "sources": [
+    "https://www.retaildive.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "RS",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "MINISO listed among European markets with outlets (Serbia). Low detail; verify.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "BG",
+   "status": "announced",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "MINISO announced a Bulgaria entry (25-store plan, 2018); no confirmed open store.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "LV",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO opened in Latvia (Riga, Q4 2025).",
+   "sources": [
+    "https://www.prnewswire.com/"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "EE",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "MINISO listed among European markets (Estonia). Dated list; verify.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/MINISO"
+   ]
+  },
+  {
+   "chain": "miniso",
+   "market": "MK",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "MINISO opened in North Macedonia (Skopje, Q4 2025).",
+   "sources": [
+    "https://www.prnewswire.com/"
+   ]
+  },
+  {
    "chain": "xiaomi",
    "market": "PL",
    "status": "present",
@@ -9534,6 +10374,299 @@
    ]
   },
   {
+   "chain": "xiaomi",
+   "market": "GE",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2020",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Official Mi Store(s) in Tbilisi opened by authorized partner iCity (first ~2020, Pekini St); multiple Tbilisi locations (City Mall Saburtalo, Galleria, Axis Towers). Partner-operated Xiaomi-branded, not resellers.",
+   "sources": [
+    "https://cbw.ge/business/xiaomis-first-official-store-opens-in-tbilisi",
+    "https://bm.ge/en/article/xiaomi-monobrand-store-opens-in-tbilisi---where-and-when/66258"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "BR",
+   "status": "present",
+   "locations": 7,
+   "locations_as_of": "2026-11",
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Official Xiaomi/Mi Stores via exclusive partner DL Eletronicos; first store Sao Paulo (Ibirapuera) 2019, expanded to 7+ confirmed (later undated tallies cite ~33). Brand storefronts distinct from 7,000+ reseller points.",
+   "sources": [
+    "https://tecnoblog.net/noticias/xiaomi-anuncia-cinco-novas-lojas-em-sao-paulo-rio-salvador-e-curitiba/",
+    "https://olhardigital.com.br/noticia/xiaomi-anuncia-loja-oficial-no-brasil-e-chegada-de-patinete-eletrico/86033"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "PE",
+   "status": "present",
+   "locations": 44,
+   "locations_as_of": "2026-11",
+   "first_opened": "2019",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Large official Xiaomi Store network; Peru hosted Xiaomi's first official LatAm store (Lima ~2019). 44+ stores nationwide (store #46 reported), incl. Jockey Plaza, Real Plaza Santa Clara, and cities beyond Lima.",
+   "sources": [
+    "https://www.peru-retail.com/xiaomi-inaugura-su-tienda-numero-46-en-un-reconocido-centro-comercial-de-lima/",
+    "https://www.mi.com/pe/store/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "IN",
+   "status": "present",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi runs exclusive-brand retail in India (flagship Mi Home stores in major cities plus small franchised Mi Store outlets). The widely-cited \"3,000\" is the 2020 \"3,000th Mi Store\" milestone — a peak-era figure; Xiaomi's India offline network has contracted substantially since 2022 and no current, independently verifiable store count is available, so recorded as present without a count.",
+   "sources": [
+    "https://m.gsmarena.com/xiaomi_opens_its_first_mi_home_in_india-news-24976.php",
+    "https://www.techradar.com/news/xiaomi-opens-its-3000th-mi-store-in-india"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "CO",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Authorized Xiaomi/Mi Store network (first Mi Store in Latin America, Bogotá; ~15 reported 2021). Partner-run; count dated.",
+   "sources": [
+    "https://www.mi.com/co/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "CL",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Chile (first Santiago Apumanque 2019; ~6 reported 2021). Partner-run; dated.",
+   "sources": [
+    "https://www.mi.com/cl/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "AR",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi first physical store Apr 2022 (Abasto Shopping, Buenos Aires; distributor Solnik-Etercor). Dated.",
+   "sources": [
+    "https://www.mi.com/ar/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "CR",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Store(s) in San José (downtown store Nov 2021). Dated.",
+   "sources": [
+    "https://www.mi.com/cr/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "GT",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Store(s) in Guatemala (~2 reported 2021). Dated.",
+   "sources": [
+    "https://www.mi.com/gt/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "PK",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Authorized exclusive Mi Stores via partner Smartlink Technologies (mistore.pk). Count unverified.",
+   "sources": [
+    "https://mistore.pk/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "BD",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Large authorized Mi Store network in Bangladesh (franchise-run exclusive stores; official entry 2018). Count unverified.",
+   "sources": [
+    "https://www.mi.com/bd/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "LK",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Exclusive Store opened ~2026 at One Galle Face, Colombo (via Abans).",
+   "sources": [
+    "https://www.ft.lk/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "NP",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Authorized Mi Stores in Nepal (Kathmandu, Butwal, Biratnagar). Dated.",
+   "sources": [
+    "https://www.mi.com/np/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "RO",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Store in Bucharest (Mega Mall, 2019); partner-run, verify current.",
+   "sources": [
+    "https://www.mi.com/ro/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "GR",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Greece (Athens 2017 — first in Europe; 6+). Distributor Info Quest; dated.",
+   "sources": [
+    "https://www.mi.com/gr/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "RS",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Serbia (Belgrade; distributor PC Centar). Dated.",
+   "sources": [
+    "https://www.mi.com/rs/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "HR",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Croatia (Zagreb 2018, Split 2020; distributor Bijelić). Dated.",
+   "sources": [
+    "https://www.mi.com/hr/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "SI",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Slovenia (Ljubljana, Maribor, Koper). Dated.",
+   "sources": [
+    "https://www.mi.com/si/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "SK",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi authorized store in Slovakia (Bratislava). Dated.",
+   "sources": [
+    "https://www.mi.com/sk/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "BG",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Store in Bulgaria (Sofia, Paradise Center, 2021). Dated.",
+   "sources": [
+    "https://www.mi.com/bg/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "UA",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Home & Service in Ukraine (Kyiv; partner NIS). War-period status; verify.",
+   "sources": [
+    "https://www.mi.com/ua/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "BY",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Belarus (Minsk, 2017+). Sanctions-period status unverified.",
+   "sources": [
+    "https://www.mi.com/by/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "RU",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Large authorized Mi Store network in Russia; no announced exit but marketing halted since 2022 — retrenched. Monitor.",
+   "sources": [
+    "https://www.mi.com/ru/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "PA",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Store(s) in Panama (2 reported 2019). Dated; verify.",
+   "sources": [
+    "https://www.mi.com/pa/"
+   ]
+  },
+  {
+   "chain": "xiaomi",
+   "market": "MX",
+   "status": "present",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Xiaomi Mi Stores in Mexico (mi.com/mx; active LatAm market).",
+   "sources": [
+    "https://www.mi.com/mx/"
+   ]
+  },
+  {
    "chain": "mixue",
    "market": "PL",
    "status": "no_evidence",
@@ -9543,6 +10676,34 @@
    "confidence": "low",
    "reviewed": "2026-10-05",
    "note": "Searched by English and Chinese names (2026-10-05); no Poland store found. Mixue's European footprint so far is France; Poland is not among its stated markets."
+  },
+  {
+   "chain": "mixue",
+   "market": "BR",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "First South American store opened on Avenida Paulista, Shopping Cidade Sao Paulo (sources conflict between Jan and Apr 2026). Directly company-operated at launch; Mixue announced 500-1000 store Brazil build-out by 2030 plus a local supply factory. Only confirmed Latin American market.",
+   "sources": [
+    "https://www.worldcoffeeportal.com/news/chinas-mixue-eyes-rapid-expansion-in-brazil-after-debuting-in-sao-paulo/",
+    "https://kr-asia.com/pulses/161196",
+    "https://www.devdiscourse.com/article/business/3870420-mixues-south-american-debut-signals-chinese-expansion-in-brazil"
+   ]
+  },
+  {
+   "chain": "mixue",
+   "market": "RU",
+   "status": "present",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "A single certified Mixue franchise reported in St. Petersburg (~May 2024, trades locally as \"Династия снежок\"); isolated local franchise, not corporate entry. Verify.",
+   "sources": [
+    "https://t-j.ru/"
+   ]
   },
   {
    "chain": "popmart",
@@ -9578,6 +10739,17 @@
    "note": "Qatar (Doha) is repeatedly listed among Cotti's current operating markets (named in the batch's own SA note and in Gulf News coverage of its global footprint), but there is no QA entry in the batch. Brand-operated/franchise presence; no market-specific count found.",
    "sources": [
     "https://gulfnews.com/business/corporate-news/cotti-coffee-accelerates-global-footprint-with-flagship-store-in-iconic-dubai-mall-1.500373885"
+   ]
+  },
+  {
+   "chain": "cotti",
+   "market": "CO",
+   "status": "announced",
+   "confidence": "low",
+   "reviewed": "2026-11-22",
+   "note": "Cotti Coffee announced a first Latin American store in Colombia (early-2026 plan) + a coffee-sourcing MoU; no confirmed storefront yet.",
+   "sources": [
+    "https://americaretail-malls.com/"
    ]
   },
   {
@@ -10267,6 +11439,24 @@
    ]
   },
   {
+   "chain": "nonggengji",
+   "market": "SG",
+   "status": "present",
+   "locations": 8,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-23",
+   "note": "Eight Singapore outlets. Singapore was the brand's first international market — its first SG store opened 21 Oct 2023 at Collyer Quay Centre (Raffles Place), and Jewel Changi Airport was press-noted as the 8th. The brand's own Singapore Facebook page (农耕记·湖南菜土菜新加坡) states dishes are 'available at all 8 Nong Geng Ji outlets' (Nov 2026). Confirmed sites include Collyer Quay/Raffles Place, VivoCity, Velocity@Novena Square and Jewel Changi Airport. China-origin (Shenzhen 2017), direct-operated.",
+   "sources": [
+    "Brand Singapore Facebook page (农耕记·湖南菜土菜新加坡) — 'available at all 8 Nong Geng Ji outlets' (Nov 2026)",
+    "https://sethlui.com/nong-geng-ji-singapore-oct-2023/",
+    "https://eatbook.sg/nong-geng-ji-jewel/",
+    "https://sg.openrice.com/singapore/restaurant/nong-geng-ji-raffles-place/195372"
+   ]
+  },
+  {
    "chain": "ningji",
    "market": "HK",
    "status": "exited",
@@ -10471,13 +11661,14 @@
    "first_opened": null,
    "precision": null,
    "sources": [
-    "Google listings (Yang Guo Fu Mala Tang, 5 open SG outlets Oct 2026)"
+    "https://ygfglobal.com/en/locations",
+    "https://eatbook.sg/"
    ],
-   "locations": 5,
-   "locations_as_of": "2026-10",
-   "reviewed": "2026-10-18",
+   "locations": 14,
+   "locations_as_of": "2026-11",
+   "reviewed": "2026-11-22",
    "confidence": "high",
-   "note": "At least 5 open Singapore outlets, hand-counted Oct 2026 (Google): Bugis+, Orchard Rd (277), Northpoint City (Yishun), SingPost Centre (Eunos), Plaza Singapura. A floor."
+   "note": "Operating count verified on Google Maps: all 13 outlets on the brand's locator resolve to live, currently-open listings (no permanent-closure banners), plus 1 more the locator omits (Esplanade Xchange) = 14. Singapore is YGF's stated global HQ; flagship at Marina Square opened Jun 2025. Mall directories (CapitaLand) and SG food media (Eatbook) corroborate. Ultra-strict floor (only outlets flagged open-now with posted hours) is 12."
   },
   {
    "chain": "joocyee",
@@ -10494,7 +11685,7 @@
    ]
   },
   {
-   "chain": "baoshifu",
+   "chain": "baospastry",
    "market": "HK",
    "status": "announced",
    "locations": null,
@@ -10551,21 +11742,234 @@
    "sources": []
   },
   {
+   "chain": "lining",
+   "market": "NL",
+   "status": "exited",
+   "first_opened": "2008",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Li-Ning opened an early European monobrand store in Maastricht (~2008, its first mono-brand store in the Netherlands) as part of a Benelux roll-out plan; the Maastricht store later closed due to lack of consumer interest. No current Li-Ning monobrand store in NL.",
+   "sources": [
+    "https://www.sgieurope.com/a-li-ning-mono-brand-store-that-opened-in-maastricht-last-year-/13103.article"
+   ]
+  },
+  {
    "chain": "yangguofu",
    "market": "JP",
    "status": "present",
-   "locations": 15,
+   "locations": 26,
    "first_opened": "2018",
    "precision": "year",
    "confidence": "high",
-   "reviewed": "2026-10-18",
-   "note": "15 open Japan outlets, hand-counted from Google operating listings Oct 2026 — a NATIONAL footprint, not just Tokyo diaspora districts: 10 in Tokyo (Takadanobaba, Ueno, Ikebukuro, Shibuya, Ginza, Akasaka, Kinshicho, Okubo, Shimokitazawa, Hachioji) PLUS Yokohama (Chinatown), Kawasaki, Osaka (Shinsaibashi), Kyoto (Kawaramachi) and Fukuoka (Tenjin). Branded 'YGF Malatang'; many stores have 1,500-2,200+ Google reviews (established/popular). Entered Tokyo 2018. (Corrects the earlier 'diaspora-district only' read from the Toyo Keizai overview — the actual footprint is broad and mainstream.) China-origin malatang (楊國福).",
+   "reviewed": "2026-11-22",
+   "note": "Operating count verified via the Japan master franchisee 株式会社大天元 (Daitengen), whose own store list shows 26 addressed outlets (27 incl. an index-only Omiya entry), corroborated by Japanese media (macaro-ni.jp, Jul 2026: \"26店舗\"). Concentrated in Tokyo (17) with Osaka 3, Kanagawa 3, Kyoto/Kobe/Fukuoka/Saitama 1 each. The global locator's ~67 figure is inflated ~2x (lists prefectures — Aichi, Chiba, Shizuoka, Miyagi, Gifu, Mie — with no actual YGF outlet) and is NOT used.",
    "sources": [
-    "https://toyokeizai.net/articles/-/926160",
-    "Toyo Keizai (ガチ中華チェーン, 2025-12-29)",
-    "Google listings (YGF Malatang 楊國福, 15 open Japan outlets, hand-counted Oct 2026)"
+    "https://www.daitengen-jp.com/",
+    "https://macaro-ni.jp/161567"
    ],
-   "locations_as_of": "2026-10"
+   "locations_as_of": "2026-11"
+  },
+  {
+   "chain": "yangguofu",
+   "market": "IT",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2025",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang in Italy — 2 outlets on the brand's official locator: Milan and Rome (Rome Esquilino, via dello Statuto 52, opened Feb 2025).",
+   "sources": [
+    "https://www.gamberorosso.it/attualita/zuppe-yanggoufu-malatang-roma/",
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "DE",
+   "status": "present",
+   "locations": 23,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu / YGF Malatang operates a large German network — the brand's own European and global store locators list ~23-25 outlets across 23 cities (first store Düsseldorf, Am Wehrhahn 23, late 2023; now also Munich, Berlin, Cologne, Hamburg, Frankfurt, Stuttgart x2, Nuremberg, Leipzig, Essen, Bonn, Dortmund, Aachen, Mannheim, Karlsruhe, Ingolstadt, Göttingen, Paderborn, Braunschweig, Bielefeld, Bottrop, Wuppertal, Hannover). Floor of 23 distinct addresses after removing a duplicate Berlin listing.",
+   "sources": [
+    "https://www.yangguofueurope.com/en/",
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "KR",
+   "status": "present",
+   "locations": 8,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in South Korea per the brand's official store locator (8: Seoul x4, Daejeon, Bucheon, Incheon, Pyeongtaek).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "TH",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Thailand per the brand's official store locator (1: Bangkok).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "PH",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Philippines per the brand's official store locator (2: Pasay, Parañaque (Metro Manila)).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "KH",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Cambodia per the brand's official store locator (1: Phnom Penh).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "MO",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Macau per the brand's official store locator (1: Macau).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "ES",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Spain per the brand's official store locator (2: Barcelona, Seville).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "CZ",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Czech Republic per the brand's official store locator (1: Prague).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "AT",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Austria per the brand's official store locator (2: Vienna x2).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "HU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Hungary per the brand's official store locator (1: Budapest).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "PT",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Portugal per the brand's official store locator (1: Lisbon).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "DK",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Denmark per the brand's official store locator (1: Copenhagen).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "LU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Luxembourg per the brand's official store locator (1: Luxembourg City).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
+  },
+  {
+   "chain": "yangguofu",
+   "market": "MN",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Yang Guo Fu Malatang present in Mongolia per the brand's official store locator (2: Ulaanbaatar x2).",
+   "sources": [
+    "https://ygfglobal.com/en/locations"
+   ]
   },
   {
    "chain": "tanyaxue",
@@ -10798,6 +12202,20 @@
    "sources": [
     "https://www.yzwb.net/news/ch/202609/t20260929_398212.html",
     "https://www.chapanda.com/"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "ES",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Trades in Spain as \"TeaPanda\" (teapanda.es). Spain is ChaPanda's deliberate European entry point: stores at C. de Jacometrezo 15, Centro, Madrid, and Carrer de Mendez Nunez 18, Eixample, Barcelona. Floor of 2 confirmed outlets.",
+   "sources": [
+    "https://teapanda.es",
+    "https://americaretail-malls.com/opinion/espana-el-nuevo-laboratorio-de-pruebas-de-las-marcas-globales-el-caso-teapanda-y-el-giro-estrategico-del-retail/"
    ]
   },
   {
@@ -11049,14 +12467,15 @@
    "market": "CA",
    "status": "present",
    "locations": 2,
-   "locations_as_of": "2026-11",
+   "locations_as_of": "2026-11-23",
    "first_opened": null,
    "precision": null,
    "confidence": "high",
-   "reviewed": "2026-11-14",
-   "note": "Two Metro Vancouver stores on the brand's own international locator: Richmond BC (5300 No. 3 Road, Unit 720) and Burnaby BC (6078 Silver Dr, the page branded 'authentic Macau hotpot' — despite the slug it is a Burnaby, BC address).",
+   "reviewed": "2026-11-23",
+   "note": "Two Metro Vancouver stores on the brand's own international locator: Richmond BC (5300 No. 3 Road, Unit 720) and Burnaby BC — Station Square, 6078 Silver Dr (branded 'authentic Macau hotpot'; a July 2026 Macau clay-pot pop-up concept ran there and ended). ANNOUNCED CLOSURE: the Burnaby/Station Square store is closing permanently on 30 Dec 2026 after ~6 years (Instagram-announced, per Noms Magazine) — still trading as of 23 Nov 2026, so still counted; drops to 1 (Richmond only) after it closes. Sister restaurant CHOCHO Burnaby (different brand) stays open.",
    "sources": [
-    "https://www.dolarshop.com/location"
+    "https://www.dolarshop.com/location",
+    "https://nomsmagazine.com/dolar-shop-station-square-closure"
    ]
   },
   {
@@ -11262,7 +12681,7 @@
    "precision": "year",
    "confidence": "medium",
    "reviewed": "2026-11-14",
-   "note": "First overseas store at Paya Lebar Square inside Scarlett Supermarket (Beijing pork-floss/seaweed bakery), opened mid-2025. Malaysia (Sunway Pyramid) announced for late 2026 but not yet open.",
+   "note": "First overseas store at Paya Lebar Square inside Scarlett Supermarket (Beijing pork-floss/seaweed bakery), opened mid-2025. Malaysia (Sunway Pyramid) announced for ~December 2026 but not yet open.",
    "sources": [
     "https://sethlui.com/baos-pastry-singapore/"
    ]
@@ -11419,6 +12838,113 @@
    ]
   },
   {
+   "chain": "dji",
+   "market": "IT",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2017",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "DJI-branded stores: DJI Store Milano (CityLife) and DJI Store Roma (Euroma2, run by local partner). Both DJI-branded, not plain resellers; count may undercount.",
+   "sources": [
+    "https://www.dronezine.it/?p=458285"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "NL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-11",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "DJI | Hasselblad concept store (DJI-operated/branded) at Westfield Mall of the Netherlands, Leidschendam; opened Nov 2023 as first Benelux concept store.",
+   "sources": [
+    "https://dronexl.co/2023/11/10/dji-store-netherlands",
+    "https://www.westfield.com/en/netherlands/mallofthenetherlands/stores-detail/dji/79541"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "PL",
+   "status": "present",
+   "locations": 4,
+   "locations_as_of": "2026-11",
+   "first_opened": "2016",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "DJI Authorized Retail Store chain operated by INNPRO: Warsaw (New City), Poznan (Stary Browar), Katowice (Galeria Katowicka) + Krakow (opened 26 Sep 2026). First Polish DJI brand store opened 2016 (2nd in Europe).",
+   "sources": [
+    "https://spidersweb.pl/2026/09/dji-salon-krakow-otwarcie-data-promocje.html",
+    "https://innpro.eu/?p=2497"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "SE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2018",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "DJI Stockholm (operated by E4Nordic AB), Grev Turegatan 10 — listed on DJI's official Where To Buy as authorized DJI store; self-describes as first/only official DJI store in Sweden, opened 2018.",
+   "sources": [
+    "https://djistockholm.se/",
+    "https://store.dji.com/at/pages/where-to-buy-pro-dealers"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "BR",
+   "status": "exited",
+   "first_opened": "2018",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "DJI's only Brazil retail store (BarraShopping, Rio de Janeiro, opened Jan 2018, ARS model) closed permanently in 2020. Since then DJI sells only online/via marketplaces; no DJI-branded storefront.",
+   "sources": [
+    "https://dronedj.com/2020/04/17/dji-closes-its-only-retail-store-in-brazil/",
+    "https://forbes.com.br/colunas/2017/12/lider-do-mercado-mundial-de-drones-abre-primeira-loja-fisica-oficial-no-brasil/"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "PE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-11",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "DJI Store Peru (first authorized DJI store in Peru) at Boulevard de Plaza San Miguel, Lima; operated by official rep QTC (Grupo Que Tal Compra del Peru SAC), opened Nov 2023.",
+   "sources": [
+    "https://www.peru-retail.com/?p=307921",
+    "https://gestion.pe/economia/empresas/tecnologia-drones-los-proximos-pasos-de-dji-en-peru-tras-la-apertura-de-su-primera-tienda-noticia/"
+   ]
+  },
+  {
+   "chain": "dji",
+   "market": "DE",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Official DJI | Hasselblad authorized brand stores: Berlin (Europa Center, Tauentzienstrasse 9-12, Breitscheidplatz) and Hamburg (Westfield Hamburg-Ueberseequartier). Additional German dealers are independent resellers (not counted).",
+   "sources": [
+    "https://www.westfield.com/en/germany/hamburg/shops/dji-or-hasselblad-store-hamburg/80128",
+    "https://europa-center-berlin.de/en/?p=15332"
+   ]
+  },
+  {
    "chain": "dreame",
    "market": "AE",
    "status": "present",
@@ -11476,6 +13002,83 @@
    "note": "Dreame-brand flagships; 4th at Suntec City opened 26 Sep 2026 (confirmed); SingPost Centre/Westgate/Funan reported, partially confirmed.",
    "sources": [
     "https://www.thailand-business-news.com/pr-news/dreame-technology-opens-new-flagship-store-at-suntec-city-expanding-smart-living-experience-in-singapore"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "IT",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2026-11",
+   "first_opened": "2025",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "3 standalone single-brand flagship stores: Milan CityLife (18 Sep 2025), Oriocenter Bergamo (Sep 2025), Rome Romaest (21 Oct 2026); earlier MediaWorld store-in-store Dec 2024. Distributor Accessory Line Srl.",
+   "sources": [
+    "https://techprincess.it/dreame-flagship-store-milano/",
+    "https://www.tuttotech.net/news/2025/09/19/dreame-flagship-store-negozi-italia-dove.html"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "NL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2026-05",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "First Dutch Dreame store (experience center) opened 9 May 2026 at Westfield Mall of the Netherlands, The Hague; part of Benelux entry.",
+   "sources": [
+    "https://www.retaildetail.eu/news/electronics/dreame-reinforces-its-european-ambitions-with-its-first-store-in-the-benelux/",
+    "https://global.techradar.com/nl-nl/home/robot-vacuums/dreame-opent-eerste-nederlandse-winkel-in-den-haag"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "PL",
+   "status": "present",
+   "locations": 3,
+   "locations_as_of": "2026-11",
+   "first_opened": "2024-09",
+   "precision": "day",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "First official Dreame store in Europe, Westfield Mokotow Warsaw (opened 21 Sep 2024); two more Polish stores opened since, plus Poznan/Zlote Tarasy brand zones.",
+   "sources": [
+    "https://antyweb.pl/pierwszy-sklep-dreame-w-polsce-juz-otwarty",
+    "https://gsmonline.pl/artykuly/dreame-otwiera-dwa-kolejne-sklepy-w-polsce"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "SE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "Dreame store at Westfield Mall of Scandinavia, Stockholm (test/experience products on-site per mall operator listing).",
+   "sources": [
+    "https://www.westfield.com/en/sweden/mallofscandinavia/stores/dreame/82730"
+   ]
+  },
+  {
+   "chain": "dreame",
+   "market": "DE",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2025-02",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "DREAME (Zhuimi) smart-home brand stores: first German flagship opened Feb 7 2025 in MyZeil, Frankfurt am Main; second (largest to date) in Olympia-Einkaufszentrum, Munich. Part of DREAME's 2024-26 Western Europe brand-store push; Germany called a top-priority market.",
+   "sources": [
+    "https://basic-tutorials.de/news/dreame-eroeffnet-ersten-flagship-store-in-deutschland/",
+    "https://basic-tutorials.com/news/dreame-opens-largest-german-flagship-store-in-munichs-olympia-shopping-center/"
    ]
   },
   {
@@ -12037,6 +13640,58 @@
    ]
   },
   {
+   "chain": "ximivogue",
+   "market": "NL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "XIMIVOGUE/XIMI-V announced a store in Amsterdam, Netherlands (company newsroom). Franchise store; opening year not specified in the announcement.",
+   "sources": [
+    "https://en.ximiso.com/newsDetail/XIMIVOGUE%20New%20Store%20in%20The%20Netherlands"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "PL",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "XIMI-V store in Warsaw, Poland per company newsroom announcement (basement level of a shopping venue).",
+   "sources": [
+    "https://ximiso.com/newsDetail/XIMIVOGUE%20New%20Store%20in%20Poland"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "EC",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "XIMIVOGUE store in Quito, Ecuador per company newsroom announcement.",
+   "sources": [
+    "https://cn.ximiso.com/newsDetail/New%20Store%20in%20Ecuador"
+   ]
+  },
+  {
+   "chain": "ximivogue",
+   "market": "IN",
+   "status": "present",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "Brand re-entering India as \"XIMI-V\": its own site brands Phoenix Marketcity (S No. 207, Nagar Rd, Viman Nagar, Pune, Maharashtra 411014) as \"India's First Ximi-V Store.\" An earlier 2018-era \"Ximivogue\" franchise network (a 60+-store claim circulated ~2019) has since contracted; current verifiable footprint is this flagship. Floor of 1.",
+   "sources": [
+    "https://ximiso.com/newsDetail/XIMIVOGUE%20New%20Store%20in%20India"
+   ],
+   "locations": 1,
+   "locations_as_of": "2026-11"
+  },
+  {
    "chain": "yoyoso",
    "market": "EC",
    "status": "present",
@@ -12109,6 +13764,21 @@
    "note": "Philippines among YOYOSO markets per 2020 Retail Insider snapshot; not re-verified.",
    "sources": [
     "https://retail-insider.com/retail-insider/2020/02/chinese-variety-retailer-yoyoso-to-enter-canada-with-plans-for-multiple-storefronts/"
+   ]
+  },
+  {
+   "chain": "yoyoso",
+   "market": "PE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2023-12",
+   "precision": "month",
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "YOYOSO opened its first Peru store at Royal Plaza, Lima in December 2023, with a stated goal of 7+ stores nationwide. Still listed as operating in Peru in 2026 retail coverage.",
+   "sources": [
+    "https://www.peru-retail.com/coreana-yoyoso-inaugura-su-primera-tienda-en-lima-para-desafiar-a-miniso-en-el-mercado-local/"
    ]
   },
   {
@@ -12293,6 +13963,23 @@
    ]
   },
   {
+   "chain": "zhangliang",
+   "market": "DE",
+   "status": "present",
+   "locations": 2,
+   "locations_as_of": "2026-11",
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "张亮麻辣烫 operates physical malatang outlets in Germany. Confirmed: Dusseldorf (Immermannstrasse 40, 40210 - the city's East Asian dining corridor) and Munich (Pasinger Bahnhofplatz 5, 80335; menu last updated 06/2026, Wolt delivery). A Berlin listing is also referenced. Floor set to 2 confirmed cities; likely more. first_opened approximate (FU-Berlin blog, Apr 2025, describes the chain as having 'recently reached Germany'); year uncertain.",
+   "sources": [
+    "https://www.enprimeurclub.com/restaurants/zhang-liang-malatang-dusseldorf-restaurant",
+    "https://www.speisekarte.de/m%C3%BCnchen/restaurant/zhangliang_malatang_muenchen/speisekarte",
+    "https://userblogs.fu-berlin.de/forschungswerkstatt-japan/2025/04/03/spicy-broth-flooding-the-world-malatang-hot-pot-against-the-winter-chill/"
+   ]
+  },
+  {
    "chain": "mazilu",
    "market": "JP",
    "status": "present",
@@ -12378,6 +14065,280 @@
    "reviewed": "2026-11-21",
    "note": "Fioboc is a DTC brand; searched for a physical Japan store (2026-11) and found none (results were unrelated F.O. / F.O.B Japanese brands).",
    "sources": []
+  },
+  {
+   "chain": "smfk",
+   "market": "AU",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": "2024-01",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "A Sydney store at Shop 10.06, World Square (644 George St, Sydney NSW 2000) — SMFK's first overseas store, listed on the brand's own boutique locator.",
+   "sources": [
+    "https://smfk-official.com/pages/boutiques"
+   ]
+  },
+  {
+   "chain": "smfk",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-22",
+   "note": "A Richmond, BC store at Unit 1210, Aberdeen Centre — listed on the brand's own boutique locator.",
+   "sources": [
+    "https://smfk-official.com/pages/boutiques"
+   ]
+  },
+  {
+   "chain": "chanbaimei",
+   "market": "DE",
+   "status": "present",
+   "locations": 1,
+   "locations_as_of": "2026-11",
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-22",
+   "note": "A Düsseldorf outlet ('Chan Bai Mei Hawthorn') listed on map aggregators — the brand's European presence.",
+   "sources": [
+    "https://mio.travel/p/chan-bai-mei-hawthorn"
+   ]
+  },
+  {
+   "chain": "xishi",
+   "market": "CA",
+   "status": "present",
+   "locations": 1,
+   "first_opened": "2025-10",
+   "precision": "month",
+   "confidence": "high",
+   "reviewed": "2026-11-23",
+   "note": "First Canadian and first North American location: Unit 1822, Crystal Mall, Burnaby, BC, opened October 2025 (reported by Noms Magazine; initial opening flagged in August 2025). Tanghulu skewers, mini tanghulu, and yogurt desserts.",
+   "sources": [
+    "https://nomsmagazine.com/chinese-dessert-chain-opens-burnaby-xishi/"
+   ],
+   "locations_as_of": "2025-10"
+  },
+  {
+   "chain": "xishi",
+   "market": "ES",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-23",
+   "note": "Spain named as an existing overseas market in brand/press coverage; no Spanish store count, address, or firm opening date published.",
+   "sources": [
+    "https://nomsmagazine.com/chinese-dessert-chain-opens-burnaby-xishi/",
+    "https://baike.baidu.com/en/item/XISHI/71075"
+   ]
+  },
+  {
+   "chain": "xishi",
+   "market": "KR",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-23",
+   "note": "South Korea named as an existing overseas market in brand/press coverage; no Korean store count, address, or firm opening date published.",
+   "sources": [
+    "https://nomsmagazine.com/chinese-dessert-chain-opens-burnaby-xishi/",
+    "https://baike.baidu.com/en/item/XISHI/71075"
+   ]
+  },
+  {
+   "chain": "baospastry",
+   "market": "MY",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "high",
+   "reviewed": "2026-11-23",
+   "note": "First OFFICIAL Malaysian outlet announced for Sunway Pyramid (Selangor, Greater KL/Klang Valley), reported opening ~December 2026 — NOT yet open. Headline floss-cake (小贝) bakery. Several unrelated Malaysian lookalikes (Petaling Street, Georgetown) are not the real brand. Watch for the opening.",
+   "sources": [
+    "https://sethlui.com/baos-pastry-first-outlet-opening-sunway-pyramid-malaysia-aug-2026/"
+   ]
+  },
+  {
+   "chain": "chabaidao",
+   "market": "NZ",
+   "status": "present",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "medium",
+   "reviewed": "2026-11-24",
+   "note": "Auckland CBD store at Shop C1, 280 Queen Street, trading as ChaPanda 茶百道 with its own @chapanda_nz account. Evidence: an in-store promotion on 20–22 Mar 2026 (Instagram, operator screenshot), Auckland's visitor-site listing (hours 11 AM–10 PM) and an Uber Eats menu at the same address. One Uber Eats page showed the listing closed as of 28 Apr 2026 while another stayed active, so current trading is not independently confirmed and no count or opening date is recorded.",
+   "sources": [
+    "https://www.aucklandnz.com/explore/chapanda",
+    "https://www.ubereats.com/nz/store/chapanda-auckland/tvzko7fLUvCiaP5U3DmP0A",
+    "Instagram promo post for ChaPanda NZ, 20 Mar 2026 (operator screenshot)"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "TH",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2022",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Bangkok. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "MO",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Macau; no store address given. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "CA",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Toronto, with North York and Scarborough stores named. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "GB",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Southampton, a university-town store. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Clarke Quay. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "MY",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Kuala Lumpur, Kepong store. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "AU",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2023",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Melbourne Chinatown. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "HK",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Tai Po store. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "NZ",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Auckland Chinatown. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "IN",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Delhi: first store described as signed for 2026, not open. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "taning",
+   "market": "MX",
+   "status": "announced",
+   "locations": null,
+   "first_opened": null,
+   "precision": null,
+   "confidence": "low",
+   "reviewed": "2026-11-25",
+   "note": "Monterrey: listed for 2026 as the brand's 13th market; opening not confirmed. Per the brand's own global-stores page; not independently verified, no store count recorded.",
+   "sources": [
+    "https://www.taning.net/global.html"
+   ]
   }
  ]
 }

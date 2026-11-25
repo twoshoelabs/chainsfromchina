@@ -142,7 +142,7 @@ def main(argv=None):
 
     if cmd == "export":
         from .mapdata import export
-        from . import register, geojson, db, demographics
+        from . import register, geojson, db, demographics, mall_openings
         out = Path(opt("--out", str(Path(__file__).resolve().parents[1] / "map" / "data")))
         con = db.connect()
         print(export(out), "->", out)
@@ -152,6 +152,7 @@ def main(argv=None):
         # access-controlled Pro export; it must never be emitted here. See cfc-analytics-paywall.
         print(geojson.export(con, out), "-> stores.geojson")
         print(demographics.export(out), "-> demographics.json")
+        print(mall_openings.export(out), "-> mall_openings.json")
         return 0
 
     if cmd == "demographics":
@@ -201,6 +202,10 @@ def main(argv=None):
         con = db.connect()
         openings.report(con)
         return 0
+
+    if cmd == "mall-openings":
+        from . import mall_openings
+        return mall_openings.report()
 
     if cmd == "single-outlet":
         from . import single_outlet

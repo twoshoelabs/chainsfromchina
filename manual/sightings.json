@@ -26,11 +26,11 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
-   "reviewed": "2026-09-29",
+   "reviewed": "2026-11-24",
    "complete_as_of": "2026-09-29",
    "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "Hand-assembled and operator-verified, complete for New York City as of 29 Sep 2026. This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. 15 confirmed. Cotti also trades outside New York (recorded separately).",
+   "scope": "Hand-assembled and operator-verified Cotti Coffee stores: 18 counted — 15 in New York City and 3 in Southern California (Los Angeles/Hollywood, Irvine, El Segundo). Two more New York rows are held out of the count: 239 8th Ave (temporarily closed) and 485 7th Ave (leased, not yet open). This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. Cotti's other US stores are recorded separately.",
    "locations": [
     {
      "name": "Smith St",
@@ -117,10 +117,10 @@
      "verified_by": "joe.coffee, Grubhub & Uber Eats — trading (28 Sep 2026)"
     },
     {
-     "name": "Chelsea (239 8th Ave)",
+     "name": "Chelsea (239 8th Ave) (temp closed)",
      "address": "239 8th Ave, New York, NY 10011",
-     "confidence": "confirmed",
-     "verified_by": "Google Business 'Cotti Coffee - Chelsea' (8 reviews, active pickup/delivery, posted hours) + chain Instagram grand-opening (~Aug 2026); operator-verified 29 Sep 2026. Yelp has no page yet (newly opened). Originally a NYC health-department permit lead."
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'Cotti Coffee - Chelsea' (4.9 / 10 reviews) shows TEMPORARILY CLOSED with no hours posted, hand-observed 24 Nov 2026 (owner screenshot) — about 12 weeks after the chain's Instagram announced the opening (25 Aug 2026). It did trade briefly; held out of the count until it is seen trading again. Earlier basis, now superseded: Google Business 'Cotti Coffee - Chelsea' (8 reviews, active pickup/delivery, posted hours) + chain Instagram grand-opening (~Aug 2026); operator-verified 29 Sep 2026. Yelp has no page yet (newly opened). Originally a NYC health-department permit lead."
     },
     {
      "name": "Manhattan (FiDi)",
@@ -159,13 +159,17 @@
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Manhattan (Midtown)",
+     "name": "Manhattan (485 7th Ave) (not yet open)",
      "address": "485 7th Ave, New York, NY 10018",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "No evidence of trading as of 24 Nov 2026: a lease record shows Cotti Coffee as tenant of retail space at 485 Seventh Avenue (deal dated 10 Feb 2026), and the NYC health record for 'Cotti Coffee NY LLC' at 485 7th Avenue has not yet had a graded inspection — both point to a store still pre-opening. No operating listing, reviews or delivery page found; the operator found no sign of it on the web. Held out of the count until it is seen trading. Earlier basis, now superseded: Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026) — likely a map pin that existed before the store opened.",
      "lat": 40.7523,
      "lon": -73.9891,
-     "coord_src": "Google Maps place coordinates (!3d/!4d)"
+     "coord_src": "Google Maps place coordinates (!3d/!4d)",
+     "sources": [
+      "https://traded.co/deals/new-york/retail/lease/485-seventh-avenue-1/",
+      "https://www.nycrestaurantgrades.com/restaurants/manhattan/cotti-coffee-ny-llc-50193131"
+     ]
     }
    ]
   },
@@ -237,46 +241,32 @@
      "address": "1000 Auahi St, Honolulu, HI 96814",
      "confidence": "confirmed",
      "verified_by": "Ward Village directory (Koʻula Shops) + Google listing (73 reviews), opened ~Mar 2026 (27 Sep 2026)"
+    },
+    {
+     "name": "Chicago (Chinatown)",
+     "address": "2026 S Clark St Unit F, Chicago, IL 60616",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Cotti Coffee - Chicago Chinatown' operating (5.0 / 5 reviews, posted hours, phone 312-291-9978, online ordering), operator-observed 2026-11-25 (owner screenshot). The storefront photo shows Cotti Coffee signage under a Kong Dog sign, so it appears to share the unit.",
+     "lat": 41.854828,
+     "lon": -87.630228,
+     "coord_src": "US Census geocoder"
     }
    ]
   },
   {
    "chain": "yangs",
    "supplied_on": "2026-09-21",
-   "reviewed": "2026-09-21",
+   "reviewed": "2026-11-25",
    "source": "Yang's own store page (yangschicken.ca), supplied by the project operator",
-   "scope": "One store. Yang's is separately attested across roughly eight California restaurants plus Australia, Japan and Singapore; this is not a roster.",
-   "locations": [
-    {
-     "name": "Tustin (楊銘宇─中國黃燜雞飯)",
-     "address": "13824 Red Hill Ave., Tustin, CA 92780",
-     "phone": "(714) 731-7777",
-     "hours": "MON-SAT 11-9; SUN 11-8",
-     "status_conflict": [
-      "TWO SOURCES DISAGREE ABOUT THIS ADDRESS, and the disagreement is more valuable than",
-      "either claim. Yang's own store page presents it as trading: current hours, a phone",
-      "number, no closure notice. Yelp, updated September 2026 with 354 reviews, marks the same",
-      "address CLOSED — as it also does for the Culver City and Cupertino stores.",
-      "",
-      "This was Yang's FIRST US restaurant, opened Tustin, September 2017. If Yelp is right,",
-      "the chain's own locator is carrying a store that shut — which would make that locator",
-      "nearly worthless for this project's actual purpose. A census detects closures by a store",
-      "DISAPPEARING from the list; a list that never removes anything can never produce one, and",
-      "would report a permanently growing chain no matter what happened on the ground.",
-      "",
-      "Unresolved here, deliberately. Recorded so that whoever collects Yang's checks this first."
-     ],
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing \"杨铭宇黄焖鸡 Yang Ming Yu Tustin\" (已打烊·opens 11:30 = open), 19 Oct 2026"
-    }
-   ]
+   "scope": "No counted US store. Yang's first US restaurant, in Tustin CA (13824 Red Hill Ave, opened Sept 2017), was the only one held here and has closed. Yang's is separately attested across other California restaurants plus Australia, Japan and Singapore, none verified by this project; this is not a roster.",
+   "locations": []
   },
   {
    "chain": "chabaidao",
    "supplied_on": "2026-09-21",
    "reviewed": "2026-10-18",
    "source": "Press coverage of the opening; brand alias identified by the project operator",
-   "scope": "One store — the chain's first in North America. Not a roster; a second US location in Irvine CA is suggested by a business filing but unconfirmed.",
+   "scope": "ChaPanda's (茶百道) US stores, trading as TeaByDo, confirmed by hand: four — Flushing NY (its first in North America, opened 18 Aug 2025), Irvine CA, Bellevue WA and San Diego CA. A fifth, in San Jose CA, is held in the permit-sourced record and confirmed by storefront listings. Not a complete roster.",
    "locations": [
     {
      "name": "Flushing",
@@ -480,7 +470,7 @@
    "supplied_on": "2026-09-22",
    "reviewed": "2026-09-22",
    "source": "Chain's own per-store sites (fishwithyouny.com, fishwithyouca.com, fishwithyoumd.com, fishwithyouyonny.com) for the confirmed rows; press and delivery-platform listings for the uncertain rows. Web search on 22 Sep 2026.",
-   "scope": "Known US locations, assembled by targeted web search and verified against the chain's own per-store sites and brand-named platform listings. All eight rows below are now first-party or strongly confirmed. Still NOT a complete roster: Fish With You is a registered US franchisor (WI 639995) whose own FDD Item 20 is empty of US outlets (a just-registered franchisor), and it has no national locator, so this is the best available US data, not a census. Note the fragmented US naming — Fish With You, YONNY, YONNY Mini Hot Pot (San Diego), Wei's Fish (Cupertino) — all trading as 鱼你在一起.",
+   "scope": "Known US locations, assembled by targeted web search and verified against the chain's own per-store sites and brand-named platform listings. All nine rows below are now first-party or strongly confirmed. Still NOT a complete roster: Fish With You is a registered US franchisor (WI 639995) whose own FDD Item 20 is empty of US outlets (a just-registered franchisor), and it has no national locator, so this is the best available US data, not a census. Note the fragmented US naming — Fish With You, YONNY, YONNY Mini Hot Pot (San Diego), Wei's Fish (Cupertino) — all trading as 鱼你在一起.",
    "locations": [
     {
      "name": "Flushing",
@@ -565,7 +555,7 @@
      "name": "Columbia University",
      "address": "971 Amsterdam Ave, New York, NY 10025",
      "confidence": "confirmed",
-     "verified_by": "iLoveTheUpperWestSide opening coverage, 23 Sep 2026"
+     "verified_by": "iLoveTheUpperWestSide opening coverage, 23 Sep 2026 Occupies the former Möge Tee space at the same address (Möge logged closed 24 Nov 2026); operator-observed operating 24 Nov 2026 (Google, 4.9 / 258 reviews)."
     },
     {
      "name": "Brooklyn 86th Street",
@@ -670,12 +660,6 @@
      "address": "5870 Forbes Ave, Pittsburgh, PA 15217",
      "confidence": "uncertain",
      "verified_by": "Announced, under construction — not yet open (routine discovery 2026-10-09) — https://www.pennsylvasia.com/2025/11/yangguofu-mala-tang-coming-to-squirrel.html"
-    },
-    {
-     "name": "Sunrise",
-     "address": "2430 N University Dr, Sunrise, FL 33322",
-     "confidence": "confirmed",
-     "verified_by": "YGF South Florida franchisee site (ygfmiami.com) + whatnow.com; operating (26 Sep 2026)"
     }
    ]
   },
@@ -841,7 +825,7 @@
   {
    "chain": "chahalo",
    "supplied_on": "2026-09-27",
-   "reviewed": "2026-11-02",
+   "reviewed": "2026-11-24",
    "source": "Web verification (dedicated Yelp pages, delivery listings, local press).",
    "scope": "Known US ChaHalo (茶话弄) outlets for a Xi'an tea chain with no single US locator; recent US entry, also expanding into Canada. Not a complete roster.",
    "locations": [
@@ -890,10 +874,10 @@
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "San Diego (Convoy)",
+     "name": "San Diego (Convoy) (coming soon)",
      "address": "4698 Convoy St #105, San Diego, CA 92111",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "ChaHalo's own verified Instagram account for the store (chahalo_sandiego) lists it as 'Coming soon' at 4698 Convoy St #105 — hand-observed 2026-11-24 (owner screenshot). First-party evidence that it has NOT opened; held out of the count until it is seen trading. Earlier basis, now superseded: Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
      "lat": 32.82684,
      "lon": -117.15511,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -905,15 +889,6 @@
      "verified_by": "Google Maps 'Temporarily closed' banner, operator-observed 2 Nov 2026 (NY). Was confirmed operating via tight-zoom re-sweep (Oct 2026); held out of the open count while temporarily closed — re-confirm if it reopens.",
      "lat": 39.0903,
      "lon": -77.17713,
-     "coord_src": "Google Maps place coordinates (!3d/!4d)"
-    },
-    {
-     "name": "San Gabriel",
-     "address": "301 W Valley Blvd Ste 107, San Gabriel, CA 91776",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026)",
-     "lat": 34.0801,
-     "lon": -118.10391,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     }
    ]
@@ -936,9 +911,9 @@
   {
    "chain": "nonggengji",
    "supplied_on": "2026-09-28",
-   "reviewed": "2026-09-28",
-   "source": "Yelp listing and local press (MyMCMedia, 22 Sep 2026).",
-   "scope": "Known US Nong Geng Ji (农耕记) outlets for a Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026; a second at 1701 Rockville Pike, Rockville MD is announced with no opening date and is deliberately not listed here until it opens. Not a complete roster.",
+   "reviewed": "2026-11-23",
+   "source": "Yelp listing and local press (MyMCMedia, 22 Sep 2026; MoCoShow/themocoshow, 3 Oct 2026; Commercial Observer + Hoodline, 3 Oct 2026).",
+   "scope": "Known US Nong Geng Ji (农耕记) outlets for a Shenzhen Hunan-cuisine chain with no US locator. The first US restaurant opened in Flushing in Jan 2026. Two further US sites are announced/pre-opening and deliberately NOT counted until they open: (1) 1701 Rockville Pike at The Shops at Congressional Village, Rockville MD — the former 7-Eleven space (closed 24 Dec), no opening date (MoCoShow, 3 Oct 2026); (2) a Manhattan Theater District flagship at 365 W 46th St (see below). Not a complete roster.",
    "locations": [
     {
      "name": "Flushing",
@@ -950,7 +925,7 @@
      "name": "Manhattan (W 46th St)",
      "address": "365 W 46th St, New York, NY 10036",
      "confidence": "uncertain",
-     "verified_by": "Lease signed, pre-opening — not yet trading (routine discovery 2026-10-09) — https://commercialobserver.com/?p=581740"
+     "verified_by": "Lease signed, pre-opening — not yet trading. 9,900 sq ft three-level former Sushi Seki on Restaurant Row (Theater District), ~$55K/mo asking; corroborated by Commercial Observer + Hoodline (3 Oct 2026). Held out of count until it opens. (routine discovery 2026-10-09) — https://commercialobserver.com/2026/10/nong-geng-ji-lease-365-west-46th-street/"
     }
    ]
   },
@@ -1016,9 +991,9 @@
   {
    "chain": "heytea",
    "supplied_on": "2026-09-28",
-   "reviewed": "2026-10-18",
+   "reviewed": "2026-11-24",
    "source": "Operator web-verification of NYC health-department permit leads against Yelp/Maps listings; each of the seven is trading with reviews.",
-   "scope": "HEYTEA (喜茶) New York outlets confirmed open by hand — seven Manhattan and Queens stores that began as permit leads and were verified trading via Yelp/Maps. Confirmed sightings for a chain with no first-party US roster; these supersede the matching permit rows.",
+   "scope": "HEYTEA (喜茶) US stores confirmed open by hand: 16 counted — 8 in New York, 5 in California, and 1 each in New Jersey, Virginia and Texas. They began as permit leads, mall-directory listings and Maps listings and were verified trading; they supersede any matching permit rows. Seven more rows are held out of the count as not open: South Coast Plaza, Westfield Valley Fair and Fremont (temporarily closed), and Westfield Montgomery, The Florida Mall, Westfield Fashion Square and Westfield Culver City (coming soon). HEYTEA publishes no first-party US roster; its other US stores are in the permit-sourced and discovery records.",
    "locations": [
     {
      "name": "HEYTEA (Upper West Side)",
@@ -1081,10 +1056,10 @@
      "coord_src": "Tysons Corner Center centroid (shared w/ Miniso Tysons)"
     },
     {
-     "name": "HEYTEA (South Coast Plaza)",
-     "address": "3333 Bristol St, Costa Mesa, CA 92626",
-     "confidence": "confirmed",
-     "verified_by": "South Coast Plaza official directory lists HEYTEA, Level 1 Carousel Court (18 Oct 2026)",
+     "name": "HEYTEA (South Coast Plaza) (temp closed)",
+     "address": "3333 Bristol St Ste 1012, Costa Mesa, CA 92626",
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'heytea (South Coast)' shows TEMPORARILY CLOSED, hand-observed 24 Nov 2026 (owner screenshot); the listing has no reviews, hours or phone, so the store may not have opened yet. Held out of the count until it is seen trading. Earlier basis: South Coast Plaza official directory lists HEYTEA, Level 1 Carousel Court (18 Oct 2026) — a directory listing, not proof of trading.",
      "lat": 33.69266,
      "lon": -117.888336,
      "coord_src": "South Coast Plaza centroid (shared w/ Pop Mart SCP)"
@@ -1099,10 +1074,10 @@
      "coord_src": "Westfield Montgomery centroid"
     },
     {
-     "name": "HEYTEA (Westfield Valley Fair)",
+     "name": "HEYTEA (Westfield Valley Fair) (temp closed)",
      "address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
-     "confidence": "confirmed",
-     "verified_by": "Westfield Valley Fair official directory lists HEYTEA (no coming-soon tag; mall directory lags, so operating) (18 Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'Heytea (Westfield Valley Fair)' (unit A327, 3.3 / 44 reviews) shows TEMPORARILY CLOSED, and Westfield Valley Fair's own directory page shows it closed every day of the week — both hand-observed 24 Nov 2026 (owner screenshots). A store that did trade (reviews; county permit inspected from 2024-09-23) and has stopped; held out of the count until it is seen trading again. Earlier basis, now superseded: Westfield Valley Fair official directory lists HEYTEA (no coming-soon tag; mall directory lags, so operating) (18 Oct 2026) Unit 1329; same shop as the Santa Clara County health permit '2855 Stevens Creek Bl # 1329, San Jose' (first inspected 2024-09-23). The permit row was a double count, removed 24 Nov 2026.",
      "lat": 37.32458,
      "lon": -121.94173,
      "coord_src": "Westfield Valley Fair centroid (shared w/ Pop Mart Santa Clara)"
@@ -1120,16 +1095,16 @@
      "name": "Brea",
      "address": "1065 Brea Mall, Brea, CA 92821",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading.",
      "lat": 33.9158,
      "lon": -117.8871,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Tustin",
+     "name": "Irvine (Walnut Ave)",
      "address": "5414 Walnut Ave Ste E, Irvine, CA 92620",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading.",
      "lat": 33.6893,
      "lon": -117.7704,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -1138,34 +1113,34 @@
      "name": "Irvine (Harvard)",
      "address": "17595 Harvard Ave #E, Irvine, CA 92614",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading.",
      "lat": 33.6776,
      "lon": -117.833,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Alhambra",
-     "address": "101 E Valley Blvd Ste E, Alhambra, CA 91801",
+     "name": "San Gabriel",
+     "address": "101 E Valley Blvd Ste E, San Gabriel, CA 91776",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading. City corrected from Alhambra to San Gabriel (the stored Google coordinates already sit at Valley Blvd and Del Mar Ave, San Gabriel).",
      "lat": 34.0799,
      "lon": -118.0994,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Sherman Oaks",
+     "name": "Sherman Oaks (Westfield Fashion Square) (coming soon)",
      "address": "14006 Riverside Dr Ste 17, Sherman Oaks, CA 91423",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Westfield Fashion Square's own directory lists 'HEYTEA – Coming Soon', with hours shown as closed every day — hand-observed 24 Nov 2026 (owner screenshot). Landlord evidence that it has NOT opened; held out of the count until it is seen trading. Earlier basis, now superseded: Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) — a listing that existed before the store opened.",
      "lat": 34.157,
      "lon": -118.4374,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Culver City",
+     "name": "Culver City (Westfield) (coming soon)",
      "address": "6000 Sepulveda Blvd H2, Culver City, CA 90230",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Westfield Culver City's own directory lists 'HEYTEA – Coming Soon', Level 2, with hours shown as closed every day — hand-observed 24 Nov 2026 (owner screenshot). Landlord evidence that it has NOT opened; held out of the count until it is seen trading. Earlier basis, now superseded: Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) — a listing that existed before the store opened.",
      "lat": 33.985,
      "lon": -118.3951,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -1174,16 +1149,16 @@
      "name": "Daly City",
      "address": "500 Westlake Center, Daly City, CA 94015",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading.",
      "lat": 37.6994,
      "lon": -122.4827,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Fremont",
+     "name": "Fremont (Pacific Commons) (temp closed)",
      "address": "5328 Curie St Ste B, Fremont, CA 94538",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'heytea (Fremont)' at Pacific Commons shows TEMPORARILY CLOSED, hand-observed 24 Nov 2026 (owner screenshot); the listing has no reviews, hours or phone, so the store may not have opened yet. Held out of the count until it is seen trading. Earlier basis, now superseded: Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026).",
      "lat": 37.5028,
      "lon": -121.9695,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
@@ -1192,31 +1167,35 @@
      "name": "Houston (Bellaire)",
      "address": "9889 Bellaire Blvd Ste E217, Houston, TX 77036",
      "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026)",
+     "verified_by": "Google Maps operating listing (operator-observed reconciliation re-sweep, Oct 2026) Re-checked by the operator 24 Nov 2026: listing shows the store trading.",
      "lat": 29.7043,
      "lon": -95.5529,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
+    },
+    {
+     "name": "HEYTEA (Matcha Lab, Lower East Side)",
+     "address": "164 Ludlow St, New York, NY 10002",
+     "confidence": "confirmed",
+     "verified_by": "HEYTEA's first-ever Matcha Lab concept store, Lower East Side; reported open ~mid-Nov 2026 by Yahoo Finance and Hoodline/dailybaonews (1-week-old coverage, Nov 2026). A branded HEYTEA retail store serving matcha drinks and gelato.",
+     "lat": 40.721385,
+     "lon": -73.98761,
+     "coord_src": "Census geocoder (164 Ludlow St)"
     }
    ]
   },
   {
    "chain": "dezhuang",
    "supplied_on": "2026-09-29",
-   "reviewed": "2026-09-29",
+   "reviewed": "2026-11-25",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
-   "scope": "Two US outlets identified as open (Manhattan full restaurant + Bellevue WA express 'mini' store) for a chain with no first-party US locator; not a complete roster.",
+   "scope": "One US outlet identified as open: 'De Hotpotmini 德庄小火锅', a mini hot pot counter inside Asian Street Food at Bellevue Marketplace, Bellevue WA. The Manhattan restaurant (37 St Marks Pl) has closed and is no longer counted. A chain with no first-party US locator; not a complete roster.",
    "locations": [
     {
-     "name": "East Village",
-     "address": "37 St Marks Pl, New York, NY 10003",
-     "confidence": "confirmed",
-     "verified_by": "web-verified, official listing + Yelp reviews through Sep 2026 (29 Sep 2026)"
-    },
-    {
-     "name": "Bellevue (De Hotpot Mini)",
+     "name": "Bellevue (De Hotpotmini 德庄小火锅, inside Asian Street Food)",
      "address": "14505 NE 20th St Ste Q, Bellevue, WA 98007",
      "confidence": "confirmed",
-     "verified_by": "web-verified, live Chowbus ordering + Yelp reviews through Sep 2026 (29 Sep 2026)"
+     "verified_by": "web-verified, live Chowbus ordering + Yelp reviews through Sep 2026 (29 Sep 2026) Re-observed by the operator 2026-11-25: Google listing 'De Hotpotmini德庄小火锅' operating (4.2 / 120 reviews, posted hours, pickup and delivery), located inside Asian Street Food, Bellevue Marketplace.",
+     "note": "Trades as 'De Hotpotmini 德庄小火锅' — a mini hot pot counter INSIDE Asian Street Food at Bellevue Marketplace (14505 NE 20th St Ste Q), not a standalone restaurant. Counts as an outlet under the shop-in-shop rule. Orders run through Chowbus."
     }
    ]
   },
@@ -1259,16 +1238,10 @@
   {
    "chain": "xibei",
    "supplied_on": "2026-09-29",
-   "reviewed": "2026-09-29",
+   "reviewed": "2026-11-25",
    "source": "Project research 29 Sep 2026: web search of press, the chain's own or per-store US sites, and recent review activity to confirm each shop is currently open. Addresses are the identified open outlets, not a roster assembled from a map aggregator.",
-   "scope": "Four Southern California outlets identified as open in 2026 under three US sub-labels run by one operator (Arcadia flagship, Silver Lake dumplings, Santa Ana + Westwood 'Eatery'). Not a complete roster.",
+   "scope": "Three Southern California outlets identified as open under the US sub-labels run by one operator: the Arcadia flagship and the Santa Ana and Westwood 'Eatery' stores. The Silver Lake dumpling shop (3300 Sunset Blvd, Los Angeles) has closed and is no longer counted. Not a complete roster.",
    "locations": [
-    {
-     "name": "Silver Lake (Xibei Dumplings)",
-     "address": "3300 W Sunset Blvd Ste 105, Los Angeles, CA 90026",
-     "confidence": "confirmed",
-     "verified_by": "web-verified, Infatuation review + Yelp active Sep 2026 (29 Sep 2026)"
-    },
     {
      "name": "Arcadia",
      "address": "400 S Baldwin Ave Ste 2045, Arcadia, CA 91007",
@@ -1361,16 +1334,10 @@
   {
    "chain": "dalongyi",
    "supplied_on": "2026-09-29",
-   "reviewed": "2026-09-29",
+   "reviewed": "2026-11-25",
    "source": "Project research 29 Sep 2026: the outlets' own franchise sites (dalongyinyc.com, dlyhotpot.com), press, and recent review activity; addresses of currently-open shops.",
-   "scope": "Two US outlets identified as open (Long Island City NY, Allston/Boston MA); the first US store (San Gabriel 2019) and Seattle are closed, and Manhattan Canal St appears closed. Not a complete roster.",
+   "scope": "One US outlet identified as open: Allston (Boston), MA, visited on site 7 Nov 2026. The Long Island City NY restaurant (42-22 Crescent St) has closed and is no longer counted; the first US store (San Gabriel 2019) and Seattle are also closed, and Manhattan Canal St appears closed. Not a complete roster.",
    "locations": [
-    {
-     "name": "Long Island City",
-     "address": "42-22 Crescent St, Long Island City, NY 11101",
-     "confidence": "confirmed",
-     "verified_by": "franchise site + Resy/Toast ordering + Yelp active Aug 2026 (29 Sep 2026)"
-    },
     {
      "name": "Allston (Boston)",
      "address": "137 Brighton Ave, Boston, MA 02134",
@@ -1414,21 +1381,13 @@
    "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "2 permit-sourced location(s) (2 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
-    {
-     "name": "TeaByDo (Palo Alto)",
-     "address": "165 UNIVERSITY AV # D, Palo Alto, CA 94301",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2024-12-09 (2026-09-23)",
-     "lat": 37.444544,
-     "lon": -122.163329
-    },
     {
      "name": "TeaByDo (San Jose)",
      "address": "1147 S DE ANZA BL, San Jose, CA 95129",
      "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-16 (2026-09-23)",
+     "verified_by": "Santa Clara County health-department permit, first inspected 2025-01-16 (2026-09-23) Storefront confirmed trading as TeaByDo 茶百道 on Yelp, DoorDash, Uber Eats and Apple Maps (24 Nov 2026).",
      "lat": 37.30476,
      "lon": -122.033388
     }
@@ -1480,16 +1439,8 @@
    "reviewed": "2026-09-23",
    "provenance": "permit",
    "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "23 permit-sourced location(s) (23 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
+   "scope": "19 permit-sourced location(s) (19 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
    "locations": [
-    {
-     "name": "HEYTEA (2855 Stevens Creek Bl)",
-     "address": "2855 STEVENS CREEK BL # 1329, San Jose, CA 95050",
-     "confidence": "confirmed",
-     "verified_by": "Santa Clara County health-department permit, first inspected 2024-09-23 (2026-09-23)",
-     "lat": 37.323596,
-     "lon": -121.945882
-    },
     {
      "name": "HEYTEA (1628 Hostetter Rd)",
      "address": "1628 HOSTETTER RD # H, San Jose, CA 95131",
@@ -1531,12 +1482,6 @@
      "lon": -87.632139
     },
     {
-     "name": "HEYTEA (Beverly Hills)",
-     "address": "9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210",
-     "confidence": "confirmed",
-     "verified_by": "LA County health-department permit, first inspected 2024-08-21 (2026-09-23)"
-    },
-    {
      "name": "HEYTEA (Monterey Park)",
      "address": "500 N ATLANTIC BLVD # 177, Monterey Park, CA 91754",
      "confidence": "confirmed",
@@ -1561,14 +1506,6 @@
      "address": "891-F Rockville Pike, Rockville, MD 20852",
      "confidence": "confirmed",
      "verified_by": "Montgomery County MD health-department permit, first inspected 2025-06-05 (2026-09-23)"
-    },
-    {
-     "name": "HEYTEA (4505 8 Avenue)",
-     "address": "4505 8 AVENUE, Brooklyn, NY 11220",
-     "confidence": "confirmed",
-     "verified_by": "NYC health-department permit, first inspected 2024-01-23 (2026-09-23)",
-     "lat": 40.643807,
-     "lon": -74.000894
     },
     {
      "name": "HEYTEA (1407 Broadway)",
@@ -1645,24 +1582,6 @@
      "address": "910 John ST, 100, SEATTLE, WA 98109",
      "confidence": "confirmed",
      "verified_by": "Seattle/King County health-department permit, first inspected 2025-05-13 (2026-09-23)"
-    }
-   ]
-  },
-  {
-   "chain": "juewei",
-   "supplied_on": "2026-09-23",
-   "reviewed": "2026-09-23",
-   "provenance": "permit",
-   "source": "Municipal health-department food-establishment permit records, matched by the chain's trading name or a recorded alias, deduped against everything already held from first-party sites or filings.",
-   "scope": "1 permit-sourced location(s) (1 operating, 0 pre-opening or not-yet-inspected) for a chain with no first-party US roster. A permit is a government record that a food business of this name is licensed at this address — stronger than an aggregator, weaker than the chain's own page. Not a complete roster; not the census.",
-   "locations": [
-    {
-     "name": "Juewei Yabo (Chicago)",
-     "address": "2002 S WENTWORTH AVE, CHICAGO, IL 60616",
-     "confidence": "confirmed",
-     "verified_by": "Chicago health-department permit, first inspected 2016-04-05 (2026-09-23)",
-     "lat": 41.855282,
-     "lon": -87.631993
     }
    ]
   },
@@ -1761,22 +1680,17 @@
    "chain": "jnby",
    "locations": [
     {
-     "address": "865 Market St, San Francisco, CA 94103",
-     "confidence": "confirmed",
-     "name": "San Francisco (Westfield SF Centre) — AGoodFun",
-     "verified_by": "Open per company/US operator; trades as AGoodFun (30 Sep 2026)"
-    },
-    {
      "address": "600 Pine St, Seattle, WA 98101",
      "confidence": "confirmed",
      "name": "Seattle (Pacific Place) — AGoodFun",
-     "verified_by": "Open per Seattle Times + US operator; trades as AGoodFun (30 Sep 2026)"
+     "verified_by": "Open per Seattle Times + US operator; trades as AGoodFun (30 Sep 2026) Re-checked by the operator 2026-11-25: Pacific Place's own directory (pacificplaceseattle.com/stores/jnby) lists 'AGoodFun (formerly JNBY USA)' with daily store hours 11 AM–7 PM and phone 206-623-0753, with no closed or coming-soon tag.",
+     "phone": "206-623-0753"
     }
    ],
-   "scope": "Two US stores (San Francisco + Seattle), trading as AGoodFun via licensee Sightclassic LLC. Bellevue WA and SoHo NYC are closed. Not a complete roster.",
+   "scope": "One US store counted: Seattle (Pacific Place), trading as AGoodFun via licensee Sightclassic LLC. The San Francisco store closed with its mall — San Francisco Centre (865 Market St) shut permanently in late January 2026. Bellevue WA and SoHo NYC are also closed. Not a complete roster.",
    "source": "Project research 30 Sep 2026: press and the US operator's sites confirming the two open stores and the two closures.",
    "supplied_on": "2026-09-30",
-   "reviewed": "2026-09-30"
+   "reviewed": "2026-11-25"
   },
   {
    "chain": "meilleurmoment",
@@ -1913,7 +1827,7 @@
      "address": "479 N Rodeo Dr Ste D, Beverly Hills, CA 90210",
      "name": "Beverly Hills (Rodeo Dr)",
      "confidence": "confirmed",
-     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (Beverly Hills) operating at 479 N Rodeo Dr Ste D (3.8★, 223 reviews, +1 310-734-7362)."
+     "verified_by": "Operator manual pull 2026-10-02: Google confirms heytea (Beverly Hills) operating at 479 N Rodeo Dr Ste D (3.8★, 223 reviews, +1 310-734-7362). Same shop as LA County health permit '9523 S Santa Monica Blvd' (first inspected 2024-08-21): the Rodeo Dr suite fronts S Santa Monica Blvd, and the listing photo shows building numbers 9523/9527. Opened 26 Jul 2024 (HEYTEA press release). Re-observed operating 24 Nov 2026 (Google, 233 reviews, normal hours). The permit row was a double count, removed 24 Nov 2026."
     },
     {
      "address": "180 Pleasant St, Malden, MA 02148",
@@ -2306,7 +2220,7 @@
    "supplied_on": "2026-10-04",
    "reviewed": "2026-10-08",
    "source": "Operator verification against each store's Google listing (open, with reviews) + the brand's US ordering pages (4 Oct 2026).",
-   "scope": "Six open US outlets of Zhengxin Chicken Steak (正新鸡排) confirmed by hand — three in California (San Diego, Milpitas, San Francisco) and three in New York (Flushing + two in Brooklyn). ~20,000-store China chain run in the US by regional operators; no single national locator, so tracked via sightings. The Chicago store is closed (see closings).",
+   "scope": "Seven open US outlets of Zhengxin Chicken Steak (正新鸡排) confirmed by hand — three in California (San Diego, Milpitas, San Francisco), three in New York (Flushing + two in Brooklyn) and one in Massachusetts (Allston, Boston). ~20,000-store China chain run in the US by regional operators; no single national locator, so tracked via sightings. The Chicago store is closed (see closings).",
    "locations": [
     {
      "name": "San Diego (Kearny Mesa)",
@@ -2369,15 +2283,15 @@
   {
    "chain": "hibake",
    "supplied_on": "2026-10-04",
-   "reviewed": "2026-10-04",
+   "reviewed": "2026-11-25",
    "source": "Chinese trade press (赢商网/CEO品牌观察, 23 Sep 2025) + operator verification of the Google listing (4 Oct 2026).",
-   "scope": "Hi Bake (嗨呗可), a Chengdu handmade-bakery chain (~50 stores, all in Chengdu), opened its first overseas store Aug 2025 in Beverly Hills, run with US licensee Chubby Group. Its only US outlet so far; tracked via sightings.",
+   "scope": "Hi Bake (嗨呗可), a Chengdu handmade-bakery chain (~50 stores, all in Chengdu), opened its first overseas store Aug 2025 in Beverly Hills, run with US licensee Chubby Group. That store, its only US outlet, appears closed as of Nov 2026 (Google: temporarily closed) and is held out of the count, so the chain currently has no counted US outlet. Tracked via sightings.",
    "locations": [
     {
-     "name": "Beverly Hills",
+     "name": "Beverly Hills (235 N Canon Dr) (temp closed)",
      "address": "235 N Canon Dr, Beverly Hills, CA 90210",
-     "confidence": "confirmed",
-     "verified_by": "Chinese trade press (Aug 2025 opening) + Google/Infatuation listings; US store via Chubby Group (4 Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'Hibake | Asian Fusion Bakery' (3.9 / 61 reviews) shows TEMPORARILY CLOSED with no hours posted, hand-observed 2026-11-25 (owner screenshot). Yelp's newest review (17 Oct 2026) reports finding it closed on 16 Oct 2026 with no signage or explanation. It did trade; held out of the count until it is seen trading again. Earlier basis, now superseded: Chinese trade press (Aug 2025 opening) + Google/Infatuation listings; US store via Chubby Group (4 Oct 2026)",
      "lat": 34.068292,
      "lon": -118.398646
     }
@@ -2495,7 +2409,7 @@
    "supplied_on": "2026-10-07",
    "reviewed": "2026-10-16",
    "source": "Brand's own US account (Instagram @makkeedessert_usa) location list; per-store Google listings for the street addresses (hand-noted from screenshots, not scraped); local press (Mountain View Voice/Almanac; 425 Business, Bellevue).",
-   "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). All 6 open outlets are mapped (incl. the DTLA / K-town store at 3450 W 6th St, which the brand runs as @makkeedessert_dtla). Irvine CA, San Jose CA and Brooklyn NY are announced (coming soon), not yet open. Not monitored.",
+   "scope": "US estate of Makkee Dessert (麦记牛奶, Huzhou Zhejiang) — tracked via sightings, no readable national US locator (orders run through Chowbus). All 7 open outlets are mapped: four in California (Rowland Heights, San Gabriel, Mountain View and the DTLA / K-town store at 3450 W 6th St, which the brand runs as @makkeedessert_dtla), two in New York (Flushing, Brooklyn) and one in Bellevue WA. Irvine CA and San Jose CA are announced (coming soon), not yet open. Not monitored.",
    "locations": [
     {
      "name": "Rowland Heights (Diamond Plaza)",
@@ -2636,7 +2550,8 @@
      "confidence": "confirmed",
      "verified_by": "operator-observed Google listing, 62 reviews (10 Oct 2026)",
      "lat": 40.74882728669,
-     "lon": -73.940258165278
+     "lon": -73.940258165278,
+     "note": "Address discrepancy: the brand's own 'coming soon' announcement (verified Instagram account leenbaius, 10 Apr 2026, 'Opening in 2026') gave 42-64 Hunter St; the store as listed is at 42-62 Hunter St. Whether that reflects a change of unit or space is not known. Operator-noted 2026-11-25."
     },
     {
      "name": "Sunnyvale",
@@ -2661,7 +2576,7 @@
    "supplied_on": "2026-10-10",
    "reviewed": "2026-11-13",
    "source": "Operator-observed Google listing (store not currently on usa.mollytea.com's collected locator).",
-   "scope": "A Molly Tea (茉莉奶白) outlet the daily collected feed (usa.mollytea.com) misses: San Gabriel. Hand-verified so it still maps; auto-retires if the locator later lists it. + Ala Moana Center HI (coming soon, held out of count).",
+   "scope": "Molly Tea (茉莉奶白) outlets the daily collected feed (usa.mollytea.com) misses, hand-verified so they still map: nine — San Gabriel, West Covina and Los Angeles/Koreatown CA, Carrollton TX, Atlanta GA, Tukwila WA, Boston (Allston) MA, Cherry Hill NJ and Rockville MD. Each auto-retires if the locator later lists it. Held out of the count: Ala Moana Center HI (coming soon) and Glendale Galleria CA (unconfirmed).",
    "locations": [
     {
      "name": "San Gabriel",
@@ -2851,9 +2766,9 @@
   {
    "chain": "shanchenglameizi",
    "supplied_on": "2026-10-10",
-   "reviewed": "2026-10-10",
+   "reviewed": "2026-11-25",
    "source": "First-party site shanchenglameizi.com (one operator across US outlets) + Google/Yelp.",
-   "scope": "US outlets of Shancheng Lameizi (山城辣妹子), a Chongqing hot-pot brand, per its own US site: Rowland Heights, San Gabriel, Irvine, San Diego. Not necessarily complete.",
+   "scope": "US outlets of Shancheng Lameizi (山城辣妹子), a Chongqing hot-pot brand, per its own US site and listings: four in California — Rowland Heights, San Gabriel, Irvine and Milpitas. The San Diego (Convoy St) restaurant has closed and is no longer counted. Not necessarily complete.",
    "locations": [
     {
      "name": "Rowland Heights",
@@ -2878,14 +2793,6 @@
      "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
      "lat": 33.708579354288,
      "lon": -117.783497146955
-    },
-    {
-     "name": "San Diego",
-     "address": "4225 Convoy St, San Diego, CA 92111",
-     "confidence": "confirmed",
-     "verified_by": "first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026)",
-     "lat": 32.818325165605,
-     "lon": -117.154845126865
     },
     {
      "name": "Milpitas",
@@ -2952,9 +2859,9 @@
   {
    "chain": "jibeichuan",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-11-04",
+   "reviewed": "2026-11-24",
    "source": "Official US site jibeichuanny.com (lists its NYC stores) + operator-observed Google/Yelp listings for the San Leandro, CA store (14 Oct 2026).",
-   "scope": "JiBeiChuan's (季北川花胶鸡汤米粉) known US outlets — three in NYC (Flushing, Manhattan, Brooklyn) from its official US site, plus one in San Leandro, CA. NOT necessarily a complete US roster; the brand publishes no machine-readable US locator. China-origin rice-noodle chain (Hangzhou, Zhejiang).",
+   "scope": "JiBeiChuan's (季北川花胶鸡汤米粉) known US outlets: 17 counted here across 9 states — New York 8, California 2, and 1 each in New Jersey, Virginia, Massachusetts, Maryland, Connecticut, Florida and Pennsylvania — with three more in a separate record. Built from its official US site, per-store sites and operator-observed listings. The Chico CA restaurant has closed and is no longer counted. NOT necessarily a complete US roster; the brand publishes no machine-readable US locator. China-origin rice-noodle chain (Hangzhou, Zhejiang).",
    "locations": [
     {
      "name": "Flushing",
@@ -3057,15 +2964,6 @@
      "lat": 41.2543349,
      "lon": -73.017795,
      "coord_src": "Google Maps place coordinates"
-    },
-    {
-     "name": "Chico (CA)",
-     "address": "1851 Esplanade, Chico, CA 95926",
-     "confidence": "confirmed",
-     "verified_by": "Dedicated first-party site jibeichuan-chico.com (季北川, full hours + online order + phone) + press (whatnow.com: operator runs San Leandro & Chico Ji Bei Chuan). No Google Maps listing yet (new). Owner screenshot 26 Oct 2026.",
-     "lat": 39.745573,
-     "lon": -121.8518736,
-     "coord_src": "Google Maps address geocode"
     },
     {
      "name": "Orlando (FL)",
@@ -3198,7 +3096,7 @@
    "supplied_on": "2026-10-14",
    "reviewed": "2026-11-02",
    "source": "Brand site showminihotpot.com (store list) + Yelp / Uber Eats / Snackpass for Richardson; Yelp for Flushing (14 Oct 2026).",
-   "scope": "Show Mini Hot Pot's (秀海福) US presence. Richardson, TX is CONFIRMED open. Its Flushing, NY US-debut store (136-72 Roosevelt Ave) is now PERMANENTLY CLOSED (logged in closings.json) — the brand's Richardson store keeps the chain in the US. San Gabriel CA (a Tawa Gateway tenant listing) is NOT on the brand's own site and is excluded; other US cities are announced coming-soon. China-origin Harbin malatang chain.",
+   "scope": "Show Mini Hot Pot's (秀海福) US presence: two stores confirmed open — Richardson, TX (CityLine) and Irvine, CA (Main Street Plaza). Its Flushing, NY US-debut store (136-72 Roosevelt Ave) is PERMANENTLY CLOSED (logged in closings.json). San Gabriel CA (a Tawa Gateway tenant listing) is NOT on the brand's own site and is excluded; other US cities are announced coming-soon. China-origin Harbin malatang chain.",
    "locations": [
     {
      "name": "Richardson (CityLine)",
@@ -3221,9 +3119,9 @@
   {
    "chain": "rolife",
    "supplied_on": "2026-10-14",
-   "reviewed": "2026-10-18",
-   "source": "Rolife's official 'where to buy' store list (rolifeonline.com/pages/retail-store, USA tab shows 12 stores), 14 Oct 2026. International stores and temporary/announced locations excluded.",
-   "scope": "Rolife's (若来, Robotime) US branded retail stores — the 12 permanent US stores on its own store list, across MA, CA, WA, NJ, TX, NY and VA. A Mall of America flagship was announced (Sep 2026) but is not yet on the brand's store list, so it is not counted. China-origin IP-toy/lifestyle chain (Suzhou).",
+   "reviewed": "2026-11-24",
+   "source": "Rolife's official 'where to buy' store list (rolifeonline.com/pages/retail-store, USA tab showed 12 stores on 14 Oct 2026), supplemented by operator-observed Google Business listings and on-site visits (Oct–Nov 2026). International stores and temporary/announced locations excluded.",
+   "scope": "Rolife's (若来, Robotime) US branded retail stores — 15 permanent stores, all confirmed open, across CA (6), MA (2), WA (2), DE, MN, NH, NJ and VA. Built from the brand's own store list plus operator-observed listings and on-site visits for stores the list lagged on. The Mall of America flagship (Bloomington MN), announced Sep 2026 and first held out, was confirmed open on 15 Oct 2026 and is counted. International stores, pop-ups and announced-only locations are excluded. China-origin IP-toy/lifestyle chain (Suzhou).",
    "locations": [
     {
      "name": "South Shore Plaza (Braintree)",
@@ -3346,6 +3244,15 @@
      "address": "310 Daniel Webster Hwy Spc E151, Nashua, NH 03060",
      "confidence": "confirmed",
      "verified_by": "Google Business listing (operating; 'Rolife Pheasant Lane Mall', gift shop, located in Embox'em), 18 Oct 2026"
+    },
+    {
+     "name": "Irvine Spectrum Center",
+     "address": "670 Spectrum Center Dr Suite 751, Irvine, CA 92618",
+     "confidence": "confirmed",
+     "verified_by": "Irvine Spectrum Center mall directory (Suite 751, store description + phone 949-790-4871 + active offers, no coming-soon badge; operator-observed) and Irvine Company Retail 'Now Open', 2026-11-22. Distinct from the Roseville store (a prior Rolife-locator Irvine/Roseville address mislabel).",
+     "lat": 33.6498,
+     "lon": -117.7442,
+     "opened": null
     }
    ],
    "opened_source": "Per-store 'opened' dates from Robotime's official timeline, robotime.com/pages/where-to-find-us (read 2026-11-11). Stores absent from that timeline (Sherman Oaks, Mall of America, Pheasant Lane Mall) have no opened date."
@@ -3660,9 +3567,9 @@
   {
    "chain": "rbtea",
    "supplied_on": "2026-10-19",
-   "reviewed": "2026-10-19",
+   "reviewed": "2026-11-24",
    "source": "R&B Tea USA official store locator (rbteausa.com/locations) — 40 operating US stores read 19 Oct 2026 + Google Maps national sweep for non-locator outlets (19 Oct 2026)",
-   "scope": "US = 40 operating stores (CA 24, TX 11, AZ 2, MI 1, SC 1, NC 1). Brand's own live locator is the source (HIGH-confidence floor). The locator's long 'Coming Soon' list (SF Ocean, UTA/UTD/UNT campus kiosks, Glendale/Tempe AZ, multiple Houston-area 'not decided yet', North McKinney, Spring TX, etc.) is NOT counted — held as coming-soon.",
+   "scope": "US = 36 operating stores (CA 22, TX 12, MI 1, SC 1). Brand's own live locator is the main source (HIGH-confidence floor), checked against listings. Twelve further rows are held out of the count as unconfirmed or not yet open, including the Arizona and North Carolina stores. Removed as closed on 24 Nov 2026: Otay Ranch (Chula Vista), Fremont, and Gardena (now Brew47). The locator's long 'Coming Soon' list (SF Ocean, UTA/UTD/UNT campus kiosks, Glendale/Tempe AZ, multiple Houston-area 'not decided yet', North McKinney, Spring TX, etc.) is NOT counted — held as coming-soon.",
    "locations": [
     {
      "name": "Terra Nova",
@@ -3726,16 +3633,6 @@
      "lat": 32.959627,
      "lon": -96.681895,
      "coord_src": "Google Maps place coords (Census TIGER gap)"
-    },
-    {
-     "name": "Gardena",
-     "address": "1847 W Redondo Beach Blvd, Gardena, CA 90247",
-     "confidence": "confirmed",
-     "verified_by": "Open. Grand opening Oct 19-20 2026 as R&B Tea House (Google/Yelp). Owner screenshot Nov 2026: Google now lists it as “Brew47 Tea & Coffee”, but storefront still reads “R&B Tea House” and menu is rbteax.square.site — same R&B operator trading under an alternate name. Watch for a full debrand.",
-     "lat": 33.888284,
-     "lon": -118.310057,
-     "coord_src": "Census geocoder (rbteausa.com address)",
-     "also_known_as": "Brew47 Tea & Coffee"
     },
     {
      "name": "Riverside",
@@ -3807,15 +3704,6 @@
      "verified_by": "CLOSED: Google Permanently closed (3.6 stars/30), owner screenshot 19 Oct 2026 (brand locator still listed it = stale). Held out of count.",
      "lat": 33.758802,
      "lon": -118.131274,
-     "coord_src": "Census geocoder (rbteausa.com address)"
-    },
-    {
-     "name": "Otay Ranch",
-     "address": "2015 Birch Rd Suite 907, Chula Vista, CA 91915",
-     "confidence": "confirmed",
-     "verified_by": "R&B Tea USA official store locator (rbteausa.com/locations, read 19 Oct 2026)",
-     "lat": 32.621113,
-     "lon": -116.966969,
      "coord_src": "Census geocoder (rbteausa.com address)"
     },
     {
@@ -4044,15 +3932,6 @@
      "coord_src": "Google Maps place coordinates"
     },
     {
-     "name": "R&B Tea Fremont",
-     "address": "37120 Fremont Blvd Unit i, Fremont, CA 94536",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps \"R&B Tea - Fremont\" 3.8★/60 reviews, bubble tea store, Cash App $rbtea (已打烊=open); 19 Oct 2026. Not on official locator.",
-     "lat": 37.5598967,
-     "lon": -122.0096665,
-     "coord_src": "Google Maps place coordinates"
-    },
-    {
      "name": "R&B Tea San Jose (Story Rd)",
      "address": "929 Story Rd Ste 2039, San Jose, CA 95122",
      "confidence": "confirmed",
@@ -4129,9 +4008,9 @@
   {
    "chain": "tenseconds",
    "supplied_on": "2026-10-19",
-   "reviewed": "2026-11-02",
+   "reviewed": "2026-11-24",
    "source": "Google Maps nationwide enumeration of operating Ten Seconds Yunnan Rice Noodle (十秒到) listings + official site en.shimiaodao.com (read 19 Oct 2026)",
-   "scope": "US = 44 operating stores across 19 states (CA 8, TX 7, NY 8, NJ 2, WA 2, PA 2, MD 2, OR 2, NV/IL/OH/NC/GA/MA/CO/MI/HI/UT/VA 1 each). Operator-observed Maps operating listings = HIGH-confidence floor; count raised from 39 after tight-zoom NYC/VA re-sweep caught dense-metro stores the first national-ranking pass capped out. Permanently-closed excluded (Manhattan 245 W 46th St, San Gabriel 132 S Atlantic Blvd, Dublin CA 4288 Dublin Blvd, Fremont CA 34460 Fremont Blvd, Orlando FL 5080 W Colonial Dr). Confirmed-absent states: MN, CT, IN.",
+   "scope": "US = 46 operating stores here across 19 states (CA 8, NY 8, TX 7, NJ 2, WA 2, IL 2, PA 2, MD 2, HI 2, OR 2, and NV/OH/NC/GA/MA/MI/UT/VA/AZ 1 each), plus one more in a separate record. Operator-observed Maps operating listings = HIGH-confidence floor; count raised from 39 after tight-zoom NYC/VA re-sweep caught dense-metro stores the first national-ranking pass capped out. Permanently-closed excluded (Manhattan 245 W 46th St and 42 W 38th St, San Gabriel 132 S Atlantic Blvd, Dublin CA 4288 Dublin Blvd, Fremont CA 34460 Fremont Blvd, Orlando FL 5080 W Colonial Dr, Aurora CO 2000 S Havana St). Confirmed-absent states: MN, CT, IN.",
    "locations": [
     {
      "name": "Long Island City",
@@ -4485,15 +4364,6 @@
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Manhattan (Koreatown)",
-     "address": "42 W 38th St, New York, NY 10018",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listings (operator-observed, Oct 2026) + Ten Seconds official site en.shimiaodao.com",
-     "lat": 40.751531,
-     "lon": -73.984794,
-     "coord_src": "Google Maps place coordinates (!3d/!4d)"
-    },
-    {
      "name": "Elmhurst",
      "address": "83-34 Broadway, Elmhurst, NY 11373",
      "confidence": "confirmed",
@@ -4611,9 +4481,9 @@
   {
    "chain": "chubbyskewers",
    "supplied_on": "2026-11-12",
-   "reviewed": "2026-11-12",
-   "complete_as_of": "2026-11-12",
-   "complete_scope": "All OPEN US Chubby Skewers / 幸福小串 (地摊小炉子) outlets listed on the brand's own locations page (chubbyskewers.com/locations), each cross-checked as operating on Google/Yelp, 12 Nov 2026. Includes the Duluth GA unit trading as “Yakitori by Chubby Skewers” (same 幸福小串·地摊小炉子 concept and branding, lightly restyled). San Gabriel CA is listed as soft-opening-soon (not yet open) and kept uncertain; Fremont CA is announced with no address and is omitted.",
+   "reviewed": "2026-11-22",
+   "complete_as_of": "2026-11-22",
+   "complete_scope": "All OPEN US Chubby Skewers / 幸福小串 (地摊小炉子) outlets listed on the brand's own locations page (chubbyskewers.com/locations), each cross-checked as operating on Google/Yelp, 12 Nov 2026. Includes the Duluth GA unit trading as “Yakitori by Chubby Skewers” (same 幸福小串·地摊小炉子 concept and branding, lightly restyled). San Gabriel CA is listed as soft-opening-soon (not yet open) and kept uncertain. Fremont CA (Pacific Commons) opened and is now counted (mall directory shows it open, Mon-Sun 9AM-10PM; owner-confirmed 22 Nov 2026).",
    "source": "Chubby Skewers official locations page (chubbyskewers.com/locations) + per-store Google/Yelp listings, 12 Nov 2026",
    "scope": "Chubby Skewers is the US arm of China-origin 幸福小串 (Xingfu Xiaochuan / 地摊小炉子), a Northeastern-style (东北) BBQ-skewer chain (Chengdu-founded, principal 李三吉, ~80–100+ China stores). Operated in the US by Chubby Group (David Zhao); storefronts and logo carry the full 幸福小串 lockup and red seal. In scope (China-origin brand). No machine-readable national locator (locations page is JS-rendered), so recorded here as a hand-assembled complete roster.",
    "locations": [
@@ -4680,6 +4550,15 @@
      "verified_by": "Locations page lists it as soft-opening-soon (not yet open), 12 Nov 2026",
      "lat": 34.079483,
      "lon": -118.103668
+    },
+    {
+     "name": "Fremont (Pacific Commons)",
+     "address": "43968 Pacific Commons Blvd, Fremont, CA 94538",
+     "confidence": "confirmed",
+     "verified_by": "Pacific Commons Shopping Center directory (open; hours Mon-Sun 9AM-10PM, 'Chubby Skewers in Fremont, CA ... authentic Chinese BBQ') + owner-confirmed open, 22 Nov 2026",
+     "lat": 37.4879,
+     "lon": -121.9631,
+     "coord_src": "manual (Pacific Commons; Census can't geocode the center)"
     }
    ]
   },
@@ -4769,7 +4648,8 @@
      "lon": -74.00203,
      "confidence": "confirmed",
      "verified_by": "Own operator site daiguny.com (Dagu Rice Noodle; also signed 煌都美食) (13 Nov 2026).",
-     "coord_src": "US Census geocoder"
+     "coord_src": "US Census geocoder",
+     "status_conflict": "MONITOR — sources disagree (operator-observed 2026-11-25): Google shows this store open and active, while Yelp marks it closed. Kept in the count on the operator's call; re-check both listings at each review and resolve to open or closed when one of them changes or a recent review settles it."
     },
     {
      "name": "Ypsilanti (Carpenter Rd)",
@@ -4814,7 +4694,7 @@
    "supplied_on": "2026-11-14",
    "reviewed": "2026-11-14",
    "source": "Operator-observed Google/Yelp/Apple/MapQuest listings + press (Ziyan US launch, Apr 2025; AU launch May 2024). Web re-sweep 14 Nov 2026 (Yelp/Apple/MapQuest/Fantuan/Weee!, CA+Boston+Philly+DC+Chicago+Brooklyn checked) found NO additional US outlets beyond the 5 NY-metro stores.",
-   "scope": "紫燕百味鸡 Ziyan (卤味) US outlets, operator-observed open: Flushing NY (136-55 Roosevelt Ave, first NA store Apr 2025), Manhattan Chinatown (147 Mott St), Jersey City NJ (525 Washington Blvd, Newport Centre), Long Island City NY (28-17 Jackson Ave, Mettra food hall / former Jacx), Edison NJ (1777 NJ-27, by H Mart Edison). Re-sweep 14 Nov 2026 confirmed LIC + Edison via Yelp storefront listings. Not guaranteed complete.",
+   "scope": "紫燕百味鸡 Ziyan (卤味) US outlets, operator-observed open: Flushing NY (136-55 Roosevelt Ave, first NA store Apr 2025), Manhattan Chinatown (147 Mott St), Jersey City NJ (525 Washington Blvd, Newport Centre), Long Island City NY (28-17 Jackson Ave, Mettra food hall / former Jacx), Edison NJ (1777 NJ-27, by H Mart Edison). Re-sweep 14 Nov 2026 confirmed LIC + Edison via Yelp storefront listings. NOT a store: 38-40 Crescent St, Long Island City (listed in NYC health records under 'Ziyan') is the company's corporate office, per the operator (2026-11-25), and is not counted. Not guaranteed complete.",
    "locations": [
     {
      "name": "Flushing (Roosevelt Ave)",
@@ -4823,7 +4703,8 @@
      "lon": -73.82817,
      "confidence": "confirmed",
      "verified_by": "Yelp (Ziyan Baiwei Chicken, open) + storefront ZIYANFOODS 紫燕百味鸡; first NA store Apr 2025 (14 Nov 2026).",
-     "coord_src": "US Census geocoder"
+     "coord_src": "US Census geocoder",
+     "note": "Address discrepancy, unresolved (2026-11-25): Google lists 'Ziyan Chicken 紫燕百味鸡 (Flushing)' (4.7 / 286 reviews, operating) at 37-11 #D Prince St, about three blocks north, with phone 917-451-0856 — the same phone Yelp and MapQuest show for the store at 136-55 Roosevelt Ave. Yelp (updated Nov 2026), MapQuest and the NYC health inspection record (ZIYAN CHICKEN, 136-55 Roosevelt Avenue, last inspected 28 Jan 2026) all give Roosevelt Ave. Treated as ONE store; whether Google's address is wrong or the store has moved is not settled."
     },
     {
      "name": "Manhattan (Chinatown, Mott St)",
@@ -5080,8 +4961,8 @@
     {
      "name": "Flushing (New World Mall)",
      "address": "136-20 Roosevelt Ave #108, Flushing, NY 11354",
-     "lat": 40.759600,
-     "lon": -73.830700,
+     "lat": 40.7596,
+     "lon": -73.8307,
      "confidence": "confirmed",
      "verified_by": "Google (Lao Feng Xiang - LFX Jewelry, 136-20 Roosevelt Ave #108, jewelry store in New World Mall, 4.6 / 208 reviews) + owner screenshot (16 Nov 2026); genuine branch per LFX's own heritage page (expanded to Flushing, Queens). Distinct from Luk Fook (#112-116, same mall).",
      "coord_src": "manual (New World Mall; Census can't geocode the mall unit)"
@@ -5301,6 +5182,267 @@
      "lon": -80.842423,
      "confidence": "confirmed",
      "verified_by": "Google (Ten Seconds, Chinese noodle restaurant, 4.7 / 283 reviews; 过桥米线 rice-noodle branding) + owner screenshot (17 Nov 2026).",
+     "coord_src": "US Census geocoder"
+    }
+   ]
+  },
+  {
+   "chain": "vivaia",
+   "supplied_on": "2026-11-22",
+   "reviewed": "2026-11-22",
+   "source": "Retail press (FootwearNews, VMSD, FashionUnited, RetailDive, Mann Report) + mall directories (Westfield, Simon), 22 Nov 2026. VIVAIA's own store locator (vivaia.com) is 403-blocked to automated fetch.",
+   "scope": "VIVAIA's US VIVAIA-branded physical stores (5) as of Nov 2026. China-incubated DTC footwear brand (Starlink, Shenzhen) with no China B&M — counted under the Brand Flagships 'DTC-to-US-physical' breed. Excludes Von Maur concessions and Nordstrom/Dillard's wholesale (not standalone VIVAIA stores).",
+   "locations": [
+    {
+     "name": "SoHo (first US)",
+     "address": "68 Prince St, New York, NY 10012",
+     "confidence": "confirmed",
+     "verified_by": "Retail press (RetailDive/FashionUnited) — first US store, opened ~Apr 2025",
+     "lat": 40.7235,
+     "lon": -73.9966,
+     "opened": "2025-04",
+     "coord_src": "manual"
+    },
+    {
+     "name": "Roosevelt Field",
+     "address": "630 Old Country Rd Room 3052, Garden City, NY 11530",
+     "confidence": "confirmed",
+     "verified_by": "Mann Report + mall directory — opened 27 Apr 2026",
+     "lat": 40.7408,
+     "lon": -73.6103,
+     "opened": "2026-04",
+     "coord_src": "manual"
+    },
+    {
+     "name": "Westfield Garden State Plaza",
+     "address": "One Garden State Plaza Store T17, Paramus, NJ 07652",
+     "confidence": "confirmed",
+     "verified_by": "Westfield GSP directory + grand-opening event May 2026",
+     "lat": 40.9213,
+     "lon": -74.0758,
+     "opened": "2026-05",
+     "coord_src": "manual"
+    },
+    {
+     "name": "Westfield Valley Fair",
+     "address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
+     "confidence": "confirmed",
+     "verified_by": "FashionUnited — first West Coast store, opened early Oct 2026",
+     "lat": 37.3254,
+     "lon": -121.947,
+     "opened": "2026-10",
+     "coord_src": "manual"
+    },
+    {
+     "name": "The Florida Mall",
+     "address": "8001 S Orange Blossom Trl, Orlando, FL 32809",
+     "confidence": "confirmed",
+     "verified_by": "FashionUnited — first Florida store, opened late Oct 2026",
+     "lat": 28.4478,
+     "lon": -81.3962,
+     "opened": "2026-10",
+     "coord_src": "manual"
+    }
+   ]
+  },
+  {
+   "chain": "smfk",
+   "supplied_on": "2026-11-22",
+   "reviewed": "2026-11-22",
+   "source": "Google Business listings for both SMFK California boutiques + official SMFK locator (smfk-official.com/pages/boutiques, which lists Century City) + Westfield Century City directory (22 Nov 2026).",
+   "scope": "SMFK's US outlets — two California boutiques: a Beverly Hills flagship (351 N Canon Dr, on the Beverly Hills golden-triangle shopping district) and Westfield Century City (Los Angeles). China-origin Beijing contemporary-fashion brand (founded 2016).",
+   "complete_as_of": "2026-11-22",
+   "complete_scope": "us",
+   "locations": [
+    {
+     "name": "Westfield Century City",
+     "address": "10250 Santa Monica Blvd Unit 2910, Los Angeles, CA 90067",
+     "confidence": "confirmed",
+     "verified_by": "Official SMFK boutique locator listing 'Los Angeles Century City Boutique', 22 Nov 2026; Westfield Century City directory (SMFK, Level 2)",
+     "lat": 34.0583,
+     "lon": -118.4186
+    },
+    {
+     "name": "Beverly Hills (N Canon Dr)",
+     "address": "351 N Canon Dr, Beverly Hills, CA 90210",
+     "confidence": "confirmed",
+     "verified_by": "Google Business listing 'SMFK Beverly Hills Boutique' (351 N Canon Dr, open daily 10am), 22 Nov 2026 — operator-observed Maps listing; the Beverly Hills flagship reported by World Journal",
+     "lat": 34.0697,
+     "lon": -118.4004
+    }
+   ]
+  },
+  {
+   "chain": "chanbaimei",
+   "supplied_on": "2026-11-22",
+   "reviewed": "2026-11-22",
+   "source": "Owner-supplied brand logo + Flushing store list (总店/2店/3店) + mall directories (Los Cerritos, Fashion Show LV) + Yelp/MapQuest listings (King of Prussia, Sawgrass Mills, Jersey Gardens), 22 Nov 2026.",
+   "scope": "Chan Bai Mei (馋百妹) US outlets — a Flushing NY head store (+2 more Flushing counters) and mall counters in CA/NV/PA/FL/NJ. China-origin candied-hawthorn chain (冰糖葫芦/山楂); also operates in China (Guangzhou) and Germany. NOT exhaustive — re-verify open status.",
+   "locations": [
+    {
+     "name": "Flushing — Main St (head store)",
+     "address": "40-13 Main St, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Flushing — Main St (head store)', 22 Nov 2026",
+     "lat": 40.7596,
+     "lon": -73.8305
+    },
+    {
+     "name": "Flushing — Roosevelt Ave",
+     "address": "136-20 Roosevelt Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Flushing — Roosevelt Ave', 22 Nov 2026",
+     "lat": 40.7595,
+     "lon": -73.8268
+    },
+    {
+     "name": "Flushing — Tangram",
+     "address": "133-36 37th Ave, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Flushing — Tangram', 22 Nov 2026",
+     "lat": 40.760428,
+     "lon": -73.834166,
+     "coord_src": "Tangram (133-36 37th Ave) — shared geocode with co-tenants at the same address; replaces a hand-entered point ~550 m off (24 Nov 2026)"
+    },
+    {
+     "name": "Los Cerritos Center",
+     "address": "239 Los Cerritos Center, Cerritos, CA 90703",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Los Cerritos Center', 22 Nov 2026",
+     "lat": 33.8596,
+     "lon": -118.0972
+    },
+    {
+     "name": "Fashion Show (Las Vegas)",
+     "address": "3200 Las Vegas Blvd S, Las Vegas, NV 89109",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Fashion Show (Las Vegas)', 22 Nov 2026",
+     "lat": 36.1312,
+     "lon": -115.1715
+    },
+    {
+     "name": "King of Prussia",
+     "address": "160 N Gulph Rd, King of Prussia, PA 19406",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'King of Prussia', 22 Nov 2026",
+     "lat": 40.0885,
+     "lon": -75.3958
+    },
+    {
+     "name": "Sawgrass Mills (Sunrise)",
+     "address": "12801 W Sunrise Blvd, Sunrise, FL 33323",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Sawgrass Mills (Sunrise)', 22 Nov 2026",
+     "lat": 26.1497,
+     "lon": -80.3215
+    },
+    {
+     "name": "Jersey Gardens (Elizabeth)",
+     "address": "651 Kapkowski Rd, Elizabeth, NJ 07201",
+     "confidence": "confirmed",
+     "verified_by": "Store listing/mall directory for 'Jersey Gardens (Elizabeth)', 22 Nov 2026",
+     "lat": 40.6645,
+     "lon": -74.17
+    }
+   ]
+  },
+  {
+   "chain": "singchoikee",
+   "supplied_on": "2026-11-22",
+   "reviewed": "2026-11-22",
+   "source": "Official Sing Choi Kee site store list (singchoikee.com) + Palisades Center mall directory, 22 Nov 2026.",
+   "scope": "Sing Choi Kee (星财记) US outlets — China-origin (Fujian/Fuzhou) HK-style café chain, confirmed same brand via its 'Sing Choi Kee America' (星财记美国) program (US franchisor 'Sing Choi Kee Franchise Inc.'). Open: Flushing/Tangram (NY), Palisades/West Nyack (NY), Malden (MA). Coming soon: Albany/Crossgates (NY) + a Greenwich Village NYC store. Mascot varies by location (fox, cool-cat, waving-cat) — all one brand.",
+   "complete_as_of": "2026-11-22",
+   "complete_scope": "us",
+   "locations": [
+    {
+     "name": "Flushing — Tangram",
+     "address": "133-36 37th Ave, FH16, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Official Sing Choi Kee store list / mall directory for 'Flushing — Tangram', 22 Nov 2026",
+     "lat": 40.760428,
+     "lon": -73.834166,
+     "coord_src": "Tangram (133-36 37th Ave) — shared geocode with co-tenants at the same address; replaces a hand-entered point ~550 m off (24 Nov 2026)"
+    },
+    {
+     "name": "Palisades Center (West Nyack)",
+     "address": "4282 Palisades Center Dr, West Nyack, NY 10994",
+     "confidence": "confirmed",
+     "verified_by": "Official Sing Choi Kee store list / mall directory for 'Palisades Center (West Nyack)', 22 Nov 2026",
+     "lat": 41.0965,
+     "lon": -73.9542
+    },
+    {
+     "name": "Malden, MA",
+     "address": "7 Pleasant St, Malden, MA 02148",
+     "confidence": "confirmed",
+     "verified_by": "Official Sing Choi Kee store list / mall directory for 'Malden, MA', 22 Nov 2026",
+     "lat": 42.4259,
+     "lon": -71.0661
+    },
+    {
+     "name": "Albany — Crossgates Mall (opening soon)",
+     "address": "1 Crossgates Mall Rd, Albany, NY 12203",
+     "confidence": "confirmed",
+     "verified_by": "Crossgates Mall directory listing 'Sing Choi Kee' (星财记) as Opening Soon, 22 Nov 2026",
+     "lat": 42.7051,
+     "lon": -73.8512,
+     "opened": "coming_soon"
+    }
+   ]
+  },
+  {
+   "chain": "olight",
+   "supplied_on": "2026-11-22",
+   "reviewed": "2026-11-22",
+   "source": "Olight press release + Fashion Show Las Vegas directory — 'world's first flashlight experience store', opened 15 Sep 2024; 22 Nov 2026.",
+   "scope": "Olight (傲雷) US outlet — its Las Vegas flagship (the brand's first US own-brand store) at Fashion Show. China-origin Shenzhen flashlight/EDC maker; Brand Flagship.",
+   "complete_as_of": "2026-11-22",
+   "complete_scope": "us",
+   "locations": [
+    {
+     "name": "Fashion Show (Las Vegas) — flagship",
+     "address": "3200 Las Vegas Blvd S, Las Vegas, NV 89109",
+     "confidence": "confirmed",
+     "verified_by": "Olight 'world's first flashlight experience store' launch (Sep 2024) + Fashion Show Las Vegas directory, 22 Nov 2026",
+     "lat": 36.1306,
+     "lon": -115.1719
+    }
+   ]
+  },
+  {
+   "chain": "taning",
+   "supplied_on": "2026-11-25",
+   "reviewed": "2026-11-25",
+   "source": "Project operator (2026-11-25), with the brand's own site (taning.net) and store listings.",
+   "scope": "TANING's (挞柠) known US stores: three — Flushing and Brooklyn, NY, and Sunnyvale, CA. A Guangzhou lemon-tea chain with no machine-readable US locator (orders run through a Chowbus app), so tracked by hand. Not necessarily a complete roster.",
+   "locations": [
+    {
+     "name": "Flushing (Prince St)",
+     "address": "39-07 Prince St #1C, Flushing, NY 11354",
+     "confidence": "confirmed",
+     "verified_by": "Supplied by the project operator as a known TANING location, 2026-11-25. The brand's own site names its New York Prince Street store as its first in the US (2025); Yelp page 'Taning Lemon Tea' at this address (25 reviews, updated May 2026).",
+     "lat": 40.759611,
+     "lon": -73.832226,
+     "coord_src": "US Census geocoder (same building as Auntea Jenny and NaiSnow)",
+     "opened": "2025"
+    },
+    {
+     "name": "Brooklyn (61st St, Sunset Park)",
+     "address": "781 61st St, Brooklyn, NY 11220",
+     "confidence": "confirmed",
+     "verified_by": "Supplied by the project operator as a known TANING location, 2026-11-25. Also reported by a store listing as a second New York location.",
+     "lat": 40.635224,
+     "lon": -74.010555,
+     "coord_src": "US Census geocoder"
+    },
+    {
+     "name": "Sunnyvale",
+     "address": "715 Sunnyvale Saratoga Rd, Sunnyvale, CA 94087",
+     "confidence": "confirmed",
+     "verified_by": "Supplied by the project operator as a known TANING location, 2026-11-25.",
+     "lat": 37.366741,
+     "lon": -122.032409,
      "coord_src": "US Census geocoder"
     }
    ]

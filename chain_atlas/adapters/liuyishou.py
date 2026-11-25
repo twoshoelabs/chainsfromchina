@@ -32,6 +32,14 @@ US_SLUGS = ["boston", "sandiego", "sanjose", "houston", "seattle",
             "chicago", "princeton", "dallas", "flushing", "sanmateo"]
 EXPECTED_MIN = 6
 
+# Stores Liuyishou's own site still lists but that are closed on the ground (verified by hand).
+# Keyed like `parse`'s dedup key: the address lower-cased with everything but a-z0-9 stripped.
+#   Flushing, 136-76 39th Ave — Yelp "Yelpers report this location has closed" (claimed page) and
+#   Google "Temporarily closed", owner screenshots 24 Nov 2026; still on liuyishouna.com/flushing.
+PERMANENTLY_CLOSED = {
+    "1367639thavequeensny11354",
+}
+
 # An address line in the page hero: a street number, then text, then ", <City>, XX 12345".
 # Requiring a US two-letter state and a 5-digit ZIP both filters the JSON/asset noise elsewhere on
 # the page and drops any Canadian address (alphanumeric postcode) a page might carry.
@@ -79,6 +87,8 @@ class LiuyishouAdapter(Adapter):
             if key in seen:           # e.g. /austin reuses the Plano hero — dedup on the address
                 continue
             seen.add(key)
+            if key in PERMANENTLY_CLOSED:   # listed on the brand site but closed on the ground
+                continue
             out.append(StoreRecord(store_code=None, name=city, addr_raw=addr,
                                    city=city, state=st, zip=zc, trading=True))
         return out

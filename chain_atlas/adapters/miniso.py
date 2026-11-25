@@ -70,6 +70,9 @@ PERMANENTLY_CLOSED = frozenset({
     # Westfield Montgomery #1340, Bethesda MD — Google shows the unit permanently closed; MINISO
     # relocated to Federal Plaza, Rockville (open). A return to the mall is only "coming soon".
     "7101 DEMOCRACY BLVD STE 1340 BETHESDA MD 20817",
+    # San Francisco Centre #C18 — the ENTIRE mall (865 Market St) closed permanently in late
+    # January 2026 (KTVU / ABC7); MINISO's locator still lists the unit. Operator call 2026-11-25.
+    "865 MARKET ST STE C18 SAN FRANCISCO CA 94103",
 })
 
 

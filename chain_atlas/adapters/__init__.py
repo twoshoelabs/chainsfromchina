@@ -49,7 +49,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     DolarShopAdapter, XiangTianXiaAdapter, LaoMaTouAdapter,
                     MengziyuanAdapter, BenGongAdapter, LaoFengXiangAdapter,
                     FiobocAdapter, OppeinAdapter, DjiAdapter, BalabalaAdapter,
-                    TongRenTangAdapter)
+                    TongRenTangAdapter, VivaiaAdapter, SmfkAdapter, ChanBaiMeiAdapter,
+                    SingChoiKeeAdapter, OlightAdapter, TaningAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -137,9 +138,15 @@ REGISTRY: list[Adapter] = [
     LaoFengXiangAdapter(), # China-origin heritage jewelry 老凤祥 / Lao Feng Xiang (Shanghai 1848, SSE 600612); US — Fifth Ave NYC flagship, Australia+Canada abroad, tracked via sightings — see stubs.py
     TongRenTangAdapter(), # China-origin TCM pharmacy 北京同仁堂 / Beijing Tong Ren Tang (Beijing 1669, state-owned, SSE 600085/HKEX 3613); US — 3 storefronts (Flushing+Brooklyn NY, Temple City CA), SF clinic uncertain, Canada abroad, tracked via sightings — see stubs.py
     FiobocAdapter(), # China-origin DTC fast-fashion Fioboc / 菲奥博克 (Guangzhou Jiale); 'DTC-to-US-physical' breed — 3 CA mall stores, tracked via sightings — see stubs.py
+    VivaiaAdapter(), # China-incubated DTC footwear VIVAIA (Starlink, Shenzhen); 'DTC-to-US-physical' Brand-Flagship breed — 5 US stores, tracked via sightings — see stubs.py
     OppeinAdapter(), # China-origin cabinetry manufacturer 欧派家居 / OPPEIN (Guangzhou 1994, SSE 603833); Brand Flagship — 2 US design showrooms (Paramus NJ + San Jose CA), tracked via sightings — see stubs.py
     DjiAdapter(), # China-origin drone/imaging maker 大疆 / DJI (Shenzhen 2006); Brand Flagship — Fifth Ave NYC flagship, tracked via sightings — see stubs.py
     BalabalaAdapter(), # Balabala 巴拉巴拉 kidswear (Semir Group 森马服饰, SZSE 002563); chain_id `balabala`, parent Semir — first US store Stoneridge/Pleasanton CA, tracked via sightings — see stubs.py
+    SmfkAdapter(), # Beijing contemporary-fashion label SMFK (founded 2016, ~50 China stores); single US store Westfield Century City LA, tracked via sightings; Sydney + Richmond BC in register — see stubs.py
+    ChanBaiMeiAdapter(), # China-origin candied-hawthorn chain 馋百妹/馋白妹 (冰糖葫芦/山楂); US Flushing head store + mall counters CA/NV/PA/FL/NJ, tracked via sightings; China (Guangzhou) + Germany abroad — see stubs.py
+    SingChoiKeeAdapter(), # China-origin (Fujian/Fuzhou 2010) HK-style café chain 星财记/Sing Choi Kee (港餐/冰室); US=3 (Flushing/Tangram, Palisades Center NY, Malden MA), tracked via sightings — see stubs.py
+    OlightAdapter(), # China-origin flashlight/EDC maker Olight 傲雷 (Shenzhen 2007); Brand Flagship — Las Vegas 'flashlight experience store' flagship (Sep 2024), tracked via sightings — see stubs.py
+    TaningAdapter(), # China-origin Guangzhou lemon-tea chain 挞柠/TANING (2017, 手打柠檬茶; brand claims 1,000+ stores); US=3 (Flushing + Brooklyn NY, Sunnyvale CA), tracked via sightings — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

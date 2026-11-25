@@ -1315,6 +1315,93 @@ class ChicjocAdapter(Adapter):
     RECHECK = ["https://www.chicjoc.com/store-locator.html"]
 
 
+class SmfkAdapter(Adapter):
+    """
+    SMFK — added 2026-11-22. A Beijing contemporary-fashion label founded in 2016 by Sam Ren (任祎)
+    and Frank Liu, operated by Yichen Fashion Design (Beijing) Co. Minimalist streetwear-to-designer
+    womenswear/menswear under the motto "Not for Sale"; ~50 directly-run boutiques across ~35 Chinese
+    cities (Beijing, Shanghai, Guangzhou, Hangzhou, Chengdu, Nanjing …). China origin, in scope. No
+    Chinese brand name (uses "SMFK").
+
+    US presence: two Los Angeles-area outlets — a Beverly Hills flagship (351 N Canon Dr) and
+    Westfield Century City. Abroad: Sydney (first overseas store, Jan 2024) and Richmond, BC (in the
+    Global register, markets AU and CA). Locator is not machine-readable, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "smfk", "SMFK", ""
+    name_us = None
+    aliases = ("SMFK", "Not for Sale")
+    parent, format = "SMFK (Yichen Fashion Design (Beijing) Co.)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("Beijing contemporary-fashion brand (SMFK, founded 2016; ~50 China stores)."
+                      " Two US outlets (Beverly Hills flagship + Westfield Century City, Los Angeles);"
+                      " Sydney and Richmond BC abroad. No machine-readable US locator, tracked via"
+                      " sightings (22 Nov 2026)")
+    RECHECK = ["https://smfk-official.com/pages/boutiques"]
+
+
+class ChanBaiMeiAdapter(Adapter):
+    """
+    Chan Bai Mei (馋百妹 / 馋白妹) — added 2026-11-22. A China-origin candied-hawthorn snack chain
+    (冰糖葫芦/山楂鲜果茶) with a hawthorn-girl mascot. Operates in China (e.g. Guangzhou 光明广场) and
+    expanded abroad. In the US it trades as "Chan Bai Mei", with a Flushing (NY) head store plus mall
+    counters (CA/NV/PA/FL/NJ); also a Germany (Düsseldorf) outlet. China origin, in scope. (Earlier
+    briefly ruled US-founded on a misread of the Flushing "总店" = US head store, not global origin;
+    the identical-branding China store settled origin as China.) No machine-readable US locator —
+    tracked via sightings; roster NOT exhaustive, re-verify open status.
+    """
+    chain_id, name, name_zh = "chanbaimei", "Chan Bai Mei", "馋百妹"
+    name_us = "Chan Bai Mei"
+    aliases = ("馋百妹", "馋白妹", "馋百妹山楂", "馋百妹糖葫芦", "Chan Bai Mei", "candied hawthorn", "tanghulu")
+    parent, format = "Chan Bai Mei (馋百妹, China)", "snack"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin candied-hawthorn chain (馋百妹/馋白妹; 冰糖葫芦/山楂). US: Flushing NY"
+                      " head store + mall counters (CA/NV/PA/FL/NJ); also China (Guangzhou) and Germany"
+                      " (Düsseldorf). No machine-readable US locator, tracked via sightings (22 Nov 2026)")
+    RECHECK: list[str] = []
+
+
+class SingChoiKeeAdapter(Adapter):
+    """
+    Sing Choi Kee (星财记) — added 2026-11-22. A China-origin Hong-Kong-style café (香港冰室/茶餐厅)
+    chain; operator Fujian Sing Choi Kee Catering Management (福建星财记餐饮管理 / 福州客源餐饮管理),
+    founded 2010 in Fuzhou. HK-themed "港餐" concept (菠萝包/pineapple buns, French toast, milk tea,
+    烧腊 rice plates) but a MAINLAND Fujian company — China origin despite the HK theme + Cantonese
+    name (cf. Makkee). China stores + US. Tracked via sightings.
+
+    US: 3 stores — Flushing/Tangram (NY), Palisades Center West Nyack (NY), Malden (MA).
+    """
+    chain_id, name, name_zh = "singchoikee", "Sing Choi Kee", "星财记"
+    name_us = "Sing Choi Kee"
+    aliases = ("星财记", "Sing Choi Kee", "香港冰室", "茶餐厅", "冰室")
+    parent, format = "Sing Choi Kee (福建星财记餐饮管理, Fuzhou)", "restaurant"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin HK-style café chain (星财记/Sing Choi Kee; operator Fujian/Fuzhou,"
+                      " founded 2010). HK-themed 港餐 concept but a mainland company. US: Flushing/Tangram,"
+                      " Palisades Center NY, Malden MA. No machine-readable US locator, tracked via"
+                      " sightings (22 Nov 2026)")
+    RECHECK = ["https://singchoikee.com/"]
+
+
+class OlightAdapter(Adapter):
+    """
+    Olight (傲雷) — added 2026-11-22. China-origin flashlight / EDC-gear maker, founded 2007 in
+    Shenzhen by Fox Fan, HQ Zhongshan, Guangdong. Sells worldwide online; a "Brand Flagship" — it
+    opened its first US own-brand store, billed as the world's first "flashlight experience store",
+    at Fashion Show in Las Vegas (Sep 2024). Other US sales are via resellers (not counted). Tracked
+    via sightings; US=1 (Las Vegas flagship).
+    """
+    chain_id, name, name_zh = "olight", "Olight", "傲雷"
+    name_us = "Olight"
+    aliases = ("Olight", "傲雷", "Olight Store")
+    parent, format = "Olight (傲雷, Shenzhen/Zhongshan)", "electronics"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin flashlight/EDC maker (Olight 傲雷; Shenzhen 2007, HQ Zhongshan)."
+                      " Brand Flagship — first US own-brand store, the world's first 'flashlight"
+                      " experience store', at Fashion Show Las Vegas (Sep 2024). Resellers not counted."
+                      " Tracked via sightings (22 Nov 2026)")
+    RECHECK = ["https://www.olight.com/"]
+
+
 class EpyayingAdapter(Adapter):
     """
     EP YAYING (雅莹) — added 2026-11-06. A high-end womenswear group from Jiaxing, Zhejiang (operator
@@ -1968,6 +2055,32 @@ class FiobocAdapter(Adapter):
     RECHECK = ["https://www.fioboc.com/pages/fioboc-stores"]
 
 
+class VivaiaAdapter(Adapter):
+    """
+    VIVAIA — a China-incubated DTC footwear brand (machine-washable flats/shoes from recycled
+    materials). Founded 2020, incubated by Starlink (Shenzhen), manufactured in China, but run as a
+    cross-border DTC/export brand (vivaia.com + marketplaces) with NO China brick-and-mortar. From
+    2025 it built a US physical chain — the 'DTC-to-US-physical' breed (like Fioboc; counted under the
+    Brand Flagships lens). China origin (incubated + manufactured in China), in scope (owner call).
+
+    US: 5 VIVAIA-branded stores — SoHo NYC (68 Prince St, first US, Apr 2025), Roosevelt Field
+    (Garden City NY), Westfield Garden State Plaza (Paramus NJ), Westfield Valley Fair (Santa Clara CA),
+    The Florida Mall (Orlando FL). Excludes Von Maur concessions + Nordstrom/Dillard's wholesale.
+    No machine-readable roster (vivaia.com 403s automated fetch), tracked via sightings.
+    """
+    chain_id, name, name_zh = "vivaia", "VIVAIA", ""
+    name_us = "VIVAIA"
+    aliases = ("VIVAIA", "Vivaia")
+    parent, format = "Starlink (Shenzhen)", "apparel"
+    ENABLED = False
+    BLOCKED_REASON = ("China-incubated DTC footwear brand (VIVAIA; incubated by Starlink, Shenzhen;"
+                      " made in China). Pure DTC with NO China B&M, but built a 5-store US physical"
+                      " chain (SoHo NYC, Roosevelt Field, GSP Paramus, Valley Fair, The Florida Mall) —"
+                      " the 'DTC-to-US-physical' Brand Flagships breed, counted. Tracked via sightings."
+                      " In scope")
+    RECHECK = ["https://www.vivaia.com/pages/store-locator"]
+
+
 class OppeinAdapter(Adapter):
     """
     OPPEIN (欧派家居) — China-origin home-furnishings manufacturer (custom kitchen cabinets, wardrobes,
@@ -2098,3 +2211,27 @@ class BalabalaAdapter(Adapter):
                       " SZSE 002563; ~4,800 stores). US retail trades as Balabala — first US store at"
                       " Stoneridge Shopping Center, Pleasanton CA. Tracked via sightings. In scope")
     RECHECK = ["https://www.balabala.com.cn/"]
+
+
+class TaningAdapter(Adapter):
+    """
+    TANING (挞柠) — added 2026-11-24. A China-origin lemon-tea chain founded in Guangzhou in 2017
+    (parent 味满多 / Weimanduo restaurant group, 广州味满多餐饮企业管理有限公司), built on Cantonese-style
+    hand-pounded lemon tea (手打柠檬茶) and now sold as fruit-and-vegetable tea. The brand claims 1,000+
+    stores (self-reported; earlier figures 350 in 2021, 800+ on a US listing) and lists 13 markets.
+    Went abroad in 2019 (Hanoi). China origin, in scope.
+
+    US: 3 stores supplied by the project operator — Flushing NY (39-07 Prince St #1C, the brand's
+    first US store, 2025), Brooklyn NY (781 61st St), Sunnyvale CA (715 Sunnyvale Saratoga Rd).
+    Orders run through a Chowbus-branded app; no machine-readable US locator, so tracked via
+    sightings. NOT Ningji 柠季 or NingQi 柠気 (other lemon-tea names in the register).
+    """
+    chain_id, name, name_zh = "taning", "TANING", "挞柠"
+    name_us = "TANING Lemon Tea"
+    aliases = ("TANING", "Taning", "Taning Lemon Tea", "TANING Lemon Tea", "挞柠", "撻檸", "挞柠手打柠檬茶")
+    parent, format = "Weimanduo (味满多, Guangzhou)", "tea"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Guangzhou lemon-tea chain (挞柠 / TANING, 2017; brand claims 1,000+"
+                      " stores, 13 markets). US: Flushing + Brooklyn NY, Sunnyvale CA. No machine-readable"
+                      " US locator (Chowbus app), tracked via sightings (24 Nov 2026). In scope")
+    RECHECK = ["https://www.taning.net/global.html"]

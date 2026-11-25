@@ -1,0 +1,313 @@
+{
+ "_readme": [
+  "MALL OPENINGS TRACKER — the China-origin share of NEW store openings at 25 of the top US malls.",
+  "",
+  "METHOD: periodically read each mall's own online directory and capture EVERY tenant tagged",
+  "'New' / 'Now Open' / 'Coming Soon' (the openings). Flag each as china_origin (matched to the",
+  "register's tracked China-origin chains) or not. The headline metric = china-origin openings /",
+  "all captured openings, across malls whose latest sweep is 'complete' (captured ALL new tags).",
+  "",
+  "Universe is '25 of the top US malls' (by size/prominence) — NOT 'all US malls'. Because top",
+  "malls skew premium/Asian-metro, the china-origin share runs higher than an all-US-mall average;",
+  "label it precisely. Pop-ups and temporary activations are NOT counted as openings.",
+  "",
+  "'complete': true = this sweep captured the mall's full New/Coming-Soon set (counts toward the",
+  "denominator). false = only the china-origin openings were captured (numerator only; excluded",
+  "from the share). Use the LATEST sweep per mall. status: 'open' (now open) | 'coming_soon'.",
+  "Internal source file; the computed metric is exported + shown on the public site."
+ ],
+ "as_of": "2026-11-22",
+ "universe_label": "25 of the top US malls",
+ "malls": [
+  {
+   "id": "ala-moana",
+   "name": "Ala Moana Center",
+   "operator": "Brookfield Properties",
+   "metro": "Honolulu, HI"
+  },
+  {
+   "id": "south-coast-plaza",
+   "name": "South Coast Plaza",
+   "operator": "C.J. Segerstrom & Sons",
+   "metro": "Costa Mesa, CA"
+  },
+  {
+   "id": "king-of-prussia",
+   "name": "King of Prussia",
+   "operator": "Simon Property Group",
+   "metro": "King of Prussia, PA"
+  },
+  {
+   "id": "mall-of-america",
+   "name": "Mall of America",
+   "operator": "Triple Five Group",
+   "metro": "Bloomington, MN"
+  },
+  {
+   "id": "del-amo",
+   "name": "Del Amo Fashion Center",
+   "operator": "Simon Property Group",
+   "metro": "Torrance, CA"
+  },
+  {
+   "id": "garden-state-plaza",
+   "name": "Westfield Garden State Plaza",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Paramus, NJ"
+  },
+  {
+   "id": "aventura",
+   "name": "Aventura Mall",
+   "operator": "Turnberry Associates",
+   "metro": "Aventura, FL"
+  },
+  {
+   "id": "sawgrass-mills",
+   "name": "Sawgrass Mills",
+   "operator": "Simon Property Group",
+   "metro": "Sunrise, FL"
+  },
+  {
+   "id": "roosevelt-field",
+   "name": "Roosevelt Field",
+   "operator": "Simon Property Group",
+   "metro": "Garden City, NY"
+  },
+  {
+   "id": "valley-fair",
+   "name": "Westfield Valley Fair",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Santa Clara, CA"
+  },
+  {
+   "id": "houston-galleria",
+   "name": "The Galleria",
+   "operator": "Simon Property Group",
+   "metro": "Houston, TX"
+  },
+  {
+   "id": "woodfield",
+   "name": "Woodfield Mall",
+   "operator": "Simon Property Group",
+   "metro": "Schaumburg, IL"
+  },
+  {
+   "id": "tysons-corner",
+   "name": "Tysons Corner Center",
+   "operator": "Macerich",
+   "metro": "Tysons, VA"
+  },
+  {
+   "id": "century-city",
+   "name": "Westfield Century City",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Los Angeles, CA"
+  },
+  {
+   "id": "northpark",
+   "name": "NorthPark Center",
+   "operator": "NorthPark Management",
+   "metro": "Dallas, TX"
+  },
+  {
+   "id": "scottsdale-fashion-square",
+   "name": "Scottsdale Fashion Square",
+   "operator": "Macerich",
+   "metro": "Scottsdale, AZ"
+  },
+  {
+   "id": "fashion-show",
+   "name": "Fashion Show",
+   "operator": "Brookfield Properties",
+   "metro": "Las Vegas, NV"
+  },
+  {
+   "id": "topanga",
+   "name": "Westfield Topanga",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Canoga Park, CA"
+  },
+  {
+   "id": "glendale-galleria",
+   "name": "Glendale Galleria",
+   "operator": "Brookfield Properties",
+   "metro": "Glendale, CA"
+  },
+  {
+   "id": "santa-anita",
+   "name": "Westfield Santa Anita",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Arcadia, CA"
+  },
+  {
+   "id": "queens-center",
+   "name": "Queens Center",
+   "operator": "Macerich",
+   "metro": "Elmhurst, NY"
+  },
+  {
+   "id": "bellevue-square",
+   "name": "Bellevue Square",
+   "operator": "Kemper Development",
+   "metro": "Bellevue, WA"
+  },
+  {
+   "id": "florida-mall",
+   "name": "The Florida Mall",
+   "operator": "Simon Property Group",
+   "metro": "Orlando, FL"
+  },
+  {
+   "id": "brea-mall",
+   "name": "Brea Mall",
+   "operator": "Simon Property Group",
+   "metro": "Brea, CA"
+  },
+  {
+   "id": "the-grove",
+   "name": "The Grove",
+   "operator": "Caruso",
+   "metro": "Los Angeles, CA"
+  }
+ ],
+ "sweeps": [
+  {
+   "mall": "garden-state-plaza",
+   "swept_on": "2026-11-22",
+   "complete": true,
+   "source": "westfield.com GSP directory (New / Coming Soon tags), 22 Nov 2026",
+   "openings": [
+    {
+     "name": "Vivaia",
+     "status": "open",
+     "china_origin": true,
+     "chain": "vivaia"
+    },
+    {
+     "name": "Darry Ring",
+     "status": "coming_soon",
+     "china_origin": true,
+     "chain": "darryring",
+     "note": "first US flagship, Dec 2026"
+    },
+    {
+     "name": "Michael Kors",
+     "status": "open",
+     "china_origin": false,
+     "note": "tagged New"
+    },
+    {
+     "name": "The Twin Closet",
+     "status": "open",
+     "china_origin": false,
+     "note": "tagged New"
+    },
+    {
+     "name": "Gio&Mi",
+     "status": "coming_soon",
+     "china_origin": false
+    },
+    {
+     "name": "Levi's Store",
+     "status": "coming_soon",
+     "china_origin": false
+    },
+    {
+     "name": "Studs",
+     "status": "coming_soon",
+     "china_origin": false
+    },
+    {
+     "name": "5.11",
+     "status": "coming_soon",
+     "china_origin": false
+    },
+    {
+     "name": "DIGISO",
+     "status": "coming_soon",
+     "china_origin": false,
+     "note": "US/NY multi-brand K-beauty reseller"
+    }
+   ]
+  },
+  {
+   "mall": "brea-mall",
+   "swept_on": "2026-11-22",
+   "complete": false,
+   "source": "Brea Mall (Simon) directory screenshots (Now Open / Coming Soon), 22 Nov 2026 — partial capture",
+   "openings": [
+    {
+     "name": "POP MART",
+     "status": "open",
+     "china_origin": true,
+     "chain": "popmart"
+    },
+    {
+     "name": "MINISO",
+     "status": "coming_soon",
+     "china_origin": true,
+     "chain": "miniso"
+    }
+   ]
+  },
+  {
+   "mall": "santa-anita",
+   "swept_on": "2026-11-22",
+   "complete": false,
+   "source": "The Shops at Santa Anita directory screenshots (New tags), 22 Nov 2026 — partial capture",
+   "openings": [
+    {
+     "name": "DeRUCCI",
+     "status": "open",
+     "china_origin": true,
+     "chain": "derucci",
+     "note": "tagged New"
+    },
+    {
+     "name": "Chow Tai Fook",
+     "status": "open",
+     "china_origin": false,
+     "note": "tagged New; Hong Kong origin, out of scope"
+    }
+   ]
+  },
+  {
+   "mall": "topanga",
+   "swept_on": "2026-11-22",
+   "complete": true,
+   "source": "westfield.com Topanga stores + restaurants directory (New / Coming Soon tags), 22 Nov 2026",
+   "openings": [
+    {
+     "name": "COS",
+     "status": "coming_soon",
+     "china_origin": false,
+     "note": "Sweden / H&M Group"
+    },
+    {
+     "name": "Lulu Land",
+     "status": "open",
+     "china_origin": false,
+     "note": "tagged New; origin unconfirmed"
+    },
+    {
+     "name": "7th Avenue",
+     "status": "coming_soon",
+     "china_origin": false,
+     "note": "LA-based modular furniture, opens Jan 2027"
+    },
+    {
+     "name": "Din Tai Fung",
+     "status": "coming_soon",
+     "china_origin": false,
+     "note": "Taiwan (out of scope)"
+    },
+    {
+     "name": "Kura Revolving Sushi Bar",
+     "status": "coming_soon",
+     "china_origin": false,
+     "note": "Japan"
+    }
+   ]
+  }
+ ]
+}

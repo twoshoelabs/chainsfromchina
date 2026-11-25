@@ -33,15 +33,68 @@ day for the entire global estate — lighter on their infrastructure than the se
 costs, and far lighter than a browser session would have been.
 """
 import json
+import re
 import time
 
 from .base import Adapter, StoreRecord
+
+
+def _dedup_key(addr_raw, city, state):
+    """A coarse identity for a US storefront: leading street number + city + state. Lets a manual
+    supplement entry self-remove once the live feed publishes a storefront at the same address,
+    while keeping distinct stores apart — including two stores that share a street number in the
+    same state but sit in different cities (e.g. 11401 NW 12th St Miami vs 11401 Pines Blvd
+    Pembroke Pines)."""
+    m = re.match(r"\s*(\d+)", addr_raw or "")
+    num = m.group(1) if m else (addr_raw or "").strip().lower()
+    return (num, (city or "").strip().lower(), (state or "").upper())
 from .. import capture
 from ..usaddr import split_tail
 
 ENDPOINT = "https://prod-intl-api.popmart.com/shop/v1/store/mapStoreList"
 EXPECTED_MIN = 60
 COUNTRY = "United States"
+
+# Stores confirmed open (mall directory / owner report) that the app API has not yet published.
+# The API lags new openings, so a store can be trading for weeks before it appears in the feed.
+# These are appended ONLY to a full live feed (see the EXPECTED_MIN guard in parse(), which keeps
+# the test fixture untouched) and ONLY while the feed carries no store in that city — so the day
+# the API finally lists it, the supplement drops out on its own and nothing is double-counted
+# (there is no global dedup here, by design, because of the store/roboshop split). Re-check these
+# against the API periodically and delete each once the feed catches up.
+KNOWN_MISSING = [
+    StoreRecord(
+        store_code="manual-brea-mall", name="POP MART",
+        addr_raw="1065 Brea Mall, Brea, CA 92821", city="Brea", state="CA", zip="92821",
+        lat=33.9150, lon=-117.8864, trading=True, format="standard",
+        flags={"source": "Brea Mall (Simon) directory 'Now Open' + owner-confirmed 2026-11-22",
+               "manual_supplement": True}),
+    # The three below are staffed stores the API mis-handles — it drops Ala Moana entirely and
+    # tags Dolphin + Montgomery as type-2 roboshops — so a plain re-collect silently un-counts
+    # them (the count fell 79->75 before this supplement was added). All re-verified OPEN via mall
+    # directories + dated Google Maps "Store" listings on 2026-11-22. (Tysons VA is deliberately NOT
+    # here: only a Robo Shop is live there; its staffed store is still "under development" for Q4
+    # 2026 — add it once it actually opens.)
+    StoreRecord(
+        store_code="manual-ala-moana", name="POP MART",
+        addr_raw="1450 Ala Moana Blvd, Honolulu, HI 96814", city="Honolulu", state="HI", zip="96814",
+        lat=21.2911, lon=-157.8435, trading=True, format="standard",
+        flags={"source": "Ala Moana Center directory 'Now Open' (Level 3, Ewa Wing; HI's first), "
+                          "re-verified 2026-11-22", "manual_supplement": True}),
+    StoreRecord(
+        store_code="manual-dolphin-mall", name="POP MART",
+        addr_raw="11401 NW 12th St #262, Miami, FL 33172", city="Miami", state="FL", zip="33172",
+        lat=25.7884, lon=-80.3819, trading=True, format="standard",
+        flags={"source": "Google Maps 'POPMART Dolphin Mall' (Store, 5.0*), opened 12 Sep 2026; "
+                          "API mis-tags as roboshop. Re-verified 2026-11-22", "manual_supplement": True}),
+    StoreRecord(
+        store_code="manual-montgomery-mall", name="POP MART",
+        addr_raw="7101 Democracy Blvd Unit 3316, Bethesda, MD 20817", city="Bethesda", state="MD",
+        zip="20817", lat=39.0245, lon=-77.1464, trading=True, format="standard",
+        flags={"source": "Google Maps 'POP MART' Westfield Montgomery (Store, 5.0*, staffed, recent "
+                          "reviews); API mis-tags as roboshop. Re-verified 2026-11-22",
+               "manual_supplement": True}),
+]
 
 
 class PopMartUSAdapter(Adapter):
@@ -99,6 +152,18 @@ class PopMartUSAdapter(Adapter):
                 format=("vending_robo" if s.get("type") == 2 else "standard"),
                 flags={"phone": s.get("storeTEL"), "hours": s.get("openingTimeDesc"),
                        "store_type": s.get("type"), "status": s.get("status")}))
+        # Append confirmed-open storefronts the feed has not yet published — only on a full live
+        # feed (never the small test fixture). Match by (street-number, state) against the feed's
+        # STAFFED storefronts only: roboshop (vending_robo) rows do NOT count as coverage, because
+        # the API routinely lists a mall's vending machines (or nothing) while omitting the staffed
+        # store that is actually open, and it also mis-tags real stores as roboshops. Each entry
+        # self-removes the day the API finally publishes a storefront at that address.
+        if len(out) >= EXPECTED_MIN:
+            have = {_dedup_key(r.addr_raw, r.city, r.state)
+                    for r in out if r.state and r.format != "vending_robo"}
+            for extra in KNOWN_MISSING:
+                if _dedup_key(extra.addr_raw, extra.city, extra.state) not in have:
+                    out.append(extra)
         return out
 
 

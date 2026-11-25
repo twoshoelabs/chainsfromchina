@@ -378,8 +378,10 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
     }
     return text;
   };
+  // Locale-aware blurb: prefer the Simplified-Chinese blurb on /zh/, fall back to English.
+  const blurbText = (window.CFC_LANG === 'zh' && comp.blurb_zh) ? comp.blurb_zh : (comp.blurb || '');
   const sents = [];
-  if (comp.blurb) sents.push(leadSentence(comp.blurb));
+  if (blurbText) sents.push(leadSentence(blurbText));
   let cs = '';
   // "staffed" only where it needs disambiguating from unstaffed Robo Shop kiosks (chains with robos).
   if (outlets) cs = t('chain.sum.open', `${outlets} ${robos ? 'staffed ' : ''}outlet${outlets > 1 ? 's are' : ' is'} open in the US`, {n:outlets});
@@ -501,7 +503,7 @@ const STATE_NAMES = { AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Ca
       locationsHTML(feats) +
       `<p class="lead" style="margin-top:10px;font-size:.85rem"><a href="index.html">${t('chain.sec.fullmap','Open the full US map →')}</a></p></section>` +
     `<section><h2>${t('chain.sec.photos','Photographs')}</h2>` + photosBlock(comp, m) + `</section>` +
-    (comp.blurb ? `<section><h2>${t('chain.sec.about','About')}</h2><p class="lead">${esc(comp.blurb)}</p>` +
+    (blurbText ? `<section><h2>${t('chain.sec.about','About')}</h2><p class="lead">${esc(blurbText)}</p>` +
       `<dl class="kv">` +
         (comp.first_outlet ? `<dt>${t('chain.kv.first','First US store')}</dt><dd>${esc(comp.first_outlet)}</dd>` : '') +
         (comp.site_us ? `<dt>${t('chain.kv.ussite','US site')}</dt><dd><a href="${esc(comp.site_us)}" target="_blank" rel="noopener">${esc(comp.site_us.replace(/^https?:\/\//,''))}</a></dd>` : '') +

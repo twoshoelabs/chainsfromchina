@@ -60,8 +60,14 @@ BRAND = {a.chain_id: (getattr(a, "name_us", None) or getattr(a, "name", a.chain_
 #   nayuki @ 233 W 42nd St, Manhattan — a NaiSnow-named health permit with NO operating store:
 #   web-verified 29 Sep 2026 (no Google Business listing, no reviews, no press; 234 W 42nd is an
 #   unrelated bubble-tea shop). A permit that never became a shop; kept out of the sightings.
+#   chabaidao @ 165 University Av # D, Palo Alto — a county permit in the name "TEABYDO" (first
+#   inspected 2024-12-09) but NO TeaByDo/ChaPanda storefront: the unit trades as T4, a different
+#   boba brand (operator check + listings, 24 Nov 2026). A permit name that is not the shop's
+#   brand; kept out of the sightings. (The TEABYDO permit at 1147 S De Anza Bl, San Jose IS a real
+#   TeaByDo store and stays.)
 FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220")),
-                 ("nayuki", street_key("233 WEST   42 STREET, Manhattan, NY 10036"))}
+                 ("nayuki", street_key("233 WEST   42 STREET, Manhattan, NY 10036")),
+                 ("chabaidao", street_key("165 UNIVERSITY AV # D, Palo Alto, CA 94301"))}
 
 # Permit rows confirmed BY HAND under a CORRECTED address (the store is real and open, but the
 # permit's street address differs from the one it actually trades at), so the permit candidate is
@@ -70,8 +76,27 @@ FALSE_MATCHES = {("heytea", street_key("6019 4 AVENUE, Brooklyn, NY 11220")),
 # group automatically; only an address the permit got wrong needs listing.
 #   heytea @ 2813 Broadway   -> confirmed open at 2815 Broadway (Yelp)
 #   heytea @ 42-17 Crescent  -> confirmed open at 42-20 27th St, Long Island City (Yelp/Corner)
+#   heytea @ 9523 S Santa Monica Blvd, Beverly Hills -> the SAME shop as 479 N Rodeo Dr Ste D (the
+#     Rodeo Dr suite fronts S Santa Monica Blvd; the county permit records the frontage). Was
+#     double-counted until 24 Nov 2026.
+#   heytea @ 2855 Stevens Creek Bl # 1329, San Jose -> the SAME shop as the hand-held Westfield
+#     Valley Fair row (2855 Stevens Creek Blvd, Santa Clara); the unit suffix and city defeated the
+#     street_key dedupe. Was double-counted until 24 Nov 2026.
 CONFIRMED_ELSEWHERE = {("heytea", street_key("2813 BROADWAY, Manhattan, NY 10025")),
-                       ("heytea", street_key("42-17 CRESCENT STREET, Queens, NY 11101"))}
+                       ("heytea", street_key("42-17 CRESCENT STREET, Queens, NY 11101")),
+                       ("heytea", street_key("9523 S SANTA MONICA BLVD, Beverly Hills, CA 90210")),
+                       ("heytea", street_key("2855 STEVENS CREEK BL # 1329, San Jose, CA 95050"))}
+
+# Permit rows for a store VERIFIED CLOSED BY HAND while its health permit may still read active (a
+# permit outlives the shop). Dropped here, and logged in manual/closings.json, so a later merge
+# cannot re-add the address as a "new" open candidate. Retire an entry if the store reopens.
+#   heytea @ 4505 8th Ave, Brooklyn — Yelp "Yelpers report this location has closed" (claimed
+#     page), hand-observed by the operator 24 Nov 2026.
+#   juewei @ 2002 S Wentworth Ave, Chicago — listed as "Jue Wei Ya Ba Wang 绝味鸭霸王" (food-court
+#     unit FC3); Google marks it permanently closed, and its link to the tracked chain 绝味鸭脖 was
+#     never confirmed. Removed on the operator's call, 2026-11-25.
+CLOSED_BY_HAND = {("heytea", street_key("4505 8 AVENUE, Brooklyn, NY 11220")),
+                  ("juewei", street_key("2002 S WENTWORTH AVE, CHICAGO, IL 60616"))}
 
 _ORD = re.compile(r"(\d)(Th|St|Nd|Rd)\b")
 
@@ -196,7 +221,8 @@ def main():
     added = removed = upgraded = 0
     for key, e in sig.items():
         chain, k = key
-        if key in FALSE_MATCHES or key in CONFIRMED_ELSEWHERE or k in hand_keys(chain):
+        if (key in FALSE_MATCHES or key in CONFIRMED_ELSEWHERE or key in CLOSED_BY_HAND
+                or k in hand_keys(chain)):
             if held.pop(key, None):       # not-this-chain, a corrected address, or a first-party /
                 removed += 1              # hand sighting — each supersedes the permit one
         elif e["open"]:

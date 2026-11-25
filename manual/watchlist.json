@@ -16,7 +16,7 @@
   "RT-Mart (Taiwan), and HK-origin dessert/bakery brands were dropped by the research.",
   "'us-flagship' = a single US brand-promotion flagship/showroom, NOT a chain — internal reference only, kept OFF the Register/census unless it becomes multi-store."
  ],
- "as_of": "2026-11-14",
+ "as_of": "2026-11-24",
  "categories": {
   "Tea": [
    {
@@ -264,6 +264,16 @@
     "markets": "China (Beijing); US EXITED — Flushing + East Village NYC, both closed",
     "note": "Beijing lamb-spine (羊蝎子) hot pot chain that opened two NYC stores and closed both (logged in closings.json). WATCH for a credible US REOPENING. The name 老诚一锅 is heavily counterfeited in China; the US operation (laochengyiguo.us) was the real Beijing brand.",
     "source": "https://commercialobserver.com/2018/04/beijing-based-hot-pot-chain-opening-second-u-s-location-in-east-village/"
+   },
+   {
+    "name": "Ping Sister / Pingjie Hot Pot",
+    "name_zh": "萍姐火锅",
+    "hq": "Chongqing",
+    "china_stores": "~192 (Dec 2023 press; no current figure) — direct in Chongqing/Chengdu, franchised elsewhere",
+    "status": "us-announced-unconfirmed",
+    "markets": "China only in press. US: reported moving into the former Nan Hotpot space at 36-36 Prince St #106, Flushing NY — under renovation, NOT open. No other overseas store found.",
+    "note": "US WATCH, not counted (owner call 2026-11-24). China-origin Chongqing hotpot chain, night-market themed (萍姐火锅·公路夜市), founded Sept 2021 at Guanyinqiao, Chongqing; founder 陈宇森 (also 卤校长); operator 重庆亚特餐饮发展有限公司; brand domain pingsister.com. Sole US evidence is one first-hand contribute-form report (2026-11-24) that Nan Hotpot (楠火锅) closed at this address and 'Pingsister old hot pot 萍姐火锅' is renovating; no press, listing or brand announcement found. Brand link UNCONFIRMED — verify signage/authorization before counting. Do NOT conflate with Peijie 珮姐重庆火锅 (separate Chongqing brand, already on this list). Promote to the US map only when an open storefront and the brand tie are verified. Nan Hotpot's Flushing row stays 'temp closed / uncertain' in sightings.json until its closure is independently confirmed.",
+    "source": "https://news.qq.com/rain/a/20231218A08KIZ00"
    }
   ],
   "Malatang & skewers": [
@@ -1064,6 +1074,18 @@
     "markets": "No US stores; expanding in SE Asia (Malaysia/Singapore/Indonesia), India, Europe/Middle East. Already on our Global register (HKEX:1368).",
     "note": "One of China's 'big four' athletic brands (with Anta, Li-Ning, 361). Owns K-Swiss & Palladium + China JV for Saucony/Merrell (not China-origin Xtep storefronts, out of scope). WATCH for a US retail entry — rival Anta opened its first US store Jan 2026.",
     "source": "https://en.wikipedia.org/wiki/Xtep"
+   }
+  ],
+  "Jewelry": [
+   {
+    "name": "Darry Ring (DR)",
+    "name_zh": "迪阿",
+    "hq": "Shenzhen, Guangdong",
+    "china_stores": "~500-600 worldwide (SZSE-listed 301177.SZ, founded 2010)",
+    "status": "abroad",
+    "markets": "Abroad: Paris (Carrousel du Louvre), Singapore (Capitol), Hong Kong (ELEMENTS). US: online since Apr 2024 but NO US brick-and-mortar yet — first US flagship COMING SOON Dec 2026 at Westfield Garden State Plaza, Paramus NJ.",
+    "note": "China-origin fine-jewelry chain ('One Love, One Lifetime' / 迪阿股份). US B&M not open yet — PROMOTE to tracked when the GSP flagship opens (DR-monogram logo already staged at map/icons/darryring.png). Found in the GSP mall-directory sweep 2026-11-22.",
+    "source": "https://us.darryring.com/about/find-store"
    }
   ]
  }

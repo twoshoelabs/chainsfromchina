@@ -39,7 +39,9 @@
   "Each such discrepancy is stamped into the tamper-evident ledger manual/provenance_ledger.jsonl, so we",
   "can later prove we knew a store was closed on a date its operator still listed it open. Verify the",
   "chain with `python -m chain_atlas provenance`. Per-location discrepancy detail built on this is",
-  "Pro-tier and is exported only to the access-controlled location, never to the public map/data."
+  "Pro-tier and is exported only to the access-controlled location, never to the public map/data.",
+  "",
+  "SUCCESSION (one China-origin chain replacing another). When a closed store's exact address is now occupied by a DIFFERENT tracked chain, the row carries `succeeded_by` {chain, name, confidence, basis, noted}: 'confirmed' when the takeover of the same storefront was observed, 'likely' when our records merely show the same street address. Shared mall or plaza addresses with different units are co-tenancy, not succession, and are not marked."
  ],
  "closings": [
   {
@@ -639,7 +641,14 @@
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
     }
-   ]
+   ],
+   "succeeded_by": {
+    "chain": "chabaidao",
+    "name": "TeaByDo (ChaPanda) Flushing",
+    "confidence": "likely",
+    "basis": "Same street address in our records; TeaByDo opened there 18 Aug 2025 as ChaPanda's first North American store. Same storefront not independently verified.",
+    "noted": "2026-11-24"
+   }
   },
   {
    "chain": "moge",
@@ -713,7 +722,14 @@
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
     }
-   ]
+   ],
+   "succeeded_by": {
+    "chain": "heytea",
+    "name": "HEYTEA (705 59th St, Brooklyn)",
+    "confidence": "likely",
+    "basis": "Same street address in our records (HEYTEA held from an NYC health permit). Same storefront not independently verified.",
+    "noted": "2026-11-24"
+   }
   },
   {
    "chain": "moge",
@@ -1633,7 +1649,14 @@
    "closed_note": "Permanently closed per Yelp (\"Yelpers report this location has closed\", 13 Nov 2026). Surfaced during onboarding; was not in the counted roster (Berkeley was held uncertain; Sandy was a lead), so stats/provenance only. No count change.",
    "sources": [
     "Yelp 'Tang Huo Kung Fu' Berkeley CA — reported closed (13 Nov 2026)"
-   ]
+   ],
+   "succeeded_by": {
+    "chain": "chahalo",
+    "name": "ChaHalo Berkeley",
+    "confidence": "likely",
+    "basis": "Same street address in our records. Same storefront not independently verified.",
+    "noted": "2026-11-24"
+   }
   },
   {
    "chain": "tanghuokungfu",
@@ -1785,7 +1808,14 @@
    "state": "VA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Closed — Yelp marks 'Meet Rice Noodle' Fairfax VA as CLOSED (updated May 2026). Recorded 14 Nov 2026."
+   "closed_note": "Closed — Yelp marks 'Meet Rice Noodle' Fairfax VA as CLOSED (updated May 2026). Recorded 14 Nov 2026.",
+   "succeeded_by": {
+    "chain": "jibeichuan",
+    "name": "JiBeiChuan Fairfax",
+    "confidence": "likely",
+    "basis": "Same street address in our records. Same storefront not independently verified.",
+    "noted": "2026-11-24"
+   }
   },
   {
    "chain": "mengziyuan",
@@ -1818,6 +1848,281 @@
    "closed_note": "JiBeiChuan Rice Noodles (季北川) Houston Chinatown outlet (9888 Bellaire Blvd Ste 126; own site jibeichuanricenoodles.com, 4.4/47 Yelp, 369 photos). Now REPORTED CLOSED but NOT independently confirmed: Yelp shows the soft community flag 'Yelpers report this location has closed' (not a Google/Yelp 'Permanently closed' status). We never tracked this store as open (not on the brand's US roster), so no count change. Re-verify via Google 'Permanently closed' before treating as confirmed.",
    "confidence": "medium",
    "source": "Yelp business page 'Jibeichuan Rice Noodles' (Houston) — 'Yelpers report this location has closed' (hand screenshot 20 Nov 2026)."
+  },
+  {
+   "chain": "haidilao",
+   "name": "Seattle (Pacific Place)",
+   "address": "600 Pine St Ste 355, Seattle, WA 98101",
+   "city": "Seattle",
+   "state": "WA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Haidilao Hotpot Seattle (Pacific Place); the claimed Yelp page shows 'Temporarily closed — scheduled to reopen on January 1, 2028', hand-observed 24 Nov 2026 (page updated about two weeks earlier). Already off Haidilao's US locator and held 'closed' by the census (closure event dated 12 Nov 2026), so no count change; Tukwila (Southcenter) and Bellevue remain open. A 13-month 'temporary' closure is treated as closed. RECHECK IN JANUARY 2028: confirm whether it reopens (the census will re-add it from the locator) or has become permanent.",
+   "confidence": "confirmed",
+   "source": "Yelp business page ('Temporarily closed', reopening scheduled 1 Jan 2028), hand-observed by the operator 24 Nov 2026; absent from Haidilao's US locator.",
+   "known_closed_on": "2026-11-12"
+  },
+  {
+   "chain": "heytea",
+   "name": "Brooklyn (8th Ave, Sunset Park)",
+   "address": "4505 8th Ave, Brooklyn, NY 11220",
+   "city": "Brooklyn",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "HEYTEA at 4505 8th Ave; the claimed Yelp page (4.1 / 20 reviews) carries the banner 'Yelpers report this location has closed', hand-observed 24 Nov 2026. It had been counted from an NYC health-department permit (NYC health-department permit, first inspected 2024-01-23 (2026-09-23)), which can stay active after a shop shuts. Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Yelp business page ('Yelpers report this location has closed'), hand-observed by the operator 24 Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "tenseconds",
+   "name": "Ten Seconds Yunnan Rice Noodles (Manhattan, W 38th St)",
+   "address": "42 W 38th St, New York, NY 10018",
+   "city": "New York",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Ten Seconds Yunnan Rice Noodles - 十秒到, a food-hall stall at 42 W 38th St (Midtown South); the Google listing (3.4 / 5 reviews) shows 'Permanently closed', hand-observed 24 Nov 2026. It had been counted since Oct 2026 from an operating Google Maps listing plus the brand's own site. Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed'), hand-observed by the operator 24 Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "moge",
+   "name": "Möge Tee — South Miami",
+   "address": "5796 Sunset Dr, Miami, FL 33143",
+   "city": "Miami",
+   "state": "FL",
+   "opened": null,
+   "closed_on": "2026-11-24",
+   "closed_note": "Yelp reports closed ('Yelpers report this location has closed' on the claimed page, 4.3 / 66 reviews), owner screenshot 24 Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we learned of it, not the day it shut.",
+   "confidence": "confirmed",
+   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+  },
+  {
+   "chain": "moge",
+   "name": "Möge Tee — Cypress (Fairfield Town Center)",
+   "address": "29040 US-290 Ste A01, Cypress, TX 77433",
+   "city": "Cypress",
+   "state": "TX",
+   "opened": null,
+   "closed_on": "2026-11-24",
+   "closed_note": "Google listing (4.1 / 114 reviews) shows 'Permanently closed', owner screenshot 24 Nov 2026. Yelp does not mark it closed, but its most recent review there is over a year old; logged closed on the owner's call. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we logged it, not the day it shut.",
+   "confidence": "confirmed",
+   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+  },
+  {
+   "chain": "rbtea",
+   "name": "R&B Tea — Otay Ranch Town Center (Chula Vista)",
+   "address": "2015 Birch Rd Unit 907, Chula Vista, CA 91915",
+   "city": "Chula Vista",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "R&B Tea, Otay Ranch Mall; the Google listing (3.7 / 48 reviews) shows 'Temporarily closed', hand-observed 24 Nov 2026, and the operator has determined it is definitively closed. It had been counted from R&B Tea USA's own store locator (rbteausa.com/locations, read 19 Oct 2026), which still listed it. Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Temporarily closed') plus the operator's own determination that it is closed, 24 Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "rbtea",
+   "name": "R&B Tea — Fremont (Fremont Blvd)",
+   "address": "37120 Fremont Blvd Unit I, Fremont, CA 94536",
+   "city": "Fremont",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "R&B Tea - Fremont; the Google listing (3.8 / 59 reviews) shows 'Permanently closed', hand-observed 24 Nov 2026. Previously counted from: Google Maps \"R&B Tea - Fremont\" 3.8★/60 reviews, bubble tea store, Cash App $rbtea (已打烊=open); 19 Oct 2026. Not on official locator.. Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed'), hand-observed by the operator 24 Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "rbtea",
+   "name": "R&B Tea — Gardena (W Redondo Beach Blvd)",
+   "address": "1847 W Redondo Beach Blvd, Gardena, CA 90247",
+   "city": "Gardena",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "R&B Tea House at 1847 W Redondo Beach Blvd (grand opening Oct 19-20 2026) now trades as Brew47 Tea & Coffee; the operator confirmed on 24 Nov 2026 that Brew47 has replaced R&B there. Earlier in Nov 2026 Google already listed it as Brew47 while the storefront still read 'R&B Tea House' and it was held as the same operator under an alternate name, pending a full debrand. That debrand is now treated as complete: no longer an R&B Tea outlet. Removed from the count the same day.",
+   "confidence": "confirmed",
+   "source": "Operator observation 24 Nov 2026 (Brew47 has replaced R&B at the address); earlier owner screenshot, Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "moge",
+   "name": "Möge Tee — Manhattan Valley (Amsterdam Ave)",
+   "address": "971 Amsterdam Ave, New York, NY 10025",
+   "city": "New York",
+   "state": "NY",
+   "opened": null,
+   "closed_on": "2026-11-24",
+   "closed_note": "Conflicting signals resolved as closed on the owner's call, 24 Nov 2026: Google shows the store closed, and although Yelp still lists it as open, its newest review there is almost two years old. Möge Tee's own locator (mogeteeusa.com) still lists it as 'NOW OPEN' = locator lag. The close date is the day we logged it, not the day it shut.",
+   "confidence": "confirmed",
+   "source": "Owner observation 24 Nov 2026 (Google closed status; Yelp review recency); DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "succeeded_by": {
+    "chain": "nayuki",
+    "name": "NaiSnow Tea and Bakery (Columbia University)",
+    "confidence": "confirmed",
+    "basis": "Operator-observed 24 Nov 2026: Google lists NaiSnow (4.9 / 258 reviews, operating) at the exact address of the closed Möge Tee.",
+    "noted": "2026-11-24"
+   }
+  },
+  {
+   "chain": "jibeichuan",
+   "name": "Ji Bei Chuan — Chico (Esplanade)",
+   "address": "1851 Esplanade, Chico, CA 95926",
+   "city": "Chico",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Ji Bei Chuan Rice Noodles & Ramen, 1851 Esplanade, Chico; the claimed Yelp page (4.1 / 31 reviews) carries the banner 'Yelpers report this location has closed', hand-observed 24 Nov 2026. Previously counted from: Dedicated first-party site jibeichuan-chico.com (季北川, full hours + online order + phone) + press (whatnow.com: operator runs San Leandro & Chico Ji Bei Chuan). No Google Maps listing yet (new). Owner screenshot 26 Oct 2026. Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Yelp business page ('Yelpers report this location has closed'), hand-observed by the operator 24 Nov 2026.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "chahalo",
+   "name": "ChaHalo — San Gabriel (Prospect Plaza)",
+   "address": "301 W Valley Blvd Unit 107, San Gabriel, CA 91776",
+   "city": "San Gabriel",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "ChaHalo - San Gabriel at Prospect Plaza; the Google listing (4.8 / 14 reviews) shows 'Temporarily closed' with no phone, hours or website, hand-observed 2026-11-24, and the operator has determined it is closed. Previously counted from: Google Maps operating listing (operator-observed tight-zoom re-sweep, Oct 2026). Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Temporarily closed') plus the operator's own determination that it is closed, 2026-11-24.",
+   "known_closed_on": "2026-11-24"
+  },
+  {
+   "chain": "liuyishou",
+   "name": "Liuyishou Hot Pot — Flushing (39th Ave)",
+   "address": "136-76 39th Ave, Flushing, NY 11354",
+   "city": "Flushing",
+   "state": "NY",
+   "opened": null,
+   "closed_on": "2026-11-25",
+   "closed_note": "Liuyishou Hotpot, Flushing; the claimed Yelp page (4.4 / 674 reviews) carries 'Yelpers report this location has closed' and the Google listing (4.6 / 1,502 reviews) shows 'Temporarily closed', both hand-observed 2026-11-25. Still listed on the brand's own site (liuyishouna.com/flushing) = locator lag. The close date is the day we logged it, not the day it shut.",
+   "confidence": "confirmed",
+   "source": "Owner screenshots 2026-11-25 (Yelp closed banner; Google 'Temporarily closed'); DB row closed + added to liuyishou.py PERMANENTLY_CLOSED; held out of count."
+  },
+  {
+   "chain": "shanchenglameizi",
+   "name": "Shancheng Lameizi Hot Pot — San Diego (Convoy St)",
+   "address": "4225 Convoy St, San Diego, CA 92111",
+   "city": "San Diego",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Shancheng Lameizi Hot Pot at Convoy Center; the Google listing (4.4 / 184 reviews) shows 'Permanently closed' and the claimed Yelp page (4.4 / 180 reviews) carries 'Yelpers report this location has closed', both hand-observed 2026-11-25. Previously counted from: first-party site shanchenglameizi.com + operator-observed Google/Yelp (10 Oct 2026). Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed') and Yelp closed banner, hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "xibei",
+   "name": "Xibei Dumplings — Silver Lake (Sunset Row)",
+   "address": "3300 Sunset Blvd Ste 105, Los Angeles, CA 90026",
+   "city": "Los Angeles",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "西贝 XIBEI Dumplings at Sunset Row, Silver Lake; the Google listing (4.5 / 158 reviews) shows 'Permanently closed' and the claimed Yelp page (4.3 / 118 reviews, updated about three weeks earlier) carries 'Yelpers report this location has closed', both hand-observed 2026-11-25. Previously counted from: web-verified, Infatuation review + Yelp active Sep 2026 (29 Sep 2026). Removed from the count the same day; close date unknown.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed') and Yelp closed banner, hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "dalongyi",
+   "name": "Da Long Yi Hot Pot — Long Island City (Crescent St)",
+   "address": "42-22 Crescent St, Long Island City, NY 11101",
+   "city": "Long Island City",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Da Long Yi Hot Pot (大龙燚), Long Island City; the Google listing (4.4 / 522 reviews) shows 'Permanently closed' and the claimed Yelp page (4.7 / 270 reviews) carries 'Yelpers report this location has closed', both hand-observed 2026-11-25. Previously counted from: franchise site + Resy/Toast ordering + Yelp active Aug 2026 (29 Sep 2026). Removed from the count the same day; close date unknown. Leaves Allston (Boston) as the chain's only counted US outlet.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed') and Yelp closed banner, hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "dezhuang",
+   "name": "De Zhuang Hot Pot — Manhattan (St Marks Pl)",
+   "address": "37 St Marks Pl BSMT, New York, NY 10003",
+   "city": "New York",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "De Zhuang Hot Pot (德庄), East Village; the Google listing (4.6 / 154 reviews) shows 'Permanently closed', hand-observed 2026-11-25. The listing's storefront photo shows 'Chef Tan' signage at the address, suggesting a different restaurant now occupies it (not a chain we track). Previously counted from: web-verified, official listing + Yelp reviews through Sep 2026 (29 Sep 2026). Removed from the count the same day; close date unknown. Leaves Bellevue WA as the chain's only counted US outlet.",
+   "confidence": "confirmed",
+   "source": "Google Business listing ('Permanently closed'), hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "jnby",
+   "name": "AGoodFun (JNBY) — San Francisco Centre",
+   "address": "865 Market St, San Francisco, CA 94103",
+   "city": "San Francisco",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "San Francisco Centre (formerly Westfield San Francisco Centre, 865 Market St) closed permanently in late January 2026 — reports give 24 to 26 Jan 2026 — after a foreclosure sale; the new owners ended the remaining tenant leases. The AGoodFun store there therefore cannot be trading; the operator flagged it 2026-11-25. We had still counted it from: Open per company/US operator; trades as AGoodFun (30 Sep 2026). Exact last trading day of the store unknown (no later than the mall's closure).",
+   "confidence": "confirmed",
+   "source": "Mall closure reported by KTVU, ABC7 and others (Jan 2026); operator determination 2026-11-25.",
+   "sources": [
+    "https://www.ktvu.com/news/clock-ticking-san-francisco-centre",
+    "https://abc7news.com/post/san-franciscans-say-goodbye-francisco-centre-permanently-shuts-doors/18460353/",
+    "https://en.wikipedia.org/wiki/San_Francisco_Centre"
+   ],
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "miniso",
+   "name": "San Francisco Centre",
+   "address": "865 Market St #C18, San Francisco, CA 94103",
+   "city": "San Francisco",
+   "state": "CA",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "San Francisco Centre (formerly Westfield San Francisco Centre, 865 Market St) closed permanently in late January 2026 — reports give 24 to 26 Jan 2026 — after a foreclosure sale; the new owners ended the remaining tenant leases. MINISO's own store locator still listed unit C18 on 2026-11-25 = locator lag, so it had stayed in our count; DB row closed and the address added to miniso.py PERMANENTLY_CLOSED. Exact last trading day unknown (no later than the mall's closure).",
+   "confidence": "confirmed",
+   "source": "Mall closure reported by KTVU, ABC7 and others (Jan 2026); still on MINISO's locator 2026-11-25.",
+   "sources": [
+    "https://www.ktvu.com/news/clock-ticking-san-francisco-centre",
+    "https://abc7news.com/post/san-franciscans-say-goodbye-francisco-centre-permanently-shuts-doors/18460353/",
+    "https://en.wikipedia.org/wiki/San_Francisco_Centre"
+   ],
+   "known_closed_on": "2026-11-25",
+   "still_listed": true,
+   "still_listed_through": "2026-11-25"
+  },
+  {
+   "chain": "juewei",
+   "name": "Jue Wei Ya Ba Wang 绝味鸭霸王 — Chicago (HeungSeng Square)",
+   "address": "2002 S Wentworth Ave Unit FC3, Chicago, IL 60616",
+   "city": "Chicago",
+   "state": "IL",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "Removed from the count 2026-11-25 on the operator's call. Google lists 'Jue Wei Ya Ba Wang 绝味鸭霸王' at HeungSeng Square (4.5 / 2 reviews) as PERMANENTLY CLOSED; Yelp has an unclaimed page with no reviews that is not marked closed. IDENTITY UNCONFIRMED: the listings name 绝味鸭霸王, not 绝味鸭脖 / Juewei Yabo, the chain we track — the row came from a Chicago health permit matched on the name 'Juewei' (first inspected 2016-04-05). So this is recorded as 'appears closed' and may never have been an outlet of the tracked chain.",
+   "confidence": "uncertain",
+   "source": "Google Business listing ('Permanently closed') and Yelp page, hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "yangs",
+   "name": "Yang's Braised Chicken Rice — Tustin (first US restaurant)",
+   "address": "13824 Red Hill Ave, Tustin, CA 92780",
+   "city": "Tustin",
+   "state": "CA",
+   "opened": "2017-09",
+   "closed_on": null,
+   "closed_note": "Yang's first US restaurant (opened Tustin, Sept 2017). The claimed Yelp page (3.3 / 354 reviews, last updated over three months earlier) carries 'Yelpers report this location has closed', hand-observed 2026-11-25; the operator has determined it is closed. This resolves a conflict held open since Oct 2026, when Yang's own store page and a Google Maps listing still presented it as trading (Google listing seen 19 Oct 2026) — a brand page that never removed a shut store. Removed from the count the same day; close date unknown. Leaves Yang's with no counted US outlet.",
+   "confidence": "confirmed",
+   "source": "Yelp business page ('Yelpers report this location has closed'), hand-observed by the operator 2026-11-25.",
+   "known_closed_on": "2026-11-25"
   }
  ]
 }

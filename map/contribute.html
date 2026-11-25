@@ -86,7 +86,11 @@
         </select></label>
       <label><span data-i18n="c.loc.extra">Anything else? (link, date, which name it trades under)</span>
         <textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
+      <label><span data-i18n="c.email">Your email</span>
+        <input type="email" name="email" placeholder="you@example.com">
+        <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px" data-i18n="c.email.hint">Optional — only if you're OK with us following up to clarify your submission. We don't publish it or share it.</span></label>
       <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <p class="note small mailnote" hidden data-i18n="c.mailnote">Our submission inbox isn't live yet, so sending opens your own email app — your message will arrive from your email address.</p>
       <button type="submit" data-i18n="c.loc.send">Send this location</button>
     </form>
 
@@ -99,7 +103,11 @@
         <input name="where" placeholder="City, or 'not yet — but expanding'"></label>
       <label><span data-i18n="c.chain.why">Why follow it?</span>
         <textarea name="why" rows="2" placeholder="Optional — what it is, links, anything useful"></textarea></label>
+      <label><span data-i18n="c.email">Your email</span>
+        <input type="email" name="email" placeholder="you@example.com">
+        <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px" data-i18n="c.email.hint">Optional — only if you're OK with us following up to clarify your submission. We don't publish it or share it.</span></label>
       <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+      <p class="note small mailnote" hidden data-i18n="c.mailnote">Our submission inbox isn't live yet, so sending opens your own email app — your message will arrive from your email address.</p>
       <button type="submit" data-i18n="c.chain.send">Suggest this chain</button>
     </form>
   </div>
@@ -139,7 +147,11 @@
       </select></label>
     <label><span data-i18n="c.src.notes">Notes</span>
       <textarea name="note" rows="2" placeholder="Optional — anything that helps verify it"></textarea></label>
+    <label><span data-i18n="c.email">Your email</span>
+      <input type="email" name="email" placeholder="you@example.com">
+      <span style="display:block; font-size:12px; color:var(--muted); margin-top:4px" data-i18n="c.email.hint">Optional — only if you're OK with us following up to clarify your submission. We don't publish it or share it.</span></label>
     <label class="hp" aria-hidden="true">Leave blank<input name="website_hp" tabindex="-1" autocomplete="off"></label>
+    <p class="note small mailnote" hidden data-i18n="c.mailnote">Our submission inbox isn't live yet, so sending opens your own email app — your message will arrive from your email address.</p>
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
       <button type="submit" data-i18n="c.src.send">Send this data point</button>
       <button type="button" id="srccopy" style="background:transparent; border:1px solid currentColor" data-i18n="c.src.copy">Copy as JSON</button>
@@ -162,6 +174,13 @@
 // that accepts a POST; until then, submissions fall back to opening the reader's email client.
 const FORM_ENDPOINT = null;                 // e.g. "https://formspree.io/f/xxxxxxx"
 const CONTACT_EMAIL = "hello@twoshoelabs.com";   // role mailbox to create on the domain
+
+// While there's no POST endpoint, submitting falls back to the reader's own mail client, so the
+// message is sent FROM their email address. Surface that so it's a choice, not a surprise — and hide
+// the note automatically once FORM_ENDPOINT is live (the POST carries no personal From address).
+if (!FORM_ENDPOINT) {
+  document.querySelectorAll('.mailnote').forEach(el => { el.hidden = false; });
+}
 
 // Placeholders are input attributes, so the build cannot bake them; localize them at runtime.
 if (window.CFC_LANG === 'zh') {
@@ -237,9 +256,11 @@ srcform.addEventListener('submit', e => {
   e.preventDefault();
   if (srcform.website_hp && srcform.website_hp.value) return;    // honeypot
   const rec = buildSubmission(srcform);
+  const email = (srcform.email && srcform.email.value || '').trim();   // kept OUT of the canonical record
   const subject = encodeURIComponent(`[Chains From China] data point: ${rec.brand} / ${rec.metric || rec.dimension}`);
   const body = encodeURIComponent('Canonical submission record (paste into submissions):\n\n'
-    + JSON.stringify(rec, null, 1));
+    + JSON.stringify(rec, null, 1)
+    + (email ? '\n\nContributor email (optional, for follow-up — not part of the record): ' + email : ''));
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   done(srcform, 'source');
 });
