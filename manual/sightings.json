@@ -26,11 +26,11 @@
   {
    "chain": "cotti",
    "supplied_on": "2026-09-21",
-   "reviewed": "2026-11-24",
+   "reviewed": "2026-11-25",
    "complete_as_of": "2026-09-29",
    "complete_scope": "New York City (Manhattan, Brooklyn, Queens, Staten Island)",
    "source": "Project operator, verifying Overture candidates and supplying the rest. All three Overture New York candidates (174 Smith St, 482 3rd Ave, 912 7th Ave) were confirmed correct — despite carrying the LOWEST confidence scores in the whole Overture sample, 0.138 to 0.515, while the two rows that proved false scored 0.77 and 0.972. Confidence was anti-correlated with correctness here.",
-   "scope": "Hand-assembled and operator-verified Cotti Coffee stores: 18 counted — 15 in New York City and 3 in Southern California (Los Angeles/Hollywood, Irvine, El Segundo). Two more New York rows are held out of the count: 239 8th Ave (temporarily closed) and 485 7th Ave (leased, not yet open). This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. Cotti's other US stores are recorded separately.",
+   "scope": "Hand-assembled and operator-verified Cotti Coffee stores: 16 counted — 15 in New York City and 1 in Southern California (El Segundo). Four more rows are held out of the count: in New York, 239 8th Ave (temporarily closed) and 485 7th Ave (leased, not yet open); in Southern California, 5545 Sunset Blvd, Los Angeles (listing with no reviews) and 4527 Campus Dr, Irvine (a counter inside a sushi restaurant, one review). This is NOT a US roster and is NOT monitored: Cotti's US API is signature-gated, so nothing here updates automatically. Cotti's other US stores are recorded separately.",
    "locations": [
     {
      "name": "Smith St",
@@ -132,19 +132,19 @@
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Los Angeles (Hollywood)",
+     "name": "Los Angeles (Hollywood, 5545 Sunset Blvd) (not confirmed open)",
      "address": "5545 Sunset Blvd, Los Angeles, CA 90028",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google listing 'Cotti Coffee - Sunset & St Andrews' has NO reviews (seen in the 2026-11-25 Maps pass) — a listing with hours but no sign of customers, so not proof of trading. Held out of the count until it shows reviews or is otherwise seen open. Earlier basis, now superseded: Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
      "lat": 34.0984,
      "lon": -118.3111,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"
     },
     {
-     "name": "Irvine",
+     "name": "Irvine (4527 Campus Dr, inside Botan Sushi) (not confirmed open)",
      "address": "4527 Campus Dr, Irvine, CA 92612",
-     "confidence": "confirmed",
-     "verified_by": "Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
+     "confidence": "uncertain",
+     "verified_by": "Google lists it as 'Cotti Coffee - Botan Sushi' with a single review (seen in the 2026-11-25 Maps pass) — apparently a counter inside a sushi restaurant, with too little evidence of trading. Held out of the count until confirmed. Earlier basis, now superseded: Google Maps operating listing (operator-observed dense-metro re-sweep, Oct 2026)",
      "lat": 33.6497,
      "lon": -117.8322,
      "coord_src": "Google Maps place coordinates (!3d/!4d)"

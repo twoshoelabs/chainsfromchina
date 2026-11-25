@@ -65,6 +65,14 @@ openings, coming-soon signs, closures, and one chain replacing another at the sa
   centers" (interactive browser; categories bubble tea, malatang, hot pot, Chinese bakery/dessert, rice
   noodles), plus each tracked chain's own listing. A map pin alone is NOT proof of trading — require reviews
   and posted hours, and treat "Temporarily closed" with no reviews as not yet open.
+- **Maps pass 2026-11-25 (bubble tea, hot pot, malatang, rice noodle, bakery/dessert, noodles/dumplings, plus
+  brand searches):** no new China-origin chain found on Convoy. All five counted stores still list as
+  trading. Tang Huo Kung Fu (4344 Convoy St Ste N) now has a listing with posted hours but NO reviews —
+  still held out; re-check for reviews. ChaHalo has a listing at 4698 Convoy; still "coming soon". Seen
+  and ruled out: YinTang Spicy Hot Pot, 4690 Convoy #111 (listings call it Taiwanese / LA-based, not
+  China-origin); Happy Lemon (excluded); Wushiland, Sunmerry (Taiwan); Uncle Tetsu (Japan). Nearby and
+  already counted: Ten Seconds (7905 Engineer Rd), YGF and Zhangliang (Clairemont Mesa Blvd).
+  No Molly Tea, Auntea Jenny, Mixue, Chagee, HEYTEA, Cotti or Luckin on Convoy.
 - **Limit:** the monthly cloud routine cannot run the Maps pass. It should still search local opening news
   for "Convoy St" each run and flag leads; the Maps pass itself is a session task.
 

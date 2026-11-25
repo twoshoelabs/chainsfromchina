@@ -53,7 +53,9 @@
   * { box-sizing:border-box; }
   html { -webkit-text-size-adjust:100%; }
   body { margin:0; background:var(--ground); color:var(--ink); font:400 15px/1.5 var(--sans);
-    font-variant-numeric:lining-nums tabular-nums; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    /* lining-nums only: in Schibsted Grotesk the tabular-nums feature also widens commas, periods and
+       semicolons to digit width, which opened a gap before every punctuation mark in running text. */
+    font-variant-numeric:lining-nums; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   h1,h2,h3,p,figure,dl,dd,ol { margin:0; }
   a { color:var(--ink); }
   a:hover { color:var(--accent-text); }
@@ -257,6 +259,7 @@
   /* ---------- Footer ---------- */
   footer { display:flex; flex-wrap:wrap; gap:14px 40px; padding:16px 0 44px; font-size:12px; line-height:1.55; color:var(--ink-2); }
   footer ol { flex:2 1 480px; margin:0; padding-left:16px; }
+  footer ol li::marker { font-variant-numeric:normal; }   /* browsers default list markers to tabular-nums */
   footer ol li.dag { list-style:none; margin-left:-16px; }
   footer .colophon { flex:1 1 260px; }
 
@@ -563,7 +566,7 @@
 
   <!-- 6b · CHINA-ORIGIN SHARE OF NEW MALL OPENINGS -->
   <section id="mallopen" style="padding:30px 0 32px;border-bottom:1px solid var(--ink)" hidden>
-    <p class="seclabel red">New mall openings</p>
+    <p class="seclabel red" data-i18n="home.mall.eyebrow">New openings in malls</p>
     <h2 class="find sm" id="mo-head" style="margin-bottom:12px"></h2>
     <p class="after" id="mo-foot" style="margin-top:4px"></p>
   </section>
@@ -895,17 +898,33 @@ function animateGrandTotal(outlets, prevTotal){
   const head = document.getElementById('mo-head');
   const foot = document.getElementById('mo-foot');
   if (!sec || !head || !foot) return;
+  const t = window.t || function (k, en, v) { return en.replace(/\{(\w+)\}/g, function (_, n) { return v[n]; }); };
+  const zh = window.CFC_LANG === 'zh';
   const pct = m.china_origin_share != null ? Math.round(m.china_origin_share * 100) + '%' : '—';
+  // TIME FRAME, stated in plain sight: the dates the mall directories were read. Taken from the malls
+  // read in full (the ones the count is built on); a date string is formatted in UTC so the host's
+  // zone can never shift it by a day.
+  const days = (m.per_mall || []).filter(function (x) { return x.complete && x.swept_on; })
+    .map(function (x) { return x.swept_on; }).sort();
+  const fmt = function (iso) {
+    const d = new Date(iso + 'T00:00:00Z');
+    return zh ? d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+              : d.getUTCDate() + ' ' + d.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' }) + ' ' + d.getUTCFullYear();
+  };
+  const first = days[0] || m.as_of, last = days[days.length - 1] || m.as_of;
+  const when = first === last ? t('home.js.mall.on', 'on {d}', { d: fmt(first) })
+                              : t('home.js.mall.between', 'between {a} and {b}', { a: fmt(first), b: fmt(last) });
   // Headline: the share, with the sample in plain sight so a small n reads honestly.
-  head.innerHTML = '<strong>' + m.china_origin_openings + ' of ' + m.openings_captured + '</strong> new store'
-    + ' openings tracked across ' + m.universe_label + ' are China-origin chains — <strong>' + pct + '</strong>.';
+  head.innerHTML = t('home.js.mall.head',
+    '<strong>{n} of {total}</strong> stores that top US malls listed as new or coming soon are China-origin chains — <strong>{pct}</strong>.',
+    { n: m.china_origin_openings, total: m.openings_captured, pct: pct });
   const names = (m.china_origin_openings_list || []).map(function (o) { return o.name; });
   const uniq = names.filter(function (v, i) { return names.indexOf(v) === i; });
   foot.textContent =
-    'Counted from each mall’s own “New” and “Coming Soon” listings, across '
-    + m.malls_with_complete_sweep + ' of ' + m.malls_tracked + ' malls fully swept so far (growing). '
-    + 'Top malls skew premium and Asian-metro, so this runs higher than an all-US-mall average. '
-    + (uniq.length ? 'China-origin openings logged: ' + uniq.join(', ') + '.' : '');
+    t('home.js.mall.foot',
+      'Counted from each mall’s own “New” and “Coming Soon” tags, as the malls listed them {when}. Each mall decides how long a store keeps its “New” tag, so this is a snapshot of what was tagged then, not a count over a fixed period. Based on the {done} of {all} top US malls read in full so far; more are added as each is read. Top malls skew premium and Asian-metro, so this runs higher than an all-US-mall average.',
+      { when: when, done: m.malls_with_complete_sweep, all: m.malls_tracked })
+    + (uniq.length ? ' ' + t('home.js.mall.logged', 'China-origin openings logged: {names}.', { names: uniq.join(zh ? '、' : ', ') }) : '');
   sec.hidden = false;
 })();
 </script>

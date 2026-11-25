@@ -20,7 +20,7 @@ The brands reach **47 states, Washington, DC, and Puerto Rico**, absent only fro
 
 - **Nearly half the map is two states.** California (335) and New York (182) hold 517 of the 1,151 US outlets between them, about 45%. Three metros — Greater New York, Los Angeles, and the San Francisco Bay Area — account for about 44% on their own.
 - **Retail giants, but a fragmented food scene.** About half the outlets (538) are variety and lifestyle stores from just seven brands, led by Miniso and Pop Mart. The other half is food and drink, spread across more than 70 brands, 249 of them tea shops.
-- **Clustered where the customers already are.** A modeled analysis by the tracker (using US Census and university-location data, in aggregate only) places the median outlet in a neighborhood about 16.5% Asian, roughly 2.7 times the national average, and just over a mile from the nearest college campus.
+- **Clustered where the customers already are.** A modeled analysis by the tracker (using US Census and university-location data, in aggregate only) places the median outlet in a neighborhood about 16.1% Asian, roughly 2.6 times the national average, and just over a mile from the nearest college campus.
 
 “Five years ago, Chinese chains barely registered in America. Now there are 89 of them running more than a thousand storefronts, and most Americans have walked past one without knowing where it came from,” said Daniel Silver, Retail Analyst at Chains From China. “This stopped being a trend story a while ago. It’s an industry, and nobody had actually counted it until now.”
 

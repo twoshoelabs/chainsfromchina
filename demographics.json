@@ -1,13 +1,13 @@
 {
- "outlets_analyzed": 1151,
- "with_tract_asian": 1105,
+ "outlets_analyzed": 1149,
+ "with_tract_asian": 1143,
  "national_pct_asian": 6.2,
  "asian_density": {
-  "median_tract_pct": 16.5,
-  "ge_national": 76.4,
-  "ge_2x": 58.6,
-  "ge_5x": 31.8,
-  "ge_10x": 12.1
+  "median_tract_pct": 16.1,
+  "ge_national": 75.4,
+  "ge_2x": 57.3,
+  "ge_5x": 31.1,
+  "ge_10x": 12.0
  },
  "metro": {
   "urban_pct": 99.7,
@@ -19,7 +19,7 @@
    },
    {
     "name": "Los Angeles-Long Beach, CA CSA",
-    "n": 189
+    "n": 187
    },
    {
     "name": "San Jose-San Francisco-Oakland, CA CSA",
@@ -48,8 +48,8 @@
   ]
  },
  "university": {
-  "within_half_mi": 32.0,
-  "within_1mi": 48.5,
+  "within_half_mi": 31.9,
+  "within_1mi": 48.4,
   "within_3mi": 86.7,
   "median_miles": 1.1
  },

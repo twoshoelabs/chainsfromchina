@@ -42,6 +42,13 @@ _FIPS = {
 
 _GEO_URL = ("https://geocoding.geo.census.gov/geocoder/geographies/coordinates"
             "?x={lon}&y={lat}&benchmark=Public_AR_Current&vintage=Census2020_Current&format=json")
+# Same endpoint on the CURRENT vintage. Needed for Connecticut only: in 2022 the state replaced its
+# eight counties with nine planning regions, so a 2020-vintage tract id (09001…, 09003…, …) is one
+# the ACS no longer publishes — CensusReporter answers HTTP 400 for it. The current vintage returns
+# the same tract under its planning-region id (09110…–09190…), which does resolve.
+_GEO_URL_CURRENT = ("https://geocoding.geo.census.gov/geocoder/geographies/coordinates"
+                    "?x={lon}&y={lat}&benchmark=Public_AR_Current&vintage=Current_Current&format=json")
+_CT_OLD_COUNTIES = {"09001", "09003", "09005", "09007", "09009", "09011", "09013", "09015"}
 _CR_URL = "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B03002&geo_ids={ids}"
 _IPEDS_URL = "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2022/?fips={fips}"
 
@@ -121,8 +128,8 @@ def _geographies(uniq_keys, progress=None, geo_cache=None, save=None):
     out, todo = {}, []
     for key in uniq_keys:
         hit = geo_cache.get(ckey(key))
-        if hit is not None:
-            out[key] = hit
+        if hit is not None and (hit.get("tract") or "")[:5] not in _CT_OLD_COUNTIES:
+            out[key] = hit                                  # (a stale Connecticut id is re-fetched)
         else:
             todo.append(key)
 
@@ -134,12 +141,21 @@ def _geographies(uniq_keys, progress=None, geo_cache=None, save=None):
             csa = (g.get("Combined Statistical Areas") or [{}])
             ua = [v for k, v in g.items() if "Urban Area" in k]
             place = (g.get("Incorporated Places") or [{}])
-            return key, {"tract": tr.get("GEOID"),
-                         "metro": (csa[0].get("NAME") if csa and csa[0] else None),
-                         "urban": bool(ua and ua[0] and ua[0][0].get("NAME")),
-                         "place": (place[0].get("NAME") if place and place[0] else None)}
+            val = {"tract": tr.get("GEOID"),
+                   "metro": (csa[0].get("NAME") if csa and csa[0] else None),
+                   "urban": bool(ua and ua[0] and ua[0][0].get("NAME")),
+                   "place": (place[0].get("NAME") if place and place[0] else None)}
         except Exception:                                   # noqa: BLE001 — a miss, not a failure
             return key, None
+        if (val["tract"] or "")[:5] in _CT_OLD_COUNTIES:    # Connecticut: swap in the current tract id
+            try:
+                g2 = json.loads(_get(_GEO_URL_CURRENT.format(lon=lon, lat=lat)))["result"]["geographies"]
+                new = ((g2.get("Census Tracts") or [{}])[0]).get("GEOID")
+                if new:
+                    val["tract"] = new
+            except Exception:                               # noqa: BLE001 — keep the old id; retried next run
+                pass
+        return key, val
     done = 0
     # Three workers, not six: the Census geocoder rate-limits bursts, and a higher concurrency makes
     # requests stall into 40s timeouts (slower overall). With the cache, repeat runs query few coords.
@@ -176,19 +192,31 @@ def _pct_asian(tracts, cache=None):
         else:
             todo.append(t)
     geoids = ["14000US" + t for t in todo]
+
+    def take(ids):
+        d = json.loads(_get(_CR_URL.format(ids=",".join(ids))))["data"]
+        for gid, tab in d.items():
+            est = tab["B03002"]["estimate"]
+            tot = est.get("B03002001") or 0
+            v = (est.get("B03002006", 0) / tot * 100) if tot else None
+            pct[gid[7:]] = v
+            if v is not None:                               # cache resolved values only
+                cache[gid[7:]] = v
+
     for i in range(0, len(geoids), 40):
         batch = geoids[i:i + 40]
         try:
-            d = json.loads(_get(_CR_URL.format(ids=",".join(batch))))["data"]
-            for gid, tab in d.items():
-                est = tab["B03002"]["estimate"]
-                tot = est.get("B03002001") or 0
-                v = (est.get("B03002006", 0) / tot * 100) if tot else None
-                pct[gid[7:]] = v
-                if v is not None:                           # cache resolved values only
-                    cache[gid[7:]] = v
-        except Exception:                                   # noqa: BLE001 — a dropped batch, noted by coverage
-            pass
+            take(batch)
+        except Exception:                                   # noqa: BLE001
+            # ONE id the API rejects (HTTP 400) fails the whole request. Retry the batch one tract
+            # at a time so a single bad id costs only itself, not the 39 good tracts beside it —
+            # the fault that left ~30 resolvable tracts (and their storefronts) permanently blank.
+            for gid in batch:
+                try:
+                    take([gid])
+                except Exception:                           # noqa: BLE001 — a tract the API lacks
+                    pass
+                time.sleep(0.1)
         time.sleep(0.2)
     return pct, nat
 
