@@ -1,0 +1,154 @@
+{
+ "method": "snapshot",
+ "universe_label": "25 of the top US malls",
+ "malls_tracked": 25,
+ "malls_baselined": 4,
+ "malls_compared": 0,
+ "tracking_since": "2026-11-25",
+ "latest_reading": "2026-11-25",
+ "stores_at_baseline": 980,
+ "china_origin_at_baseline": 23,
+ "opened": 0,
+ "opened_china_origin": 0,
+ "opened_china_origin_share": null,
+ "opened_china_origin_list": [],
+ "closed": 0,
+ "closed_china_origin": 0,
+ "coming_soon": 18,
+ "coming_soon_china_origin_list": [
+  {
+   "mall": "Westfield Century City",
+   "name": "HEYTEA",
+   "chain": "heytea",
+   "opens": "2026-12-01"
+  },
+  {
+   "mall": "Westfield Garden State Plaza",
+   "name": "Darry Ring",
+   "chain": "darryring",
+   "opens": "2026-11-23"
+  }
+ ],
+ "per_mall": [
+  {
+   "mall": "Westfield Century City",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Los Angeles, CA",
+   "baseline_on": "2026-11-25",
+   "latest_on": "2026-11-25",
+   "readings": 1,
+   "stores_at_baseline": 242,
+   "opened": 0,
+   "opened_china": 0,
+   "closed": 0
+  },
+  {
+   "mall": "Westfield Garden State Plaza",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Paramus, NJ",
+   "baseline_on": "2026-11-25",
+   "latest_on": "2026-11-25",
+   "readings": 1,
+   "stores_at_baseline": 245,
+   "opened": 0,
+   "opened_china": 0,
+   "closed": 0
+  },
+  {
+   "mall": "Westfield Topanga",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Canoga Park, CA",
+   "baseline_on": "2026-11-25",
+   "latest_on": "2026-11-25",
+   "readings": 1,
+   "stores_at_baseline": 212,
+   "opened": 0,
+   "opened_china": 0,
+   "closed": 0
+  },
+  {
+   "mall": "Westfield Valley Fair",
+   "operator": "Unibail-Rodamco-Westfield",
+   "metro": "Santa Clara, CA",
+   "baseline_on": "2026-11-25",
+   "latest_on": "2026-11-25",
+   "readings": 1,
+   "stores_at_baseline": 281,
+   "opened": 0,
+   "opened_china": 0,
+   "closed": 0
+  }
+ ],
+ "tagged": {
+  "universe_label": "25 of the top US malls",
+  "as_of": "2026-11-22",
+  "malls_tracked": 25,
+  "malls_with_complete_sweep": 2,
+  "openings_captured": 14,
+  "china_origin_openings": 2,
+  "china_origin_share": 0.1429,
+  "by_operator": {
+   "Unibail-Rodamco-Westfield": {
+    "openings": 14,
+    "china_origin": 2,
+    "malls": 2
+   }
+  },
+  "china_origin_openings_list": [
+   {
+    "mall": "Westfield Garden State Plaza",
+    "metro": "Paramus, NJ",
+    "name": "Darry Ring",
+    "chain": "darryring",
+    "status": "coming_soon",
+    "swept_on": "2026-11-22"
+   },
+   {
+    "mall": "Westfield Garden State Plaza",
+    "metro": "Paramus, NJ",
+    "name": "Vivaia",
+    "chain": "vivaia",
+    "status": "open",
+    "swept_on": "2026-11-22"
+   }
+  ],
+  "per_mall": [
+   {
+    "mall": "Brea Mall",
+    "operator": "Simon Property Group",
+    "metro": "Brea, CA",
+    "swept_on": "2026-11-22",
+    "complete": false,
+    "openings": 2,
+    "china_origin": 2
+   },
+   {
+    "mall": "Westfield Garden State Plaza",
+    "operator": "Unibail-Rodamco-Westfield",
+    "metro": "Paramus, NJ",
+    "swept_on": "2026-11-22",
+    "complete": true,
+    "openings": 9,
+    "china_origin": 2
+   },
+   {
+    "mall": "Westfield Santa Anita",
+    "operator": "Unibail-Rodamco-Westfield",
+    "metro": "Arcadia, CA",
+    "swept_on": "2026-11-22",
+    "complete": false,
+    "openings": 2,
+    "china_origin": 1
+   },
+   {
+    "mall": "Westfield Topanga",
+    "operator": "Unibail-Rodamco-Westfield",
+    "metro": "Canoga Park, CA",
+    "swept_on": "2026-11-22",
+    "complete": true,
+    "openings": 5,
+    "china_origin": 0
+   }
+  ]
+ }
+}
