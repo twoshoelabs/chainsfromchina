@@ -5,7 +5,7 @@
 ## Subject line (pick one, then personalize)
 
 - China's retail chains now run more than 1,100 US stores
-- Data: 89 China-origin chains, 1,100+ US storefronts
+- Data: 90 China-origin chains, 1,100+ US storefronts
 - [Outlet] story idea: the Chinese chains hiding in US malls
 
 ## Email body
@@ -16,7 +16,7 @@ Hi [First name],
 
 [One personalized line, referencing their recent work. e.g. "Your piece on Pop Mart's US expansion is why I'm writing,"]
 
-Chains From China is an independent tracker of China-origin retail and restaurant brands in the US. Its latest count is worth flagging to you: **89 chains now run more than 1,100 US storefronts across 47 states**, the most complete count of the sector to date, and I wanted to offer it under embargo before it goes out.
+Chains From China is an independent tracker of China-origin retail and restaurant brands in the US. Its latest count is worth flagging to you: **90 chains now run more than 1,100 US storefronts across 47 states**, the most complete count of the sector to date, and I wanted to offer it under embargo before it goes out.
 
 A few things that might make a story:
 
