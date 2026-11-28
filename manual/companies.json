@@ -3198,6 +3198,20 @@
    "us_since": "2025",
    "first_outlet": "Flushing, NY — 39-07 Prince St #1C",
    "page_logo": "taning-wordmark.png"
+  },
+  "fengxiaozhang": {
+   "name": "Feng Hotpot",
+   "name_zh": "冯校长老火锅",
+   "category": "Hot pot (Sichuan)",
+   "category_zh": "火锅（川味）",
+   "blurb": "Feng Hotpot (冯校长老火锅, 'Principal Feng's Old Hotpot') is a China-origin Sichuan hotpot chain whose first restaurant opened in March 2023 in the Taikoo Li district of Chengdu. Founder Feng Mingqiang set out to open it on a budget of RMB 200,000, and it quickly became known for hours-long lines; press reports say it passed 400 restaurants within two years. Outside China it has opened in Singapore and Taipei. In the US it has five restaurants: Sunnyvale and Rowland Heights in California; Center City Philadelphia (opened January 2025); downtown Rockville, Maryland; and Long Island City, New York, which it bills as its New York flagship.",
+   "blurb_zh": "冯校长老火锅（Feng Hotpot）是源自中国成都的川味火锅连锁品牌，首店 2023 年 3 月开在成都太古里。创始人冯明强当初只用 20 万元启动资金开店，开业后很快成为排队名店；据媒体报道，品牌两年内门店已超过 400 家。海外已进入新加坡和台北。美国现有五家门店：加州 Sunnyvale 和 Rowland Heights、Philadelphia 市中心（2025 年 1 月开业）、马里兰州 Rockville 市中心，以及纽约 Long Island City 的“纽约旗舰店”。",
+   "site_cn": null,
+   "site_us": "https://www.fenghotpotus.com/",
+   "photo": null,
+   "photo_credit": null,
+   "us_since": "2024",
+   "first_outlet": "Sunnyvale, CA — 1669 Hollenbeck Ave"
   }
  }
 }

@@ -50,7 +50,8 @@ from .stubs import (HeyteaAdapter, CottiAdapter, YangsAdapter,
                     MengziyuanAdapter, BenGongAdapter, LaoFengXiangAdapter,
                     FiobocAdapter, OppeinAdapter, DjiAdapter, BalabalaAdapter,
                     TongRenTangAdapter, VivaiaAdapter, SmfkAdapter, ChanBaiMeiAdapter,
-                    SingChoiKeeAdapter, OlightAdapter, TaningAdapter)
+                    SingChoiKeeAdapter, OlightAdapter, TaningAdapter,
+                    FengXiaoZhangAdapter)
 
 REGISTRY: list[Adapter] = [
     MixueAdapter(),     # validated live 21 Sep 2026; 27 stores (10 open, 17 coming soon), 1 request
@@ -147,6 +148,7 @@ REGISTRY: list[Adapter] = [
     SingChoiKeeAdapter(), # China-origin (Fujian/Fuzhou 2010) HK-style café chain 星财记/Sing Choi Kee (港餐/冰室); US=3 (Flushing/Tangram, Palisades Center NY, Malden MA), tracked via sightings — see stubs.py
     OlightAdapter(), # China-origin flashlight/EDC maker Olight 傲雷 (Shenzhen 2007); Brand Flagship — Las Vegas 'flashlight experience store' flagship (Sep 2024), tracked via sightings — see stubs.py
     TaningAdapter(), # China-origin Guangzhou lemon-tea chain 挞柠/TANING (2017, 手打柠檬茶; brand claims 1,000+ stores); US=3 (Flushing + Brooklyn NY, Sunnyvale CA), tracked via sightings — see stubs.py
+    FengXiaoZhangAdapter(), # China-origin Sichuan hotpot 冯校长老火锅 / Feng Hotpot (Chengdu Taikoo Li, Mar 2023; press says 400+ stores); US=5 (Sunnyvale + Rowland Heights CA, Philadelphia PA, Rockville MD, Long Island City NY); Singapore + Taipei abroad, tracked via sightings — see stubs.py
     XiaolongkanAdapter(), # collected daily from shooloongkan.us/locations — see xiaolongkan.py
     LiuyishouAdapter(), # collected daily from liuyishouna.com per-city pages — see liuyishou.py
     HappyLambAdapter(), # collected daily from happylambhotpot.com/locations US list — see happylamb.py

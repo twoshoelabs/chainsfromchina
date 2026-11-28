@@ -1,12 +1,12 @@
 {
- "outlets_analyzed": 1149,
- "with_tract_asian": 1143,
+ "outlets_analyzed": 1152,
+ "with_tract_asian": 1146,
  "national_pct_asian": 6.2,
  "asian_density": {
-  "median_tract_pct": 16.1,
-  "ge_national": 75.5,
-  "ge_2x": 57.3,
-  "ge_5x": 31.1,
+  "median_tract_pct": 16.2,
+  "ge_national": 75.7,
+  "ge_2x": 57.5,
+  "ge_5x": 31.3,
   "ge_10x": 12.0
  },
  "metro": {
@@ -19,11 +19,11 @@
    },
    {
     "name": "Los Angeles-Long Beach, CA CSA",
-    "n": 187
+    "n": 188
    },
    {
     "name": "San Jose-San Francisco-Oakland, CA CSA",
-    "n": 92
+    "n": 93
    },
    {
     "name": "Seattle-Tacoma, WA CSA",
@@ -31,7 +31,7 @@
    },
    {
     "name": "Washington-Baltimore-Arlington, DC-MD-VA-WV-PA CSA",
-    "n": 42
+    "n": 43
    },
    {
     "name": "Chicago-Naperville, IL-IN-WI CSA",
@@ -50,7 +50,7 @@
  "university": {
   "within_half_mi": 31.9,
   "within_1mi": 48.2,
-  "within_3mi": 86.4,
+  "within_3mi": 86.5,
   "median_miles": 1.1
  },
  "generated": "2026-11-28",

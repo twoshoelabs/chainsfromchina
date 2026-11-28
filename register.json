@@ -2743,6 +2743,30 @@
    "franchise_available_us": 0,
    "fdd_available": 0,
    "franchise_note": "Guangzhou lemon-tea chain that franchises in China and recruits overseas partners; the operator of its US stores is not identified and no US franchise offer or FDD has been found."
+  },
+  "fengxiaozhang": {
+   "name": "Feng Xiao Zhang Hotpot",
+   "name_intl": "Feng Xiao Zhang Hotpot",
+   "name_zh": "冯校长老火锅",
+   "name_us": "Feng Hotpot",
+   "aliases": [
+    "Feng Hotpot",
+    "Feng Hot Pot",
+    "Feng Xiaozhang",
+    "Principal Feng's Old Hotpot",
+    "Feng Master Hotpot",
+    "冯校长老火锅",
+    "馮校長老火鍋",
+    "冯校长",
+    "馮校長"
+   ],
+   "format": "hotpot",
+   "global": "China-origin Sichuan hotpot chain; first restaurant opened March 2023 in the Taikoo Li district of Chengdu (founder Feng Mingqiang). Press reports put it at 50+ stores open or in preparation by October 2023 and more than 400 within two years (December 2025, brand-sourced; no current count asserted). Abroad: Singapore (Chinatown, late 2024) and Taipei (January 2026, via a local agent). US, trading as Feng Hotpot: five restaurants (Sunnyvale and Rowland Heights CA, Philadelphia PA, Rockville MD, Long Island City NY).",
+   "global_zh": "源自中国成都的川味火锅连锁品牌，首店 2023 年 3 月开在成都太古里（创始人冯明强）。据媒体报道，2023 年 10 月已开业及筹备门店超过 50 家，两年内超过 400 家（2025 年 12 月，品牌口径，不作为现有门店数）。海外：新加坡（牛车水，2024 年底）、台北（2026 年 1 月，由当地代理引进）。美国以 Feng Hotpot 名称经营，共五家门店：加州 Sunnyvale 和 Rowland Heights、Philadelphia、马里兰州 Rockville、纽约 Long Island City。",
+   "operating_model": "franchise",
+   "franchise_available_us": 0,
+   "fdd_available": 0,
+   "franchise_note": "Chengdu hotpot chain that grew by franchising in China and entered Taiwan through a local agent. The operator of its US restaurants is not identified; the brand's US site has a franchise page, but no US franchise offer or FDD has been confirmed."
   }
  },
  "entries": [
@@ -14346,6 +14370,36 @@
    "note": "Monterrey: listed for 2026 as the brand's 13th market; opening not confirmed. Per the brand's own global-stores page; not independently verified, no store count recorded.",
    "sources": [
     "https://www.taning.net/global.html"
+   ]
+  },
+  {
+   "chain": "fengxiaozhang",
+   "market": "SG",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2024",
+   "precision": "year",
+   "confidence": "medium",
+   "reviewed": "2026-11-28",
+   "note": "Chinatown, 195 New Bridge Road Level 2; described as the brand's first international outlet. A Singapore food blog reviewed it on 17 Dec 2024 and a reservation directory lists it. No current store count recorded.",
+   "sources": [
+    "https://www.sgfoodonfoot.com/2024/12/feng-xiao-zhang-hotpot-chinatown.html",
+    "https://www.chope.co/singapore-restaurants/restaurant/fengxiaozhang-new-bridge-road"
+   ]
+  },
+  {
+   "chain": "fengxiaozhang",
+   "market": "TW",
+   "status": "present",
+   "locations": null,
+   "first_opened": "2026-01-03",
+   "precision": "day",
+   "confidence": "medium",
+   "reviewed": "2026-11-28",
+   "note": "Taipei East District, 157-1 Yanji St, Da'an. Brought in by a local agent (捷鵬控股, founders 劉至軒 and 洪敬博); trial operation from 19 Dec 2025, official opening 3 Jan 2026 as announced in Dec 2025 press. Further stores planned if the first succeeds. No current store count recorded.",
+   "sources": [
+    "https://www.ctee.com.tw/news/20251219700453-430901",
+    "https://www.chinatimes.com/cn/newspapers/20251227000345-260209"
    ]
   }
  ]

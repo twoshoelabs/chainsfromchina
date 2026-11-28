@@ -5464,6 +5464,78 @@
      "coord_src": "US Census geocoder"
     }
    ]
+  },
+  {
+   "chain": "fengxiaozhang",
+   "supplied_on": "2026-11-28",
+   "reviewed": "2026-11-28",
+   "source": "Owner hand screenshots of the Google listing for each of the five stores (28 Nov 2026), with the brand's US sites (fenghotpotus.com/locations and fenghotpot.com/location-1, read 28 Nov 2026) and local press for Philadelphia and Rockville.",
+   "scope": "冯校长老火锅 / Feng Hotpot US outlets (China-origin Chengdu Sichuan hotpot, first store Taikoo Li, Mar 2023). 5 open: Sunnyvale and Rowland Heights CA, Philadelphia PA, Rockville MD, Long Island City NY. The brand's own locator still tags Long Island City and Rowland Heights 'coming soon', but Google shows both trading. A second brand site teases San Francisco, Boston, New York City and Los Angeles with no addresses.",
+   "locations": [
+    {
+     "name": "Sunnyvale (Loehmann's Plaza)",
+     "address": "1669 Hollenbeck Ave A, Sunnyvale, CA 94087",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Feng Hotpot 冯校长老火锅' (4.7 / 703 reviews, in Loehmann's Plaza, posted hours, order-online and waitlist buttons), hand-observed 28 Nov 2026 (owner screenshot). Brand US sites list it with phone (408) 212-4129; Yelp page 'Feng Hotpot' at this address (4.7 / 274) appears in the same screenshot. A Dealmoon guide dated Sept 2024 reviews the store, and Taiwanese press (Dec 2025) names a Silicon Valley store among the brand's overseas stores.",
+     "lat": 37.339588,
+     "lon": -122.041571,
+     "coord_src": "US Census geocoder",
+     "opened": "2024",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/onboarding-fengxiaozhang-2026-11/fengxiaozhang-sunnyvale_google_2026-11-28.webp",
+     "evidence_sha256": "760b570024e4e87e87f951a5550e2cf7498c320576200fc0fabe6a811acd8725"
+    },
+    {
+     "name": "Philadelphia (Walnut St, Center City)",
+     "address": "1310 Walnut St, Philadelphia, PA 19107",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Feng Hotpot 冯校长老火锅 (费城店)' (4.8 / 663 reviews, posted hours, reserve and order buttons), hand-observed 28 Nov 2026 (owner screenshot); the same screenshot shows a Yelp page updated October 2026 (4.2 / 42). Brand US sites list it with phone (267) 575-6033. 6abc (WPVI) reported that Feng Hotpot opened at 1310 Walnut Street in January 2025.",
+     "lat": 39.949077,
+     "lon": -75.162564,
+     "coord_src": "US Census geocoder",
+     "opened": "2025-01",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/onboarding-fengxiaozhang-2026-11/fengxiaozhang-philadelphia_google_2026-11-28.webp",
+     "evidence_sha256": "250b1b3622fab82ad055e7f516dc35487884edab89305c690aacfd06813aa207"
+    },
+    {
+     "name": "Rockville (Rockville Town Center)",
+     "address": "199 E Montgomery Ave Ste D, Rockville, MD 20850",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Feng Hotpot 冯校长老火锅' (4.8 / 396 reviews, in Rockville Town Center, phone (240) 940-3376, posted hours, storefront photos with Feng Hotpot awnings), hand-observed 28 Nov 2026 (owner screenshot). Brand US site lists it with the same phone; the brand's second site marks Maryland 'Now Open'. Store Reporter (30 Apr 2026) reports Feng Hotpot took over the former Hot Pot City space.",
+     "lat": 39.084055,
+     "lon": -77.149095,
+     "coord_src": "US Census geocoder",
+     "opened": "2026",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/onboarding-fengxiaozhang-2026-11/fengxiaozhang-rockville_google_2026-11-28.png",
+     "evidence_sha256": "2f0534288e1831455e0394367ed35478bb3aa53cbf1adef2e0d21c0ad716f215"
+    },
+    {
+     "name": "Rowland Heights (Yes Plaza, Colima Rd)",
+     "address": "18194 Colima Rd, Rowland Heights, CA 91748",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Feng Hotpot 馮校長老火鍋' (4.6 / 62 reviews, in Yes Plaza, phone (626) 295-2361, posted hours, pickup and delivery buttons, storefront photo), hand-observed 28 Nov 2026 (owner screenshot). The brand's own locator (fenghotpotus.com/locations) still tagged this address 'COMING SOON!' on the same day, so the locator lags; counted on the Google listing.",
+     "lat": 33.98842,
+     "lon": -117.907773,
+     "coord_src": "US Census geocoder",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/onboarding-fengxiaozhang-2026-11/fengxiaozhang-rowlandheights_google_2026-11-28.png",
+     "evidence_sha256": "8fec5cb5cbc433a87ffe7a1e9a12098b4213c1a8cca9cc5debc8238010a7f2c9"
+    },
+    {
+     "name": "Long Island City (Jackson Ave)",
+     "address": "27-49 Jackson Ave, Long Island City, NY 11101",
+     "confidence": "confirmed",
+     "verified_by": "Google listing 'Feng Hotpot 冯校长老火锅纽约旗舰店' (New York flagship; 4.0 / 9 reviews, located in the Aloft Long Island City-Manhattan View building, phone (516) 820-1666, posted hours, order-online button, customer review of the food), hand-observed 28 Nov 2026 (owner screenshot). A new store with few reviews; the brand's own locator still tagged 'Jackson Ave, Long Island City' as 'COMING SOON!' on the same day, so the locator lags; counted on the Google listing.",
+     "lat": 40.74816,
+     "lon": -73.939657,
+     "coord_src": "US Census geocoder",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/onboarding-fengxiaozhang-2026-11/fengxiaozhang-lic_google_2026-11-28.png",
+     "evidence_sha256": "b32056973d1d79b63ddd7a3d1c4cae7080b039cc90e8bd0a9ff2e0275217661e"
+    }
+   ]
   }
  ]
 }

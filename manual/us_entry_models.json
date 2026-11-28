@@ -519,6 +519,11 @@
    "model": "authorized_partner",
    "confidence": "medium",
    "basis": "US Fifth Avenue flagship is DJI-branded but operated with authorized partner Camrise; other US 'DJI stores' are third-party resellers. Brand Flagship."
+  },
+  "fengxiaozhang": {
+   "model": "unknown",
+   "confidence": "low",
+   "basis": "US sites (fenghotpotus.com, fenghotpot.com) name no legal entity and carry a franchise page; Taiwan was entered through a local agent. US operator not identified."
   }
  }
 }

@@ -2235,3 +2235,36 @@ class TaningAdapter(Adapter):
                       " stores, 13 markets). US: Flushing + Brooklyn NY, Sunnyvale CA. No machine-readable"
                       " US locator (Chowbus app), tracked via sightings (24 Nov 2026). In scope")
     RECHECK = ["https://www.taning.net/global.html"]
+
+
+class FengXiaoZhangAdapter(Adapter):
+    """
+    冯校长老火锅 (Feng Xiao Zhang Hotpot, "Principal Feng's Old Hotpot") — added 2026-11-28. A
+    China-origin Sichuan hotpot chain whose first store opened in March 2023 in the Taikoo Li
+    district of Chengdu (founder 冯明强 / Feng Mingqiang, who set out to open it on RMB 200,000).
+    Press put it at 50+ stores open or in preparation by Oct 2023 and 400+ within two years
+    (Dec 2025, brand-sourced; assert no current figure). China origin, in scope.
+
+    US: trades as "Feng Hotpot 冯校长老火锅". Five open, each with an owner-observed Google listing
+    (28 Nov 2026): Sunnyvale CA (1669 Hollenbeck Ave A), Philadelphia PA (1310 Walnut St, Jan 2025),
+    Rockville MD (199 E Montgomery Ave Ste D, the former Hot Pot City space, 2026), Rowland Heights
+    CA (18194 Colima Rd) and Long Island City NY (27-49 Jackson Ave, billed as the New York
+    flagship). The brand's own locator (fenghotpotus.com) lags: it still tags the last two "coming
+    soon". The US operator is not identified; the sites name no legal entity and use Chowbus
+    ordering. Taiwanese press names the Silicon Valley store as one of the brand's overseas stores.
+    Abroad: Singapore (195 New Bridge Rd, Chinatown, late 2024) and Taipei (Yanji St, Jan 2026, via
+    local agent 捷鵬控股). No machine-readable US locator, so tracked via sightings.
+    """
+    chain_id, name, name_zh = "fengxiaozhang", "Feng Xiao Zhang Hotpot", "冯校长老火锅"
+    name_us = "Feng Hotpot"
+    aliases = ("Feng Hotpot", "Feng Hot Pot", "Feng Xiao Zhang Hotpot", "Feng Xiaozhang",
+               "Principal Feng's Old Hotpot", "Feng Master Hotpot", "冯校长老火锅", "馮校長老火鍋",
+               "冯校长", "馮校長")
+    parent, format = "Feng Xiao Zhang (冯校长老火锅, Chengdu)", "hotpot"
+    ENABLED = False
+    BLOCKED_REASON = ("China-origin Sichuan hotpot chain (冯校长老火锅 / Feng Hotpot; first store Chengdu"
+                      " Taikoo Li, Mar 2023; press says 400+ stores). US = 5: Sunnyvale + Rowland Heights CA,"
+                      " Philadelphia PA, Rockville MD, Long Island City NY. Abroad: Singapore, Taipei."
+                      " Brand locator lags (two open stores still tagged coming soon), tracked via"
+                      " sightings (28 Nov 2026). In scope")
+    RECHECK = ["https://www.fenghotpotus.com/locations", "https://www.fenghotpot.com/location-1"]
