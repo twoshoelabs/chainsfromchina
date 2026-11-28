@@ -5246,11 +5246,13 @@
    "first_opened": "2026-03",
    "precision": "month",
    "confidence": "high",
-   "reviewed": "2026-09-29",
-   "note": "Entered Vietnam March 2026 under the 'Ohmee' brand (Hanoi); ~35 stores by Sept 2026, plus Ohmee Express at Petrolimex fuel stations.",
+   "reviewed": "2026-11-27",
+   "note": "Entered Vietnam March 2026 under the 'Ohmee' brand (Hanoi); ~35 stores by Sept 2026, plus Ohmee Express at Petrolimex fuel stations. Count not refreshed since Sept 2026 (the brand's ohmee.vn site publishes no store list). Named Hanoi stores from a search summary supplied by the owner 27 Nov 2026, not individually verified: OHMEE 35 Trần Kim Xuyến (Cầu Giấy; described as one of the first Hanoi flagship community stores, café-plus-convenience format), OHMEE 108 Trần Phú (Hà Đông), and three OHMEE Express fuel-station stores — 497 Nguyễn Quý Đức (Thanh Xuân), Km12 QL1A Ngọc Hồi (Thanh Trì), 102 Vũ Xuân Thiều (Long Biên, Petrolimex station 84). NAMESAKE CAUTION: a Google listing '中国超市-美宜佳' (General store, 24 Mạc Thái Tông, Cầu Giấy, Hanoi; 4.7 / 3 reviews, open 24 hours; hand-observed 27 Nov 2026) uses the Meiyijia name but not the Ohmee brand under which Meiyijia trades in Vietnam — treated as an unverified, possibly unaffiliated Chinese grocery and NOT counted.",
    "sources": [
     "https://insideretail.asia/2026/05/05/chinas-meiyijia-enters-vietnam/",
-    "https://insideretail.asia/2026/09/08/meiyijia-takes-ohmee-into-petrolimex-fuel-stations/"
+    "https://insideretail.asia/2026/09/08/meiyijia-takes-ohmee-into-petrolimex-fuel-stations/",
+    "https://news.tuoitre.vn/chinas-ohmee-convenience-stores-move-into-vietnams-petrolimex-gas-stations-a-win-win-103260908093550625.htm",
+    "https://www.ohmee.vn/"
    ],
    "locations_as_of": "2026-09"
   },
@@ -5511,12 +5513,15 @@
    "first_opened": "2026-04",
    "precision": "month",
    "confidence": "medium",
-   "reviewed": "2026-11-21",
-   "note": "South Korea has grown past the 8 on CHAGEE's Oct 2026 locator: Korea Herald reported 10 Seoul-area stores by 3 Oct 2026 (10th = Seoul National Univ. Station), and CHAGEE's own 17 Nov 2026 review cites ~11 Korean stores within 6 months of the ~Apr 2026 Seoul launch, with the new 'Rooted in Tea' design debuting at Lotte Mall Cheongnyangni (Oct 2026). All Seoul/metro. Count rising fast.",
+   "reviewed": "2026-11-27",
+   "note": "11 stores, all in Seoul, entered late Apr 2026. Named roster supplied by the owner 27 Nov 2026 (11 stores with addresses): Gangnam Flagship (407 Gangnam-daero, Seocho-gu), Yongsan I-Park Mall, Sinchon (21 Yonsei-ro), Seoul City Hall (93 Sejong-daero, Jung-gu), Yeoksam (211 Teheran-ro), Konkuk Univ., Shinsegae Dept. Store Gangnam (B1 Sweet Park), Jongno (79-1 Jong-ro), Lotte World (B1, 240 Olympic-ro), Seoul National Univ. Station, Lotte Mall Cheongnyangni. The roster matches the ~11 stores in CHAGEE's own 17 Nov 2026 review; Korea Herald had reported 10 by 3 Oct 2026 (10th = Seoul National Univ. Station), and the 'Rooted in Tea' design debuted at Lotte Mall Cheongnyangni (Oct 2026). Two seen operating on Google, hand-observed 27 Nov 2026: Seoul City Hall (3.1 / 46 reviews) and Gangnam Flagship (3.4 / 89 reviews). The other nine are from the roster only.",
    "sources": [
     "https://www.chinadaily.com.cn/a/202603/20/WS69bcaab5a310d6866eb3ee0d.html",
     "https://chagee.co.kr/kr/en/stores",
-    "https://en.jiemian.com/article/14092305.html"
+    "https://en.jiemian.com/article/14092305.html",
+    "https://www.hanchao.com/contents/food_detail.html?id=49121",
+    "Google listings (Chagee Seoul City Hall; 차지 강남플래그십점), hand-observed 27 Nov 2026",
+    "Store roster with addresses supplied by the owner, 27 Nov 2026"
    ],
    "locations_as_of": "2026-11"
   },
@@ -7657,15 +7662,17 @@
    "chain": "tianlala",
    "market": "SA",
    "status": "present",
-   "locations": null,
+   "locations": 1,
    "first_opened": null,
    "precision": null,
-   "confidence": "medium",
-   "reviewed": "2026-10-02",
-   "note": "Riyadh (Al Olaya) — live TIANLALA storefront on HungerStation plus a dated local post tying it to 甜啦啦; no first-party page or street address confirmed.",
+   "confidence": "high",
+   "reviewed": "2026-11-27",
+   "note": "Riyadh (Al Olaya, 12222) — one store seen operating on Google: 'Tianlala Saudi' (Ice Cream, 4.7 / 109 reviews, Open, closes 4 AM; TIANLALA storefront lettering with a Riyadh-skyline design and the brand's cup artwork), hand-observed 27 Nov 2026. Also a live TIANLALA storefront on HungerStation and a dated local post tying it to 甜啦啦. Count is a floor of one observed store; no first-party page, street address or opening date found.",
    "sources": [
-    "https://hungerstation.com/sa-en/qc/102913/TIANLALA/"
-   ]
+    "https://hungerstation.com/sa-en/qc/102913/TIANLALA/",
+    "Google listing 'Tianlala Saudi' (Al Olaya, Riyadh), hand-observed 27 Nov 2026"
+   ],
+   "locations_as_of": "2026-11"
   },
   {
    "chain": "luckin",
@@ -12178,14 +12185,15 @@
    "market": "TH",
    "status": "present",
    "locations": 1,
-   "first_opened": "2026-09",
-   "precision": "month",
+   "first_opened": "2026-09-25",
+   "precision": "day",
    "confidence": "high",
-   "reviewed": "2026-11-21",
-   "note": "First Thailand store opened late Sep 2026 at CentralWorld, Bangkok (1st-floor Beacon zone) as a HEYTEA Lab, the brand's third Lab outside China and first in Southeast Asia.",
+   "reviewed": "2026-11-27",
+   "note": "First Thailand store opened 25 Sep 2026 at CentralWorld, Bangkok (1st-floor Beacon zone) as a HEYTEA Lab — by the brand's own account its third overseas Lab and the first in Thailand; press describes it as the first in Southeast Asia.",
    "sources": [
     "https://www.yzwb.net/news/ch/202609/t20260929_398212.html",
-    "https://insideretail.asia/2026/09/28/heytea-enters-thailand-with-first-southeast-asian-lab-concept/"
+    "https://insideretail.asia/2026/09/28/heytea-enters-thailand-with-first-southeast-asian-lab-concept/",
+    "HEYTEA's own site, Bangkok Lab page (owner screenshot 27 Nov 2026)"
    ],
    "locations_as_of": "2026-11"
   },

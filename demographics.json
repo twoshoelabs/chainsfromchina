@@ -48,12 +48,12 @@
   ]
  },
  "university": {
-  "within_half_mi": 31.9,
-  "within_1mi": 48.4,
-  "within_3mi": 86.7,
+  "within_half_mi": 31.8,
+  "within_1mi": 48.2,
+  "within_3mi": 86.4,
   "median_miles": 1.1
  },
- "generated": "2026-11-25",
+ "generated": "2026-11-27",
  "source": "stores.geojson (open storefronts the site counts; roboshops, announced-not-yet-open and unconfirmed sightings excluded)",
  "method": "Each located storefront joined to public, key-free sources: tract %Asian from US Census ACS table B03002 (non-Hispanic Asian alone) via CensusReporter, metro/urban from the US Census geographies endpoint, nearest campus from the Urban Institute IPEDS directory. Aggregates only; modeled, not measured."
 }

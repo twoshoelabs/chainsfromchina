@@ -5358,9 +5358,9 @@
   {
    "chain": "singchoikee",
    "supplied_on": "2026-11-22",
-   "reviewed": "2026-11-22",
+   "reviewed": "2026-11-27",
    "source": "Official Sing Choi Kee site store list (singchoikee.com) + Palisades Center mall directory, 22 Nov 2026.",
-   "scope": "Sing Choi Kee (星财记) US outlets — China-origin (Fujian/Fuzhou) HK-style café chain, confirmed same brand via its 'Sing Choi Kee America' (星财记美国) program (US franchisor 'Sing Choi Kee Franchise Inc.'). Open: Flushing/Tangram (NY), Palisades/West Nyack (NY), Malden (MA). Coming soon: Albany/Crossgates (NY) + a Greenwich Village NYC store. Mascot varies by location (fox, cool-cat, waving-cat) — all one brand.",
+   "scope": "Sing Choi Kee (星财记) US outlets — China-origin (Fujian/Fuzhou) HK-style café chain, confirmed same brand via its 'Sing Choi Kee America' (星财记美国) program (US franchisor 'Sing Choi Kee Franchise Inc.'). Open: Flushing/Tangram (NY), Palisades/West Nyack (NY), Malden (MA), Greenwich Village/182 Bleecker St (NY; seen trading on Yelp 27 Nov 2026). Coming soon: Albany/Crossgates (NY). Mascot varies by location (fox, cool-cat, waving-cat) — all one brand.",
    "complete_as_of": "2026-11-22",
    "complete_scope": "us",
    "locations": [
@@ -5390,10 +5390,19 @@
      "lon": -71.0661
     },
     {
-     "name": "Albany — Crossgates Mall (opening soon)",
-     "address": "1 Crossgates Mall Rd, Albany, NY 12203",
+     "name": "Greenwich Village (Bleecker St)",
+     "address": "182 Bleecker St, New York, NY 10012",
      "confidence": "confirmed",
-     "verified_by": "Crossgates Mall directory listing 'Sing Choi Kee' (星财记) as Opening Soon, 22 Nov 2026",
+     "verified_by": "Yelp business page 'Sing Choi Kee' (Hong Kong Style Cafe, 182 Bleecker St, Greenwich Village; 3.5 / 6 reviews, 18 customer photos showing 星财记 / Sing Choi Kee branded plates; posted hours 11:30 AM-8:00 PM daily; page unclaimed), hand-observed by the operator 27 Nov 2026. The Greenwich Village store previously noted as coming soon.",
+     "lat": 40.729011,
+     "lon": -74.001011,
+     "coord_src": "US Census geocoder, 182 Bleecker St (27 Nov 2026)"
+    },
+    {
+     "name": "Albany — Crossgates Mall (coming soon — not yet open)",
+     "address": "1 Crossgates Mall Rd, Albany, NY 12203",
+     "confidence": "uncertain",
+     "verified_by": "HELD OUT of the count: Crossgates Mall directory listed 'Sing Choi Kee' (星财记) as Opening Soon on 22 Nov 2026; not seen trading. It was marked confirmed and so was being counted as open until 27 Nov 2026 — corrected. Count it once a listing shows it open. Owner confirmed on 27 Nov 2026 that it is not yet open.",
      "lat": 42.7051,
      "lon": -73.8512,
      "opened": "coming_soon"
