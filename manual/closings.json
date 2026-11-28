@@ -59,14 +59,27 @@
   {
    "chain": "malubianbian",
    "name": "San Gabriel (first US store)",
-   "address": "301 W Valley Blvd, San Gabriel, CA",
+   "address": "301 W Valley Blvd Ste 112, San Gabriel, CA 91776",
    "city": "San Gabriel",
    "state": "CA",
    "opened": "2019-11",
    "closed_on": null,
-   "closed_note": "First US store, opened Nov 2019; now closed, close date unknown.",
+   "closed_note": "First US store, opened Nov 2019 (Prospect Plaza, Ste 112); permanently closed per Google, hand-observed 28 Nov 2026 (close date unknown). Before that date the closure rested only on our own companies.json note.",
    "confidence": "confirmed",
-   "source": "companies.json malubianbian first_outlet '(now closed)'."
+   "source": "Google Business listing 'MaLuBianBian' ('Permanently closed'), owner hand screenshot 28 Nov 2026; earlier basis: companies.json malubianbian first_outlet '(now closed)'.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B01_google_2026-11-28.png",
+     "evidence_sha256": "61cd1441300d23f93c3677e248aaa5aaee1f99dcf083ba30636be7b22ce60639",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MaLuBianBian' (3.5 / 54 reviews; 301 W Valley Blvd Ste #112, San Gabriel, CA 91776, in Prospect Plaza; site malubianbiansg.com) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "malubianbian",
@@ -76,9 +89,22 @@
    "state": "CA",
    "opened": null,
    "closed_on": "2026-09-29",
-   "closed_note": "Rebranded 'MLBB AYCE'; closed per Yelp ('this location has closed') and Google, re-confirmed 4 Oct 2026. Address now recorded.",
+   "closed_note": "Rebranded 'MLBB AYCE'; closed per Yelp ('this location has closed') and Google, re-confirmed 4 Oct 2026. Address now recorded. Re-confirmed 28 Nov 2026: Google 'Permanently closed' (owner hand screenshot).",
    "confidence": "confirmed",
-   "source": "Yelp + Google listings; recorded in manual/sightings.json malubianbian scope."
+   "source": "Yelp + Google listings; recorded in manual/sightings.json malubianbian scope.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B05_google_2026-11-28.webp",
+     "evidence_sha256": "5a7f51880206e1ca2d0a96872d73118f1cc933451246ae02809fdfd1e81e8f1e",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MLBB AYCE Hot Pot 马路边边直营店' (4.3 / 178 reviews; 1056 Walnut Ave, Tustin, CA 92780, in Parklane Plaza) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "dalongyi",
@@ -222,9 +248,22 @@
    "state": "CA",
    "opened": null,
    "closed_on": "2026-10-04",
-   "closed_note": "Closed per Yelp ('Yelpers report this location has closed'), observed 4 Oct 2026.",
+   "closed_note": "Closed per Yelp ('Yelpers report this location has closed'), observed 4 Oct 2026. Upgraded 28 Nov 2026: Google Business listing 'MLBB AYCE Rowland Heights' shows 'Permanently closed' (owner hand screenshot).",
    "confidence": "confirmed",
-   "source": "Yelp listing; surfaced by the daily lead-discovery routine's open/closed check (4 Oct 2026)."
+   "source": "Yelp listing; surfaced by the daily lead-discovery routine's open/closed check (4 Oct 2026). Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B02_google_2026-11-28.webp",
+     "evidence_sha256": "033f9deda69f1549175e7089a9831aef944a1fa40ce35604f52a1ded3a948816",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MLBB AYCE Rowland Heights' (4.1 / 275 reviews; 18194 Colima Rd, Rowland Heights, CA 91748, in Yes Plaza) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "malubianbian",
@@ -234,9 +273,22 @@
    "state": "GA",
    "opened": null,
    "closed_on": "2026-10-04",
-   "closed_note": "Permanently closed per Google, observed 4 Oct 2026.",
+   "closed_note": "Permanently closed per Google, observed 4 Oct 2026. Re-confirmed 28 Nov 2026 (owner hand screenshot).",
    "confidence": "confirmed",
-   "source": "Google listing ('Permanently closed'); surfaced during lead verification (4 Oct 2026)."
+   "source": "Google listing ('Permanently closed'); surfaced during lead verification (4 Oct 2026).",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B06_google_2026-11-28.webp",
+     "evidence_sha256": "eb31d4cac6940f02bc61f2a9bdb743b6f76d45701d1842e1673bc30ce7124725",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MLBB Hot Pot 马路边边' (4.4 / 371 reviews; 3500 Gwinnett Pl Dr NW #10, Duluth, GA 30096) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "zhengxin",
@@ -258,9 +310,22 @@
    "state": "PA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "MLBB Hot Pot Philadelphia Chinatown outlet; permanently closed per Google, observed 5 Oct 2026 (close date unknown).",
+   "closed_note": "MLBB Hot Pot Philadelphia Chinatown outlet; permanently closed per Google, observed 5 Oct 2026 (close date unknown). Re-confirmed 28 Nov 2026 (owner hand screenshot).",
    "confidence": "confirmed",
-   "source": "Google listing ('Permanently closed') (5 Oct 2026)."
+   "source": "Google listing ('Permanently closed') (5 Oct 2026).",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B07_google_2026-11-28.webp",
+     "evidence_sha256": "af58fae74a3180366d151dc463d8f83b18d43ace0927c4a208c6128acc1eda40",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MLBB Hot Pot 马路边边' (4.8 / 1,257 reviews; 1025 Arch St 1st Floor, Philadelphia, PA 19107) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "yangs",
@@ -282,7 +347,7 @@
    "state": "FL",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. A collected-chain closure the census cannot catch by absence (the brand keeps listing it), so it is held closed via an adapter-level filter (moge PERMANENTLY_CLOSED) and recorded here. This brand-locator-vs-reality gap is exactly the 'open loudly, close quietly' story the project documents. Retire this row once Möge Tee drops it from the locator.",
+   "closed_note": "Permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. A collected-chain closure the census cannot catch by absence (the brand keeps listing it), so it is held closed via an adapter-level filter (moge PERMANENTLY_CLOSED) and recorded here. This brand-locator-vs-reality gap is exactly the 'open loudly, close quietly' story the project documents. Retire this row once Möge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-05",
@@ -308,6 +373,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M13_google_2026-11-28.webp",
+     "evidence_sha256": "b43308cd16e21c9dad2bbba479983fa8bfb0e9aca294ef713de4e754cce36146",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee St Johns' (4.2 / 64 reviews; 140 Little Cypress Dr Ste 102, St Johns, FL 32259) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -319,7 +395,7 @@
    "state": "TX",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Austin (2000 Guadalupe St, by UT-Austin); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Austin (2000 Guadalupe St, by UT-Austin); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -345,6 +421,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M38_google_2026-11-28.webp",
+     "evidence_sha256": "9ec1cc6b95da1f8adf103763b5e4e8bad1ffa90216c9693d0143bd6c7fa287e1",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MÖGE TEE Austin' (4.0 / 187 reviews; 2000 Guadalupe St, Austin, TX 78705) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -356,7 +443,7 @@
    "state": "TX",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Houston Heights (1919 N Shepherd Dr Ste B); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Houston Heights (1919 N Shepherd Dr Ste B); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -382,6 +469,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M37_google_2026-11-28.webp",
+     "evidence_sha256": "37d35d27aabb4a0b981efcaf98d81e80a01a2b92f3a9d0187a4157b17d8348ce",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.6 / 190 reviews; 1919 N Shepherd Dr Ste B, Houston, TX 77008) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -393,9 +491,22 @@
    "state": "TX",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee - Highland Hills (McCreless Corner Shopping Center); closed. Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026; brand site mogeteeusa.com. NOT on Moge Tee's own locator, so it never entered our open census — no count change. Recorded as a closure on operator assessment; re-verify whether it reopens or flips to permanently closed.",
+   "closed_note": "Moge Tee - Highland Hills (McCreless Corner Shopping Center); closed. Google Business listing shows 'Temporarily closed', hand-observed 31 Oct 2026; brand site mogeteeusa.com. NOT on Moge Tee's own locator, so it never entered our open census — no count change. Recorded as a closure on operator assessment; re-verify whether it reopens or flips to permanently closed. Re-observed 28 Nov 2026: Google still shows 'Temporarily closed' (owner hand screenshot, filed); stays uncertain and outside the permanent-closure count.",
    "confidence": "uncertain",
-   "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+   "source": "Google Business listing ('Temporarily closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "temporarily_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M10_google_2026-11-28_TEMP.webp",
+     "evidence_sha256": "0743452adc619a0e5d561ff93e46d9910c3c053b2f8fdfd5d286dce585769a7b",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee - Highland Hills' (4.1 / 33 reviews; 4138 New Braunfels Ave Ste 103, San Antonio, TX 78223) shows 'Temporarily closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -405,9 +516,22 @@
    "state": "MD",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Montgomery Mall (Westfield Montgomery food area); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 5 Nov 2026: Google still shows the 'Möge Tee - Montgomery Mall' listing (3.4★/16 reviews, located in Westfield Montgomery) banner 'Permanently closed' — it did operate ('Located tight outside the food court' per a review) before closing.",
+   "closed_note": "Moge Tee Montgomery Mall (Westfield Montgomery food area); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 5 Nov 2026: Google still shows the 'Möge Tee - Montgomery Mall' listing (3.4★/16 reviews, located in Westfield Montgomery) banner 'Permanently closed' — it did operate ('Located tight outside the food court' per a review) before closing. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day; re-confirmed via Google Business panel 5 Nov 2026 ('Permanently closed', 16 reviews)."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day; re-confirmed via Google Business panel 5 Nov 2026 ('Permanently closed', 16 reviews).",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M19_google_2026-11-28.webp",
+     "evidence_sha256": "0fffab74b0c980d6f903ea095f46d8509383811ec73616b064f8cec4d8065532",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee - Montgomery Mall' (3.4 / 16 reviews; 7101 Democracy Blvd Spc 2154, Bethesda, MD 20817, in Westfield Montgomery) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -417,7 +541,7 @@
    "state": "CA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Chapman (Pavilion Plaza); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing; removes it from the open count. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Chapman (Pavilion Plaza); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing; removes it from the open count. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -443,6 +567,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M12_google_2026-11-28.webp",
+     "evidence_sha256": "65d9770c1caabee3b4d5a7b8e446c6d9a60be63940f325751ca7d988fdf87cf8",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Chapman' (4.3 / 62 reviews; 9820 Chapman Ave, Garden Grove, CA 92841, in Pavilion Plaza) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -454,9 +589,22 @@
    "state": "CA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Long Beach; closed on the ground. Google Business listing shows 'Temporarily closed' and Yelp shows 'Yelpers report this location has closed' (both hand-observed 31 Oct 2026). NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+   "closed_note": "Moge Tee Long Beach; closed on the ground. Google Business listing shows 'Temporarily closed' and Yelp shows 'Yelpers report this location has closed' (both hand-observed 31 Oct 2026). NOT on Moge Tee's own store locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-observed 28 Nov 2026: Google still shows 'Temporarily closed' (owner hand screenshot, filed); stays uncertain and outside the permanent-closure count.",
    "confidence": "uncertain",
-   "source": "Google Business listing ('Temporarily closed') and Yelp listing ('Yelpers report this location has closed'), both hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+   "source": "Google Business listing ('Temporarily closed') and Yelp listing ('Yelpers report this location has closed'), both hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "temporarily_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M09_google_2026-11-28_TEMP.png",
+     "evidence_sha256": "e8559a7096a4d66a6fcd678086f5cac57a391bb7f914dbd858df62b57ef9478e",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Long Beach' (4.0 / 24 reviews; 4331 E Anaheim St, Long Beach, CA 90804) shows 'Temporarily closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -466,7 +614,7 @@
    "state": "MA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "MarketStreet Lynnfield outlet; permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing. Retire this row once Möge Tee drops it from the locator.",
+   "closed_note": "MarketStreet Lynnfield outlet; permanently closed per Google ('Permanently closed' banner), observed 5 Oct 2026 — yet STILL listed on Möge Tee's own store locator. Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED) because the census cannot detect a closure the brand keeps listing. Retire this row once Möge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (5 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-05",
@@ -492,6 +640,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M17_google_2026-11-28.png",
+     "evidence_sha256": "58ab51c67ebcd995c305df818175822768e5541febb6b805598e6377604a201a",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Lynnfield' (3.5 / 29 reviews; 678 Market St, Lynnfield, MA 01940, in MarketStreet Lynnfield) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -503,7 +662,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee East Village (Cooper Sq); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee East Village (Cooper Sq); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -529,6 +688,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M31_google_2026-11-28.webp",
+     "evidence_sha256": "e9e8ad7debecdea6c95323a3167b974a6614f1f2cf467d8d8ff14f11ba2383d7",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee East Village' (3.9 / 236 reviews; 69 Cooper Sq, New York, NY 10003) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -540,7 +710,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Chinatown (Canal St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Chinatown (Canal St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -566,6 +736,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M34_google_2026-11-28.webp",
+     "evidence_sha256": "b3ce17df1999383bfcb2573cd76411aee1f1145d2e81a11da3a5019bbbf3c03c",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (3.5 / 158 reviews; 90 Canal St, New York, NY 10002) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -577,7 +758,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Downtown Brooklyn (Lawrence St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Downtown Brooklyn (Lawrence St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -603,6 +784,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M22_google_2026-11-28.webp",
+     "evidence_sha256": "2d1d465bba9551db24671cef2944ab9214ff77b961d59f4a76a91305293d15be",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.4 / 96 reviews; 140 Lawrence St, Brooklyn, NY 11201; site mogeteedtbk.com) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -614,7 +806,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Flushing (38-03 Main St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Flushing (38-03 Main St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -640,6 +832,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M28_google_2026-11-28.webp",
+     "evidence_sha256": "4e78154ad27a15af50e6f59697d6cb0464723e18cd0cd3c71c1e10ed927207dd",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Flushing' (4.0 / 398 reviews; 38-03 Main St, Flushing, NY 11354) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ],
    "succeeded_by": {
@@ -658,7 +861,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Williamsburg (N 4th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Williamsburg (N 4th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -684,6 +887,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M33_google_2026-11-28.webp",
+     "evidence_sha256": "b0084fe9153c13cba24d54655538a60a4ce9b94685dc7c281406de53149e5375",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Williamsburg NY' (4.1 / 95 reviews; 76 N 4th St Store B, Brooklyn, NY 11249, Lewis Steel Building) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -695,7 +909,7 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Brooklyn (705 59th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Brooklyn (705 59th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -721,6 +935,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M32_google_2026-11-28.webp",
+     "evidence_sha256": "eb2d02704e66d1c56909c19bca93ade03cc3a64e9aa6ec7125da97abe8fe9ed2",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (3.7 / 57 reviews; 705 59th St, Brooklyn, NY 11220) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ],
    "succeeded_by": {
@@ -739,7 +964,7 @@
    "state": "NJ",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Newark (Market St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Newark (Market St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -765,6 +990,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M20_google_2026-11-28.webp",
+     "evidence_sha256": "7c9c56e65bf510f17a1585ae20fb0fda79db85a1606b863169e36f1af3794ae7",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.3 / 47 reviews; 194 Market St, Newark, NJ 07102) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -776,9 +1012,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Midtown (W 39th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+   "closed_note": "Moge Tee Midtown (W 39th St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M26_google_2026-11-28.webp",
+     "evidence_sha256": "51817c727b67e8f6a3e2ea4bf8dca3ef98be19346e7b0096c0f2f0088cd05a15",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Midtown' (4.0 / 177 reviews; 302 W 39th St, New York, NY 10018) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -788,9 +1037,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Fifth Avenue (275 5th Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+   "closed_note": "Moge Tee Fifth Avenue (275 5th Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M25_google_2026-11-28.webp",
+     "evidence_sha256": "d52774e8fb5d1dafe71ec5ecc65f96452f5c635ae75a9b9edec88f19bdf7075b",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MOGE TEE FIFTH AVENUE' (4.4 / 12 reviews; 275 5th Ave, New York, NY 10016) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -800,9 +1062,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Greenwich Village (Bleecker St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown.",
+   "closed_note": "Moge Tee Greenwich Village (Bleecker St); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026. NOT on Moge Tee's own locator (mogeteeusa.com), so it never entered our open census — no count change. Not a locator discrepancy (the brand does not list it). Close date unknown. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 31 Oct 2026; absent from mogeteeusa.com locator the same day.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M24_google_2026-11-28.webp",
+     "evidence_sha256": "a272ead7d9c97ff9a195666411e20e1b73560046a71789e27ca0fbbe475f232f",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Greenwich Village' (5.0 / 25 reviews; 168 Bleecker St, New York, NY 10012) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -812,7 +1087,7 @@
    "state": "MA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Allston (Brighton Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Allston (Brighton Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -838,6 +1113,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M14_google_2026-11-28.webp",
+     "evidence_sha256": "4d9c21b9485290aff7ad653601c5226b3fc517c3e06db2ab924791de52cbe70b",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Allston' (4.0 / 83 reviews; 164 Brighton Ave, Boston, MA 02134) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -849,7 +1135,7 @@
    "state": "WA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Seattle (University Way, U District); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Seattle (University Way, U District); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -875,6 +1161,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M40_google_2026-11-28.webp",
+     "evidence_sha256": "07847c4539ae4c3f67eb6ba53aa31bc54dadd0f9ef956556ffa34db1071e4edb",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee 愿茶' (4.2 / 89 reviews; 4334 University Wy NE, Seattle, WA 98105) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -886,7 +1183,7 @@
    "state": "CA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Moge Tee Hermosa Beach (Hermosa Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator.",
+   "closed_note": "Moge Tee Hermosa Beach (Hermosa Ave); permanently closed per Google ('Permanently closed' banner), hand-observed 31 Oct 2026 — yet STILL listed on Moge Tee's own store locator (we were collecting it as active). Held closed via the adapter-level filter (moge PERMANENTLY_CLOSED); removes it from the open count after the 7-day absence window. Retire this row once Moge Tee drops it from the locator. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
    "source": "Google listing ('Permanently closed') (31 Oct 2026); still on mogeteeusa.com locator same day.",
    "known_closed_on": "2026-10-31",
@@ -912,6 +1209,17 @@
      "evidence_status": "pending",
      "evidence_ref": null,
      "note": "The operator's own store locator still presented this as an open location that day (collected as active until the PERMANENTLY_CLOSED filter was added)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M11_google_2026-11-28.png",
+     "evidence_sha256": "73f8978107ca43ddf1c1241d2f34a579f6447aa8d5eec598a2758d709801d215",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Hermosa' (4.2 / 18 reviews; 1411 Hermosa Ave, Hermosa Beach, CA 90254) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
     }
    ]
   },
@@ -1031,9 +1339,33 @@
    "state": "CA",
    "opened": null,
    "closed_on": "2026-10-17",
-   "closed_note": "MLBB Hot Pot Milpitas; closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17 (close date unknown; Yelp listing last updated 3+ months ago).",
+   "closed_note": "MLBB Hot Pot Milpitas; closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17 (close date unknown; Yelp listing last updated 3+ months ago). 28 Nov 2026: a Google Maps search for this store returned no MLBB listing; it surfaced an unrelated restaurant at a different address (Mokkoji Shabu Shabu Bar, 1425 McCandless Dr). The closure still rests on the Yelp flag alone; Google status not yet seen. Resolved later on 28 Nov 2026 with two agreeing signals (owner hand screenshots, filed): the claimed Yelp page still carries the closed flag, and Google shows a different operating restaurant, Ushiya Grill, at 1792 N Milpitas Blvd. Google has no MLBB listing here, so there is no 'Permanently closed' banner to cite.",
    "confidence": "confirmed",
-   "source": "Yelp listing (yelp.com/biz/mlbb-hot-pot-milpitas-3); brand site mlbbhotpotus.com."
+   "source": "Yelp listing (yelp.com/biz/mlbb-hot-pot-milpitas-3); brand site mlbbhotpotus.com. Re-verified 28 Nov 2026: Yelp closed flag + Google listing of a different operating business (Ushiya Grill) at the same address.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "reported_closed",
+     "source": "Yelp listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B03_yelp_2026-11-28.webp",
+     "evidence_sha256": "d26f4a04ecc71c9a4ccf69f253949a8b4926e021855497a93135660ee26259c1",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): claimed Yelp page 'MLBB Hot Pot' (4.2 / 229 reviews; 1792 N Milpitas Blvd, Milpitas, CA 95035; mlbbhotpotus.com) shows 'Yelpers report this location has closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "different_business_at_address",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B03_google_2026-11-28_successor-at-address.png",
+     "evidence_sha256": "cf541f6c30e11a7b27a5b21d3c6246b8fc96cad50a5b956409bc1767e66bd2a8",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): Google shows a different, operating restaurant at the same address — 'Ushiya Grill' (Japanese restaurant, 4.6 / 669 reviews; 1792 N Milpitas Blvd, in City Square Center; hours, reservations and ordering live). Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "malubianbian",
@@ -1043,9 +1375,22 @@
    "state": "TX",
    "opened": null,
    "closed_on": "2026-10-17",
-   "closed_note": "MaLuBianBian Houston (Diho Square); closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17. Brand site malubianbianhouston.com. Close date unknown.",
+   "closed_note": "MaLuBianBian Houston (Diho Square); closed per Yelp ('Yelpers report this location has closed'), observed 2026-10-17. Brand site malubianbianhouston.com. Close date unknown. Upgraded 28 Nov 2026: Google Business listing 'Malubianbian' shows 'Permanently closed' (owner hand screenshot).",
    "confidence": "confirmed",
-   "source": "Yelp listing (MaLuBianBian, 9102 Bellaire Blvd); brand site malubianbianhouston.com."
+   "source": "Yelp listing (MaLuBianBian, 9102 Bellaire Blvd); brand site malubianbianhouston.com. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B04_google_2026-11-28.webp",
+     "evidence_sha256": "e6935b25abba3c05626c4a08e15ec2b39f85f38f003d8832085b970754ee8617",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Malubianbian' (3.9 / 220 reviews; 9102 Bellaire Blvd, Houston, TX 77036, in Diho Square) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "malubianbian",
@@ -1055,9 +1400,22 @@
    "state": "WA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "MLBB HOT POT Seattle (120 Broadway, First Hill, near Yesler Terrace); Google Business listing marked Permanently closed, observed 2026-10-30. Missed by the 18 Oct 2026 US closure sweep (never held as an open outlet). Close date unknown.",
-   "confidence": "confirmed",
-   "source": "Operating-status read: Google Business listing 'MLBB HOT POT', 120 Broadway, Seattle, marked Permanently closed (hand screenshot 30 Oct 2026)."
+   "closed_note": "MLBB HOT POT Seattle (120 Broadway, First Hill, near Yesler Terrace); Google Business listing marked Permanently closed, observed 2026-10-30. Missed by the 18 Oct 2026 US closure sweep (never held as an open outlet). Close date unknown. Re-observed 28 Nov 2026: still 'Permanently closed', but the listing is unclaimed with no rating, no reviews and only Street View imagery. Trade press reported this as a PLANNED first Washington location (announced Nov 2023, opening expected 2024); we hold no evidence the restaurant ever traded. Downgraded confirmed -> uncertain on 28 Nov 2026: do not count as a closure of an operating restaurant until trading is shown.",
+   "confidence": "uncertain",
+   "source": "Operating-status read: Google Business listing 'MLBB HOT POT', 120 Broadway, Seattle, marked Permanently closed (hand screenshot 30 Oct 2026).",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/B08_google_2026-11-28.webp",
+     "evidence_sha256": "575896f8930c37178f4ae3f4f43d9c91dd915294108e64a0a7097e3b4f248d5e",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MLBB HOT POT' (120 Broadway, Seattle, WA 98122) shows 'Permanently closed'. The listing is unclaimed and carries no rating, no reviews and no photos other than Street View. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "heytea",
@@ -1366,9 +1724,22 @@
    "state": "MA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Möge Tee Central Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (190 reviews). STILL listed on the brand locator (mogeteeusa.com, collected 6 Nov 2026), so added to the moge adapter PERMANENTLY_CLOSED filter and the DB row expedited to closed — it had been counting as open (−1 to the count). Part of the Oct–Nov 2026 Möge Tee US contraction.",
+   "closed_note": "Möge Tee Central Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (190 reviews). STILL listed on the brand locator (mogeteeusa.com, collected 6 Nov 2026), so added to the moge adapter PERMANENTLY_CLOSED filter and the DB row expedited to closed — it had been counting as open (−1 to the count). Part of the Oct–Nov 2026 Möge Tee US contraction. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M16_google_2026-11-28.webp",
+     "evidence_sha256": "f06e4ea6763e7f8633a759b73a5625a6923b206f6e7b1e8cbaaa2e17c3df4a0f",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Central Square' (3.3 / 190 reviews; 605 Massachusetts Ave, Cambridge, MA 02139) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1378,9 +1749,22 @@
    "state": "MA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Möge Tee Harvard Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (25 reviews). Not on our locator feed and was not in the open census — no count change; logged for the historical record / Möge Tee US contraction story.",
+   "closed_note": "Möge Tee Harvard Square (Cambridge); permanently closed per Google, hand-observed 7 Nov 2026 (25 reviews). Not on our locator feed and was not in the open census — no count change; logged for the historical record / Möge Tee US contraction story. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M15_google_2026-11-28.webp",
+     "evidence_sha256": "f3796d642784e920d15da47d133a8f13bb322285d1988e57d2262bf6aafae2b0",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Harvard Square' (3.8 / 25 reviews; 54 John F. Kennedy St, Cambridge, MA 02138) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1390,9 +1774,22 @@
    "state": "MA",
    "opened": null,
    "closed_on": null,
-   "closed_note": "Möge Tee Dedham (Legacy Place); permanently closed per Google, hand-observed 7 Nov 2026 (65 reviews). STILL on the brand locator (mogeteeusa.com, collected 6 Nov 2026) → added to PERMANENTLY_CLOSED + DB row expedited to closed (−1). Oct–Nov 2026 Möge Tee US contraction.",
+   "closed_note": "Möge Tee Dedham (Legacy Place); permanently closed per Google, hand-observed 7 Nov 2026 (65 reviews). STILL on the brand locator (mogeteeusa.com, collected 6 Nov 2026) → added to PERMANENTLY_CLOSED + DB row expedited to closed (−1). Oct–Nov 2026 Möge Tee US contraction. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026."
+   "source": "Google Business listing ('Permanently closed'), hand-observed 7 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M18_google_2026-11-28.webp",
+     "evidence_sha256": "7fcc32cda4480813774ef5172129589fb2a8a79899978023800645e51c0a07f5",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Dedham' (4.0 / 65 reviews; 752 Legacy Pl, Dedham, MA 02026, Legacy Place) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "rbtea",
@@ -1426,9 +1823,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M23_google_2026-11-28.webp",
+     "evidence_sha256": "4f9b7162f30451d36a3da0ca64d223464684ea229d15edc56b459644d545bd76",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee - Albany' (4.5 / 151 reviews; 1512 Western Ave Suite 2, Stuyvesant Plaza, NY 12203) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1438,9 +1848,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M30_google_2026-11-28.webp",
+     "evidence_sha256": "1b014a8059971c94c29d1498213d26efc83f3b01b963f5920caecb8f6f26f2b7",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee Bayside' (4.0 / 209 reviews; 43-19 Bell Blvd, Bayside, NY 11361) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1450,9 +1873,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M06_google_2026-11-28.webp",
+     "evidence_sha256": "3ecd32e821e6bc2c6557ccc986139e4640e864d4e9c71a945b308c4c860cd2dd",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.9 / 47 reviews; 279 Main St, Farmingdale, NY 11735) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1462,9 +1898,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M29_google_2026-11-28.webp",
+     "evidence_sha256": "4d241da60960002cf6ec6134617b69c594abb2f2cdb2c08cf211dfcacb2b72f9",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.0 / 357 reviews; 42-32 Crescent St, Long Island City, NY 11101) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1474,9 +1923,22 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M27_google_2026-11-28.png",
+     "evidence_sha256": "f50d8cf68e25d133df8ca5f0c6de02ceba85006c7aeebc44ab46e31e6ae736cb",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Rochester' (4.3 / 76 reviews; 3679 W Henrietta Rd, Rochester, NY 14623) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1486,9 +1948,22 @@
    "state": "NC",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M05_google_2026-11-28.webp",
+     "evidence_sha256": "a04eefbf0f1120ea18c9e2a0110b343c16f9c68205bd3d68f3a46ad685501bce",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Greensboro' (3.5 / 41 reviews; 948 Walker Ave, Greensboro, NC 27403) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1498,9 +1973,22 @@
    "state": "TX",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M08_google_2026-11-28.webp",
+     "evidence_sha256": "584199bd69074879657034e0a9788b629b9105ecb21d23737875ac9a2050787e",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MÖGE TEE Tamu' (3.4 / 43 reviews; 424 Northpoint Crossing #1700, College Station, TX 77840) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1510,9 +1998,22 @@
    "state": "NJ",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M21_google_2026-11-28.webp",
+     "evidence_sha256": "106067544a85126ca7f6f85d37a878ad5aeda93e961f841e6f85011c76e6bdf3",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (3.8 / 162 reviews; 564 Washington Blvd, Jersey City, NJ 07310) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1522,9 +2023,22 @@
    "state": "MI",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M04_google_2026-11-28.webp",
+     "evidence_sha256": "2f0bbc47daea5e46a5b3f93b9370e1fc6c77d3097e250c77b50ee3c783104937",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee MSU' (4.3 / 166 reviews; 515 E Grand River Ave, East Lansing, MI 48823) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1534,9 +2048,22 @@
    "state": "PA",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M35_google_2026-11-28.webp",
+     "evidence_sha256": "77511db31801b730c60d0a9d4a2d65c26c5d2cf4ba16e36132a26bbabc7f6fdb",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.5 / 114 reviews; 1025 Arch St, Philadelphia, PA 19107) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1546,9 +2073,22 @@
    "state": "PA",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Google Permanently closed, owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M36_google_2026-11-28.png",
+     "evidence_sha256": "8998e9c749ef862b5bd9e97b8edaa977cdd7e3d9081e67eb0422fd552d521db3",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee Fasion District' [sic] (4.5 / 10 reviews; Floor, #K13, 901 Market St #1st, Philadelphia; read from a Google Maps results list rather than the place panel, since a direct search did not open the listing) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1558,9 +2098,22 @@
    "state": "CO",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M02_google_2026-11-28.png",
+     "evidence_sha256": "3f5c0b9806153d139d939d1c149014c4ef412d3cb8d7de207f3ffa423a6a2bfa",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'MÖGE TEE - Lakewood' (4.5 / 107 reviews; Google gives the address as 3140 S Wadsworth Blvd Ste 115, Lakewood, CO 80227) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1570,9 +2123,22 @@
    "state": "OK",
    "opened": null,
    "closed_on": "2026-11-09",
-   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag.",
+   "closed_note": "Yelp reports closed (owner-confirmed), owner screenshot Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. Upgraded 28 Nov 2026: Google Business listing shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M07_google_2026-11-28.webp",
+     "evidence_sha256": "2e3565e4941f4204344037c4c9d10ccabdd691c39539b1a78415990d9d9b12bc",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Moge Tee - Norman' (4.4 / 49 reviews; 754 Asp Ave, Norman, OK 73069) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "rolife",
@@ -1896,9 +2462,22 @@
    "state": "FL",
    "opened": null,
    "closed_on": "2026-11-24",
-   "closed_note": "Yelp reports closed ('Yelpers report this location has closed' on the claimed page, 4.3 / 66 reviews), owner screenshot 24 Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we learned of it, not the day it shut.",
+   "closed_note": "Yelp reports closed ('Yelpers report this location has closed' on the claimed page, 4.3 / 66 reviews), owner screenshot 24 Nov 2026. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we learned of it, not the day it shut. 28 Nov 2026: Google Maps shows no Möge Tee listing at this address (address-only partial match; owner hand screenshot, filed). No Google 'Permanently closed' banner exists to cite; the closure still rests on the Yelp closed flag of 24 Nov 2026.",
    "confidence": "confirmed",
-   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "no_listing",
+     "source": "Google Maps search",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M03_google_2026-11-28_NO-LISTING.png",
+     "evidence_sha256": "83b8c179f840af6a3193aa31cfc464ce900362fdaae08ffd186d3a365df924b6",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): a Google Maps search for 'Moge Tee 5796 Sunset Dr, Miami, FL 33143' returned only a partial match on the street address, with no business listing for Möge Tee. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "moge",
@@ -1908,9 +2487,22 @@
    "state": "TX",
    "opened": null,
    "closed_on": "2026-11-24",
-   "closed_note": "Google listing (4.1 / 114 reviews) shows 'Permanently closed', owner screenshot 24 Nov 2026. Yelp does not mark it closed, but its most recent review there is over a year old; logged closed on the owner's call. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we logged it, not the day it shut.",
+   "closed_note": "Google listing (4.1 / 114 reviews) shows 'Permanently closed', owner screenshot 24 Nov 2026. Yelp does not mark it closed, but its most recent review there is over a year old; logged closed on the owner's call. On brand locator mogeteeusa.com but closed = locator lag. The close date is the day we logged it, not the day it shut. Re-confirmed 28 Nov 2026: Google still shows 'Permanently closed' (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count."
+   "source": "Owner screenshot 24 Nov 2026; DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M39_google_2026-11-28.webp",
+     "evidence_sha256": "a014e73c726661b23d13a416a2683b8b0e8dcb84056e1517de6c9c8cf278afb4",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.1 / 114 reviews; 29040 US-290 Ste A01, Cypress, TX 77433, in Fairfield Town Center) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "rbtea",
@@ -1959,16 +2551,29 @@
    "state": "NY",
    "opened": null,
    "closed_on": "2026-11-24",
-   "closed_note": "Conflicting signals resolved as closed on the owner's call, 24 Nov 2026: Google shows the store closed, and although Yelp still lists it as open, its newest review there is almost two years old. Möge Tee's own locator (mogeteeusa.com) still lists it as 'NOW OPEN' = locator lag. The close date is the day we logged it, not the day it shut.",
+   "closed_note": "Conflicting signals resolved as closed on the owner's call, 24 Nov 2026: Google shows the store closed, and although Yelp still lists it as open, its newest review there is almost two years old. Möge Tee's own locator (mogeteeusa.com) still lists it as 'NOW OPEN' = locator lag. The close date is the day we logged it, not the day it shut. 28 Nov 2026: no longer an inference — the Google Business listing shows an explicit 'Permanently closed' banner (owner hand screenshot, filed).",
    "confidence": "confirmed",
-   "source": "Owner observation 24 Nov 2026 (Google closed status; Yelp review recency); DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count.",
+   "source": "Owner observation 24 Nov 2026 (Google closed status; Yelp review recency); DB row closed + added to moge.py PERMANENTLY_CLOSED; held out of count. Google Business listing ('Permanently closed'), owner hand screenshot 28 Nov 2026.",
    "succeeded_by": {
     "chain": "nayuki",
     "name": "NaiSnow Tea and Bakery (Columbia University)",
     "confidence": "confirmed",
     "basis": "Operator-observed 24 Nov 2026: Google lists NaiSnow (4.9 / 258 reviews, operating) at the exact address of the closed Möge Tee.",
     "noted": "2026-11-24"
-   }
+   },
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "permanently_closed",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/M01_google_2026-11-28.webp",
+     "evidence_sha256": "df395ed263f3f451b72e7e8d8ead396e9fa718799a37c03aabed6f33f2c9f1c4",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): listing 'Möge Tee' (4.4 / 78 reviews; 971 Amsterdam Ave, New York, NY 10025) shows 'Permanently closed'. Captured by hand for the press-release closure re-verification; never an automated query or scrape (platform ToS)."
+    }
+   ]
   },
   {
    "chain": "jibeichuan",
@@ -2123,6 +2728,93 @@
    "confidence": "confirmed",
    "source": "Yelp business page ('Yelpers report this location has closed'), hand-observed by the operator 2026-11-25.",
    "known_closed_on": "2026-11-25"
+  },
+  {
+   "chain": "moge",
+   "name": "Möge Tee — Chapel Hill (E Franklin St)",
+   "address": "151 E Franklin St, Chapel Hill, NC 27514",
+   "city": "Chapel Hill",
+   "state": "NC",
+   "opened": null,
+   "closed_on": "2026-11-28",
+   "closed_note": "Möge Tee no longer trades at this address: confirmed 28 Nov 2026 by two agreeing signals. (1) Google shows a different operating business at 151 E Franklin St, 'Milky Tea & Bakery' (bubble tea store, 4.5 / 320 reviews; owner hand screenshot, filed). (2) That business's own site, milkybakery.com, gives the same address and describes an independent owner-operated single shop — not a chain and not a Möge Tee outlet. No Google 'Permanently closed' banner exists for a Möge Tee listing here, so it sits outside the 37 closures that rest on a Google banner; the owner ruled it a closure on 28 Nov 2026, which makes 38 for press purposes. The site does not say whether the owner previously ran the unit as a Möge Tee; an earlier note of ours calling it a likely rebrand was speculation and is withdrawn. closed_on is the day we confirmed it, not the day it closed. Still on brand locator mogeteeusa.com as open. Milky Tea & Bakery is a single independent US shop and is out of scope for the census.",
+   "confidence": "confirmed",
+   "source": "Owner hand screenshot of the Google listing at the address + the occupant's own website milkybakery.com, both 28 Nov 2026; DB row closed + added to moge.py filter; held out of count. Owner's call, 28 Nov 2026: counted as a closure.",
+   "known_closed_on": "2026-11-28",
+   "still_listed": true,
+   "still_listed_through": "2026-11-28",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "different_business_at_address",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/O19_google_2026-11-28_other-business-at-address.webp",
+     "evidence_sha256": "61cfc1656402fa3d9da35e9f4d425a82f00303016878b7862f1d34cfd32fc6b5",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): Google shows 'Milky Tea & Bakery' (4.5 / 320 reviews) operating at 151 E Franklin St, Chapel Hill, NC 27514; no Möge Tee listing surfaced. Captured by hand; never an automated query or scrape (platform ToS)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "different_business_at_address",
+     "source": "milkybakery.com (the occupant's own website)",
+     "source_type": "first_party_successor",
+     "method": "manual_check",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/O19_milkybakery.com_2026-11-28_first-party-notes.txt",
+     "evidence_sha256": "ae2a4c4b2874750bfec1a2f6c25759f06d908f7c5d7584f2a2fe209203f62b69",
+     "note": "The occupant's own site gives its address as 151 E Franklin Street, Chapel Hill, and describes an independent, owner-operated single shop (first-person founder story, own recipes); it does not mention Möge Tee, a franchise or any other location. Link supplied by the owner."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "listed_active",
+     "source": "mogeteeusa.com store locator",
+     "source_type": "first_party_locator",
+     "method": "daily_collection",
+     "evidence_status": "filed",
+     "evidence_ref": "raw/moge/2026-11-28.json.gz",
+     "note": "The operator's own store locator still presented this as an open location in the copy collected that day."
+    }
+   ]
+  },
+  {
+   "chain": "moge",
+   "name": "Möge Tee — Huntington (Wall St)",
+   "address": "22 Wall St, Huntington, NY 11743",
+   "city": "Huntington",
+   "state": "NY",
+   "opened": null,
+   "closed_on": null,
+   "closed_note": "NOT VERIFIABLY TRADING, held out of the open count on 28 Nov 2026 — not a verified closure. A Google Maps search for Möge Tee at this address returns a different operating business, 'Sipnosis' (cafe, 4.7 / 68 reviews; hours and ordering live). No 'Permanently closed' banner exists for a Möge Tee listing here. Still on brand locator mogeteeusa.com as open. Needs a second signal before it can be called closed.",
+   "confidence": "uncertain",
+   "source": "Owner hand screenshot of the Google listing at the address, 28 Nov 2026; DB row closed + added to moge.py filter; held out of count.",
+   "known_closed_on": "2026-11-28",
+   "still_listed": true,
+   "still_listed_through": "2026-11-28",
+   "observations": [
+    {
+     "date": "2026-11-28",
+     "signal": "different_business_at_address",
+     "source": "Google Business listing",
+     "source_type": "aggregator",
+     "method": "manual_screenshot",
+     "evidence_status": "filed",
+     "evidence_ref": "evidence/press-closures-2026-11/O27_google_2026-11-28_other-business-at-address.webp",
+     "evidence_sha256": "62bd6a4b05fc152ab243095207f58f42e6d39ed08ca945cd8570c48fb5731c63",
+     "note": "Owner hand screenshot, 2026-11-28 (NY): Google shows 'Sipnosis' (cafe, 4.7 / 68 reviews) operating at 22 Wall St, Huntington, NY 11743; no Möge Tee listing surfaced. Captured by hand; never an automated query or scrape (platform ToS)."
+    },
+    {
+     "date": "2026-11-28",
+     "signal": "listed_active",
+     "source": "mogeteeusa.com store locator",
+     "source_type": "first_party_locator",
+     "method": "daily_collection",
+     "evidence_status": "filed",
+     "evidence_ref": "raw/moge/2026-11-28.json.gz",
+     "note": "The operator's own store locator still presented this as an open location in the copy collected that day."
+    }
+   ]
   }
  ]
 }

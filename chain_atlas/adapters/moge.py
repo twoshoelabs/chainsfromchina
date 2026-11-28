@@ -71,6 +71,10 @@ PERMANENTLY_CLOSED = {
     "5796 sunset dr, miami, fl 33143",  # Möge Tee — South Miami — Yelp: reports closed (owner-confirmed) (24 Nov 2026; still on locator)
     "29040 us-290 suite a01, cypress, tx 77433",  # Möge Tee — Cypress (Fairfield Town Center) — Google: permanently closed (24 Nov 2026; still on locator)
     "971 amsterdam avenue, new york, ny",  # Möge Tee — Manhattan Valley (971 Amsterdam Ave) — Google: closed; newest Yelp review ~2 years old (owner call 24 Nov 2026; still on locator as NOW OPEN)
+    # Held out on 28 Nov 2026 as NOT VERIFIABLY TRADING (no "Permanently closed" banner exists for these; they are not
+    # counted among verified closures). The locator still lists each as open. Remove an entry if a Möge Tee listing reappears.
+    "151 e franklin st, chapel hill, nc 27514",  # Chapel Hill — CONFIRMED gone: Google + the occupant's own site (milkybakery.com) show the independent 'Milky Tea & Bakery' here (28 Nov 2026)
+    "22 wall st, huntington, ny 11743",  # Huntington NY — Google shows 'Sipnosis' cafe operating at this address (owner screenshot 28 Nov 2026)
 }
 
 # Addresses the locator gets wrong, corrected by hand. Keyed like PERMANENTLY_CLOSED (lower-cased,
